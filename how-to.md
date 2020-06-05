@@ -50,7 +50,7 @@ This is a manual, one time process per tenant
 * Create a new AAD user to run the automation - the below PowerShell will do so and can be run from a local computer or Cloud Shell
 
 ```text
-function New-M365ManagementServiceAccount {
+function New-SimeonServiceAccount {
     param(
         [string]$TenantId = (Read-Host 'Enter tenant domain name or id'), 
         [securestring]$Password = (Read-Host 'Enter password' -AsSecureString)
@@ -67,9 +67,9 @@ function New-M365ManagementServiceAccount {
     }
     catch { Connect-AzureAD -TenantId $TenantId }
 
-    $user = New-AzureADUser -DisplayName 'M365 Management Service Account' `
-        -UserPrincipalName "m365management@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
-        -MailNickName m365management -AccountEnabled $true `
+    $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
+        -UserPrincipalName "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
+        -MailNickName simeon -AccountEnabled $true `
         -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } `
         -PasswordPolicies DisablePasswordExpiration
 
@@ -83,17 +83,17 @@ function New-M365ManagementServiceAccount {
 
     Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', $dirSyncRoleName) } |% { Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId }
 }
-New-M365ManagementServiceAccount
+New-SimeonServiceAccount
 ```
 
-* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user [m365management@mydomain.com](mailto:m365management@mydomain.com) to create/associate subscriptions and licenses as described in the subsequent steps
+* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user [simeon@mydomain.com](mailto:m365management@mydomain.com) to create/associate subscriptions and licenses as described in the subsequent steps
 * **If you do not already have one,** get an Azure Subscription \(for provisioning Azure RM Services - e.g Storage Accounts, CloudShell, Key Vaults\)
   * Purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) 
   * Name it as desired
   * Note that you may need to sign out and back in to use the new subscription
 * Navigate to the subscription &gt; **Access control \(IAM\)** &gt; **Role assignments** &gt; **Add** &gt; **Add role assignment** 
   * **Role** &gt; **Owner** 
-  * **Select** &gt; **M365 Management Service Account**
+  * **Select** &gt; **Simeon Service Account**
   * **Save**
   * **Note** - if you have more than 1 subscription, be sure to only assign the Owner role for the subscription you want Simeon to use
 * **If you do not already have one,** get [Microsoft 365](https://www.microsoft.com/en-us/microsoft-365/enterprise)  E3, E5, or Business Premium licenses for the new AAD tenant
