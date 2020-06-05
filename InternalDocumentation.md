@@ -1,4 +1,4 @@
-# Internal Documentation
+# Internal-Documentation
 
 ## Setting up a Client
 
