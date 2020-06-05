@@ -1,3 +1,10 @@
+# Table of contents
+
+* [Simeon Overview](README.md)
+* [How To](how-to.md)
+* [Approvals](how-to-require-approvals.md)
+* [Automated Microsoft 365 Configuration Types](automated-microsoft-365-configuration-types.md)
+
 # Simeon Overview
 
 Each Microsoft 365 tenant managed by Simeon will have:
@@ -16,10 +23,3 @@ The three layers include:
   * Configurations an MSP may want to apply to all or many of their tenants \(e.g. custom branding\) 
 * **Tenant Specific Configurations**
   * Configurations that are specific to an individual tenant \(e.g. specialized software, printer deployment, and drive mapping scripts\)
-
-# Table of contents
-
-* [Simeon Overview](README.md)
-* [How To](how-to.md)
-* [Approvals](how-to-require-approvals.md)
-* [Automated Microsoft 365 Configuration Types](automated-microsoft-365-configuration-types.md)
