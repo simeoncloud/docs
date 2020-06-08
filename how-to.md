@@ -57,7 +57,8 @@ function New-SimeonServiceAccount {
     )
 
     $ErrorActionPreference = 'Stop'
-    
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
     if (!(@('AzureAD', 'AzureAD.Standard.Preview') |% { Get-Module $_ -ListAvailable })) { Install-Module AzureAD -Scope CurrentUser -Force }
     
     try {
@@ -67,21 +68,23 @@ function New-SimeonServiceAccount {
     }
     catch { Connect-AzureAD -TenantId $TenantId }
 
-    $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
-        -UserPrincipalName "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
-        -MailNickName simeon -AccountEnabled $true `
-        -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } `
-        -PasswordPolicies DisablePasswordExpiration
+    $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
+    if (!$user) {
+        New-AzureADUser -DisplayName 'Simeon Service Account' `
+            -UserPrincipalName "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
+            -MailNickName simeon -AccountEnabled $true `
+            -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } `
+            -PasswordPolicies DisablePasswordExpiration
+    }
 
     # this can sometimes fail on first request
     try { Get-AzureADDirectoryRole | Out-Null } catch {}
 
-    $dirSyncRoleName = 'Directory Synchronization Accounts'
-    if (!(Get-AzureADDirectoryRole |? DisplayName -eq $dirSyncRoleName)) { 
-        Get-AzureADDirectoryRoleTemplate |? DisplayName -eq $dirSyncRoleName |% { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
+    if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) { 
+        Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' |% { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
     }
 
-    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', $dirSyncRoleName) } |% { Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId }
+    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } |% { Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId }
 }
 New-SimeonServiceAccount
 ```
