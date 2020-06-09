@@ -70,21 +70,31 @@ function New-SimeonServiceAccount {
 
     $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
     if (!$user) {
-        New-AzureADUser -DisplayName 'Simeon Service Account' `
+        Write-Host "Creating user"
+        $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
             -UserPrincipalName "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
-            -MailNickName simeon -AccountEnabled $true `
-            -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } `
-            -PasswordPolicies DisablePasswordExpiration
+            -MailNickName simeon -AccountEnabled $true 
     }
+    Write-Host "Updating user password"
+    $user | Set-AzureADUser -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
 
     # this can sometimes fail on first request
     try { Get-AzureADDirectoryRole | Out-Null } catch {}
 
     if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) { 
+        Write-Host "Activating role Directory Synchronization Accounts"
         Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' |% { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
     }
 
-    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } |% { Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId }
+    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } |% { 
+        if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
+            Write-Host "Adding to role $($_.DisplayName)"
+            Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId 
+        }
+        else {
+            Write-Host "Already a member of role $($_.DisplayName)"
+        }
+    }
 }
 New-SimeonServiceAccount
 ```
