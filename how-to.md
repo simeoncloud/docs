@@ -73,10 +73,13 @@ function New-SimeonServiceAccount {
         Write-Host "Creating user"
         $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
             -UserPrincipalName "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
-            -MailNickName simeon -AccountEnabled $true 
+            -MailNickName simeon -AccountEnabled $true `
+            -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
     }
-    Write-Host "Updating user password"
-    $user | Set-AzureADUser -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
+    else {
+        Write-Host "Updating user password"
+        $user | Set-AzureADUser -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
+    }
 
     # this can sometimes fail on first request
     try { Get-AzureADDirectoryRole | Out-Null } catch {}
