@@ -20,4 +20,4 @@ Configuration repositories are layered to create the desired state of configurat
 * **Tenant Specific Configurations**
   * Configurations that are specific to an individual tenant \(e.g. specialized software, printer deployment, and drive mapping scripts\)
 
-The **Simeon Baseline**, a set of best practice configurations developed by Simeon \(e.g. requiring multi-factor authentication and packages for common apps like 7-Zip and Google Chrome\), is provided as a starting point for building your **MSP Baseline**
+The **Simeon Baseline**, a set of best practice configurations developed by Simeon \(e.g. requiring multi-factor authentication and packages for common apps like 7-Zip and Google Chrome\), is provided as a starting point for building your **MSP Baseline**.
