@@ -3,13 +3,13 @@
 ## Update a baseline configuration and deploying to tenants
 
 * Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
-* [Run the export pipeline for the **baseline** tenant](how-to.md#run-an-export)
-* [Run the deploy pipeline for your **client** tenants](how-to.md#run-a-deployment)
+* [Run the export pipeline for the **baseline** tenant](#run-an-export)
+* [Run the deploy pipeline for your **client** tenants](#run-a-deployment)
 
 ## Update a tenant specific configuration
 
 * Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
-* [Run the export pipeline for the **client** tenant](./#run-an-export)
+* [Run the export pipeline for the **client** tenant](#run-an-export)
 
 ## Run a Deployment
 
@@ -18,7 +18,7 @@
 * Deploy has two stages: Preview and Deploy
   * Preview will generate a list of changes that will be made to the tenant if deployed
     * To see the result of the Preview stage, click **Extensions** and scroll to the section labeled **Preview** 
-    * If you have [approval required](how-to-require-approvals.md#how-to-require-approval) for the deployment, [approve](how-to-require-approvals.md#how-to-approve) to continue
+    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
   * Deploy applies these changes to the tenant
     * To see the result of the Deploy stage, click **Extensions** and scroll to the section labeled **Deploy** 
 
@@ -28,7 +28,7 @@
 * Export has two stages: Export and Merge Changes
   * Export will generate a list of changes to be made to the tenant repository
     * To see the result of the Export stage, click **Extensions** and scroll to the section labeled **Export** 
-    * If you have [approval required](require-approval) for the deployment, [approve](how-to-require-approvals.md#how-to-approve) to continue
+    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
   * Merge Changes applies these changes to the tenant repository
     * To see the changes in the tenant repository, navigate to **Repos** &gt; **repositories dropdown at the top** &gt; **\[tenant name\]**
       * By clicking **History** you can see a history of all past changes
@@ -102,7 +102,7 @@ function New-SimeonServiceAccount {
 New-SimeonServiceAccount
 ```
 
-* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user [simeon@mydomain.com](mailto:m365management@mydomain.com) to create/associate subscriptions and licenses as described in the subsequent steps
+* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user simeon@mydomain.com to create/associate subscriptions and licenses as described in the subsequent steps
 * **If you do not already have one,** get an Azure Subscription \(for provisioning Azure RM Services - e.g Storage Accounts, CloudShell, Key Vaults\)
   * Purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) 
   * Name it as desired
