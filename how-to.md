@@ -28,7 +28,7 @@
 * Export has two stages: Export and Merge Changes
   * Export will generate a list of changes to be made to the tenant repository
     * To see the result of the Export stage, click **Extensions** and scroll to the section labeled **Export** 
-    * If you have [approval required](how-to-require-approvals.md#how-to-require-approval) for the deployment, [approve](how-to-require-approvals.md#how-to-approve) to continue
+    * If you have [approval required](require-approval) for the deployment, [approve](how-to-require-approvals.md#how-to-approve) to continue
   * Merge Changes applies these changes to the tenant repository
     * To see the changes in the tenant repository, navigate to **Repos** &gt; **repositories dropdown at the top** &gt; **\[tenant name\]**
       * By clicking **History** you can see a history of all past changes
@@ -117,3 +117,30 @@ New-SimeonServiceAccount
   * **Note** - [**Office 365** is **not** the same as **Microsoft 365**](https://www.acutec.co.uk/blog/difference-between-microsoft-365-office-365)  - make sure you get the right license - we use the full range of Microsoft 365 functionality \(if Microsoft 365 E5 isn't available, you can combine an EMS E5 and O365 E5 license to get the same result\)
   * The exact license name listed in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)
   * If omitted, the default is Microsoft 365 Business Premium
+
+## Require Approval
+
+* Navigate to [Azure DevOps](http://dev.azure.com) and click on your project \(named after your company\)
+* On the left-hand side, click on **Pipelines** &gt; **Environments**
+  * To require approval before deploying changes, click **Deploy**
+  * To require approval before committing exported changes, click **Export**
+* In the upper-right corner, click **...** &gt; **Approvals and checks** &gt; **+** &gt; **Next**
+* Under **Approvers**, add the group or user that you want to require approval from
+  * To add a user as an approver, type and then click the user's email address
+  * To add an approval that allows any member of your organization to approve the operation, type and then click **Project Valid Users**
+  * Under **Advanced**, ****you can choose whether to allow approvers to approve their own runs by selecting the box. This will be enabled by default
+  * Under **Control options**, you can specify the amount of time before the deploy or export times out if not approved - this will be set to 30 days by default
+* Click **Create**
+
+## **Approve**
+
+* Navigate to **Pipelines** &gt; **\[tenant name\]** **-** **Deploy** &gt; **\#\[date\].\[run number\]** \(e.g. \#20200528.1\) ****
+* Click the **Extensions** tab and review the changes to be approved - for Deploy operations this will be under the **Preview** section and for Export operations this will be under the **Export** section
+* Navigate to the summary tab and click **Review** &gt; **Approve**
+
+![](.gitbook/assets/screen-shot-2020-05-29-at-5.04.28-pm.png)
+
+## Remove Approval
+
+* Approvals can easily be removed by navigating to the environment you want to remove an approval from \(Deploy or Export\)
+* Once you have selected either the **Deploy** or **Export** environment, click **...** &gt; **Approvals and checks** &gt; hover mouse over the approval you want to delete &gt; **trash icon** &gt; **Delete**
