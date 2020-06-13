@@ -20,4 +20,4 @@ Azure Pipelines are used to run Simeon on demand or a schedule.
 
 Credentials for the service account are encrypted and stored securely in these pipelines. These credentials are never viewed by Simeon and Simeon support will not run any deployment pipeline unless requested (such as when using the Simeon Outsourcing product offering). 
 
-Simeon supports a multi-step approval before a pipeline makes any changes to your tenant. Before approving, you can review and validate a Preview report. Additionally, because configurations stored in source control, inadvertent changes can be easily reverted. 
+Simeon supports a multi-step approval before a pipeline makes any changes to your tenant. Before approving, you can review and validate a Preview report with changes to be made. Additionally, because configurations are stored in source control, inadvertent changes can be easily reverted. 
