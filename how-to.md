@@ -1,12 +1,12 @@
 # How To
 
-## Updating a baseline configuration and deploying to tenants
+## Update a baseline configuration and deploying to tenants
 
 * Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-microsoft-365-configuration-types.md)
 * [Run the export pipeline for the **baseline** tenant](how-to.md#run-an-export)
 * [Run the deploy pipeline for your **client** tenants](how-to.md#run-a-deployment)
 
-## Updating a tenant specific configuration
+## Update a tenant specific configuration
 
 * Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-microsoft-365-configuration-types.md)
 * [Run the export pipeline for the **client** tenant](./#run-an-export)
@@ -33,12 +33,12 @@
     * To see the changes in the tenant repository, navigate to **Repos** &gt; **repositories dropdown at the top** &gt; **\[tenant name\]**
       * By clicking **History** you can see a history of all past changes
 
-## Scheduling Export/Deploy
+## Schedule Deployment/Export
 
 * Note - approval should be turned off when using scheduling, otherwise a user must be present to approve
 * To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) ****&gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
 
-## How to set up a new tenant
+## Set up a new tenant
 
 This is a manual, one time process per tenant
 
