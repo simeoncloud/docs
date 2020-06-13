@@ -38,7 +38,7 @@
 * Note - approval should be turned off when using scheduling, otherwise a user must be present to approve
 * To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) ****&gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
 
-## Set up a new tenant
+## Set up a tenant for use with Simeon
 
 This is a manual, one time process per tenant
 
@@ -47,7 +47,7 @@ This is a manual, one time process per tenant
     * **Do not** create one using a personal account - otherwise it will create an AAD tenant called `johndoegmail.onmicrosoft.com`\)
     * Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
   * Optionally, create and verify a new custom domain name, then make this the primary domain for AAD \(Azure Portal &gt; Azure AD &gt; Custom domain names\)
-* Create a new AAD user to run the automation - the below PowerShell will do so and can be run from a local computer or Cloud Shell
+* Create a new AAD service account - the below PowerShell will do so and can be run from a local computer or Cloud Shell
 
 ```text
 function New-SimeonServiceAccount {
@@ -117,5 +117,3 @@ New-SimeonServiceAccount
   * **Note** - [**Office 365** is **not** the same as **Microsoft 365**](https://www.acutec.co.uk/blog/difference-between-microsoft-365-office-365)  - make sure you get the right license - we use the full range of Microsoft 365 functionality \(if Microsoft 365 E5 isn't available, you can combine an EMS E5 and O365 E5 license to get the same result\)
   * The exact license name listed in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)
   * If omitted, the default is Microsoft 365 Business Premium
-* Optionally, set up Microsoft Defender Security Center via [Setup Wizard](https://securitycenter.windows.com/) 
-
