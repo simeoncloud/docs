@@ -1,4 +1,4 @@
-# Automated Microsoft 365 Configuration Types
+# Automated Configuration Types
 
 * Azure Active Directory
   * App registrations
