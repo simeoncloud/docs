@@ -2,7 +2,7 @@
 
 ## Update a baseline configuration and deploying to tenants
 
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-microsoft-365-configuration-types.md)
+* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
 * [Run the export pipeline for the **baseline** tenant](how-to.md#run-an-export)
 * [Run the deploy pipeline for your **client** tenants](how-to.md#run-a-deployment)
 
