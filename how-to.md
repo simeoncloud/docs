@@ -138,8 +138,6 @@ New-SimeonServiceAccount
 * Click the **Extensions** tab and review the changes to be approved - for Deploy operations this will be under the **Preview** section and for Export operations this will be under the **Export** section
 * Navigate to the summary tab and click **Review** &gt; **Approve**
 
-![](.gitbook/assets/screen-shot-2020-05-29-at-5.04.28-pm.png)
-
 ## Remove Approval
 
 * Approvals can easily be removed by navigating to the environment you want to remove an approval from \(Deploy or Export\)
