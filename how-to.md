@@ -36,7 +36,7 @@
 ## Schedule Deployment/Export
 
 * Note - approval should be turned off when using scheduling, otherwise a user must be present to approve
-* To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) ****&gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
+* To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) &gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
 
 ## Set up a tenant for use with Simeon
 
