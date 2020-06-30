@@ -1,43 +1,5 @@
 # How To
 
-## Update a baseline configuration and deploying to tenants
-
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
-* [Run the export pipeline for the **baseline** tenant](#run-an-export)
-* [Run the deploy pipeline for your **client** tenants](#run-a-deployment)
-
-## Update a tenant specific configuration
-
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
-* [Run the export pipeline for the **client** tenant](#run-an-export)
-
-## Run a Deployment
-
-* Click on **Pipelines** &gt; **\[tenant name\]** **-** **Deploy** &gt; **Run pipeline** &gt; **Run**
-  * Note - you can see a history of the runs for a given pipeline or of all the runs across all pipelines by selecting the **Runs** tab
-* Deploy has two stages: Preview and Deploy
-  * Preview will generate a list of changes that will be made to the tenant if deployed
-    * To see the result of the Preview stage, click **Extensions** and scroll to the section labeled **Preview** 
-    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
-  * Deploy applies these changes to the tenant
-    * To see the result of the Deploy stage, click **Extensions** and scroll to the section labeled **Deploy** 
-
-## Run an Export
-
-* Click on **Pipelines** &gt; **\[tenant name\]** **-** **Export** &gt; **Run pipeline** &gt; **Run**
-* Export has two stages: Export and Merge Changes
-  * Export will generate a list of changes to be made to the tenant repository
-    * To see the result of the Export stage, click **Extensions** and scroll to the section labeled **Export** 
-    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
-  * Merge Changes applies these changes to the tenant repository
-    * To see the changes in the tenant repository, navigate to **Repos** &gt; **repositories dropdown at the top** &gt; **\[tenant name\]**
-      * By clicking **History** you can see a history of all past changes
-
-## Schedule Deployment/Export
-
-* Note - approval should be turned off when using scheduling, otherwise a user must be present to approve
-* To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) &gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
-
 ## Set up a tenant for use with Simeon
 
 This is a manual, one time process per tenant
@@ -117,6 +79,44 @@ New-SimeonServiceAccount
   * **Note** - [**Office 365** is **not** the same as **Microsoft 365**](https://www.acutec.co.uk/blog/difference-between-microsoft-365-office-365)  - make sure you get the right license - we use the full range of Microsoft 365 functionality \(if Microsoft 365 E5 isn't available, you can combine an EMS E5 and O365 E5 license to get the same result\)
   * The exact license name listed in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)
   * If omitted, the default is Microsoft 365 Business Premium
+
+## Update a baseline configuration and deploying to tenants
+
+* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
+* [Run the export pipeline for the **baseline** tenant](#run-an-export)
+* [Run the deploy pipeline for your **client** tenants](#run-a-deployment)
+
+## Update a tenant specific configuration
+
+* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
+* [Run the export pipeline for the **client** tenant](#run-an-export)
+
+## Run a Deployment
+
+* Click on **Pipelines** &gt; **\[tenant name\]** **-** **Deploy** &gt; **Run pipeline** &gt; **Run**
+  * Note - you can see a history of the runs for a given pipeline or of all the runs across all pipelines by selecting the **Runs** tab
+* Deploy has two stages: Preview and Deploy
+  * Preview will generate a list of changes that will be made to the tenant if deployed
+    * To see the result of the Preview stage, click **Extensions** and scroll to the section labeled **Preview** 
+    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
+  * Deploy applies these changes to the tenant
+    * To see the result of the Deploy stage, click **Extensions** and scroll to the section labeled **Deploy** 
+
+## Run an Export
+
+* Click on **Pipelines** &gt; **\[tenant name\]** **-** **Export** &gt; **Run pipeline** &gt; **Run**
+* Export has two stages: Export and Merge Changes
+  * Export will generate a list of changes to be made to the tenant repository
+    * To see the result of the Export stage, click **Extensions** and scroll to the section labeled **Export** 
+    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
+  * Merge Changes applies these changes to the tenant repository
+    * To see the changes in the tenant repository, navigate to **Repos** &gt; **repositories dropdown at the top** &gt; **\[tenant name\]**
+      * By clicking **History** you can see a history of all past changes
+
+## Schedule Deployment/Export
+
+* Note - approval should be turned off when using scheduling, otherwise a user must be present to approve
+* To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) &gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
 
 ## Require Approval
 
