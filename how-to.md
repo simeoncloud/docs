@@ -152,20 +152,20 @@ function Invoke-AzurePipeline
 {
     param (
         [string]
-        # The organization name that appears in DevOps. Example: simeon-orgName
+        # The organization name that appears in DevOps - e.g. simeon-orgName
         $Organization = (Read-Host "Enter the organization name that appears in DevOps, example: simeon-orgName"),
         [string]
-        # The project name that in DevOps. Usually 'Default'
+        # The project name that in DevOps - usually 'Default'
         $Project = 'Default',
         [string]
         # Baseline or the client name
         $Tenant = (Read-Host "Enter 'baseline' or the client name"),
         [string]
         [ValidateSet("Export", "Deploy")]
-        # The desired action: Export or Deploy
+        # The desired action - Export or Deploy
         $Action = (Read-Host "Enter desired action: Export or Deploy"), 
         [string]
-        # Azure DevOps Personal Access token with rights to trigger builds. For details see: https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page
+        # Azure DevOps Personal Access token with rights to trigger builds - for details see: https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page
         $PersonalAccessToken = (Read-Host "Enter your Azure Devops Personal Access Token" -AsSecureString |% { [System.Net.NetworkCredential]::new('',$_).Password }),
         [string]
         # The Azure Active Directory user name to be used during export/deployment
