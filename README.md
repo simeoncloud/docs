@@ -1,5 +1,3 @@
-{% include toc.html html=content %}
-
 # Simeon Overview
 
 Each Microsoft 365 tenant managed by Simeon will have:
