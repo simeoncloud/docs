@@ -132,7 +132,7 @@ New-SimeonServiceAccount
   * Under **Control options**, you can specify the amount of time before the deploy or export times out if not approved - this will be set to 30 days by default
 * Click **Create**
 
-## **Approve**
+## Approve
 
 * Navigate to **Pipelines** &gt; **\[tenant name\]** **-** **Deploy** &gt; **\#\[date\].\[run number\]** \(e.g. \#20200528.1\) 
 * Click the **Extensions** tab and review the changes to be approved - for Deploy operations this will be under the **Preview** section and for Export operations this will be under the **Export** section
