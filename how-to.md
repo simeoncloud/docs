@@ -212,21 +212,21 @@ function Invoke-AzurePipeline
 }
 
 $pipelineArgs = @{
-    #Organization = '<Your DevOps organization name>'
-    #Action = 'Deploy'
-    # PersonalAccessToken = '***'
+    Organization = '<Your DevOps organization name>'
+    Action = 'Deploy'
+    PersonalAccessToken = '***'
 }
 
 $pipelinesToRun = @(
     @{
         Tenant = 'baseline'
         TenantAadUsername = 'simeon@mybaseline.onmicrosoft.com'
-        #TenantAadPassword = '***'
+        TenantAadPassword = '***'
     }
     @{
         Tenant = 'client'
         TenantAadUsername = 'simeon@client.org'
-        #TenantAadPassword = '***' 
+        TenantAadPassword = '***' 
     }
 )
 
