@@ -1,5 +1,3 @@
-# Integration Overview
-
 Simeon interacts with Microsoft APIs in order to read and deploy configurations for your tenant. These APIs include
 - Microsoft Graph
 - Azure AD Graph
@@ -12,7 +10,7 @@ Simeon interacts with Microsoft APIs in order to read and deploy configurations 
 
 When Simeon runs, it enables these APIs in your tenant if they are not already. 
 
-A full list of configuration types automated by Simeon using these APIs can be found [here](automated-configuration-types.md).
+A full list of configuration types automated by Simeon using these APIs can be found [here](managed-configurations.md).
 
 Simeon uses a dedicated service account to interact with these APIs. This service account needs to be a global administrator in Azure AD and have contributor permissions on an Azure RM subscription in order to read and deploy configurations for your tenant. In order for Simeon to authenticate using this service account, it must be exempt from any multi-factor authentication policies. 
 

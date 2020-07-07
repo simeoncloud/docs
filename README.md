@@ -1,5 +1,3 @@
-# Overview
-
 Each Microsoft 365 tenant managed by Simeon will have:
 
 * A Git **repository** in Azure where tenant configurations are stored as code
