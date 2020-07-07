@@ -1,4 +1,3 @@
-# Automated Configuration Types
 
 * Azure Active Directory
   * App registrations

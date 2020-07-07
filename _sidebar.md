@@ -1,4 +1,4 @@
-- [Home](/ "Home")
+- [Overview](/ "Overview")
 - [How To](how-to.md "How To")
-- [Integration](integration.md "Integration")
-- [Automated Configurations](automated-configuration-types.md "Automated Configurations")
+- [How It Works](how-it-works.md "How It Works")
+- [Managed Configurations](managed-configurations.md "Automated Configurations")

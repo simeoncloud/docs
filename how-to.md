@@ -1,5 +1,3 @@
-# How To
-
 ## Set up a tenant for use with Simeon
 
 This is a manual, one time process per tenant
@@ -8,7 +6,7 @@ This is a manual, one time process per tenant
   * [Create a new, empty AAD from the Azure Admin Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 
     * **Do not** create one using a personal account - otherwise it will create an AAD tenant called johndoegmail.onmicrosoft.com
     * Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
-  * Optionally, create and verify a new custom domain name, then make this the primary domain for AAD \(Azure Portal &gt; Azure AD &gt; Custom domain names\)
+  * Optionally, create and verify a new custom domain name, then make this the primary domain for AAD \(Azure Portal > Azure AD > Custom domain names\)
 * Create a new AAD service account - the below PowerShell will do so and can be run from a local computer or Cloud Shell
 
 ```text
@@ -69,9 +67,9 @@ New-SimeonServiceAccount
   * Purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) 
   * Name it as desired
   * Note that you may need to sign out and back in to use the new subscription
-* Navigate to the subscription &gt; **Access control \(IAM\)** &gt; **Role assignments** &gt; **Add** &gt; **Add role assignment** 
-  * **Role** &gt; **Owner** 
-  * **Select** &gt; **Simeon Service Account**
+* Navigate to the subscription > **Access control \(IAM\)** > **Role assignments** > **Add** > **Add role assignment** 
+  * **Role** > **Owner** 
+  * **Select** > **Simeon Service Account**
   * **Save**
   * **Note** - if you have more than 1 subscription, be sure to only assign the Owner role for the subscription you want Simeon to use
 * **If you do not already have one,** get [Microsoft 365](https://www.microsoft.com/en-us/microsoft-365/enterprise)  E3, E5, or Business Premium licenses for the new AAD tenant
@@ -82,18 +80,18 @@ New-SimeonServiceAccount
 
 ## Update a baseline configuration and deploying to tenants
 
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
+* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](managed-configurations.md)
 * [Run the export pipeline for the **baseline** tenant](#run-an-export)
 * [Run the deploy pipeline for your **client** tenants](#run-a-deployment)
 
 ## Update a tenant specific configuration
 
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](automated-configuration-types.md)
+* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](managed-configurations.md)
 * [Run the export pipeline for the **client** tenant](#run-an-export)
 
 ## Run a Deployment
 
-* Click on **Pipelines** &gt; **\[tenant name\]** **-** **Deploy** &gt; **Run pipeline** &gt; **Run**
+* Click on **Pipelines** > **\[tenant name\]** **-** **Deploy** > **Run pipeline** > **Run**
   * Note - you can see a history of the runs for a given pipeline or of all the runs across all pipelines by selecting the **Runs** tab
 * Deploy has two stages: Preview and Deploy
   * Preview will generate a list of changes that will be made to the tenant if deployed
@@ -104,27 +102,27 @@ New-SimeonServiceAccount
 
 ## Run an Export
 
-* Click on **Pipelines** &gt; **\[tenant name\]** **-** **Export** &gt; **Run pipeline** &gt; **Run**
+* Click on **Pipelines** > **\[tenant name\]** **-** **Export** > **Run pipeline** > **Run**
 * Export has two stages: Export and Merge Changes
   * Export will generate a list of changes to be made to the tenant repository
     * To see the result of the Export stage, click **Extensions** and scroll to the section labeled **Export** 
     * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
   * Merge Changes applies these changes to the tenant repository
-    * To see the changes in the tenant repository, navigate to **Repos** &gt; **repositories dropdown at the top** &gt; **\[tenant name\]**
+    * To see the changes in the tenant repository, navigate to **Repos** > **repositories dropdown at the top** > **\[tenant name\]**
       * By clicking **History** you can see a history of all past changes
 
 ## Schedule Deployment/Export
 
 * Note - approval should be turned off when using scheduling, otherwise a user must be present to approve
-* To utilize scheduling, navigate to **Pipelines** &gt; **\[tenant name\]** - **Deploy** or **Export** &gt; **Edit** &gt; **...** \(top right\) &gt; **Triggers** &gt; **Add** \(next to **Scheduled**\) &gt; schedule the run accordingly
+* To utilize scheduling, navigate to **Pipelines** > **\[tenant name\]** - **Deploy** or **Export** > **Edit** > **...** \(top right\) > **Triggers** > **Add** \(next to **Scheduled**\) > schedule the run accordingly
 
 ## Require Approval
 
 * Navigate to [Azure DevOps](http://dev.azure.com) and click on your project \(named after your company\)
-* On the left-hand side, click on **Pipelines** &gt; **Environments**
+* On the left-hand side, click on **Pipelines** > **Environments**
   * To require approval before deploying changes, click **Deploy**
   * To require approval before committing exported changes, click **Export**
-* In the upper-right corner, click **...** &gt; **Approvals and checks** &gt; **+** &gt; **Next**
+* In the upper-right corner, click **...** > **Approvals and checks** > **+** > **Next**
 * Under **Approvers**, add the group or user that you want to require approval from
   * To add a user as an approver, type and then click the user's email address
   * To add an approval that allows any member of your organization to approve the operation, type and then click **Project Valid Users**
@@ -134,14 +132,14 @@ New-SimeonServiceAccount
 
 ## Approve
 
-* Navigate to **Pipelines** &gt; **\[tenant name\]** **-** **Deploy** &gt; **\#\[date\].\[run number\]** \(e.g. \#20200528.1\) 
+* Navigate to **Pipelines** > **\[tenant name\]** **-** **Deploy** > **\#\[date\].\[run number\]** \(e.g. \#20200528.1\) 
 * Click the **Extensions** tab and review the changes to be approved - for Deploy operations this will be under the **Preview** section and for Export operations this will be under the **Export** section
-* Navigate to the summary tab and click **Review** &gt; **Approve**
+* Navigate to the summary tab and click **Review** > **Approve**
 
 ## Remove Approval
 
 * Approvals can easily be removed by navigating to the environment you want to remove an approval from \(Deploy or Export\)
-* Once you have selected either the **Deploy** or **Export** environment, click **...** &gt; **Approvals and checks** &gt; hover mouse over the approval you want to delete &gt; **trash icon** &gt; **Delete**
+* Once you have selected either the **Deploy** or **Export** environment, click **...** > **Approvals and checks** > hover mouse over the approval you want to delete > **trash icon** > **Delete**
 
 ## Run Pipelines Programmatically
 
