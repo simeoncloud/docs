@@ -1,4 +1,4 @@
-# Simeon Overview
+# Overview
 
 Each Microsoft 365 tenant managed by Simeon will have:
 
