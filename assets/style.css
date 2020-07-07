@@ -10,3 +10,6 @@
 .search input {
   background-color: #f5f5f5;
 }
+.app-name-link img {
+  max-width: 70%;
+}
