@@ -2,3 +2,4 @@
 - [How To](how-to.md "How To")
 - [How It Works](how-it-works.md "How It Works")
 - [Managed Configurations](managed-configurations.md "Automated Configurations")
+- [Policies](policies.md "Policies")
