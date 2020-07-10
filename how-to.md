@@ -62,7 +62,7 @@ function New-SimeonServiceAccount {
 New-SimeonServiceAccount
 ```
 
-* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user simeon@mydomain.com to create/associate subscriptions and licenses as described in the subsequent steps
+* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user simeon@mydomain.com to create/associate subscriptions and licenses as described in the subsequent steps (or any user that is local to the new tenant's Azure AD)
 * **If you do not already have one,** get an Azure Subscription \(for provisioning Azure RM Services - e.g Storage Accounts, CloudShell, Key Vaults\)
   * Purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) 
   * Name it as desired
