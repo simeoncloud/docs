@@ -9,7 +9,7 @@ This is a manual, one time process per tenant
   * Optionally, create and verify a new custom domain name, then make this the primary domain for AAD \(Azure Portal > Azure AD > Custom domain names\)
 * Create a new AAD service account - the below PowerShell will do so and can be run from a local computer or Cloud Shell
 
-```text
+```
 function New-SimeonServiceAccount {
     param(
         [string]$TenantId = (Read-Host 'Enter tenant domain name or id'), 
@@ -19,8 +19,19 @@ function New-SimeonServiceAccount {
     $ErrorActionPreference = 'Stop'
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-    if (!(@('AzureAD', 'AzureAD.Standard.Preview') |% { Get-Module $_ -ListAvailable })) { Install-Module AzureAD -Scope CurrentUser -Force }
-    
+    $azureADModule = @{ Name = 'AzureAD' }
+    if ($PSVersionTable.PSEdition -eq 'Core') {
+        Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null
+        $azureADModule.Name = 'AzureAD.Standard.Preview'
+        $azureADModule.RequiredVersion = '0.0.0.10'
+    }
+
+    if (!(Get-Module $azureADModule -ListAvailable)) { 
+        Write-Host "Installing module $($azureADModule.Name)"
+        Install-Module @azureADModule -Scope CurrentUser -Force | Out-Null
+    }
+    Import-Module $azureADModule.Name
+
     try {
         if (!(Get-AzureADCurrentSessionInfo |? { @($_.TenantId, $_.TenantDomain) -contains $TenantId })) {
             Connect-AzureAD -TenantId $TenantId
@@ -29,15 +40,16 @@ function New-SimeonServiceAccount {
     catch { Connect-AzureAD -TenantId $TenantId }
 
     $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
+    $upn = "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)"
     if (!$user) {
-        Write-Host "Creating user"
+        Write-Host "Creating user $upn"
         $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
-            -UserPrincipalName "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)" `
+            -UserPrincipalName $upn `
             -MailNickName simeon -AccountEnabled $true `
             -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
     }
     else {
-        Write-Host "Updating user password"
+        Write-Host "User $upn already exists - updating user password"
         $user | Set-AzureADUser -PasswordProfile @{ Password = ([System.Net.NetworkCredential]::new("", $Password).Password); ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
     }
 
