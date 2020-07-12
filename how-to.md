@@ -6,12 +6,10 @@
     - Microsoft 365 E3
     - Microsoft 365 E5
     - A combination of EMS and O365 E3 or E5 licenses
- 
-You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
+  - You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 
   - Make sure the tenant has an Azure RM Subscription for Simeon to use (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
-
-You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+  - You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
 - Launch the PowerShell command line by running 
 
