@@ -25,7 +25,7 @@ iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeo
 
 You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
 
-Repeat this step for each tenant you wish to set up. 
+**Repeat this step for each tenant you wish to set up.**
 
 The script will create a service account to allow Simeon to interact with the tenant and configure your tenant Deploy and Export pipelines. The service account is created with a randomly generated, secure password that cannot be viewed by anyone and can only be used by your pipelines. 
 
