@@ -19,9 +19,9 @@
 Note that ```ExecutionPolicy Bypass``` is required to allow PowerShell to run scripts)
 
 - Use the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command
-```
+`
 iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
-```
+`
 
 You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
 
