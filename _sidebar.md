@@ -1,4 +1,5 @@
 - [Overview](/ "Overview")
+- [Getting Started](getting-started.md "Getting Started")
 - [How To](how-to.md "How To")
 - [How It Works](how-it-works.md "How It Works")
 - [Managed Configurations](managed-configurations.md "Automated Configurations")
