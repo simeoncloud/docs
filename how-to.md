@@ -1,33 +1,30 @@
 ## Set up a tenant
 
-- **Prerequisites**
-  - Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported  
+### Prerequisites
+
+- Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported  
     - Microsoft 365 Business Premium
     - Microsoft 365 E3
     - Microsoft 365 E5
     - A combination of EMS and O365 E3 or E5 licenses
-  - You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 
-  - Make sure the tenant has an Azure RM Subscription for Simeon to use (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
-  - You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 
-- Launch the PowerShell command line by running 
+- Make sure the tenant has an Azure RM Subscription for Simeon to use (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
 
-  - ```pwsh -ExecutionPolicy Bypass``` for PowerShell Core (6.0 or higher) **or**
-  - ```powershell -ExecutionPolicy Bypass``` for PowerShell (5.1 or higher) 
+You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
-Note that ```ExecutionPolicy Bypass``` is required to allow PowerShell to run scripts)
+### Then...
 
-- Use the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command
+Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command
+
 `
-iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
 `
 
-You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
-
-**Repeat this step for each tenant you wish to set up.**
-
-The script will create a service account to allow Simeon to interact with the tenant and configure your tenant Deploy and Export pipelines. The service account is created with a randomly generated, secure password that cannot be viewed by anyone and can only be used by your pipelines. 
+- You can equivalently use `pwsh` to run the script with PowerShell Core
+- You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
+- The script will create a service account to allow Simeon to interact with the tenant and configure your tenant Deploy and Export pipelines. The service account is created with a randomly generated, secure password that cannot be viewed by anyone and can only be used by your pipelines. 
 
 ## Create a new tenant to manage your baseline
  
