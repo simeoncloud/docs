@@ -1,33 +1,29 @@
 ## Set up a tenant for use with Simeon
 
-This is a manual, one time process per tenant
+- Launch PowerShell Core or PowerShell command prompt by running ```pwsh -ExecutionPolicy Bypass``` or ```powershell -ExecutionPolicy Bypass``` respectively (note that ```-ExecutionPolicy Bypass``` is required to allow PowerShell to run scripts)
 
-* Create AAD tenant or log in to the existing tenant you want to configure 
-  * [Create a new, empty AAD from the Azure Admin Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 
-    * **Do not** create one using a personal account - otherwise it will create an AAD tenant called johndoegmail.onmicrosoft.com
-    * Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
-  * Optionally, create and verify a new custom domain name, then make this the primary domain for AAD \(Azure Portal > Azure AD > Custom domain names\)
-* Create a new AAD service account - [this script](New-SimeonServiceAccount.ps1) will do so. To use it, open PowerShell (or PowerShell Core) and run the following command: 
+* Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command from the prompt you launched above
 ```
-iex "& { $(irm https://raw.githubusercontent.com/simeoncloud/docs/master/New-SimeonServiceAccount.ps1) } New-SimeonServiceAccount"
+iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
 ```
 
-* **If this is a new tenant,** sign in to the Azure Portal as the newly created AAD user simeon@mydomain.com to create/associate subscriptions and licenses as described in the subsequent steps (or any user that is local to the new tenant's Azure AD)
-* **If you do not already have one,** get an Azure Subscription \(for provisioning Azure RM Services - e.g Storage Accounts, CloudShell, Key Vaults\)
-  * Purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) 
-  * Name it as desired
-  * Note that you may need to sign out and back in to use the new subscription
-* Navigate to the subscription > **Access control \(IAM\)** > **Role assignments** > **Add** > **Add role assignment** 
-  * **Role** > **Owner** 
-  * **Select** > **Simeon Service Account**
-  * **Save**
-  * **Note** - if you have more than 1 subscription, be sure to only assign the Owner role for the subscription you want Simeon to use
-* **If you do not already have one,** get [Microsoft 365](https://www.microsoft.com/en-us/microsoft-365/enterprise)  E3, E5, or Business Premium licenses for the new AAD tenant
-  * Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 
-  * **Note** - [**Office 365** is **not** the same as **Microsoft 365**](https://www.acutec.co.uk/blog/difference-between-microsoft-365-office-365)  - make sure you get the right license - we use the full range of Microsoft 365 functionality \(if Microsoft 365 E5 isn't available, you can combine an EMS E5 and O365 E5 license to get the same result\)
-  * The exact license name listed in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)
-  * If omitted, the default is Microsoft 365 Business Premium
-
+## Create a tenant to manage your baseline
+ 
+- [Create a new, empty Azure AD from the Azure Admin Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 
+  - **Do not** create one using a personal account - otherwise it will create an AAD tenant called johndoegmail.onmicrosoft.com
+  - Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
+  - Optionally, create and verify a new custom domain name, then make this the primary domain for Azure AD (Azure Portal > Azure AD > Custom domain names)
+- **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user (this is required so that the licenses and subscriptions created in subsequent steps are  linked to the correct tenant).
+- Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes a minimal number of configurations for logging and alerting purposes that require an Azure Subscription).
+- Get a **Microsoft 365** license (a trial will work for managing the  tenant, even if it expires)
+  - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 
+  - You must have one of the follow licenses in your tenant  
+    - Microsoft 365 Business Premium
+    - Microsoft 365 E3
+    - Microsoft 365 E5
+    - A combination of EMS and O365 E3 or E5 licenses
+  
+  
 ## Update a baseline configuration and deploying to tenants
 
 * Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](managed-configurations.md)
