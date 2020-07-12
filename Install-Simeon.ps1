@@ -1,4 +1,4 @@
-function New-SimeonServiceAccount {
+function Install-Simeon {
     param(
         [string]$TenantId = (Read-Host 'Enter tenant domain name or id'), 
         [securestring]$Password = (Read-Host 'Enter password' -AsSecureString)
@@ -13,6 +13,12 @@ function New-SimeonServiceAccount {
         $azureADModule.Name = 'AzureAD.Standard.Preview'
         $azureADModule.RequiredVersion = '0.0.0.10'
     }
+
+    if (!(Get-Module $azureADModule.Name -ListAvailable)) { 
+        Write-Host "Installing module $($azureADModule.Name)"
+        Install-Module @azureADModule -Scope CurrentUser -Force | Out-Null
+    }
+    Import-Module $azureADModule.Name
 
     if (!(Get-Module $azureADModule.Name -ListAvailable)) { 
         Write-Host "Installing module $($azureADModule.Name)"
