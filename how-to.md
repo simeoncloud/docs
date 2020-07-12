@@ -48,7 +48,7 @@ The script will create a service account to allow Simeon to interact with the te
     - Microsoft 365 E5
     - A combination of EMS and O365 E3 or E5 licenses
   - You can verify the licenses have been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
-- [Set up Simeon for the new baseline tenant](#create-a-new-tenant-to-manage-your-baseline)
+- [Set up Simeon for the new baseline tenant](#set-up-a-tenant)
   
 ## Update a baseline configuration and deploying to tenants
 
