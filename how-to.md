@@ -1,28 +1,33 @@
 ## Set up a tenant for use with Simeon
 
-- Launch PowerShell Core or PowerShell command prompt by running ```pwsh -ExecutionPolicy Bypass``` or ```powershell -ExecutionPolicy Bypass``` respectively (note that ```-ExecutionPolicy Bypass``` is required to allow PowerShell to run scripts)
+- Launch the PowerShell Core (6.0 or higher) or PowerShell (5.1 or higher) command prompt by running ```pwsh -ExecutionPolicy Bypass``` or ```powershell -ExecutionPolicy Bypass``` respectively (note that ```ExecutionPolicy Bypass``` is required to allow PowerShell to run scripts)
 
 * Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command from the prompt you launched above
 ```
 iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
 ```
 
-## Create a tenant to manage your baseline
+- You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
+
+The script will create a service account to allow Simeon to interact with the tenant and configure your tenant Deploy and Export pipelines. The service account is created with a randomly generated, secure password that cannot be viewed by anyone and can only be used by your pipelines. 
+
+## Create a new tenant to manage your baseline
  
 - [Create a new, empty Azure AD from the Azure Admin Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 
+  - Consider using a name that identifies the tenant as your baseline (e.g. mycompanybaseline.onmicrosoft.com)
   - **Do not** create one using a personal account - otherwise it will create an AAD tenant called johndoegmail.onmicrosoft.com
   - Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
-  - Optionally, create and verify a new custom domain name, then make this the primary domain for Azure AD (Azure Portal > Azure AD > Custom domain names)
-- **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user (this is required so that the licenses and subscriptions created in subsequent steps are  linked to the correct tenant).
-- Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes a minimal number of configurations for logging and alerting purposes that require an Azure Subscription).
-- Get a **Microsoft 365** license (a trial will work for managing the  tenant, even if it expires)
+- **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user for subsequent steps (this is required so that the licenses and subscriptions created in subsequent steps are linked to your new tenant)
+- Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes several configurations or minimal cost for logging and alerting purposes that require an Azure Subscription).
+- Get a **Microsoft 365** license (a trial is fine, an continue to work for Simeon even if it expires)
   - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 
-  - You must have one of the follow licenses in your tenant  
+  - Any one of the following license configurations are supported  
     - Microsoft 365 Business Premium
     - Microsoft 365 E3
     - Microsoft 365 E5
     - A combination of EMS and O365 E3 or E5 licenses
-  
+  - You can verify the licenses have been added to your tenant [in the Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
+- [Set up Simeon for the new baseline tenant](#create-a-new-tenant-to-manage-your-baseline)
   
 ## Update a baseline configuration and deploying to tenants
 
