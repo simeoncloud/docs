@@ -1,5 +1,18 @@
 ## Set up a tenant
 
+- **Prerequisites**
+  - Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported  
+    - Microsoft 365 Business Premium
+    - Microsoft 365 E3
+    - Microsoft 365 E5
+    - A combination of EMS and O365 E3 or E5 licenses
+ 
+You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
+
+  - Make sure the tenant has an Azure RM Subscription for Simeon to use (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
+
+You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+
 - Launch the PowerShell command line by running 
 
 ```pwsh -ExecutionPolicy Bypass``` for PowerShell Core (6.0 or higher)
@@ -25,10 +38,10 @@ The script will create a service account to allow Simeon to interact with the te
  
 - [Create a new, empty Azure AD from the Azure Admin Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) 
   - Consider using a name that identifies the tenant as your baseline (e.g. mycompanybaseline.onmicrosoft.com)
-  - **Do not** create one using a personal account - otherwise it will create an AAD tenant called johndoegmail.onmicrosoft.com
+  - **Do not** create one using a personal account - otherwise it will create an Azure AD tenant called johndoegmail.onmicrosoft.com
   - Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
 - **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user for subsequent steps (this is required so that the licenses and subscriptions created in subsequent steps are linked to your new tenant)
-- Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes several configurations or minimal cost for logging and alerting purposes that require an Azure Subscription).
+- Get an **Azure RM Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
 - Get a **Microsoft 365** license (a trial is fine, an continue to work for Simeon even if it expires)
   - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 
   - Any one of the following license configurations are supported  
@@ -36,7 +49,7 @@ The script will create a service account to allow Simeon to interact with the te
     - Microsoft 365 E3
     - Microsoft 365 E5
     - A combination of EMS and O365 E3 or E5 licenses
-  - You can verify the licenses have been added to your tenant [in the Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
+  - You can verify the licenses have been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 - [Set up Simeon for the new baseline tenant](#create-a-new-tenant-to-manage-your-baseline)
   
 ## Update a baseline configuration and deploying to tenants
