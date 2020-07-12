@@ -1,4 +1,4 @@
-## Set up a tenant for use with Simeon
+## Set up a tenant
 
 - Launch the PowerShell Core (6.0 or higher) or PowerShell (5.1 or higher) command prompt by running ```pwsh -ExecutionPolicy Bypass``` or ```powershell -ExecutionPolicy Bypass``` respectively (note that ```ExecutionPolicy Bypass``` is required to allow PowerShell to run scripts)
 
