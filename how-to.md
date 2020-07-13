@@ -1,6 +1,6 @@
 ## Set up a tenant
 
-### Prerequisites
+#### Prerequisites
 
 - Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported  
     - Microsoft 365 Business Premium
@@ -14,16 +14,16 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
-### Then...
+#### Then...
 
-Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command
+Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command:
 
 `
-powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon
 `
 
-- You can equivalently use `pwsh` to run the script with PowerShell Core
 - You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
+- You can equivalently use `pwsh` to run the script with PowerShell Core
 - The script will create a service account to allow Simeon to interact with the tenant and configure your tenant Deploy and Export pipelines. The service account is created with a randomly generated, secure password that cannot be viewed by anyone and can only be used by your pipelines. 
 
 ## Create a new tenant to manage your baseline
