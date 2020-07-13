@@ -1,6 +1,4 @@
-## Set up a tenant
-
-#### Prerequisites
+## Make sure a tenant meets the prerequisites to use Simeon
 
 - Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported  
     - Microsoft 365 Business Premium
@@ -14,12 +12,12 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
-#### Then...
+## Set up Simeon for a tenant
 
 Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command:
 
 `
-powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
 `
 
 - You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
@@ -42,7 +40,7 @@ powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercont
     - Microsoft 365 E5
     - A combination of EMS and O365 E3 or E5 licenses
   - You can verify the licenses have been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
-- [Set up Simeon for the new baseline tenant](#set-up-a-tenant)
+- [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-tenant)
   
 ## Update a baseline configuration and deploying to tenants
 
