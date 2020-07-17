@@ -17,7 +17,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command:
 
 `
-powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
+pwsh -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
 `
 
 - You will be prompted for your DevOps org name (provided to you by Simeon support) and the tenant name (the primary domain name associated with the Microsoft tenant - e.g. contoso.com or contoso.onmicrosoft.com)
