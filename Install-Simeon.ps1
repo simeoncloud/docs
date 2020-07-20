@@ -59,7 +59,7 @@ function Resolve-AzureTenantId {
     return $result
 }
 
-function Set-SimeonServiceAccount {
+function Install-SimeonServiceAccount {
     param(
         [ValidateNotNullOrEmpty()]
         [string]$Organization,
@@ -70,16 +70,16 @@ function Set-SimeonServiceAccount {
     )
     # Creates/updates service account and required permissions
 
+    Install-AzureModule
+
     $TenantId = Resolve-AzureTenantId $Tenant
-    Connect-AzAccount -Tenant $TenantId
-    <#
+
     try {
         if ((Set-AzContext -Tenant $TenantId).Tenant.Id -ne $TenantId) { Connect-AzAccount -Tenant $TenantId | Out-Null }
     }
     catch {
         Connect-AzAccount -Tenant $TenantId | Out-Null
     }
-    #>
     Set-AzContext -Tenant $TenantId | Out-Null
     
     Connect-AzureADUsingAzContext | Out-Null
@@ -90,8 +90,7 @@ function Set-SimeonServiceAccount {
     $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
     $upn = "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)"
     $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
-    Write-Host "Using password $password"
-
+    
     if (!$user) {
         Write-Host "Creating user $upn"
         $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
@@ -142,6 +141,8 @@ function Set-SimeonServiceAccount {
     else {
         Write-Host "Already has Contributor role on subscription $subscriptionId"
     }
+
+    return $password
 }
 
 function Get-SimeonAzureDevOpsAccessToken {
@@ -205,7 +206,7 @@ function Get-SimeonAzureDevOpsAccessToken {
     $job | Remove-Job
 }
 
-function Set-SimeonAzureDevOpsResources {
+function Install-SimeonAzureDevOpsResources {
     param(
         [ValidateNotNullOrEmpty()]
         [string]$Organization,
@@ -225,7 +226,7 @@ function Set-SimeonAzureDevOpsResources {
         Headers = @{ Authorization = "Bearer $token" }
         ContentType = 'application/json'
     }
-    $queryString = "?api-version=5.1-preview.1"
+    $queryString = "?api-version=5.1"
     $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
     $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
@@ -260,6 +261,10 @@ function Set-SimeonAzureDevOpsResources {
         $importUrl = 'https://github.com/simeoncloud/Baseline.git' 
     }
     
+    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints$queryString").value |? name -eq 'simeoncloud'
+    
+    if (!$serviceEndpoint) { throw "Could not find service connection to simeoncloud GitHub." }
+
     try {
         irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests$queryString" -Method Post -Body (@{
                 parameters = @{
@@ -279,22 +284,19 @@ function Set-SimeonAzureDevOpsResources {
         Write-Host "Repository is not empty - will not import"
     }
 
-    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints$queryString").value |? name -eq 'simeoncloud'
-    
-    if (!$serviceEndpoint) { throw "Could not find service connection to simeoncloud GitHub." }
-
     $baselineRepo = $repos |? name -eq 'baseline'
 
-    $pipelines = irm @restProps "$apiBaseUrl/build/definitions$queryString"
+    $pipelines = irm @restProps "$apiBaseUrl/build/definitions$queryString" -Method Get
 
     foreach ($action in @('Deploy')) {        
         $pipelineName = "$repoName - $action"
         
         $pipeline = $pipelines.value |? name -eq $pipelineName
 
+        <# TODO - the below doesn't work yet #>
         if (!$pipeline) {
             Write-Host "Creating pipeline $pipelineName"      
-            $pipeline = irm @restProps "$apiBaseUrl/build/definitions$queryString" -Method Post -Body (@{
+            $pipeline = irm @restProps "$apiBaseUrl/build/definitions$queryString-preview.1" -Method Post -Body (@{
                     name = $pipelineName
                     path = $Tenant
                     repository = "https://github.com/simeoncloud/AzurePipelines.git"
@@ -334,8 +336,7 @@ function Install-Simeon {
 
     $script:Organization = $Organization
 
-    Set-SimeonServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
+    $password = Install-SimeonServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
 
-    # Take password and set it in pipeline or library
-    #Set-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $TenantId -Password $password -IsBaseline:$IsBaseline
+    Install-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Password $password -IsBaseline:$IsBaseline
 }
