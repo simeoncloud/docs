@@ -311,12 +311,11 @@ function Install-SimeonAzureDevOpsResources {
         
         if (!$IsBaseline -and !($repos |? name -eq 'baseline')) {
             Write-Host "No baseline repository exists in organization - using Simeon baseline"
-            $variables['BaselineRepository'].value = @{
+            $variables['BaselineRepository'] = @{
                 value = 'SimeonBaseline'
             }
         }
 
-        <# TODO #>
         if (!$pipeline) {
             Write-Host "Creating pipeline $pipelineName"      
             irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
@@ -324,10 +323,13 @@ function Install-SimeonAzureDevOpsResources {
                     path = $Tenant
                     repository = @{
                         url = "https://github.com/simeoncloud/AzurePipelines.git"
-                        type = "github"
+                        id = "simeoncloud/AzurePipelines"
+                        type = "Github"
+                        defaultBranch = "refs/heads/master"
                     }
                     process = @{
-                        type = 1 #TODO What is this?
+                        type = 2
+                        yamlFilename = "M365Management$($action).yml"
                     }
                     uri = "M365Management$($action).yml"
                     variables = $variables
