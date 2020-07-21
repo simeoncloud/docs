@@ -18,7 +18,7 @@ function Install-AzureModule {
         if (!$m.Repository) { $m.Repository = 'PSGallery' }
         if (!(Get-Module $m.Name -ListAvailable | ? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) { 
             Write-Host "Installing module $($m.Name)"
-            Install-Module @m -Scope CurrentUser -Force | Out-Null
+            Install-Module @m -Scope CurrentUser -Force -AllowClobber | Out-Null
         }
         $m.Remove('Repository')            
         Import-Module @m
@@ -324,15 +324,26 @@ function Install-SimeonAzureDevOpsResources {
         irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
                 name = $pipelineName
                 path = $Tenant
-                repository = @{
-                    url = "https://github.com/simeoncloud/AzurePipelines.git"
-                    id = "simeoncloud/AzurePipelines"
-                    type = "Github"
-                    defaultBranch = "refs/heads/master"
-                }
                 process = @{
                     type = 2
                     yamlFilename = "M365Management$($action).yml"
+                }
+                queue = @{
+                    name = "Azure Pipelines"
+                    pool = @{
+                        name = "Azure Pipelines"
+                        isHosted = "true"
+                    }
+                }
+                repository = @{
+                    url = "https://github.com/simeoncloud/AzurePipelines.git"
+                    name = "simeoncloud/AzurePipelines"
+                    id = "simeoncloud/AzurePipelines"
+                    type = "GitHub"
+                    defaultBranch = "master"
+                    properties = @{
+                        connectedServiceId = $serviceEndpoint.Id
+                    }
                 }
                 uri = "M365Management$($action).yml"
                 variables = $variables
