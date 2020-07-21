@@ -288,7 +288,7 @@ function Install-SimeonAzureDevOpsResources {
     
     $pipelines = irm @restProps "$apiBaseUrl/build/definitions$queryString" -Method Get
 
-    foreach ($action in @('Deploy', 'Export')) {        
+    foreach ($action in @('Deploy', 'Export')) { 
         $pipelineName = "$repoName - $action"
         
         $pipeline = $pipelines.value |? name -eq $pipelineName
@@ -322,10 +322,16 @@ function Install-SimeonAzureDevOpsResources {
             irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
                     name = $pipelineName
                     path = $Tenant
-                    repository = "https://github.com/simeoncloud/AzurePipelines.git"
+                    repository = @{
+                        url = "https://github.com/simeoncloud/AzurePipelines.git"
+                        type = "github"
+                    }
+                    process = @{
+                        type = 1 #TODO What is this?
+                    }
                     uri = "M365Management$($action).yml"
                     variables = $variables
-                } | ConvertTo-Json)
+                } | ConvertTo-Json -Depth 3)
         }
         else {
             Write-Host "Pipeline $pipelineName already exists - updating variables"
