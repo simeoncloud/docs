@@ -316,31 +316,27 @@ function Install-SimeonAzureDevOpsResources {
             }
         }
 
-        if (!$pipeline) {
-            Write-Host "Creating pipeline $pipelineName"      
-            irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
-                    name = $pipelineName
-                    path = $Tenant
-                    repository = @{
-                        url = "https://github.com/simeoncloud/AzurePipelines.git"
-                        id = "simeoncloud/AzurePipelines"
-                        type = "Github"
-                        defaultBranch = "refs/heads/master"
-                    }
-                    process = @{
-                        type = 2
-                        yamlFilename = "M365Management$($action).yml"
-                    }
-                    uri = "M365Management$($action).yml"
-                    variables = $variables
-                } | ConvertTo-Json -Depth 3)
+        if ($pipeline) {
+            Write-Host "Pipeline $pipelineName already exists - deleting"            
+            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$($queryString)" -Method Delete
         }
-        else {
-            Write-Host "Pipeline $pipelineName already exists - updating variables"
-            $pipeline.variables = $variables
-            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$($queryString)" -Method Put -Body ($definition | ConvertTo-Json)
-
-        }
+        Write-Host "Creating pipeline $pipelineName"      
+        irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
+                name = $pipelineName
+                path = $Tenant
+                repository = @{
+                    url = "https://github.com/simeoncloud/AzurePipelines.git"
+                    id = "simeoncloud/AzurePipelines"
+                    type = "Github"
+                    defaultBranch = "refs/heads/master"
+                }
+                process = @{
+                    type = 2
+                    yamlFilename = "M365Management$($action).yml"
+                }
+                uri = "M365Management$($action).yml"
+                variables = $variables
+            } | ConvertTo-Json -Depth 3) | Out-Null              
     }    
 }
 
@@ -372,4 +368,6 @@ function Install-Simeon {
     $password = Install-SimeonServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
 
     Install-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Password $password -IsBaseline:$IsBaseline
+
+    Write-Host "Operations completed successfully"
 }
