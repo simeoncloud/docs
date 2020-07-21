@@ -18,7 +18,7 @@ function Install-AzureModule {
         if (!$m.Repository) { $m.Repository = 'PSGallery' }
         if (!(Get-Module $m.Name -ListAvailable | ? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) { 
             Write-Host "Installing module $($m.Name)"
-            Install-Module @m -Scope CurrentUser -Force | Out-Null
+            Install-Module @m -Scope CurrentUser -Force -AllowClobber | Out-Null
         }
         $m.Remove('Repository')            
         Import-Module @m
