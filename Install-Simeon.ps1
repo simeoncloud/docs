@@ -237,9 +237,11 @@ function Install-SimeonAzureDevOpsResources {
 
     $repos = irm @restProps "$apiBaseUrl/git/repositories$queryString"
     $repoName = $Tenant
+
     if ($IsBaseline) {
         $repoName = 'baseline'
     }
+
     $repo = $repos.value | ? name -eq $repoName
 
     if (!$repo) {
@@ -261,12 +263,12 @@ function Install-SimeonAzureDevOpsResources {
         $importUrl = 'https://github.com/simeoncloud/Baseline.git' 
     }
     
-    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints$queryString").value |? name -eq 'simeoncloud'
+    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints$($queryString)-preview.1").value |? name -eq 'simeoncloud'
     
     if (!$serviceEndpoint) { throw "Could not find service connection to simeoncloud GitHub." }
 
     try {
-        irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests$queryString" -Method Post -Body (@{
+        irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests$($queryString)-preview.1" -Method Post -Body (@{
                 parameters = @{
                     gitSource = @{
                         overwrite = $false
@@ -283,29 +285,52 @@ function Install-SimeonAzureDevOpsResources {
         }
         Write-Host "Repository is not empty - will not import"
     }
-
-    $baselineRepo = $repos |? name -eq 'baseline'
-
+    
     $pipelines = irm @restProps "$apiBaseUrl/build/definitions$queryString" -Method Get
 
-    foreach ($action in @('Deploy')) {        
+    foreach ($action in @('Deploy', 'Export')) {        
         $pipelineName = "$repoName - $action"
         
         $pipeline = $pipelines.value |? name -eq $pipelineName
 
-        <# TODO - the below doesn't work yet #>
+        $variables = @{
+            'AadAuth:Username' = @{
+                allowOverride = $true
+                value = ' '
+            }
+            'AadAuth:Password' = @{
+                allowOverride = $true
+                isSecret = $true
+                value = $Password
+            }
+        }
+
+        if ($IsBaseline) {
+            $variables['AadAuth:Username'].value = "simeon@$Tenant"
+        }
+        
+        if (!$IsBaseline -and !($repos |? name -eq 'baseline')) {
+            Write-Host "No baseline repository exists in organization - using Simeon baseline"
+            $variables['BaselineRepository'].value = @{
+                value = 'SimeonBaseline'
+            }
+        }
+
+        <# TODO #>
         if (!$pipeline) {
             Write-Host "Creating pipeline $pipelineName"      
-            $pipeline = irm @restProps "$apiBaseUrl/build/definitions$queryString-preview.1" -Method Post -Body (@{
+            irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
                     name = $pipelineName
                     path = $Tenant
                     repository = "https://github.com/simeoncloud/AzurePipelines.git"
                     uri = "M365Management$($action).yml"
+                    variables = $variables
                 } | ConvertTo-Json)
         }
         else {
             Write-Host "Pipeline $pipelineName already exists - updating variables"
-            #  irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$queryString"
+            $pipeline.variables = $variables
+            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$($queryString)" -Method Put -Body ($definition | ConvertTo-Json)
 
         }
     }    
