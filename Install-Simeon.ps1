@@ -326,9 +326,13 @@ function Install-SimeonAzureDevOpsResources {
                 path = $Tenant
                 repository = @{
                     url = "https://github.com/simeoncloud/AzurePipelines.git"
+                    name = "simeoncloud/AzurePipelines"
                     id = "simeoncloud/AzurePipelines"
-                    type = "Github"
-                    defaultBranch = "refs/heads/master"
+                    type = "GitHub"
+                    defaultBranch = "master"
+                    properties = @{
+                        connectedServiceId = $serviceEndpoint.Id
+                    }
                 }
                 process = @{
                     type = 2
