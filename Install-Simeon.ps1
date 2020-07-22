@@ -324,6 +324,17 @@ function Install-SimeonAzureDevOpsResources {
         irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
                 name = $pipelineName
                 path = $Tenant
+                process = @{
+                    type = 2
+                    yamlFilename = "M365Management$($action).yml"
+                }
+                queue = @{
+                    name = "Azure Pipelines"
+                    pool = @{
+                        name = "Azure Pipelines"
+                        isHosted = "true"
+                    }
+                }
                 repository = @{
                     url = "https://github.com/simeoncloud/AzurePipelines.git"
                     name = "simeoncloud/AzurePipelines"
@@ -333,10 +344,6 @@ function Install-SimeonAzureDevOpsResources {
                     properties = @{
                         connectedServiceId = $serviceEndpoint.Id
                     }
-                }
-                process = @{
-                    type = 2
-                    yamlFilename = "M365Management$($action).yml"
                 }
                 uri = "M365Management$($action).yml"
                 variables = $variables
