@@ -47,16 +47,40 @@ function Connect-AzureADUsingAzContext {
 function Resolve-AzureTenantId {
     param(
         [ValidateNotNullOrEmpty()]
-        [string]$Id
+        [string]$TenantId
     )
     # Resolves tenant domain name to id
     [Guid]$g = [Guid]::Empty
-    if ([Guid]::TryParse($Id, [ref]$g)) { return $Id }
-    $endpoint = (irm "https://login.microsoftonline.com/$Id/v2.0/.well-known/openid-configuration").token_endpoint
+    if ([Guid]::TryParse($TenantId, [ref]$g)) { return $TenantId }
+    $endpoint = (irm "https://login.microsoftonline.com/$TenantId/v2.0/.well-known/openid-configuration").token_endpoint
     $result = [uri]::new($endpoint).PathAndQuery -split '/' | ? { $_ } | Select -First 1
-    if (!$result) { throw "Could not resolve tenant id for $Id." }
-    Write-Host "Resolved tenant id from $Id to $result"
+    if (!$result) { throw "Could not resolve tenant id for $TenantId." }
+    Write-Host "Resolved tenant id from $TenantId to $result"
     return $result
+}
+
+
+function Connect-Azure {
+    param(
+        [string]$Tenant        
+    )
+    
+    Install-AzureModule
+
+    $TenantId = Resolve-AzureTenantId $Tenant
+
+    while (!(Get-AzContext) -or (Set-AzContext -Tenant $TenantId).Tenant.Id -ne $TenantId) { 
+        Write-Warning "Connecting to Azure Tenant $Tenant - please sign in using an account with `"Global administrator`" role in Azure Active Directory and access to an Azure Subscription in that tenant"
+        Start-Sleep -Seconds 2
+
+        Connect-AzAccount -Tenant $TenantId | Out-Null
+    }
+    
+    Set-AzContext -Tenant $TenantId | Out-Null
+    
+    Connect-AzureADUsingAzContext | Out-Null
+
+    Write-Host "Connected to Azure tenant $Tenant using account $((Get-AzContext).Account.Id)"
 }
 
 function Install-SimeonServiceAccount {
@@ -70,21 +94,7 @@ function Install-SimeonServiceAccount {
     )
     # Creates/updates service account and required permissions
 
-    Install-AzureModule
-
-    $TenantId = Resolve-AzureTenantId $Tenant
-
-    try {
-        if ((Set-AzContext -Tenant $TenantId).Tenant.Id -ne $TenantId) { Connect-AzAccount -Tenant $TenantId | Out-Null }
-    }
-    catch {
-        Connect-AzAccount -Tenant $TenantId | Out-Null
-    }
-    Set-AzContext -Tenant $TenantId | Out-Null
-    
-    Connect-AzureADUsingAzContext | Out-Null
-
-    Write-Host "Connected to Azure tenant $Tenant"
+    Connect-Azure $Tenant
 
     # Create/update Azure AD user with random password
     $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
@@ -92,14 +102,14 @@ function Install-SimeonServiceAccount {
     $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
     
     if (!$user) {
-        Write-Host "Creating user $upn"
+        Write-Host "Creating account $upn"
         $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
             -UserPrincipalName $upn `
             -MailNickName simeon -AccountEnabled $true `
             -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
     }
     else {
-        Write-Host "User $upn already exists - updating user password"
+        Write-Host "Account $upn already exists - updating account"
         $user | Set-AzureADUser -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
     }
 
@@ -124,13 +134,17 @@ function Install-SimeonServiceAccount {
     }
 
     # Find Azure RM subscription to use 
-    $subscriptionId = Get-AzSubscription -Tenant $TenantId | ? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
+    $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) | ? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
     if (!$subscriptionId) {
-        Write-Host "Elevating access to allow assignment of subscription roles"
+        Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again "
         # Elevate access to see all subscriptions in the tenant and force re-login
         irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" }
-        Connect-AzAccount -Tenant $TenantId | Out-Null        
-        $subscriptionId = Get-AzSubscription -Tenant $TenantId | ? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
+    
+        Disconnect-AzAccount
+        Clear-AzContext
+        Connect-Azure $Tenant
+
+        $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) | ? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
     }
 
     # Add as contributor to an Azure RM Subscription
@@ -146,6 +160,10 @@ function Install-SimeonServiceAccount {
 }
 
 function Get-SimeonAzureDevOpsAccessToken {
+   param(
+        [switch]$AutomaticallyLaunchBrowser  
+    )
+
     # Gets an OAuth token to make API calls to Azure DevOps
     # Needs to run as a job (external process) because a bug in .NET Core keeps a reservation on the http endpoint even after the http listener is disposed (until process exits)
 
@@ -153,6 +171,8 @@ function Get-SimeonAzureDevOpsAccessToken {
         $http = [System.Net.HttpListener]::new() 
         $http.Prefixes.Add("http://localhost:3546/")
         $http.Start()
+        
+        Write-Host "Connecting to Azure DevOps"
 
         try {
             # initiate browser request for token
@@ -161,20 +181,25 @@ function Get-SimeonAzureDevOpsAccessToken {
             $scope = 'vso.analytics vso.auditlog vso.build_execute vso.code_full vso.code_status vso.connected_server vso.dashboards_manage vso.entitlements vso.environment_manage vso.extension.data_write vso.extension_manage vso.gallery_acquire vso.gallery_manage vso.graph_manage vso.identity_manage vso.loadtest_write vso.machinegroup_manage vso.memberentitlementmanagement_write vso.notification_diagnostics vso.notification_manage vso.packaging_manage vso.profile_write vso.project_manage vso.release_manage vso.securefiles_manage vso.security_manage vso.serviceendpoint_manage vso.symbols_manage vso.taskgroups_manage vso.test_write vso.tokenadministration vso.tokens vso.variablegroups_manage vso.wiki_write vso.work_full'
             $state = [Guid]::NewGuid()
             $authorizeUrl = "https://app.vssps.visualstudio.com/oauth2/authorize?client_id=$appId&response_type=Assertion&state=$state&scope=$scope&redirect_uri=$redirectUri"
-            Start-Process $authorizeUrl
+            
+            if ($using:AutomaticallyLaunchBrowser) {
+                Start-Process $authorizeUrl
+            } 
+            else {
+                Write-Warning "Please launch the following url from your browser in an incognito/private window and log in with an account that has access to your Simeon organization in Azure DevOps`r`n$authorizeUrl"
+            }
 
             # listen for callback
             while ($http.IsListening) {
-                Write-Host "Waiting for DevOps authentication callback"
+                Start-Sleep -Milliseconds 100
                 $context = $http.GetContext()
 
-                Write-Host "Received DevOps authentication callback"
                 $inputData = [System.IO.StreamReader]::new($context.Request.InputStream).ReadToEnd()
    
                 if ($inputData -like 'access_token=*') { 
                     $accessToken = $inputData.Substring('access_token='.Length)
 
-                    $html = "<html><body><h3>DevOps authentication successful</h3></body></html>" 
+                    $html = "<html><body><h3>Azure DevOps authentication successful - window will close automatically</h3></body></html>" 
                 } 
                 else {
                     $html = "<html><body><h3>Could not obtain DevOps access token</h3></body></html>"
@@ -192,8 +217,10 @@ function Get-SimeonAzureDevOpsAccessToken {
                 $context.Response.OutputStream.Close()
             
                 if (!$accessToken) {
-                    throw "Could not obtain DevOps access token"
+                    throw "Could not obtain Azure DevOps access token"
                 }
+
+                Write-Host "Obtained Azure DevOps access token"
 
                 return $accessToken
             } 
@@ -202,8 +229,19 @@ function Get-SimeonAzureDevOpsAccessToken {
             $http.Dispose()
         }
     } 
-    $job | Receive-Job -Wait
-    $job | Remove-Job
+    try {
+        while ($job.State -eq 'Running') {
+            $job | Receive-Job
+            Start-Sleep -Milliseconds 100
+        }
+        $job | Receive-Job -Wait -AutoRemoveJob
+    }
+    finally {
+        # handle ctrl+c
+        if (Get-Command gwmi -EA SilentlyContinue) {
+            gwmi win32_process -filter "Name='powershell.exe' AND ParentProcessId=$PID" | Select -ExpandProperty ProcessId |% { Stop-Process -Id $_ }
+        }
+    }
 }
 
 function Install-SimeonAzureDevOpsResources {
@@ -216,11 +254,12 @@ function Install-SimeonAzureDevOpsResources {
         [string]$Tenant,
         [ValidateNotNullOrEmpty()]
         [string]$Password,
-        [switch]$IsBaseline
+        [switch]$IsBaseline,
+        [string]$BaselineRepository
     )    
     # Creates repo and pipelines and stores service account password
 
-    $token = Get-SimeonAzureDevOpsAccessToken
+    $token = Get-SimeonAzureDevOpsAccessToken -AutomaticallyLaunchBrowser
 
     $restProps = @{
         Headers = @{ Authorization = "Bearer $token" }
@@ -232,7 +271,17 @@ function Install-SimeonAzureDevOpsResources {
     $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
     $projectId = $projects.value | ? name -eq $Project | Select -ExpandProperty id
     if (!$projectId) {
-        throw "Could not find project $Project in organization $Organization"
+        Write-Warning "Could not find project $Project in organization $Organization - will retry"
+                
+        $token = Get-SimeonAzureDevOpsAccessToken
+
+        $restProps.Headers.Authorization = "Bearer $token"
+        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
+        $projectId = $projects.value | ? name -eq $Project | Select -ExpandProperty id
+        if (!$projectId) {
+            throw "Could not find project $Project in organization $Organization - please ensure you have access to Simeon in Azure DevOps and try again."
+        }
+
     }
 
     $repos = irm @restProps "$apiBaseUrl/git/repositories$queryString"
@@ -288,38 +337,46 @@ function Install-SimeonAzureDevOpsResources {
     
     $pipelines = irm @restProps "$apiBaseUrl/build/definitions$queryString" -Method Get
 
+    $pipelineVariables = @{
+        'AadAuth:Username' = @{
+            allowOverride = $true
+            value = ''
+        }
+        'AadAuth:Password' = @{
+            allowOverride = $true
+            isSecret = $true
+            value = $Password
+        }
+    }
+        
+    if ($IsBaseline) {
+        $pipelineVariables['AadAuth:Username'].value = "simeon@$Tenant"
+    }
+            
+    if ('' -ne $BaselineRepository -and !$IsBaseline -and !($repos |? name -eq 'baseline')) {
+        Write-Host "No baseline repository exists in organization - using Simeon baseline"
+        $pipelineVariables['BaselineRepository'] = @{
+            value = 'SimeonBaseline'
+        }
+    }
+    elseif ('' -ne $BaselineRepository) {
+        Write-Host "Using baseline repository $BaselineRepository"
+        $pipelineVariables['BaselineRepository'] = @{
+            value = $BaselineRepository
+        }
+    }
+
     foreach ($action in @('Deploy', 'Export')) { 
         $pipelineName = "$repoName - $action"
         
         $pipeline = $pipelines.value |? name -eq $pipelineName
 
-        $variables = @{
-            'AadAuth:Username' = @{
-                allowOverride = $true
-                value = ' '
-            }
-            'AadAuth:Password' = @{
-                allowOverride = $true
-                isSecret = $true
-                value = $Password
-            }
-        }
-
-        if ($IsBaseline) {
-            $variables['AadAuth:Username'].value = "simeon@$Tenant"
-        }
-        
-        if (!$IsBaseline -and !($repos |? name -eq 'baseline')) {
-            Write-Host "No baseline repository exists in organization - using Simeon baseline"
-            $variables['BaselineRepository'] = @{
-                value = 'SimeonBaseline'
-            }
-        }
 
         if ($pipeline) {
             Write-Host "Pipeline $pipelineName already exists - deleting"            
-            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$($queryString)" -Method Delete
+            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$($queryString)" -Method Delete | Out-Null
         }
+
         Write-Host "Creating pipeline $pipelineName"      
         irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
                 name = $pipelineName
@@ -346,7 +403,7 @@ function Install-SimeonAzureDevOpsResources {
                     }
                 }
                 uri = "M365Management$($action).yml"
-                variables = $variables
+                variables = $pipelineVariables
             } | ConvertTo-Json -Depth 3) | Out-Null              
     }    
 }
@@ -380,5 +437,5 @@ function Install-Simeon {
 
     Install-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Password $password -IsBaseline:$IsBaseline
 
-    Write-Host "Operations completed successfully"
+    Write-Host "Completed successfully"
 }
