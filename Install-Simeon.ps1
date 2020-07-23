@@ -351,21 +351,29 @@ function Install-SimeonAzureDevOpsResources {
         
     if ($IsBaseline) {
         $pipelineVariables['AadAuth:Username'].value = "simeon@$Tenant"
-    }
-            
-    if ('' -ne $BaselineRepository -and !$IsBaseline -and !($repos |? name -eq 'baseline')) {
-        Write-Host "No baseline repository exists in organization - using Simeon baseline"
-        $pipelineVariables['BaselineRepository'] = @{
-            value = 'SimeonBaseline'
+    }    
+    
+    if (!$IsBaseline) {
+        if ($BaselineRepository) {            
+            Write-Host "Using baseline repository: $BaselineRepository"
+            $pipelineVariables['BaselineRepository'] = @{
+                value = $BaselineRepository
+            }            
+        }
+        elseif (($repos |? name -eq 'baseline')) {
+            Write-Host "Using baseline repository from Azure DevOps Project"        
+            $pipelineVariables['BaselineRepository'] = @{
+                value = 'baseline'
+            }
+        }
+        else {            
+            Write-Host "No baseline repository exists Azure DevOps Project - using default Simeon baseline"
+            $pipelineVariables['BaselineRepository'] = @{
+                value = 'SimeonBaseline'
+            }            
         }
     }
-    elseif ('' -ne $BaselineRepository) {
-        Write-Host "Using baseline repository $BaselineRepository"
-        $pipelineVariables['BaselineRepository'] = @{
-            value = $BaselineRepository
-        }
-    }
-
+    
     foreach ($action in @('Deploy', 'Export')) { 
         $pipelineName = "$repoName - $action"
         
@@ -420,7 +428,9 @@ function Install-Simeon {
         # The Azure tenant domain name to configure Simeon for - e.g. 'contoso.com or contoso.onmicrosoft.com'
         [string]$Tenant = (Read-Host 'Enter tenant domain name'),
         # Indicates that this tenant is to be used as a baseline - affects the naming of the repository and pipelines in Azure DevOps
-        [switch]$IsBaseline
+        [switch]$IsBaseline,
+        # Indicates the baseline repository to use for pipelines - defaults to the baseline in Azure DevOps
+        [string]$BaselineRepository
     )
     <#
     .SYNOPSIS
@@ -435,7 +445,7 @@ function Install-Simeon {
 
     $password = Install-SimeonServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
 
-    Install-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Password $password -IsBaseline:$IsBaseline
+    Install-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Password $password -IsBaseline:$IsBaseline -BaselineRepository $BaselineRepository
 
     Write-Host "Completed successfully"
 }
