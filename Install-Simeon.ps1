@@ -16,7 +16,7 @@ function Install-AzureModule {
 
     foreach ($m in $requiredModules) {
         if (!$m.Repository) { $m.Repository = 'PSGallery' }
-        if (!(Get-Module $m.Name -ListAvailable | ? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) { 
+        if (!(Get-Module $m.Name -ListAvailable |? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) { 
             Write-Host "Installing module $($m.Name)"
             Install-Module @m -Scope CurrentUser -Force -AllowClobber | Out-Null
         }
@@ -53,7 +53,7 @@ function Resolve-AzureTenantId {
     [Guid]$g = [Guid]::Empty
     if ([Guid]::TryParse($TenantId, [ref]$g)) { return $TenantId }
     $endpoint = (irm "https://login.microsoftonline.com/$TenantId/v2.0/.well-known/openid-configuration").token_endpoint
-    $result = [uri]::new($endpoint).PathAndQuery -split '/' | ? { $_ } | Select -First 1
+    $result = [uri]::new($endpoint).PathAndQuery -split '/' |? { $_ } | Select -First 1
     if (!$result) { throw "Could not resolve tenant id for $TenantId." }
     Write-Host "Resolved tenant id from $TenantId to $result"
     return $result
@@ -70,7 +70,7 @@ function Connect-Azure {
     $TenantId = Resolve-AzureTenantId $Tenant
 
     while (!(Get-AzContext) -or (Set-AzContext -Tenant $TenantId).Tenant.Id -ne $TenantId) { 
-        Write-Warning "Connecting to Azure Tenant $Tenant - please sign in using an account with `"Global administrator`" role in Azure Active Directory and access to an Azure Subscription in that tenant"
+        Write-Warning "Connecting to Azure Tenant $Tenant - please sign in using an account with the Global Administrator role in Azure Active Directory and Contributor access to an Azure Subscription in that tenant"
         Start-Sleep -Seconds 2
 
         Connect-AzAccount -Tenant $TenantId | Out-Null
@@ -117,14 +117,14 @@ function Install-SimeonServiceAccount {
     try { Get-AzureADDirectoryRole | Out-Null } catch { }
 
     # Make sure Directory Synchronization Accounts role is activated 
-    if (!(Get-AzureADDirectoryRole | ? DisplayName -eq 'Directory Synchronization Accounts')) { 
+    if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) { 
         Write-Host "Activating role Directory Synchronization Accounts"
-        Get-AzureADDirectoryRoleTemplate | ? DisplayName -eq 'Directory Synchronization Accounts' | % { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
+        Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' |% { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
     }
 
     # Add to Company Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA 
-    Get-AzureADDirectoryRole | ? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } | % { 
-        if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId | ? ObjectId -eq $user.ObjectId)) {
+    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } |% { 
+        if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
             Write-Host "Adding to directory role $($_.DisplayName)"
             Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
         }
@@ -134,7 +134,7 @@ function Install-SimeonServiceAccount {
     }
 
     # Find Azure RM subscription to use 
-    $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) | ? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
+    $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
     if (!$subscriptionId) {
         Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again "
         # Elevate access to see all subscriptions in the tenant and force re-login
@@ -144,7 +144,7 @@ function Install-SimeonServiceAccount {
         Clear-AzContext
         Connect-Azure $Tenant
 
-        $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) | ? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
+        $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
     }
 
     # Add as contributor to an Azure RM Subscription
@@ -160,7 +160,7 @@ function Install-SimeonServiceAccount {
 }
 
 function Get-SimeonAzureDevOpsAccessToken {
-   param(
+    param(
         [switch]$AutomaticallyLaunchBrowser  
     )
 
@@ -269,7 +269,7 @@ function Install-SimeonAzureDevOpsResources {
     $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
     $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
-    $projectId = $projects.value | ? name -eq $Project | Select -ExpandProperty id
+    $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
     if (!$projectId) {
         Write-Warning "Could not find project $Project in organization $Organization - will retry"
                 
@@ -277,7 +277,7 @@ function Install-SimeonAzureDevOpsResources {
 
         $restProps.Headers.Authorization = "Bearer $token"
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
-        $projectId = $projects.value | ? name -eq $Project | Select -ExpandProperty id
+        $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
         if (!$projectId) {
             throw "Could not find project $Project in organization $Organization - please ensure you have access to Simeon in Azure DevOps and try again."
         }
@@ -291,7 +291,7 @@ function Install-SimeonAzureDevOpsResources {
         $repoName = 'baseline'
     }
 
-    $repo = $repos.value | ? name -eq $repoName
+    $repo = $repos.value |? name -eq $repoName
 
     if (!$repo) {
         Write-Host "Creating repository $repoName"
@@ -347,6 +347,10 @@ function Install-SimeonAzureDevOpsResources {
             isSecret = $true
             value = $Password
         }
+        'BaselineRepository' = @{
+            allowOverride = $true
+            value = ''
+        }        
     }
         
     if ($IsBaseline) {
@@ -356,21 +360,15 @@ function Install-SimeonAzureDevOpsResources {
     if (!$IsBaseline) {
         if ($BaselineRepository) {            
             Write-Host "Using baseline repository: $BaselineRepository"
-            $pipelineVariables['BaselineRepository'] = @{
-                value = $BaselineRepository
-            }            
+            $pipelineVariables['BaselineRepository'].value = $BaselineRepository
         }
         elseif (($repos |? name -eq 'baseline')) {
             Write-Host "Using baseline repository from Azure DevOps Project"        
-            $pipelineVariables['BaselineRepository'] = @{
-                value = 'baseline'
-            }
+            $pipelineVariables['BaselineRepository'].value = 'baseline'
         }
         else {            
             Write-Host "No baseline repository exists Azure DevOps Project - using default Simeon baseline"
-            $pipelineVariables['BaselineRepository'] = @{
-                value = 'SimeonBaseline'
-            }            
+            $pipelineVariables['BaselineRepository'].value = 'SimeonBaseline'
         }
     }
     

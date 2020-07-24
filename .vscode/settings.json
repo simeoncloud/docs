@@ -1,0 +1,4 @@
+{
+    "powershell.codeFormatting.alignPropertyValuePairs": false,
+    "powershell.codeFormatting.addWhitespaceAroundPipe": false
+}
