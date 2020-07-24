@@ -14,10 +14,10 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 ## Set up Simeon for a tenant
 
-Run the [Install-Simeon](Install-Simeon.ps1) script by runnng the following command:
+Run the Simeon tenant installation script by using the following command:
 
 `
-powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-Simeon.ps1); Install-Simeon"
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/Install-SimeonTenant.ps1); Install-SimeonTenant"
 `
 
 - If you are using a Mac or PowerShell Core, replace `powershell` with `pwsh` in the command above

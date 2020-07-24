@@ -2,6 +2,10 @@ $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 function Install-AzureModule {
+    if ($PSVersionTable.PSEdition -ne 'Core' -and !(Get-PackageProvider NuGet -ListAvailable)) {
+        Install-PackageProvider NuGet -Force -ForceBootstrap | Out-Null
+    }
+
     # Install required modules
     $requiredModules = @(
         @{ Name = 'Az.Resources' }
@@ -83,7 +87,7 @@ function Connect-Azure {
     Write-Host "Connected to Azure tenant $Tenant using account $((Get-AzContext).Account.Id)"
 }
 
-function Install-SimeonServiceAccount {
+function Install-SimeonTenantServiceAccount {
     param(
         [ValidateNotNullOrEmpty()]
         [string]$Organization,
@@ -119,11 +123,11 @@ function Install-SimeonServiceAccount {
     # Make sure Directory Synchronization Accounts role is activated 
     if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) { 
         Write-Host "Activating role Directory Synchronization Accounts"
-        Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' |% { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
+        Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' | % { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
     }
 
     # Add to Company Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA 
-    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } |% { 
+    Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } | % { 
         if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
             Write-Host "Adding to directory role $($_.DisplayName)"
             Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
@@ -136,12 +140,12 @@ function Install-SimeonServiceAccount {
     # Find Azure RM subscription to use 
     $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
     if (!$subscriptionId) {
-        Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again "
+        Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again using the same account"
         # Elevate access to see all subscriptions in the tenant and force re-login
         irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" }
     
         Disconnect-AzAccount
-        Clear-AzContext
+        Clear-AzContext -Force
         Connect-Azure $Tenant
 
         $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
@@ -239,12 +243,12 @@ function Get-SimeonAzureDevOpsAccessToken {
     finally {
         # handle ctrl+c
         if (Get-Command gwmi -EA SilentlyContinue) {
-            gwmi win32_process -filter "Name='powershell.exe' AND ParentProcessId=$PID" | Select -ExpandProperty ProcessId |% { Stop-Process -Id $_ }
+            gwmi win32_process -filter "Name='powershell.exe' AND ParentProcessId=$PID" | Select -ExpandProperty ProcessId | % { Stop-Process -Id $_ }
         }
     }
 }
 
-function Install-SimeonAzureDevOpsResources {
+function Install-SimeonTenantAzureDevOpsResources {
     param(
         [ValidateNotNullOrEmpty()]
         [string]$Organization,
@@ -252,10 +256,8 @@ function Install-SimeonAzureDevOpsResources {
         [string]$Project,
         [ValidateNotNullOrEmpty()]
         [string]$Tenant,
-        [ValidateNotNullOrEmpty()]
-        [string]$Password,
-        [switch]$IsBaseline,
-        [string]$BaselineRepository
+        [string]$Baseline,
+        [string]$Password        
     )    
     # Creates repo and pipelines and stores service account password
 
@@ -265,18 +267,23 @@ function Install-SimeonAzureDevOpsResources {
         Headers = @{ Authorization = "Bearer $token" }
         ContentType = 'application/json'
     }
-    $queryString = "?api-version=5.1"
+    $apiVersion = "api-version=5.1"
     $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
-    $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
+    try {
+    $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
     $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
+    } 
+    catch {
+        Write-Warning "Could not access Azure DevOps - will retry login"
+    }
     if (!$projectId) {
-        Write-Warning "Could not find project $Project in organization $Organization - will retry"
+        Write-Warning "Could not find project $Project in organization $Organization - will retry login"
                 
         $token = Get-SimeonAzureDevOpsAccessToken
 
         $restProps.Headers.Authorization = "Bearer $token"
-        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects$queryString"   
+        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
         if (!$projectId) {
             throw "Could not find project $Project in organization $Organization - please ensure you have access to Simeon in Azure DevOps and try again."
@@ -284,18 +291,14 @@ function Install-SimeonAzureDevOpsResources {
 
     }
 
-    $repos = irm @restProps "$apiBaseUrl/git/repositories$queryString"
-    $repoName = $Tenant
-
-    if ($IsBaseline) {
-        $repoName = 'baseline'
-    }
+    $repos = irm @restProps "$apiBaseUrl/git/repositories?$apiVersion"
+    $repoName = $Name
 
     $repo = $repos.value |? name -eq $repoName
 
     if (!$repo) {
         Write-Host "Creating repository $repoName"
-        $repo = irm @restProps "$apiBaseUrl/git/repositories$queryString" -Method Post -Body (@{
+        $repo = irm @restProps "$apiBaseUrl/git/repositories?$apiVersion" -Method Post -Body (@{
                 name = $repoName
                 project = @{
                     id = $projectId
@@ -308,16 +311,13 @@ function Install-SimeonAzureDevOpsResources {
     }
 
     $importUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
-    if ($IsBaseline) {
-        $importUrl = 'https://github.com/simeoncloud/Baseline.git' 
-    }
     
-    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints$($queryString)-preview.1").value |? name -eq 'simeoncloud'
+    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints?$apiVersion-preview.1").value |? name -eq 'simeoncloud'
     
     if (!$serviceEndpoint) { throw "Could not find service connection to simeoncloud GitHub." }
 
     try {
-        irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests$($queryString)-preview.1" -Method Post -Body (@{
+        irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests?$apiVersion-preview.1" -Method Post -Body (@{
                 parameters = @{
                     gitSource = @{
                         overwrite = $false
@@ -335,12 +335,12 @@ function Install-SimeonAzureDevOpsResources {
         Write-Host "Repository is not empty - will not import"
     }
     
-    $pipelines = irm @restProps "$apiBaseUrl/build/definitions$queryString" -Method Get
+    $pipelines = irm @restProps "$apiBaseUrl/build/definitions?$apiVersion" -Method Get
 
     $pipelineVariables = @{
         'AadAuth:Username' = @{
             allowOverride = $true
-            value = ''
+            value = "simeon@$Tenant"
         }
         'AadAuth:Password' = @{
             allowOverride = $true
@@ -349,26 +349,7 @@ function Install-SimeonAzureDevOpsResources {
         }
         'BaselineRepository' = @{
             allowOverride = $true
-            value = ''
-        }        
-    }
-        
-    if ($IsBaseline) {
-        $pipelineVariables['AadAuth:Username'].value = "simeon@$Tenant"
-    }    
-    
-    if (!$IsBaseline) {
-        if ($BaselineRepository) {            
-            Write-Host "Using baseline repository: $BaselineRepository"
-            $pipelineVariables['BaselineRepository'].value = $BaselineRepository
-        }
-        elseif (($repos |? name -eq 'baseline')) {
-            Write-Host "Using baseline repository from Azure DevOps Project"        
-            $pipelineVariables['BaselineRepository'].value = 'baseline'
-        }
-        else {            
-            Write-Host "No baseline repository exists Azure DevOps Project - using default Simeon baseline"
-            $pipelineVariables['BaselineRepository'].value = 'SimeonBaseline'
+            value = $Baseline
         }
     }
     
@@ -377,14 +358,13 @@ function Install-SimeonAzureDevOpsResources {
         
         $pipeline = $pipelines.value |? name -eq $pipelineName
 
-
         if ($pipeline) {
             Write-Host "Pipeline $pipelineName already exists - deleting"            
-            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)$($queryString)" -Method Delete | Out-Null
+            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?$apiVersion" -Method Delete | Out-Null
         }
 
         Write-Host "Creating pipeline $pipelineName"      
-        irm @restProps "$apiBaseUrl/build/definitions$($queryString)" -Method Post -Body (@{
+        irm @restProps "$apiBaseUrl/build/definitions?$apiVersion" -Method Post -Body (@{
                 name = $pipelineName
                 path = $Tenant
                 process = @{
@@ -414,21 +394,35 @@ function Install-SimeonAzureDevOpsResources {
     }    
 }
 
-function Install-Simeon {
+function Read-HostBooleanValue {
+    param(
+        [ValidateNotNullOrEmpty()]
+        [string]$Prompt      
+    )    
+    $line = ''
+    while ($line -notin @('y', 'n')) {
+        Write-Host $Prompt -NoNewline            
+        $line = Read-Host "Y [Yes]  N [No]: "
+    }
+    if ($line -eq 'Y') { return $true }
+    return $false    
+}
+
+function Install-SimeonTenant {
     param(
         # The organization name that appears in DevOps - e.g. 'simeon-orgName'
         [ValidateNotNullOrEmpty()]
         [string]$Organization = (& { if ($script:Organization) { $script:Organization } else { Read-Host 'Enter Azure DevOps organization name' } }),
-        # The project name that appears in DevOps - usually 'Tenants'
+        # The project name in DevOps - usually 'Tenants'
         [ValidateNotNullOrEmpty()]
         [string]$Project = 'Tenants',
         [ValidateNotNullOrEmpty()]
-        # The Azure tenant domain name to configure Simeon for - e.g. 'contoso.com or contoso.onmicrosoft.com'
-        [string]$Tenant = (Read-Host 'Enter tenant domain name'),
-        # Indicates that this tenant is to be used as a baseline - affects the naming of the repository and pipelines in Azure DevOps
-        [switch]$IsBaseline,
-        # Indicates the baseline repository to use for pipelines - defaults to the baseline in Azure DevOps
-        [string]$BaselineRepository
+        # The Azure tenant domain name to configure Simeon for
+        [string]$Tenant = (Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com'),
+        # Indicates the name for the repository and pipelines to create - defaults to the tenant name
+        [string]$Name = $Tenant,
+        # Indicates the baseline repository to use for pipelines
+        [string]$Baseline
     )
     <#
     .SYNOPSIS
@@ -441,9 +435,20 @@ function Install-Simeon {
 
     $script:Organization = $Organization
 
-    $password = Install-SimeonServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
+    if (!$Baseline) {
+        if (Read-HostBooleanValue 'Is this the default baseline for the organization?') { 
+            $Baseline = ''  # no baseline
+            $Name = 'baseline'
+        }
+        else {
+            $Baseline = Read-Host 'Enter the name of the baseline repository to use (if none is specified, the default baseline for the organization will be used)'
+            if (!$Baseline) { $Baseline = 'baseline' }
+        }
+    }
 
-    Install-SimeonAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Password $password -IsBaseline:$IsBaseline -BaselineRepository $BaselineRepository
+    $password = Install-SimeonTenantServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
+
+    Install-SimeonTenantAzureDevOpsResources -Organization $Organization -Project $Project -Tenant $Tenant -Name $Name -Password $password -BaselineRepository $Baseline
 
     Write-Host "Completed successfully"
 }
