@@ -418,7 +418,7 @@ function Install-SimeonTenant {
         [string]$Project = 'Tenants',
         [ValidateNotNullOrEmpty()]
         # The Azure tenant domain name to configure Simeon for
-        [string]$Tenant = (Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com'),
+        [string]$Tenant = (Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com)'),
         # Indicates the name for the repository and pipelines to create - defaults to the tenant name
         [string]$Name = $Tenant,
         # Indicates the baseline repository to use for pipelines
