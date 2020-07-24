@@ -402,7 +402,7 @@ function Read-HostBooleanValue {
     $line = ''
     while ($line -notin @('y', 'n')) {
         Write-Host $Prompt            
-        $line = Read-Host "Y [Yes]  N [No]: "
+        $line = Read-Host "Y [Yes]  N [No]"
     }
     if ($line -eq 'Y') { return $true }
     return $false    
