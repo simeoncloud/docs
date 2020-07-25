@@ -165,7 +165,7 @@ function Install-SimeonTenantServiceAccount {
 
 function Get-SimeonAzureDevOpsAccessToken {
     param(
-        [switch]$AutomaticallyLaunchBrowser  
+        [switch]$AutomaticallyLaunchBrowser
     )
 
     # Gets an OAuth token to make API calls to Azure DevOps
@@ -176,14 +176,13 @@ function Get-SimeonAzureDevOpsAccessToken {
         if (Get-Command Get-NetTCPConnection -EA SilentlyContinue) {
             Get-NetTCPConnection -LocalPort $port -EA SilentlyContinue | Select -ExpandProperty OwningProcess |% {
                 Write-Warning "Terminating existing process '$_' listening on port '$port'"
-                Stop-Process -Force -EA SilentlyContinue
+                $_ | Stop-Process -Force -EA SilentlyContinue
             }
         }
 
         $http = [System.Net.HttpListener]::new() 
         $http.Prefixes.Add("http://localhost:$port/")
         $http.Start()
-     
         try {
             # initiate browser request for token
             $appId = '26D8E4BF-3432-4640-B58E-2ADA3FEC36B4'
@@ -252,7 +251,7 @@ function Get-SimeonAzureDevOpsAccessToken {
     finally {
         # handle ctrl+c
         if (Get-Command gwmi -EA SilentlyContinue) {
-            gwmi win32_process -filter "Name='powershell.exe' AND ParentProcessId=$PID" | Select -ExpandProperty ProcessId | % { Stop-Process -Id $_ }
+            gwmi win32_process -filter "Name='powershell.exe' AND ParentProcessId=$PID" | Select -ExpandProperty ProcessId | % { Stop-Process -Id $_ -Force }
         }
     }
 }
@@ -362,7 +361,7 @@ function Install-SimeonTenantPipelines {
     }
     
     foreach ($action in @('Deploy', 'Export')) { 
-        $pipelineName = "$repoName - $action"
+        $pipelineName = "$Name - $action"
         
         $pipeline = $pipelines.value |? name -eq $pipelineName
 
@@ -374,7 +373,7 @@ function Install-SimeonTenantPipelines {
         Write-Host "Creating pipeline '$pipelineName'"      
         irm @restProps "$apiBaseUrl/build/definitions?$apiVersion" -Method Post -Body (@{
                 name = $pipelineName
-                path = $Tenant
+                path = $Name
                 process = @{
                     type = 2
                     yamlFilename = "M365Management$($action).yml"
