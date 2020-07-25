@@ -132,7 +132,7 @@ function Install-SimeonTenantServiceAccount {
             Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
         }
         else {
-            Write-Host "'$upn' already has directory role '$($_.DisplayName)'"
+            Write-Host "Account already has directory role '$($_.DisplayName)'"
         }
     }
 
@@ -153,11 +153,11 @@ function Install-SimeonTenantServiceAccount {
 
     # Add as contributor to an Azure RM Subscription
     if (!(Get-AzRoleAssignment -SignInName $upn -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$subscriptionId")) {
-        Write-Host "Adding to 'Contributor' role on subscription '$subscriptionId'"
+        Write-Host "Adding account to 'Contributor' role on subscription '$subscriptionId'"
         New-AzRoleAssignment -SignInName $upn -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$subscriptionId" | Out-Null
     }
     else {
-        Write-Host "Already has 'Contributor' role on subscription '$subscriptionId'"
+        Write-Host "Account already has 'Contributor' role on subscription '$subscriptionId'"
     }
 
     return $password
@@ -214,7 +214,7 @@ function Get-SimeonAzureDevOpsAccessToken {
                     $accessToken = $inputData.Substring('access_token='.Length)
 
                     $suffix = 'you may close this window'
-                    if ($AutomaticallyLaunchBrowser) { $suffix = 'this window will close momentarily' }
+                    if ($using:AutomaticallyLaunchBrowser) { $suffix = 'this window will close momentarily' }
 
                     $html = "<html><body><h3>Azure DevOps authentication successful - $suffix</h3></body></html>" 
                 } 
