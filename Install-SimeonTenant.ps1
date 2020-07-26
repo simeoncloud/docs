@@ -269,7 +269,7 @@ function Install-SimeonTenantPipelines {
     )    
     # Creates repo and pipelines and stores service account password
    
-    Write-Host "Connecting to Azure DevOps"
+    Write-Host "Connecting to Azure DevOps - if prompted, please log in to the browser as an account with access to your Simeon organization '$Organization'"
 
     $token = Get-SimeonAzureDevOpsAccessToken -AutomaticallyLaunchBrowser
     $restProps = @{
