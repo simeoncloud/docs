@@ -442,7 +442,7 @@ function Install-SimeonTenant {
 
     $script:Organization = $Organization
 
-    if (!$Baseline) {
+    if (!$PSBoundParameters.ContainsKey('Baseline') -and $Name -ne 'baseline') {
         if (Read-HostBooleanValue 'Is this the default baseline for the organization?') { 
             $Baseline = ''  # no baseline
             $Name = 'baseline'
