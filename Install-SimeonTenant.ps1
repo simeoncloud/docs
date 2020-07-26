@@ -99,8 +99,13 @@ function Install-SimeonTenantServiceAccount {
 
     Connect-Azure $Tenant
 
-    # Create/update Azure AD user with random password
-    $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
+    try {
+        # Create/update Azure AD user with random password
+        $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
+    }
+    catch {
+        throw "Could not access Azure Active Directory '$Tenant' - please make sure you signed in using an account with the 'Global administrator' role"
+    }
     $upn = "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)"
     $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
     
