@@ -289,7 +289,7 @@ function Install-SimeonTenantPipelines {
         Write-Warning "Could not access Azure DevOps project '$Project' in organization '$Organization' - retrying login (you may have been automatically logged in to Azure DevOps with an account that does not have access)"
                 
         $token = Get-SimeonAzureDevOpsAccessToken
-
+Write-Host $token
         $restProps.Headers.Authorization = "Bearer $token"
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
