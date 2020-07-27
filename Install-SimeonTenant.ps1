@@ -225,7 +225,7 @@ function Get-SimeonAzureDevOpsAccessToken {
                     $suffix = 'you may close this window'
                     if ($using:LaunchBrowser) { $suffix = 'this window will close momentarily' }
 
-                    $html = "<html><body><h3>Azure DevOps authentication successful - $suffix</h3></body></html>" 
+                    $html = "<html><body><h3>Azure DevOps authentication successful - $suffix - return to the running PowerShell script window</h3></body></html>" 
                 } 
                 else {
                     $html = "<html><body><h3>Could not obtain Azure DevOps access token</h3></body></html>"
@@ -233,7 +233,7 @@ function Get-SimeonAzureDevOpsAccessToken {
 
                 $html += @"
 <script type='text/javascript'>
-    setTimeout(function() { window.close() }, 1500);
+    setTimeout(function() { window.close() }, 2500);
 </script> 
 "@
 
@@ -311,18 +311,21 @@ function Install-SimeonTenantPipelines {
     )    
     # Creates repo and pipelines and stores service account password
    
-    $loginInstructions = "log in as an account with access to your Simeon organization '$Organization' and the '$Project' project"
+    $loginInstructions = "log in as an account with access to your Simeon organization '$Organization' and the '$Project' project - press any key to continue"
     
-    Write-Host "Connecting to Azure DevOps - if prompted, $loginInstructions"
+    Write-Warning "Connecting to Azure DevOps - if prompted, $loginInstructions" -ForegroundColor Green
+    $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
     $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser
     
     if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
         Write-Warning "Retrying Azure DevOps login - $loginInstructions"
+        $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser -PromptForLogin
     }
     
     if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
         Write-Warning "Retrying Azure DevOps login - please copy the below url, paste into an incognito/private browser window and $loginInstructions"
+        $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         $token = Get-SimeonAzureDevOpsAccessToken
     }
 
