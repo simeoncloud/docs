@@ -506,7 +506,7 @@ function Install-SimeonTenant {
     $script:Organization = $Organization
 
     if (!$PSBoundParameters.ContainsKey('Baseline') -and $Name -ne 'baseline') {
-        if (Read-HostBooleanValue 'Is this the default baseline for the organization?') { 
+        if (Read-HostBooleanValue 'Are you setting up the default baseline (as opposed to a specific tenant)?') { 
             $Baseline = ''  # no baseline
             $Name = 'baseline'
         }
