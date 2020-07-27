@@ -104,17 +104,15 @@ function Test-AzureADCurrentUserRole {
 function Install-SimeonTenantServiceAccount {
     param(
         [ValidateNotNullOrEmpty()]
-        [string]$Organization,
-        [ValidateNotNullOrEmpty()]
-        [string]$Project,
-        [ValidateNotNullOrEmpty()]
         [string]$Tenant        
     )
     # Creates/updates service account and required permissions
 
+    Write-Host "Installing Simeon service account for tenant '$Tenant'"
+
     Connect-Azure $Tenant
 
-    if (!(Test-AzureADRole -Name 'Company Administrator')) {
+    if (!(Test-AzureADCurrentUserRole -Name 'Company Administrator')) {
         Disconnect-AzAccount
         Clear-AzContext -Force
         throw "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
@@ -328,6 +326,8 @@ function Install-SimeonTenantPipelines {
     )    
     # Creates repo and pipelines and stores service account password
    
+    Write-Host "Installing Azure DevOps repository and pipelines for tenant '$Tenant' in project '$Project' in organization '$Organization'"
+
     $loginInstructions = "log in as an account with access to your Simeon organization '$Organization' and the '$Project' project - press any key to continue"
     
     Write-Warning "Connecting to Azure DevOps - if prompted, $loginInstructions"
@@ -520,7 +520,7 @@ function Install-SimeonTenant {
         }
     }
 
-    $password = Install-SimeonTenantServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
+    $password = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
     Install-SimeonTenantPipelines -Organization $Organization -Project $Project -Tenant $Tenant -Name $Name -Password $password -Baseline $Baseline
 
