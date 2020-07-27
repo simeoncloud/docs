@@ -85,6 +85,22 @@ function Connect-Azure {
     Write-Host "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
 }
 
+function Test-AzureADCurrentUserRole {
+    param(
+        [ValidateNotNullOrEmpty()]
+        [string]$RoleName        
+    )    
+    $token = Get-AzContextToken 'https://graph.microsoft.com'
+    $value = @()
+    $url = "https://graph.microsoft.com/beta/me/memberOf"
+    while ($url) {
+        $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }     
+        if ($res.value) { $value += $res.value }
+        $url = $res."@odata.nextLink"
+    }
+    return [bool]($value |? '@odata.type' -eq '#microsoft.graph.directoryRole' |? displayName -eq $RoleName)
+}
+
 function Install-SimeonTenantServiceAccount {
     param(
         [ValidateNotNullOrEmpty()]
@@ -98,10 +114,7 @@ function Install-SimeonTenantServiceAccount {
 
     Connect-Azure $Tenant
 
-    try {
-        # TODO: check if global admin
-    }
-    catch {
+    if (!(Test-AzureADRole -Name 'Company Administrator')) {
         Disconnect-AzAccount
         Clear-AzContext -Force
         throw "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
@@ -476,6 +489,7 @@ function Install-SimeonTenant {
         # The Azure tenant domain name to configure Simeon for
         [string]$Tenant = (Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com)'),
         # Indicates the name for the repository and pipelines to create - defaults to the tenant name
+        [ValidateNotNullOrEmpty()]
         [string]$Name = $Tenant,
         # Indicates the baseline repository to use for pipelines
         [string]$Baseline
@@ -498,7 +512,11 @@ function Install-SimeonTenant {
         }
         else {
             $Baseline = Read-Host 'Enter the name of the baseline repository to use (if none is specified, the default baseline for the organization will be used)'
-            if (!$Baseline) { $Baseline = 'baseline' }
+            if (!$Baseline) { 
+                $Baseline = 'baseline' 
+                Write-Host "Using 'baseline' as baseline repository"
+            }
+
         }
     }
 
