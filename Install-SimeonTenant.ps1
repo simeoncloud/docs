@@ -313,7 +313,7 @@ function Install-SimeonTenantPipelines {
    
     $loginInstructions = "log in as an account with access to your Simeon organization '$Organization' and the '$Project' project - press any key to continue"
     
-    Write-Warning "Connecting to Azure DevOps - if prompted, $loginInstructions" -ForegroundColor Green
+    Write-Warning "Connecting to Azure DevOps - if prompted, $loginInstructions"
     $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
     $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser
     
