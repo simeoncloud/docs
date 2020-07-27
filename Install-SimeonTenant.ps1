@@ -238,9 +238,9 @@ function Get-SimeonAzureDevOpsAccessToken {
                     $accessToken = $inputData.Substring('access_token='.Length)
 
                     $suffix = 'you may close this window'
-                    if ($using:LaunchBrowser) { $suffix = 'this window will close momentarily' }
+                    if ($using:LaunchBrowser) { $suffix = "this window will close momentarily or $suffix manually" }
 
-                    $html = "<html><body><h3>Azure DevOps authentication successful - $suffix - return to the running PowerShell script window</h3></body></html>" 
+                    $html = "<html><body><h3>Azure DevOps authentication successful - $suffix. Return to the running PowerShell script window.</h3></body></html>" 
                 } 
                 else {
                     $html = "<html><body><h3>Could not obtain Azure DevOps access token</h3></body></html>"
