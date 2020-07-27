@@ -72,10 +72,9 @@ function Connect-Azure {
 
     $TenantId = Resolve-AzureTenantId $Tenant
 
-    while (!(Get-AzContext) -or (Set-AzContext -Tenant $TenantId).Tenant.Id -ne $TenantId) { 
-        Write-Warning "Connecting to Azure Tenant '$Tenant' - please sign in using an account with the 'Global administrator' role in Azure Active Directory and Contributor access to an Azure Subscription in that tenant"
-        Start-Sleep -Seconds 2
-
+    while (!(Get-AzContext -WarningAction SilentlyContinue) -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue).Tenant.Id -ne $TenantId) { 
+        Write-Warning "Connecting to Azure Tenant '$Tenant' - please sign in using an account with the 'Global administrator' role in Azure Active Directory and Contributor access to an Azure Subscription in that tenant - press any key to continue"
+        $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         Connect-AzAccount -Tenant $TenantId | Out-Null
     }
     
@@ -104,7 +103,7 @@ function Install-SimeonTenantServiceAccount {
         $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
     }
     catch {
-        throw "Could not access Azure Active Directory '$Tenant' - please make sure you signed in using an account with the 'Global administrator' role"
+        throw "Could not access Azure Active Directory '$Tenant' - please make sure you signed in using an account with the 'Global administrator' role."
     }
     $upn = "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)"
     $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
@@ -149,7 +148,7 @@ function Install-SimeonTenantServiceAccount {
     
         Disconnect-AzAccount
         Clear-AzContext -Force
-        Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again - press any key to continue"
+        Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
         $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         Connect-Azure $Tenant
 
@@ -170,7 +169,8 @@ function Install-SimeonTenantServiceAccount {
 
 function Get-SimeonAzureDevOpsAccessToken {
     param(
-        [switch]$AutomaticallyLaunchBrowser
+        [switch]$LaunchBrowser,
+        [switch]$PromptForLogin
     )
 
     # Gets an OAuth token to make API calls to Azure DevOps
@@ -196,11 +196,16 @@ function Get-SimeonAzureDevOpsAccessToken {
             $state = [Guid]::NewGuid().ToString()
             $authorizeUrl = "https://app.vssps.visualstudio.com/oauth2/authorize?client_id=$appId&response_type=Assertion&state=$state&scope=$scope&redirect_uri=$redirectUri"
             
-            if ($using:AutomaticallyLaunchBrowser) {
+            if ($using:PromptForLogin) {
+                # can't pass prompt=login to vssps authorize url - so need to go directly to the AAD login url that vssps redirects to and add prompt=login 
+                $scope = $scope -replace ' ', '%252520'
+                $authorizeUrl = "https://login.microsoftonline.com/common/oauth2/authorize?client_id=499b84ac-1321-427f-aa17-267ca6975798&site_id=501454&response_mode=form_post&response_type=code+id_token&redirect_uri=https%3A%2F%2Fapp.vssps.visualstudio.com%2F_signedin&nonce=$state&state=realm%3Dapp.vssps.visualstudio.com%26reply_to%3Dhttps%253A%252F%252Fapp.vssps.visualstudio.com%252Foauth2%252Fauthorize%253Fclient_id%253D$appId%2526response_type%253DAssertion%2526state%253D$state%2526scope%253D$scope%2526redirect_uri%253Dhttps%25253A%25252F%25252Fsimeondevopsapi.azurewebsites.net%25252Fapi%25252Foauth2%25252Fcallback%26ht%3D3%26nonce%3D$state&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&cid=6706a22e-cb71-42f6-98e1-acf49624393a&wsucxt=1&githubsi=true&msaoauth2=true&prompt=login"
+            }
+
+            if ($using:LaunchBrowser) {
                 Start-Process $authorizeUrl
             } 
             else {
-                Write-Warning "Please launch the following url from your browser in an incognito/private window and log in with an account that has access to your Simeon organization in Azure DevOps"
                 Write-Host $authorizeUrl -ForegroundColor Green
             }
 
@@ -212,13 +217,13 @@ function Get-SimeonAzureDevOpsAccessToken {
                 $inputData = [System.IO.StreamReader]::new($context.Request.InputStream).ReadToEnd()
    
                 if ($context.Request.QueryString['state'] -ne $state) {
-                    $html = "<html><body><h3>Invalid state in query: $state</h3></body></html>"
+                    $html = "<html><body><h3>Invalid state in query: received $($context.Request.QueryString['state']) but expected $state</h3></body></html>"
                 }
                 elseif ($inputData -like 'access_token=*') { 
                     $accessToken = $inputData.Substring('access_token='.Length)
 
                     $suffix = 'you may close this window'
-                    if ($using:AutomaticallyLaunchBrowser) { $suffix = 'this window will close momentarily' }
+                    if ($using:LaunchBrowser) { $suffix = 'this window will close momentarily' }
 
                     $html = "<html><body><h3>Azure DevOps authentication successful - $suffix</h3></body></html>" 
                 } 
@@ -261,6 +266,38 @@ function Get-SimeonAzureDevOpsAccessToken {
     }
 }
 
+function Test-SimeonAzureDevOpsAccessToken {
+    param(
+        [ValidateNotNullOrEmpty()]
+        [string]$Organization,
+        [ValidateNotNullOrEmpty()]
+        [string]$Project,
+        [ValidateNotNullOrEmpty()]
+        [string]$Token        
+    )    
+    $restProps = @{
+        Headers = @{ Authorization = "Bearer $token" }
+        ContentType = 'application/json'
+    }
+    $apiVersion = "api-version=5.1"
+    $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+
+    try {
+        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
+        $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
+        if ($projectId) {
+            return $true
+        } 
+        else {
+            Write-Warning "Successfully authenticated with Azure DevOps, but could not access project '$Project' in organization '$Organization'"
+        }
+    } 
+    catch {
+        Write-Warning "Could not access with Azure DevOps organization '$Organization'"
+    }
+    return $false
+}
+
 function Install-SimeonTenantPipelines {
     param(
         [ValidateNotNullOrEmpty()]
@@ -274,9 +311,25 @@ function Install-SimeonTenantPipelines {
     )    
     # Creates repo and pipelines and stores service account password
    
-    Write-Host "Connecting to Azure DevOps - if prompted, please log in to the browser as an account with access to your Simeon organization '$Organization'"
+    $loginInstructions = "log in as an account with access to your Simeon organization '$Organization' and the '$Project' project"
+    
+    Write-Host "Connecting to Azure DevOps - if prompted, $loginInstructions"
+    $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser
+    
+    if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
+        Write-Warning "Retrying Azure DevOps login - $loginInstructions"
+        $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser -PromptForLogin
+    }
+    
+    if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
+        Write-Warning "Retrying Azure DevOps login - please copy the below url, paste into an incognito/private browser window and $loginInstructions"
+        $token = Get-SimeonAzureDevOpsAccessToken
+    }
 
-    $token = Get-SimeonAzureDevOpsAccessToken -AutomaticallyLaunchBrowser
+    if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
+        throw "Could not access Azure DevOps project '$Project' in organization '$Organization' - ensure the organization and project exists and that you have access."
+    }
+    
     $restProps = @{
         Headers = @{ Authorization = "Bearer $token" }
         ContentType = 'application/json'
@@ -284,25 +337,9 @@ function Install-SimeonTenantPipelines {
     $apiVersion = "api-version=5.1"
     $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
-    try {
-        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
-        $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
-    } 
-    catch {
-    }
-    if (!$projectId) {
-        Write-Warning "Could not access Azure DevOps project '$Project' in organization '$Organization' - retrying login (you may have been automatically logged in to Azure DevOps with an account that does not have access)"
-                
-        $token = Get-SimeonAzureDevOpsAccessToken
+    $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
+    $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
-        $restProps.Headers.Authorization = "Bearer $token"
-        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
-        $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
-        if (!$projectId) {
-            throw "Could not find project '$Project' in organization '$Organization' - please ensure you have access to Simeon in Azure DevOps and try again."
-        }
-    }
-    Write-Host $token
     $repos = irm @restProps "$apiBaseUrl/git/repositories?$apiVersion"
     $repoName = $Name
 
@@ -460,7 +497,7 @@ function Install-SimeonTenant {
 
     $password = Install-SimeonTenantServiceAccount -Organization $Organization -Project $Project -Tenant $Tenant
 
-    Install-SimeonTenantPipelines -Organization $Organization -Project $Project -Tenant $Tenant -Name $Name -Password $password -BaselineRepository $Baseline
+    Install-SimeonTenantPipelines -Organization $Organization -Project $Project -Tenant $Tenant -Name $Name -Password $password -Baseline $Baseline
 
     Write-Host "Completed successfully"
 }
