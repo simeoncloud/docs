@@ -88,7 +88,7 @@ function Connect-Azure {
 function Test-AzureADCurrentUserRole {
     param(
         [ValidateNotNullOrEmpty()]
-        [string]$RoleName        
+        [string]$Name        
     )    
     $token = Get-AzContextToken 'https://graph.microsoft.com'
     $value = @()
@@ -98,7 +98,7 @@ function Test-AzureADCurrentUserRole {
         if ($res.value) { $value += $res.value }
         $url = $res."@odata.nextLink"
     }
-    return [bool]($value |? '@odata.type' -eq '#microsoft.graph.directoryRole' |? displayName -eq $RoleName)
+    return [bool]($value |? '@odata.type' -eq '#microsoft.graph.directoryRole' |? displayName -eq $Name)
 }
 
 function Install-SimeonTenantServiceAccount {
@@ -112,7 +112,7 @@ function Install-SimeonTenantServiceAccount {
 
     Connect-Azure $Tenant
 
-    if (!(Test-AzureADCurrentUserRole -Name 'Company Administrator')) {
+    if (!(Test-AzureADCurrentUserRole 'Company Administrator')) {
         Disconnect-AzAccount
         Clear-AzContext -Force
         throw "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
