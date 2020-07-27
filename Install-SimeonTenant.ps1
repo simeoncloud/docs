@@ -99,12 +99,16 @@ function Install-SimeonTenantServiceAccount {
     Connect-Azure $Tenant
 
     try {
-        # Create/update Azure AD user with random password
-        $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
+        # TODO: check if global admin
     }
     catch {
-        throw "Could not access Azure Active Directory '$Tenant' - please make sure you signed in using an account with the 'Global administrator' role."
+        Disconnect-AzAccount
+        Clear-AzContext -Force
+        throw "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
     }
+
+    # Create/update Azure AD user with random password
+    $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
     $upn = "simeon@$(Get-AzureADDomain |? IsDefault -eq $true | Select -ExpandProperty Name)"
     $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
     
@@ -141,7 +145,7 @@ function Install-SimeonTenantServiceAccount {
     }
 
     # Find Azure RM subscription to use 
-    $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
+    $subscriptionId = Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? Name -ne 'Access to Azure Active Directory' |? State -eq Enabled | Sort-Object Name | Select -First 1 -ExpandProperty Id
     if (!$subscriptionId) {
         # Elevate access to see all subscriptions in the tenant and force re-login
         irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" }
