@@ -313,7 +313,7 @@ function Test-SimeonAzureDevOpsAccessToken {
     return $false
 }
 
-function Install-SimeonTenantPipelines {
+function Install-SimeonTenantPipeline {
     param(
         [ValidateNotNullOrEmpty()]
         [string]$Organization,
@@ -522,7 +522,7 @@ function Install-SimeonTenant {
 
     $password = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
-    Install-SimeonTenantPipelines -Organization $Organization -Project $Project -Tenant $Tenant -Name $Name -Password $password -Baseline $Baseline
+    Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Tenant $Tenant -Name $Name -Password $password -Baseline $Baseline
 
     Write-Host "Completed successfully"
 }
