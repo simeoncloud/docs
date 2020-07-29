@@ -197,7 +197,7 @@ function Install-SimeonTenantServiceAccount {
     
         Disconnect-AzAccount
         Clear-AzContext -Force
-        Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again - press any key to continue..." -ForegroundColor Green -NoNewline
+        Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again" -ForegroundColor Yellow -NoNewline
         $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         Write-Host ''
         Connect-Azure $Tenant
