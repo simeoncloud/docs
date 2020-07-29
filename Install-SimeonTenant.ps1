@@ -197,9 +197,7 @@ function Install-SimeonTenantServiceAccount {
     
         Disconnect-AzAccount
         Clear-AzContext -Force
-        Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again" -ForegroundColor Yellow -NoNewline
-        $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
-        Write-Host ''
+        Write-Host "Elevating access to allow assignment of subscription roles - you will need to sign in again" -ForegroundColor Yellow 
         Connect-Azure $Tenant
 
         $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
@@ -398,14 +396,14 @@ function Install-SimeonTenantAzureDevOps {
     $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser
     
     if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
-        Write-Warning "Retrying Azure DevOps login - $loginInstructions - press any key to continue..." -ForegroundColor Green -NoNewline
+        Write-Host "Retrying Azure DevOps login - $loginInstructions - press any key to continue..." -ForegroundColor Green -NoNewline
         $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         Write-Host ''
         $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser -PromptForLogin
     }
     
     if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
-        Write-Warning "Retrying Azure DevOps login - please copy the below url, paste into an incognito/private browser window and $loginInstructions - press any key to continue..." -ForegroundColor Green -NoNewline
+        Write-Host "Retrying Azure DevOps login - please copy the below url, paste into an incognito/private browser window and $loginInstructions - press any key to continue..." -ForegroundColor Green -NoNewline
         $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
         Write-Host ''
         $token = Get-SimeonAzureDevOpsAccessToken
