@@ -370,12 +370,12 @@ function Install-SimeonTenantAzureDevOps {
 
     if (!$PSBoundParameters.ContainsKey('Baseline') -and $Name -ne 'baseline') {
         if (Read-HostBooleanValue 'Are you setting up the default baseline (as opposed to a specific tenant)?') { 
-            $PSBoundParameters.Baseline = ''  # no baseline
+            $Baseline = ''  # no baseline
             $Name = 'baseline'
         }
         else {
-            $PSBoundParameters.Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use 'baseline'"
-            if (!$PSBoundParameters.Baseline) { 
+            $Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use 'baseline'"
+            if (!$Baseline) { 
                 $Baseline = 'baseline' 
             }
         }
