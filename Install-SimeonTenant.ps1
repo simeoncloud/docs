@@ -370,13 +370,13 @@ function Install-SimeonTenantAzureDevOps {
 
     if (!$PSBoundParameters.ContainsKey('Baseline') -and $Name -ne 'baseline') {
         if (Read-HostBooleanValue 'Are you setting up the default baseline (as opposed to a specific tenant)?') { 
-            $Baseline = ''  # no baseline
+            $PSBoundParameters.Baseline = ''  # no baseline
             $Name = 'baseline'
         }
         else {
-            $Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use 'baseline'"
-            if (!$Baseline) { 
-                $Baseline = 'baseline' 
+            $PSBoundParameters.Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use 'baseline'"
+            if (!$PSBoundParameters.Baseline) { 
+                $PSBoundParameters.Baseline = 'baseline' 
             }
         }
     }
@@ -484,10 +484,10 @@ function Install-SimeonTenantAzureDevOps {
             value = $Password
         }
     }
-    if ($PSBoundParameters.ContainsKey('Baseline') -or $Baseline) { 
+    if ($PSBoundParameters.ContainsKey('Baseline')) { 
         $pipelineVariables['BaselineRepository'] = @{
             allowOverride = $true
-            value = $Baseline
+            value = $PSBoundParameters.Baseline
         }
     }
     
