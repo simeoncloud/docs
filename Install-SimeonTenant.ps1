@@ -484,7 +484,7 @@ function Install-SimeonTenantAzureDevOps {
             value = $Password
         }
     }
-    if ($PSBoundParameters.ContainsKey('Baseline')) { 
+    if ($PSBoundParameters.ContainsKey('Baseline') -or $Baseline) { 
         $pipelineVariables['BaselineRepository'] = @{
             allowOverride = $true
             value = $Baseline
