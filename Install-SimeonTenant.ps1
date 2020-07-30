@@ -472,19 +472,22 @@ function Install-SimeonTenantAzureDevOps {
     $pipelineVariables = @{}
 
     if ($Username) {
+        Write-Host "Setting pipeline username"
         $pipelineVariables['AadAuth:Username'] = @{
             allowOverride = $true
             value = $Username
         }
     }
     IF ($Password) {
+        Write-Host "Setting pipeline password"
         $pipelineVariables['AadAuth:Password'] = @{
             allowOverride = $true
             isSecret = $true
             value = $Password
         }
     }
-    if ($PSBoundParameters.ContainsKey('Baseline')) { 
+    if ($PSBoundParameters.ContainsKey('Baseline')) {
+        Write-Host "Setting pipeline baseline" 
         $pipelineVariables['BaselineRepository'] = @{
             allowOverride = $true
             value = $PSBoundParameters.Baseline
