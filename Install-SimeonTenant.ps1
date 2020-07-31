@@ -193,7 +193,7 @@ function Install-SimeonTenantServiceAccount {
     $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
     if (!$subscriptionId) {
         # Elevate access to see all subscriptions in the tenant and force re-login
-        irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" }
+        irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" } | Out-Null
     
         Disconnect-AzAccount
         Clear-AzContext -Force
