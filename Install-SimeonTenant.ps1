@@ -423,6 +423,9 @@ function Install-SimeonTenantAzureDevOps {
     $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
     $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
+    $githubOrg = "SimeonCloud"
+    $githubProjectName = "AzurePipelines"
+
     $repos = irm @restProps "$apiBaseUrl/git/repositories?$apiVersion"
     $repoName = $Name
 
@@ -442,12 +445,12 @@ function Install-SimeonTenantAzureDevOps {
         Write-Host "Repository '$repoName' already exists - will not create"
     }
 
-    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints?$apiVersion-preview.1").value |? name -eq 'simeoncloud'
+    $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints?$apiVersion-preview.1").value |? name -eq $githubOrg
     
-    if (!$serviceEndpoint) { throw "Could not find service connection to simeoncloud GitHub." }
+    if (!$serviceEndpoint) { throw "Could not find service connection to $githubOrg GitHub." }
 
     try {        
-        $importUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
+        $importUrl = "https://github.com/$githubOrg/DefaultTenant.git"
     
         irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests?$apiVersion-preview.1" -Method Post -Body (@{
                 parameters = @{
@@ -477,7 +480,7 @@ function Install-SimeonTenantAzureDevOps {
             value = $Username
         }
     }
-    IF ($Password) {
+    if ($Password) {
         $pipelineVariables['AadAuth:Password'] = @{
             allowOverride = $true
             isSecret = $true
@@ -497,6 +500,7 @@ function Install-SimeonTenantAzureDevOps {
         $pipeline = $pipelines.value |? name -eq $pipelineName
 
         $body = @{
+            jobCancelTimeoutInMinutes = 5
             name = $pipelineName
             path = $Name
             process = @{
@@ -511,13 +515,17 @@ function Install-SimeonTenantAzureDevOps {
                 }
             }
             repository = @{
-                url = "https://github.com/simeoncloud/AzurePipelines.git"
-                name = "simeoncloud/AzurePipelines"
-                id = "simeoncloud/AzurePipelines"
+                url = "https://github.com/$githubOrg/$githubProjectName.git"
+                name = "$githubOrg/$githubProjectName"
+                id = "$githubOrg/$githubProjectName"
                 type = "GitHub"
                 defaultBranch = "master"
                 properties = @{
-                    connectedServiceId = $serviceEndpoint.Id
+                    apiUrl = "https://api.github.com/repos/$githubOrg/$githubProjectName"
+                    branchesUrl = "https://api.github.com/repos/$githubOrg/$githubProjectName/branches"
+                    cloneUrl = "https://github.com/$githubOrg/$githubProjectName.git"
+                    connectedServiceId = $serviceEndpoint.id
+                    refsUrl = "https://api.github.com/repos/$githubOrg/$githubProjectName/git/refs"
                 }
             }
             uri = "M365Management$($action).yml"
