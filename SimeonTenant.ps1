@@ -29,11 +29,13 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Message
         )
+        $writeArgs = @{}
         if ($ConfirmPreference -ne 'None') {
             $Message += " - press Enter to continue..."
+            $writeArgs['NoNewline'] = $true
         }
         
-        Write-Host "$Message" -ForegroundColor Green -NoNewline
+        Write-Host "$Message" -ForegroundColor Green @writeArgs
         
         if ($ConfirmPreference -ne 'None') {
             Read-Host | Out-Null
