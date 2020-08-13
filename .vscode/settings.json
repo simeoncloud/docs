@@ -1,4 +1,5 @@
 {
     "powershell.codeFormatting.alignPropertyValuePairs": false,
-    "powershell.codeFormatting.addWhitespaceAroundPipe": false
+    "powershell.codeFormatting.addWhitespaceAroundPipe": false,
+    "editor.tabSize": 4
 }

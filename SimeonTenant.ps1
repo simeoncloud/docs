@@ -62,6 +62,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             @{ Name = 'MSAL.PS' }
         )
         if ($PSVersionTable.PSEdition -eq 'Core') {
+            Get-PackageSource |? Location -eq 'https://www.poshtestgallery.com/api/v2/' | Unregister-PackageSource -Force
             Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null
             $requiredModules += @{ Name = 'AzureAD.Standard.Preview'; RequiredVersion = '0.0.0.10'; Repository = 'PoshTestGallery' }
         }
@@ -252,7 +253,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
         $devOpsAppId = '499b84ac-1321-427f-aa17-267ca6975798'
         New-MsalClientApplication -ClientId $simeonClientId -RedirectUri http://localhost:3546 | `
-        Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue |% { 
+            Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue | % { 
             (Get-MsalToken -PublicClientApplication $_ -Scopes "$devOpsAppId/.default").AccessToken 
         }
     }
@@ -482,6 +483,17 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 irm @restProps  $uri -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
             }
         }    
+    }
+
+    function Install-SimeonTenantBaseline {
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Repository,
+            [ValidateNotNullOrEmpty()]
+            [string]$Baseline      
+        )      
+            
+        #git submodule add -b master -f --name Source/Baseline $Baseline Source/Baseline
     }
 
     function Install-SimeonTenant {
