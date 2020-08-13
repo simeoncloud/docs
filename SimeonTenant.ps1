@@ -437,7 +437,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         while (!$token -or !(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {            
             Wait-EnterKey "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon organization '$Organization' and the '$Project' project"        
-            $token = Get-SimeonAzureDevOpsAccessToken -LaunchBrowser -PromptForLogin
+            $token = Get-SimeonAzureDevOpsAccessToken -PromptForLogin
         }
     
         $restProps = @{
