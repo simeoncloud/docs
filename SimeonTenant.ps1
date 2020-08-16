@@ -120,19 +120,6 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         return $result
     }
 
-    function Get-AzureManagementAccessToken {
-        param(
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant
-        )
-        # Set well-known client ID for Azure PowerShell
-        $clientId = "1950a258-227b-4e31-a9cf-717495945fc2" 
-        New-MsalClientApplication -ClientId $clientId -TenantId $Tenant | `
-            Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue | % { 
-            (Get-MsalToken -PublicClientApplication $_ -Scopes @('https://management.core.windows.net//user_impersonation', 'https://graph.microsoft.com/.default')).AccessToken 
-        }
-    }
-
     function Connect-Azure {
         param(
             [string]$Tenant,
@@ -260,105 +247,12 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         return @{ Username = $upn; Password = $password }
     }
 
-
     function Get-SimeonAzureDevOpsAccessToken {
-        param(
-            [switch]$LaunchBrowser,
-            [switch]$PromptForLogin
-        )
-
-        # Gets an OAuth token to make API calls to Azure DevOps
-        # Needs to run as a job (external process) because a bug in .NET Core keeps a reservation on the http endpoint even after the http listener is disposed (until process exits)
-
-        if ($env:SimeonAzureDevOpsAccessToken) { return $env:SimeonAzureDevOpsAccessToken }
-
-        $job = Start-Job -ScriptBlock {
-            $port = 3546
-            if (Get-Command Get-NetTCPConnection -EA SilentlyContinue) {
-                Get-NetTCPConnection -LocalPort $port -EA SilentlyContinue | Select -ExpandProperty OwningProcess | % {
-                    Write-Warning "Terminating existing process '$_' listening on port '$port'"
-                    $_ | Stop-Process -Force -EA SilentlyContinue
-                }
-            }
-
-            $http = [System.Net.HttpListener]::new() 
-            $http.Prefixes.Add("http://localhost:$port/")
-            $http.Start()
-            try {
-                # initiate browser request for token
-                $appId = '26D8E4BF-3432-4640-B58E-2ADA3FEC36B4'
-                $redirectUri = 'https://simeondevopsapi.azurewebsites.net/api/oauth2/callback'
-                $scope = 'vso.analytics vso.auditlog vso.build_execute vso.code_full vso.code_status vso.connected_server vso.dashboards_manage vso.entitlements vso.environment_manage vso.extension.data_write vso.extension_manage vso.gallery_acquire vso.gallery_manage vso.graph_manage vso.identity_manage vso.loadtest_write vso.machinegroup_manage vso.memberentitlementmanagement_write vso.notification_diagnostics vso.notification_manage vso.packaging_manage vso.profile_write vso.project_manage vso.release_manage vso.securefiles_manage vso.security_manage vso.serviceendpoint_manage vso.symbols_manage vso.taskgroups_manage vso.test_write vso.tokenadministration vso.tokens vso.variablegroups_manage vso.wiki_write vso.work_full'
-                $state = [Guid]::NewGuid().ToString()
-                $authorizeUrl = "https://app.vssps.visualstudio.com/oauth2/authorize?client_id=$appId&response_type=Assertion&state=$state&scope=$scope&redirect_uri=$redirectUri"
-            
-                if ($using:PromptForLogin) {
-                    # can't pass prompt=login to vssps authorize url - so need to go directly to the AAD login url that vssps redirects to and add prompt=login 
-                    $scope = $scope -replace ' ', '%252520'
-                    $authorizeUrl = "https://login.microsoftonline.com/common/oauth2/authorize?client_id=499b84ac-1321-427f-aa17-267ca6975798&site_id=501454&response_mode=form_post&response_type=code+id_token&redirect_uri=https%3A%2F%2Fapp.vssps.visualstudio.com%2F_signedin&nonce=$state&state=realm%3Dapp.vssps.visualstudio.com%26reply_to%3Dhttps%253A%252F%252Fapp.vssps.visualstudio.com%252Foauth2%252Fauthorize%253Fclient_id%253D$appId%2526response_type%253DAssertion%2526state%253D$state%2526scope%253D$scope%2526redirect_uri%253Dhttps%25253A%25252F%25252Fsimeondevopsapi.azurewebsites.net%25252Fapi%25252Foauth2%25252Fcallback%26ht%3D3%26nonce%3D$state&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&cid=6706a22e-cb71-42f6-98e1-acf49624393a&wsucxt=1&githubsi=true&msaoauth2=true&prompt=login"
-                }
-
-                if ($using:LaunchBrowser) {
-                    Start-Process $authorizeUrl
-                } 
-                else {
-                    Write-Host $authorizeUrl -ForegroundColor Green
-                }
-
-                # listen for callback
-                while ($http.IsListening) {
-                    Start-Sleep -Milliseconds 100
-                    $context = $http.GetContext()
-
-                    $inputData = [System.IO.StreamReader]::new($context.Request.InputStream).ReadToEnd()
-   
-                    if ($context.Request.QueryString['state'] -and $context.Request.QueryString['state'] -ne $state) {
-                        $html = "<html><body><h3>Invalid state in query: received $($context.Request.QueryString['state']) but expected $state</h3></body></html>"
-                    }
-                    elseif ($inputData -like 'access_token=*') { 
-                        $accessToken = $inputData.Substring('access_token='.Length)
-
-                        $suffix = 'you may close this window'
-                        if ($using:LaunchBrowser) { $suffix = "this window will close momentarily or $suffix manually" }
-
-                        $html = "<html><body><h3>Azure DevOps authentication successful - $suffix and return to the PowerShell window.</h3></body></html>" 
-                    } 
-                    else {
-                        $html = "<html><body><h3>Could not obtain Azure DevOps access token</h3></body></html>"
-                    }
-
-                    $html += @"
-<script type='text/javascript'>
-    setTimeout(function() { window.close() }, 2500);
-</script> 
-"@
-
-                    $buffer = [System.Text.Encoding]::UTF8.GetBytes($html) 
-                    $context.Response.ContentLength64 = $buffer.Length
-                    $context.Response.OutputStream.Write($buffer, 0, $buffer.Length)
-                    $context.Response.OutputStream.Close()            
-
-                    if ($accessToken) {
-                        return $accessToken
-                    }
-                } 
-            }
-            finally {
-                $http.Dispose()
-            }
-        } 
-        try {
-            while ($job.State -eq 'Running') {
-                $job | Receive-Job
-                Start-Sleep -Milliseconds 100
-            }
-            $job | Receive-Job -Wait -AutoRemoveJob
-        }
-        finally {
-            # handle ctrl+c
-            if (Get-Command gwmi -EA SilentlyContinue) {
-                gwmi win32_process -filter "Name='powershell.exe' AND ParentProcessId=$PID" | Select -ExpandProperty ProcessId | % { Stop-Process -Id $_ -Force }
-            }
+        $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
+        $devOpsAppId = '499b84ac-1321-427f-aa17-267ca6975798'
+        New-MsalClientApplication -ClientId $simeonClientId -RedirectUri http://localhost:3546 | `
+            Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue | % { 
+            (Get-MsalToken -PublicClientApplication $_ -Scopes "$devOpsAppId/.default").AccessToken 
         }
     }
 
@@ -411,7 +305,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         # Creates repo and pipelines and stores service account password
 
-        if (!$Organization) { $Organization = Read-Organization }
+        while (!$Organization) { $Organization = Read-Organization }
     
         if (!$Project) { $Project = 'Tenants' }
 
@@ -437,7 +331,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         while (!$token -or !(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {            
             Wait-EnterKey "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon organization '$Organization' and the '$Project' project"        
-            $token = Get-SimeonAzureDevOpsAccessToken -PromptForLogin
+            $token = Get-SimeonAzureDevOpsAccessToken
         }
     
         $restProps = @{
