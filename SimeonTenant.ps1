@@ -250,10 +250,12 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
     function Get-SimeonAzureDevOpsAccessToken {
         $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
         $devOpsAppId = '499b84ac-1321-427f-aa17-267ca6975798'
-        New-MsalClientApplication -ClientId $simeonClientId -RedirectUri http://localhost:3546 | `
-            Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue | % { 
-            (Get-MsalToken -PublicClientApplication $_ -Scopes "$devOpsAppId/.default").AccessToken 
+        $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546' }
+        $app = Get-MsalClientApplication @msalAppArgs
+        if (!$app) {
+            $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue 
         }
+        (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default").AccessToken         
     }
 
     function Test-SimeonAzureDevOpsAccessToken {
