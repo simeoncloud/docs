@@ -187,13 +187,13 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         }
 
         # Create/update Azure AD user with random password
-        $user = Get-AzureADUser -Filter "displayName eq 'Simeon Service Account'"
         $upn = "simeon@$Tenant"
+        $user = Get-AzureADUser -Filter "userPrincipalName eq '$upn'"
         $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
     
         if (!$user) {
             Write-Host "Creating account '$upn'"
-            $user = New-AzureADUser -DisplayName 'Simeon Service Account' `
+            $user = New-AzureADUser -DisplayName 'Microsoft 365 Management Service Account' `
                 -UserPrincipalName $upn `
                 -MailNickName simeon -AccountEnabled $true `
                 -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
@@ -302,7 +302,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
             [string]$Username,
-            [string]$Password
+            [string]$Password,
+            [string]$GitHubAccessToken
         )    
 
         # Creates repo and pipelines and stores service account password
@@ -311,17 +312,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
     
         if (!$Project) { $Project = 'Tenants' }
 
-        if (!$PSBoundParameters.ContainsKey('Baseline') -and $Name -ne 'baseline') {
-            if (Read-HostBooleanValue 'Are you setting up the default baseline (as opposed to a specific tenant)?') { 
-                $PSBoundParameters.Baseline = ''  # no baseline
-                $Name = 'baseline'
-            }
-            else {
-                $PSBoundParameters.Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use 'baseline'"
-                if (!$PSBoundParameters.Baseline) { 
-                    $PSBoundParameters.Baseline = 'baseline' 
-                }
-            }
+        if (!$PSBoundParameters.ContainsKey('Baseline')) {
+            $PSBoundParameters.Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use without a baseline."            
         }
 
         if (!$Name) {
@@ -367,7 +359,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints?$apiVersion-preview.1").value |? name -eq 'simeoncloud'
     
-        if (!$serviceEndpoint) { throw "Could not find service connection to simeoncloud GitHub." }
+        if (!$serviceEndpoint -or $GitHubAccessToken) { New-SimeonServiceEndpoint $GitHubAccessToken }
 
         try {        
             $importUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
@@ -485,6 +477,16 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         }    
     }
 
+    function Install-SimeonAzureDevOpsServiceConnection {
+        param(
+            [string]$GitHubAccessToken
+        )    
+
+        while (!$GitHubAccessToken) { $GitHubAccessToken = Read-Host 'Enter GitHub access token' }
+    
+        #TODO
+    }
+
     function Install-SimeonTenantBaseline {
         param(
             [ValidateNotNullOrEmpty()]
@@ -492,8 +494,17 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Baseline      
         )      
-            
+        #TODO
         #git submodule add -b master -f --name Source/Baseline $Baseline Source/Baseline
+    }
+
+    function Install-SimeonTenantPipelineFiles {
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Repository
+        )      
+        #TODO
+        
     }
 
     function Install-SimeonTenant {
@@ -508,7 +519,9 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # Indicates the name for the repository and pipelines to create - defaults to the tenant name
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
-            [string]$Baseline
+            [string]$Baseline,
+            # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
+            [string]$GitHubAccessToken
         )
         <#
     .SYNOPSIS
@@ -531,6 +544,6 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         Write-Host "Completed successfully"
     }
 
-    Export-ModuleMember -Function Install-SimeonTenant*
+    Export-ModuleMember -Function Install-Simeon*
 
 } | Import-Module -Force
