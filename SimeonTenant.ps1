@@ -361,8 +361,14 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
     
         if (!$serviceEndpoint -or $GitHubAccessToken) { New-SimeonServiceEndpoint $GitHubAccessToken }
 
-        try {        
-            $importUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
+        if (!$repo.defaultBranch) {  
+            if ($PSBoundParameters.Baseline) {
+                $importUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
+            }
+            elseif (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?') {
+                # start with Simeon baseline, since this is a baseline repository
+                $importUrl = 'https://github.com/simeoncloud/Baseline.git'
+            }
     
             irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests?$apiVersion-preview.1" -Method Post -Body (@{
                     parameters = @{
@@ -374,12 +380,6 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 } | ConvertTo-Json) | Out-Null
 
             Write-Host "Importing repository contents from '$importUrl'"                
-        }
-        catch {
-            if ($_.Exception.Response.StatusCode -ne 'Conflict') {
-                throw
-            }
-            Write-Host "Repository is not empty - will not import"
         }
     
         $pipelines = irm @restProps "$apiBaseUrl/build/definitions?$apiVersion" -Method Get
