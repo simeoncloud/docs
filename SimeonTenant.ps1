@@ -1,61 +1,127 @@
 #Requires -Version 5.1
 $ErrorActionPreference = 'Stop'
+$InformationPreference = 'Continue'
 
 New-Module -Name 'SimeonTenant' -ScriptBlock {
     $ErrorActionPreference = 'Stop'
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-    function Read-HostBooleanValue {
+    function Invoke-CommandLine {
+        [CmdletBinding()]
         param(
             [ValidateNotNullOrEmpty()]
-            [string]$Prompt      
-        )    
+            [string]$Expression
+        )
+
+        $ErrorActionPreference = 'Continue'
+        iex $Expression
+        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode" }
+    }
+
+    function Read-HostBooleanValue {
+        [CmdletBinding()]
+        [OutputType([bool])]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Prompt,
+            [bool]$Default = $false
+        )
+
+        if ($ConfirmPreference -eq 'None') {
+            return $Default
+        }
+
         $line = ''
         while ($line -notin @('y', 'n')) {
-            Write-Host $Prompt            
+            Write-Host $Prompt
             $line = Read-Host "Y [Yes]  N [No]"
         }
         if ($line -eq 'Y') { return $true }
-        return $false    
+        return $false
     }
 
     function Read-Tenant {
+        [CmdletBinding()]
+        param()
+
         Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com)'
     }
 
     function Read-Organization {
+        [CmdletBinding()]
+        param()
+
         Read-Host 'Enter Azure DevOps organization name'
     }
 
     function Wait-EnterKey {
+        [CmdletBinding()]
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Message
         )
+
         $writeArgs = @{}
         if ($ConfirmPreference -ne 'None') {
             $Message += " - press Enter to continue..."
             $writeArgs['NoNewline'] = $true
         }
-        
+
         Write-Host "$Message" -ForegroundColor Green @writeArgs
-        
+
         if ($ConfirmPreference -ne 'None') {
             Read-Host | Out-Null
         }
     }
 
-    function Install-AzureModule {         
+    function Get-ParentUri {
+        [CmdletBinding()]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Uri
+        )
+
+        $u = [uri]$Uri
+        $u.AbsoluteUri.Remove($u.AbsoluteUri.Length - ($u.Segments | Select -Last 1).Length)
+    }
+
+    function Get-GitRepository {
+        [CmdletBinding()]
+        [OutputType([string])]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$RepositoryUrl,
+            [string]$AccessToken,
+            [string]$Path = (Join-Path $env:temp $RepositoryUrl.Split('/')[-1])
+        )
+
+        if (!(Get-Command git)) { throw 'Please install git and then try running again - https://git-scm.com/downloads' }
+
+        if (Test-Path $Path) {
+            Remove-Item $Path -Recurse -Force
+        }
+        md $Path -EA SilentlyContinue | Out-Null
+
+        Write-Verbose "Cloning '$RepositoryUrl'"
+        if ($AccessToken) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $AccessToken`"" }
+        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $gitConfig $RepositoryUrl $Path 2>&1" | Write-Verbose
+        return $Path
+    }
+
+    function Install-AzureModule {
+        [CmdletBinding()]
+        param()
+
         if (!(Get-Module PowerShellGet -ListAvailable |? { $_.Version.Major -ge 2 })) {
-            Write-Host "Updating PowerShellGet"
-            Install-Module PowerShellGet -Force -Scope CurrentUser -Repository PSGallery -AllowClobber -WarningAction SilentlyContinue            
+            Write-Information "Updating PowerShellGet"
+            Install-Module PowerShellGet -Force -Scope CurrentUser -Repository PSGallery -AllowClobber -WarningAction SilentlyContinue
         }
 
         if ($PSVersionTable.PSEdition -ne 'Core' -and !(Get-PackageProvider NuGet -ListAvailable)) {
-            Write-Host "Installing NuGet package provider"
+            Write-Information "Installing NuGet package provider"
             Install-PackageProvider NuGet -Force -ForceBootstrap | Out-Null
         }
-    
+
         # Install required modules
         $requiredModules = @(
             @{ Name = 'Az.Resources' }
@@ -72,29 +138,37 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         foreach ($m in $requiredModules) {
             if (!$m.Repository) { $m.Repository = 'PSGallery' }
-            if (!(Get-Module $m.Name -ListAvailable |? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) { 
-                Write-Host "Installing module '$($m.Name)'"
+            if (!(Get-Module $m.Name -ListAvailable |? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) {
+                Write-Information "Installing module '$($m.Name)'"
                 Install-Module @m -Scope CurrentUser -Force -AllowClobber -AcceptLicense | Out-Null
             }
-            $m.Remove('Repository')            
+            $m.Remove('Repository')
             Import-Module @m
         }
     }
 
     function Get-AzProfileContext {
+        [CmdletBinding()]
+        param()
+
         [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile.DefaultContext
     }
 
     function Get-AzContextToken {
+        [CmdletBinding()]
         param(
             [string]$Resource
         )
+
         # Gets an OAuth token using the existing AzContext
         $context = Get-AzProfileContext
         [Microsoft.Azure.Commands.Common.Authentication.AzureSession]::Instance.AuthenticationFactory.Authenticate($context.Account, $context.Environment, $context.Tenant.Id.ToString(), $null, [Microsoft.Azure.Commands.Common.Authentication.ShowDialog]::Never, $null, $Resource).AccessToken
     }
 
     function Connect-AzureADUsingAzContext {
+        [CmdletBinding()]
+        param()
+
         # Connects to AzureAD PS module using existing AzContext token
         $context = Get-AzProfileContext
         Connect-AzureAD -AadAccessToken (Get-AzContextToken 'https://graph.windows.net/') -AccountId $context.Account.Id -TenantId $context.Tenant.Id
@@ -102,57 +176,64 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
     $TenantIdCache = @{}
     function Resolve-AzureTenantId {
+        [CmdletBinding()]
+        [OutputType([string])]
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Tenant
         )
+
         # Resolves tenant domain name to id
         [Guid]$g = [Guid]::Empty
         if ([Guid]::TryParse($Tenant, [ref]$g)) { return $Tenant }
-    
+
         if ($TenantIdCache.ContainsKey($Tenant)) { return $TenantIdCache[$Tenant] }
-    
+
         $endpoint = (irm "https://login.microsoftonline.com/$Tenant/v2.0/.well-known/openid-configuration").token_endpoint
         $result = [uri]::new($endpoint).PathAndQuery -split '/' |? { $_ } | Select -First 1
-        if (!$result) { throw "Could not resolve tenant id for $Tenant." }
+        if (!$result) { throw "Could not resolve tenant id for $Tenant" }
         $TenantIdCache[$Tenant] = $result
-        Write-Host "Resolved tenant id for '$Tenant' to '$result'"
+        Write-Verbose "Resolved tenant id for '$Tenant' to '$result'"
         return $result
     }
 
     function Connect-Azure {
+        [CmdletBinding()]
         param(
             [string]$Tenant,
             [switch]$Force
         )
-    
+
         Install-AzureModule
 
         $TenantId = Resolve-AzureTenantId $Tenant
 
-        while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId) { 
-            Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role and 'Contributor' access to an Azure Subscription" -ForegroundColor Green -NoNewline
+        while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId) {
+            Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role and 'Contributor' access to an Azure Subscription"
             Connect-AzAccount -Tenant $TenantId | Out-Null
             $Force = $false
         }
-    
+
         Set-AzContext -Tenant $TenantId | Out-Null
-    
+
         Connect-AzureADUsingAzContext | Out-Null
 
-        Write-Host "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
+        Write-Information "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
     }
 
     function Test-AzureADCurrentUserRole {
+        [CmdletBinding()]
+        [OutputType([bool])]
         param(
             [ValidateNotNullOrEmpty()]
-            [string]$Name        
-        )    
+            [string]$Name
+        )
+
         $token = Get-AzContextToken 'https://graph.microsoft.com'
         $value = @()
         $url = "https://graph.microsoft.com/beta/me/memberOf"
         while ($url) {
-            $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }     
+            $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }
             if ($res.value) { $value += $res.value }
             $url = $res."@odata.nextLink"
         }
@@ -160,28 +241,154 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
     }
 
     function Get-SimeonTenantServiceAccountAzureSubscriptionId {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
         param(
             [string]
-            $Id
+            $SubscriptionId
         )
-        Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? { $_.Name -ne 'Access to Azure Active Directory' -and $_.State -eq 'Enabled' -and (!$Id -or $Id -eq $_.Name -or $Id -eq $_.Id) } | Sort-Object Name | Select -First 1 -ExpandProperty Id
+
+        Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? { $_.Name -ne 'Access to Azure Active Directory' -and $_.State -eq 'Enabled' -and (!$SubscriptionId -or $SubscriptionId -in @($_.Name, $_.Id)) } | Sort-Object Name | Select -First 1 -ExpandProperty Id
     }
 
+    function Get-SimeonAzureDevOpsAccessToken {
+        [OutputType([string])]
+        [CmdletBinding()]
+        param(
+            [string]$Organization,
+            [string]$Project,
+            [switch]$Interactive
+        )
+
+        $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
+        $devOpsAppId = '499b84ac-1321-427f-aa17-267ca6975798'
+        $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546' }
+        $app = Get-MsalClientApplication @msalAppArgs
+        if (!$app) {
+            $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue
+        }
+
+        $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon organization"
+        if ($Organization -and $Project) {
+            $interactiveMessage += " '$Organization' and '$Project' project"
+        }
+
+        if ($Interactive) {
+            Wait-EnterKey $interactiveMessage
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default" -Interactive).AccessToken
+        }
+        else {
+            try {
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default" -Silent).AccessToken
+            }
+            catch {
+                Wait-EnterKey $interactiveMessage
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default").AccessToken
+            }
+        }
+
+        if ($Organization -and $Project) {
+            if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
+                Wait-EnterKey $interactiveMessage
+                $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Interactive
+            }
+        }
+
+        return $token
+    }
+
+    function Test-SimeonAzureDevOpsAccessToken {
+        [CmdletBinding()]
+        [OutputType([bool])]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            [ValidateNotNullOrEmpty()]
+            [string]$Token
+        )
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $Token"
+                Accept = "application/json;api-version=5.1"
+            }
+            ContentType = 'application/json'
+        }
+
+        try {
+            $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
+            $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
+            if ($projectId) {
+                return $true
+            }
+            else {
+                Write-Warning "Successfully authenticated with Azure DevOps, but could not access project '$Organization\$Project'"
+            }
+        }
+        catch {
+            Write-Warning "Could not access with Azure DevOps organization '$Organization'"
+        }
+        Clear-MsalTokenCache -FromDisk
+        return $false
+    }
+
+    function Get-AzureDevOpsRepository {
+        [CmdletBinding()]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            [ValidateNotNullOrEmpty()]
+            [string]$Name
+        )
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1"
+            }
+            ContentType = 'application/json'
+        }
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+
+        $repos = irm @restProps "$apiBaseUrl/git/repositories"
+
+        $repo = $repos.value |? name -eq $Name
+
+        if (!$repo) {
+            throw "Could not find repository $Name"
+        }
+
+        return $repo
+    }
+
+    <#
+    .SYNOPSIS
+    Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
+    #>
     function Install-SimeonTenantServiceAccount {
+        [CmdletBinding()]
+        [OutputType([pscredential])]
         param(
             # The Azure tenant domain name to configure Simeon for
             [ValidateNotNullOrEmpty()]
             [string]$Tenant = (Read-Tenant),
-            # The name or id of the subscription for Simeon to use
-            [string]$Subscription       
+            # The name or id of the subscription for Simeon to use - defaults to the first subscription available
+            [string]$Subscription
         )
+
         # Creates/updates service account and required permissions
 
-        Write-Host "Installing Simeon service account for tenant '$Tenant'"
+        Write-Information "Installing Simeon service account for tenant '$Tenant'"
 
         Connect-Azure $Tenant
-    
-        while (!(Test-AzureADCurrentUserRole 'Company Administrator')) {            
+
+        while (!(Test-AzureADCurrentUserRole 'Company Administrator')) {
             Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
             Connect-Azure $Tenant -Force
         }
@@ -190,46 +397,46 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $upn = "simeon@$Tenant"
         $user = Get-AzureADUser -Filter "userPrincipalName eq '$upn'"
         $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
-    
+
         if (!$user) {
-            Write-Host "Creating account '$upn'"
+            Write-Information "Creating account '$upn'"
             $user = New-AzureADUser -DisplayName 'Microsoft 365 Management Service Account' `
                 -UserPrincipalName $upn `
                 -MailNickName simeon -AccountEnabled $true `
                 -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
         }
         else {
-            Write-Host "Account already exists - updating '$upn'"
+            Write-Information "Service account already exists - updating '$upn'"
             $user | Set-AzureADUser -UserPrincipalName $upn -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
         }
 
         # this can sometimes fail on first request
-        try { Get-AzureADDirectoryRole | Out-Null } catch { }
+        try { Get-AzureADDirectoryRole | Out-Null } catch { Write-Verbose "Initial request for directory roles failed - will try again" }
 
-        # Make sure Directory Synchronization Accounts role is activated 
-        if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) { 
-            Write-Host "Activating role 'Directory Synchronization Accounts'"
+        # Make sure Directory Synchronization Accounts role is activated
+        if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) {
+            Write-Information "Activating role 'Directory Synchronization Accounts'"
             Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' | % { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
         }
 
-        # Add to Company Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA 
-        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } | % { 
+        # Add to Company Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA
+        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } | % {
             if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
-                Write-Host "Adding to directory role '$($_.DisplayName)' to '$upn'"
+                Write-Information "Adding service account to directory role '$($_.DisplayName)'"
                 Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
             }
             else {
-                Write-Host "Account already has directory role '$($_.DisplayName)'"
+                Write-Information "Service account already has directory role '$($_.DisplayName)'"
             }
         }
 
-        # Find Azure RM subscription to use 
+        # Find Azure RM subscription to use
         $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
         if (!$subscriptionId) {
             # Elevate access to see all subscriptions in the tenant and force re-login
             irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" } | Out-Null
-    
-            Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again" -ForegroundColor Yellow 
+
+            Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
             Connect-Azure $Tenant -Force
 
             $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
@@ -237,178 +444,424 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         # Add as contributor to an Azure RM Subscription
         if (!(Get-AzRoleAssignment -SignInName $upn -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$subscriptionId")) {
-            Write-Host "Adding account to 'Contributor' role on subscription '$subscriptionId'"
+            Write-Information "Adding service account to 'Contributor' role on subscription '$subscriptionId'"
             New-AzRoleAssignment -SignInName $upn -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$subscriptionId" | Out-Null
         }
         else {
-            Write-Host "Account already has 'Contributor' role on subscription '$subscriptionId'"
+            Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
         }
 
-        return @{ Username = $upn; Password = $password }
+        return [pscredential]::new($upn, (ConvertTo-SecureString -AsPlainText -Force $password))
     }
 
-    function Get-SimeonAzureDevOpsAccessToken {
-        $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
-        $devOpsAppId = '499b84ac-1321-427f-aa17-267ca6975798'
-        $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546' }
-        $app = Get-MsalClientApplication @msalAppArgs
-        if (!$app) {
-            $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue 
-        }
-        (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default").AccessToken         
-    }
-
-    function Test-SimeonAzureDevOpsAccessToken {
-        param(
-            [ValidateNotNullOrEmpty()]
-            [string]$Organization,
-            [ValidateNotNullOrEmpty()]
-            [string]$Project,
-            [ValidateNotNullOrEmpty()]
-            [string]$Token        
-        )    
-        $restProps = @{
-            Headers = @{ Authorization = "Bearer $token" }
-            ContentType = 'application/json'
-        }
-        $apiVersion = "api-version=5.1"
-        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-
-        try {
-            $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
-            $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
-            if ($projectId) {
-                return $true
-            } 
-            else {
-                Write-Warning "Successfully authenticated with Azure DevOps, but could not access project '$Project' in organization '$Organization'"
-            }
-        } 
-        catch {
-            Write-Warning "Could not access with Azure DevOps organization '$Organization'"
-        }
-        Clear-MsalTokenCache -FromDisk
-        return $false
-    }
-
+    <#
+    .SYNOPSIS
+    Creates necessary DevOps repositories and pipelines and securely stores service account credentials
+    #>
     function Install-SimeonTenantAzureDevOps {
+        [CmdletBinding()]
         param(
-            # The organization name that appears in DevOps - e.g. 'simeon-orgName'
+            # The Azure DevOps organization name (e.g. 'Simeon-MyOrganization')
             [string]$Organization,
-            # The project name in DevOps - usually 'Tenants'
+            # The project name in DevOps (defaults to 'Tenants')
             [string]$Project,
-            # Indicates the name for the repository and pipelines to create
+            # The name of the repository and pipelines to create
             [string]$Name,
-            # Indicates the baseline repository to use for pipelines
+            # The baseline repository to use for pipelines (an empty string indicates to use no baseline) (may be the name of another repository DevOps or a full repository url)
             [string]$Baseline,
-            [string]$Username,
-            [string]$Password,
+            # The Azure tenant service account credentials to use for running pipelines
+            [pscredential]$Credential,
+            # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
-        )    
+        )
 
         # Creates repo and pipelines and stores service account password
 
         while (!$Organization) { $Organization = Read-Organization }
-    
+
         if (!$Project) { $Project = 'Tenants' }
 
         if (!$PSBoundParameters.ContainsKey('Baseline')) {
-            $PSBoundParameters.Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to use without a baseline."            
+            $Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to proceed without a baseline"
         }
 
         if (!$Name) {
-            if ($Username) { $Name = $Username.Split('@')[1] }
-            else { $Name = Read-Tenant }
+            if ($Credential.UserName) { $Name = $Credential.UserName.Split('@')[-1].Split('.')[0] }
+            else { $Name = (Read-Tenant).Split('.')[0] }
         }
-   
-        Write-Host "Installing Azure DevOps repository and pipelines for '$Name' in project '$Project' in organization '$Organization'"
 
-        while (!$token -or !(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {            
-            Wait-EnterKey "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon organization '$Organization' and the '$Project' project"        
-            $token = Get-SimeonAzureDevOpsAccessToken
+        if ($Name.Contains('.')) {
+            throw "Name must not contain any special characters"
         }
-    
+
+        Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
+
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -GetImportUrl {
+            if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?')) {
+                # start with Simeon baseline
+                return 'https://github.com/simeoncloud/Baseline.git'
+            }
+            return 'https://github.com/simeoncloud/DefaultTenant.git'
+        }
+
+        Install-SimeonTenantBaseline -Organization $Organization -Project $Project -Repository $Name -Baseline $Baseline
+
+        Install-SimeonGitHubServiceConnection -Organization $Organization -Project $Project -GitHubAccessToken $GitHubAccessToken
+
+        Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential
+    }
+
+    <#
+    .SYNOPSIS
+    Creates/updates a repository for a tenant in Azure DevOps
+    #>
+    function Install-SimeonTenantRepository {
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            # The name of the repository
+            [ValidateNotNullOrEmpty()]
+            [string]$Name,
+            # A function that returns a url to import this repository from if it is empty
+            [scriptblock]$GetImportUrl
+        )
+
+        Write-Information "Installing repository for '$Name'"
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
         $restProps = @{
-            Headers = @{ Authorization = "Bearer $token" }
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview.1"
+            }
             ContentType = 'application/json'
         }
-        $apiVersion = "api-version=5.1"
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
-        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects?$apiVersion"   
+        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
-        $repos = irm @restProps "$apiBaseUrl/git/repositories?$apiVersion"
-        $repoName = $Name
+        $repos = irm @restProps "$apiBaseUrl/git/repositories"
 
-        $repo = $repos.value |? name -eq $repoName
+        $repo = $repos.value |? name -eq $Name
 
         if (!$repo) {
-            Write-Host "Creating repository '$repoName'"
-            $repo = irm @restProps "$apiBaseUrl/git/repositories?$apiVersion" -Method Post -Body (@{
-                    name = $repoName
+            Write-Information "Creating repository"
+            $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
+                    name = $Name
                     project = @{
                         id = $projectId
                         name = $Project
-                    }            
+                    }
                 } | ConvertTo-Json)
         }
         else {
-            Write-Host "Repository '$repoName' already exists - will not create"
+            Write-Information "Repository already exists - will not create"
         }
 
-        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints?$apiVersion-preview.1").value |? name -eq 'simeoncloud'
-    
-        if (!$serviceEndpoint -or $GitHubAccessToken) { New-SimeonServiceEndpoint $GitHubAccessToken }
+        if (!$repo.defaultBranch -and $GetImportUrl) {
+            $importUrl = . $GetImportUrl
 
-        if (!$repo.defaultBranch) {  
-            if ($PSBoundParameters.Baseline) {
-                $importUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
+            if ($importUrl) {
+                Write-Information "Importing repository contents from '$importUrl'"
+
+                $importOperation = irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests" -Method Post -Body (@{
+                        parameters = @{
+                            gitSource = @{
+                                overwrite = $false
+                                url = $importUrl
+                            }
+                        }
+                    } | ConvertTo-Json)
+
+                while ($importOperation.status -ne 'completed') {
+                    if ($importOperation.status -eq 'failed') { throw "Importing repository from $importUrl failed" }
+                    $importOperation = irm @restProps $importOperation.url
+                    Start-Sleep -Seconds 1
+                }
             }
-            elseif (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?') {
-                # start with Simeon baseline, since this is a baseline repository
-                $importUrl = 'https://github.com/simeoncloud/Baseline.git'
+            else {
+                Write-Information "No import url was provider - will not import initial repository contents"
             }
-    
-            irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests?$apiVersion-preview.1" -Method Post -Body (@{
-                    parameters = @{
-                        gitSource = @{
-                            overwrite = $false
-                            url = $importUrl
+        }
+    }
+
+    <#
+    .SYNOPSIS
+    Sets the baseline in a tenant repository
+    #>
+    function Install-SimeonTenantBaseline {
+        [CmdletBinding()]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            [ValidateNotNullOrEmpty()]
+            [string]$Repository,
+            [string]$Baseline
+        )
+        Write-Information "Setting baseline for '$Name'"
+
+        if (!([uri]$Repository).IsAbsoluteUri) {
+            $Repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Repository).remoteUrl
+        }
+        if ($Baseline -and !([uri]$Baseline).IsAbsoluteUri) {
+            $Baseline = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Baseline).remoteUrl
+        }
+
+        $token = Get-SimeonAzureDevOpsAccessToken
+
+        $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
+        Push-Location $repositoryPath
+        try {
+            $baselinePath = 'Baseline'
+            if (Test-Path $baselinePath) {
+                Invoke-CommandLine "git submodule deinit -f . 2>&1" | Write-Verbose
+                Remove-Item $baselinePath -Force -Recurse -EA SilentlyContinue
+                Remove-Item ".git/modules/$baselinePath" -Force -Recurse -EA SilentlyContinue
+                Remove-Item .gitmodules -Force -EA SilentlyContinue
+            }
+
+            if (([uri]$Baseline).Host -ne 'dev.azure.com') {
+                $token = $null
+            }
+
+            if ($Baseline) {
+                Write-Information "Setting baseline to '$Baseline'"
+                "" | Set-Content .gitmodules
+                if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
+                Invoke-CommandLine "git $gitConfig -c core.longpaths=true submodule add -b master -f $Baseline $baselinePath 2>&1" | Write-Verbose
+            }
+            else {
+                Write-Information "Setting repository to have no baseline"
+            }
+            Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+
+            git diff-index --quiet HEAD --
+            if ($lastexitcode -eq 0) {
+                Write-Information "Baseline is unchanged - repository was already up to date"
+            }
+            else {
+                Write-Information "Committing changes"
+                Invoke-CommandLine "git commit -m `"Set baseline repository to $Baseline`" 2>&1" | Write-Verbose
+
+                Write-Information "Pushing changes to remote repository"
+                Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
+            }
+        }
+        finally {
+            Pop-Location
+        }
+
+        if (Test-Path $repositoryPath) {
+            Remove-Item $repositoryPath -Recurse -Force
+        }
+    }
+
+    <#
+    .SYNOPSIS
+    Ensures a service connection exists to GitHub and creates one if it does not
+    #>
+    function Install-SimeonGitHubServiceConnection {
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
+            [string]$GitHubAccessToken
+        )
+
+        Write-Information "Ensuring GitHub service connections are configured for project '$Organization\$Project'"
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview.1"
+            }
+            ContentType = 'application/json'
+        }
+        $apiBaseUrl = "https://dev.azure.com/$Organization"
+
+        $projects = irm @restProps "$apiBaseUrl/_apis/projects"
+        $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
+
+        # endpoint for pipeline templates in GitHub
+        $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
+
+        if (!$serviceEndpoint) {
+            Write-Information "Creating 'simeoncloud' GitHub service connection"
+            while (!$GitHubAccessToken) { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
+            {
+                "authorization": {
+                    "scheme": "Token",
+                    "parameters": {
+                        "AccessToken": "$GitHubAccessToken"
+                    }
+                },
+                "name": "simeoncloud",
+                "serviceEndpointProjectReferences": [
+                    {
+                        "description": "",
+                        "name": "simeoncloud",
+                        "projectReference": {
+                            "id": "$projectId",
+                            "name": "$Project"
                         }
                     }
-                } | ConvertTo-Json) | Out-Null
-
-            Write-Host "Importing repository contents from '$importUrl'"                
+                ],
+                "type": "github",
+                "url": "https://github.com",
+                "isShared": false,
+                "owner": "library"
+            }
+"@
         }
-    
-        $pipelines = irm @restProps "$apiBaseUrl/build/definitions?$apiVersion" -Method Get
+        else {
+            Write-Information "'simeoncloud' GitHub service connection already exists"
+        }
+
+        irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
+        {
+            "resource": {
+                "id": "$($serviceEndpoint.id)",
+                "type": "endpoint"
+            },
+            "allPipelines": {
+                "authorized": true
+            }
+        }
+"@ | Out-Null
+
+        # NuGet packages endpoint
+        $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud-packages'
+
+        if (!$serviceEndpoint) {
+            Write-Information "Creating 'simeoncloud-packages' GitHub service connection"
+            while (!$GitHubAccessToken) { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
+            {
+                "authorization": {
+                    "scheme": "UsernamePassword",
+                    "parameters": {
+                        "username": "simeoncloud",
+                        "password": "$GitHubAccessToken"
+                    }
+                },
+                "name": "simeoncloud-packages",
+                "serviceEndpointProjectReferences": [
+                    {
+                        "description": "",
+                        "name": "simeoncloud-packages",
+                        "projectReference": {
+                            "id": "$projectId",
+                            "name": "$Project"
+                        }
+                    }
+                ],
+                "type": "externalnugetfeed",
+                "url": "https://nuget.pkg.github.com/simeoncloud/index.json",
+                "isShared": false,
+                "owner": "library"
+            }
+"@
+        }
+        else {
+            Write-Information "'simeoncloud-packages' GitHub service connection already exists"
+        }
+
+        irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
+        {
+            "resource": {
+                "id": "$($serviceEndpoint.id)",
+                "type": "endpoint"
+            },
+            "allPipelines": {
+                "authorized": true
+            }
+        }
+"@ | Out-Null
+    }
+
+    <#
+    .SYNOPSIS
+    Creates/updates pipelines for a Simeon tenant
+    #>
+    function Install-SimeonTenantPipeline {
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            # The name of the repository
+            [ValidateNotNullOrEmpty()]
+            [string]$Name,
+            # The Azure tenant service account credentials to use for running pipelines
+            [pscredential]$Credential
+        )
+
+        Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
+
+        Install-SimeonTenantPipelineEnvironment -Organization $Organization -Project $Project -Name $Name
+
+        Write-Information "Installing pipelines for '$Name'"
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1"
+            }
+            ContentType = 'application/json'
+        }
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+
+        $pipelines = irm @restProps "$apiBaseUrl/build/definitions" -Method Get
 
         $pipelineVariables = @{}
 
-        if ($Username) {
+        if ($Credential.UserName) {
             $pipelineVariables['AadAuth:Username'] = @{
                 allowOverride = $true
-                value = $Username
+                value = $Credential.UserName
             }
         }
-        IF ($Password) {
+        if ($Credential.GetNetworkCredential().Password) {
             $pipelineVariables['AadAuth:Password'] = @{
                 allowOverride = $true
                 isSecret = $true
-                value = $Password
+                value = $Credential.GetNetworkCredential().Password
             }
         }
-        if ($PSBoundParameters.ContainsKey('Baseline')) {
-            $pipelineVariables['BaselineRepository'] = @{
-                allowOverride = $true
-                value = $PSBoundParameters.Baseline
-            }
+
+        $repos = irm @restProps "$apiBaseUrl/git/repositories"
+
+        $repo = $repos.value |? name -eq $Name
+
+        if (!$repo) {
+            throw "Could not find repository $Name"
         }
-    
-        foreach ($action in @('Deploy', 'Export')) { 
+
+        foreach ($action in @('Deploy', 'Export')) {
             $pipelineName = "$Name - $action"
-        
+
             $pipeline = $pipelines.value |? name -eq $pipelineName
 
             $body = @{
@@ -416,7 +869,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 path = $Name
                 process = @{
                     type = 2
-                    yamlFilename = "M365Management$($action).yml"
+                    yamlFilename = "$action.yml"
                 }
                 queue = @{
                     name = "Azure Pipelines"
@@ -426,28 +879,24 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                     }
                 }
                 repository = @{
-                    url = "https://github.com/simeoncloud/AzurePipelines.git"
-                    name = "simeoncloud/AzurePipelines"
-                    id = "simeoncloud/AzurePipelines"
-                    type = "GitHub"
+                    url = $repo.remoteUrl
+                    id = $repo.id
+                    name = $repo.name
+                    type = "tfsgit"
                     defaultBranch = "master"
-                    properties = @{
-                        connectedServiceId = $serviceEndpoint.Id
-                    }
                 }
-                uri = "M365Management$($action).yml"
+                uri = "$action.yml"
                 variables = $pipelineVariables
             }
 
             if ($pipeline) {
-                Write-Host "Pipeline '$pipelineName' already exists - updating"
-            
-                $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)?$apiVersion" -Method Get
-                $uri = "$apiBaseUrl/build/definitions/$($pipeline.id)?$apiVersion"
-            
+                Write-Information "Pipeline '$pipelineName' already exists - updating"
+
+                $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
+
                 $body.variables = $definition.variables
 
-                if (!$body.variables) { 
+                if (!$body.variables) {
                     $body.variables = [pscustomobject]@{}
                 }
 
@@ -464,84 +913,229 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                     id = $pipeline.id
                     revision = $pipeline.revision
                     options = $definition.options
-                    triggers = $definition.triggers                
+                    triggers = $definition.triggers
                 }
-            
-                irm @restProps $uri -Method Put -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+
+                irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)" -Method Put -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
             }
             else {
-                Write-Host "Creating pipeline '$pipelineName'"
-                $uri = "$apiBaseUrl/build/definitions?$apiVersion"
-                irm @restProps  $uri -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+                Write-Information "Creating pipeline '$pipelineName'"
+                irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
             }
-        }    
+        }
     }
 
-    function Install-SimeonAzureDevOpsServiceConnection {
+    <#
+    .SYNOPSIS
+    Creates/updates pipeline environments for a Simeon tenant
+    #>
+    function Install-SimeonTenantPipelineEnvironment {
+        [CmdletBinding()]
         param(
-            [string]$GitHubAccessToken
-        )    
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project,
+            # The name of the repository
+            [ValidateNotNullOrEmpty()]
+            [string]$Name
+        )
 
-        while (!$GitHubAccessToken) { $GitHubAccessToken = Read-Host 'Enter GitHub access token' }
-    
-        #TODO
+        Write-Information "Installing pipeline environments for '$Name'"
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview"
+            }
+            ContentType = 'application/json'
+        }
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+
+        $environments = irm @restProps "$apiBaseUrl/distributedtask/environments"
+
+        foreach ($action in @('Deploy', 'Export')) {
+            $environmentName = "$Name - $action"
+
+            $environment = $environments.value |? name -eq $environmentName
+
+            if (!$environment) {
+                Write-Information "Creating environment '$environmentName'"
+
+                $environment = irm @restProps "$apiBaseUrl/distributedtask/environments" -Method Post -Body @"
+{"description": "", "name": "$environmentName"}
+"@
+            }
+            else {
+                Write-Information "Environment '$environmentName' already exists"
+            }
+
+            $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy')
+            $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
+            $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
+            if ($approvalUrl -and !$requireApproval) {
+                # remove approval
+                Write-Information "Removing existing approval check"
+                irm @restProps $approvalUrl -Method Delete | Out-Null
+            }
+            elseif (!$approvalUrl -and $requireApproval) {
+                Write-Information "Adding approval check"
+
+                # add approval
+                $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+                {
+                    "query": "Project Valid Users",
+                    "identityTypes": [
+                        "group"
+                    ],
+                    "operationScopes": [
+                        "ims",
+                        "source"
+                    ],
+                    "options": {
+                        "MinResults": 1,
+                        "MaxResults": 20
+                    },
+                    "properties": [
+                        "DisplayName"
+                    ]
+                }
+"@
+
+                $projectValidUsersDisplayName = "[$Project]\Project Valid Users"
+                $projectValidUsersId = $identities.results.identities |? displayName -eq $projectValidUsersDisplayName | Select -ExpandProperty localId
+                if (!$projectValidUsersId) { throw "Could not find Project Valid Users group for project $Project" }
+
+                # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
+                irm @restProps "$apiBaseUrl/pipelines/checks/configurations" -Method Post -Body @"
+                {
+                    "type": {
+                        "id": "8C6F20A7-A545-4486-9777-F762FAFE0D4D",
+                        "name": "Approval"
+                    },
+                    "settings": {
+                        "approvers": [
+                            {
+                                "displayName": $(ConvertTo-Json $projectValidUsersDisplayName),
+                                "id": "$projectValidUsersId"
+                            }
+                        ],
+                        "executionOrder": 1,
+                        "instructions": "",
+                        "minRequiredApprovers": 0,
+                        "requesterCannotBeApprover": false
+                    },
+                    "resource": {
+                        "type": "environment",
+                        "id": "$($environment.id)",
+                        "name": "$($environment.name)"
+                    },
+                    "timeout": 43200
+                }
+"@ | Out-Null
+            }
+            elseif ($approvalUrl) {
+                Write-Information "Approval already exists - will not update"
+            }
+            else {
+                Write-Information "Approval does not exist - no change is required"
+            }
+        }
+
     }
 
-    function Install-SimeonTenantBaseline {
+    <#
+    .SYNOPSIS
+    Installs the necessary pipeline template files in a tenant repository
+    #>
+    function Install-SimeonTenantPipelineTemplateFile {
+        [CmdletBinding()]
         param(
             [ValidateNotNullOrEmpty()]
-            [string]$Repository,
+            [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Baseline      
-        )      
-        #TODO
-        #git submodule add -b master -f --name Source/Baseline $Baseline Source/Baseline
-    }
-
-    function Install-SimeonTenantPipelineFiles {
-        param(
+            [string]$Project,
             [ValidateNotNullOrEmpty()]
             [string]$Repository
-        )      
-        #TODO
-        
+        )
+
+        Write-Information "Installing pipeline template files for '$Name'"
+
+        if (!([uri]$Repository).IsAbsoluteUri) {
+            $Repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Repository).remoteUrl
+        }
+
+        $token = Get-SimeonAzureDevOpsAccessToken
+
+        $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
+        Push-Location $repositoryPath
+        try {
+            $('Deploy', 'Export') | % {
+                Write-Verbose "Downloading $_.yml"
+                irm "https://raw.githubusercontent.com/simeoncloud/DefaultTenant/master/$_.yml" -OutFile "$_.yml"
+            }
+            Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+
+            git diff-index --quiet HEAD --
+            if ($lastexitcode -eq 0) {
+                Write-Information "Pipeline templates files are already up to date"
+            }
+            else {
+                Write-Information "Committing changes"
+                Invoke-CommandLine "git commit -m `"Updating pipeline template files`" 2>&1" | Write-Verbose
+
+                Write-Information "Pushing changes to remote repository"
+                Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
+            }
+        }
+        finally {
+            Pop-Location
+        }
+
+        if (Test-Path $repositoryPath) {
+            Remove-Item $repositoryPath -Recurse -Force
+        }
     }
 
+    <#
+    .SYNOPSIS
+    Prepares a tenant for use with Simeon
+    - Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
+    - Creates necessary DevOps repositories and pipelines and securely stores service account credentials
+    #>
     function Install-SimeonTenant {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
         param(
             [ValidateNotNullOrEmpty()]
             # The Azure tenant domain name to configure Simeon for
-            [string]$Tenant = (Read-Tenant),        
-            # The organization name that appears in DevOps - e.g. 'simeon-orgName'
+            [string]$Tenant = (Read-Tenant),
+            # The Azure DevOps organization name - e.g. 'simeon-orgName'
             [string]$Organization,
             # The project name in DevOps - usually 'Tenants'
             [string]$Project,
-            # Indicates the name for the repository and pipelines to create - defaults to the tenant name
+            # Indicates the name for the repository and pipelines to create - defaults to the tenant name up to the first .
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
-        <#
-    .SYNOPSIS
-    Prepares a tenant for use with Simeon.
-    - Creates/updates a service account named simeon@yourcompany.com with a random password
-    - Adds the service account to the 'Global administrator' role
-    - Adds the service account as a Contributor to the first available Azure RM subscription
-    - Creates necessary DevOps repositories and pipelines and securely stores service account credentials
-    #>
-    
-        $userInfo = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
-        $pipelineArgs = @{}
+        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
+
+        $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline') |? { $PSBoundParameters.ContainsKey($_) } | % {
-            $pipelineArgs[$_] = $PSBoundParameters.$_ 
+            $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
-        Install-SimeonTenantAzureDevOps @pipelineArgs @userInfo
+        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential
 
-        Write-Host "Completed successfully"
+        Write-Information "Completed installing tenant"
     }
 
     Export-ModuleMember -Function Install-Simeon*
