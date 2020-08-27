@@ -621,6 +621,13 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
         Push-Location $repositoryPath
         try {
+            $gitModules = git config --file .gitmodules --get-regexp url
+            $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
+            if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule) {
+                Write-Information "Baseline is already up to date"
+                return
+            }
+
             $baselinePath = 'Baseline'
             if (Test-Path $baselinePath) {
                 Invoke-CommandLine "git submodule deinit -f . 2>&1" | Write-Verbose
@@ -658,10 +665,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         }
         finally {
             Pop-Location
-        }
 
-        if (Test-Path $repositoryPath) {
-            Remove-Item $repositoryPath -Recurse -Force
+            if (Test-Path $repositoryPath) {
+                Remove-Item $repositoryPath -Recurse -Force
+            }
         }
     }
 
