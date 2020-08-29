@@ -1,7 +1,7 @@
 # Simeon Baseline
 
-## Azure > Resource groups
-*AzureManagement/MicrosoftResources/ResourceGroups*
+## Configuration Type: Azure > Resource groups
+Configuration Path: *AzureManagement/MicrosoftResources/ResourceGroups*
 
 ### **Baseline - m365alertsactiongroup**
 #### **What does this do?**
