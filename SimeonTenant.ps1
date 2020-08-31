@@ -92,15 +92,13 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$RepositoryUrl,
             [string]$AccessToken,
-            [string]$Path = (Join-Path $env:temp $RepositoryUrl.Split('/')[-1])
+            [string]$Path = (Join-Path ([IO.Path]::GetTempPath()) $RepositoryUrl.Split('/')[-1])
         )
 
         if (!(Get-Command git)) { throw 'Please install git and then try running again - https://git-scm.com/downloads' }
 
-        if (Test-Path $Path) {
-            Remove-Item $Path -Recurse -Force
-        }
-        md $Path -EA SilentlyContinue | Out-Null
+        Remove-Item $Path -Recurse -Force -EA SilentlyContinue
+        New-Item -ItemType Directory $Path -EA SilentlyContinue | Out-Null
 
         Write-Verbose "Cloning '$RepositoryUrl'"
         if ($AccessToken) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $AccessToken`"" }
@@ -621,14 +619,21 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
         Push-Location $repositoryPath
         try {
+            $baselinePath = 'Baseline'
+
             $gitModules = git config --file .gitmodules --get-regexp url
             $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
-            if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule) {
-                Write-Information "Baseline is already up to date"
+
+            if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule -and (Test-Path $baselinePath)) {
+                Write-Information "Baseline is already configured"
                 return
             }
 
-            $baselinePath = 'Baseline'
+            if (!$Baseline -and !$gitModules -and !$submodule -and !(Test-Path $baselinePath)) {
+                Write-Information "Repository already has no baseline"
+                return
+            }
+
             if (Test-Path $baselinePath) {
                 Invoke-CommandLine "git submodule deinit -f . 2>&1" | Write-Verbose
                 Remove-Item $baselinePath -Force -Recurse -EA SilentlyContinue
@@ -1083,6 +1088,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         try {
             $('Deploy', 'Export') | % {
                 Write-Verbose "Downloading $_.yml"
+                Remove-Item "$_.yml" -Force -EA SilentlyContinue
                 irm "https://raw.githubusercontent.com/simeoncloud/DefaultTenant/master/$_.yml" -OutFile "$_.yml"
             }
             Invoke-CommandLine "git add . 2>&1" | Write-Verbose
