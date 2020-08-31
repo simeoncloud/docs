@@ -3,7 +3,7 @@
 ## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
-|Name |Baseline - m365alertsactiongroup|
+|Name |baseline-m365alertsactiongroup|
 | :-- | :-- |
 | What does this do? | Creates an Azure Monitor Action group to notify specified users of an alert. The baseline includes alerting the email address "alerts@yourtenantname.com." |
 | Why should you use this? | This keeps your tenant secure by immediately notifying you of suspicious activity. |
@@ -12,7 +12,7 @@
 
 
 
-|Name |Baseline - m365logging|
+|Name |baseline-m365logging|
 | :-- | :-- |
 | What does this do? | Creates an Azure Event Hub, Azure Log Analytics Workspace, and Azure Storage account to capture Azure and Intune logs. The baseline Workspace is named "tenant Name-M365logging." |
 | Why should you use this? | This provides the essential resources required to capture logs, analyze trends, and be alerted of suspicious events. |
@@ -221,8 +221,7 @@
 | What does this do? | Creates a dynamic group that assigns Microsoft 365 licenses to users for EMS and O365 functionality. This group also controls policies that should be applied to all users (e.g. password reset). The baseline places users that have a department into this group. If a user does not require a license (e.g. service accounts or off-boarded users), the department should be removed for that user. |
 | Why should you use this? | If you want to dynamically manage the user license assignment and policies directed at licensed users. |
 | What is the end-user impact? | Users with a department will be assigned appropriate licenses. |
-| Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide)
-[Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
+| Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide), [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
 
 
 
@@ -231,8 +230,7 @@
 | What does this do? | Creates a group that is used to bypass conditional access and mobile application protection policies that ensure content is accessed only from trusted devices, locations, and applications. The "Baseline - Global Admin" account is added to this group. |
 | Why should you use this? | If you want to allow certain users (e.g. a CEO or IT support user) to access content with a lesser degree of content security than is applied by default (e.g. using a personal computer or the native iOS mail app which does not protect content). |
 | What is the end-user impact? | Users in this group can use any device or application of their choosing to access Microsoft 365 resources without any content protection policies. |
-| Learn more | [Only allow apps that support protection policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access)
-[Protecting content on personal devices using app protection policies](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
+| Learn more | [Only allow apps that support protection policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access), [Protecting content on personal devices using app protection policies](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
 
 
@@ -670,9 +668,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 | What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. To add or remove additional sites, update the config variable "AllowSiteToZoneAssignmentList". |
 | Why should you use this? | Improves your users' browsing experience by automatically logging in to sites secured by Azure AD. |
 | What is the end-user impact? | Users will be unable to configure URLs for browser security zones themselves. |
-| Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users) 
-
-[Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
+| Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users), [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
 
 
 
@@ -751,15 +747,6 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 ## Intune > Devices > Enrollment restrictions
 *MSGraph/DeviceManagement/DeviceEnrollmentConfigurations*
 
-|Name |Baseline - deviceEnrollmentPlatformRestrictionsConfiguration - Device Enrollers can enroll personal devices|
-| :-- | :-- |
-| What does this do? | Allows for specifying users that can enroll devices to Intune. The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, and allows all other users to only enroll devices that have been previously registered with Autopilot. This limit can be overridden by other configurations with a higher priority. |
-| Why should you use this? | If you want to restrict general users from enrolling personal Windows devices without Autopilot. |
-| What is the end-user impact? | Only certain users will be able to enroll devices to Intune. |
-| Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
-
-
-
 |Name |deviceEnrollmentLimitConfiguration - All users and all devices|
 | :-- | :-- |
 | What does this do? | Limits the default number of devices that a single user can enroll. The baseline sets this limit to 5, however it can be overwritten by other configurations with a higher priority. |
@@ -775,6 +762,15 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 | Why should you use this? | If you want to ensure that only corporate devices are enrolled in Intune. |
 | What is the end-user impact? | Users will be restricted to enrolling corporate devices only in Intune. |
 | Learn more | [Create a device type restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-type-restriction) |
+
+
+
+|Name |deviceEnrollmentPlatformRestrictionsConfiguration - Baseline - Device Enrollers can enroll personal devices|
+| :-- | :-- |
+| What does this do? | Allows for specifying users that can enroll devices to Intune. The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, and allows all other users to only enroll devices that have been previously registered with Autopilot. This limit can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to restrict general users from enrolling personal Windows devices without Autopilot. |
+| What is the end-user impact? | Only certain users will be able to enroll devices to Intune. |
+| Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
 
 
 
@@ -966,9 +962,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 | What does this do? | Defines global settings for Microsoft Teams. The baseline allows users to add Teams apps in general, and another setting (TeamsAppPermissionPolicy) allows you to specify approved Teams applications. |
 | Why should you use this? | To allow users to add Teams apps. |
 | What is the end-user impact? | Users will be able to add Teams apps. |
-| Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365)
-
-[Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
+| Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365), [Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
 
 
 
