@@ -222,7 +222,6 @@
 | Why should you use this? | If you want to dynamically manage the user license assignment and policies directed at licensed users. |
 | What is the end-user impact? | Users with a department will be assigned appropriate licenses. |
 | Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide)
-
 [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
 
 
@@ -233,7 +232,6 @@
 | Why should you use this? | If you want to allow certain users (e.g. a CEO or IT support user) to access content with a lesser degree of content security than is applied by default (e.g. using a personal computer or the native iOS mail app which does not protect content). |
 | What is the end-user impact? | Users in this group can use any device or application of their choosing to access Microsoft 365 resources without any content protection policies. |
 | Learn more | [Only allow apps that support protection policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access)
-
 [Protecting content on personal devices using app protection policies](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
 
