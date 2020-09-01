@@ -89,7 +89,11 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [CmdletBinding()]
         param()
 
-        if ((Get-Command git -EA SilentlyContinue)) { return }
+        if ((Get-Command git -EA SilentlyContinue)) {
+            if (!(git config user.email)) { git config user.email "noreply@simeoncloud.com" }
+            if (!(git config user.name)) { git config user.name "Simeon" }
+            return
+        }
 
         if ($IsWindows -or $PSVersionTable.PSEdition -ne 'Core') {
             Wait-EnterKey "Attempting to download and install Git - continue through the setup wizard as prompted"
