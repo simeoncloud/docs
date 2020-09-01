@@ -160,12 +160,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         # Gets an OAuth token using the existing AzContext
         $context = Get-AzProfileContext
-        try {
-            [Microsoft.Azure.Commands.Common.Authentication.AzureSession]::Instance.AuthenticationFactory.Authenticate($context.Account, $context.Environment, $context.Tenant.Id.ToString(), $null, [Microsoft.Azure.Commands.Common.Authentication.ShowDialog]::Never, $null, $Resource).AccessToken
-        }
-        catch {
-            [Microsoft.Azure.Commands.Common.Authentication.AzureSession]::Instance.AuthenticationFactory.Authenticate($context.Account, $context.Environment, $context.Tenant.Id.ToString(), $null, [Microsoft.Azure.Commands.Common.Authentication.ShowDialog]::Auto, $null, $Resource).AccessToken
-        }
+        [Microsoft.Azure.Commands.Common.Authentication.AzureSession]::Instance.AuthenticationFactory.Authenticate($context.Account, $context.Environment, $context.Tenant.Id.ToString(), $null, [Microsoft.Azure.Commands.Common.Authentication.ShowDialog]::Never, $null, $Resource).AccessToken
     }
 
     function Connect-AzureADUsingAzContext {
@@ -211,15 +206,11 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         $TenantId = Resolve-AzureTenantId $Tenant
 
-        while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId) {
+        while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
             Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role and 'Contributor' access to an Azure Subscription"
             Connect-AzAccount -Tenant $TenantId | Out-Null
             $Force = $false
         }
-
-        Set-AzContext -Tenant $TenantId | Out-Null
-
-        Connect-AzureADUsingAzContext | Out-Null
 
         Write-Information "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
     }
