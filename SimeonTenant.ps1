@@ -85,6 +85,39 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $u.AbsoluteUri.Remove($u.AbsoluteUri.Length - ($u.Segments | Select -Last 1).Length)
     }
 
+    function Install-Git {
+        [CmdletBinding()]
+        param()
+
+        if ((Get-Command git -EA SilentlyContinue)) { return }
+
+        if ($IsWindows) {
+            Wait-EnterKey "Attempting to download and install Git - continue through the setup wizard as prompted"
+            $url = 'https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-32-bit.exe'
+            if ([System.Environment]::Is64BitOperatingSystem) {
+                $url = 'https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-64-bit.exe'
+            }
+
+            $outFile = "$([IO.Path]::GetTempPath())/git-install.exe"
+            irm $url -OutFile $outFile
+            Start-Process $outFile -Wait
+        }
+        elseif ($IsMacOS) {
+            Wait-EnterKey "Attempting to download and install Git - double click the pkg file and continue through the setup wizard as prompted"
+            $url = 'https://iweb.dl.sourceforge.net/project/git-osx-installer/git-2.15.0-intel-universal-mavericks.dmg'
+            $outFile = "$([IO.Path]::GetTempPath())/git-install.dmg"
+            irm $url -OutFile $outFile
+            & $outFile
+            throw "Please re-run this script after completing the installation of Git"
+        }
+        else {
+            throw 'Please install git git Gitn try running again - https://git-scm.com/downloads'
+        }
+
+        if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
+        Write-Information "Git was successfully installed"
+    }
+
     function Get-GitRepository {
         [CmdletBinding()]
         [OutputType([string])]
@@ -95,7 +128,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Path = (Join-Path ([IO.Path]::GetTempPath()) $RepositoryUrl.Split('/')[-1])
         )
 
-        if (!(Get-Command git)) { throw 'Please install git and then try running again - https://git-scm.com/downloads' }
+        Install-Git
 
         Remove-Item $Path -Recurse -Force -EA SilentlyContinue
         New-Item -ItemType Directory $Path -EA SilentlyContinue | Out-Null
@@ -434,6 +467,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             Connect-Azure $Tenant -Force
 
             $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
+
+            if (!$subscriptionId) {
+                throw "Could not find a subscription to use - please make sure you have signed up for an Azure subscription"
+            }
         }
 
         # Add as contributor to an Azure RM Subscription
