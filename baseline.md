@@ -3,6 +3,10 @@
 ## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
+###### hidden-header
+
+### baseline-m365alertsactiongroup
+
 |Name |baseline-m365alertsactiongroup|
 | :-- | :-- |
 | What does this do? | Creates an Azure Monitor Action group to notify specified users of an alert. The baseline includes alerting the email address "alerts@yourtenantname.com." |
@@ -11,6 +15,10 @@
 | Learn more | [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) |
 
 
+
+###### hidden-header
+
+### baseline-m365logging
 
 |Name |baseline-m365logging|
 | :-- | :-- |
@@ -24,6 +32,10 @@
 ## Azure AD > Company branding
 *AadIam/CompanyBrandings*
 
+###### hidden-header
+
+### Default
+
 |Name |Default|
 | :-- | :-- |
 | What does this do? | Defines the messages and logos shown to users on Azure login screens. The baseline automatically populates the username watermark with "user@yourcompanyname.org." |
@@ -35,6 +47,10 @@
 
 ## Azure AD > Device settings
 *AadIam/DeviceSettings*
+
+###### hidden-header
+
+### Configuration
 
 |Name |Configuration|
 | :-- | :-- |
@@ -48,6 +64,10 @@
 ## Azure AD > Diagnostic settings
 *AzureManagement/MicrosoftAadIam/DiagnosticSettings*
 
+###### hidden-header
+
+### Baseline - Logging
+
 |Name |Baseline - Logging|
 | :-- | :-- |
 | What does this do? | Configures logging to capture Azure sign-in events, which can then be analyzed using Log Analytics Workspaces. The baseline captures all audit logs as well as all sign-in attempts. Logs can be viewed in the Analytics Workspace named "tenant Name-M365logging" and are stored in the Azure Storage Account named "tenantNameM365Logging." |
@@ -59,6 +79,10 @@
 
 ## Azure AD > Directory settings
 *MSGraph/Settings*
+
+###### hidden-header
+
+### Group.Unified
 
 |Name |Group.Unified|
 | :-- | :-- |
@@ -72,6 +96,10 @@
 ## Azure AD > External user directory settings
 *AadIam/ExternalUserDirectorySettings*
 
+###### hidden-header
+
+### Configuration
+
 |Name |Configuration|
 | :-- | :-- |
 | What does this do? | Defines external collaborator settings including who can invite external collaborators and whether restrictions will be placed on external users. The baseline allows only authorized users with the "Guest Inviter" role to invite external users. |
@@ -83,6 +111,10 @@
 
 ## Azure AD > External user guest settings
 *AadIam/ExternalUserGuestSettings*
+
+###### hidden-header
+
+### Configuration
 
 |Name |Configuration|
 | :-- | :-- |
@@ -96,6 +128,10 @@
 ## Azure AD > Group settings
 *AadIam/GroupSettings*
 
+###### hidden-header
+
+### Configuration
+
 |Name |Configuration|
 | :-- | :-- |
 | What does this do? | Configures group membership management options. The baseline does not allow group owners to approve requests, does not allow security group creation, and restricts users from seeing group membership. |
@@ -108,6 +144,10 @@
 ## Azure AD > Groups
 *MSGraph/Groups*
 
+###### hidden-header
+
+### Baseline - Autopilot Devices - Self Deploying
+
 |Name |Baseline - Autopilot Devices - Self Deploying|
 | :-- | :-- |
 | What does this do? | Creates a dynamic device group that is used for assigning self-deploying Intune Autopilot profiles to devices. This group contains corporate physical devices with the tag "Autopilot-SelfDeploying." Devices can be tagged from the Intune portal or via an automated hardware hash upload. To tag in Intune go to Devices > Windows Enrollment > Devices, then select the required device and add to the "Group Tag" field to tag via automated hardware hash included with column OrderId. |
@@ -116,6 +156,10 @@
 | Learn more | [Windows Autopilot Self-Deploying mode](https://docs.microsoft.com/en-us/mem/autopilot/self-deploying) |
 
 
+
+###### hidden-header
+
+### Baseline - Autopilot Devices - User Driven
 
 |Name |Baseline - Autopilot Devices - User Driven|
 | :-- | :-- |
@@ -126,6 +170,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Corporate Devices - Insiders
+
 |Name |Baseline - Corporate Devices - Insiders|
 | :-- | :-- |
 | What does this do? | Creates a manually assigned device group for testing policies and applications assigned to "Insiders." Devices manually assigned to this group will be assigned to the "Insiders" Windows update ring. |
@@ -134,6 +182,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Corporate Devices - Physical
 
 |Name |Baseline - Corporate Devices - Physical|
 | :-- | :-- |
@@ -144,6 +196,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Corporate Devices - Preview
+
 |Name |Baseline - Corporate Devices - Preview|
 | :-- | :-- |
 | What does this do? | Creates a manually assigned device group for previewing and testing policies and applications. Devices manually in this group will be assigned to the "Preview Windows" update ring. |
@@ -152,6 +208,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Corporate Devices - Virtual
 
 |Name |Baseline - Corporate Devices - Virtual|
 | :-- | :-- |
@@ -162,6 +222,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Corporate Devices
+
 |Name |Baseline - Corporate Devices|
 | :-- | :-- |
 | What does this do? | Creates a group that includes all corporate devices regardless if they are virtual, physical or virtual desktops. |
@@ -170,6 +234,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Device Administrators
 
 |Name |Baseline - Device Administrators|
 | :-- | :-- |
@@ -180,6 +248,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Device Enrollers
+
 |Name |Baseline - Device Enrollers|
 | :-- | :-- |
 | What does this do? | Creates a group of users that have permission to enroll a device that is not registered with Autopilot. If a user is not a member of this group, they cannot enroll a non-autopilot device. |
@@ -188,6 +260,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Group Creators
 
 |Name |Baseline - Group Creators|
 | :-- | :-- |
@@ -198,6 +274,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Microsoft 365 Users - Insiders
+
 |Name |Baseline - Microsoft 365 Users - Insiders|
 | :-- | :-- |
 | What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
@@ -206,6 +286,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Microsoft 365 Users - Preview
 
 |Name |Baseline - Microsoft 365 Users - Preview|
 | :-- | :-- |
@@ -216,6 +300,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Microsoft 365 Users
+
 |Name |Baseline - Microsoft 365 Users|
 | :-- | :-- |
 | What does this do? | Creates a dynamic group that assigns Microsoft 365 licenses to users for EMS and O365 functionality. This group also controls policies that should be applied to all users (e.g. password reset). The baseline places users that have a department into this group. If a user does not require a license (e.g. service accounts or off-boarded users), the department should be removed for that user. |
@@ -224,6 +312,10 @@
 | Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide), [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
 
 
+
+###### hidden-header
+
+### Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations
 
 |Name |Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations|
 | :-- | :-- |
@@ -237,6 +329,10 @@
 ## Azure AD > Mobility (MDM and MAM)
 *AadIam/MdmApplications*
 
+###### hidden-header
+
+### Microsoft Intune Enrollment
+
 |Name |Microsoft Intune Enrollment|
 | :-- | :-- |
 | What does this do? | Enables the legacy version of Microsoft Intune, which is required in some tenants for Intune management. |
@@ -245,6 +341,10 @@
 | Learn more | [Intune vs. Intune Enrollment](https://github.com/MicrosoftDocs/azure-docs/issues/27017) |
 
 
+
+###### hidden-header
+
+### Microsoft Intune
 
 |Name |Microsoft Intune|
 | :-- | :-- |
@@ -258,6 +358,10 @@
 ## Azure AD > Password reset
 *AadIam/PasswordResetPolicies*
 
+###### hidden-header
+
+### Configuration
+
 |Name |Configuration|
 | :-- | :-- |
 | What does this do? | Defines Azure's password reset policy and specifies the Azure AD groups to which it applies. This allows users to reset their passwords or unlock their Azure accounts. The baseline applies the password reset policy to members of the group "Baseline - Microsoft 365 Users." |
@@ -270,6 +374,10 @@
 ## Azure AD > Security > Conditional Access > Policies
 *MSGraph/ConditionalAccess/Policies*
 
+###### hidden-header
+
+### Baseline - Block Legacy Apps
+
 |Name |Baseline - Block Legacy Apps|
 | :-- | :-- |
 | What does this do? | Blocks legacy protocols (POP, SMTP, IMAP, and MAPI) which can be used to bypass security controls in your environment. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
@@ -278,6 +386,10 @@
 | Learn more | [How to: Block legacy authentication to Azure AD with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication) |
 
 
+
+###### hidden-header
+
+### Baseline - Block Legacy Exchange ActiveSync
 
 |Name |Baseline - Block Legacy Exchange ActiveSync|
 | :-- | :-- |
@@ -288,6 +400,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations
+
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
 | What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. The baseline assigns the policy to all users except those in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." The policy also excludes applications listed in the config property "AppsAllowedFromUntrustedLocations." |
@@ -296,6 +412,10 @@
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
 
+
+###### hidden-header
+
+### Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations
 
 |Name |Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
@@ -306,6 +426,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Require Compliant Device for Intune Enrollment
+
 |Name |Baseline - Require Compliant Device for Intune Enrollment|
 | :-- | :-- |
 | What does this do? | Requires that a device be registered in Autopilot by uploading a hardware hash before it can be enrolled in Intune. To bypass this requirement, a user must be a member of the Azure AD group "Baseline - Device Enrollers." |
@@ -315,6 +439,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Require MFA for Admins
+
 |Name |Baseline - Require MFA for Admins|
 | :-- | :-- |
 | What does this do? | Requires that users with privileged administrator roles authenticate using MFA. The baseline includes all users except those with the Azure AD role "Directory Synchronization Accounts." |
@@ -323,6 +451,10 @@
 | Learn more | [Protect your Microsoft 365 global administrator accounts](https://docs.microsoft.com/en-us/office365/enterprise/protect-your-global-administrator-accounts) |
 
 
+
+###### hidden-header
+
+### Baseline - Require MFA from Unmanaged Devices and Untrusted Locations
 
 |Name |Baseline - Require MFA from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
@@ -336,6 +468,10 @@
 ## Azure AD > User feature preview settings
 *AadIam/FeatureSettings*
 
+###### hidden-header
+
+### Configuration
+
 |Name |Configuration|
 | :-- | :-- |
 | What does this do? | Allows Azure updates to be applied first to a specified group of users before being applied to all users in the tenant. |
@@ -347,6 +483,10 @@
 
 ## Azure AD > User settings
 *AadIam/UserSettings*
+
+###### hidden-header
+
+### Configuration
 
 |Name |Configuration|
 | :-- | :-- |
@@ -360,6 +500,10 @@
 ## Azure AD > Users
 *MSGraph/Users*
 
+###### hidden-header
+
+### Baseline - Global Admin
+
 |Name |Baseline - Global Admin|
 | :-- | :-- |
 | What does this do? | Creates a global administrator account. The baseline creates a global administrator account that does not require a Microsoft 365 license, and the password can be managed in the Azure Portal. |
@@ -371,6 +515,10 @@
 
 ## Intune > Apps > App configuration policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
+
+###### hidden-header
+
+### Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices
 
 |Name |Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices|
 | :-- | :-- |
@@ -384,6 +532,10 @@
 ## Intune > Apps > App protection policies (Platform = Android)
 *MSGraph/DeviceAppManagement/AndroidManagedAppProtections*
 
+###### hidden-header
+
+### Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices
+
 |Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices|
 | :-- | :-- |
 | What does this do? | Configures the default behavior for managed client applications on unmanaged Android devices. The baseline allows data to flow between protected applications, but prohibits users from copying or saving data outside of the application except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
@@ -395,6 +547,10 @@
 
 ## Intune > Apps > App protection policies (Platform = iOS/iPadOS)
 *MSGraph/DeviceAppManagement/IosManagedAppProtections*
+
+###### hidden-header
+
+### Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices
 
 |Name |Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices|
 | :-- | :-- |
@@ -408,6 +564,10 @@
 ## Intune > Apps > App protection policies (Platform = Windows 10)
 *MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies*
 
+###### hidden-header
+
+### Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices
+
 |Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices|
 | :-- | :-- |
 | What does this do? | Configures the default behavior for managed client applications on unmanaged Windows devices. The baseline allows data to flow between protected applications, but prohibits users from copying or saving data outside of managed applications except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations". The default list of protected applications are Microsoft applications that support application protection policies. |
@@ -417,8 +577,169 @@
 
 
 
+## Intune > Apps
+*MSGraph/DeviceAppManagement/MobileApps*
+
+###### hidden-header
+
+### 7-Zip
+
+|Name |7-Zip|
+| :-- | :-- |
+7-Zip is a file archiver with a high compression ratio.
+
+
+
+###### hidden-header
+
+### AnyDesk
+
+|Name |AnyDesk|
+| :-- | :-- |
+AnyDesk remote access for remote administration.
+
+
+
+###### hidden-header
+
+### CMTrace
+
+|Name |CMTrace|
+| :-- | :-- |
+CMTrace is one of the Configuration Manager tools. It allows you to view and monitor log files, including the following types: Log files in Configuration Manager or Client Component Manager (CCM) format, plain ASCII or Unicode text files, such as Windows Installer logs. The tool helps to analyze log files by highlighting, filtering, and error lookup.
+
+
+
+###### hidden-header
+
+### Company Portal
+
+|Name |Company Portal|
+| :-- | :-- |
+Microsoft Intune helps organizations manage access to corporate apps, data, and resources. Company Portal is the app that lets you, as an employee of your company, securely access those resources.
+
+Before you can use this app, make sure your IT admin has set up your work account. Your company must also have a subscription to Microsoft Intune.
+
+Company Portal helps simplify the tasks you need to do for work:
+
+- Enroll your device to access corporate resources, including Office, email, and OneDrive for Business
+- Sign in to corporate resources with company-issued certificates
+- Reduce the number of times you need to sign in to corporate resources with single sign-on
+- Browse and install approved business apps from your IT department or the Microsoft Store for Business
+- View and manage your enrolled devices – and wipe them if they get lost or stolen
+- Get help directly from your IT department through available contact information
+ 
+A note about Intune: every organization has different access requirements, and will use Intune in ways that they determine will best manage their information. Some functionality might be unavailable in certain countries. If you have questions about how this app is being used within your organization, your company’s IT administrator should have those answers for you. Microsoft, your network provider, and your device’s manufacturer do not know how Intune will be used by your organization.
+
+
+
+###### hidden-header
+
+### Microsoft .NET Framework 3.5
+
+|Name |Microsoft .NET Framework 3.5|
+| :-- | :-- |
+Microsoft .NET Framework 3.5.
+
+
+
+###### hidden-header
+
+### Microsoft Edge for Windows 10
+
+|Name |Microsoft Edge for Windows 10|
+| :-- | :-- |
+Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab.
+
+
+
+###### hidden-header
+
+### Microsoft Windows Virtual Desktop Client
+
+|Name |Microsoft Windows Virtual Desktop Client|
+| :-- | :-- |
+Microsoft Windows Virtual Desktop Client
+
+
+
+###### hidden-header
+
+### Netflix
+
+|Name |Netflix|
+| :-- | :-- |
+Netflix has something for everyone. Watch TV shows and movies recommended just for you, including award-winning Netflix original series, movies, and documentaries. There’s even a safe watching experience just for kids with family-friendly entertainment.
+
+Now on Windows, you can enjoy every detail of the world’s favorite shows in 4K Ultra HD on Netflix. Download many of your favorite series and movies with the simple click of the download button. You can watch while you’re on the go or without an Internet connection on your PC, tablet or laptop with Windows 10. 
+
+How does Netflix work?
+- Instantly watch TV shows and movies through thousands of internet-connected devices. You can play, pause, and resume watching, all without commercials.
+- Netflix adds new content all the time. Browse titles or search for your favorites.
+- The more you watch, the better Netflix gets at recommending TV shows and movies that you’ll love — just for you. 
+- You can create up to five individual profiles within a single Netflix account. Profiles allow different members of your household to have their own personalized Netflix experience built around the movies and TV shows they enjoy. 
+
+If you decide Netflix isn't for you - no problem. No contract, no cancellation fees, no commitment. Cancel online anytime.
+
+By clicking INSTALL, you consent to the installation of the Netflix application and any updates or upgrades thereto.
+
+
+
+###### hidden-header
+
+### Office 365
+
+|Name |Office 365|
+| :-- | :-- |
+Office 365
+
+
+
+###### hidden-header
+
+### Shortcut Cleanup
+
+|Name |Shortcut Cleanup|
+| :-- | :-- |
+Cleans up duplicate desktop shortcuts (ending with - Copy.lnk).
+
+
+
+###### hidden-header
+
+### Visual Studio Code
+
+|Name |Visual Studio Code|
+| :-- | :-- |
+Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. This software is also usable as an advanced text editor.
+
+
+
+###### hidden-header
+
+### Xbox Console Companion
+
+|Name |Xbox Console Companion|
+| :-- | :-- |
+The Xbox app brings together your friends, games, and accomplishments across Xbox One and Windows 10 devices. The best multiplayer gaming just got better.
+
+     • Join clubs – or create your own – where you can go to play and chat with friends and other gamers like you.
+     • Find games with like-minded players by checking Looking for Group posts, or post one that fits your own objectives and play style.
+     • Get instant access to chat, sharing, parties, Game DVR, and achievements across PC and Xbox One.
+     • Keep track of your game clips and screenshots and download them straight to your Windows 10 PC.
+     • Take the brakes off chat when you use a keyboard for messaging with friends on Xbox Live.
+     • Stream your favorite games and entertainment from Xbox One to a Windows 10 PC while using your Xbox One controller.
+
+     Disclaimer: Broadband internet required (ISP fees apply). Xbox Live features only available with supported games. Online multiplayer (including streaming with multiplayer) and some features of Game DVR on Xbox One require Xbox Live Gold subscription (sold separately). Stream to one device at a time.
+
+
+
 ## Intune > Devices > Compliance policies
 *MSGraph/DeviceManagement/DeviceCompliancePolicies*
+
+###### hidden-header
+
+### Baseline - Corporate Devices - Physical - Windows
 
 |Name |Baseline - Corporate Devices - Physical - Windows|
 | :-- | :-- |
@@ -428,6 +749,10 @@
 | Learn more | [Use compliance policies to set rules for devices you manage with Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started) |
 
 
+
+###### hidden-header
+
+### Baseline - Corporate Devices - Windows
 
 |Name |Baseline - Corporate Devices - Windows|
 | :-- | :-- |
@@ -441,6 +766,10 @@
 ## Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)
 *MSGraph/DeviceManagement/GroupPolicyConfigurations*
 
+###### hidden-header
+
+### Baseline - Functionality - Microsoft Edge Configuration
+
 |Name |Baseline - Functionality - Microsoft Edge Configuration|
 | :-- | :-- |
 | What does this do? | Configures Microsoft Edge for all devices to automatically sign in to the browser and synchronize history and passwords. Also sets Google as the default search engine. |
@@ -449,6 +778,10 @@
 | Learn more | [Microsoft Edge Enterprise Sync](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-enterprise-sync) |
 
 
+
+###### hidden-header
+
+### Baseline - Functionality - OneDrive Silent Configuration
 
 |Name |Baseline - Functionality - OneDrive Silent Configuration|
 | :-- | :-- |
@@ -459,6 +792,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Functionality - Windows Known Folders Move to OneDrive
+
 |Name |Baseline - Functionality - Windows Known Folders Move to OneDrive|
 | :-- | :-- |
 | What does this do? | Configures OneDrive's Known Folders Move, which moves the directories Desktop, Documents, and Pictures to OneDrive and disables the option to opt out of the feature. |
@@ -468,16 +805,22 @@
 
 
 
+###### hidden-header
+
+### Baseline - OS - System Sleep Timeouts
+
 |Name |Baseline - OS - System Sleep Timeouts|
 | :-- | :-- |
 | What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
 | Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
 | What is the end-user impact? | users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
-| Learn more | N/A
-
- |
+| Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Security - LinkedIn Features in Office Applications Disabled
 
 |Name |Baseline - Security - LinkedIn Features in Office Applications Disabled|
 | :-- | :-- |
@@ -491,6 +834,10 @@
 ## Intune > Devices > Configuration profiles
 *MSGraph/DeviceManagement/DeviceConfigurations*
 
+###### hidden-header
+
+### Baseline - Functionality - Microsoft Store Limited to Private Store Only
+
 |Name |Baseline - Functionality - Microsoft Store Limited to Private Store Only|
 | :-- | :-- |
 | What does this do? | Limits applications available for download in the Microsoft Store via the "Private Store" functionality. This policy allows you to restrict your users to only those applications that you deem necessary. |
@@ -499,6 +846,10 @@
 | Learn more | [Distribute apps using your private store](https://docs.microsoft.com/en-us/microsoft-store/distribute-apps-from-your-private-store) |
 
 
+
+###### hidden-header
+
+### Baseline - OS - Default Windows 10 Update Ring
 
 |Name |Baseline - OS - Default Windows 10 Update Ring|
 | :-- | :-- |
@@ -509,6 +860,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - OS - Insiders Windows 10 Update Ring
+
 |Name |Baseline - OS - Insiders Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Creates a Windows Update configuration for Intune-managed devices in the "Insiders" ring that receive updates before any other device in your tenant. The baseline delays feature and quality updates to "Insiders" for 3 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates will be applied outside the working hours of 5am to 10pm. This Windows Update configuration applies to users in the Azure AD group "Baseline - Corporate Devices – Insiders". |
@@ -517,6 +872,10 @@
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
 
 
+
+###### hidden-header
+
+### Baseline - OS - Local Autopilot Reset Enabled
 
 |Name |Baseline - OS - Local Autopilot Reset Enabled|
 | :-- | :-- |
@@ -527,6 +886,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - OS - Preview Windows 10 Update Ring
+
 |Name |Baseline - OS - Preview Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Creates a Windows Update configuration for Intune-managed devices in the "Preview" ring, which receive updates after "Insiders" but before devices with the default policy. The baseline delays feature and quality updates to the "Preview" group for 7 days after released by Microsoft. Once the deferral period has expired for a device, users have 3 days to restart (if required). Unattended updates will only be applied outside working hours of 5am to 10pm. Applies to users in the Azure AD group "Baseline - Corporate Devices – Preview". |
@@ -535,6 +898,10 @@
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
 
 
+
+###### hidden-header
+
+### Baseline - OS - RDP Enabled
 
 |Name |Baseline - OS - RDP Enabled|
 | :-- | :-- |
@@ -545,6 +912,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Security - BitLocker Device Encryption Enabled
+
 |Name |Baseline - Security - BitLocker Device Encryption Enabled|
 | :-- | :-- |
 | What does this do? | Enables and configures BitLocker device encryption for physical devices. BitLocker requires a machine to have TPM 1.2 or later, which excludes older hardware and virtual machines. |
@@ -553,6 +924,10 @@
 | Learn more | [Overview of BitLocker Device Encryption in Windows 10](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-device-encryption-overview-windows-10) |
 
 
+
+###### hidden-header
+
+### Baseline - Security - IE Site-to-Zone Assignment
 
 |Name |Baseline - Security - IE Site-to-Zone Assignment|
 | :-- | :-- |
@@ -563,6 +938,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Security - NTLMv2 LAN Manager Authentication Level
+
 |Name |Baseline - Security - NTLMv2 LAN Manager Authentication Level|
 | :-- | :-- |
 | What does this do? | Configures the Windows LAN Manager Authentication Level to require NTLMv2. |
@@ -571,6 +950,10 @@
 | Learn more | [Network security: LAN Manager authentication level](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-lan-manager-authentication-level) |
 
 
+
+###### hidden-header
+
+### Baseline - Security - Password Reset Enabled
 
 |Name |Baseline - Security - Password Reset Enabled|
 | :-- | :-- |
@@ -581,6 +964,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Security - Personal Microsoft Accounts Blocked
+
 |Name |Baseline - Security - Personal Microsoft Accounts Blocked|
 | :-- | :-- |
 | What does this do? | Disables the addition of personal Microsoft accounts to devices to ensure Data Loss Prevention. |
@@ -589,6 +976,10 @@
 | Learn more | [Microsoft accounts configuration](https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-windows-10#cloud-and-storage) |
 
 
+
+###### hidden-header
+
+### Baseline - Security - Simple Passwords Disabled
 
 |Name |Baseline - Security - Simple Passwords Disabled|
 | :-- | :-- |
@@ -599,6 +990,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - UX - Microsoft Consumer Experience Disabled
+
 |Name |Baseline - UX - Microsoft Consumer Experience Disabled|
 | :-- | :-- |
 | What does this do? | Disables Microsoft Consumer Experiences such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles. |
@@ -607,6 +1002,10 @@
 | Learn more | [Policy CSP - Experience](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-experience#experience-allowwindowsconsumerfeatures) |
 
 
+
+###### hidden-header
+
+### Baseline - UX - Windows First Run Animation Disabled
 
 |Name |Baseline - UX - Windows First Run Animation Disabled|
 | :-- | :-- |
@@ -617,6 +1016,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - UX - Windows Hello Disabled
+
 |Name |Baseline - UX - Windows Hello Disabled|
 | :-- | :-- |
 | What does this do? | Disables Windows Hello, a biometric sign-in system for Windows 10 that uses a near infrared (IR) imaging camera or fingerprint reader instead of a password to identify users. |
@@ -625,6 +1028,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - UX - Windows Spotlight Disabled
 
 |Name |Baseline - UX - Windows Spotlight Disabled|
 | :-- | :-- |
@@ -638,6 +1045,10 @@
 ## Intune > Devices > Enrollment restrictions
 *MSGraph/DeviceManagement/DeviceEnrollmentConfigurations*
 
+###### hidden-header
+
+### deviceEnrollmentLimitConfiguration - All users and all devices
+
 |Name |deviceEnrollmentLimitConfiguration - All users and all devices|
 | :-- | :-- |
 | What does this do? | Limits the default number of devices that a single user can enroll. The baseline sets this limit to 5, however it can be overwritten by other configurations with a higher priority. |
@@ -646,6 +1057,10 @@
 | Learn more | [Create a device limit restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-limit-restriction) |
 
 
+
+###### hidden-header
+
+### deviceEnrollmentPlatformRestrictionsConfiguration - All users and all devices
 
 |Name |deviceEnrollmentPlatformRestrictionsConfiguration - All users and all devices|
 | :-- | :-- |
@@ -656,6 +1071,10 @@
 
 
 
+###### hidden-header
+
+### deviceEnrollmentPlatformRestrictionsConfiguration - Baseline - Device Enrollers can enroll personal devices
+
 |Name |deviceEnrollmentPlatformRestrictionsConfiguration - Baseline - Device Enrollers can enroll personal devices|
 | :-- | :-- |
 | What does this do? | Allows for specifying users that can enroll devices to Intune. The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, and allows all other users to only enroll devices that have been previously registered with Autopilot. This limit can be overridden by other configurations with a higher priority. |
@@ -665,6 +1084,10 @@
 
 
 
+###### hidden-header
+
+### deviceEnrollmentWindowsHelloForBusinessConfiguration - All users and all devices
+
 |Name |deviceEnrollmentWindowsHelloForBusinessConfiguration - All users and all devices|
 | :-- | :-- |
 | What does this do? | The baseline disables Windows Hello for Business. |
@@ -673,6 +1096,10 @@
 | Learn more | [Windows Hello for Business](https://docs.microsoft.com/en-us/mem/intune/protect/identity-protection-windows-settings) |
 
 
+
+###### hidden-header
+
+### windows10EnrollmentCompletionPageConfiguration - All users and all devices
 
 |Name |windows10EnrollmentCompletionPageConfiguration - All users and all devices|
 | :-- | :-- |
@@ -686,6 +1113,10 @@
 ## Intune > Devices > Scripts
 *MSGraph/DeviceManagement/DeviceManagementScripts*
 
+###### hidden-header
+
+### Baseline - Management - Set-IntuneManagementExtensionConfiguration
+
 |Name |Baseline - Management - Set-IntuneManagementExtensionConfiguration|
 | :-- | :-- |
 | What does this do? | The baseline configures the IntuneManagementExtension to not delete installation logs from devices. |
@@ -694,6 +1125,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Management - Set-LocalAdminPassword
 
 |Name |Baseline - Management - Set-LocalAdminPassword|
 | :-- | :-- |
@@ -704,6 +1139,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - OS - Enable-TaskSchedulerHistory
+
 |Name |Baseline - OS - Enable-TaskSchedulerHistory|
 | :-- | :-- |
 | What does this do? | Enables the Windows Task Scheduler to display history of task runs. The baseline enables this setting and it is disabled by default. |
@@ -712,6 +1151,10 @@
 | Learn more | [Enable Windows task scheduler history](https://medium.com/techygeekshome/enable-windows-task-scheduler-history-996a601a178c) |
 
 
+
+###### hidden-header
+
+### Baseline - OS - Set-TimeZone
 
 |Name |Baseline - OS - Set-TimeZone|
 | :-- | :-- |
@@ -722,6 +1165,10 @@
 
 
 
+###### hidden-header
+
+### Baseline - Security - Add-AuthenticatedUsersToRemoteDesktopUsers
+
 |Name |Baseline - Security - Add-AuthenticatedUsersToRemoteDesktopUsers|
 | :-- | :-- |
 | What does this do? | Adds the Authenticated Users group to the Remote Desktop Users group so any authenticated user can connect via Remote Desktop. A separate configuration (OS - RDP Enabled) allows users in the "Remote Desktop users' group to access devices remotely. |
@@ -730,6 +1177,10 @@
 | Learn more | N/A |
 
 
+
+###### hidden-header
+
+### Baseline - Security - Disable-RdpNetworkLevelAuthentication
 
 |Name |Baseline - Security - Disable-RdpNetworkLevelAuthentication|
 | :-- | :-- |
@@ -743,6 +1194,10 @@
 ## Intune > Devices > Windows Autopilot deployment profiles
 *MSGraph/DeviceManagement/WindowsAutopilotDeploymentProfiles*
 
+###### hidden-header
+
+### Baseline - Self Deploying Profile
+
 |Name |Baseline - Self Deploying Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune autopilot profile for enrolling machines using the self-deploying method, which enables a device to be enrolled into your environment with little to no user interaction. Self-deployment mode comes with restrictions including that the device must have TPM 2.0, and it is not supported on virtual machines even if they have a virtual TPM. Devices in the Azure AD group "Baseline - Autopilot Devices - Self Deploying" will be assigned this profile. |
@@ -751,6 +1206,10 @@
 | Learn more | [Windows Autopilot Self-Deploying mode](https://docs.microsoft.com/en-us/mem/autopilot/self-deploying) |
 
 
+
+###### hidden-header
+
+### Baseline - User Driven Profile
 
 |Name |Baseline - User Driven Profile|
 | :-- | :-- |
@@ -764,6 +1223,10 @@
 ## Intune > Diagnostic settings
 *AzureManagement/MicrosoftIntune/DiagnosticSettings*
 
+###### hidden-header
+
+### Baseline - Logging
+
 |Name |Baseline - Logging|
 | :-- | :-- |
 | What does this do? | Configures logging to capture Intune events, which can then be analyzed using Log Analytics Workspaces. The baseline captures device audit logs, compliance, and operational logs. Logs can be viewed in the Analytics Workspace named "tenant Name-M365logging" and are stored in the Azure Storage Account named "tenantNameM365Logging." |
@@ -775,6 +1238,10 @@
 
 ## Office 365 > Exchange > AdminAuditLogConfig
 *PowerShell/Exchange/Organization/AdminAuditLogConfig*
+
+###### hidden-header
+
+### Admin Audit Log Settings
 
 |Name |Admin Audit Log Settings|
 | :-- | :-- |
@@ -788,6 +1255,10 @@
 ## Office 365 > Exchange > OrganizationConfig
 *PowerShell/Exchange/Organization/OrganizationConfig*
 
+###### hidden-header
+
+### First Organization
+
 |Name |First Organization|
 | :-- | :-- |
 | What does this do? | Defines various Exchange settings. Microsoft changes these settings frequently as features are added and removed. |
@@ -799,6 +1270,10 @@
 
 ## Office 365 > Exchange > Outlook Web App policies
 *PowerShell/Exchange/ClientAccess/OwaMailboxPolicies*
+
+###### hidden-header
+
+### OwaMailboxPolicy-Default
 
 |Name |OwaMailboxPolicy-Default|
 | :-- | :-- |
@@ -812,6 +1287,10 @@
 ## Office 365 > Security & Compliance > Information governance > Retention (Teams)
 *PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies*
 
+###### hidden-header
+
+### Baseline - Teams Retention Policy
+
 |Name |Baseline - Teams Retention Policy|
 | :-- | :-- |
 | What does this do? | Defines the data retention policy for Microsoft Teams. The baseline retains Teams data for one year. |
@@ -823,6 +1302,10 @@
 
 ## Office 365 > Security & Compliance > Information governance > Retention
 *PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies*
+
+###### hidden-header
+
+### Baseline - Default Retention Policy
 
 |Name |Baseline - Default Retention Policy|
 | :-- | :-- |
@@ -836,6 +1319,10 @@
 ## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
 
+###### hidden-header
+
+### Global
+
 |Name |Global|
 | :-- | :-- |
 | What does this do? | Allows admins to specify approved Teams applications. Another setting (TenantWideAppsSettings) allows for Teams applications in general to be used. |
@@ -848,6 +1335,10 @@
 ## Office 365 > Teams > Apps
 *TeamsApi/Users/TenantWideAppsSettings*
 
+###### hidden-header
+
+### Configuration
+
 |Name |Configuration|
 | :-- | :-- |
 | What does this do? | Defines global settings for Microsoft Teams. The baseline allows users to add Teams apps in general, and another setting (TeamsAppPermissionPolicy) allows you to specify approved Teams applications. |
@@ -859,6 +1350,10 @@
 
 ## Office 365 > Teams > Org-wide settings
 *TeamsPSAdmin/TeamsClientConfiguration*
+
+###### hidden-header
+
+### Global
 
 |Name |Global|
 | :-- | :-- |
