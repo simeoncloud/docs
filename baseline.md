@@ -1,6 +1,6 @@
 # Simeon Baseline
 
-## Azure > Resource groups
+## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
 ###### hidden-header
@@ -29,7 +29,7 @@
 
 
 
-## Azure AD > Company branding
+## Azure AD > Company branding
 *AadIam/CompanyBrandings*
 
 ###### hidden-header
@@ -45,7 +45,7 @@
 
 
 
-## Azure AD > Device settings
+## Azure AD > Device settings
 *AadIam/DeviceSettings*
 
 ###### hidden-header
@@ -61,7 +61,7 @@
 
 
 
-## Azure AD > Diagnostic settings
+## Azure AD > Diagnostic settings
 *AzureManagement/MicrosoftAadIam/DiagnosticSettings*
 
 ###### hidden-header
@@ -77,7 +77,7 @@
 
 
 
-## Azure AD > Directory settings
+## Azure AD > Directory settings
 *MSGraph/Settings*
 
 ###### hidden-header
@@ -93,7 +93,7 @@
 
 
 
-## Azure AD > External user directory settings
+## Azure AD > External user directory settings
 *AadIam/ExternalUserDirectorySettings*
 
 ###### hidden-header
@@ -109,7 +109,7 @@
 
 
 
-## Azure AD > External user guest settings
+## Azure AD > External user guest settings
 *AadIam/ExternalUserGuestSettings*
 
 ###### hidden-header
@@ -125,7 +125,7 @@
 
 
 
-## Azure AD > Group settings
+## Azure AD > Group settings
 *AadIam/GroupSettings*
 
 ###### hidden-header
@@ -141,7 +141,7 @@
 
 
 
-## Azure AD > Groups
+## Azure AD > Groups
 *MSGraph/Groups*
 
 ###### hidden-header
@@ -326,7 +326,7 @@
 
 
 
-## Azure AD > Mobility (MDM and MAM)
+## Azure AD > Mobility (MDM and MAM)
 *AadIam/MdmApplications*
 
 ###### hidden-header
@@ -355,7 +355,7 @@
 
 
 
-## Azure AD > Password reset
+## Azure AD > Password reset
 *AadIam/PasswordResetPolicies*
 
 ###### hidden-header
@@ -371,7 +371,7 @@
 
 
 
-## Azure AD > Security > Conditional Access > Policies
+## Azure AD > Security > Conditional Access > Policies
 *MSGraph/ConditionalAccess/Policies*
 
 ###### hidden-header
@@ -465,7 +465,7 @@
 
 
 
-## Azure AD > User feature preview settings
+## Azure AD > User feature preview settings
 *AadIam/FeatureSettings*
 
 ###### hidden-header
@@ -481,7 +481,7 @@
 
 
 
-## Azure AD > User settings
+## Azure AD > User settings
 *AadIam/UserSettings*
 
 ###### hidden-header
@@ -497,7 +497,7 @@
 
 
 
-## Azure AD > Users
+## Azure AD > Users
 *MSGraph/Users*
 
 ###### hidden-header
@@ -513,7 +513,7 @@
 
 
 
-## Intune > Apps > App configuration policies
+## Intune > Apps > App configuration policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
 
 ###### hidden-header
@@ -529,7 +529,7 @@
 
 
 
-## Intune > Apps > App protection policies (Platform = Android)
+## Intune > Apps > App protection policies (Platform = Android)
 *MSGraph/DeviceAppManagement/AndroidManagedAppProtections*
 
 ###### hidden-header
@@ -545,7 +545,7 @@
 
 
 
-## Intune > Apps > App protection policies (Platform = iOS/iPadOS)
+## Intune > Apps > App protection policies (Platform = iOS/iPadOS)
 *MSGraph/DeviceAppManagement/IosManagedAppProtections*
 
 ###### hidden-header
@@ -561,7 +561,7 @@
 
 
 
-## Intune > Apps > App protection policies (Platform = Windows 10)
+## Intune > Apps > App protection policies (Platform = Windows 10)
 *MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies*
 
 ###### hidden-header
@@ -577,7 +577,7 @@
 
 
 
-## Intune > Apps
+## Intune > Apps
 *MSGraph/DeviceAppManagement/MobileApps*
 
 ###### hidden-header
@@ -586,7 +586,10 @@
 
 |Name |7-Zip|
 | :-- | :-- |
-7-Zip is a file archiver with a high compression ratio.
+| What does this do? | 7-Zip is a file archiver with a high compression ratio. |
+| Why should you use this? | 7-Zip is one of the most popular, compatible and fastest file archiving software. |
+| What is the end-user impact? | Users will have 7-Zip installed on their computer. |
+| Learn more | [7-Zip](https://www.7-zip.org/)
 
 
 
@@ -596,7 +599,10 @@
 
 |Name |AnyDesk|
 | :-- | :-- |
-AnyDesk remote access for remote administration.
+| What does this do? | AnyDesk is a remote desktop application that provides remote access to computers. |
+| Why should you use this? | If you want to be able to easily remote into computers to help end-users troubleshoot problems. |
+| What is the end-user impact? | Users will have AnyDesk installed on their computer. |
+| Learn more | [AnyDesk](https://anydesk.com/en)
 
 
 
@@ -606,7 +612,10 @@ AnyDesk remote access for remote administration.
 
 |Name |CMTrace|
 | :-- | :-- |
-CMTrace is one of the Configuration Manager tools. It allows you to view and monitor log files, including the following types: Log files in Configuration Manager or Client Component Manager (CCM) format, plain ASCII or Unicode text files, such as Windows Installer logs. The tool helps to analyze log files by highlighting, filtering, and error lookup.
+| What does this do? | CMTrace is one of the Configuration Manager tools. It allows you to view and monitor log files including the following types: Log files in Configuration Manager or Client Component Manager (CCM) format, plain ASCII or Unicode text files, such as Windows Installer logs. |
+| Why should you use this? | CMTrace helps to analyze Intune log files by highlighting, filtering, and error lookup. |
+| What is the end-user impact? | N/A |
+| Learn more | [CMTrace](https://docs.microsoft.com/en-us/mem/configmgr/core/support/cmtrace)
 
 
 
@@ -616,20 +625,10 @@ CMTrace is one of the Configuration Manager tools. It allows you to view and mon
 
 |Name |Company Portal|
 | :-- | :-- |
-Microsoft Intune helps organizations manage access to corporate apps, data, and resources. Company Portal is the app that lets you, as an employee of your company, securely access those resources.
-
-Before you can use this app, make sure your IT admin has set up your work account. Your company must also have a subscription to Microsoft Intune.
-
-Company Portal helps simplify the tasks you need to do for work:
-
-- Enroll your device to access corporate resources, including Office, email, and OneDrive for Business
-- Sign in to corporate resources with company-issued certificates
-- Reduce the number of times you need to sign in to corporate resources with single sign-on
-- Browse and install approved business apps from your IT department or the Microsoft Store for Business
-- View and manage your enrolled devices – and wipe them if they get lost or stolen
-- Get help directly from your IT department through available contact information
- 
-A note about Intune: every organization has different access requirements, and will use Intune in ways that they determine will best manage their information. Some functionality might be unavailable in certain countries. If you have questions about how this app is being used within your organization, your company’s IT administrator should have those answers for you. Microsoft, your network provider, and your device’s manufacturer do not know how Intune will be used by your organization.
+| What does this do? | Company Portal is the application that lets end users securely access company resources. |
+| Why should you use this? | You can publish applications to the Company Portal that end users can install on their devices even if they do not have administrator privileges. |
+| What is the end-user impact? | End users may install pre-approved software without administrator privileges. |
+| Learn more | [Company Portal](https://www.microsoft.com/en-us/p/company-portal/9wzdncrfj3pz?activetab=pivot:overviewtab)
 
 
 
@@ -639,7 +638,10 @@ A note about Intune: every organization has different access requirements, and w
 
 |Name |Microsoft .NET Framework 3.5|
 | :-- | :-- |
-Microsoft .NET Framework 3.5.
+| What does this do? | Microsoft .NET Framework 3.5 is a vital component of Windows and is used to create and run applications. |
+| Why should you use this? | Microsoft .NET Framework 3.5 is required to run many applications. |
+| What is the end-user impact? | Users will have Microsoft .NET Framework 3.5 installed on their machines. |
+| .NET Framework | [What is .NET Framework?](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet-framework)
 
 
 
@@ -649,17 +651,10 @@ Microsoft .NET Framework 3.5.
 
 |Name |Microsoft Edge for Windows 10|
 | :-- | :-- |
-Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab.
-
-
-
-###### hidden-header
-
-### Microsoft Windows Virtual Desktop Client
-
-|Name |Microsoft Windows Virtual Desktop Client|
-| :-- | :-- |
-Microsoft Windows Virtual Desktop Client
+| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. |
+| Why should you use this? | If you want users to have a faster default web browser with more features. |
+| What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
+| Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 
 
 
@@ -669,19 +664,10 @@ Microsoft Windows Virtual Desktop Client
 
 |Name |Netflix|
 | :-- | :-- |
-Netflix has something for everyone. Watch TV shows and movies recommended just for you, including award-winning Netflix original series, movies, and documentaries. There’s even a safe watching experience just for kids with family-friendly entertainment.
-
-Now on Windows, you can enjoy every detail of the world’s favorite shows in 4K Ultra HD on Netflix. Download many of your favorite series and movies with the simple click of the download button. You can watch while you’re on the go or without an Internet connection on your PC, tablet or laptop with Windows 10. 
-
-How does Netflix work?
-- Instantly watch TV shows and movies through thousands of internet-connected devices. You can play, pause, and resume watching, all without commercials.
-- Netflix adds new content all the time. Browse titles or search for your favorites.
-- The more you watch, the better Netflix gets at recommending TV shows and movies that you’ll love — just for you. 
-- You can create up to five individual profiles within a single Netflix account. Profiles allow different members of your household to have their own personalized Netflix experience built around the movies and TV shows they enjoy. 
-
-If you decide Netflix isn't for you - no problem. No contract, no cancellation fees, no commitment. Cancel online anytime.
-
-By clicking INSTALL, you consent to the installation of the Netflix application and any updates or upgrades thereto.
+| What does this do? | Microsoft installs Netflix by default. The baseline uninstalls the Netflix applications from devices. |
+| Why should you use this? | If you want to uninstall the Netflix applications from devices. |
+| What is the end-user impact? | Users will not have Netflix installed on their devices. |
+| Learn more | N/A
 
 
 
@@ -691,7 +677,10 @@ By clicking INSTALL, you consent to the installation of the Netflix application 
 
 |Name |Office 365|
 | :-- | :-- |
-Office 365
+| What does this do? | Office 365 is Microsoft’s productivity suite with popular applications such as Word, Excel and PowerPoint. |
+| Why should you use this? | If you want Office 365 desktop applications to be installed on Intune-managed devices. |
+| What is the end-user impact? | Users will have Office 365 installed on their devices. |
+| Learn more | N/A
 
 
 
@@ -701,17 +690,10 @@ Office 365
 
 |Name |Shortcut Cleanup|
 | :-- | :-- |
-Cleans up duplicate desktop shortcuts (ending with - Copy.lnk).
-
-
-
-###### hidden-header
-
-### Visual Studio Code
-
-|Name |Visual Studio Code|
-| :-- | :-- |
-Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. This software is also usable as an advanced text editor.
+| What does this do? | Shortcut Cleanup removes duplicate desktop shortcuts that have been created by OneDrive Known Folder Move. |
+| Why should you use this? | OneDrive Known Folder Move can introduce duplicate desktop shortcuts for preinstalled applications (e.g. Microsoft Teams). This application removes those duplicate shortcuts. |
+| What is the end-user impact? | Users will not have duplicate shortcuts. |
+| Learn more | N/A
 
 
 
@@ -721,20 +703,14 @@ Visual Studio Code is a source code editor developed by Microsoft for Windows, L
 
 |Name |Xbox Console Companion|
 | :-- | :-- |
-The Xbox app brings together your friends, games, and accomplishments across Xbox One and Windows 10 devices. The best multiplayer gaming just got better.
-
-     • Join clubs – or create your own – where you can go to play and chat with friends and other gamers like you.
-     • Find games with like-minded players by checking Looking for Group posts, or post one that fits your own objectives and play style.
-     • Get instant access to chat, sharing, parties, Game DVR, and achievements across PC and Xbox One.
-     • Keep track of your game clips and screenshots and download them straight to your Windows 10 PC.
-     • Take the brakes off chat when you use a keyboard for messaging with friends on Xbox Live.
-     • Stream your favorite games and entertainment from Xbox One to a Windows 10 PC while using your Xbox One controller.
-
-     Disclaimer: Broadband internet required (ISP fees apply). Xbox Live features only available with supported games. Online multiplayer (including streaming with multiplayer) and some features of Game DVR on Xbox One require Xbox Live Gold subscription (sold separately). Stream to one device at a time.
+| What does this do? | Windows automatically installs Xbox Console Companion. The baseline uninstalls it. |
+| Why should you use this? | If you want to have Xbox Console Companion uninstalled. |
+| What is the end-user impact? | Users will not have Xbox Companion Console installed. |
+| Learn more | N/A
 
 
 
-## Intune > Devices > Compliance policies
+## Intune > Devices > Compliance policies
 *MSGraph/DeviceManagement/DeviceCompliancePolicies*
 
 ###### hidden-header
@@ -763,7 +739,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)
+## Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)
 *MSGraph/DeviceManagement/GroupPolicyConfigurations*
 
 ###### hidden-header
@@ -831,7 +807,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Intune > Devices > Configuration profiles
+## Intune > Devices > Configuration profiles
 *MSGraph/DeviceManagement/DeviceConfigurations*
 
 ###### hidden-header
@@ -1042,7 +1018,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Intune > Devices > Enrollment restrictions
+## Intune > Devices > Enrollment restrictions
 *MSGraph/DeviceManagement/DeviceEnrollmentConfigurations*
 
 ###### hidden-header
@@ -1110,7 +1086,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Intune > Devices > Scripts
+## Intune > Devices > Scripts
 *MSGraph/DeviceManagement/DeviceManagementScripts*
 
 ###### hidden-header
@@ -1191,7 +1167,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Intune > Devices > Windows Autopilot deployment profiles
+## Intune > Devices > Windows Autopilot deployment profiles
 *MSGraph/DeviceManagement/WindowsAutopilotDeploymentProfiles*
 
 ###### hidden-header
@@ -1220,7 +1196,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Intune > Diagnostic settings
+## Intune > Diagnostic settings
 *AzureManagement/MicrosoftIntune/DiagnosticSettings*
 
 ###### hidden-header
@@ -1236,7 +1212,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Exchange > AdminAuditLogConfig
+## Office 365 > Exchange > AdminAuditLogConfig
 *PowerShell/Exchange/Organization/AdminAuditLogConfig*
 
 ###### hidden-header
@@ -1252,7 +1228,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Exchange > OrganizationConfig
+## Office 365 > Exchange > OrganizationConfig
 *PowerShell/Exchange/Organization/OrganizationConfig*
 
 ###### hidden-header
@@ -1268,7 +1244,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Exchange > Outlook Web App policies
+## Office 365 > Exchange > Outlook Web App policies
 *PowerShell/Exchange/ClientAccess/OwaMailboxPolicies*
 
 ###### hidden-header
@@ -1284,7 +1260,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Security & Compliance > Information governance > Retention (Teams)
+## Office 365 > Security & Compliance > Information governance > Retention (Teams)
 *PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies*
 
 ###### hidden-header
@@ -1300,7 +1276,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Security & Compliance > Information governance > Retention
+## Office 365 > Security & Compliance > Information governance > Retention
 *PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies*
 
 ###### hidden-header
@@ -1316,7 +1292,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Teams > Apps > Permission policies
+## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
 
 ###### hidden-header
@@ -1332,7 +1308,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Teams > Apps
+## Office 365 > Teams > Apps
 *TeamsApi/Users/TenantWideAppsSettings*
 
 ###### hidden-header
@@ -1348,7 +1324,7 @@ The Xbox app brings together your friends, games, and accomplishments across Xbo
 
 
 
-## Office 365 > Teams > Org-wide settings
+## Office 365 > Teams > Org-wide settings
 *TeamsPSAdmin/TeamsClientConfiguration*
 
 ###### hidden-header
