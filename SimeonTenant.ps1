@@ -90,8 +90,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         param()
 
         if ((Get-Command git -EA SilentlyContinue)) {
-            if (!(git config user.email)) { git config user.email "noreply@simeoncloud.com" }
-            if (!(git config user.name)) { git config user.name "Simeon" }
+            if (!(git config --global user.email)) { git config --global user.email "noreply@simeoncloud.com" }
+            if (!(git config --global user.name)) { git config --global user.name "Simeon" }
             return
         }
 
