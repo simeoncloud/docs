@@ -101,6 +101,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $outFile = "$([IO.Path]::GetTempPath())/git-install.exe"
             irm $url -OutFile $outFile
             Start-Process $outFile -Wait
+            throw "Please exit PowerShell and re-run this script after completing the installation of Git"
         }
         elseif ($IsMacOS) {
             Wait-EnterKey "Attempting to download and install Git - double click the pkg file and continue through the setup wizard as prompted"
@@ -108,10 +109,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $outFile = "$([IO.Path]::GetTempPath())/git-install.dmg"
             irm $url -OutFile $outFile
             & $outFile
-            throw "Please re-run this script after completing the installation of Git"
+            throw "Please exit PowerShell and re-run this script after completing the installation of Git"
         }
         else {
-            throw 'Please install git git Gitn try running again - https://git-scm.com/downloads'
+            throw "Please install Git from https://git-scm.com/downloads, then exit PowerShell and re-run this script"
         }
 
         if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
