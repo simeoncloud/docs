@@ -91,7 +91,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         if ((Get-Command git -EA SilentlyContinue)) { return }
 
-        if ($IsWindows) {
+        if ($IsWindows -or $PSVersionTable.PSEdition -ne 'Core') {
             Wait-EnterKey "Attempting to download and install Git - continue through the setup wizard as prompted"
             $url = 'https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-32-bit.exe'
             if ([System.Environment]::Is64BitOperatingSystem) {
