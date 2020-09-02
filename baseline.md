@@ -22,7 +22,7 @@
 
 |Name |baseline-m365logging|
 | :-- | :-- |
-| What does this do? | Creates an Azure Event Hub, Azure Log Analytics Workspace, and Azure Storage account to capture Azure and Intune logs. The baseline Workspace is named "tenant Name-M365logging." |
+| What does this do? | Creates an Azure Event Hub, Azure Log Analytics Workspace, and Azure Storage account to capture Azure and Intune logs. |
 | Why should you use this? | This provides the essential resources required to capture logs, analyze trends, and be alerted of suspicious events. |
 | What is the end-user impact? | N/A |
 | Learn more | [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/design-logs-deployment) |
@@ -39,7 +39,7 @@
 |Name |Default|
 | :-- | :-- |
 | What does this do? | Defines the messages and logos shown to users on Azure login screens. The baseline automatically populates the username watermark with "user@yourcompanyname.org." |
-| Why should you use this? | If you want to provide your users with a personalized login screen for added security, familiarity and branding. |
+| Why should you use this? | If you want to provide your users with a personalized login screen for added security, familiarity, and branding. |
 | What is the end-user impact? | Users will see the watermark (username hint) on Azure login screens. |
 | Learn more | [Customize your Azure AD sign-in page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/customize-branding) |
 
@@ -54,9 +54,9 @@
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Configures settings that control joining devices to Azure AD. The baseline allows only the groups "Baseline - Device Enrollers" and "Baseline - Microsoft 365 Users" to join up to 100 devices to Azure AD, as well as requires MFA. |
-| Why should you use this? | To restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
-| What is the end-user impact? | Only specified users may join devices, and those users will be prompted for MFA to join. |
+| What does this do? | Configures settings that control joining devices to Azure AD. The baseline allows only the groups "Baseline - Device Enrollers" and "Baseline - Microsoft 365 Users" to join devices to Azure AD. These groups may join up to 100 devices and are required to perform MFA when joining the device. |
+| Why should you use this? | If you want to restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
+| What is the end-user impact? | Only authorized groups may join devices, and users in those groups will be prompted for MFA to join. |
 | Learn more | N/A |
 
 
@@ -70,8 +70,8 @@
 
 |Name |Baseline - Logging|
 | :-- | :-- |
-| What does this do? | Configures logging to capture Azure sign-in events, which can then be analyzed using Log Analytics Workspaces. The baseline captures all audit logs as well as all sign-in attempts. Logs can be viewed in the Analytics Workspace named "tenant Name-M365logging" and are stored in the Azure Storage Account named "tenantNameM365Logging." |
-| Why should you use this? | Increases security by providing you with the data needed to monitor and be alerted of log-in activity within your tenant. |
+| What does this do? | Configures logging to capture Azure sign-in events, which can then be analyzed using Log Analytics Workspaces. The baseline captures all audit logs as well as all sign-in attempts. Logs can be viewed in the log analytics workspace and storage account created by "baseline-m365logging." |
+| Why should you use this? | These settings improve security by providing you with the data needed to monitor and be alerted of log-in activity within your tenant. |
 | What is the end-user impact? | N/A |
 | Learn more | [Analyze Azure AD activity logs with Azure Monitor logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) |
 
@@ -86,9 +86,9 @@
 
 |Name |Group.Unified|
 | :-- | :-- |
-| What does this do? | Configures restrictions for creating Azure AD Groups. The baseline restricts users not in "Group Creators" from creating groups. |
-| Why should you use this? | If you want to tighten security around group creation, including naming conventions. |
-| What is the end-user impact? | User who are not in "Group Creators" will be restricted from creating Azure AD groups. |
+| What does this do? | Configures restrictions for creating Azure AD Groups. The baseline restricts users not in "Baseline - Group Creators" from creating groups. |
+| Why should you use this? | If you want to tighten security around group creation. |
+| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
 
@@ -102,8 +102,8 @@
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Defines external collaborator settings including who can invite external collaborators and whether restrictions will be placed on external users. The baseline allows only authorized users with the "Guest Inviter" role to invite external users. |
-| Why should you use this? | The Azure default allows all users and guests to invite external users, so we recommend using the baseline setting to increase security. |
+| What does this do? | Defines external collaborator (guest user) settings including who can invite external collaborators and whether restrictions will be placed on such users. The baseline allows only authorized users with the "Guest Inviter" role to invite external collaborators. |
+| Why should you use this? | The Azure default allows all users and guests to invite external users, so we recommend using the baseline setting to tighten security. |
 | What is the end-user impact? | Users will not be able to invite external collaborators unless authorized. |
 | Learn more | [Configure B2B external collaboration settings](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/delegate-invitations) |
 
@@ -118,8 +118,8 @@
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Defines settings for permissions that guests users have in the tenant and to which external tenants guest invitations may be sent. The baseline preserves the Microsoft default settings, which allow invitations to be sent to any domain and restrict the permissions of guest users. |
-| Why should you use this? | If you want to apply Microsoft's default security settings for guest users, which increases security.. |
+| What does this do? | Defines settings for permissions that guest users have in the tenant and to which external tenants guest invitations may be sent. The baseline preserves the Microsoft default settings, which allow invitations to be sent to any domain and restrict the permissions of guest users. |
+| Why should you use this? | The baseline applies Microsoft's default settings for guest users. |
 | What is the end-user impact? | Authorized users may send invitations to any domain, but guest user permissions are restricted. |
 | Learn more | [Configure B2B external collaboration settings](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/delegate-invitations#to-configure-external-collaboration-settings) |
 
@@ -134,9 +134,9 @@
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Configures group membership management options. The baseline does not allow group owners to approve requests, does not allow security group creation, and restricts users from seeing group membership. |
+| What does this do? | Configures group membership management options. The baseline restricts the following activities to administrators: owners managing group membership requests, access to features in the portal, creation of security groups, and creation of Microsoft 365 groups. |
 | Why should you use this? | If you want to have a more secure group settings environment. |
-| What is the end-user impact? | Owners cannot approve requests, security groups cannot be created, and users cannot see group membership. |
+| What is the end-user impact? | The following activities will be restricted to administrators: owners managing group membership requests, access to features in the portal, creation of security groups, and creation of Microsoft 365 groups. |
 | Learn more | [Users, groups, and roles](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-self-service-management) |
 
 
@@ -150,9 +150,9 @@
 
 |Name |Baseline - Autopilot Devices - Self Deploying|
 | :-- | :-- |
-| What does this do? | Creates a dynamic device group that is used for assigning self-deploying Intune Autopilot profiles to devices. This group contains corporate physical devices with the tag "Autopilot-SelfDeploying." Devices can be tagged from the Intune portal or via an automated hardware hash upload. To tag in Intune go to Devices > Windows Enrollment > Devices, then select the required device and add to the "Group Tag" field to tag via automated hardware hash included with column OrderId. |
-| Why should you use this? | If you want devices to be assigned the self-deployment Autopilot profile for device enrollment. |
-| What is the end-user impact? | A device can be enrolled to Intune without end-user input. |
+| What does this do? | Creates a dynamic device group that is used to assign the "Baseline - Self Deploying Profile" Autopilot profile to devices. This group contains corporate physical devices with the tag "Autopilot-SelfDeploying." Devices can be tagged from the Intune portal or via an automated hardware hash upload. To tag in Intune go to Devices > Windows Enrollment > Devices, then select the required device and add to the "Group Tag" field. |
+| Why should you use this? | If you want devices to be assigned the "Baseline - Self Deploying Profile" Autopilot profile for device enrollment. |
+| What is the end-user impact? | Devices in this group will automatically Autopilot without end-user input. |
 | Learn more | [Windows Autopilot Self-Deploying mode](https://docs.microsoft.com/en-us/mem/autopilot/self-deploying) |
 
 
@@ -163,9 +163,9 @@
 
 |Name |Baseline - Autopilot Devices - User Driven|
 | :-- | :-- |
-| What does this do? | Creates a dynamic device group for assigning user-driven Autopilot profiles to devices. This group includes all devices that are not in the Azure AD group "Autopilot Devices - Self Deploying." |
+| What does this do? | Creates a dynamic device group that is used to assign the "Baseline - User Driven Profile" Autopilot profile to devices. This group includes all devices that are not in the Azure AD group "Baseline - Autopilot Devices - Self Deploying." |
 | Why should you use this? | When a device is going to be used by a single user, this approach is ideal because the device shows as assigned in all relevant Intune pages and reports. It is also the most stable and consistent Autopilot mode. |
-| What is the end-user impact? | Devices with this profile can be enrolled by users themselves. The device will be registered to the user and the user will be able to use the company portal application. |
+| What is the end-user impact? | Devices with this profile can be Autopiloted by users themselves. The device will be registered to the user and the user will be able to use the company portal application. |
 | Learn more | [Windows Autopilot User-Driven mode](https://docs.microsoft.com/en-us/mem/autopilot/user-driven) |
 
 
@@ -176,9 +176,9 @@
 
 |Name |Baseline - Corporate Devices - Insiders|
 | :-- | :-- |
-| What does this do? | Creates a manually assigned device group for testing policies and applications assigned to "Insiders." Devices manually assigned to this group will be assigned to the "Insiders" Windows update ring. |
-| Why should you use this? | If you want to test Windows updates, application installs, and policies with the "Insiders" group. Devices in this group will be the first to receive and test Windows updates. |
-| What is the end-user impact? | Users of this group will be able to test application installs, policies and Windows updates before other users. |
+| What does this do? | Creates a manually assigned device group to which configurations can be deployed before other rings of devices. Devices added to this group will be assigned to the "Insiders" Windows update ring. |
+| Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Devices) containing a subset of devices before deploying to all devices. |
+| What is the end-user impact? | Devices in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
 
 
@@ -191,7 +191,7 @@
 | :-- | :-- |
 | What does this do? | Creates a group that includes only physical corporate devices managed by Intune. |
 | Why should you use this? | This group is used to assign applications and policies that should apply to only physical devices (e.g. BitLocker encryption). |
-| What is the end-user impact? | Users of this group can be assigned applications and policies that should apply to all physical devices. |
+| What is the end-user impact? | N/A |
 | Learn more | N/A |
 
 
@@ -202,9 +202,9 @@
 
 |Name |Baseline - Corporate Devices - Preview|
 | :-- | :-- |
-| What does this do? | Creates a manually assigned device group for previewing and testing policies and applications. Devices manually in this group will be assigned to the "Preview Windows" update ring. |
-| Why should you use this? | If you want to test Windows updates, application installs, and policies with the "Preview Windows" device group in your environment. |
-| What is the end-user impact? | User devices in this group will be able to test Windows Updates, application installs, and policies separately from other users. |
+| What does this do? | Creates a manually assigned device group to which configurations can be deployed before other rings of devices. Devices added to this group will be assigned to the "Preview" Windows update ring. |
+| Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Devices) containing a subset of devices before deploying to all devices. |
+| What is the end-user impact? | Devices in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
 
 
@@ -217,7 +217,7 @@
 | :-- | :-- |
 | What does this do? | Creates a group that includes virtual corporate devices managed by Intune. |
 | Why should you use this? | This group is used to assign applications and policies that should apply to all virtual devices managed by Intune. |
-| What is the end-user impact? | Virtual user devices will be assigned applications and policies that should apply only to virtual devices. |
+| What is the end-user impact? | N/A |
 | Learn more | N/A |
 
 
@@ -228,9 +228,9 @@
 
 |Name |Baseline - Corporate Devices|
 | :-- | :-- |
-| What does this do? | Creates a group that includes all corporate devices regardless if they are virtual, physical or virtual desktops. |
+| What does this do? | Creates a group that includes all corporate devices regardless if they are virtual or physical. |
 | Why should you use this? | This group can be used to assign applications and policies that should apply to all devices. |
-| What is the end-user impact? | User devices in this group will be assigned all applications and policies. |
+| What is the end-user impact? | N/A |
 | Learn more | N/A |
 
 
@@ -242,8 +242,8 @@
 |Name |Baseline - Device Administrators|
 | :-- | :-- |
 | What does this do? | Creates a group of users assigned as local administrators on Azure AD joined devices. The baseline grants users in this group the Azure AD role "Device Administrators." |
-| Why should you use this? | If you want to have a group of users with local administrator permissions on Azure AD joined devices, e.g. system administrators. |
-| What is the end-user impact? | Members in this group will have administrator access to an end-user's device. |
+| Why should you use this? | If you want to have a group of users with local administrator permissions on Azure AD joined devices. |
+| What is the end-user impact? | Members in this group will have local administrator access on Azure AD joined devices. |
 | Learn more | [Device Administrators Role](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#device-administrators) |
 
 
@@ -255,8 +255,8 @@
 |Name |Baseline - Device Enrollers|
 | :-- | :-- |
 | What does this do? | Creates a group of users that have permission to enroll a device that is not registered with Autopilot. If a user is not a member of this group, they cannot enroll a non-autopilot device. |
-| Why should you use this? | If you want less restrictions for certain users to be able to enroll new devices into your environment that have not been pre-registered by uploading the device hardware hash. |
-| What is the end-user impact? | Certain users will be able to have devices enrolled that were not Autopiloted. |
+| Why should you use this? | If you want to restrict users from being able to enroll new devices into your environment that have not been pre-registered with Autopilot. |
+| What is the end-user impact? | Users in this group will be able to have enroll devices without using Autopilot. |
 | Learn more | N/A |
 
 
@@ -267,9 +267,9 @@
 
 |Name |Baseline - Group Creators|
 | :-- | :-- |
-| What does this do? | Configures restrictions for creating Microsoft 365 groups. The baseline restricts users not in this group from creating Microsoft 365 groups. |
-| Why should you use this? | If you want to tighten security around Microsoft 365 group creation. |
-| What is the end-user impact? | Users who are not in this group will be restricted from creating Microsoft 365 groups. |
+| What does this do? | Creates a manually assigned group whose members are allowed to create Microsoft 365 groups. |
+| Why should you use this? | If you want a user to be able to create Microsoft 365 groups. |
+| What is the end-user impact? | Users in this group will be able to create Microsoft 365 groups. |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
 
@@ -281,8 +281,8 @@
 |Name |Baseline - Microsoft 365 Users - Insiders|
 | :-- | :-- |
 | What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
-| Why should you use this? | If you want to test configuration changes using release rings containing a subset of users before deploying to all users. |
-| What is the end-user impact? | Users of this group may receive and test configuration changes before others users. |
+| Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Users) containing a subset of users before deploying to all users. |
+| What is the end-user impact? | Users in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
 
 
@@ -294,8 +294,8 @@
 |Name |Baseline - Microsoft 365 Users - Preview|
 | :-- | :-- |
 | What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
-| Why should you use this? | If you want to test configuration changes using release rings containing a subset of users before deploying to all users. |
-| What is the end-user impact? | Users of this group may receive and test configuration changes before others users. |
+| Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Users) containing a subset of users before deploying to all users. |
+| What is the end-user impact? | Users in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
 
 
@@ -306,9 +306,9 @@
 
 |Name |Baseline - Microsoft 365 Users|
 | :-- | :-- |
-| What does this do? | Creates a dynamic group that assigns Microsoft 365 licenses to users for EMS and O365 functionality. This group also controls policies that should be applied to all users (e.g. password reset). The baseline places users that have a department into this group. If a user does not require a license (e.g. service accounts or off-boarded users), the department should be removed for that user. |
-| Why should you use this? | If you want to dynamically manage the user license assignment and policies directed at licensed users. |
-| What is the end-user impact? | Users with a department will be assigned appropriate licenses. |
+| What does this do? | Creates a dynamic group that assigns Microsoft 365 licenses to users for EMS and O365 functionality. This group also is used to assign configurations that should be applied to all licensed Microsoft 365 users. The baseline dynamically includes all users that have a department specified in this group. If a user does not require a license (e.g. service accounts or off-boarded users), the department field can be removed for that user will no receive a Microsoft 365 license. |
+| Why should you use this? |  If you want to dynamically manage the user license assignment and configurations targeted to licensed users. |
+| What is the end-user impact? | Users in this group will have Microsoft 365 licenses assigned and receive targeted configurations. |
 | Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide), [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
 
 
