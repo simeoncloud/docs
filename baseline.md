@@ -1,4 +1,8 @@
-# Simeon Baseline
+# The Simeon Baseline: A comprehensive set of best practice Microsoft 365 configurations.
+
+Welcome to the Simeon Baseline. Simeon Cloud has expertly configured these settings to optimize your Microsoft 365 environments in accordance with industry best practices. This list represents the most important, relevant and security-focused configurations across Azure AD, Office 365, and Intune. These configurations can be deployed to a tenant to provide a fully functional environment out of the box, capable of enrolling devices using Autopilot, managing devices using Intune and providing secure access to Office 365 for users.
+
+Not yet a client of Simeon? Get started here.
 
 ## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
@@ -27,8 +31,6 @@
 | What is the end-user impact? | N/A |
 | Learn more | [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/design-logs-deployment) |
 
-
-
 ## Azure AD > Company branding
 *AadIam/CompanyBrandings*
 
@@ -42,8 +44,6 @@
 | Why should you use this? | If you want to provide your users with a personalized login screen for added security, familiarity, and branding. |
 | What is the end-user impact? | Users will see the watermark (username hint) on Azure login screens. |
 | Learn more | [Customize your Azure AD sign-in page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/customize-branding) |
-
-
 
 ## Azure AD > Device settings
 *AadIam/DeviceSettings*
@@ -59,8 +59,6 @@
 | What is the end-user impact? | Only authorized groups may join devices, and users in those groups will be prompted for MFA to join. |
 | Learn more | N/A |
 
-
-
 ## Azure AD > Diagnostic settings
 *AzureManagement/MicrosoftAadIam/DiagnosticSettings*
 
@@ -74,8 +72,6 @@
 | Why should you use this? | These settings improve security by providing you with the data needed to monitor and be alerted of log-in activity within your tenant. |
 | What is the end-user impact? | N/A |
 | Learn more | [Analyze Azure AD activity logs with Azure Monitor logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) |
-
-
 
 ## Azure AD > Directory settings
 *MSGraph/Settings*
@@ -91,8 +87,6 @@
 | What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
-
-
 ## Azure AD > External user directory settings
 *AadIam/ExternalUserDirectorySettings*
 
@@ -106,8 +100,6 @@
 | Why should you use this? | The Azure default allows all users and guests to invite external users, so we recommend using the baseline setting to tighten security. |
 | What is the end-user impact? | Users will not be able to invite external collaborators unless authorized. |
 | Learn more | [Configure B2B external collaboration settings](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/delegate-invitations) |
-
-
 
 ## Azure AD > External user guest settings
 *AadIam/ExternalUserGuestSettings*
@@ -123,8 +115,6 @@
 | What is the end-user impact? | Authorized users may send invitations to any domain, but guest user permissions are restricted. |
 | Learn more | [Configure B2B external collaboration settings](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/delegate-invitations#to-configure-external-collaboration-settings) |
 
-
-
 ## Azure AD > Group settings
 *AadIam/GroupSettings*
 
@@ -138,8 +128,6 @@
 | Why should you use this? | If you want to have a more secure group settings environment. |
 | What is the end-user impact? | The following activities will be restricted to administrators: owners managing group membership requests, access to features in the portal, creation of security groups, and creation of Microsoft 365 groups. |
 | Learn more | [Users, groups, and roles](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-self-service-management) |
-
-
 
 ## Azure AD > Groups
 *MSGraph/Groups*
@@ -324,8 +312,6 @@
 | What is the end-user impact? | Users in this group can use any device or application of their choosing to access Microsoft 365 resources without any content protection policies. |
 | Learn more | [Only allow apps that support protection policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access), [Protecting content on personal devices using app protection policies](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
-
-
 ## Azure AD > Mobility (MDM and MAM)
 *AadIam/MdmApplications*
 
@@ -353,8 +339,6 @@
 | What is the end-user impact? | Users will be able to manage devices (e.g. configure their machines) using Intune. |
 | Learn more | [MDM vs. MAM](https://techcommunity.microsoft.com/t5/microsoft-intune/mdm-vs-mam/m-p/90906)
 
-
-
 ## Azure AD > Password reset
 *AadIam/PasswordResetPolicies*
 
@@ -368,8 +352,6 @@
 | Why should you use this? | If you want users to use self-service password reset instead of contacting IT support. This improves password reset security because it requires that users reset their passwords only via Mobile application code (the authenticator app) or SMS. |
 | What is the end-user impact? | Users can securely recover and reset their passwords. |
 | Learn more | [How it works: Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-howitworks)
-
-
 
 ## Azure AD > Security > Conditional Access > Policies
 *MSGraph/ConditionalAccess/Policies*
@@ -463,8 +445,6 @@
 | What is the end-user impact? | Users must authenticate using MFA when accessing Microsoft 365 data from a non-compliant, off-network device. |
 | Learn more | [How to: Require MFA for access from untrusted networks with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/untrusted-networks) |
 
-
-
 ## Azure AD > User feature preview settings
 *AadIam/FeatureSettings*
 
@@ -478,8 +458,6 @@
 | Why should you use this? | If you want to test Azure updates with a subset of users in your environment. The specified users will receive Azure updates before other users. |
 | What is the end-user impact? | Specified users will be able to test Azure updates before other users. |
 | Learn more | N/A |
-
-
 
 ## Azure AD > User settings
 *AadIam/UserSettings*
@@ -495,8 +473,6 @@
 | What is the end-user impact? | Users may register new applications and access the Azure portal, but not access their LinkedIn connections within Microsoft applications. |
 | Learn more | [Default user permissions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#to-restrict-the-default-permissions-for-member-users) |
 
-
-
 ## Azure AD > Users
 *MSGraph/Users*
 
@@ -510,8 +486,6 @@
 | Why should you use this? | IT can use this dedicated admin user to manage a tenant. |
 | What is the end-user impact? | N/A |
 | Learn more | [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#global-administrator--company-administrator) |
-
-
 
 ## Intune > Apps > App configuration policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
@@ -527,8 +501,6 @@
 | What is the end-user impact? |  If you want to expand the list of applications that can access organization data on iOS devices. |
 | Learn more | [Add app configuration policies for managed apps without device enrollment](https://docs.microsoft.com/en-us/mem/intune/apps/app-configuration-policies-managed-app) |
 
-
-
 ## Intune > Apps > App protection policies (Platform = Android)
 *MSGraph/DeviceAppManagement/AndroidManagedAppProtections*
 
@@ -542,8 +514,6 @@
 | Why should you use this? |  If you want to protect users' personal Android devices by preventing organization data from leaving protected apps. |
 | What is the end-user impact? |  Android device users cannot copy or save data outside of your managed client applications. |
 | Learn more | [App protection policies overview](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
-
-
 
 ## Intune > Apps > App protection policies (Platform = iOS/iPadOS)
 *MSGraph/DeviceAppManagement/IosManagedAppProtections*
@@ -559,8 +529,6 @@
 | What is the end-user impact? |  iOS device users cannot copy or save data outside of your managed client apps. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
-
-
 ## Intune > Apps > App protection policies (Platform = Windows 10)
 *MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies*
 
@@ -574,8 +542,6 @@
 | Why should you use this? |  If you want to protect your data on users' personal Windows devices by preventing organization data from leaving protected applications. |
 | What is the end-user impact? |  Windows device users cannot copy or save data outside of your managed client apps. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
-
-
 
 ## Intune > Apps
 *MSGraph/DeviceAppManagement/MobileApps*
@@ -708,8 +674,6 @@
 | What is the end-user impact? | Users will not have Xbox Companion Console installed. |
 | Learn more | N/A
 
-
-
 ## Intune > Devices > Compliance policies
 *MSGraph/DeviceManagement/DeviceCompliancePolicies*
 
@@ -736,8 +700,6 @@
 | Why should you use this? | This provides an additional layer of data protection for your Intune-managed devices, both physical and virtual. |
 | What is the end-user impact? | Users may access an organization's data only if the device has Microsoft Defender Antimalware configured. |
 | Learn more | [Use compliance policies to set rules for devices you manage with Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started) |
-
-
 
 ## Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)
 *MSGraph/DeviceManagement/GroupPolicyConfigurations*
@@ -804,8 +766,6 @@
 | Why should you use this? | You can turn off Office LinkedIn features so that your users are not sharing data externally with LinkedIn. |
 | What is the end-user impact? | Users will not be able to use the LinkedIn Office features. |
 | Learn more | [Integrate LinkedIn account connections in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-integration) |
-
-
 
 ## Intune > Devices > Configuration profiles
 *MSGraph/DeviceManagement/DeviceConfigurations*
@@ -1016,8 +976,6 @@
 | What is the end-user impact? | Users will not receive third party marketing materials on the lock screen. |
 | Learn more | [Configure Windows Spotlight on the lock screen](https://docs.microsoft.com/en-us/windows/configuration/windows-spotlight) |
 
-
-
 ## Intune > Devices > Enrollment restrictions
 *MSGraph/DeviceManagement/DeviceEnrollmentConfigurations*
 
@@ -1083,8 +1041,6 @@
 | Why should you use this? | If you want to allow users to click "Continue Anyway" during the app installation phase of enrollment or when a single configuration in the enrollment process fails and you do not want users to get stuck indefinitely on the enrollment screen. |
 | What is the end-user impact? | Users will be able to click "Continue Anyway" when device enrollment enters the Device Enrollment phase as well as when a single configuration in the enrollment process fails. |
 | Learn more | [Set up the Enrollment Status Page](https://docs.microsoft.com/en-us/mem/intune/enrollment/windows-enrollment-status) |
-
-
 
 ## Intune > Devices > Scripts
 *MSGraph/DeviceManagement/DeviceManagementScripts*
@@ -1165,8 +1121,6 @@
 | What is the end-user impact? | Users may connect remotely via Remote Desktop. |
 | Learn more | It is not currently possible to use Network Level Authentication when using Remote Desktop to connect from a non-Azure AD joined device to an Azure AD joined device. Removing the requirement for Network Level Authentication will not prevent clients from trying to negotiate Network Level Authentication if they support it. That means that Windows clients that are not joined to the same Azure AD as the host must explicitly add "enablecredsspsupport:i:0" in the .rdp file when connecting to prevent attempts to pre-authenticate. |
 
-
-
 ## Intune > Devices > Windows Autopilot deployment profiles
 *MSGraph/DeviceManagement/WindowsAutopilotDeploymentProfiles*
 
@@ -1194,8 +1148,6 @@
 | What is the end-user impact? | Devices with this profile can be enrolled by users themselves. The device will be registered to the user and the user will be able to use the company portal application. |
 | Learn more | [Windows Autopilot user-driven mode](https://docs.microsoft.com/en-us/mem/autopilot/user-driven) |
 
-
-
 ## Intune > Diagnostic settings
 *AzureManagement/MicrosoftIntune/DiagnosticSettings*
 
@@ -1209,8 +1161,6 @@
 | Why should you use this? | You can set up alerts for when an Intune-managed device is marked non-compliant or when a new device is enrolled into the environment. This improves security by providing you with the data needed to monitor Intune events within your tenant. |
 | What is the end-user impact? | N/A |
 | Learn more | [Microsoft Intune and Azure Log Analytics](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/microsoft-intune-and-azure-log-analytics/ba-p/463145) |
-
-
 
 ## Office 365 > Exchange > AdminAuditLogConfig
 *PowerShell/Exchange/Organization/AdminAuditLogConfig*
@@ -1226,8 +1176,6 @@
 | What is the end-user impact? | N/A |
 | Learn more | [Turn audit log search on or off](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) |
 
-
-
 ## Office 365 > Exchange > OrganizationConfig
 *PowerShell/Exchange/Organization/OrganizationConfig*
 
@@ -1241,8 +1189,6 @@
 | Why should you use this? | If you want to track configuration changes made in the environment. |
 | What is the end-user impact? | N/A |
 | Learn more | [Set-OrganizationConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-organizationconfig?view=exchange-ps) |
-
-
 
 ## Office 365 > Exchange > Outlook Web App policies
 *PowerShell/Exchange/ClientAccess/OwaMailboxPolicies*
@@ -1258,8 +1204,6 @@
 | What is the end-user impact? | N/A |
 | Learn more | [OwaMailboxPolicy](https://docs.microsoft.com/en-us/powershell/module/exchange/set-owamailboxpolicy?view=exchange-ps) |
 
-
-
 ## Office 365 > Security & Compliance > Information governance > Retention (Teams)
 *PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies*
 
@@ -1273,8 +1217,6 @@
 | Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/retention-policies) |
-
-
 
 ## Office 365 > Security & Compliance > Information governance > Retention
 *PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies*
@@ -1290,8 +1232,6 @@
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
-
-
 ## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
 
@@ -1306,8 +1246,6 @@
 | What is the end-user impact? | Users may use only those Teams apps allowed by admins. |
 | Learn more | [Manage app permission policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies) |
 
-
-
 ## Office 365 > Teams > Apps
 *TeamsApi/Users/TenantWideAppsSettings*
 
@@ -1321,8 +1259,6 @@
 | Why should you use this? | To allow users to add Teams apps. |
 | What is the end-user impact? | Users will be able to add Teams apps. |
 | Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365), [Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
-
-
 
 ## Office 365 > Teams > Org-wide settings
 *TeamsPSAdmin/TeamsClientConfiguration*
