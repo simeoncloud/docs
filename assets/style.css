@@ -32,7 +32,7 @@
   background-color: #f8f8f8;
 }
 
-.markdown-section td:first-child th:first-child {
+.markdown-section th:first-child {
   width: 20%;
 }
 
