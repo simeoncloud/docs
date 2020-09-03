@@ -32,8 +32,8 @@
   background-color: #f8f8f8;
 }
 
-.markdown-section td:nth-child(1n+2), .markdown-section th:nth-child(1n+2) {
-  width: 80%;
+.markdown-section td:first-child {
+  width: 20%;
 }
 
 .markdown-section [id^=hidden-header] {
