@@ -1189,7 +1189,6 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         Write-Information "Completed installing tenant"
     }
 
-    Export-ModuleMember -Function Install-Simeon*
-    Export-ModuleMember -Function Get-SimeonAzureDevOpsAccessToken
+    Export-ModuleMember -Function Install-Simeon*, Get-SimeonAzureDevOpsAccessToken
 
 } | Import-Module -Force
