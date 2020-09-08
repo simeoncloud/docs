@@ -682,7 +682,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             }
 
             if (!$Baseline -and !$gitModules -and !$submodule -and !(Test-Path $baselinePath)) {
-                Write-Information "Repository already has no baseline"
+                Write-Information "Repository already has no baseline - no change is required"
                 return
             }
 
