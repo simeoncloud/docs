@@ -283,12 +283,17 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? { $_.Name -ne 'Access to Azure Active Directory' -and $_.State -eq 'Enabled' -and (!$SubscriptionId -or $SubscriptionId -in @($_.Name, $_.Id)) } | Sort-Object Name | Select -First 1 -ExpandProperty Id
     }
 
+    <#
+    .SYNOPSIS
+    Gets a Bearer token to access Azure DevOps APIs. If an Organization and Project is specified, ensures the retrieved access token has access to that organization and project.
+    #>
     function Get-SimeonAzureDevOpsAccessToken {
         [OutputType([string])]
         [CmdletBinding()]
         param(
             [string]$Organization,
             [string]$Project,
+            # If true, will always prompt instead of using a cached token
             [switch]$Interactive
         )
 
