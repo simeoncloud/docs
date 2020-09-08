@@ -990,7 +990,9 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Project,
             # The name of the repository
             [ValidateNotNullOrEmpty()]
-            [string]$Name
+            [string]$Name,
+            [switch]$RequireDeployApproval,
+            [switch]$RequireExportApproval
         )
 
         Write-Information "Installing pipeline environments for '$Name'"
@@ -1024,7 +1026,15 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 Write-Information "Environment '$environmentName' already exists"
             }
 
-            $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy')
+            if ($action -eq 'Deploy' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
+                $requireApproval = $RequireDeployApproval
+            }
+            elseif ($action -eq 'Export' -and $PSBoundParameters.ContainsKey('RequireExportApproval')) {
+                $requireApproval = $RequireExportApproval
+            }
+            else {
+                $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy')
+            }
             $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
             $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
             if ($approvalUrl -and !$requireApproval) {
