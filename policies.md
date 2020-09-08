@@ -1,6 +1,6 @@
 ## Service Account Privacy and Use Statement 
 
-This statement defines parameters for the Partner MSP’s creation of a Simeon-designated service account in Microsoft 365. The service account will be used to connect the Partner’s tenant configurations to its associated Azure Dev Op Pipelines functionality.  
+This statement defines parameters for the Partner MSP’s creation of a Simeon-designated service account in Microsoft 365. The service account will be used to connect the Partner’s tenant configurations to its associated Azure DevOps Pipelines functionality.  
 
 1. Service Account 
 
