@@ -893,7 +893,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 value = $Credential.UserName
             }
         }
-        if ($Credential.GetNetworkCredential().Password) {
+        if ($Credential -and $Credential.GetNetworkCredential().Password) {
             $pipelineVariables['AadAuth:Password'] = @{
                 allowOverride = $true
                 isSecret = $true
