@@ -677,7 +677,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
 
             if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule -and (Test-Path $baselinePath)) {
-                Write-Information "Baseline is already configured"
+                Write-Information "Baseline is already configured to use '$Baseline'"
                 return
             }
 
