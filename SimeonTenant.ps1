@@ -507,6 +507,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Baseline,
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
+            # Specify to true to require approval when deploying
+            [switch]$RequireDeployApproval,
+            # Specify to true to require approval when exporting
+            [switch]$RequireExportApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -544,7 +548,12 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         Install-SimeonGitHubServiceConnection -Organization $Organization -Project $Project -GitHubAccessToken $GitHubAccessToken
 
-        Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential
+        $environmentArgs = @{}
+        @('RequireDeployApproval', 'RequireExportApproval') |% {
+            if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
+        }
+
+        Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential @environmentArgs
     }
 
     <#
@@ -851,6 +860,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
     Creates/updates pipelines for a Simeon tenant
     #>
     function Install-SimeonTenantPipeline {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -863,12 +873,21 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Name,
             # The Azure tenant service account credentials to use for running pipelines
-            [pscredential]$Credential
+            [pscredential]$Credential,
+            # Specify to true to require approval when deploying
+            [switch]$RequireDeployApproval,
+            # Specify to true to require approval when exporting
+            [switch]$RequireExportApproval
         )
 
         Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
 
-        Install-SimeonTenantPipelineEnvironment -Organization $Organization -Project $Project -Name $Name
+        $environmentArgs = @{}
+        @('RequireDeployApproval', 'RequireExportApproval') |% {
+            if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
+        }
+
+        Install-SimeonTenantPipelineEnvironment -Organization $Organization -Project $Project -Name $Name @environmentArgs
 
         Write-Information "Installing pipelines for '$Name'"
 
@@ -991,7 +1010,9 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
+            # Specify to true to require approval when deploying
             [switch]$RequireDeployApproval,
+            # Specify to true to require approval when exporting
             [switch]$RequireExportApproval
         )
 
