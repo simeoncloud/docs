@@ -795,7 +795,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 "@
         }
         else {
-            Write-Information "'simeoncloud' GitHub service connection already exists"
+            Write-Information "GitHub service connection 'simeoncloud' already exists"
         }
 
         irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
@@ -844,7 +844,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 "@
         }
         else {
-            Write-Information "'simeoncloud-packages' GitHub service connection already exists"
+            Write-Information "GitHub service connection 'simeoncloud-packages' already exists"
         }
 
         irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
