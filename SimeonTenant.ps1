@@ -714,7 +714,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             }
             else {
                 Write-Information "Committing changes"
-                Invoke-CommandLine "git commit -m `"Set baseline repository to $Baseline`" 2>&1" | Write-Verbose
+                Invoke-CommandLine "git commit -m `"Set baseline repository to $Baseline`" -m `"[skip ci]`" 2>&1" | Write-Verbose
 
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
@@ -1173,7 +1173,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             }
             else {
                 Write-Information "Committing changes"
-                Invoke-CommandLine "git commit -m `"Updating pipeline template files`" 2>&1" | Write-Verbose
+                Invoke-CommandLine "git commit -m `"Updating pipeline template files`" -m `"[skip ci]`" 2>&1" | Write-Verbose
 
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
