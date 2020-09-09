@@ -1209,6 +1209,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
+            # Specify to true to require approval when deploying
+            [switch]$RequireDeployApproval,
+            # Specify to true to require approval when exporting
+            [switch]$RequireExportApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -1216,7 +1220,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'RequireDeployApproval', 'RequireExportApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
