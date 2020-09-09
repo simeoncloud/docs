@@ -44,7 +44,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [CmdletBinding()]
         param()
 
-        Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com)'
+        Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com if no custom domain name is set)'
     }
 
     function Read-Organization {
@@ -95,6 +95,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             return
         }
 
+        $ProgressPreference = 'SilentlyContinue'
+
         if ($IsWindows -or $PSVersionTable.PSEdition -ne 'Core') {
             Wait-EnterKey "Attempting to download and install Git - continue through the setup wizard as prompted"
             $url = 'https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-32-bit.exe'
@@ -105,7 +107,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $outFile = "$([IO.Path]::GetTempPath())/git-install.exe"
             irm $url -OutFile $outFile
             Start-Process $outFile -Wait
-            throw "Please exit PowerShell and re-run this script after completing the installation of Git"
+            throw "Please close this window and then re-run this script after completing the installation of Git"
         }
         elseif ($IsMacOS) {
             Wait-EnterKey "Attempting to download and install Git - double click the pkg file and continue through the setup wizard as prompted"
@@ -113,10 +115,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $outFile = "$([IO.Path]::GetTempPath())/git-install.dmg"
             irm $url -OutFile $outFile
             & $outFile
-            throw "Please exit PowerShell and re-run this script after completing the installation of Git"
+            throw "Please close this window and then re-run this script after completing the installation of Git"
         }
         else {
-            throw "Please install Git from https://git-scm.com/downloads, then exit PowerShell and re-run this script"
+            throw "Please install Git from https://git-scm.com/downloads, close this window and then re-run this script"
         }
 
         if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
@@ -151,6 +153,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         if (!(Get-Module PowerShellGet -ListAvailable |? { $_.Version.Major -ge 2 })) {
             Write-Information "Updating PowerShellGet"
             Install-Module PowerShellGet -Force -Scope CurrentUser -Repository PSGallery -AllowClobber -WarningAction SilentlyContinue
+            throw "Update of PowerShellGet complete - please close this window and then re-run this script"
         }
 
         if ($PSVersionTable.PSEdition -ne 'Core' -and !(Get-PackageProvider NuGet -ListAvailable)) {
@@ -414,10 +417,12 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         param(
             # The Azure tenant domain name to configure Simeon for
             [ValidateNotNullOrEmpty()]
-            [string]$Tenant = (Read-Tenant),
+            [string]$Tenant,
             # The name or id of the subscription for Simeon to use - defaults to the first subscription available
             [string]$Subscription
         )
+
+        while (!$Tenant) { $Tenant = Read-Tenant }
 
         # Creates/updates service account and required permissions
 
@@ -554,7 +559,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         Install-SimeonGitHubServiceConnection -Organization $Organization -Project $Project -GitHubAccessToken $GitHubAccessToken
 
         $environmentArgs = @{}
-        @('RequireDeployApproval', 'RequireExportApproval') |% {
+        @('RequireDeployApproval', 'RequireExportApproval') | % {
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
@@ -888,7 +893,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
 
         $environmentArgs = @{}
-        @('RequireDeployApproval', 'RequireExportApproval') |% {
+        @('RequireDeployApproval', 'RequireExportApproval') | % {
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
@@ -1198,9 +1203,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
-            [ValidateNotNullOrEmpty()]
             # The Azure tenant domain name to configure Simeon for
-            [string]$Tenant = (Read-Tenant),
+            [string]$Tenant,
             # The Azure DevOps organization name - e.g. 'simeon-orgName'
             [string]$Organization,
             # The project name in DevOps - usually 'Tenants'
@@ -1216,6 +1220,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
+
+        while (!$Tenant) { $Tenant = Read-Tenant }
 
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
