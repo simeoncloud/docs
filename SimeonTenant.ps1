@@ -301,7 +301,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         )
 
         $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
-        $devOpsAppId = '499b84ac-1321-427f-aa17-267ca6975798'
+        $scope = 'https://app.vssps.visualstudio.com/user_impersonation'
         $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546' }
         $app = Get-MsalClientApplication @msalAppArgs
         if (!$app) {
@@ -315,15 +315,15 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         if ($Interactive) {
             Wait-EnterKey $interactiveMessage
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default" -Interactive).AccessToken
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $scope -Interactive).AccessToken
         }
         else {
             try {
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default" -Silent).AccessToken
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $scope -Silent).AccessToken
             }
             catch {
                 Wait-EnterKey $interactiveMessage
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$devOpsAppId/.default").AccessToken
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $scope).AccessToken
             }
         }
 
