@@ -31,10 +31,15 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             return $Default
         }
 
+        $defaultString = "'No'"
+        if ($Default) {
+            $defaultString = "'Yes'"
+        }
+
         $line = ''
         while ($line -notin @('y', 'n')) {
             Write-Host $Prompt
-            $line = Read-Host "Y [Yes]  N [No]"
+            $line = Read-Host "Y [Yes]  N [No] (Press Enter to use default value of $defaultString)"
         }
         if ($line -eq 'Y') { return $true }
         return $false
