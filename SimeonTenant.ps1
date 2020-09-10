@@ -151,7 +151,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         return $Path
     }
 
-    function Install-AzureModule {
+    function Install-RequiredModule {
         [CmdletBinding()]
         param()
 
@@ -248,7 +248,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [switch]$Force
         )
 
-        Install-AzureModule
+        Install-RequiredModule
 
         $TenantId = Resolve-AzureTenantId $Tenant
 
@@ -300,13 +300,19 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [CmdletBinding()]
         param(
             [string]$Organization,
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # If true, will always prompt instead of using a cached token
             [switch]$Interactive
         )
 
+        if ($AzureDevOpsAccessToken) {
+            return $AzureDevOpsAccessToken
+        }
+
+        Install-RequiredModule
+
         $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
-        $scope = 'https://app.vssps.visualstudio.com/user_impersonation'
+        $devOpsScope = '499b84ac-1321-427f-aa17-267ca6975798/.default'
         $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546' }
         $app = Get-MsalClientApplication @msalAppArgs
         if (!$app) {
@@ -320,26 +326,33 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         if ($Interactive) {
             Wait-EnterKey $interactiveMessage
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $scope -Interactive).AccessToken
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $devOpsScope -Interactive)
         }
         else {
             try {
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $scope -Silent).AccessToken
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $devOpsScope -Silent)
             }
             catch {
+                $Interactive = $true
                 Wait-EnterKey $interactiveMessage
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $scope).AccessToken
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $devOpsScope)
             }
         }
 
         if ($Organization -and $Project) {
-            if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
-                Wait-EnterKey $interactiveMessage
-                $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Interactive
+            if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token.AccessToken)) {
+                $Interactive = $true
+                Write-Warning "Successfully authenticated with Azure DevOps as $($token.Account.Username), but could not access project '$Organization\$Project'"
+                return Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Interactive
             }
         }
 
-        return $token
+        if ($Interactive -or !$script:hasConnectedToAzureDevOps) {
+            Write-Information "Connected to Azure DevOps using account '$($token.Account.Username)'"
+            $script:hasConnectedToAzureDevOps = $true
+        }
+
+        return $token.AccessToken
     }
 
     function Test-SimeonAzureDevOpsAccessToken {
@@ -362,20 +375,11 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             ContentType = 'application/json'
         }
 
-        try {
-            $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
-            $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
-            if ($projectId) {
-                return $true
-            }
-            else {
-                Write-Warning "Successfully authenticated with Azure DevOps, but could not access project '$Organization\$Project'"
-            }
+        $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
+        $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
+        if ($projectId) {
+            return $true
         }
-        catch {
-            Write-Warning "Could not access with Azure DevOps organization '$Organization'"
-        }
-        Clear-MsalTokenCache -FromDisk
         return $false
     }
 
