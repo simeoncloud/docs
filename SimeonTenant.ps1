@@ -556,7 +556,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
         Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -GetImportUrl {
-            if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?')) {
+            if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
                 # start with Simeon baseline
                 return 'https://github.com/simeoncloud/Baseline.git'
             }
