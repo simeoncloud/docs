@@ -948,6 +948,9 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             throw "Could not find repository $Name"
         }
 
+        $queueName = "Azure Pipelines"
+        $queueId = ((irm @restProps "$apiBaseUrl/build/Queues/").Value |? Name -eq  $queueName).id
+
         foreach ($action in @('Deploy', 'Export')) {
             $pipelineName = "$Name - $action"
 
@@ -961,9 +964,10 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                     yamlFilename = "$action.yml"
                 }
                 queue = @{
-                    name = "Azure Pipelines"
+                    name = $queueName
+                    id = $queueId
                     pool = @{
-                        name = "Azure Pipelines"
+                        name = $queueName
                         isHosted = "true"
                     }
                 }
