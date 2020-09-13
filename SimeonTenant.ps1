@@ -949,7 +949,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         }
 
         $queueName = "Azure Pipelines"
-        $queueId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/build/Queues").Value |? Name -eq  $queueName).id
+        $queueId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq  $queueName).id
 
         foreach ($action in @('Deploy', 'Export')) {
             $pipelineName = "$Name - $action"
