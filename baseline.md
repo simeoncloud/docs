@@ -46,13 +46,13 @@ Not yet a client of Simeon? Get started here.
 | Learn more | [Customize your Azure AD sign-in page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/customize-branding) |
 
 ## Azure AD > Device settings
-*AadIam/DeviceSettings*
+*MSGraph/Policies/DeviceRegistrationPolicy*
 
 ###### hidden-header
 
-### Configuration
+### Device Registration Policy
 
-|Name |Configuration|
+|Name |Device Registration Policy|
 | :-- | :-- |
 | What does this do? | Configures settings that control joining devices to Azure AD. The baseline allows only the groups "Baseline - Device Enrollers" and "Baseline - Microsoft 365 Users" to join devices to Azure AD. These groups may join up to 100 devices and are required to perform MFA when joining the device. |
 | Why should you use this? | If you want to restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
@@ -178,7 +178,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - Corporate Devices - Physical|
 | :-- | :-- |
 | What does this do? | Creates a group that includes only physical corporate devices managed by Intune. |
-| Why should you use this? | This group is used to assign applications and policies that should apply to only physical devices (e.g. BitLocker encryption). |
+| Why should you use this? | This group is used to assign Intune configurations that should apply to only physical devices (e.g. BitLocker encryption). |
 | What is the end-user impact? | N/A |
 | Learn more | N/A |
 
@@ -204,7 +204,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - Corporate Devices - Virtual|
 | :-- | :-- |
 | What does this do? | Creates a group that includes virtual corporate devices managed by Intune. |
-| Why should you use this? | This group is used to assign applications and policies that should apply to all virtual devices managed by Intune. |
+| Why should you use this? | This group is used to assign Intune configurations that should apply to all virtual devices managed by Intune. |
 | What is the end-user impact? | N/A |
 | Learn more | N/A |
 
@@ -217,7 +217,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - Corporate Devices|
 | :-- | :-- |
 | What does this do? | Creates a group that includes all corporate devices regardless if they are virtual or physical. |
-| Why should you use this? | This group can be used to assign applications and policies that should apply to all devices. |
+| Why should you use this? | This group can be used to assign Intune configurations that should apply to all devices. |
 | What is the end-user impact? | N/A |
 | Learn more | N/A |
 
@@ -242,7 +242,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Device Enrollers|
 | :-- | :-- |
-| What does this do? | Creates a group of users that have permission to enroll a device that is not registered with Autopilot. If a user is not a member of this group, they cannot enroll a non-autopilot device. |
+| What does this do? | Creates a group of users that have permission to enroll a device that is not registered with Autopilot. If a user is not a member of this group, they cannot enroll a non-Autopilot device. |
 | Why should you use this? | If you want to restrict users from being able to enroll new devices into your environment that have not been pre-registered with Autopilot. |
 | What is the end-user impact? | Users in this group will be able to have enroll devices without using Autopilot. |
 | Learn more | N/A |
@@ -321,9 +321,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Microsoft Intune Enrollment|
 | :-- | :-- |
-| What does this do? | Enables the legacy version of Microsoft Intune, which is required in some tenants for Intune management. |
-| Why should you use this? | If you have clients that require the legacy version of Microsoft Intune. |
-| What is the end-user impact? | Users with legacy versions of Intune will be able to use Intune. |
+| What does this do? | Configures a second version of Microsoft Intune enrollment settings, which is required in some tenants depending on tenant age. The baseline configures devices to automatically enroll in Intune when joining Azure AD. |
+| Why should you use this? | If you want to use Intune to manage devices. |
+| What is the end-user impact? | N/A |
 | Learn more | [Intune vs. Intune Enrollment](https://github.com/MicrosoftDocs/azure-docs/issues/27017) |
 
 
@@ -334,9 +334,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Microsoft Intune|
 | :-- | :-- |
-| What does this do? | Turns on the ability to manage a Windows device using Intune. This is a prerequisite for using Intune to manage devices. |
+| What does this do? | Configures Intune enrollment settings for devices. The baseline configures devices to automatically enroll in Intune when joining Azure AD. |
 | Why should you use this? | If you want to use Intune to manage devices. |
-| What is the end-user impact? | Users will be able to manage devices (e.g. configure their machines) using Intune. |
+| What is the end-user impact? | N/A |
 | Learn more | [MDM vs. MAM](https://techcommunity.microsoft.com/t5/microsoft-intune/mdm-vs-mam/m-p/90906)
 
 ## Azure AD > Password reset
@@ -362,8 +362,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Block Legacy Apps|
 | :-- | :-- |
-| What does this do? | Blocks legacy protocols (POP, SMTP, IMAP, and MAPI) which can be used to bypass security controls in your environment. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
-| Why should you use this? | Improves security by prohibiting users from bypassing security controls in your environment. |
+| What does this do? | Blocks legacy protocols (POP, SMTP, IMAP, and MAPI) which can be used to bypass security controls in your environment. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." |
+| Why should you use this? | Improves security by preventing use of insecure protocols. |
 | What is the end-user impact? | Users may not use legacy protocols (POP, SMTP, IMAP, and MAPI). |
 | Learn more | [How to: Block legacy authentication to Azure AD with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication) |
 
@@ -388,8 +388,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. The baseline assigns the policy to all users except those in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." The policy also excludes applications listed in the config property "AppsAllowedFromUntrustedLocations." |
-| Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android have been tested and verified to protect data. |
+| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
+| Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | Users are restricted to iOS and Android platforms for authenticating devices when connecting from untrusted devices and locations. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
@@ -401,9 +401,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Allows only mobile applications (iOS and Android) that support applications protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network. The baseline assigns the policy to all users except those in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." The policy is also assigned to all applications except those listed in the config property "AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and android platforms and unprotected applications. Intune-managed devices are still able to access data off network. |
-| Why should you use this? | This policy helps protect your data. Application protection policies on iOS and Android have been tested and verified to protect data. |
-| What is the end-user impact? | Users may only connect from off-network via iOS and Android devices. |
+| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
+| Why should you use this? | This policy helps protect your data. Application protection policies on iOS and Android protect data and provide DLP. |
+| What is the end-user impact? | Users may only use applications that support protection policies to access data from iOS and Android devices off-network. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
 
@@ -414,9 +414,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Require Compliant Device for Intune Enrollment|
 | :-- | :-- |
-| What does this do? | Requires that a device be registered in Autopilot by uploading a hardware hash before it can be enrolled in Intune. To bypass this requirement, a user must be a member of the Azure AD group "Baseline - Device Enrollers." |
+| What does this do? | Requires that a device be registered in Autopilot by uploading a hardware hash before it can be enrolled in Intune. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." |
 | Why should you use this? | This increases security by preventing unauthorized devices from being enrolled into your tenant. |
-| What is the end-user impact? | IT must register devices in Autopilot before a general user can enroll it. |
+| What is the end-user impact? | An administrator must register devices in Autopilot before a general user can enroll it. |
 | Learn more | N/A |
 
 
@@ -428,8 +428,8 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - Require MFA for Admins|
 | :-- | :-- |
 | What does this do? | Requires that users with privileged administrator roles authenticate using MFA. The baseline includes all users except those with the Azure AD role "Directory Synchronization Accounts." |
-| Why should you use this? | If you want to further protect your tenant by requiring MFA for accounts that have privileged access. |
-| What is the end-user impact? | Users with privileged access must authenticate using MFA for each log in. |
+| Why should you use this? | If you want to protect your tenant by requiring MFA for accounts that have privileged access. |
+| What is the end-user impact? | Users with privileged access must authenticate using MFA. |
 | Learn more | [Protect your Microsoft 365 global administrator accounts](https://docs.microsoft.com/en-us/office365/enterprise/protect-your-global-administrator-accounts) |
 
 
@@ -440,9 +440,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Require MFA from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Requires MFA when authenticating from a non-compliant device that is off-network. The baseline requires MFA from all users except those with the Azure AD role "Directory Synchronization Accounts." |
-| Why should you use this? | This further protects your data by ensuring that a device connecting to your network is compliant. |
-| What is the end-user impact? | Users must authenticate using MFA when accessing Microsoft 365 data from a non-compliant, off-network device. |
+| What does this do? | Requires MFA when authenticating from an unmanaged device that is off-network. This policy does not apply to users with the role "Company Administrator" or "Directory Synchronization Accounts." |
+| Why should you use this? | This protects your data by requiring MFA from unmanaged devices and when off-network. |
+| What is the end-user impact? | Users must authenticate using MFA when accessing data from unmanaged devices and when off-network. |
 | Learn more | [How to: Require MFA for access from untrusted networks with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/untrusted-networks) |
 
 ## Azure AD > User feature preview settings
@@ -454,8 +454,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Allows Azure updates to be applied first to a specified group of users before being applied to all users in the tenant. |
-| Why should you use this? | If you want to test Azure updates with a subset of users in your environment. The specified users will receive Azure updates before other users. |
+| What does this do? | Allows Azure previews to be enabled or disabled for a specified group of users before being applied to all users in the tenant. The baseline enables the most commonly used preview features for all users, such as MFA Registration. |
+| Why should you use this? | If you want to test Azure previews with a subset of users in your environment. The specified users will receive Azure previews before other users. |
 | What is the end-user impact? | Specified users will be able to test Azure updates before other users. |
 | Learn more | N/A |
 
@@ -482,8 +482,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Global Admin|
 | :-- | :-- |
-| What does this do? | Creates a global administrator account. The baseline creates a global administrator account that does not require a Microsoft 365 license, and the password can be managed in the Azure Portal. |
-| Why should you use this? | IT can use this dedicated admin user to manage a tenant. |
+| What does this do? | Creates a global administrator account. The baseline creates a global administrator account that does not require a Microsoft 365 license. The password can be managed in the Azure Portal. |
+| Why should you use this? | Administrators can use this dedicated admin user to manage a tenant. |
 | What is the end-user impact? | N/A |
 | Learn more | [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#global-administrator--company-administrator) |
 
@@ -496,8 +496,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices|
 | :-- | :-- |
-| What does this do? | Configures the default behavior for application settings of managed applications on unmanaged iOS devices. The baseline expands the list of applications that are protected by Intune and data loss protection policies. See the Intune portal for the full list of applications included in the baseline. |
-| Why should you use this? | If you want to improve your users' iOS mobile experience by expanding the list of protected applications. |
+| What does this do? | Configures the default behavior for application settings of managed applications on unmanaged iOS devices. The baseline expands the list of applications that are allowed by Intune and data loss protection policies. |
+| Why should you use this? | If you want to improve your users' iOS mobile experience by expanding the list of allowed applications. |
 | What is the end-user impact? |  If you want to expand the list of applications that can access organization data on iOS devices. |
 | Learn more | [Add app configuration policies for managed apps without device enrollment](https://docs.microsoft.com/en-us/mem/intune/apps/app-configuration-policies-managed-app) |
 
@@ -510,8 +510,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices|
 | :-- | :-- |
-| What does this do? | Configures the default behavior for managed client applications on unmanaged Android devices. The baseline allows data to flow between protected applications, but prohibits users from copying or saving data outside of the application except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
-| Why should you use this? |  If you want to protect users' personal Android devices by preventing organization data from leaving protected apps. |
+| What does this do? | Configures the default behavior for managed client applications on unmanaged Android devices. The baseline allows data to flow between allowed applications, but prohibits users from copying or saving data outside of the application except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
+| Why should you use this? |  If you want to protect users' personal Android devices by preventing organization data from leaving allowed apps. |
 | What is the end-user impact? |  Android device users cannot copy or save data outside of your managed client applications. |
 | Learn more | [App protection policies overview](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
@@ -565,7 +565,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |AnyDesk|
 | :-- | :-- |
-| What does this do? | AnyDesk is a remote desktop application that provides remote access to computers. |
+| What does this do? | AnyDesk is a remote desktop application that provides remote access to computers. The baseline includes the application but the app will not be deployed unless a valid AnyDesk licensed msi url is specified in your config.json via the property "ResourceContext:MSGraph:DeviceAppManagement:MobileApps:AnyDesk:Url." The baseline installs AnyDesk and sets the password for unattended access from the first three portions of the device's BitLocker recovery key (which can be viewed in the Azure portal) plus the letter "X" (e.g. 123456-123456-123456X). |
 | Why should you use this? | If you want to be able to easily remote into computers to help end-users troubleshoot problems. |
 | What is the end-user impact? | Users will have AnyDesk installed on their computer. |
 | Learn more | [AnyDesk](https://anydesk.com/en)
@@ -578,7 +578,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |CMTrace|
 | :-- | :-- |
-| What does this do? | CMTrace is one of the Configuration Manager tools. It allows you to view and monitor log files including the following types: Log files in Configuration Manager or Client Component Manager (CCM) format, plain ASCII or Unicode text files, such as Windows Installer logs. |
+| What does this do? | CMTrace is one of the Configuration Manager tools. It allows you to view and monitor log files including the following types: Log files in Configuration Manager or Client Component Manager (CCM) format, plain ASCII or Unicode text files, such as Intune logs. |
 | Why should you use this? | CMTrace helps to analyze Intune log files by highlighting, filtering, and error lookup. |
 | What is the end-user impact? | N/A |
 | Learn more | [CMTrace](https://docs.microsoft.com/en-us/mem/configmgr/core/support/cmtrace)
@@ -604,7 +604,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Microsoft .NET Framework 3.5|
 | :-- | :-- |
-| What does this do? | Microsoft .NET Framework 3.5 is a vital component of Windows and is used to create and run applications. |
+| What does this do? | Microsoft .NET Framework 3.5 is used to create and run applications. |
 | Why should you use this? | Microsoft .NET Framework 3.5 is required to run many applications. |
 | What is the end-user impact? | Users will have Microsoft .NET Framework 3.5 installed on their machines. |
 | .NET Framework | [What is .NET Framework?](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet-framework)
@@ -617,7 +617,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Microsoft Edge for Windows 10|
 | :-- | :-- |
-| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. |
+| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. This is the new Chromium based version of Edge and is a viable replacement for Chrome for many organizations. |
 | Why should you use this? | If you want users to have a faster default web browser with more features. |
 | What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
 | Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
@@ -644,7 +644,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Office 365|
 | :-- | :-- |
 | What does this do? | Office 365 is Microsoft’s productivity suite with popular applications such as Word, Excel and PowerPoint. |
-| Why should you use this? | If you want Office 365 desktop applications to be installed on Intune-managed devices. |
+| Why should you use this? | If you want Office 365 desktop applications to be installed on managed devices. |
 | What is the end-user impact? | Users will have Office 365 installed on their devices. |
 | Learn more | N/A
 
@@ -684,7 +684,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - Corporate Devices - Physical - Windows|
 | :-- | :-- |
 | What does this do? | Defines the required state that a physical device must be in to be considered compliant and before it can access organization data. The baseline requires that a physical device has a number of security controls configured including BitLocker encryption and a Microsoft Defender ATP risk score of medium or less. Assignment is based on the Azure AD group "Baseline - Corporate Devices – Physical". This policy applies only to physical devices since some requirements such as BitLocker are not supported on virtual devices. |
-| Why should you use this? | This provides a layer of data protection for your Intune managed devices. |
+| Why should you use this? | This ensures your managed Windows devices meet a minimum level of security to access data. |
 | What is the end-user impact? | Users may only access organization data if the device passes the compliance policy conditions. |
 | Learn more | [Use compliance policies to set rules for devices you manage with Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started) |
 
@@ -697,7 +697,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - Corporate Devices - Windows|
 | :-- | :-- |
 | What does this do? | Defines the required state that a device (both physical and virtual) must be in to be considered compliant before accessing an organization's data. The baseline requires that a device has Microsoft Defender Antimalware configured. This policy applies to all devices in the Azure AD group "Baseline - Corporate Devices". |
-| Why should you use this? | This provides an additional layer of data protection for your Intune-managed devices, both physical and virtual. |
+| Why should you use this? | This ensures your managed Windows devices, both physical and virtual, meet a minimum level of security to access data. |
 | What is the end-user impact? | Users may access an organization's data only if the device has Microsoft Defender Antimalware configured. |
 | Learn more | [Use compliance policies to set rules for devices you manage with Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started) |
 
@@ -712,7 +712,7 @@ Not yet a client of Simeon? Get started here.
 | :-- | :-- |
 | What does this do? | Configures Microsoft Edge for all devices to automatically sign in to the browser and synchronize history and passwords. Also sets Google as the default search engine. |
 | Why should you use this? | If you want to create an optimal user experience for the new Chromium Edge browser. |
-| What is the end-user impact? | users' search history and passwords will be synchronized across devices. |
+| What is the end-user impact? | Users' search history and passwords will be synchronized across devices. |
 | Learn more | [Microsoft Edge Enterprise Sync](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-enterprise-sync) |
 
 
@@ -778,7 +778,7 @@ Not yet a client of Simeon? Get started here.
 | :-- | :-- |
 | What does this do? | Limits applications available for download in the Microsoft Store via the "Private Store" functionality. This policy allows you to restrict your users to only those applications that you deem necessary. |
 | Why should you use this? | If you want to limit the applications which users may download to those in your private store. |
-| What is the end-user impact? | Users may only use apps that you deem necessary. |
+| What is the end-user impact? | Users may only use apps that have been added to the private store. |
 | Learn more | [Distribute apps using your private store](https://docs.microsoft.com/en-us/microsoft-store/distribute-apps-from-your-private-store) |
 
 
@@ -789,7 +789,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - OS - Default Windows 10 Update Ring|
 | :-- | :-- |
-| What does this do? | Defines the default Windows Update configuration for Intune-managed devices. The baseline delays feature updates for 30 days and quality updates for 14 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates are only applied outside working hours of 5am to 10pm. The Windows Update configuration applies to all corporate devices except those in the "Insiders" or "Preview" update rings that will receive updates before they are released to all other corporates devices. |
+| What does this do? | Defines the default Windows Update configuration for managed devices. The baseline delays feature updates for 30 days and quality updates for 14 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates are only applied outside working hours of 5am to 10pm. The Windows Update configuration applies to all corporate devices except those in the "Insiders" or "Preview" update rings that will receive updates before they are released to all other corporates devices. |
 | Why should you use this? | If you want to ensure that your devices are kept up-to-date with the latest Windows updates. |
 | What is the end-user impact? | Corporate devices outside of the "Insiders" or "Preview" rings will receive Windows feature updates 30 days after being released and quality updates 14 days after being released by Microsoft. |
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
@@ -802,7 +802,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - OS - Insiders Windows 10 Update Ring|
 | :-- | :-- |
-| What does this do? | Creates a Windows Update configuration for Intune-managed devices in the "Insiders" ring that receive updates before any other device in your tenant. The baseline delays feature and quality updates to "Insiders" for 3 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates will be applied outside the working hours of 5am to 10pm. This Windows Update configuration applies to users in the Azure AD group "Baseline - Corporate Devices – Insiders". |
+| What does this do? | Creates a Windows Update configuration for managed devices in the "Insiders" ring that receive updates before any other device in your tenant. The baseline delays feature and quality updates to "Insiders" for 3 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates will be applied outside the working hours of 5am to 10pm. This Windows Update configuration applies to users in the Azure AD group "Baseline - Corporate Devices – Insiders". |
 | Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment. The "Insider" ring is meant for users that are technical enough to understand when an update is applied and to let you know if that update caused problems. |
 | What is the end-user impact? | Users in the "Insiders" ring will receive feature and quality updates 3 days after being released by Microsoft. |
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
@@ -828,7 +828,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - OS - Preview Windows 10 Update Ring|
 | :-- | :-- |
-| What does this do? | Creates a Windows Update configuration for Intune-managed devices in the "Preview" ring, which receive updates after "Insiders" but before devices with the default policy. The baseline delays feature and quality updates to the "Preview" group for 7 days after released by Microsoft. Once the deferral period has expired for a device, users have 3 days to restart (if required). Unattended updates will only be applied outside working hours of 5am to 10pm. Applies to users in the Azure AD group "Baseline - Corporate Devices – Preview". |
+| What does this do? | Creates a Windows Update configuration for managed devices in the "Preview" ring, which receive updates after "Insiders" but before devices with the default policy. The baseline delays feature and quality updates to the "Preview" group for 7 days after released by Microsoft. Once the deferral period has expired for a device, users have 3 days to restart (if required). Unattended updates will only be applied outside working hours of 5am to 10pm. Applies to users in the Azure AD group "Baseline - Corporate Devices – Preview". |
 | Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment by testing the update in rings of users.. |
 | What is the end-user impact? | Users in the "Preview" ring will receive updates 7 days after being released by Microsoft and after Insiders, but before devices with the default policy. |
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
@@ -841,9 +841,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - OS - RDP Enabled|
 | :-- | :-- |
-| What does this do? | Enables Remote Desktop access to the device for users that are members of the "Remote Desktop users' local group. A separate configuration (Add-AuthenticatedUsersToRemoteDesktopUsers) adds the users to the "Remote Desktop users' group. |
-| Why should you use this? |  If you want to allow Remote Desktop access to the device. |
-| What is the end-user impact? | Users in the "Remote Desktop users' local group will be able to connect to remote devices. |
+| What does this do? | Enables Remote Desktop access to the device for users that are members of the "Remote Desktop Users" local group. A separate configuration (Add-AuthenticatedUsersToRemoteDesktopUsers) adds the users to the "Remote Desktop Users" group. |
+| Why should you use this? | If you want to allow Remote Desktop access to managed devices. |
+| What is the end-user impact? | Users in the "Remote Desktop Users" local group will be able to connect to remote devices. |
 | Learn more | [Policy CSP - RemoteDesktopServices](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-remotedesktopservices) |
 
 
@@ -867,7 +867,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Security - IE Site-to-Zone Assignment|
 | :-- | :-- |
-| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. To add or remove additional sites, update the config variable "AllowSiteToZoneAssignmentList". |
+| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. To add or remove additional sites, update the config variable "ResourceContext:AllowSiteToZoneAssignmentList". |
 | Why should you use this? | Improves your users' browsing experience by automatically logging in to sites secured by Azure AD. |
 | What is the end-user impact? | Users will be unable to configure URLs for browser security zones themselves. |
 | Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users), [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
@@ -998,9 +998,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |deviceEnrollmentPlatformRestrictionsConfiguration - All users and all devices|
 | :-- | :-- |
-| What does this do? | Restricts the type of device that can be enrolled. The baseline allows enrollment of all corporate devices and blocks all personal devices. This limit can be overridden by other configurations with a higher priority. |
-| Why should you use this? | If you want to ensure that only corporate devices are enrolled in Intune. |
-| What is the end-user impact? | Users will be restricted to enrolling corporate devices only in Intune. |
+| What does this do? | Restricts the type of device that can be enrolled. The baseline allows enrollment of Autopiloted registered devices only. This limit can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to ensure that only Autopilot registered devices are enrolled in Intune. |
+| What is the end-user impact? | Users will be restricted to enrolling only Autopilot registered devices in Intune. |
 | Learn more | [Create a device type restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-type-restriction) |
 
 
@@ -1011,9 +1011,9 @@ Not yet a client of Simeon? Get started here.
 
 |Name |deviceEnrollmentPlatformRestrictionsConfiguration - Baseline - Device Enrollers can enroll personal devices|
 | :-- | :-- |
-| What does this do? | Allows for specifying users that can enroll devices to Intune. The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, and allows all other users to only enroll devices that have been previously registered with Autopilot. This limit can be overridden by other configurations with a higher priority. |
-| Why should you use this? | If you want to restrict general users from enrolling personal Windows devices without Autopilot. |
-| What is the end-user impact? | Only certain users will be able to enroll devices to Intune. |
+| What does this do? | The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
+| What is the end-user impact? | Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
 | Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
 
 
@@ -1064,8 +1064,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Management - Set-LocalAdminPassword|
 | :-- | :-- |
-| What does this do? | Creates a local administrator account on Windows devices. This account password is set from the first three portions of the device's BitLocker recovery key (which can be viewed in the Azure portal) plus the letter "X" (e.g. 123456-123456-123456X) |
-| Why should you use this? | IT Support personnel with permission to view the BitLocker recovery key will be able to log in to Windows devices using a local administrator account. |
+| What does this do? | Creates a local administrator account on Windows devices called "devicelocaladmin". This account password is set from the first three portions of the device's BitLocker recovery key (which can be viewed in the Azure portal) plus the letter "X" (e.g. 123456-123456-123456X) |
+| Why should you use this? | Administrators with permission with permission to view the BitLocker recovery key will be able to log in to Windows devices using a local administrator account. |
 | What is the end-user impact? | N/A |
 | Learn more | [View BitLocker recovery keys](https://365adviser.com/azure/how-to-find-the-bitlocker-recovery-key-in-azure-ad) |
 
@@ -1077,7 +1077,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - OS - Enable-TaskSchedulerHistory|
 | :-- | :-- |
-| What does this do? | Enables the Windows Task Scheduler to display history of task runs. The baseline enables this setting and it is disabled by default. |
+| What does this do? | Enables the Windows Task Scheduler to display history of task runs. The baseline enables this setting. It is disabled in Windows by default. |
 | Why should you use this? | This can help with troubleshooting scheduled tasks. |
 | What is the end-user impact? | N/A |
 | Learn more | [Enable Windows task scheduler history](https://medium.com/techygeekshome/enable-windows-task-scheduler-history-996a601a178c) |
@@ -1103,7 +1103,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Security - Add-AuthenticatedUsersToRemoteDesktopUsers|
 | :-- | :-- |
-| What does this do? | Adds the Authenticated Users group to the Remote Desktop Users group so any authenticated user can connect via Remote Desktop. A separate configuration (OS - RDP Enabled) allows users in the "Remote Desktop users' group to access devices remotely. |
+| What does this do? | Adds the Authenticated Users group to the Remote Desktop Users group so any authenticated user can connect via Remote Desktop. A separate configuration (Baseline - OS - RDP Enabled) allows users in the "Remote Desktop users' group to access devices remotely. |
 | Why should you use this? | If you want to allow users to connect remotely via Remote Desktop. |
 | What is the end-user impact? | Users may connect remotely via Remote Desktop. |
 | Learn more | N/A |
@@ -1130,7 +1130,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Self Deploying Profile|
 | :-- | :-- |
-| What does this do? | Creates an Intune autopilot profile for enrolling machines using the self-deploying method, which enables a device to be enrolled into your environment with little to no user interaction. Self-deployment mode comes with restrictions including that the device must have TPM 2.0, and it is not supported on virtual machines even if they have a virtual TPM. Devices in the Azure AD group "Baseline - Autopilot Devices - Self Deploying" will be assigned this profile. |
+| What does this do? | Creates an Intune Autopilot profile for enrolling machines using the self-deploying method, which enables a device to be enrolled into your environment with little to no user interaction. Self-deployment mode comes with restrictions including that the device must have TPM 2.0, and it is not supported on virtual machines even if they have a virtual TPM. Devices in the Azure AD group "Baseline - Autopilot Devices - Self Deploying" will be assigned this profile. |
 | Why should you use this? | This is most useful for devices that will be shared or used as a kiosk. If a device is going to be used by a single user it is best to use the user-driven method. |
 | What is the end-user impact? | User devices assigned to this profile can be configured using the self-deployment method. |
 | Learn more | [Windows Autopilot Self-Deploying mode](https://docs.microsoft.com/en-us/mem/autopilot/self-deploying) |
@@ -1143,7 +1143,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - User Driven Profile|
 | :-- | :-- |
-| What does this do? | Creates an Intune autopilot profile for enrolling machines using the user-driven method. Devices in the Azure AD group "Autopilot Devices - User Driven" will be assigned this profile. |
+| What does this do? | Creates an Intune Autopilot profile for enrolling machines using the user-driven method. Devices in the Azure AD group "Autopilot Devices - User Driven" will be assigned this profile. |
 | Why should you use this? | When a device is going to be used by a single user, this approach is ideal because the device shows as assigned in all relevant Intune pages and reports. It is also the most stable and consistent Autopilot mode. |
 | What is the end-user impact? | Devices with this profile can be enrolled by users themselves. The device will be registered to the user and the user will be able to use the company portal application. |
 | Learn more | [Windows Autopilot user-driven mode](https://docs.microsoft.com/en-us/mem/autopilot/user-driven) |
@@ -1157,8 +1157,8 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Logging|
 | :-- | :-- |
-| What does this do? | Configures logging to capture Intune events, which can then be analyzed using Log Analytics Workspaces. The baseline captures device audit logs, compliance, and operational logs. Logs can be viewed in the Analytics Workspace named "tenant Name-M365logging" and are stored in the Azure Storage Account named "tenantNameM365Logging." |
-| Why should you use this? | You can set up alerts for when an Intune-managed device is marked non-compliant or when a new device is enrolled into the environment. This improves security by providing you with the data needed to monitor Intune events within your tenant. |
+| What does this do? | Configures logging to capture Intune events, which can then be analyzed using Log Analytics Workspaces. The baseline captures device audit logs, compliance, and operational logs. Logs can be viewed in the Analytics Workspace named "[tenant name]-baseline-M365logging" and are stored in the Azure Storage Account named "tenantNameM365Logging." |
+| Why should you use this? | You can set up alerts for when a managed device is marked non-compliant or when a new device is enrolled into the environment. This improves security by providing you with the data needed to monitor Intune events within your tenant. |
 | What is the end-user impact? | N/A |
 | Learn more | [Microsoft Intune and Azure Log Analytics](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/microsoft-intune-and-azure-log-analytics/ba-p/463145) |
 
@@ -1172,7 +1172,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Admin Audit Log Settings|
 | :-- | :-- |
 | What does this do? | Configures Exchange logging so that IT users can search Exchange audit logs. The baseline turns on Exchange logging. |
-| Why should you use this? | If you want to trace changes to the person who made the change, augment your change logs with detailed records of the change as it was implemented, comply with regulatory requirements and requests for discovery, as well as other tracing. |
+| Why should you use this? | If you want to identify who made the change, augment your change logs with detailed records of the change as it was implemented, comply with regulatory requirements and requests for discovery, as well as other tracing. |
 | What is the end-user impact? | N/A |
 | Learn more | [Turn audit log search on or off](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) |
 
@@ -1185,7 +1185,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |First Organization|
 | :-- | :-- |
-| What does this do? | Defines various Exchange settings. Microsoft changes these settings frequently as features are added and removed. |
+| What does this do? | Defines various Exchange settings. Microsoft changes these settings frequently as features are added and removed. The baseline uses the default configurations provided by Microsoft. |
 | Why should you use this? | If you want to track configuration changes made in the environment. |
 | What is the end-user impact? | N/A |
 | Learn more | [Set-OrganizationConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-organizationconfig?view=exchange-ps) |
@@ -1213,7 +1213,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Teams Retention Policy|
 | :-- | :-- |
-| What does this do? | Defines the data retention policy for Microsoft Teams. The baseline retains Teams data for one year. |
+| What does this do? | Defines the data retention policy for Microsoft Teams. Teams retention policies must be created independently of other retention policies. The baseline retains Teams data for one year. |
 | Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/retention-policies) |
@@ -1241,7 +1241,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Global|
 | :-- | :-- |
-| What does this do? | Allows admins to specify approved Teams applications. Another setting (TenantWideAppsSettings) allows for Teams applications in general to be used. |
+| What does this do? | Allows admins to specify approved Teams applications. Another setting (TenantWideAppsSettings) allows for Teams applications in general to be used. The baseline uses the default configurations provided by Microsoft. |
 | Why should you use this? | If you want to be able to restrict users from using unapproved Teams apps. |
 | What is the end-user impact? | Users may use only those Teams apps allowed by admins. |
 | Learn more | [Manage app permission policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies) |
@@ -1255,7 +1255,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Defines global settings for Microsoft Teams. The baseline allows users to add Teams apps in general, and another setting (TeamsAppPermissionPolicy) allows you to specify approved Teams applications. |
+| What does this do? | Defines global settings for Microsoft Teams. The baseline allows users to add Teams apps in general, and another setting (TeamsAppPermissionPolicy) allows you to specify approved Teams applications. The baseline uses the default configurations provided by Microsoft. |
 | Why should you use this? | To allow users to add Teams apps. |
 | What is the end-user impact? | Users will be able to add Teams apps. |
 | Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365), [Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
