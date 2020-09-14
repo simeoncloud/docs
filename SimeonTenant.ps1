@@ -952,8 +952,9 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             throw "Could not find repository $Name"
         }
 
-        $queueName = "Azure Pipelines"
-        $queueId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq  $queueName).id
+        $queueName = $poolName = "Azure Pipelines"
+        $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
+        $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
 
         foreach ($action in @('Deploy', 'Export')) {
             $pipelineName = "$Name - $action"
@@ -971,7 +972,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                     name = $queueName
                     id = $queueId
                     pool = @{
-                        name = $queueName
+                        name = $poolName
+                        id = $poolId
                         isHosted = "true"
                     }
                 }
