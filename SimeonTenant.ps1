@@ -729,7 +729,11 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             }
             else {
                 Write-Information "Committing changes"
-                Invoke-CommandLine "git commit -m `"Set baseline repository to $Baseline`" -m `"[skip ci]`" 2>&1" | Write-Verbose
+                $message = "Set baseline repository to $Baseline"
+                if (!$Baseline) {
+                    $message = "Set repository to have no baseline"
+                }
+                Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
 
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
