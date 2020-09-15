@@ -688,7 +688,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         try {
             $baselinePath = 'Baseline'
 
-            $gitModules = git config --file .gitmodules --get-regexp url
+            $gitModules = git config --file .gitmodules --get-regexp submodule\.Baseline\.url
             $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
 
             if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule -and (Test-Path $baselinePath)) {
