@@ -19,6 +19,8 @@
 ## Make sure a tenant meets the prerequisites to use Simeon
 
 - You must be operating on global Azure cloud (not [Government Community Cloud](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)). The Azure Government cloud is not currently supported
+- Make sure the Microsoft Intune Enterprise Application is enabled for users to sign in
+    - Navigate to the [Azure Portal](https://portal.azure.com/#home) > **Azure Active Directory** > **Enterprise applications** > switch **Application type** from **Enterprise Applications** to **All Applications** > **Apply** > search for **Microsoft Intune** > **Properties** > **Enabled for users to sign-in** > **Yes**
 - Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported
     - Microsoft 365 Business Premium
     - Microsoft 365 E3
