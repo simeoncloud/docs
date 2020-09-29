@@ -549,6 +549,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             if ($Credential.UserName) { $Name = $Credential.UserName.Split('@')[-1].Split('.')[0] }
             else { $Name = (Read-Tenant).Split('.')[0] }
         }
+        $Name = $Name.ToLower()
 
         if ($Name.Contains('.')) {
             throw "Name must not contain any special characters"
@@ -595,6 +596,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # A function that returns a url to import this repository from if it is empty
             [scriptblock]$GetImportUrl
         )
+
+        $Name = $Name.ToLower()
 
         Write-Information "Installing repository for '$Name'"
 
@@ -904,6 +907,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [switch]$RequireExportApproval
         )
 
+        $Name = $Name.ToLower()
+
         Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
 
         $environmentArgs = @{}
@@ -1045,6 +1050,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # Specify to true to require approval when exporting
             [switch]$RequireExportApproval
         )
+
+        $Name = $Name.ToLower()
 
         Write-Information "Installing pipeline environments for '$Name'"
 
