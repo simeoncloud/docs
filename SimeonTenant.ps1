@@ -1184,11 +1184,17 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
         Push-Location $repositoryPath
+        if (Test-Path Baseline) {
+            $ymlRepo = "DefaultTenant"
+        }
+        else {
+            $ymlRepo = "Baseline"
+        }
         try {
             $('Deploy', 'Export') | % {
-                Write-Verbose "Downloading $_.yml"
+                Write-Verbose "Downloading $_.yml from Simeon Repo $ymlRepo"
                 Remove-Item "$_.yml" -Force -EA SilentlyContinue
-                irm "https://raw.githubusercontent.com/simeoncloud/DefaultTenant/master/$_.yml" -OutFile "$_.yml"
+                irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/master/$_.yml" -OutFile "$_.yml"
             }
             Invoke-CommandLine "git add . 2>&1" | Write-Verbose
 
