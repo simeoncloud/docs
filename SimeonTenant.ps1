@@ -1099,7 +1099,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 # add approval
                 $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                 {
-                    "query": "Project Valid Users",
+                    "query": "Contributors",
                     "identityTypes": [
                         "group"
                     ],
@@ -1117,9 +1117,9 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 }
 "@
 
-                $projectValidUsersDisplayName = "[$Project]\Project Valid Users"
-                $projectValidUsersId = $identities.results.identities |? displayName -eq $projectValidUsersDisplayName | Select -ExpandProperty localId
-                if (!$projectValidUsersId) { throw "Could not find Project Valid Users group for project $Project" }
+                $contributorsDisplayName = "[$Project]\Contributors"
+                $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+                if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
 
                 # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
                 irm @restProps "$apiBaseUrl/pipelines/checks/configurations" -Method Post -Body @"
@@ -1131,8 +1131,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                     "settings": {
                         "approvers": [
                             {
-                                "displayName": $(ConvertTo-Json $projectValidUsersDisplayName),
-                                "id": "$projectValidUsersId"
+                                "displayName": $(ConvertTo-Json $contributorsDisplayName),
+                                "id": "$contributorsId"
                             }
                         ],
                         "executionOrder": 1,
