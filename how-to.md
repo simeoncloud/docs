@@ -6,7 +6,7 @@
   - Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
 - **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user for subsequent steps (this is required so that the licenses and subscriptions created in subsequent steps are linked to your new tenant)
 - Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
-- Get a **Microsoft 365** license (a trial is fine, and will continue to work for Simeon even if it expires)
+- Get a **Microsoft 365** license
   - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx)
   - Any one of the following license configurations are supported
     - Microsoft 365 Business Premium
