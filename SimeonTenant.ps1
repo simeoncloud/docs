@@ -113,7 +113,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $outFile = "$([IO.Path]::GetTempPath())/git-install.exe"
             irm $url -OutFile $outFile
             Start-Process $outFile -Wait
-            throw "Please close this window and then re-run this script after completing the installation of Git"
+            Write-Error "Please close this window and then re-run this script after completing the installation of Git"
+            Exit
         }
         elseif ($IsMacOS) {
             Wait-EnterKey "Attempting to download and install Git - double click the pkg file and continue through the setup wizard as prompted"
@@ -121,10 +122,12 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             $outFile = "$([IO.Path]::GetTempPath())/git-install.dmg"
             irm $url -OutFile $outFile
             & $outFile
-            throw "Please close this window and then re-run this script after completing the installation of Git"
+            Write-Error "Please close this window and then re-run this script after completing the installation of Git"
+            Exit
         }
         else {
-            throw "Please install Git from https://git-scm.com/downloads, close this window and then re-run this script"
+            Write-Error "Please install Git from https://git-scm.com/downloads, close this window and then re-run this script"
+            Exit
         }
 
         if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
@@ -159,7 +162,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         if (!(Get-Module PowerShellGet -ListAvailable |? { $_.Version.Major -ge 2 })) {
             Write-Information "Updating PowerShellGet"
             Install-Module PowerShellGet -Force -Scope CurrentUser -Repository PSGallery -AllowClobber -WarningAction SilentlyContinue
-            throw "Update of PowerShellGet complete - please close this window and then re-run this script"
+            Write-Warning "Update of PowerShellGet complete - please close this window and then re-run this script"
+            Exit
         }
 
         if ($PSVersionTable.PSEdition -ne 'Core' -and !(Get-PackageProvider NuGet -ListAvailable)) {
@@ -253,13 +257,19 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         $TenantId = Resolve-AzureTenantId $Tenant
 
-        while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
-            Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role and 'Contributor' access to an Azure Subscription"
-            Connect-AzAccount -Tenant $TenantId | Out-Null
-            $Force = $false
-        }
+        try {
+            while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
+                Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role and 'Contributor' access to an Azure Subscription"
+                Connect-AzAccount -Tenant $TenantId | Out-Null
+                $Force = $false
+            }
 
-        Write-Information "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
+            Write-Information "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
+        }
+        catch {
+            Write-Warning $_.Exception.Message
+            Connect-Azure $Tenant -Force
+        }
     }
 
     function Test-AzureADCurrentUserRole {

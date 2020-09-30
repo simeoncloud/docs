@@ -294,7 +294,7 @@ Not yet a client of Simeon? Get started here.
 
 |Name |Baseline - Microsoft 365 Users|
 | :-- | :-- |
-| What does this do? | Creates a dynamic group that assigns Microsoft 365 licenses to users for EMS and O365 functionality. This group also is used to assign configurations that should be applied to all licensed Microsoft 365 users. The baseline dynamically includes all users that have a department specified in this group. If a user does not require a license (e.g. service accounts or off-boarded users), the department field can be removed for that user will no receive a Microsoft 365 license. |
+| What does this do? | Creates a group that is used to assign Microsoft 365 licenses to users for EMS and O365 functionality. This group also is used to assign configurations that should be applied to all licensed Microsoft 365 users. |
 | Why should you use this? |  If you want to dynamically manage the user license assignment and configurations targeted to licensed users. |
 | What is the end-user impact? | Users in this group will have Microsoft 365 licenses assigned and receive targeted configurations. |
 | Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide), [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
@@ -745,9 +745,9 @@ Not yet a client of Simeon? Get started here.
 
 ###### hidden-header
 
-### Baseline - OS - System Sleep Timeouts
+### Baseline - OS - Sleep When Plugged In Disabled
 
-|Name |Baseline - OS - System Sleep Timeouts|
+|Name |Baseline - OS - Sleep When Plugged In Disabled|
 | :-- | :-- |
 | What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
 | Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
@@ -829,7 +829,7 @@ Not yet a client of Simeon? Get started here.
 |Name |Baseline - OS - Preview Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Creates a Windows Update configuration for managed devices in the "Preview" ring, which receive updates after "Insiders" but before devices with the default policy. The baseline delays feature and quality updates to the "Preview" group for 7 days after released by Microsoft. Once the deferral period has expired for a device, users have 3 days to restart (if required). Unattended updates will only be applied outside working hours of 5am to 10pm. Applies to users in the Azure AD group "Baseline - Corporate Devices – Preview". |
-| Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment by testing the update in rings of users. |
+| Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment by testing the update in rings of users.. |
 | What is the end-user impact? | Users in the "Preview" ring will receive updates 7 days after being released by Microsoft and after Insiders, but before devices with the default policy. |
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
 
