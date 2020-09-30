@@ -1108,7 +1108,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
             irm @restProps "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.environmentreferencerole/roleassignments/resources/$($environment.project.id)_$($environment.id)" -Method Put -Body @"
             [{"userId":"$contributorsId","roleName":"Administrator"}]
-"@
+"@ | Out-Null
 
             if ($action -eq 'Deploy' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
                 $requireApproval = $RequireDeployApproval
