@@ -363,7 +363,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             [ValidateNotNullOrEmpty()]
             [string]$Token
         )
@@ -390,7 +390,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             [ValidateNotNullOrEmpty()]
             [string]$Name
         )
@@ -520,7 +520,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # The Azure DevOps organization name (e.g. 'Simeon-MyOrganization')
             [string]$Organization,
             # The project name in DevOps (defaults to 'Tenants')
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # The name of the repository and pipelines to create
             [string]$Name,
             # The baseline repository to use for pipelines (an empty string indicates to use no baseline) (may be the name of another repository DevOps or a full repository url)
@@ -538,8 +538,6 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         # Creates repo and pipelines and stores service account password
 
         while (!$Organization) { $Organization = Read-Organization }
-
-        if (!$Project) { $Project = 'Tenants' }
 
         if (!$PSBoundParameters.ContainsKey('Baseline')) {
             $Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to proceed without a baseline"
@@ -589,7 +587,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Organization,
             # The project name in DevOps
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
@@ -670,7 +668,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             [ValidateNotNullOrEmpty()]
             [string]$Repository,
             [string]$Baseline
@@ -763,7 +761,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Organization,
             # The project name in DevOps
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -895,7 +893,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Organization,
             # The project name in DevOps
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
@@ -1041,7 +1039,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [string]$Organization,
             # The project name in DevOps
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
@@ -1084,6 +1082,34 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 Write-Information "Environment '$environmentName' already exists"
             }
 
+            $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+            {
+                "query": "Contributors",
+                "identityTypes": [
+                    "group"
+                ],
+                "operationScopes": [
+                    "ims",
+                    "source"
+                ],
+                "options": {
+                    "MinResults": 1,
+                    "MaxResults": 20
+                },
+                "properties": [
+                    "DisplayName"
+                ]
+            }
+"@
+
+            $contributorsDisplayName = "[$Project]\Contributors"
+            $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+            if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
+
+            irm @restProps "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.environmentreferencerole/roleassignments/resources/$($environment.project.id)_$($environment.id)" -Method Put -Body @"
+            [{"userId":"$contributorsId","roleName":"Administrator"}]
+"@
+
             if ($action -eq 'Deploy' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
                 $requireApproval = $RequireDeployApproval
             }
@@ -1091,42 +1117,16 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
                 $requireApproval = $RequireExportApproval
             }
             else {
-                $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy')
+                $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy' -and $Name -notlike '*baseline*')
             }
             $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
             $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
             if ($approvalUrl -and !$requireApproval) {
-                # remove approval
                 Write-Information "Removing existing approval check"
                 irm @restProps $approvalUrl -Method Delete | Out-Null
             }
             elseif (!$approvalUrl -and $requireApproval) {
                 Write-Information "Adding approval check"
-
-                # add approval
-                $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
-                {
-                    "query": "Contributors",
-                    "identityTypes": [
-                        "group"
-                    ],
-                    "operationScopes": [
-                        "ims",
-                        "source"
-                    ],
-                    "options": {
-                        "MinResults": 1,
-                        "MaxResults": 20
-                    },
-                    "properties": [
-                        "DisplayName"
-                    ]
-                }
-"@
-
-                $contributorsDisplayName = "[$Project]\Contributors"
-                $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-                if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
 
                 # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
                 irm @restProps "$apiBaseUrl/pipelines/checks/configurations" -Method Post -Body @"
@@ -1176,7 +1176,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = 'Tenants',
             [ValidateNotNullOrEmpty()]
             [string]$Repository
         )
@@ -1241,7 +1241,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
             # The Azure DevOps organization name - e.g. 'simeon-orgName'
             [string]$Organization,
             # The project name in DevOps - usually 'Tenants'
-            [string]$Project,
+            [string]$Project = 'Tenants',
             # Indicates the name for the repository and pipelines to create - defaults to the tenant name up to the first .
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
