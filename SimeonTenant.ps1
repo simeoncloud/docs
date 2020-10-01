@@ -354,7 +354,7 @@ CRLFOption=CRLFAlways
             $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue
         }
 
-        $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon organization"
+        $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
         if ($Organization -and $Project) {
             $interactiveMessage += " '$Organization' and '$Project' project"
         }
