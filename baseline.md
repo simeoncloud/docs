@@ -473,20 +473,6 @@ Not yet a client of Simeon? Get started here.
 | What is the end-user impact? | Users may register new applications and access the Azure portal, but not access their LinkedIn connections within Microsoft applications. |
 | Learn more | [Default user permissions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#to-restrict-the-default-permissions-for-member-users) |
 
-## Azure AD > Users
-*MSGraph/Users*
-
-###### hidden-header
-
-### Baseline - Global Admin
-
-|Name |Baseline - Global Admin|
-| :-- | :-- |
-| What does this do? | Creates a global administrator account. The baseline creates a global administrator account that does not require a Microsoft 365 license. The password can be managed in the Azure Portal. |
-| Why should you use this? | Administrators can use this dedicated admin user to manage a tenant. |
-| What is the end-user impact? | N/A |
-| Learn more | [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#global-administrator--company-administrator) |
-
 ## Intune > Apps > App configuration policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
 
