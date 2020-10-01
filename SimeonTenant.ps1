@@ -91,20 +91,26 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $u.AbsoluteUri.Remove($u.AbsoluteUri.Length - ($u.Segments | Select -Last 1).Length)
     }
 
+    function Set-GitConfiguration {
+        [CmdletBinding()]
+        param()
+
+        if (!(git config --global user.email)) { git config --global user.email "noreply@simeoncloud.com" }
+        if (!(git config --global user.name)) { git config --global user.name "Simeon" }
+    }
+
     function Install-Git {
         [CmdletBinding()]
         param()
 
-        if ((Get-Command git -EA SilentlyContinue)) {
-            if (!(git config --global user.email)) { git config --global user.email "noreply@simeoncloud.com" }
-            if (!(git config --global user.name)) { git config --global user.name "Simeon" }
+        if (Get-Command git -EA SilentlyContinue) {
             return
         }
 
         $ProgressPreference = 'SilentlyContinue'
 
         if ($IsWindows -or $PSVersionTable.PSEdition -ne 'Core') {
-            Wait-EnterKey "Attempting to download and install Git - continue through the setup wizard as prompted"
+            Write-Host "Downloading and installing Git - please click Yes if prompted" -ForegroundColor Green
             $url = 'https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-32-bit.exe'
             if ([System.Environment]::Is64BitOperatingSystem) {
                 $url = 'https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-64-bit.exe'
@@ -112,9 +118,25 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
             $outFile = "$([IO.Path]::GetTempPath())/git-install.exe"
             irm $url -OutFile $outFile
-            Start-Process $outFile -Wait
-            Write-Error "Please close this window and then re-run this script after completing the installation of Git"
-            Exit
+
+            $infPath = "$([IO.Path]::GetTempPath())/git-install.inf"
+            @'
+[Setup]
+Lang=default
+Dir=$env:ProgramFiles\Git
+Group=Git
+NoIcons=0
+SetupType=default
+Components=
+Tasks=
+PathOption=Cmd
+SSHOption=OpenSSH
+CRLFOption=CRLFAlways
+'@ | Out-File $infPath
+
+            Start-Process $outFile -Wait -ArgumentList "/SILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/NOCANCEL", "/SP-", "LOADINF", $infPath
+
+            $env:Path = "$env:ProgramFiles\Git\cmd;" + $env:Path
         }
         elseif ($IsMacOS) {
             Wait-EnterKey "Attempting to download and install Git - double click the pkg file and continue through the setup wizard as prompted"
@@ -132,6 +154,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
 
         if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
         Write-Information "Git was successfully installed"
+
+        Set-GitConfiguration
     }
 
     function Get-GitRepository {
