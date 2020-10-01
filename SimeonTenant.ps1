@@ -482,7 +482,7 @@ CRLFOption=CRLFAlways
         # Create/update Azure AD user with random password
         $upn = "simeon@$Tenant"
         $user = Get-AzureADUser -Filter "userPrincipalName eq '$upn'"
-        $password = [Guid]::NewGuid().ToString("N").Substring(0, 10) + "Ul!"
+        $password = [Guid]::NewGuid().ToString("N").Substring(0, 15) + "Ul!"
 
         if (!$user) {
             Write-Information "Creating account '$upn'"
