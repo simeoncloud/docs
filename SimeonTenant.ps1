@@ -304,15 +304,21 @@ CRLFOption=CRLFAlways
             [string]$Name
         )
 
-        $token = Get-AzContextToken 'https://graph.microsoft.com'
-        $value = @()
-        $url = "https://graph.microsoft.com/beta/me/memberOf"
-        while ($url) {
-            $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }
-            if ($res.value) { $value += $res.value }
-            $url = $res."@odata.nextLink"
+        try {
+            $token = Get-AzContextToken 'https://graph.microsoft.com'
+            $value = @()
+            $url = "https://graph.microsoft.com/beta/me/memberOf"
+            while ($url) {
+                $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }
+                if ($res.value) { $value += $res.value }
+                $url = $res."@odata.nextLink"
+            }
+            return [bool]($value |? '@odata.type' -eq '#microsoft.graph.directoryRole' |? displayName -eq $Name)
         }
-        return [bool]($value |? '@odata.type' -eq '#microsoft.graph.directoryRole' |? displayName -eq $Name)
+        catch {
+            Write-Warning $_.Exception.Message
+            return $false
+        }
     }
 
     function Get-SimeonTenantServiceAccountAzureSubscriptionId {
