@@ -283,7 +283,7 @@ CRLFOption=CRLFAlways
 
         try {
             while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
-                Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role and 'Contributor' access to an Azure Subscription"
+                Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role"
                 Connect-AzAccount -Tenant $TenantId | Out-Null
                 $Force = $false
             }
