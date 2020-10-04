@@ -175,7 +175,7 @@ CRLFOption=CRLFAlways
 
         Write-Verbose "Cloning '$RepositoryUrl'"
         if ($AccessToken) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $AccessToken`"" }
-        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $gitConfig $RepositoryUrl $Path 2>&1" | Write-Verbose
+        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $gitConfig $RepositoryUrl `"$Path`" 2>&1" | Write-Verbose
         return $Path
     }
 
@@ -757,7 +757,7 @@ CRLFOption=CRLFAlways
                 Write-Information "Setting baseline to '$Baseline'"
                 "" | Set-Content .gitmodules
                 if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
-                Invoke-CommandLine "git $gitConfig -c core.longpaths=true submodule add -b master -f $Baseline $baselinePath 2>&1" | Write-Verbose
+                Invoke-CommandLine "git $gitConfig -c core.longpaths=true submodule add -b master -f $Baseline `"$baselinePath`" 2>&1" | Write-Verbose
             }
             else {
                 Write-Information "Setting repository to have no baseline"
