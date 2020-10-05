@@ -321,7 +321,7 @@ CRLFOption=CRLFAlways
                 $token = Get-AzContextToken 'https://graph.windows.net/'
             }
             $value = @()
-            $url = 'https://graph.windows.net/me/memberOf?api-version=1.6'
+            $url = 'https://graph.windows.net/me/memberOf?$select=displayName,objectType&api-version=1.6'
             while ($url) {
                 $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }
                 if ($res.value) { $value += $res.value }
