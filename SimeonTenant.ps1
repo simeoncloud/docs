@@ -316,7 +316,10 @@ CRLFOption=CRLFAlways
         )
 
         try {
-            $token = Get-AzContextToken 'https://graph.windows.net/'
+            $token = $AzureADGraphAccessToken
+            if (!$token) {
+                $token = Get-AzContextToken 'https://graph.windows.net/'
+            }
             $value = @()
             $url = 'https://graph.windows.net/me/memberOf?api-version=1.6'
             while ($url) {
