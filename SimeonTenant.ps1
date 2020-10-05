@@ -281,6 +281,12 @@ CRLFOption=CRLFAlways
 
         $TenantId = Resolve-AzureTenantId $Tenant
 
+        if ($AzureManagementAccessToken -and $AzureADGraphAccessToken) {
+            Connect-AzAccount -AccessToken $AzureManagementAccessToken
+            Connect-AzureAD -AadAccessToken $AzureADGraphAccessToken
+            return
+        }
+
         try {
             while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
                 Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role"
