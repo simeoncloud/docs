@@ -281,13 +281,17 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $TenantId = Resolve-AzureTenantId $Tenant
-
         if ($AzureManagementAccessToken -and $AzureADGraphAccessToken) {
             Connect-AzAccount -AccessToken $AzureManagementAccessToken
             Connect-AzureAD -AadAccessToken $AzureADGraphAccessToken
             return
         }
+
+        if ($ConfirmPreference -eq 'None') {
+            throw "AzureManagementAccessToken and AzureADGraphAccessToken are required when ConfirmPreference is set to none"
+        }
+
+        $TenantId = Resolve-AzureTenantId $Tenant
 
         try {
             while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
@@ -354,11 +358,15 @@ CRLFOption=CRLFAlways
             [switch]$Interactive
         )
 
+        Install-RequiredModule
+
         if ($AzureDevOpsAccessToken) {
             return $AzureDevOpsAccessToken
         }
 
-        Install-RequiredModule
+        if ($ConfirmPreference -eq 'None') {
+            throw "AzureDevOpsAccessToken is required when ConfirmPreference is set to none"
+        }
 
         $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
         $devOpsScope = '499b84ac-1321-427f-aa17-267ca6975798/.default'
