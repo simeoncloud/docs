@@ -285,7 +285,7 @@ CRLFOption=CRLFAlways
 
         if ($AzureManagementAccessToken -and $AzureADGraphAccessToken) {
             Connect-AzAccount -AccessToken $AzureManagementAccessToken -AccountId $TenantId
-            Connect-AzureAD -AadAccessToken $AzureADGraphAccessToken -AccountId $TenantId
+            Connect-AzureAD -AadAccessToken $AzureADGraphAccessToken -AccountId $TenantId -TenantId $TenantId
             return
         }
 
