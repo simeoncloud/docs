@@ -316,15 +316,15 @@ CRLFOption=CRLFAlways
         )
 
         try {
-            $token = Get-AzContextToken 'https://graph.microsoft.com'
+            $token = Get-AzContextToken 'https://graph.windows.net'
             $value = @()
-            $url = "https://graph.microsoft.com/beta/me/memberOf"
+            $url = 'https://graph.windows.net/me/memberOf?api-version=1.6'
             while ($url) {
                 $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }
                 if ($res.value) { $value += $res.value }
                 $url = $res."@odata.nextLink"
             }
-            return [bool]($value |? '@odata.type' -eq '#microsoft.graph.directoryRole' |? displayName -eq $Name)
+            return [bool]($value |? objectType -eq 'Role' |? displayName -eq $Name)
         }
         catch {
             Write-Warning $_.Exception.Message
