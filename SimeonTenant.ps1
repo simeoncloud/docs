@@ -517,7 +517,7 @@ CRLFOption=CRLFAlways
         }
         else {
             Write-Information "Service account already exists - updating '$upn'"
-            $user | Set-AzureADUser -UserPrincipalName $upn -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
+            $user | Set-AzureADUser -UserPrincipalName $upn -DisplayName 'Microsoft 365 Management Service Account' -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
         }
 
         # this can sometimes fail on first request
