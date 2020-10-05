@@ -281,8 +281,10 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
+        $TenantId = Resolve-AzureTenantId $Tenant
+
         if ($AzureManagementAccessToken -and $AzureADGraphAccessToken) {
-            Connect-AzAccount -AccessToken $AzureManagementAccessToken
+            Connect-AzAccount -AccessToken $AzureManagementAccessToken -AccountId $TenantId
             Connect-AzureAD -AadAccessToken $AzureADGraphAccessToken
             return
         }
@@ -290,9 +292,6 @@ CRLFOption=CRLFAlways
         if ($ConfirmPreference -eq 'None') {
             throw "AzureManagementAccessToken and AzureADGraphAccessToken are required when ConfirmPreference is set to none"
         }
-
-        $TenantId = Resolve-AzureTenantId $Tenant
-
         try {
             while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
                 Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role"
