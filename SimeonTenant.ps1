@@ -50,6 +50,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [CmdletBinding()]
         param()
 
+        if ($ConfirmPreference -eq 'None') { throw "Tenant not specified" }
         Read-Host 'Enter tenant primary domain name (e.g. contoso.com or contoso.onmicrosoft.com if no custom domain name is set)'
     }
 
@@ -57,6 +58,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [CmdletBinding()]
         param()
 
+        if ($ConfirmPreference -eq 'None') { throw "Organization not specified" }
         Read-Host 'Enter Azure DevOps organization name'
     }
 
@@ -585,7 +587,7 @@ CRLFOption=CRLFAlways
 
         while (!$Organization) { $Organization = Read-Organization }
 
-        if (!$PSBoundParameters.ContainsKey('Baseline')) {
+        if (!$PSBoundParameters.ContainsKey('Baseline') -and $ConfirmPreference -ne 'None') {
             $Baseline = Read-Host "Enter the name of the baseline repository to use or leave blank to proceed without a baseline"
         }
 
@@ -833,7 +835,8 @@ CRLFOption=CRLFAlways
 
         if (!$serviceEndpoint) {
             Write-Information "Creating 'simeoncloud' GitHub service connection"
-            while (!$GitHubAccessToken) { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
+            while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
+            if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
             $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
             {
                 "authorization": {
@@ -881,7 +884,8 @@ CRLFOption=CRLFAlways
 
         if (!$serviceEndpoint) {
             Write-Information "Creating 'simeoncloud-packages' GitHub service connection"
-            while (!$GitHubAccessToken) { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
+            while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
+            if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
             $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
             {
                 "authorization": {
