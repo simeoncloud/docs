@@ -317,13 +317,20 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
-
+        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
-        $Scopes = @('https://management.core.windows.net/user_impersonation', 'https://graph.windows.net/Directory.AccessAsUser.All')
-        if ($Scope -eq 'AzureDevOps') {
-            $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
-            $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
+        switch ($Scope) {
+            'AzureDevOps' {
+                $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
+                $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
+                $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
+            }
+            'AzureManagement' {
+                $Scopes = 'https://management.core.windows.net//.default'
+            }
+            'AzureADGraph' {
+                $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
+            }
         }
 
         $msalAppArgs = @{ ClientId = $clientId; RedirectUri = 'http://localhost:3546'; TenantId = $Tenant }
@@ -334,7 +341,8 @@ CRLFOption=CRLFAlways
 
         if ($Interactive -and $ConfirmPreference -ne 'None') {
             if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive -ForceRefresh)
+            (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) # get with all required permissions first
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent)
         }
         else {
             try {
@@ -344,7 +352,8 @@ CRLFOption=CRLFAlways
                 if ($ConfirmPreference -ne 'None') {
                     if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
                     $Interactive = $true
-                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive -ForceRefresh)
+                    (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) # get with all required permissions first
+                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent)
                 }
             }
         }
