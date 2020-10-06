@@ -317,8 +317,9 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
         $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
+
+        $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
         $Scopes = @('https://management.core.windows.net/user_impersonation', 'https://graph.windows.net/Directory.AccessAsUser.All')
         if ($Scope -eq 'AzureDevOps') {
             $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
