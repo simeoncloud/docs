@@ -319,16 +319,11 @@ CRLFOption=CRLFAlways
 
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
         $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
+        $Scopes = @('https://management.core.windows.net/user_impersonation', 'https://graph.windows.net/Directory.AccessAsUser.All')
         switch ($Scope) {
             'AzureDevOps' {
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
-            }
-            'AzureManagement' {
-                $Scopes = 'https://management.core.windows.net//.default'
-            }
-            'AzureADGraph' {
-                $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
             }
         }
 
@@ -340,8 +335,7 @@ CRLFOption=CRLFAlways
 
         if ($Interactive -and $ConfirmPreference -ne 'None') {
             if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
-            (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) # get with all required permissions first
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Silent)
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive -ForceRefresh)
         }
         else {
             try {
@@ -351,8 +345,7 @@ CRLFOption=CRLFAlways
                 if ($ConfirmPreference -ne 'None') {
                     if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
                     $Interactive = $true
-                    (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) # get with all required permissions first
-                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Silent)
+                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive -ForceRefresh)
                 }
             }
         }
