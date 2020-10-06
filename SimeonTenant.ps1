@@ -93,7 +93,7 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         $u.AbsoluteUri.Remove($u.AbsoluteUri.Length - ($u.Segments | Select -Last 1).Length)
     }
 
-    function Set-GitConfiguration {
+    function Initialize-GitConfiguration {
         [CmdletBinding()]
         param()
 
@@ -157,7 +157,7 @@ CRLFOption=CRLFAlways
         if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
         Write-Information "Git was successfully installed"
 
-        Set-GitConfiguration
+        Initialize-GitConfiguration
     }
 
     function Get-GitRepository {
@@ -199,12 +199,11 @@ CRLFOption=CRLFAlways
 
         # Install required modules
         $requiredModules = @(
-            @{ Name = 'Az.Resources' }
             @{ Name = 'MSAL.PS' }
         )
         if ($PSVersionTable.PSEdition -eq 'Core') {
-            Get-PackageSource |? Location -eq 'https://www.poshtestgallery.com/api/v2/' | Unregister-PackageSource -Force
-            Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null
+            Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
+            if (!(Get-PackageSource PoshTestGallery -EA SilentlyContinue)) { Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null }
             $requiredModules += @{ Name = 'AzureAD.Standard.Preview'; RequiredVersion = '0.0.0.10'; Repository = 'PoshTestGallery' }
         }
         else {
@@ -222,88 +221,23 @@ CRLFOption=CRLFAlways
         }
     }
 
-    function Get-AzProfileContext {
-        [CmdletBinding()]
-        param()
-
-        [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile.DefaultContext
-    }
-
-    function Get-AzContextToken {
-        [CmdletBinding()]
-        param(
-            [string]$Resource
-        )
-
-        # Gets an OAuth token using the existing AzContext
-        $context = Get-AzProfileContext
-        [Microsoft.Azure.Commands.Common.Authentication.AzureSession]::Instance.AuthenticationFactory.Authenticate($context.Account, $context.Environment, $context.Tenant.Id.ToString(), $null, [Microsoft.Azure.Commands.Common.Authentication.ShowDialog]::Never, $null, $Resource).AccessToken
-    }
-
-    function Connect-AzureADUsingAzContext {
-        [CmdletBinding()]
-        param()
-
-        # Connects to AzureAD PS module using existing AzContext token
-        $context = Get-AzProfileContext
-        Connect-AzureAD -AadAccessToken (Get-AzContextToken 'https://graph.windows.net/') -AccountId $context.Account.Id -TenantId $context.Tenant.Id
-    }
-
-    $TenantIdCache = @{}
-    function Resolve-AzureTenantId {
-        [CmdletBinding()]
-        [OutputType([string])]
-        param(
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant
-        )
-
-        # Resolves tenant domain name to id
-        [Guid]$g = [Guid]::Empty
-        if ([Guid]::TryParse($Tenant, [ref]$g)) { return $Tenant }
-
-        if ($TenantIdCache.ContainsKey($Tenant)) { return $TenantIdCache[$Tenant] }
-
-        $endpoint = (irm "https://login.microsoftonline.com/$Tenant/v2.0/.well-known/openid-configuration").token_endpoint
-        $result = [uri]::new($endpoint).PathAndQuery -split '/' |? { $_ } | Select -First 1
-        if (!$result) { throw "Could not resolve tenant id for $Tenant" }
-        $TenantIdCache[$Tenant] = $result
-        Write-Verbose "Resolved tenant id for '$Tenant' to '$result'"
-        return $result
-    }
-
     function Connect-Azure {
         [CmdletBinding()]
         param(
+            [ValidateNotNullOrEmpty()]
+            [Parameter(Mandatory)]
             [string]$Tenant,
-            [switch]$Force
+            [switch]$Interactive
         )
 
         Install-RequiredModule
 
-        $TenantId = Resolve-AzureTenantId $Tenant
-
-        if ($AzureManagementAccessToken -and $AzureADGraphAccessToken) {
-            Connect-AzAccount -AccessToken $AzureManagementAccessToken -AccountId $TenantId
-            Connect-AzureAD -AadAccessToken $AzureADGraphAccessToken -AccountId $TenantId -TenantId $TenantId
-            return
-        }
-
-        if ($ConfirmPreference -eq 'None') {
-            throw "AzureManagementAccessToken and AzureADGraphAccessToken are required when ConfirmPreference is set to none"
-        }
         try {
-            while ($Force -or (Set-AzContext -Tenant $TenantId -WarningAction SilentlyContinue -EA SilentlyContinue).Tenant.Id -ne $TenantId -or !(Connect-AzureADUsingAzContext -EA SilentlyContinue)) {
-                Wait-EnterKey "Connecting to Azure Tenant '$Tenant' - sign in using an account with the 'Global administrator' Azure Active Directory role"
-                Connect-AzAccount -Tenant $TenantId | Out-Null
-                $Force = $false
-            }
-
-            Write-Information "Connected to Azure tenant '$Tenant' using account '$((Get-AzContext).Account.Id)'"
+            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Scope AzureADGraph -Tenant $Tenant -Interactive:$Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
         }
         catch {
             Write-Warning $_.Exception.Message
-            Connect-Azure $Tenant -Force
+            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Scope AzureADGraph -Tenant $Tenant -Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
         }
     }
 
@@ -312,18 +246,18 @@ CRLFOption=CRLFAlways
         [OutputType([bool])]
         param(
             [ValidateNotNullOrEmpty()]
-            [string]$Name
+            [Parameter(Mandatory)]
+            [string]$Name,
+            [ValidateNotNullOrEmpty()]
+            [Parameter(Mandatory)]
+            [string]$Tenant
         )
 
         try {
-            $token = $AzureADGraphAccessToken
-            if (!$token) {
-                $token = Get-AzContextToken 'https://graph.windows.net/'
-            }
             $value = @()
             $url = 'https://graph.windows.net/me/memberOf?$select=displayName,objectType&api-version=1.6'
             while ($url) {
-                $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $token" }
+                $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Scope AzureADGraph -Tenant $Tenant)" }
                 if ($res.value) { $value += $res.value }
                 $url = $res."@odata.nextLink"
             }
@@ -335,17 +269,6 @@ CRLFOption=CRLFAlways
         }
     }
 
-    function Get-SimeonTenantServiceAccountAzureSubscriptionId {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
-        [CmdletBinding()]
-        param(
-            [string]
-            $SubscriptionId
-        )
-
-        Get-AzSubscription -Tenant ((Get-AzContext).Tenant.Id) |? { $_.Name -ne 'Access to Azure Active Directory' -and $_.State -eq 'Enabled' -and (!$SubscriptionId -or $SubscriptionId -in @($_.Name, $_.Id)) } | Sort-Object Name | Select -First 1 -ExpandProperty Id
-    }
-
     <#
     .SYNOPSIS
     Gets a Bearer token to access Azure DevOps APIs. If an Organization and Project is specified, ensures the retrieved access token has access to that organization and project.
@@ -355,60 +278,92 @@ CRLFOption=CRLFAlways
         [CmdletBinding()]
         param(
             [string]$Organization,
-            [string]$Project = 'Tenants',
-            # If true, will always prompt instead of using a cached token
+            [string]$Project = 'Tenants'
+        )
+
+        $token = Get-SimeonAzureADAccessToken -Scope AzureDevOps
+
+        if ($Organization -and $Project) {
+            while (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
+                Write-Warning "Successfully authenticated with Azure DevOps as $($token.Account.Username), but could not access project '$Organization\$Project'"
+                $token = Get-SimeonAzureADAccessToken -Scope AzureDevOps -Interactive
+            }
+        }
+
+
+        return $token
+    }
+
+    <#
+    .SYNOPSIS
+    Gets a Bearer token to access Azure AD secured resources.
+    #>
+    function Get-SimeonAzureADAccessToken {
+        [CmdletBinding()]
+        param (
+            # Scopes to obtain a token for
+            [Parameter(Mandatory)]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph')]
+            [string]$Scope,
+            # Tenant Id or name
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant = 'Common',
+            # Will force an interactive authentication
             [switch]$Interactive
         )
 
+        $token = Get-Variable "$($Scope)AccessToken" -EA SilentlyContinue
+        if ($token.Value) { return $token.Value }
+
         Install-RequiredModule
 
-        if ($AzureDevOpsAccessToken) {
-            return $AzureDevOpsAccessToken
+        switch ($Scope) {
+            'AzureDevOps' {
+                $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
+                $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
+            }
+            'AzureManagement' {
+                $Scopes = 'https://management.core.windows.net//.default'
+                $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
+            }
+            'AzureADGraph' {
+                $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
+                $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
+            }
         }
 
-        if ($ConfirmPreference -eq 'None') {
-            throw "AzureDevOpsAccessToken is required when ConfirmPreference is set to none"
-        }
-
-        $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904'
-        $devOpsScope = '499b84ac-1321-427f-aa17-267ca6975798/.default'
-        $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546' }
+        $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
+        $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546'; TenantId = $Tenant }
         $app = Get-MsalClientApplication @msalAppArgs
         if (!$app) {
             $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue
         }
 
-        $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
-        if ($Organization -and $Project) {
-            $interactiveMessage += " '$Organization' and '$Project' project"
-        }
-
-        if ($Interactive) {
-            Wait-EnterKey $interactiveMessage
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $devOpsScope -Interactive)
+        if ($Interactive -and $ConfirmPreference -ne 'None') {
+            if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive)
         }
         else {
             try {
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $devOpsScope -Silent)
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent)
             }
             catch {
-                $Interactive = $true
-                Wait-EnterKey $interactiveMessage
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $devOpsScope)
+                if ($ConfirmPreference -ne 'None') {
+                    if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
+                    $Interactive = $true
+                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive)
+                }
             }
         }
 
-        if ($Organization -and $Project) {
-            if (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token.AccessToken)) {
-                $Interactive = $true
-                Write-Warning "Successfully authenticated with Azure DevOps as $($token.Account.Username), but could not access project '$Organization\$Project'"
-                return Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Interactive
-            }
+        if (!$token) {
+            throw "Could not obtain a token for $Scope"
         }
 
-        if ($Interactive -or !$script:hasConnectedToAzureDevOps) {
-            Write-Information "Connected to Azure DevOps using account '$($token.Account.Username)'"
-            $script:hasConnectedToAzureDevOps = $true
+        $hasConnectedVariable = "HasConnectedTo$($Scope)$Tenant"
+        if ($Interactive -or !((Get-Variable $hasConnectedVariable -Scope Script -EA SilentlyContinue).Value)) {
+            Write-Information "Connected to $Scope using account '$($token.Account.Username)'"
+            Set-Variable $hasConnectedVariable $true -Scope Script
         }
 
         return $token.AccessToken
@@ -498,9 +453,9 @@ CRLFOption=CRLFAlways
 
         Connect-Azure $Tenant
 
-        while (!(Test-AzureADCurrentUserRole 'Company Administrator')) {
+        while (!(Test-AzureADCurrentUserRole 'Company Administrator' $Tenant)) {
             Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
-            Connect-Azure $Tenant -Force
+            Connect-Azure $Tenant -Interactive
         }
 
         # Create/update Azure AD user with random password
@@ -540,26 +495,44 @@ CRLFOption=CRLFAlways
             }
         }
 
+        $getAzureManagementHeaders = {
+            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Scope AzureManagement -Tenant $Tenant)" }
+        }
+
+        $getSubscriptionId = {
+            $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
+            $response.value |? { $_.name -ne 'Access to Azure Active Directory' -and $_.state -eq 'Enabled' -and (!$Subscription -or $Subscription -in @($_.displayName, $_.subscriptionId)) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
+        }
+
         # Find Azure RM subscription to use
-        $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
+        $subscriptionId = . $getSubscriptionId
         if (!$subscriptionId) {
             # Elevate access to see all subscriptions in the tenant and force re-login
-            irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers @{ Authorization = "Bearer $(Get-AzContextToken 'https://management.azure.com/')" } | Out-Null
+            irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
 
             Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
-            Connect-Azure $Tenant -Force
+            Connect-Azure $Tenant -Interactive
 
-            $subscriptionId = Get-SimeonTenantServiceAccountAzureSubscriptionId $Subscription
+            $subscriptionId = . $getSubscriptionId
 
             if (!$subscriptionId) {
                 throw "Could not find a subscription to use - please make sure you have signed up for an Azure subscription"
             }
         }
 
+        $contributorRoleId = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions?`$filter=roleName eq 'Contributor'&api-version=2018-01-01-preview" -Headers (. $getAzureManagementHeaders)).value.id
+        $roleAssignments = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments?`$filter=principalId eq '$($user.ObjectId)'&api-version=2018-09-01-preview" -Headers (. $getAzureManagementHeaders)).value |? { $_.properties.roleDefinitionId -eq $contributorRoleId }
         # Add as contributor to an Azure RM Subscription
-        if (!(Get-AzRoleAssignment -SignInName $upn -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$subscriptionId")) {
+        if (!$roleAssignments) {
             Write-Information "Adding service account to 'Contributor' role on subscription '$subscriptionId'"
-            New-AzRoleAssignment -SignInName $upn -RoleDefinitionName 'Contributor' -Scope "/subscriptions/$subscriptionId" | Out-Null
+            irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments/$([guid]::NewGuid())?api-version=2018-09-01-preview" -Method Put -ContentType 'application/json' -Headers (. $getAzureManagementHeaders) -Body @"
+{
+    "properties": {
+        "roleDefinitionId": "$contributorRoleId",
+        "principalId": "$($user.ObjectId)",
+    }
+}
+"@| Out-Null
         }
         else {
             Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
@@ -1328,6 +1301,6 @@ CRLFOption=CRLFAlways
         Write-Information "Completed installing tenant"
     }
 
-    Export-ModuleMember -Function Install-Simeon*, Get-SimeonAzureDevOpsAccessToken
+    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
 } | Import-Module -Force
