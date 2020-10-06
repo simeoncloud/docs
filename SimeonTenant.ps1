@@ -318,7 +318,7 @@ CRLFOption=CRLFAlways
         Install-RequiredModule
 
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
-        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2'
+        $clientId = '1b730954-1685-4b74-9bfd-dac224a7b894' # Global PowerShell multi-tenant
         switch ($Scope) {
             'AzureDevOps' {
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
