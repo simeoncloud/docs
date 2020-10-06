@@ -307,7 +307,7 @@ CRLFOption=CRLFAlways
             [string]$Scope,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
-            [string]$Tenant = 'Common',
+            [string]$Tenant = 'common',
             # Will force an interactive authentication
             [switch]$Interactive
         )
@@ -317,23 +317,23 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
+        $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
+        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2'
         switch ($Scope) {
             'AzureDevOps' {
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
+                $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
             }
             'AzureManagement' {
                 $Scopes = 'https://management.core.windows.net//.default'
-                $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
             }
             'AzureADGraph' {
                 $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
-                $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
             }
         }
 
-        $simeonClientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
-        $msalAppArgs = @{ ClientId = $simeonClientId; RedirectUri = 'http://localhost:3546'; TenantId = $Tenant }
+        $msalAppArgs = @{ ClientId = $clientId; RedirectUri = 'http://localhost:3546'; TenantId = $Tenant }
         $app = Get-MsalClientApplication @msalAppArgs
         if (!$app) {
             $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue
