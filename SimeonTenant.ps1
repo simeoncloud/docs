@@ -340,7 +340,7 @@ CRLFOption=CRLFAlways
 
         if ($Interactive -and $ConfirmPreference -ne 'None') {
             if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive)
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive -ForceRefresh)
         }
         else {
             try {
