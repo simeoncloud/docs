@@ -341,7 +341,8 @@ CRLFOption=CRLFAlways
 
         if ($Interactive -and $ConfirmPreference -ne 'None') {
             if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Interactive -ForceRefresh)
+            (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) | Out-Null # get with all required permissions first
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent -ForceRefresh)
         }
         else {
             try {
@@ -512,7 +513,8 @@ CRLFOption=CRLFAlways
             irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
 
             Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
-            Connect-Azure $Tenant -Interactive
+            Clear-MsalTokenCache -FromDisk
+            Clear-MsalTokenCache
 
             $subscriptionId = . $getSubscriptionId
 
