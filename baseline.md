@@ -7,7 +7,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 ## Summary of security-focused configurations
 
 ### Data loss prevention (DLP)
-
 - Users can only access corporate data from:
   - Compliant corporate devices managed by Intune
   - In-office locations
@@ -16,16 +15,13 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - Integration with third-party services, such as LinkedIn, Dropbox, Google Drive, personal Microsoft accounts, etc., is disabled
 
 ### Security auditing
-
 - Microsoft 365 is configured to audit and optionally alert on all login and device management operations
 
 ### Authentication
-
 - Multifactor authentication is required whenever authenticating from a personal device or as an administrator
 - Corporate devices have a randomized local administrator password
 
 ### Device security
-
 - Corporate devices block the use of simple passwords
 - Corporate devices are blocked from communicating using insecure protocols
 - Corporate devices are encrypted
@@ -33,11 +29,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - Corporate devices are continuously monitored for security compliance, including encryption status, antivirus protection, and malware protection; non-compliant devices are restricted from accessing corporate data
 
 ### Data retention
-
 - All corporate data in O365 is retained for one year, including emails, chat, and files
 
 ### User privileges
-
 - End users are restricted from connecting their personal Windows computers to O365
 - End users are restricted from creating groups
 - End users are restricted from inviting external users to view corporate data
