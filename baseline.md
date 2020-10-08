@@ -1,4 +1,4 @@
-# The Simeon Baseline: A comprehensive set of best practice Microsoft 365 configurations.
+# The Simeon Baseline: A comprehensive set of best practice Microsoft 365 configurations
 
 Welcome to the Simeon Baseline. Simeon Cloud has expertly configured these settings to optimize your Microsoft 365 environments in accordance with industry best practices. This list represents the most important, relevant and security-focused configurations across Azure AD, Office 365, and Intune. These configurations can be deployed to a tenant to provide a fully functional environment out of the box, capable of enrolling devices using Autopilot, managing devices using Intune and providing secure access to Office 365 for users.
 
