@@ -185,6 +185,8 @@ CRLFOption=CRLFAlways
         [CmdletBinding()]
         param()
 
+        if ($SkipSimeonModuleInstallation) { return }
+
         if (!(Get-Module PowerShellGet -ListAvailable |? { $_.Version.Major -ge 2 })) {
             Write-Information "Updating PowerShellGet"
             Install-Module PowerShellGet -Force -Scope CurrentUser -Repository PSGallery -AllowClobber -WarningAction SilentlyContinue
