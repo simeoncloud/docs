@@ -42,6 +42,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - End users are restricted from creating groups
 - End users are restricted from inviting external users to view corporate data
 
+###### hidden-header
 ## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
@@ -345,7 +346,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Creates a group that is used to bypass conditional access and mobile application protection policies that ensure content is accessed only from trusted devices, locations, and applications. The "Baseline - Global Admin" account is added to this group. |
+| What does this do? | Creates a group that is used to bypass conditional access and mobile application protection policies that ensure content is accessed only from trusted devices, locations, and applications. |
 | Why should you use this? | If you want to allow certain users (e.g. a CEO or IT support user) to access content with a lesser degree of content security than is applied by default (e.g. using a personal computer or the native iOS mail app which does not protect content). |
 | What is the end-user impact? | Users in this group can use any device or application of their choosing to access Microsoft 365 resources without any content protection policies. |
 | Learn more | [Only allow apps that support protection policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access), [Protecting content on personal devices using app protection policies](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -775,7 +776,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
 | Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
-| What is the end-user impact? | Users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
+| What is the end-user impact? | users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
 | Learn more | N/A |
 
 
