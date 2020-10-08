@@ -5,8 +5,8 @@ function Invoke-AzurePipeline
         # The organization name that appears in DevOps - e.g. simeon-orgName
         $Organization = (Read-Host "Enter the organization name that appears in DevOps, example: simeon-orgName"),
         [string]
-        # The project name that in DevOps - usually 'Default'
-        $Project = 'Default',
+        # The project name that in DevOps - usually 'Tenants'
+        $Project = 'Tenants',
         [string]
         # Baseline or the client name
         $Tenant = (Read-Host "Enter 'baseline' or the client name"),
