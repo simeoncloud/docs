@@ -25,12 +25,13 @@
 }
 
 .markdown-section h3 {
+  margin-block-start: 0;
   margin-block-end: 0;
 }
 
 .markdown-section ul {
-    margin-block-start: 0;
-  }
+  margin-block-start: 0;
+}
 
 .markdown-section table {
   margin-block-end: 2em;
