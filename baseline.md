@@ -2,7 +2,45 @@
 
 Welcome to the Simeon Baseline. Simeon Cloud has expertly configured these settings to optimize your Microsoft 365 environments in accordance with industry best practices. This list represents the most important, relevant and security-focused configurations across Azure AD, Office 365, and Intune. These configurations can be deployed to a tenant to provide a fully functional environment out of the box, capable of enrolling devices using Autopilot, managing devices using Intune and providing secure access to Office 365 for users.
 
-Not yet a client of Simeon? Get started here.
+Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
+
+## Summary of security-focused configurations
+
+### Data loss prevention (DLP):
+
+- Users can only access corporate data from:
+  - Compliant corporate devices managed by Intune
+  - In-office locations
+  - Approved applications on personal mobile devices
+- Corporate data on personal mobile devices are restricted from leaving approved client applications, preventing data loss
+- Integration with third-party services, such as LinkedIn, Dropbox, Google Drive, personal Microsoft accounts, etc., is disabled
+
+### Security auditing:
+
+- Microsoft 365 is configured to audit and optionally alert on all login and device management operations
+
+### Authentication:
+
+- Multifactor authentication is required whenever authenticating from a personal device or as an administrator
+- Corporate devices have a randomized local administrator password
+
+### Device security:
+
+- Corporate devices block the use of simple passwords
+- Corporate devices are blocked from communicating using insecure protocols
+- Corporate devices are encrypted
+- Corporate devices use a fixed list of trusted internet sites
+- Corporate devices are continuously monitored for security compliance, including encryption status, antivirus protection, and malware protection; non-compliant devices are restricted from accessing corporate data
+
+### Data retention:
+
+- All corporate data in O365 is retained for one year, including emails, chat, and files
+
+### User privileges:
+
+- End users are restricted from connecting their personal Windows computers to O365
+- End users are restricted from creating groups
+- End users are restricted from inviting external users to view corporate data
 
 ## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
