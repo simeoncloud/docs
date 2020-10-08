@@ -737,7 +737,7 @@ Not yet a client of Simeon? Get started here.
 | :-- | :-- |
 | What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
 | Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
-| What is the end-user impact? | users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
+| What is the end-user impact? | Users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
 | Learn more | N/A |
 
 
