@@ -1035,6 +1035,7 @@ CRLFOption=CRLFAlways
                 $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
                 $body.variables = $definition.variables
+                $body.queueStatus = $definition.queueStatus
 
                 if (!$body.variables) {
                     $body.variables = [pscustomobject]@{}
