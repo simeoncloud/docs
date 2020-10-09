@@ -97,8 +97,8 @@ New-Module -Name 'SimeonTenant' -ScriptBlock {
         [CmdletBinding()]
         param()
 
-        if (!(git config --global user.email)) { git config --global user.email "noreply@simeoncloud.com" }
-        if (!(git config --global user.name)) { git config --global user.name "Simeon" }
+        git config user.email "noreply@simeoncloud.com"
+        git config user.name "Simeon"
     }
 
     function Install-Git {
@@ -156,8 +156,6 @@ CRLFOption=CRLFAlways
 
         if (!(Get-Command git -EA SilentlyContinue)) { throw 'Could not automatically install Git - please install Git manually and then try running again - https://git-scm.com/downloads' }
         Write-Information "Git was successfully installed"
-
-        Initialize-GitConfiguration
     }
 
     function Get-GitRepository {
@@ -178,6 +176,15 @@ CRLFOption=CRLFAlways
         Write-Verbose "Cloning '$RepositoryUrl'"
         if ($AccessToken) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $AccessToken`"" }
         Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $gitConfig $RepositoryUrl `"$Path`" 2>&1" | Write-Verbose
+
+        Push-Location $Path
+        try {
+            Initialize-GitConfiguration
+        }
+        finally {
+            Pop-Location
+        }
+
         return $Path
     }
 
