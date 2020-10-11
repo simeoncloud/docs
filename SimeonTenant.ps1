@@ -522,6 +522,11 @@ CRLFOption=CRLFAlways
             irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
 
             Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
+
+            if ($ConfirmPreference -eq 'None') {
+                throw "Elevated access to allow assignment of subscription roles - please re-run the install"
+            }
+
             Clear-MsalTokenCache -FromDisk
             Clear-MsalTokenCache
 
