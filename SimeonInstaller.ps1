@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 $InformationPreference = 'Continue'
 
-New-Module -Name 'SimeonTenant' -ScriptBlock {
+New-Module -Name 'SimeonInstaller' -ScriptBlock {
     $ErrorActionPreference = 'Stop'
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
