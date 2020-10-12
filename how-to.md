@@ -38,7 +38,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 Run the Simeon tenant installation script by using the following command:
 
 ```
-powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/SimeonTenant.ps1); Install-SimeonTenant"
+powershell -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/SimeonInstaller.ps1); Install-SimeonTenant"
 ```
 
 - If you are using a Mac or PowerShell Core, replace `powershell` with `pwsh` in the command above
