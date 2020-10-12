@@ -446,6 +446,7 @@ CRLFOption=CRLFAlways
     Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
     #>
     function Install-SimeonTenantServiceAccount {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         [OutputType([pscredential])]
         param(
