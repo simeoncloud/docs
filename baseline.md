@@ -421,7 +421,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
+| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/gues users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
 | Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | Users are restricted to iOS and Android platforms for authenticating devices when connecting from untrusted devices and locations. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
