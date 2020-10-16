@@ -242,11 +242,11 @@ CRLFOption=CRLFAlways
         Install-RequiredModule
 
         try {
-            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Scope AzureADGraph -Tenant $Tenant -Interactive:$Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
+            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant -Interactive:$Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
         }
         catch {
             Write-Warning $_.Exception.Message
-            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Scope AzureADGraph -Tenant $Tenant -Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
+            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant -Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
         }
     }
 
@@ -266,7 +266,7 @@ CRLFOption=CRLFAlways
             $value = @()
             $url = 'https://graph.windows.net/me/memberOf?$select=displayName,objectType&api-version=1.6'
             while ($url) {
-                $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Scope AzureADGraph -Tenant $Tenant)" }
+                $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
                 if ($res.value) { $value += $res.value }
                 $url = $res."@odata.nextLink"
             }
@@ -290,12 +290,12 @@ CRLFOption=CRLFAlways
             [string]$Project = 'Tenants'
         )
 
-        $token = Get-SimeonAzureADAccessToken -Scope AzureDevOps
+        $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps
 
         if ($Organization -and $Project) {
             while (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
                 Write-Warning "Successfully authenticated with Azure DevOps as $($token.Account.Username), but could not access project '$Organization\$Project'"
-                $token = Get-SimeonAzureADAccessToken -Scope AzureDevOps -Interactive
+                $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps -Interactive
             }
         }
 
@@ -310,10 +310,10 @@ CRLFOption=CRLFAlways
     function Get-SimeonAzureADAccessToken {
         [CmdletBinding()]
         param (
-            # Scopes to obtain a token for
+            # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph')]
-            [string]$Scope,
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'MSGraph')]
+            [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
             [string]$Tenant = 'common',
@@ -321,14 +321,14 @@ CRLFOption=CRLFAlways
             [switch]$Interactive
         )
 
-        $token = Get-Variable "$($Scope)AccessToken" -EA SilentlyContinue
+        $token = Get-Variable "$($Resource)AccessToken" -EA SilentlyContinue
         if ($token.Value) { return $token.Value }
 
         Install-RequiredModule
 
         $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
-        switch ($Scope) {
+        switch ($Resource) {
             'AzureDevOps' {
                 $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
@@ -340,9 +340,14 @@ CRLFOption=CRLFAlways
             'AzureADGraph' {
                 $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
             }
+            'MSGraph' {
+                $clientId = '14d82eec-204b-4c2f-b7e8-296a70dab67e' # MS Graph PowerShell
+                $Scopes = 'https://graph.microsoft.com/DeviceManagementConfiguration.ReadWrite.All'
+                $interactiveMessage = "Connecting to MS Graph - if prompted, log in to your tenant"
+            }
         }
 
-        $msalAppArgs = @{ ClientId = $clientId; RedirectUri = 'http://localhost:3546'; TenantId = $Tenant }
+        $msalAppArgs = @{ ClientId = $clientId; TenantId = $Tenant }
         $app = Get-MsalClientApplication @msalAppArgs
         if (!$app) {
             $app = New-MsalClientApplication @msalAppArgs | Add-MsalClientApplication -PassThru -WarningAction SilentlyContinue | Enable-MsalTokenCacheOnDisk -PassThru -WarningAction SilentlyContinue
@@ -368,12 +373,12 @@ CRLFOption=CRLFAlways
         }
 
         if (!$token) {
-            throw "Could not obtain a token for $Scope"
+            throw "Could not obtain a token for $Resource"
         }
 
-        $hasConnectedVariable = "HasConnectedTo$($Scope)$Tenant"
+        $hasConnectedVariable = "HasConnectedTo$($Resource)$Tenant"
         if ($Interactive -or !((Get-Variable $hasConnectedVariable -Scope Script -EA SilentlyContinue).Value)) {
-            Write-Information "Connected to $Scope using account '$($token.Account.Username)'"
+            Write-Information "Connected to '$Resource' using account '$($token.Account.Username)'"
             Set-Variable $hasConnectedVariable $true -Scope Script
         }
 
@@ -508,7 +513,7 @@ CRLFOption=CRLFAlways
         }
 
         $getAzureManagementHeaders = {
-            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Scope AzureManagement -Tenant $Tenant)" }
+            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureManagement -Tenant $Tenant)" }
         }
 
         $getSubscriptionId = {
