@@ -117,7 +117,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Configures restrictions for creating Azure AD Groups. The baseline restricts users not in "Baseline - Group Creators" from creating groups. |
 | Why should you use this? | If you want to tighten security around group creation. |
-| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups |
+| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups. |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
 ## Azure AD > External user directory settings
