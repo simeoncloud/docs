@@ -329,21 +329,16 @@ CRLFOption=CRLFAlways
         $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
         switch ($Resource) {
-            'AzureDevOps' {
-                $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
-                $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
-                $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
-            }
             'AzureManagement' {
                 $Scopes = 'https://management.core.windows.net//.default'
             }
             'AzureADGraph' {
                 $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
             }
-            'MSGraph' {
-                $clientId = '14d82eec-204b-4c2f-b7e8-296a70dab67e' # MS Graph PowerShell
-                $Scopes = 'https://graph.microsoft.com/DeviceManagementConfiguration.ReadWrite.All'
-                $interactiveMessage = "Connecting to MS Graph - if prompted, log in to your tenant"
+            'AzureDevOps' {
+                $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
+                $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
+                $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
             }
         }
 
