@@ -117,7 +117,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Configures restrictions for creating Azure AD Groups. The baseline restricts users not in "Baseline - Group Creators" from creating groups. |
 | Why should you use this? | If you want to tighten security around group creation. |
-| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups. |
+| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
 ## Azure AD > External user directory settings
@@ -143,9 +143,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Defines settings for permissions that guest users have in the tenant and to which external tenants guest invitations may be sent. The baseline preserves the Microsoft default settings, which allow invitations to be sent to any domain and restrict the permissions of guest users. |
-| Why should you use this? | The baseline applies Microsoft's default settings for guest users. |
-| What is the end-user impact? | Authorized users may send invitations to any domain, but guest user permissions are restricted. |
+| What does this do? | Defines settings for permissions that guest users have in the tenant and to which external tenants guest invitations may be sent. The baseline preserves the Microsoft default settings, which only allows Admins and users in the guest inviter role to send invitations and restricts the permissions of guest users. The baseline also enables one-time passcodes for external users without a Microsoft or Azure AD account. |
+| Why should you use this? | The baseline applies Microsoft's default settings for guest users and provides improved functionality through the use of one time passcodes. |
+| What is the end-user impact? | Authorized users may send invitations to any domain, but guest user permissions are restricted. One time passcodes are enabled. |
 | Learn more | [Configure B2B external collaboration settings](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/delegate-invitations#to-configure-external-collaboration-settings) |
 
 ## Azure AD > Group settings
@@ -421,7 +421,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/gues users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
+| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
 | Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | Users are restricted to iOS and Android platforms for authenticating devices when connecting from untrusted devices and locations. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -434,7 +434,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
+| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
 | Why should you use this? | This policy helps protect your data. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | Users may only use applications that support protection policies to access data from iOS and Android devices off-network. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -505,62 +505,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want your users to be able to register new applications and access the Azure portal, but not share data with LinkedIn. |
 | What is the end-user impact? | Users may register new applications and access the Azure portal, but not access their LinkedIn connections within Microsoft applications. |
 | Learn more | [Default user permissions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#to-restrict-the-default-permissions-for-member-users) |
-
-## Intune > Apps > App configuration policies
-*MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
-
-###### hidden-header
-
-### Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices
-
-|Name |Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices|
-| :-- | :-- |
-| What does this do? | Configures the default behavior for application settings of managed applications on unmanaged iOS devices. The baseline expands the list of applications that are allowed by Intune and data loss protection policies. |
-| Why should you use this? | If you want to improve your users' iOS mobile experience by expanding the list of allowed applications. |
-| What is the end-user impact? |  If you want to expand the list of applications that can access organization data on iOS devices. |
-| Learn more | [Add app configuration policies for managed apps without device enrollment](https://docs.microsoft.com/en-us/mem/intune/apps/app-configuration-policies-managed-app) |
-
-## Intune > Apps > App protection policies (Platform = Android)
-*MSGraph/DeviceAppManagement/AndroidManagedAppProtections*
-
-###### hidden-header
-
-### Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices
-
-|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices|
-| :-- | :-- |
-| What does this do? | Configures the default behavior for managed client applications on unmanaged Android devices. The baseline allows data to flow between allowed applications, but prohibits users from copying or saving data outside of the application except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
-| Why should you use this? |  If you want to protect users' personal Android devices by preventing organization data from leaving allowed apps. |
-| What is the end-user impact? |  Android device users cannot copy or save data outside of your managed client applications. |
-| Learn more | [App protection policies overview](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
-
-## Intune > Apps > App protection policies (Platform = iOS/iPadOS)
-*MSGraph/DeviceAppManagement/IosManagedAppProtections*
-
-###### hidden-header
-
-### Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices
-
-|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices|
-| :-- | :-- |
-| What does this do? | Configures the default behavior for managed client apps on unmanaged iOS devices. The baseline allows data to flow between protected apps, but prohibits users from copying or saving data outside of the app except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations". |
-| Why should you use this? |  If you want to protect your data on users' personal iOS devices by preventing organization data from leaving protected apps. |
-| What is the end-user impact? |  iOS device users cannot copy or save data outside of your managed client apps. |
-| Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
-
-## Intune > Apps > App protection policies (Platform = Windows 10)
-*MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies*
-
-###### hidden-header
-
-### Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices
-
-|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices|
-| :-- | :-- |
-| What does this do? | Configures the default behavior for managed client applications on unmanaged Windows devices. The baseline allows data to flow between protected applications, but prohibits users from copying or saving data outside of managed applications except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations". The default list of protected applications are Microsoft applications that support application protection policies. |
-| Why should you use this? |  If you want to protect your data on users' personal Windows devices by preventing organization data from leaving protected applications. |
-| What is the end-user impact? |  Windows device users cannot copy or save data outside of your managed client apps. |
-| Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
 ## Intune > Apps
 *MSGraph/DeviceAppManagement/MobileApps*
@@ -693,6 +637,62 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | Users will not have Xbox Companion Console installed. |
 | Learn more | N/A
 
+## Intune > Apps > App configuration policies
+*MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
+
+###### hidden-header
+
+### Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices
+
+|Name |Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices|
+| :-- | :-- |
+| What does this do? | Configures the default behavior for application settings of managed applications on unmanaged iOS devices. The baseline expands the list of applications that are allowed by Intune and data loss protection policies. |
+| Why should you use this? | If you want to improve your users' iOS mobile experience by expanding the list of allowed applications. |
+| What is the end-user impact? |  If you want to expand the list of applications that can access organization data on iOS devices. |
+| Learn more | [Add app configuration policies for managed apps without device enrollment](https://docs.microsoft.com/en-us/mem/intune/apps/app-configuration-policies-managed-app) |
+
+## Intune > Apps > App protection policies (Platform = Android)
+*MSGraph/DeviceAppManagement/AndroidManagedAppProtections*
+
+###### hidden-header
+
+### Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices
+
+|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices|
+| :-- | :-- |
+| What does this do? | Configures the default behavior for managed client applications on unmanaged Android devices. The baseline allows data to flow between allowed applications, but prohibits users from copying or saving data outside of the application except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations." |
+| Why should you use this? |  If you want to protect users' personal Android devices by preventing organization data from leaving allowed apps. |
+| What is the end-user impact? |  Android device users cannot copy or save data outside of your managed client applications. |
+| Learn more | [App protection policies overview](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
+
+## Intune > Apps > App protection policies (Platform = iOS/iPadOS)
+*MSGraph/DeviceAppManagement/IosManagedAppProtections*
+
+###### hidden-header
+
+### Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices
+
+|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices|
+| :-- | :-- |
+| What does this do? | Configures the default behavior for managed client apps on unmanaged iOS devices. The baseline allows data to flow between protected apps, but prohibits users from copying or saving data outside of the app except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations". |
+| Why should you use this? |  If you want to protect your data on users' personal iOS devices by preventing organization data from leaving protected apps. |
+| What is the end-user impact? |  iOS device users cannot copy or save data outside of your managed client apps. |
+| Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
+
+## Intune > Apps > App protection policies (Platform = Windows 10)
+*MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies*
+
+###### hidden-header
+
+### Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices
+
+|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices|
+| :-- | :-- |
+| What does this do? | Configures the default behavior for managed client applications on unmanaged Windows devices. The baseline allows data to flow between protected applications, but prohibits users from copying or saving data outside of managed applications except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations". The default list of protected applications are Microsoft applications that support application protection policies. |
+| Why should you use this? |  If you want to protect your data on users' personal Windows devices by preventing organization data from leaving protected applications. |
+| What is the end-user impact? |  Windows device users cannot copy or save data outside of your managed client apps. |
+| Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
+
 ## Intune > Devices > Compliance policies
 *MSGraph/DeviceManagement/DeviceCompliancePolicies*
 
@@ -719,72 +719,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | This ensures your managed Windows devices, both physical and virtual, meet a minimum level of security to access data. |
 | What is the end-user impact? | Users may access an organization's data only if the device has Microsoft Defender Antimalware configured. |
 | Learn more | [Use compliance policies to set rules for devices you manage with Intune](https://docs.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started) |
-
-## Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)
-*MSGraph/DeviceManagement/GroupPolicyConfigurations*
-
-###### hidden-header
-
-### Baseline - Functionality - Microsoft Edge Configuration
-
-|Name |Baseline - Functionality - Microsoft Edge Configuration|
-| :-- | :-- |
-| What does this do? | Configures Microsoft Edge for all devices to automatically sign in to the browser and synchronize history and passwords. Also sets Google as the default search engine. |
-| Why should you use this? | If you want to create an optimal user experience for the new Chromium Edge browser. |
-| What is the end-user impact? | Users' search history and passwords will be synchronized across devices. |
-| Learn more | [Microsoft Edge Enterprise Sync](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-enterprise-sync) |
-
-
-
-###### hidden-header
-
-### Baseline - Functionality - OneDrive Silent Configuration
-
-|Name |Baseline - Functionality - OneDrive Silent Configuration|
-| :-- | :-- |
-| What does this do? | Automatically and silently configures OneDrive and enables the Files On Demand feature. |
-| Why should you use this? | Allows users to store data in OneDrive and access it without downloading all OneDrive content to the computer. |
-| What is the end-user impact? | The first time a user logs in to a device, OneDrive will automatically sign in. Upon first sign-in the user will be able to see all her files, but not all files need to be downloaded to the computer. Files stored in the cloud will have a cloud icon in the corner, whereas files stored locally will have a green checkmark. |
-| Learn more | [Sync files with OneDrive Files on Demand](https://support.microsoft.com/en-us/office/sync-files-with-onedrive-files-on-demand-62e8d748-7877-420f-b600-24b56562aa70) |
-
-
-
-###### hidden-header
-
-### Baseline - Functionality - Windows Known Folders Move to OneDrive
-
-|Name |Baseline - Functionality - Windows Known Folders Move to OneDrive|
-| :-- | :-- |
-| What does this do? | Configures OneDrive's Known Folders Move, which moves the directories Desktop, Documents, and Pictures to OneDrive and disables the option to opt out of the feature. |
-| Why should you use this? | When configured this way, OneDrive backs up user data and enables access from any device. |
-| What is the end-user impact? | Users may continue using familiar folders while being backed up. |
-| Learn more | [Redirect and move Windows known folders to OneDrive](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders) |
-
-
-
-###### hidden-header
-
-### Baseline - OS - Sleep When Plugged In Disabled
-
-|Name |Baseline - OS - Sleep When Plugged In Disabled|
-| :-- | :-- |
-| What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
-| Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
-| What is the end-user impact? | users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
-| Learn more | N/A |
-
-
-
-###### hidden-header
-
-### Baseline - Security - LinkedIn Features in Office Applications Disabled
-
-|Name |Baseline - Security - LinkedIn Features in Office Applications Disabled|
-| :-- | :-- |
-| What does this do? | The baseline turns off LinkedIn features in Office applications. By default, this setting is turned on. |
-| Why should you use this? | You can turn off Office LinkedIn features so that your users are not sharing data externally with LinkedIn. |
-| What is the end-user impact? | Users will not be able to use the LinkedIn Office features. |
-| Learn more | [Integrate LinkedIn account connections in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-integration) |
 
 ## Intune > Devices > Configuration profiles
 *MSGraph/DeviceManagement/DeviceConfigurations*
@@ -994,6 +928,72 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to eliminate marketing materials being displayed to users. |
 | What is the end-user impact? | Users will not receive third party marketing materials on the lock screen. |
 | Learn more | [Configure Windows Spotlight on the lock screen](https://docs.microsoft.com/en-us/windows/configuration/windows-spotlight) |
+
+## Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)
+*MSGraph/DeviceManagement/GroupPolicyConfigurations*
+
+###### hidden-header
+
+### Baseline - Functionality - Microsoft Edge Configuration
+
+|Name |Baseline - Functionality - Microsoft Edge Configuration|
+| :-- | :-- |
+| What does this do? | Configures Microsoft Edge for all devices to automatically sign in to the browser and synchronize history and passwords. Also sets Google as the default search engine. |
+| Why should you use this? | If you want to create an optimal user experience for the new Chromium Edge browser. |
+| What is the end-user impact? | Users' search history and passwords will be synchronized across devices. |
+| Learn more | [Microsoft Edge Enterprise Sync](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-enterprise-sync) |
+
+
+
+###### hidden-header
+
+### Baseline - Functionality - OneDrive Silent Configuration
+
+|Name |Baseline - Functionality - OneDrive Silent Configuration|
+| :-- | :-- |
+| What does this do? | Automatically and silently configures OneDrive and enables the Files On Demand feature. |
+| Why should you use this? | Allows users to store data in OneDrive and access it without downloading all OneDrive content to the computer. |
+| What is the end-user impact? | The first time a user logs in to a device, OneDrive will automatically sign in. Upon first sign-in the user will be able to see all her files, but not all files need to be downloaded to the computer. Files stored in the cloud will have a cloud icon in the corner, whereas files stored locally will have a green checkmark. |
+| Learn more | [Sync files with OneDrive Files on Demand](https://support.microsoft.com/en-us/office/sync-files-with-onedrive-files-on-demand-62e8d748-7877-420f-b600-24b56562aa70) |
+
+
+
+###### hidden-header
+
+### Baseline - Functionality - Windows Known Folders Move to OneDrive
+
+|Name |Baseline - Functionality - Windows Known Folders Move to OneDrive|
+| :-- | :-- |
+| What does this do? | Configures OneDrive's Known Folders Move, which moves the directories Desktop, Documents, and Pictures to OneDrive and disables the option to opt out of the feature. |
+| Why should you use this? | When configured this way, OneDrive backs up user data and enables access from any device. |
+| What is the end-user impact? | Users may continue using familiar folders while being backed up. |
+| Learn more | [Redirect and move Windows known folders to OneDrive](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders) |
+
+
+
+###### hidden-header
+
+### Baseline - OS - Sleep When Plugged In Disabled
+
+|Name |Baseline - OS - Sleep When Plugged In Disabled|
+| :-- | :-- |
+| What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
+| Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
+| What is the end-user impact? | users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
+| Learn more | N/A |
+
+
+
+###### hidden-header
+
+### Baseline - Security - LinkedIn Features in Office Applications Disabled
+
+|Name |Baseline - Security - LinkedIn Features in Office Applications Disabled|
+| :-- | :-- |
+| What does this do? | The baseline turns off LinkedIn features in Office applications. By default, this setting is turned on. |
+| Why should you use this? | You can turn off Office LinkedIn features so that your users are not sharing data externally with LinkedIn. |
+| What is the end-user impact? | Users will not be able to use the LinkedIn Office features. |
+| Learn more | [Integrate LinkedIn account connections in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-integration) |
 
 ## Intune > Devices > Enrollment restrictions
 *MSGraph/DeviceManagement/DeviceEnrollmentConfigurations*
@@ -1223,20 +1223,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | N/A |
 | Learn more | [OwaMailboxPolicy](https://docs.microsoft.com/en-us/powershell/module/exchange/set-owamailboxpolicy?view=exchange-ps) |
 
-## Office 365 > Security & Compliance > Information governance > Retention (Teams)
-*PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies*
-
-###### hidden-header
-
-### Baseline - Teams Retention Policy
-
-|Name |Baseline - Teams Retention Policy|
-| :-- | :-- |
-| What does this do? | Defines the data retention policy for Microsoft Teams. Teams retention policies must be created independently of other retention policies. The baseline retains Teams data for one year. |
-| Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
-| What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
-| Learn more | [Retention policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/retention-policies) |
-
 ## Office 365 > Security & Compliance > Information governance > Retention
 *PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies*
 
@@ -1251,19 +1237,19 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
-## Office 365 > Teams > Apps > Permission policies
-*TeamsPSAdmin/TeamsAppPermissionPolicy*
+## Office 365 > Security & Compliance > Information governance > Retention (Teams)
+*PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies*
 
 ###### hidden-header
 
-### Global
+### Baseline - Teams Retention Policy
 
-|Name |Global|
+|Name |Baseline - Teams Retention Policy|
 | :-- | :-- |
-| What does this do? | Allows admins to specify approved Teams applications. Another setting (TenantWideAppsSettings) allows for Teams applications in general to be used. The baseline uses the default configurations provided by Microsoft. |
-| Why should you use this? | If you want to be able to restrict users from using unapproved Teams apps. |
-| What is the end-user impact? | Users may use only those Teams apps allowed by admins. |
-| Learn more | [Manage app permission policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies) |
+| What does this do? | Defines the data retention policy for Microsoft Teams. Teams retention policies must be created independently of other retention policies. The baseline retains Teams data for one year. |
+| Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
+| What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
+| Learn more | [Retention policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/retention-policies) |
 
 ## Office 365 > Teams > Apps
 *TeamsApi/Users/TenantWideAppsSettings*
@@ -1278,6 +1264,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | To allow users to add Teams apps. |
 | What is the end-user impact? | Users will be able to add Teams apps. |
 | Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365), [Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
+
+## Office 365 > Teams > Apps > Permission policies
+*TeamsPSAdmin/TeamsAppPermissionPolicy*
+
+###### hidden-header
+
+### Global
+
+|Name |Global|
+| :-- | :-- |
+| What does this do? | Allows admins to specify approved Teams applications. Another setting (TenantWideAppsSettings) allows for Teams applications in general to be used. The baseline uses the default configurations provided by Microsoft. |
+| Why should you use this? | If you want to be able to restrict users from using unapproved Teams apps. |
+| What is the end-user impact? | Users may use only those Teams apps allowed by admins. |
+| Learn more | [Manage app permission policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies) |
 
 ## Office 365 > Teams > Org-wide settings
 *TeamsPSAdmin/TeamsClientConfiguration*
