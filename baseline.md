@@ -117,7 +117,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Configures restrictions for creating Azure AD Groups. The baseline restricts users not in "Baseline - Group Creators" from creating groups. |
 | Why should you use this? | If you want to tighten security around group creation. |
-| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups |
+| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups. |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
 ## Azure AD > External user directory settings
@@ -782,7 +782,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 |Name |Baseline - OS - Preview Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Creates a Windows Update configuration for managed devices in the "Preview" ring, which receive updates after "Insiders" but before devices with the default policy. The baseline delays feature and quality updates to the "Preview" group for 7 days after released by Microsoft. Once the deferral period has expired for a device, users have 3 days to restart (if required). Unattended updates will only be applied outside working hours of 5am to 10pm. Applies to users in the Azure AD group "Baseline - Corporate Devices – Preview". |
-| Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment by testing the update in rings of users.. |
+| Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment by testing the update in rings of users. |
 | What is the end-user impact? | Users in the "Preview" ring will receive updates 7 days after being released by Microsoft and after Insiders, but before devices with the default policy. |
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
 
@@ -979,7 +979,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Sets the system sleep timeout for devices to "Never" when plugged in. |
 | Why should you use this? | If you want to prevent desktop computers from going to sleep so you can connect remotely at any time. |
-| What is the end-user impact? | users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
+| What is the end-user impact? | Users' devices will not go to sleep when plugged in, so users may connect remotely at any time. |
 | Learn more | N/A |
 
 
