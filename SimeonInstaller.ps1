@@ -525,7 +525,7 @@ CRLFOption=CRLFAlways
             Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
 
             if ($ConfirmPreference -eq 'None') {
-                throw "Elevated access to allow assignment of subscription roles - please re-run the install"
+                throw "Tried to elevate access to allow assignment of subscription roles - please verify there is an Azure subscription in the tenant and re-run the install"
             }
 
             Clear-MsalTokenCache -FromDisk
