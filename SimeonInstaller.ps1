@@ -935,7 +935,7 @@ CRLFOption=CRLFAlways
     .SYNOPSIS
     Creates/updates the pipeline used to send organization summary emails
     #>
-    function Install-ReportingPipeline {
+    function Install-SimeonReportingPipeline {
         param(
             # The Azure DevOps organization name
             [ValidateNotNullOrEmpty()]
