@@ -933,6 +933,152 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Creates/updates the pipeline used to send organization summary emails
+    #>
+    function Install-ReportingPipeline {
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants',
+            # Email address used to send emails from
+            [string]$FromEmailAddress,
+            # Email address pw used to send emails
+            [string]$FromEmailPw,
+            # Semicolon delimited list of email addresses to send the summary email, if not provided uses all non-Simeon orginzation users
+            [string]$SendSummaryEmailToAddresses,
+            # Semicolon delimited list of email addresses to include in the CC for the summary email
+            [string]$ToCCAddress,
+            # Semicolon delimited list of email addresses to include in the BCC for the summary email
+            [string]$ToBccAddress,
+            # By default the email will be sent to all non-simeon users in the devops org, this can be used to exclude users
+            [string]$ExcludeUsersFromSummaryEmail,
+            # By default the email will be generated for all pipelines in the org, this can be used to exclude pipelines
+            [string]$ExcludePipelinesFromEmail
+        )
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview"
+            }
+            ContentType = 'application/json'
+        }
+
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
+        $pipelineName = "SummaryEmail"
+        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
+
+        $pipelineVariables = @{
+            FromEmailAddress = @{
+                value = $FromEmailAddress
+            }
+            FromEmailPw = @{
+                value = $FromEmailPw
+                isSecret = $true
+            }
+            ToCCAddress = @{
+                value = $ToCCAddress
+            }
+            ToBccAddress = @{
+                value = $ToBccAddress
+            }
+            ExcludeUsersFromSummaryEmail = @{
+                value = $ExcludeUsersFromSummaryEmail
+            }
+            SendSummaryEmailToAddresses = @{
+                value = $SendSummaryEmailToAddresses
+            }
+            ExcludePipelinesFromEmail = @{
+                value = $ExcludePipelinesFromEmail
+            }
+        }
+        #$set scheduled on pipeline
+        $body = @{
+            name = $pipelineName
+            process = @{
+                type = 2
+                yamlFilename = "$pipelineName.yml"
+            }
+            queue = @{
+                name = "Azure Pipelines"
+                pool = @{
+                    name = "Azure Pipelines"
+                    isHosted = "true"
+                }
+            }
+            triggers =
+            @(@{
+                schedules = @(
+                    @{
+                    branchFilters = @("+feature/SummaryEmail")
+                    timeZoneId = "UTC"
+                    startHours = 8
+                    startMinutes = 0
+                    daysToBuild = "all"
+                    scheduleOnlyWithChanges = $false
+                }
+                )
+                triggerType = 8
+            }
+            )
+            repository = @{
+                url = "https://github.com/simeoncloud/AzurePipelineTemplates.git"
+                name = "simeoncloud/AzurePipelineTemplates"
+                id = "simeoncloud/AzurePipelineTemplates"
+                type = "GitHub"
+                defaultBranch = "master"
+                properties = @{
+                    connectedServiceId = $serviceEndpoint.Id
+                }
+            }
+            uri = "$pipelineName.yml"
+            variables = $pipelineVariables
+        }
+
+        if ($pipeline) {
+            $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
+
+            $body.variables = $definition.variables
+            # disabled or enabled
+            $body.queueStatus = $definition.queueStatus
+            # keep schedule already defined
+            if($definition.triggers){
+                $body.triggers = $definition.triggers
+            }
+
+            if (!$body.variables) {
+                $body.variables = [pscustomobject]@{}
+            }
+
+            # if a variable doesn't exist add, if they key exists don't update value
+            foreach ($kvp in $pipelineVariables.GetEnumerator()) {
+                if (!($body.variables | gm $kvp.Key)) {
+                    $body.variables | Add-Member $kvp.Key $kvp.Value
+                }
+            }
+
+            $body += @{
+                id = $pipeline.id
+                revision = $pipeline.revision
+                options = $definition.options
+            }
+
+            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)" -Method Put -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+        }
+        else {
+            Write-Information "Creating pipeline '$pipelineName'"
+            irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+        }
+    }
+
+    <#
+    .SYNOPSIS
     Creates/updates pipelines for a Simeon tenant
     #>
     function Install-SimeonTenantPipeline {
