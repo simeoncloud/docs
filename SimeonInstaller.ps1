@@ -1016,7 +1016,7 @@ CRLFOption=CRLFAlways
             @(@{
                 schedules = @(
                     @{
-                    branchFilters = @("+feature/SummaryEmail")
+                    branchFilters = @("+master")
                     timeZoneId = "UTC"
                     startHours = 8
                     startMinutes = 0
