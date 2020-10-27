@@ -944,9 +944,11 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             # Email address used to send emails from
+            [ValidateNotNullOrEmpty()]
             [string]$FromEmailAddress,
             # Email address pw used to send emails
-            [string]$FromEmailPw,
+            [ValidateNotNullOrEmpty()]
+            [string]$FromEmailPassword,
             # Semicolon delimited list of email addresses to send the summary email, if not provided uses all non-Simeon orginzation users
             [string]$SendSummaryEmailToAddresses,
             # Semicolon delimited list of email addresses to include in the CC for the summary email
@@ -978,8 +980,8 @@ CRLFOption=CRLFAlways
             FromEmailAddress = @{
                 value = $FromEmailAddress
             }
-            FromEmailPw = @{
-                value = $FromEmailPw
+            FromEmailPassword = @{
+                value = $FromEmailPassword
                 isSecret = $true
             }
             ToCCAddress = @{
