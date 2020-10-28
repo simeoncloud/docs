@@ -948,7 +948,7 @@ CRLFOption=CRLFAlways
             [string]$FromEmailAddress,
             # Email address pw used to send emails
             [ValidateNotNullOrEmpty()]
-            [string]$FromEmailPassword,
+            [string]$FromEmailPw,
             # Semicolon delimited list of email addresses to send the summary email, if not provided uses all non-Simeon orginzation users
             [string]$SendSummaryEmailToAddresses,
             # Semicolon delimited list of email addresses to include in the CC for the summary email
@@ -980,8 +980,8 @@ CRLFOption=CRLFAlways
             FromEmailAddress = @{
                 value = $FromEmailAddress
             }
-            FromEmailPassword = @{
-                value = $FromEmailPassword
+            FromEmailPw = @{
+                value = $FromEmailPw
                 isSecret = $true
             }
             ToCCAddress = @{
