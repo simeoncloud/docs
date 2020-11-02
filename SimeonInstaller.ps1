@@ -944,8 +944,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             # Email address used to send emails from
+            [ValidateNotNullOrEmpty()]
             [string]$FromEmailAddress,
             # Email address pw used to send emails
+            [ValidateNotNullOrEmpty()]
             [string]$FromEmailPw,
             # Semicolon delimited list of email addresses to send the summary email, if not provided uses all non-Simeon orginzation users
             [string]$SendSummaryEmailToAddresses,
@@ -998,6 +1000,12 @@ CRLFOption=CRLFAlways
                 value = $ExcludePipelinesFromEmail
             }
         }
+        $queueName = $poolName = "Azure Pipelines"
+        $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
+        $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
+        $repoName = "AzurePipelineTemplates"
+        $repoOrgName = "simeoncloud"
+
         #$set scheduled on pipeline
         $body = @{
             name = $pipelineName
@@ -1006,41 +1014,35 @@ CRLFOption=CRLFAlways
                 yamlFilename = "$pipelineName.yml"
             }
             queue = @{
-                name = "Azure Pipelines"
+                name = $queueName
+                id = $queueId
                 pool = @{
-                    name = "Azure Pipelines"
+                    name = $poolName
+                    id = $poolId
                     isHosted = "true"
                 }
             }
-            triggers =
-            @(@{
-                schedules = @(
-                    @{
-                    branchFilters = @("+master")
-                    timeZoneId = "UTC"
-                    startHours = 8
-                    startMinutes = 0
-                    daysToBuild = "all"
-                    scheduleOnlyWithChanges = $false
-                }
-                )
-                triggerType = 8
-            }
-            )
             repository = @{
-                url = "https://github.com/simeoncloud/AzurePipelineTemplates.git"
-                name = "simeoncloud/AzurePipelineTemplates"
-                id = "simeoncloud/AzurePipelineTemplates"
+                url = "https://github.com/$repoOrgName/$repoName.git"
+                name = "$repoOrgName/$repoName"
+                id = "$repoOrgName/$repoName"
                 type = "GitHub"
                 defaultBranch = "master"
                 properties = @{
+                    apiUrl =  "https://api.github.com/repos/$repoOrgName/$repoName"
+                    branchesUrl =  "https://api.github.com/repos/$repoOrgName/$repoName/branches"
+                    cloneUrl =  "https://github.com/$repoOrgName/$repoName.git"
+                    defaultBranch =  "master"
+                    fullName =  "$repoOrgName/$repoName"
+                    manageUrl =  "https://github.com/$repoOrgName/$repoName"
+                    orgName =  "$repoOrgName"
+                    refsUrl =  "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
                     connectedServiceId = $serviceEndpoint.Id
                 }
             }
             uri = "$pipelineName.yml"
             variables = $pipelineVariables
         }
-
         if ($pipeline) {
             $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
