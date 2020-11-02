@@ -146,11 +146,11 @@ CRLFOption=CRLFAlways
             $outFile = "$([IO.Path]::GetTempPath())/git-install.dmg"
             irm $url -OutFile $outFile
             & $outFile
-            Write-Error "Please close this window and then re-run this script after completing the installation of Git"
+            Write-Error "Please close this window and then re-run this script after completing the installation of Git" -EA Continue
             Exit
         }
         else {
-            Write-Error "Please install Git from https://git-scm.com/downloads, close this window and then re-run this script"
+            Write-Error "Please install Git from https://git-scm.com/downloads, close this window and then re-run this script" -EA Continue
             Exit
         }
 
