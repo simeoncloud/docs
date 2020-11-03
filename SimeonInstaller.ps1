@@ -513,7 +513,7 @@ CRLFOption=CRLFAlways
 
         $getSubscriptionId = {
             $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
-            $response.value |? { $_.name -ne 'Access to Azure Active Directory' -and $_.state -eq 'Enabled' -and (!$Subscription -or $Subscription -in @($_.displayName, $_.subscriptionId)) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
+            $response.value |? { $_.displayName -ne 'Access to Azure Active Directory' -and $_.state -eq 'Enabled' -and (!$Subscription -or $Subscription -in @($_.displayName, $_.subscriptionId)) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
         }
 
         # Find Azure RM subscription to use
