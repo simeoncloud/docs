@@ -470,6 +470,13 @@ CRLFOption=CRLFAlways
             Connect-Azure $Tenant -Interactive
         }
 
+        if (!(Test-HasIntuneSku)) {
+            throw "..."
+        }
+        if (!(Test-HasOffice365Sku)) {
+            throw "..."
+        }
+
         # Create/update Azure AD user with random password
         $upn = "simeon@$Tenant"
         $user = Get-AzureADUser -Filter "userPrincipalName eq '$upn'"
@@ -556,7 +563,16 @@ CRLFOption=CRLFAlways
             Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
         }
 
-        return [pscredential]::new($upn, (ConvertTo-SecureString -AsPlainText -Force $password))
+        $cred = [pscredential]::new($upn, (ConvertTo-SecureString -AsPlainText -Force $password))
+
+        try {
+            Get-MsalToken -TenantId $Tenant -UserCredential $cred -ClientId '1950a258-227b-4e31-a9cf-717495945fc2' -Scopes 'https://management.core.windows.net//.default' | Out-Null
+        }
+        catch {
+            throw "Could not acquire token using the service account username and password - please ensure that no MFA policies are applied to this user - $($_.Exception.Message)."
+        }
+
+        return $cred
     }
 
     <#
@@ -1029,14 +1045,14 @@ CRLFOption=CRLFAlways
                 type = "GitHub"
                 defaultBranch = "master"
                 properties = @{
-                    apiUrl =  "https://api.github.com/repos/$repoOrgName/$repoName"
-                    branchesUrl =  "https://api.github.com/repos/$repoOrgName/$repoName/branches"
-                    cloneUrl =  "https://github.com/$repoOrgName/$repoName.git"
-                    defaultBranch =  "master"
-                    fullName =  "$repoOrgName/$repoName"
-                    manageUrl =  "https://github.com/$repoOrgName/$repoName"
-                    orgName =  "$repoOrgName"
-                    refsUrl =  "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
+                    apiUrl = "https://api.github.com/repos/$repoOrgName/$repoName"
+                    branchesUrl = "https://api.github.com/repos/$repoOrgName/$repoName/branches"
+                    cloneUrl = "https://github.com/$repoOrgName/$repoName.git"
+                    defaultBranch = "master"
+                    fullName = "$repoOrgName/$repoName"
+                    manageUrl = "https://github.com/$repoOrgName/$repoName"
+                    orgName = "$repoOrgName"
+                    refsUrl = "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
                     connectedServiceId = $serviceEndpoint.Id
                 }
             }
@@ -1050,7 +1066,7 @@ CRLFOption=CRLFAlways
             # disabled or enabled
             $body.queueStatus = $definition.queueStatus
             # keep schedule already defined
-            if($definition.triggers){
+            if ($definition.triggers) {
                 $body.triggers = $definition.triggers
             }
 
