@@ -170,7 +170,7 @@ CRLFOption=CRLFAlways
 
         Install-Git
 
-        Remove-Item $Path -Recurse -Force -EA SilentlyContinue
+        if (Test-Path $Path) { Remove-Item $Path -Recurse -Force -EA SilentlyContinue }
         New-Item -ItemType Directory $Path -EA SilentlyContinue | Out-Null
 
         Write-Verbose "Cloning '$RepositoryUrl'"
@@ -472,7 +472,7 @@ CRLFOption=CRLFAlways
 
         $activeLicenses = Get-AzureADSubscribedSku |? CapabilityStatus -eq "Enabled"
         if (!($activeLicenses.ServicePlans.ServicePlanName |? { $_.ServicePlanName -and $_.ServicePlanName.Split('_')[0] -eq "INTUNE*" })) {
-            Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for available licenses."
+            Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information."
         }
 
         # Create/update Azure AD user with random password
@@ -574,7 +574,7 @@ CRLFOption=CRLFAlways
         }
         catch {
             $message = $_.Exception.Message
-            try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description |% { $_.Split("`n")[0].Trim() } }
+            try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description | % { $_.Split("`n")[0].Trim() } }
             catch { Write-Error -ErrorRecord $_ -ErrorAction Continue }
             throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $message."
         }
@@ -776,9 +776,7 @@ CRLFOption=CRLFAlways
 
             if (Test-Path $baselinePath) {
                 Invoke-CommandLine "git submodule deinit -f . 2>&1" | Write-Verbose
-                Remove-Item $baselinePath -Force -Recurse -EA SilentlyContinue
-                Remove-Item ".git/modules/$baselinePath" -Force -Recurse -EA SilentlyContinue
-                Remove-Item .gitmodules -Force -EA SilentlyContinue
+                @($baselinePath, ".git/modules/$baselinePath", ".gitmodules") |? { Test-Path $_ } | Remove-Item -Force -Recurse -EA SilentlyContinue
             }
 
             if (([uri]$Baseline).Host -ne 'dev.azure.com') {
@@ -1423,7 +1421,7 @@ CRLFOption=CRLFAlways
         try {
             $('Deploy', 'Export') | % {
                 Write-Verbose "Downloading $_.yml from Simeon Repo $ymlRepo"
-                Remove-Item "$_.yml" -Force -EA SilentlyContinue
+                if (Test-Path "$_.yml") { Remove-Item "$_.yml" -Force -EA SilentlyContinue }
                 irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/master/$_.yml" -OutFile "$_.yml"
             }
             Invoke-CommandLine "git add . 2>&1" | Write-Verbose
