@@ -471,7 +471,7 @@ CRLFOption=CRLFAlways
         }
 
         $activeLicenses = Get-AzureADSubscribedSku |? CapabilityStatus -eq "Enabled"
-        if (!$activeLicenses -or !($activeLicenses.ServicePlans |? { $_.ServicePlanName.Split('_')[0] -eq "INTUNE" })) {
+        if ($activeLicenses -and !$activeLicenses -or !($activeLicenses.ServicePlans |? { $_.ServicePlanName.Split('_')[0] -eq "INTUNE" })) {
             throw "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for available licenses."
         }
 
@@ -567,7 +567,7 @@ CRLFOption=CRLFAlways
             Get-MsalToken -TenantId $Tenant -UserCredential $cred -ClientId '1950a258-227b-4e31-a9cf-717495945fc2' -Scopes 'https://management.core.windows.net//.default' | Out-Null
         }
         catch {
-            throw "Could not acquire token using the service account username and password - please ensure that no MFA policies are applied to the user $upn - $($_.Exception.Message)."
+            throw "Could not acquire token using the service account - please ensure that no MFA policies are applied to the user $upn - $($_.Exception.Message)."
         }
 
         return $cred
