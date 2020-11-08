@@ -564,10 +564,19 @@ CRLFOption=CRLFAlways
         $cred = [pscredential]::new($upn, (ConvertTo-SecureString -AsPlainText -Force $password))
 
         try {
-            Get-MsalToken -TenantId $Tenant -UserCredential $cred -ClientId '1950a258-227b-4e31-a9cf-717495945fc2' -Scopes 'https://management.core.windows.net//.default' | Out-Null
+            irm "https://login.microsoftonline.com/$Tenant/oauth2/v2.0/token/" -Method Post -Body @{
+                client_id = '1950a258-227b-4e31-a9cf-717495945fc2'
+                username = $cred.UserName
+                password = $cred.GetNetworkCredential().Password
+                grant_type = 'password'
+                scope = 'https://management.core.windows.net//.default'
+            } | Out-Null
         }
         catch {
-            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $($_.Exception.Message)."
+            $message = $_.Exception.Message
+            try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description |% { $_.Split("`n")[0].Trim() } }
+            catch { Write-Error -ErrorRecord $_ -ErrorAction Continue }
+            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $message."
         }
 
         return $cred
