@@ -89,7 +89,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Configures settings that control joining devices to Azure AD. The baseline allows only the groups "Baseline - Device Enrollers" and "Baseline - Microsoft 365 Users" to join devices to Azure AD. These groups may join up to 100 devices and are required to perform MFA when joining the device. |
 | Why should you use this? | If you want to restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
-| What is the end-user impact? | Only authorized groups may join devices, and users in those groups will be prompted for MFA to join. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Only authorized groups may join devices, and users in those groups will be prompted for MFA to join. |
 | Learn more | N/A |
 
 ## Azure AD > Diagnostic settings
@@ -117,7 +117,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Configures restrictions for creating Azure AD Groups. The baseline restricts users not in "Baseline - Group Creators" from creating groups. |
 | Why should you use this? | If you want to tighten security around group creation. |
-| What is the end-user impact? | User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups. |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
 
 ## Azure AD > External user directory settings
@@ -383,7 +383,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Defines Azure's password reset policy and specifies the Azure AD groups to which it applies. This allows users to reset their passwords or unlock their Azure accounts. The baseline applies the password reset policy to members of the group "Baseline - Microsoft 365 Users." |
 | Why should you use this? | If you want users to use self-service password reset instead of contacting IT support. This improves password reset security because it requires that users reset their passwords only via Mobile application code (the authenticator app) or SMS. |
-| What is the end-user impact? | Users can securely recover and reset their passwords. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Users can securely recover and reset their passwords. |
 | Learn more | [How it works: Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-howitworks)
 
 ## Azure AD > Security > Conditional Access > Policies
@@ -704,7 +704,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Limits applications available for download in the Microsoft Store via the "Private Store" functionality. This policy allows you to restrict your users to only those applications that you deem necessary. |
 | Why should you use this? | If you want to limit the applications which users may download to those in your private store. |
-| What is the end-user impact? | Users may only use apps that have been added to the private store. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Users may only use apps that have been added to the private store. |
 | Learn more | [Distribute apps using your private store](https://docs.microsoft.com/en-us/microsoft-store/distribute-apps-from-your-private-store) |
 
 
@@ -782,7 +782,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Enables and configures BitLocker device encryption for physical devices. BitLocker requires a machine to have TPM 1.2 or later, which excludes older hardware and virtual machines. |
 | Why should you use this? | Device encryption is essential to protecting data on physical devices. |
-| What is the end-user impact? | Data on users' hard drives are encrypted. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Data on users' hard drives are encrypted. |
 | Learn more | [Overview of BitLocker Device Encryption in Windows 10](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-device-encryption-overview-windows-10) |
 
 
@@ -808,7 +808,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Configures the Windows LAN Manager Authentication Level to require NTLMv2. |
 | Why should you use this? | This is recommended by Microsoft to prevent the use of insecure protocols. |
-| What is the end-user impact? | Windows file sharing will not work with any devices that do not support NTLMv2. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Windows file sharing will not work with any devices that do not support NTLMv2. |
 | Learn more | [Network security: LAN Manager authentication level](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-lan-manager-authentication-level) |
 
 
@@ -979,7 +979,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Limits the default number of devices that a single user can enroll. The baseline sets this limit to 5, however it can be overwritten by other configurations with a higher priority. |
 | Why should you use this? | If you want to ensure that no more than 5 devices are enrolled by a single user to prevent enrollment of unwanted devices. |
-| What is the end-user impact? | Users will be limited to enrolling 5 devices. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Users will be limited to enrolling 5 devices. |
 | Learn more | [Create a device limit restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-limit-restriction) |
 
 
@@ -992,7 +992,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | Restricts the type of device that can be enrolled. The baseline allows enrollment of Autopiloted registered devices only. This limit can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to ensure that only Autopilot registered devices are enrolled in Intune. |
-| What is the end-user impact? | Users will be restricted to enrolling only Autopilot registered devices in Intune. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Users will be restricted to enrolling only Autopilot registered devices in Intune. |
 | Learn more | [Create a device type restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-type-restriction) |
 
 
@@ -1005,7 +1005,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | :-- | :-- |
 | What does this do? | The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
-| What is the end-user impact? | Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
 | Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
 
 
