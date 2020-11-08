@@ -567,7 +567,7 @@ CRLFOption=CRLFAlways
             Get-MsalToken -TenantId $Tenant -UserCredential $cred -ClientId '1950a258-227b-4e31-a9cf-717495945fc2' -Scopes 'https://management.core.windows.net//.default' | Out-Null
         }
         catch {
-            throw "Could not acquire token using the service account - please ensure that no MFA policies are applied to the user $upn - $($_.Exception.Message)."
+            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $($_.Exception.Message)."
         }
 
         return $cred
