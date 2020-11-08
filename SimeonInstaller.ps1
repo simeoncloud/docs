@@ -471,7 +471,7 @@ CRLFOption=CRLFAlways
         }
 
         $activeLicenses = Get-AzureADSubscribedSku |? CapabilityStatus -eq "Enabled"
-        if (!($activeLicenses.ServicePlans.ServicePlanName |? { $_.ServicePlanName -and $_.ServicePlanName.Split('_')[0] -eq "INTUNE*" })) {
+        if (!($activeLicenses.ServicePlans.ServicePlanName |? { $_.ServicePlanName -and $_.ServicePlanName.Split('_')[0] -like "INTUNE*" })) {
             Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information."
         }
 
