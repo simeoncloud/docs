@@ -53,7 +53,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
     
 *   Once the installation has completed, click **Run an export**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
-## Reconcile and Deploy a Client Tenant
+## Reconcile and deploy a client tenant
 
 *   From the [Simeon portal](https://app.simeoncloud.com), click **Reconcile** on the navigation pane
     
