@@ -470,6 +470,15 @@ CRLFOption=CRLFAlways
             Connect-Azure $Tenant -Interactive
         }
 
+        $h = (Get-Command "Get-AzureADSubscribedSku")
+        Write-Information "Get-AzureADSubscribedSku $($h.Source) $($h.Version)"
+        $activeLicenses = Get-AzureADSubscribedSku |? CapabilityStatus -eq "Enabled"
+        $activeServicePlans = $activeLicenses.ServicePlans
+        Write-Verbose "Found active plans $($activeServicePlans | Out-String)."
+        if (!($activeServicePlans | Select -ExpandProperty ServicePlanName |? { $_ -and $_.Split('_')[0] -like "INTUNE*" })) {
+            Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information. Found: $([string]::Join(', ', ($activeServicePlans | Sort-Object)))."
+        }
+
         # Create/update Azure AD user with random password
         $upn = "simeon@$Tenant"
         $user = Get-AzureADUser -Filter "userPrincipalName eq '$upn'"
