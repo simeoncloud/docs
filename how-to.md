@@ -51,7 +51,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 *   From the [Simeon portal](https://app.simeoncloud.com), click **Reconcile** on the navigation pane
 *   Choose the tenant you would like to reconcile > for **Run**, select **\[date of reconciliation\] - Export for reconciliation**
-    *   Please note that you can reconcile a tenant only one time. If you would like to perform an additional reconciliation on the same tenant, please contact [support@simeoncloud.com](mailto:support@simeoncloud.com).
+    *   <span style='color: red'>Please note that you can reconcile a tenant only one time. If you would like to perform an additional reconciliation on the same tenant, please contact [support@simeoncloud.com](mailto:support@simeoncloud.com).</span>
 *   You can expand all and collapse all configurations using the buttons located at the top of the page next to the header. You may also expand individual configurations and their respective properties. Doing so will display more information on the given configuration.
 *   Now, you may go through the three sections and decide on how to reconcile the different configurations with your baseline.
     *   Note that you can expand individual configurations in any section by clicking the arrow to display more information, such as documentation on the configuration.
