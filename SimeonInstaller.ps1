@@ -471,7 +471,7 @@ CRLFOption=CRLFAlways
         }
 
         $getAzureManagementHeaders = {
-            { Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
         }
 
         $activeLicenses = (irm "https://graph.windows.net/$Tenant/subscribedSkus?api-version=1.6" -Headers (. $getAzureManagementHeaders) -ContentType 'application/json').value |? capabilityStatus -eq "Enabled"
