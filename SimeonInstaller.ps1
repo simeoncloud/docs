@@ -470,12 +470,7 @@ CRLFOption=CRLFAlways
             Connect-Azure $Tenant -Interactive
         }
 
-        $getAzureManagementHeaders = {
-            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
-        }
-
-        $activeLicenses = (irm "https://graph.windows.net/$Tenant/subscribedSkus?api-version=1.6" -Headers (. $getAzureManagementHeaders) -ContentType 'application/json').value |? capabilityStatus -eq "Enabled"
-
+        $activeLicenses = (irm "https://graph.windows.net/$Tenant/subscribedSkus?api-version=1.6" -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }).value |? capabilityStatus -eq "Enabled"
         $activeServicePlans = $activeLicenses.servicePlans
         Write-Verbose "Found active plans $($activeServicePlans | Out-String)."
         if (!($activeServicePlans | Select -ExpandProperty servicePlanName |? { $_ -and $_.Split('_')[0] -like "INTUNE*" })) {
