@@ -471,7 +471,7 @@ CRLFOption=CRLFAlways
         }
 
         $getAzureManagementHeaders = {
-            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureManagement -Tenant $Tenant)" }
+            { Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
         }
 
         $activeLicenses = (irm "https://graph.windows.net/$Tenant/subscribedSkus?api-version=1.6" -Headers (. $getAzureManagementHeaders) -ContentType 'application/json').value |? capabilityStatus -eq "Enabled"
@@ -517,6 +517,10 @@ CRLFOption=CRLFAlways
             else {
                 Write-Information "Service account already has directory role '$($_.DisplayName)'"
             }
+        }
+
+        $getAzureManagementHeaders = {
+            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureManagement -Tenant $Tenant)" }
         }
 
         $getSubscriptionId = {
