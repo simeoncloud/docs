@@ -124,7 +124,3 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 * Approvals can easily be removed by navigating to the environment you want to remove an approval from \(Deploy or Export\)
 * Once you have selected either the **Deploy** or **Export** environment, click **...** > **Approvals and checks** > hover mouse over the approval you want to delete > **trash icon** > **Delete**
-
-## Run Pipelines Programmatically
-
-You can start your pipelines programmatically using [this script](Invoke-AzurePipeline.ps1). Replace the variables at the bottom of the script to suit your purposes.
