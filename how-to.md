@@ -68,7 +68,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 * [Run the export pipeline for the **baseline** tenant](#run-an-export)
 * [Run the deploy pipeline for your **client** tenants](#run-a-deployment)
 
-## Update a tenant specific configuration
+## Update a tenant-specific configuration
 
 * Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](managed-configurations.md)
 * [Run the export pipeline for the **client** tenant](#run-an-export)
