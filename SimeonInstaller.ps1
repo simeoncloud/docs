@@ -474,7 +474,13 @@ CRLFOption=CRLFAlways
         $activeServicePlans = $activeLicenses.servicePlans
         Write-Verbose "Found active plans $($activeServicePlans | Out-String)."
         if (!($activeServicePlans | Select -ExpandProperty servicePlanName |? { $_ -and $_.Split('_')[0] -like "INTUNE*" })) {
-            Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information. Found: $([string]::Join(', ', ($activeServicePlans | Sort-Object)))."
+            if ($activeServicePlans) {
+                $activeServicePlansString = " Found: " + [string]::Join(', ', (@($activeServicePlans) | Sort-Object)) + "."
+            }
+            else {
+                $activeServicePlansString = " Found no active service plans."
+            }
+            Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information.$activeServicePlansString"
         }
 
         # Create/update Azure AD user with random password
@@ -534,23 +540,26 @@ CRLFOption=CRLFAlways
             if ($ConfirmPreference -eq 'None') {
                 Write-Warning "Tried to elevate access to allow assignment of subscription roles - please verify there is an Azure subscription in the tenant and re-run the install or if you do not want to use an Azure subscription, you can continue anyway, but configuration types that require a subscription will be skipped"
             }
+            else {
 
-            Clear-MsalTokenCache -FromDisk
-            Clear-MsalTokenCache
+                Clear-MsalTokenCache -FromDisk
+                Clear-MsalTokenCache
 
-            $subscriptionId = . $getSubscriptionId
+                $subscriptionId = . $getSubscriptionId
 
-            if (!$subscriptionId) {
-                Write-Warning "Could not find a subscription to use - please make sure you have signed up for an Azure subscription"
+                if (!$subscriptionId) {
+                    Write-Warning "Could not find a subscription to use - please make sure you have signed up for an Azure subscription or if you do not want to use an Azure subscription, you can continue anyway, but configuration types that require a subscription will be skipped"
+                }
             }
         }
 
-        $contributorRoleId = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions?`$filter=roleName eq 'Contributor'&api-version=2018-01-01-preview" -Headers (. $getAzureManagementHeaders)).value.id
-        $roleAssignments = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments?`$filter=principalId eq '$($user.ObjectId)'&api-version=2018-09-01-preview" -Headers (. $getAzureManagementHeaders)).value |? { $_.properties.roleDefinitionId -eq $contributorRoleId }
-        # Add as contributor to an Azure RM Subscription
-        if (!$roleAssignments) {
-            Write-Information "Adding service account to 'Contributor' role on subscription '$subscriptionId'"
-            irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments/$([guid]::NewGuid())?api-version=2018-09-01-preview" -Method Put -ContentType 'application/json' -Headers (. $getAzureManagementHeaders) -Body @"
+        if ($subscriptionId) {
+            $contributorRoleId = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions?`$filter=roleName eq 'Contributor'&api-version=2018-01-01-preview" -Headers (. $getAzureManagementHeaders)).value.id
+            $roleAssignments = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments?`$filter=principalId eq '$($user.ObjectId)'&api-version=2018-09-01-preview" -Headers (. $getAzureManagementHeaders)).value |? { $_.properties.roleDefinitionId -eq $contributorRoleId }
+            # Add as contributor to an Azure RM Subscription
+            if (!$roleAssignments) {
+                Write-Information "Adding service account to 'Contributor' role on subscription '$subscriptionId'"
+                irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments/$([guid]::NewGuid())?api-version=2018-09-01-preview" -Method Put -ContentType 'application/json' -Headers (. $getAzureManagementHeaders) -Body @"
 {
     "properties": {
         "roleDefinitionId": "$contributorRoleId",
@@ -558,9 +567,10 @@ CRLFOption=CRLFAlways
     }
 }
 "@| Out-Null
-        }
-        else {
-            Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
+            }
+            else {
+                Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
+            }
         }
 
         $cred = [pscredential]::new($upn, (ConvertTo-SecureString -AsPlainText -Force $password))
