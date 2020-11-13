@@ -475,12 +475,12 @@ CRLFOption=CRLFAlways
         Write-Verbose "Found active plans $($activeServicePlans | Out-String)."
         if (!($activeServicePlans | Select -ExpandProperty servicePlanName |? { $_ -and $_.Split('_')[0] -like "INTUNE*" })) {
             if ($activeServicePlans) {
-                $activeServicePlansString = " Found: " + [string]::Join(', ', (@($activeServicePlans) | Sort-Object)) + "."
+                $activeServicePlansString = " - found: " + [string]::Join(', ', (@($activeServicePlans) | Sort-Object))
             }
             else {
-                $activeServicePlansString = " Found no active service plans."
+                $activeServicePlansString = " - found no active service plans"
             }
-            Write-Warning "The tenant does not have an enabled Intune license. See https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information.$activeServicePlansString"
+            Write-Warning "The tenant does not have an enabled Intune license - see https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information.$activeServicePlansString"
         }
 
         # Create/update Azure AD user with random password
