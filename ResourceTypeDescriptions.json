@@ -1,0 +1,162 @@
+[
+  {
+    "Name": "AadIam/CompanyBrandings",
+    "Description": "Azure AD > Company branding"
+  },
+  {
+    "Name": "AadIam/ExternalUserDirectorySettings",
+    "Description": "Azure AD > External user directory settings"
+  },
+  {
+    "Name": "AadIam/ExternalUserGuestSettings",
+    "Description": "Azure AD > External user guest settings"
+  },
+  {
+    "Name": "AadIam/FeatureSettings",
+    "Description": "Azure AD > User feature preview settings"
+  },
+  {
+    "Name": "AadIam/GroupSettings",
+    "Description": "Azure AD > Group settings"
+  },
+  {
+    "Name": "AadIam/MdmApplications",
+    "Description": "Azure AD > Mobility (MDM and MAM)"
+  },
+  {
+    "Name": "AadIam/PasswordResetPolicies",
+    "Description": "Azure AD > Password reset"
+  },
+  {
+    "Name": "AadIam/UserSettings",
+    "Description": "Azure AD > User settings"
+  },
+  {
+    "Name": "AzureManagement/MicrosoftAadIam/DiagnosticSettings",
+    "Description": "Azure AD > Diagnostic settings"
+  },
+  {
+    "Name": "AzureManagement/MicrosoftIntune/DiagnosticSettings",
+    "Description": "Intune > Diagnostic settings"
+  },
+  {
+    "Name": "AzureManagement/MicrosoftResources/ResourceGroups",
+    "Description": "Azure > Resource groups"
+  },
+  {
+    "Name": "MSGraph/Applications",
+    "Description": "Azure AD > App registrations"
+  },
+  {
+    "Name": "MSGraph/Groups",
+    "Description": "Azure AD > Groups"
+  },
+  {
+    "Name": "MSGraph/ServicePrincipals",
+    "Description": "Azure AD > Enterprise applications"
+  },
+  {
+    "Name": "MSGraph/Settings",
+    "Description": "Azure AD > Directory settings"
+  },
+  {
+    "Name": "MSGraph/Users",
+    "Description": "Azure AD > Users"
+  },
+  {
+    "Name": "MSGraph/ConditionalAccess/NamedLocations",
+    "Description": "Azure AD > Security > Conditional Access > Named locations"
+  },
+  {
+    "Name": "MSGraph/ConditionalAccess/Policies",
+    "Description": "Azure AD > Security > Conditional Access > Policies"
+  },
+  {
+    "Name": "MSGraph/DeviceAppManagement/AndroidManagedAppProtections",
+    "Description": "Intune > Apps > App protection policies (Platform = Android)"
+  },
+  {
+    "Name": "MSGraph/DeviceAppManagement/IosManagedAppProtections",
+    "Description": "Intune > Apps > App protection policies (Platform = iOS/iPadOS)"
+  },
+  {
+    "Name": "MSGraph/DeviceAppManagement/MobileApps",
+    "Description": "Intune > Apps"
+  },
+  {
+    "Name": "MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations",
+    "Description": "Intune > Apps > App configuration policies"
+  },
+  {
+    "Name": "MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies",
+    "Description": "Intune > Apps > App protection policies (Platform = Windows 10)"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/DeviceCompliancePolicies",
+    "Description": "Intune > Devices > Compliance policies"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/DeviceConfigurations",
+    "Description": "Intune > Devices > Configuration profiles"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/DeviceEnrollmentConfigurations",
+    "Description": "Intune > Devices > Enrollment restrictions"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/DeviceManagementScripts",
+    "Description": "Intune > Devices > Scripts"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/GroupPolicyConfigurations",
+    "Description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/MobileThreatDefenseConnectors",
+    "Description": "Intune > Mobile Threat Defense"
+  },
+  {
+    "Name": "MSGraph/DeviceManagement/WindowsAutopilotDeploymentProfiles",
+    "Description": "Intune > Devices > Windows Autopilot deployment profiles"
+  },
+  {
+    "Name": "PowerShell/Exchange/ClientAccess/OwaMailboxPolicies",
+    "Description": "Office 365 > Exchange > Outlook Web App policies"
+  },
+  {
+    "Name": "PowerShell/Exchange/Organization/AdminAuditLogConfig",
+    "Description": "Office 365 > Exchange > AdminAuditLogConfig"
+  },
+   {
+    "Name": "PowerShell/Exchange/Organization/AuthenticationPolicy",
+    "Description": "Office 365 > Exchange > Modern authentication"
+  },
+  {
+    "Name": "PowerShell/Exchange/Organization/OrganizationConfig",
+    "Description": "Office 365 > Exchange > OrganizationConfig"
+  },
+  {
+    "Name": "MSGraph/Policies/DeviceRegistrationPolicy",
+    "Description": "Azure AD > Device settings"
+  },
+  {
+    "Name": "PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies",
+    "Description": "Office 365 > Security & Compliance > Information governance > Retention"
+  },
+  {
+    "Name": "PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies",
+    "Description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)"
+  },
+  {
+    "Name": "TeamsApi/Users/TenantWideAppsSettings",
+    "Description": "Office 365 > Teams > Apps"
+  },
+  {
+    "Name": "TeamsPSAdmin/TeamsAppPermissionPolicy",
+    "Description": "Office 365 > Teams > Apps > Permission policies"
+  },
+  {
+    "Name": "TeamsPSAdmin/TeamsClientConfiguration",
+    "Description": "Office 365 > Teams > Org-wide settings"
+  }
+]
