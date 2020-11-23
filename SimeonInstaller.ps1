@@ -613,8 +613,6 @@ CRLFOption=CRLFAlways
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
             [switch]$RequireDeployApproval,
-            # Specify to true to require approval when exporting
-            [switch]$RequireExportApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -652,7 +650,7 @@ CRLFOption=CRLFAlways
         Install-SimeonGitHubServiceConnection -Organization $Organization -Project $Project -GitHubAccessToken $GitHubAccessToken
 
         $environmentArgs = @{}
-        @('RequireDeployApproval', 'RequireExportApproval') | % {
+        @('RequireDeployApproval') | % {
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
@@ -1132,9 +1130,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
-            [switch]$RequireDeployApproval,
-            # Specify to true to require approval when exporting
-            [switch]$RequireExportApproval
+            [switch]$RequireDeployApproval
         )
 
         $Name = $Name.ToLower()
@@ -1142,7 +1138,7 @@ CRLFOption=CRLFAlways
         Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
 
         $environmentArgs = @{}
-        @('RequireDeployApproval', 'RequireExportApproval') | % {
+        @('RequireDeployApproval') | % {
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
@@ -1191,14 +1187,13 @@ CRLFOption=CRLFAlways
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
 
-        foreach ($action in @('Deploy', 'Export')) {
+        foreach ($action in @('Sync')) {
             $pipelineName = "$Name - $action"
 
             $pipeline = $pipelines.value |? name -eq $pipelineName
 
             $body = @{
                 name = $pipelineName
-                path = $Name
                 process = @{
                     type = 2
                     yamlFilename = "$action.yml"
@@ -1277,9 +1272,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name,
             # Specify to true to require approval when deploying
-            [switch]$RequireDeployApproval,
-            # Specify to true to require approval when exporting
-            [switch]$RequireExportApproval
+            [switch]$RequireDeployApproval
         )
 
         $Name = $Name.ToLower()
@@ -1299,7 +1292,7 @@ CRLFOption=CRLFAlways
 
         $environments = irm @restProps "$apiBaseUrl/distributedtask/environments"
 
-        foreach ($action in @('Deploy', 'Export')) {
+        foreach ($action in @('Sync')) {
             $environmentName = "$Name - $action"
 
             $environment = $environments.value |? name -eq $environmentName
@@ -1343,11 +1336,8 @@ CRLFOption=CRLFAlways
             [{"userId":"$contributorsId","roleName":"Administrator"}]
 "@ | Out-Null
 
-            if ($action -eq 'Deploy' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
+            if ($action -eq 'Sync' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
                 $requireApproval = $RequireDeployApproval
-            }
-            elseif ($action -eq 'Export' -and $PSBoundParameters.ContainsKey('RequireExportApproval')) {
-                $requireApproval = $RequireExportApproval
             }
             else {
                 $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy' -and $Name -notlike '*baseline*')
@@ -1431,7 +1421,7 @@ CRLFOption=CRLFAlways
             $ymlRepo = "Baseline"
         }
         try {
-            $('Deploy', 'Export') | % {
+            $('Sync') | % {
                 Write-Verbose "Downloading $_.yml from Simeon Repo $ymlRepo"
                 if (Test-Path "$_.yml") { Remove-Item "$_.yml" -Force -EA SilentlyContinue }
                 irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/master/$_.yml" -OutFile "$_.yml"
@@ -1481,8 +1471,6 @@ CRLFOption=CRLFAlways
             [string]$Baseline,
             # Specify to true to require approval when deploying
             [switch]$RequireDeployApproval,
-            # Specify to true to require approval when exporting
-            [switch]$RequireExportApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -1492,7 +1480,7 @@ CRLFOption=CRLFAlways
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'RequireDeployApproval', 'RequireExportApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'RequireDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
