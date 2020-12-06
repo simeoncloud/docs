@@ -470,6 +470,10 @@ CRLFOption=CRLFAlways
             Connect-Azure $Tenant -Interactive
         }
 
+        if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
+            throw "Cannot install service account using a federated Azure AD domain"
+        }
+
         $activeLicenses = (irm "https://graph.windows.net/$Tenant/subscribedSkus?api-version=1.6" -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }).value |? capabilityStatus -eq "Enabled"
         $activeServicePlans = $activeLicenses.servicePlans
         Write-Verbose "Found active plans $($activeServicePlans | Out-String)."
@@ -588,7 +592,7 @@ CRLFOption=CRLFAlways
             $message = $_.Exception.Message
             try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description | % { $_.Split("`n")[0].Trim() } }
             catch { Write-Error -ErrorRecord $_ -ErrorAction Continue }
-            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $message."
+            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $message"
         }
 
         return $cred
