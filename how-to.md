@@ -105,7 +105,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 *   Please note that you may alternatively wait until the nightly scheduled Sync and you will be prompted to approve changes during this process.
     
 
-## Update a tenant-specific configuration
+## Update a tenant-specific configuration and sync
 
 *   Add the setting in the tenant Azure portal - a list of the configuration types automated by Simeon can be found [here](https://simeoncloud.github.io/docs/#/managed-configurations)
     
