@@ -124,6 +124,10 @@
     "Description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection",
+    "Description": "Office 365"
+  },
+  {
     "Name": "PowerShell/Exchange/Organization/AdminAuditLogConfig",
     "Description": "Office 365 > Exchange > AdminAuditLogConfig"
   },
