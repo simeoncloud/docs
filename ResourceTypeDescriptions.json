@@ -124,7 +124,7 @@
     "Description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AntiPhishPolicy",
     "Description": "Office 365"
   },
   {
