@@ -125,7 +125,31 @@
   },
   {
     "Name": "PowerShell/Exchange/AdvancedThreatProtection/AntiPhishPolicy",
-    "Description": "Office 365"
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+  },
+  {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AntiPhishRule",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+  },
+  {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AtpPolicyForO365",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+  },
+  {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeAttachmentPolicy",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+  },
+  {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeAttachmentRule",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+  },
+  {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeLinksPolicy",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+  },
+  {
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeLinksRule",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
   },
   {
     "Name": "PowerShell/Exchange/Organization/AdminAuditLogConfig",
