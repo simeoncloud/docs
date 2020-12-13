@@ -124,7 +124,7 @@
     "Description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AntiPhishPolicy",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AntiPhishPolicies",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
   },
   {
@@ -132,23 +132,23 @@
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AtpPolicyForO365",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AtpPoliciesForO365",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeAttachmentPolicy",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeAttachmentPolicies",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeAttachmentRule",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeAttachmentRules",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeLinksPolicy",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeLinksPolicies",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeLinksRule",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/SafeLinksRules",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
   },
   {
