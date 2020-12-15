@@ -1292,23 +1292,20 @@ CRLFOption=CRLFAlways
 
         $environments = irm @restProps "$apiBaseUrl/distributedtask/environments"
 
-        foreach ($action in @('Sync')) {
-            $environmentName = "$Name - $action"
+        $environment = $environments.value |? name -eq $Name
 
-            $environment = $environments.value |? name -eq $environmentName
+        if (!$environment) {
+            Write-Information "Creating environment '$Name'"
 
-            if (!$environment) {
-                Write-Information "Creating environment '$environmentName'"
-
-                $environment = irm @restProps "$apiBaseUrl/distributedtask/environments" -Method Post -Body @"
-{"description": "", "name": "$environmentName"}
+            $environment = irm @restProps "$apiBaseUrl/distributedtask/environments" -Method Post -Body @"
+{"description": "", "name": "$Name"}
 "@
-            }
-            else {
-                Write-Information "Environment '$environmentName' already exists"
-            }
+        }
+        else {
+            Write-Information "Environment '$Name' already exists"
+        }
 
-            $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+        $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
             {
                 "query": "Contributors",
                 "identityTypes": [
@@ -1328,31 +1325,31 @@ CRLFOption=CRLFAlways
             }
 "@
 
-            $contributorsDisplayName = "[$Project]\Contributors"
-            $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-            if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
+        $contributorsDisplayName = "[$Project]\Contributors"
+        $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+        if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
 
-            irm @restProps "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.environmentreferencerole/roleassignments/resources/$($environment.project.id)_$($environment.id)" -Method Put -Body @"
+        irm @restProps "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.environmentreferencerole/roleassignments/resources/$($environment.project.id)_$($environment.id)" -Method Put -Body @"
             [{"userId":"$contributorsId","roleName":"Administrator"}]
 "@ | Out-Null
 
-            if ($action -eq 'Sync' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
-                $requireApproval = $RequireDeployApproval
-            }
-            else {
-                $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($environmentName)'?" -Default ($action -eq 'Deploy' -and $Name -notlike '*baseline*')
-            }
-            $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
-            $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
-            if ($approvalUrl -and !$requireApproval) {
-                Write-Information "Removing existing approval check"
-                irm @restProps $approvalUrl -Method Delete | Out-Null
-            }
-            elseif (!$approvalUrl -and $requireApproval) {
-                Write-Information "Adding approval check"
+        if ($action -eq 'Sync' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
+            $requireApproval = $RequireDeployApproval
+        }
+        else {
+            $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($Name)'?" -Default ($action -eq 'Sync' -and $Name -notlike '*baseline*')
+        }
+        $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
+        $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
+        if ($approvalUrl -and !$requireApproval) {
+            Write-Information "Removing existing approval check"
+            irm @restProps $approvalUrl -Method Delete | Out-Null
+        }
+        elseif (!$approvalUrl -and $requireApproval) {
+            Write-Information "Adding approval check"
 
-                # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
-                irm @restProps "$apiBaseUrl/pipelines/checks/configurations" -Method Post -Body @"
+            # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
+            irm @restProps "$apiBaseUrl/pipelines/checks/configurations" -Method Post -Body @"
                 {
                     "type": {
                         "id": "8C6F20A7-A545-4486-9777-F762FAFE0D4D",
@@ -1378,13 +1375,12 @@ CRLFOption=CRLFAlways
                     "timeout": 43200
                 }
 "@ | Out-Null
-            }
-            elseif ($approvalUrl) {
-                Write-Information "Approval already exists - will not update"
-            }
-            else {
-                Write-Information "Approval does not exist - no change is required"
-            }
+        }
+        elseif ($approvalUrl) {
+            Write-Information "Approval already exists - will not update"
+        }
+        else {
+            Write-Information "Approval does not exist - no change is required"
         }
 
     }
