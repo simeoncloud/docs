@@ -312,7 +312,7 @@ CRLFOption=CRLFAlways
         param (
             # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'MSGraph')]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph')]
             [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
@@ -443,6 +443,80 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Installs MS Graph PowerShell Enterprise Application and grants required permissions
+    #>
+    function Install-MSGraphPowerShell {
+        [CmdletBinding()]
+        param(
+            # The Azure tenant domain name to configure Simeon for
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant
+        )
+        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+
+        $apiVersion = 'api-version=1.6'
+        $baseUrl = "https://graph.windows.net/$Tenant"
+
+        $msGraphServicePrincipalObjectId = (irm "$baseUrl/servicePrincipals?`$filter=appId eq '00000003-0000-0000-c000-000000000000'&$apiVersion" -Headers $headers).value[0].objectId
+
+        $msGraphPowerShellClientId = '14d82eec-204b-4c2f-b7e8-296a70dab67e'
+        $msGraphPowerShellServicePrincipalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$msGraphPowerShellClientId'" -Headers $headers).value[0].objectId
+
+        if (!$msGraphPowerShellServicePrincipalObjectId) {
+            Write-Information "Installing MS Graph PowerShell"
+            irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $msGraphPowerShellClientId } | ConvertTo-Json) | Out-Null
+        }
+
+        while (!$msGraphPowerShellServicePrincipalObjectId) {
+            $msGraphPowerShellServicePrincipalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$msGraphPowerShellClientId'" -Headers $headers).value[0].objectId
+        }
+
+        Write-Information "MS Graph PowerShell is installed"
+
+        $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$msGraphPowerShellServicePrincipalObjectId' and resourceId eq '$msGraphServicePrincipalObjectId'" -Headers $headers).value[0]
+
+        if ($grant) {
+            Write-Information "Deleting existing permission grant for MS Graph PowerShell"
+            irm "$baseUrl/oauth2PermissionGrants/$($grant.objectId)?$apiVersion" -Method Delete -Headers $headers | Out-Null
+        }
+
+        $scopes = @(
+            "Application.ReadWrite.All",
+            "AppRoleAssignment.ReadWrite.All",
+            "DeviceManagementApps.ReadWrite.All",
+            "DeviceManagementConfiguration.ReadWrite.All",
+            "DeviceManagementManagedDevices.ReadWrite.All",
+            "DeviceManagementRBAC.ReadWrite.All",
+            "DeviceManagementServiceConfig.ReadWrite.All",
+            "Directory.AccessAsUser.All",
+            "Directory.ReadWrite.All",
+            "Files.ReadWrite.All",
+            "Group.ReadWrite.All",
+            "Organization.ReadWrite.All",
+            "RoleManagement.ReadWrite.Directory",
+            "Policy.Read.All",
+            "Policy.ReadWrite.ConditionalAccess",
+            "Policy.ReadWrite.DeviceConfiguration",
+            "Policy.ReadWrite.FeatureRollout",
+            "Policy.ReadWrite.PermissionGrant",
+            "Policy.ReadWrite.TrustFramework",
+            "Sites.ReadWrite.All",
+            "User.ReadWrite.All"
+        )
+
+        Write-Information "Adding permission grant for MS Graph PowerShell"
+        irm "$baseUrl/oauth2PermissionGrants?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{
+                clientId = $msGraphPowerShellServicePrincipalObjectId
+                consentType = "AllPrincipals"
+                expiryTime = "9000-01-01T00:00:00"
+                principalId = $null
+                resourceId = $msGraphServicePrincipalObjectId
+                scope = ([string]::Join(' ', $scopes))
+            } | ConvertTo-Json) | Out-Null
+    }
+
+    <#
+    .SYNOPSIS
     Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
     #>
     function Install-SimeonTenantServiceAccount {
@@ -464,6 +538,8 @@ CRLFOption=CRLFAlways
         Write-Information "Installing Simeon service account for tenant '$Tenant'"
 
         Connect-Azure $Tenant
+
+        Install-MSGraphPowerShell $Tenant
 
         while (!(Test-AzureADCurrentUserRole 'Company Administrator' $Tenant)) {
             Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
