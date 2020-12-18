@@ -47,53 +47,85 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 *   For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
 *   Once the installation has completed, click **Run an export**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
+## Install a baseline
+
+*   First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
+    
+*   From the Simeon portal, click Install on the navigation pane
+    
+*   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
+    
+*   Once the installation has completed, click **Deploy**. Doing so will populate the baseline tenant portal
+    
+
+## Install a client tenant onto Simeon
+
+*   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
+    
+*   From the Simeon portal, click Install on the navigation pane
+    
+*   For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
+    
+*   Once the installation has completed, click **Run an export**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
+    
+
 ## Reconcile and deploy a client tenant
 
-*   From the [Simeon portal](https://app.simeoncloud.com), click **Reconcile** on the navigation pane
-*   Choose the tenant you would like to reconcile > for **Run**, select **\[date of reconciliation\] - Export for reconciliation**
-    *   <span style='color: red'>Please note that you can reconcile a tenant only one time. If you would like to perform an additional reconciliation on the same tenant, please contact [support@simeoncloud.com](mailto:support@simeoncloud.com).</span>
+*   From the Simeon portal, click **Reconcile** on the navigation pane
+    
+*   Choose the tenant you would like to reconcile. You may reconcile at any time to identify and resolve differences between the baseline and your tenant.
+    
 *   You can expand all and collapse all configurations using the buttons located at the top of the page next to the header. You may also expand individual configurations and their respective properties. Doing so will display more information on the given configuration.
-*   Now, you may go through the three sections and decide on how to reconcile the different configurations with your baseline.
-    *   Note that you can expand individual configurations in any section by clicking the arrow to display more information, such as documentation on the configuration.
+    
+*   Now, you may go through the four sections and decide on how to reconcile the different configurations with your baseline.
+    
     *   **Exported from Tenant** contains those configurations that were exported from your tenant and do not overlap with the baseline. For each configuration in this section, you must decide whether you want to **keep the configuration** or **remove the configuration**. By keeping the box checked, you are choosing to keep the configuration. If you uncheck the box, you are choosing to remove the configuration from the tenant.
-    *   **New from Baseline** contains those configurations from your baseline that are to be deployed to your tenant. By keeping the box checked, you are choosing to deploy the configuration to the tenant. If you uncheck the box, you are choosing to exclude the baseline configuration from the tenant.
-    *   **Conflicting with Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different properties. You can choose between keeping the configuration you have versus reverting to the baseline configuration. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
+        
+    *   **Missing from Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box checked, you are choosing to **exclude the baseline configuration from the tenant**. If you uncheck the box, you are choosing to **use the baseline configuration in the tenant**.
+        
+    *   **Conflicting with Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different values. You can choose between **keeping the configuration you have** versus **reverting to the baseline configuration**. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
+        
+    *   **Matching Baseline** contains those configurations that are in both your tenant and the baseline. By keeping the box checked, you are choosing to **keep the baseline configuration**. If you uncheck the box, you are choosing to **exclude the baseline configuration**.
+        
 *   Once you have gone through each section and checked/unchecked boxes accordingly, click **Reconcile** at the bottom of the page. You will have two options from here:
-    *   (1) **I’M DONE** commits the changes to the tenant repository but does not deploy to the tenant. Note that if you do this, you must manually run the deploy pipeline before the scheduled nightly export and uncheck **Run an export operation before running the deployment**... Otherwise, your reconciliation choices will be overwritten (if this happens, please contact [support@simeoncloud.com](mailto:support@simeoncloud.com) and we can recover your reconciliation choices).
-    *   (2) **RUN A DEPLOY** deploys the changes to the tenant.
+    
+    *   (1) **I’M DONE** commits the changes to the tenant repository but does not deploy to the tenant. Note that if you do this, the tenant will be synced during the scheduled nightly sync and you will be prompted for approval as indicated in your daily summary email. To immediately deploy these changes to your tenant, you can manually sync the tenant in the Sync page.
+        
+    *   (2) **SYNC NOW** immediately deploys the changes to the tenant.
+        
 
-## Update a baseline configuration and deploying to tenants
+## Update a baseline configuration and sync to tenants
 
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](managed-configurations.md)
-* [Run the export pipeline for the **baseline** tenant](#run-an-export)
-* [Run the deploy pipeline for your **client** tenants](#run-a-deployment)
+*   Add the setting in the baseline Azure portal - a list of the configuration types automated by Simeon can be found [here](https://simeoncloud.github.io/docs/#/managed-configurations)
+    
+*   From the Simeon Portal, click **Sync** on the navigation pane
+    
+*   Select your baseline and the tenants you want to sync by clicking the corresponding checkbox, or select all by clicking the checkbox > **Sync Selected**
+    
+*   Please note that you may alternatively wait until the nightly scheduled Sync and you will be prompted to approve changes during this process.
+    
 
-## Update a tenant-specific configuration
+## Update a tenant-specific configuration and sync
 
-* Add the setting in the corresponding Azure portal - a list of the configuration types automated by Simeon can be found [here](managed-configurations.md)
-* [Run the export pipeline for the **client** tenant](#run-an-export)
+*   Add the setting in the tenant Azure portal - a list of the configuration types automated by Simeon can be found [here](https://simeoncloud.github.io/docs/#/managed-configurations)
+    
+*   From the Simeon Portal, click **Sync** on the navigation pane
+    
+*   Select the tenant you added the configuration to > **Sync Now**
+    
 
-## Run a Deployment
+## Sync all of your tenants
 
-* Click on **Pipelines** > **\[tenant name\]** **-** **Deploy** > **Run pipeline** > **Run**
-  * Note - you can see a history of the runs for a given pipeline or of all the runs across all pipelines by selecting the **Runs** tab
-* Deploy has two stages: Preview and Deploy
-  * Preview will generate a list of changes that will be made to the tenant if deployed
-    * To see the result of the Preview stage, click **Extensions** and scroll to the section labeled **Preview**
-    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
-  * Deploy applies these changes to the tenant
-    * To see the result of the Deploy stage, click **Extensions** and scroll to the section labeled **Deploy**
+*   Select your baseline and all tenants by checking the box at the top left of the page (next to **Org**)
+    
+*   Click **Sync Selected**
+    
 
-## Run an Export
+## Approve all pending changes to your tenants
 
-* Click on **Pipelines** > **\[tenant name\]** **-** **Export** > **Run pipeline** > **Run**
-* Export has two stages: Export and Merge Changes
-  * Export will generate a list of changes to be made to the tenant repository
-    * To see the result of the Export stage, click **Extensions** and scroll to the section labeled **Export**
-    * If you have [approval required](#require-approval) for the deployment, [approve](#approve) to continue
-  * Merge Changes applies these changes to the tenant repository
-    * To see the changes in the tenant repository, navigate to **Repos** > **repositories dropdown at the top** > **\[tenant name\]**
-      * By clicking **History** you can see a history of all past changes
+*   Select your baseline and all tenants by checking the box at the top left of the page (next to **Org**)
+    
+*   Click **Approve Selected**
 
 ## Schedule Deployment/Export
 
