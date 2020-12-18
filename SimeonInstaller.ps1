@@ -560,7 +560,7 @@ CRLFOption=CRLFAlways
             else {
                 $activeServicePlansString = " - found no active service plans"
             }
-            Write-Warning "The tenant does not have an enabled Intune license - see https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information.$activeServicePlansString"
+            Write-Warning "The tenant does not have an enabled Intune license - see https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information$activeServicePlansString"
         }
 
         # Create/update Azure AD user with random password
