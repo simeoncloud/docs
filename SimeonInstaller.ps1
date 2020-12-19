@@ -692,7 +692,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
-            [switch]$RequireDeployApproval,
+            [switch]$NoDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -1210,7 +1210,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
-            [switch]$RequireDeployApproval
+            [switch]$NoDeployApproval
         )
 
         $Name = $Name.ToLower()
@@ -1352,7 +1352,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name,
             # Specify to true to require approval when deploying
-            [switch]$RequireDeployApproval
+            [switch]$NoDeployApproval
         )
 
         $Name = $Name.ToLower()
@@ -1415,11 +1415,11 @@ CRLFOption=CRLFAlways
 
         $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
         $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
-        if ($approvalUrl -and !$RequireDeployApproval) {
+        if ($approvalUrl -and !$NoDeployApproval) {
             Write-Information "Removing existing approval check"
             irm @restProps $approvalUrl -Method Delete | Out-Null
         }
-        elseif (!$approvalUrl -and $RequireDeployApproval) {
+        elseif (!$approvalUrl -and $NoDeployApproval) {
             Write-Information "Adding approval check"
 
             # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
@@ -1539,8 +1539,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
-            # Specify to true to require approval when deploying
-            [bool]$RequireDeployApproval = $true,
+            # Specify to true to not require deploy approval
+            [switch]$NoDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
