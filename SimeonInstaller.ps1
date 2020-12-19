@@ -1420,7 +1420,7 @@ CRLFOption=CRLFAlways
             $('Sync') | % {
                 Write-Verbose "Downloading $_.yml from Simeon Repo $ymlRepo"
                 if (Test-Path "$_.yml") { Remove-Item "$_.yml" -Force -EA SilentlyContinue }
-                irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/feature/sync/$_.yml" -OutFile "$_.yml"
+                irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/master/$_.yml" -OutFile "$_.yml"
             }
             Invoke-CommandLine "git add . 2>&1" | Write-Verbose
 
