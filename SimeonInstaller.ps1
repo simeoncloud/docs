@@ -1415,11 +1415,11 @@ CRLFOption=CRLFAlways
 
         $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
         $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
-        if ($approvalUrl -and !$NoDeployApproval) {
+        if ($approvalUrl -and $NoDeployApproval) {
             Write-Information "Removing existing approval check"
             irm @restProps $approvalUrl -Method Delete | Out-Null
         }
-        elseif (!$approvalUrl -and $NoDeployApproval) {
+        elseif (!$approvalUrl -and !$NoDeployApproval) {
             Write-Information "Adding approval check"
 
             # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
