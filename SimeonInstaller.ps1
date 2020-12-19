@@ -1413,19 +1413,13 @@ CRLFOption=CRLFAlways
             [{"userId":"$contributorsId","roleName":"Administrator"}]
 "@ | Out-Null
 
-        if ($action -eq 'Sync' -and $PSBoundParameters.ContainsKey('RequireDeployApproval')) {
-            $requireApproval = $RequireDeployApproval
-        }
-        else {
-            $requireApproval = Read-HostBooleanValue "Do you want to require approval before running '$($Name)'?" -Default ($action -eq 'Sync' -and $Name -notlike '*baseline*')
-        }
         $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
         $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
-        if ($approvalUrl -and !$requireApproval) {
+        if ($approvalUrl -and !$RequireDeployApproval) {
             Write-Information "Removing existing approval check"
             irm @restProps $approvalUrl -Method Delete | Out-Null
         }
-        elseif (!$approvalUrl -and $requireApproval) {
+        elseif (!$approvalUrl -and $RequireDeployApproval) {
             Write-Information "Adding approval check"
 
             # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
@@ -1546,7 +1540,7 @@ CRLFOption=CRLFAlways
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
             # Specify to true to require approval when deploying
-            [switch]$RequireDeployApproval,
+            [bool]$RequireDeployApproval = $true,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
