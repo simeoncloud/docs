@@ -692,7 +692,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
-            [switch]$NoDeployApproval,
+            [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -730,7 +730,7 @@ CRLFOption=CRLFAlways
         Install-SimeonGitHubServiceConnection -Organization $Organization -Project $Project -GitHubAccessToken $GitHubAccessToken
 
         $environmentArgs = @{}
-        @('RequireDeployApproval') | % {
+        @('DisableDeployApproval') | % {
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
@@ -1210,7 +1210,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
-            [switch]$NoDeployApproval
+            [switch]$DisableDeployApproval
         )
 
         $Name = $Name.ToLower()
@@ -1218,7 +1218,7 @@ CRLFOption=CRLFAlways
         Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
 
         $environmentArgs = @{}
-        @('RequireDeployApproval') | % {
+        @('DisableDeployApproval') | % {
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
@@ -1352,7 +1352,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name,
             # Specify to true to require approval when deploying
-            [switch]$NoDeployApproval
+            [switch]$DisableDeployApproval
         )
 
         $Name = $Name.ToLower()
@@ -1415,11 +1415,11 @@ CRLFOption=CRLFAlways
 
         $approvals = irm @restProps "$apiBaseUrl/pipelines/checks/configurations?resourceType=environment&resourceId=$($environment.id)"
         $approvalUrl = $approvals.value |? { $_.type.name -eq 'Approval' } | Select -ExpandProperty url
-        if ($approvalUrl -and $NoDeployApproval) {
+        if ($approvalUrl -and $DisableDeployApproval) {
             Write-Information "Removing existing approval check"
             irm @restProps $approvalUrl -Method Delete | Out-Null
         }
-        elseif (!$approvalUrl -and !$NoDeployApproval) {
+        elseif (!$approvalUrl -and !$DisableDeployApproval) {
             Write-Information "Adding approval check"
 
             # well known check type 8C6F20A7-A545-4486-9777-F762FAFE0D4D is for "Approval"
@@ -1540,7 +1540,7 @@ CRLFOption=CRLFAlways
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
             # Specify to true to not require deploy approval
-            [switch]$NoDeployApproval,
+            [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
@@ -1550,7 +1550,7 @@ CRLFOption=CRLFAlways
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'RequireDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
