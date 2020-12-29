@@ -132,7 +132,7 @@
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
   },
   {
-    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AtpPoliciesForO365",
+    "Name": "PowerShell/Exchange/AdvancedThreatProtection/AtpPolicyForO365",
     "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links/ATP Safe Attachments > Global Settings"
   },
   {
