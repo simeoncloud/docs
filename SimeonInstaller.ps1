@@ -1259,7 +1259,6 @@ CRLFOption=CRLFAlways
                 }
             }
             uri = "$pipelineName.yml"
-            variables = $pipelineVariables
         }
         if ($pipeline) {
             $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
@@ -1274,13 +1273,6 @@ CRLFOption=CRLFAlways
 
             if (!$body.variables) {
                 $body.variables = [pscustomobject]@{}
-            }
-
-            # if a variable doesn't exist add, if they key exists don't update value
-            foreach ($kvp in $pipelineVariables.GetEnumerator()) {
-                if (!($body.variables | gm $kvp.Key)) {
-                    $body.variables | Add-Member $kvp.Key $kvp.Value
-                }
             }
 
             $body += @{
