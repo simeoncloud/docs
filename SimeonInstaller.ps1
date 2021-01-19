@@ -299,7 +299,6 @@ CRLFOption=CRLFAlways
             }
         }
 
-
         return $token
     }
 
@@ -327,7 +326,7 @@ CRLFOption=CRLFAlways
         Install-RequiredModule
 
         $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
-        $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global administrator' Azure Active Directory role"
+        $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global Administrator' Azure Active Directory role"
         switch ($Resource) {
             'AzureManagement' {
                 $Scopes = 'https://management.core.windows.net//.default'
@@ -542,7 +541,7 @@ CRLFOption=CRLFAlways
         Install-MSGraphPowerShell $Tenant
 
         while (!(Test-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant)) {
-            Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
+            Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global Administrator' role."
             Connect-Azure $Tenant -Interactive
         }
 
@@ -589,8 +588,9 @@ CRLFOption=CRLFAlways
             Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' | % { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
         }
 
-        # Add to Global Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA
-        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Global Administrator', 'Directory Synchronization Accounts') } | % {
+        # Add to Global Administrator role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA
+        # Include Company Administrator for legacy support
+        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Global Administrator', 'Company Administrator', 'Directory Synchronization Accounts') } | % {
             if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
                 Write-Information "Adding service account to directory role '$($_.DisplayName)'"
                 Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
