@@ -9,6 +9,7 @@
 - Get a **Microsoft 365** license
   - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx)
   - Any one of the following license configurations are supported
+    - Microsoft 365 F3
     - Microsoft 365 Business Premium
     - Microsoft 365 E3
     - Microsoft 365 E5
