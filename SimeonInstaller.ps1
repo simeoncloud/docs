@@ -1192,6 +1192,105 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Creates/updates the pipeline used to retry failed pipelines
+    #>
+    function Install-SimeonRetryPipeline {
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants'
+        )
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview"
+            }
+            ContentType = 'application/json'
+        }
+
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
+        $pipelineName = "RetryPipelines"
+        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
+
+        $queueName = $poolName = "Azure Pipelines"
+        $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
+        $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
+        $repoName = "AzurePipelineTemplates"
+        $repoOrgName = "simeoncloud"
+
+        $body = @{
+            name = $pipelineName
+            process = @{
+                type = 2
+                yamlFilename = "$pipelineName.yml"
+            }
+            queue = @{
+                name = $queueName
+                id = $queueId
+                pool = @{
+                    name = $poolName
+                    id = $poolId
+                    isHosted = "true"
+                }
+            }
+            repository = @{
+                url = "https://github.com/$repoOrgName/$repoName.git"
+                name = "$repoOrgName/$repoName"
+                id = "$repoOrgName/$repoName"
+                type = "GitHub"
+                defaultBranch = "master"
+                properties = @{
+                    apiUrl = "https://api.github.com/repos/$repoOrgName/$repoName"
+                    branchesUrl = "https://api.github.com/repos/$repoOrgName/$repoName/branches"
+                    cloneUrl = "https://github.com/$repoOrgName/$repoName.git"
+                    defaultBranch = "master"
+                    fullName = "$repoOrgName/$repoName"
+                    manageUrl = "https://github.com/$repoOrgName/$repoName"
+                    orgName = "$repoOrgName"
+                    refsUrl = "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
+                    connectedServiceId = $serviceEndpoint.Id
+                }
+            }
+            uri = "$pipelineName.yml"
+        }
+        if ($pipeline) {
+            $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
+
+            $body.variables = $definition.variables
+            # disabled or enabled
+            $body.queueStatus = $definition.queueStatus
+            # keep schedule already defined
+            if ($definition.triggers) {
+                $body.triggers = $definition.triggers
+            }
+
+            if (!$body.variables) {
+                $body.variables = [pscustomobject]@{}
+            }
+
+            $body += @{
+                id = $pipeline.id
+                revision = $pipeline.revision
+                options = $definition.options
+            }
+
+            irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)" -Method Put -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+        }
+        else {
+            Write-Information "Creating pipeline '$pipelineName'"
+            irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+        }
+    }
+
+    <#
+    .SYNOPSIS
     Creates/updates pipelines for a Simeon tenant
     #>
     function Install-SimeonTenantPipeline {
