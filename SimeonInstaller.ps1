@@ -541,7 +541,7 @@ CRLFOption=CRLFAlways
 
         Install-MSGraphPowerShell $Tenant
 
-        while (!(Test-AzureADCurrentUserRole 'Company Administrator' $Tenant)) {
+        while (!(Test-AzureADCurrentUserRole 'Global Administrator' $Tenant)) {
             Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
             Connect-Azure $Tenant -Interactive
         }
@@ -589,8 +589,8 @@ CRLFOption=CRLFAlways
             Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' | % { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
         }
 
-        # Add to Company Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA
-        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Company Administrator', 'Directory Synchronization Accounts') } | % {
+        # Add to Global Administrator (aka Global Admin) role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA
+        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Global Administrator', 'Directory Synchronization Accounts') } | % {
             if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
                 Write-Information "Adding service account to directory role '$($_.DisplayName)'"
                 Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
