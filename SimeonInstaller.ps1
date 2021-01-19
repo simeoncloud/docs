@@ -256,7 +256,7 @@ CRLFOption=CRLFAlways
         param(
             [ValidateNotNullOrEmpty()]
             [Parameter(Mandatory)]
-            [string]$Name,
+            [string[]]$Name,
             [ValidateNotNullOrEmpty()]
             [Parameter(Mandatory)]
             [string]$Tenant
@@ -270,13 +270,10 @@ CRLFOption=CRLFAlways
                 if ($res.value) { $value += $res.value }
                 $url = $res."@odata.nextLink"
             }
-            return [bool]($value |? objectType -eq 'Role' |? displayName -eq $Name)
+            return [bool]($value |? objectType -eq 'Role' |? displayName -in $Name)
         }
         catch {
             Write-Warning $_.Exception.Message
-            Write-Warning @"
-irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
-"@
             return $false
         }
     }
@@ -544,7 +541,7 @@ irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAcce
 
         Install-MSGraphPowerShell $Tenant
 
-        while (!(Test-AzureADCurrentUserRole 'Global Administrator' $Tenant)) {
+        while (!(Test-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant)) {
             Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global administrator' role."
             Connect-Azure $Tenant -Interactive
         }
