@@ -274,6 +274,9 @@ CRLFOption=CRLFAlways
         }
         catch {
             Write-Warning $_.Exception.Message
+            Write-Warning @"
+irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+"@
             return $false
         }
     }
