@@ -5,32 +5,25 @@
   - **Do not** create one using a personal account - otherwise it will create an Azure AD tenant called johndoegmail.onmicrosoft.com
   - Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
 - **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user for subsequent steps (this is required so that the licenses and subscriptions created in subsequent steps are linked to your new tenant)
-- Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment) (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure RM Subscription)
+- (Optional) Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment)
+  - Note that an Azure Subscription is required to use the baseline configurations for logging and alerting. The cost of the subscription ranges between $5 and $10 USD per month. 
 - Get a **Microsoft 365** license
   - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx)
-  - Any one of the following license configurations are supported
-    - Microsoft 365 F3
-    - Microsoft 365 Business Premium
-    - Microsoft 365 E3
-    - Microsoft 365 E5
-    - A combination of EMS and O365 E3 or E5 licenses
-  - You can verify the licenses have been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
-- [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-tenant)
+  - All licensed SKUs are supported
+  - If you want access to all baseline configurations, we recommend **Microsoft 365 F3**
+  - You can verify the license has been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
+- [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-baseline-tenant)
 
 ## Make sure a tenant meets the prerequisites to use Simeon
 
 - You must be operating on global Azure cloud (not [Government Community Cloud](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)). The Azure Government cloud is not currently supported
 - Make sure the Microsoft Intune Enterprise Application is enabled for users to sign in
     - Navigate to the [Azure Portal](https://portal.azure.com/#home) > **Azure Active Directory** > **Enterprise applications** > switch **Application type** from **Enterprise Applications** to **All Applications** > **Apply** > search for **Microsoft Intune** > **Properties** > **Enabled for users to sign-in** > **Yes**
-- Make sure the tenant has a valid Microsoft 365 license - any one of the following license configurations are supported
-    - Microsoft 365 Business Premium
-    - Microsoft 365 E3
-    - Microsoft 365 E5
-    - A combination of EMS and O365 E3 or E5 licenses
+- Make sure the tenant has a valid Microsoft 365 license - all licensed SKUs are supported
 
 You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 
-- Make sure the tenant has an Azure Subscription for Simeon to use (the Simeon baseline includes several configurations of minimal cost for logging and alerting purposes that require an Azure Subscription)
+- If you want to use the baseline configurations for logging and alerting, make sure the tenant has an Azure Subscription for Simeon to use
 
 You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
