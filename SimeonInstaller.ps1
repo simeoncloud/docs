@@ -401,7 +401,7 @@ CRLFOption=CRLFAlways
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
         if (!$projectId) {
-            throw "Successfully authenticated with Azure DevOps, but could not access project '$Organization\$Project' - user has access to projects $($projects.value.name -join ', ')"
+            throw "Successfully authenticated with Azure DevOps, but could not access project '$Organization\$Project' - found projects: $($projects.value.name -join ', '). Please check that you are installing into the correct organization."
         }
     }
 
