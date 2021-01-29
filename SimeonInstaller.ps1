@@ -250,7 +250,7 @@ CRLFOption=CRLFAlways
         }
     }
 
-    function Test-AzureADCurrentUserRole {
+    function Assert-AzureADCurrentUserRole {
         [CmdletBinding()]
         [OutputType([bool])]
         param(
@@ -270,12 +270,14 @@ CRLFOption=CRLFAlways
                 if ($res.value) { $value += $res.value }
                 $url = $res."@odata.nextLink"
             }
-            return [bool]($value |? objectType -eq 'Role' |? displayName -in $Name)
+            if ($value |? objectType -eq 'Role' |? displayName -in $Name) {
+                return
+            }
         }
         catch {
             Write-Warning $_.Exception.Message
-            return $false
         }
+        throw "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global Administrator' role."
     }
 
     <#
@@ -293,10 +295,7 @@ CRLFOption=CRLFAlways
         $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps
 
         if ($Organization -and $Project) {
-            while (!(Test-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token)) {
-                Write-Warning "Successfully authenticated with Azure DevOps as $($token.Account.Username), but could not access project '$Organization\$Project'"
-                $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps -Interactive
-            }
+            Assert-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token
         }
 
         return $token
@@ -379,7 +378,7 @@ CRLFOption=CRLFAlways
         return $token.AccessToken
     }
 
-    function Test-SimeonAzureDevOpsAccessToken {
+    function Assert-SimeonAzureDevOpsAccessToken {
         [CmdletBinding()]
         [OutputType([bool])]
         param(
@@ -401,10 +400,9 @@ CRLFOption=CRLFAlways
 
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
-        if ($projectId) {
-            return $true
+        if (!$projectId) {
+            throw "Successfully authenticated with Azure DevOps, but could not access project '$Organization\$Project' - user has access to projects $($projects.value.name -join ', ')"
         }
-        return $false
     }
 
     function Get-AzureDevOpsRepository {
@@ -540,10 +538,7 @@ CRLFOption=CRLFAlways
 
         Install-MSGraphPowerShell $Tenant
 
-        while (!(Test-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant)) {
-            Write-Warning "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global Administrator' role."
-            Connect-Azure $Tenant -Interactive
-        }
+        Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
 
         if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
             throw "Cannot install service account using a federated Azure AD domain"
