@@ -839,6 +839,10 @@ CRLFOption=CRLFAlways
             $Baseline = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Baseline).remoteUrl
         }
 
+        if ($Repository -eq $Baseline) {
+            throw "A repository cannot use itself as a baseline"
+        }
+
         $token = Get-SimeonAzureDevOpsAccessToken
 
         $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
