@@ -1,162 +1,162 @@
 [
   {
-    "Name": "AadIam/CompanyBrandings",
+    "Namespace": "AadIam/CompanyBrandings",
     "Description": "Azure AD > Company branding"
   },
   {
-    "Name": "AadIam/ExternalUserDirectorySettings",
+    "Namespace": "AadIam/ExternalUserDirectorySettings",
     "Description": "Azure AD > External user directory settings"
   },
   {
-    "Name": "AadIam/ExternalUserGuestSettings",
+    "Namespace": "AadIam/ExternalUserGuestSettings",
     "Description": "Azure AD > External user guest settings"
   },
   {
-    "Name": "AadIam/FeatureSettings",
+    "Namespace": "AadIam/FeatureSettings",
     "Description": "Azure AD > User feature preview settings"
   },
   {
-    "Name": "AadIam/GroupSettings",
+    "Namespace": "AadIam/GroupSettings",
     "Description": "Azure AD > Group settings"
   },
   {
-    "Name": "AadIam/MdmApplications",
+    "Namespace": "AadIam/MdmApplications",
     "Description": "Azure AD > Mobility (MDM and MAM)"
   },
   {
-    "Name": "AadIam/PasswordResetPolicies",
+    "Namespace": "AadIam/PasswordResetPolicies",
     "Description": "Azure AD > Password reset"
   },
   {
-    "Name": "AadIam/UserSettings",
+    "Namespace": "AadIam/UserSettings",
     "Description": "Azure AD > User settings"
   },
   {
-    "Name": "AzureManagement/MicrosoftAadIam/DiagnosticSettings",
+    "Namespace": "AzureManagement/MicrosoftAadIam/DiagnosticSettings",
     "Description": "Azure AD > Diagnostic settings"
   },
   {
-    "Name": "AzureManagement/MicrosoftIntune/DiagnosticSettings",
+    "Namespace": "AzureManagement/MicrosoftIntune/DiagnosticSettings",
     "Description": "Intune > Diagnostic settings"
   },
   {
-    "Name": "AzureManagement/MicrosoftResources/ResourceGroups",
+    "Namespace": "AzureManagement/MicrosoftResources/ResourceGroups",
     "Description": "Azure > Resource groups"
   },
   {
-    "Name": "MSGraph/Applications",
+    "Namespace": "MSGraph/Applications",
     "Description": "Azure AD > App registrations"
   },
   {
-    "Name": "MSGraph/Groups",
+    "Namespace": "MSGraph/Groups",
     "Description": "Azure AD > Groups"
   },
   {
-    "Name": "MSGraph/ServicePrincipals",
+    "Namespace": "MSGraph/ServicePrincipals",
     "Description": "Azure AD > Enterprise applications"
   },
   {
-    "Name": "MSGraph/Settings",
+    "Namespace": "MSGraph/Settings",
     "Description": "Azure AD > Directory settings"
   },
   {
-    "Name": "MSGraph/Users",
+    "Namespace": "MSGraph/Users",
     "Description": "Azure AD > Users"
   },
   {
-    "Name": "MSGraph/ConditionalAccess/NamedLocations",
+    "Namespace": "MSGraph/ConditionalAccess/NamedLocations",
     "Description": "Azure AD > Security > Conditional Access > Named locations"
   },
   {
-    "Name": "MSGraph/ConditionalAccess/Policies",
+    "Namespace": "MSGraph/ConditionalAccess/Policies",
     "Description": "Azure AD > Security > Conditional Access > Policies"
   },
   {
-    "Name": "MSGraph/DeviceAppManagement/AndroidManagedAppProtections",
+    "Namespace": "MSGraph/DeviceAppManagement/AndroidManagedAppProtections",
     "Description": "Intune > Apps > App protection policies (Platform = Android)"
   },
   {
-    "Name": "MSGraph/DeviceAppManagement/IosManagedAppProtections",
+    "Namespace": "MSGraph/DeviceAppManagement/IosManagedAppProtections",
     "Description": "Intune > Apps > App protection policies (Platform = iOS/iPadOS)"
   },
   {
-    "Name": "MSGraph/DeviceAppManagement/MobileApps",
+    "Namespace": "MSGraph/DeviceAppManagement/MobileApps",
     "Description": "Intune > Apps"
   },
   {
-    "Name": "MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations",
+    "Namespace": "MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations",
     "Description": "Intune > Apps > App configuration policies"
   },
   {
-    "Name": "MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies",
+    "Namespace": "MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies",
     "Description": "Intune > Apps > App protection policies (Platform = Windows 10)"
   },
   {
-    "Name": "MSGraph/DeviceManagement/DeviceCompliancePolicies",
+    "Namespace": "MSGraph/DeviceManagement/DeviceCompliancePolicies",
     "Description": "Intune > Devices > Compliance policies"
   },
   {
-    "Name": "MSGraph/DeviceManagement/DeviceConfigurations",
+    "Namespace": "MSGraph/DeviceManagement/DeviceConfigurations",
     "Description": "Intune > Devices > Configuration profiles"
   },
   {
-    "Name": "MSGraph/DeviceManagement/DeviceEnrollmentConfigurations",
+    "Namespace": "MSGraph/DeviceManagement/DeviceEnrollmentConfigurations",
     "Description": "Intune > Devices > Enrollment restrictions"
   },
   {
-    "Name": "MSGraph/DeviceManagement/DeviceManagementScripts",
+    "Namespace": "MSGraph/DeviceManagement/DeviceManagementScripts",
     "Description": "Intune > Devices > Scripts"
   },
   {
-    "Name": "MSGraph/DeviceManagement/GroupPolicyConfigurations",
+    "Namespace": "MSGraph/DeviceManagement/GroupPolicyConfigurations",
     "Description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
   },
   {
-    "Name": "MSGraph/DeviceManagement/MobileThreatDefenseConnectors",
+    "Namespace": "MSGraph/DeviceManagement/MobileThreatDefenseConnectors",
     "Description": "Intune > Mobile Threat Defense"
   },
   {
-    "Name": "MSGraph/DeviceManagement/WindowsAutopilotDeploymentProfiles",
+    "Namespace": "MSGraph/DeviceManagement/WindowsAutopilotDeploymentProfiles",
     "Description": "Intune > Devices > Windows Autopilot deployment profiles"
   },
   {
-    "Name": "PowerShell/Exchange/ClientAccess/OwaMailboxPolicies",
+    "Namespace": "PowerShell/Exchange/ClientAccess/OwaMailboxPolicies",
     "Description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
-    "Name": "PowerShell/Exchange/Organization/AdminAuditLogConfig",
+    "Namespace": "PowerShell/Exchange/Organization/AdminAuditLogConfig",
     "Description": "Office 365 > Exchange > AdminAuditLogConfig"
   },
    {
-    "Name": "PowerShell/Exchange/Organization/AuthenticationPolicy",
+    "Namespace": "PowerShell/Exchange/Organization/AuthenticationPolicy",
     "Description": "Office 365 > Exchange > Modern authentication"
   },
   {
-    "Name": "PowerShell/Exchange/Organization/OrganizationConfig",
+    "Namespace": "PowerShell/Exchange/Organization/OrganizationConfig",
     "Description": "Office 365 > Exchange > OrganizationConfig"
   },
   {
-    "Name": "MSGraph/Policies/DeviceRegistrationPolicy",
+    "Namespace": "MSGraph/Policies/DeviceRegistrationPolicy",
     "Description": "Azure AD > Device settings"
   },
   {
-    "Name": "PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies",
+    "Namespace": "PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies",
     "Description": "Office 365 > Security & Compliance > Information governance > Retention"
   },
   {
-    "Name": "PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies",
+    "Namespace": "PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies",
     "Description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)"
   },
   {
-    "Name": "TeamsApi/Users/TenantWideAppsSettings",
+    "Namespace": "TeamsApi/Users/TenantWideAppsSettings",
     "Description": "Office 365 > Teams > Apps"
   },
   {
-    "Name": "TeamsPSAdmin/TeamsAppPermissionPolicy",
+    "Namespace": "TeamsPSAdmin/TeamsAppPermissionPolicy",
     "Description": "Office 365 > Teams > Apps > Permission policies"
   },
   {
-    "Name": "TeamsPSAdmin/TeamsClientConfiguration",
+    "Namespace": "TeamsPSAdmin/TeamsClientConfiguration",
     "Description": "Office 365 > Teams > Org-wide settings"
   }
 ]
