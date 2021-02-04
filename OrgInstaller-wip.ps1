@@ -34,12 +34,23 @@ $userDescriptor = ((Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https:
 Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$projectColAdminDescriptor`?api-version=6.1-preview.1" -Method Put
 #>
 
+<#
+# Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
+$body = '{"contributionIds":["ms.vss-build-web.pipelines-org-settings-data-provider"],"dataProviderContext":{"properties":{"enforceReferencedRepoScopedToken":"false", "enforceJobAuthScope": "false", "enforceSettableVar": "false"}}}'
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -Body $body -ContentType "application/json"
+#>
 
-# Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines, Limit job authorization scope to referenced Azure DevOps repositories, and Limit variables that can be set at queue time
+<#
+# New project > name it Tenants > Create project
+$projectId = ((Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Get).Value |? {$_.name -eq "Tenants"}).id
+if (!$projectId)
+{
+    $body = '{"name":"Tenants","description":"","visibility":0,"capabilities":{"versioncontrol":{"sourceControlType":"Git"},"processTemplate":{"templateTypeId":"b8a3a935-7e91-48b8-a94c-606d37c3e9f2"}}}'
+    $projectId = (Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Post -Body $body -ContentType "application/json").id
+}
+#>
 
 # Permissions > Project Collection Build Service Accounts > Members > Add > Project Collection Build Service
-# New project > name it Tenants > Create project
-
 <# Project settings
     Overview > uncheck all except Pipelines and Repos
     Permissions > Contributors > Members > Add > Tenants Build Service and Project Collection Build Service
