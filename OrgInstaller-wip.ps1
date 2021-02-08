@@ -117,27 +117,37 @@ if ($repos.name -contains "Tenants") {
 
 #>
 
-# Create Service connection pwsh -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/SimeonInstaller.ps1); Install-SimeonGitHubServiceConnection -Organization (Read-Host Enter Organization) -Project Tenants"
+<#
+# Create Service connection
+$githubAccessToken ="Get from keyvault"
+Install-SimeonGitHubServiceConnection -Organization $Organization -Project Tenants -GitHubAccessToken $githubAccessToken
+#>
+
+<#
+# Install Retry failed Pipelines
+Install-SimeonRetryPipeline -Organization $organization
+#>
+
+<#
 # Navigate to Project settings > Service connections > ... > Security > Add > Contributors > set role to Administrator > Add
+$groupId = ((Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get).value | where principalName -eq "[Tenants]\Contributors").originId
+$body = "[{""roleName"":""Administrator"",""userId"":""$groupId""}]"
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/securityroles/scopes/distributedtask.project.serviceendpointrole/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -Body $body -ContentType "application/json"
+#>
+
+<#
+# Install SummaryReport pipeline
+$emailPw =
+Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -FromEmailPw $emailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $organization
+#>
+
 # Pipelines > ... > Manage security > Contributors > ensure Administer build permissions and Edit build pipeline are set to Allow
 
-# Install SummaryReport pipeline
-# pwsh -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/SimeonInstaller.ps1); Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -FromEmailPw $emailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $organization"
 
-# Install Retry failed Pipelines
-# pwsh -ExecutionPolicy Bypass -Command "iex (irm https://raw.githubusercontent.com/simeoncloud/docs/master/SimeonInstaller.ps1); Install-SimeonRetryPipeline -Organization $organization"
+# Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
+
 # Turn off Organization and Project alerts for Pipelines, but enable those sent to pipelinenotifications@simeoncloud.com
 
 # Organization settings > Global notifications > disable Build completes and Pull request changes
 
-# Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
-
-# Install code search
-
-# Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
-
-# Organization settings
-
-# Users > Add users > add the users from the client that need to be able to access the pipelines > Add
-
-# Project settings > Permissions > Tenants Team > Members > Add > enter in the user you wish to add > Save
+# Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
