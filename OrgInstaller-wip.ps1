@@ -141,13 +141,38 @@ $emailPw =
 Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -FromEmailPw $emailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $organization
 #>
 
+<#
 # Pipelines > ... > Manage security > Contributors > ensure Administer build permissions and Edit build pipeline are set to Allow
+$groupDescriptor = ($groups | Where-Object { $_.principalName -eq "[Tenants]\Contributors" }).descriptor
+$identityDescriptor = ((Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get -ContentType "application/json").value).descriptor
+
+
+$body = "{""token"":""$projectId"",""merge"":true,""accessControlEntries"":[{""descriptor"":""$identityDescriptor"",""allow"":16384,""deny"":0,""extendedInfo"":{""effectiveAllow"":16384,""effectiveDeny"":0,""inheritedAllow"":16384,""inheritedDeny"":0}}]}"
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body -ContentType "application/json"
+
+$body = "{""token"":""$projectId"",""merge"":true,""accessControlEntries"":[{""descriptor"":""$identityDescriptor"",""allow"":2048,""deny"":0,""extendedInfo"":{""effectiveAllow"":2048,""effectiveDeny"":0,""inheritedAllow"":2048,""inheritedDeny"":0}}]}"
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body -ContentType "application/json"
+#>
+
+<#
+# Organization settings > Global notifications > disable Build completes and Pull request changes
+# disable Build completes
+$body = '{"status":-2}'
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription?api-version=6.1-preview.1" -Method Patch -Body $body -ContentType "application/json"
+
+# Pull request changes
+$body = '{"status":-2}'
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription?api-version=6.1-preview.1" -Method Patch -Body $body -ContentType "application/json"
+#>
+
+<#
+# No idea if this works on org that hasn't had code search installed
+# Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
+$body = '{"assignmentType":0,"billingId":null,"itemId":"ms.vss-code-search","operationType":1,"quantity":0,"properties":{}}'
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://extmgmt.dev.azure.com/$organization/_apis/ExtensionManagement/AcquisitionRequests?api-version=6.1-preview.1" -Method Post -Body $body -ContentType "application/json"
+#>
 
 
 # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
 
 # Turn off Organization and Project alerts for Pipelines, but enable those sent to pipelinenotifications@simeoncloud.com
-
-# Organization settings > Global notifications > disable Build completes and Pull request changes
-
-# Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
