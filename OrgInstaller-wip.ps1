@@ -1,6 +1,52 @@
+$env:PersonalAccessToken = Get-SimeonAzureDevOpsAccessToken
+function Invoke-Api {
+    param(
+        [string]$Uri,
+        [string]$Method,
+        [string]$Body,
+        [string]$ContentType = "application/json",
+        [int]$Retries = 3,
+        [int]$SecondsDelay = 5
+    )
+    $retryCount = 0
+    $completed = $false
+    $response = $null
+    $AuthenicationHeader = @{Authorization = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($env:PersonalAccessToken)")) }
+
+# create object for splatting, removing empty keys
+$params = @{
+    Uri = $Uri
+    Method = $Method
+    Header = $AuthenicationHeader
+    Body = $Body
+    ContentType = $ContentType
+}
+($params.GetEnumerator() | ? { -not $_.Value }) | % { $params.Remove($_.Name) }
+
+    while (-not $completed) {
+        try {
+            $response = Invoke-RestMethod @params
+            if ($response.StatusCode -ne 200) {
+                throw "Expecting reponse code 200, was: $($response.StatusCode)"
+            }
+            $completed = $true
+        } catch {
+            Write-Host "$(Get-Date -Format G): Request to $url failed. $_"
+            if ($retrycount -ge $Retries) {
+                Write-Warning "Request to $url failed the maximum number of $retryCount times."
+                throw
+            } else {
+                Write-Warning "Request to $url failed. Retrying in $SecondsDelay seconds."
+                Start-Sleep $SecondsDelay
+                $retrycount++
+            }
+        }
+    }
+}
+
 # Used for dev purposess
 Import-Module .\SimeonInstaller.ps1 -Force
-$env:PersonalAccessToken = Get-SimeonAzureDevOpsAccessToken
+
 
 <#
 
@@ -15,7 +61,6 @@ irm @restProps $url -Method Get
 
 #>
 
-$AuthenicationHeader = @{Authorization = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$(Get-SimeonAzureDevOpsAccessToken)")) }
 $Organization = "lance0958"
 
 $url = "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1"
@@ -155,6 +200,7 @@ Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$org
 #>
 
 <#
+I THINK I CAN REMOVE THESE COVERED BELOW
 # Organization settings > Global notifications > disable Build completes and Pull request changes
 # disable Build completes
 $body = '{"status":-2}'
@@ -173,6 +219,51 @@ Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://extmgmt.dev.azure.
 #>
 
 
+$groupId = ($groups |? {$_.PrincipalName -eq "[Tenants]\Tenants Team" }).originId
 # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
 
-# Turn off Organization and Project alerts for Pipelines, but enable those sent to pipelinenotifications@simeoncloud.com
+$body = @"
+    {
+    "description": "A build completes",
+    "filter": {
+        "eventType": "ms.vss-build.build-completed-event",
+        "criteria": {
+            "clauses": [
+                {
+                    "fieldName": "Build reason",
+                    "operator": "Does not contain",
+                    "value": "-",
+                    "index": 0
+                }
+            ]
+        },
+        "type": "Expression"
+    },
+    "notificationEventInformation": null,
+    "type": 2,
+    "subscriber": {
+        "displayName": "[Tenants]\\Tenants Team",
+        "id": "$groupId",
+        "uniqueName": "vstfs:///Classification/TeamProject/$projectId\\Tenants Team",
+        "isContainer": true
+    },
+    "channel": {
+        "type": "EmailHtml",
+        "address": "pipelinenotifications@simeoncloud.com",
+        "useCustomAddress": true
+    },
+    "scope": {
+        "id": "$projectId"
+    },
+    "dirty": true
+}
+"@
+
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -Body $body -ContentType "application/json"
+
+# Disable pipeline notifications
+$body = '{"optedOut":true}'
+# Build completes
+Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body -ContentType "application/json"
+# Pull requests
+Invoke-RestMethod  -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body -ContentType "application/json"
