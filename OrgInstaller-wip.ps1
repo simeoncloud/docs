@@ -45,13 +45,13 @@ $params = @{
     }
     return $response
 }
+
 $Organization = "lance0958"
-# Rename this to project name
-$Tenant = "Tenants"
+$ProjectName = "Tenants"
 $SimeonUserToInviteToOrg = "devops@simeoncloud.com"
+$PipelineNotificationEmail ="pipelinenotifications@simeoncloud.com"
 # Used for dev purposess
 Import-Module .\SimeonInstaller.ps1 -Force
-
 
 $groups = (Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get).value
 
@@ -93,12 +93,12 @@ if ($SimeonUserToInviteToOrg) {
 $users = (Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get).value
 
 # Set or get Project id
-$projectId = ((Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Get).value |? {$_.name -eq "Tenants"}).id
+$projectId = ((Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Get).value |? {$_.name -eq "$ProjectName"}).id
 if (!$projectId)
 {
     $body = @"
     {
-        "name": "$Tenant",
+        "name": "$ProjectName",
         "description": "",
         "visibility": 0,
         "capabilities": {
@@ -111,7 +111,7 @@ if (!$projectId)
         }
     }
 "@
-    $projectId = ((Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Post -Body $body).value |? {$_.name -eq "Tenants"}).id
+    $projectId = ((Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Post -Body $body).value |? {$_.name -eq "$ProjectName"}).id
     $projectId = (Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Post -Body $body -ContentType "application/json").id
 }
 
@@ -166,10 +166,10 @@ $body = @"
 "@
 Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/FeatureStates/host/project/$projectId/ms.feed.feed?api-version=4.1-preview.1" -Method Patch -Body $body | Out-Null
 
-#  Permissions > Contributors > Members > Add > Tenants Build Service
+#  Permissions > Contributors > Members > Add > $ProjectName Build Service
 ### Contributors group actions
-$groupDescriptor = ($groups |? principalName -eq "[$tenant]\Contributors").descriptor
-$userDescriptor = ($users |? displayName -eq "Tenants Build Service ($Organization)").descriptor
+$groupDescriptor = ($groups |? principalName -eq "[$ProjectName]\Contributors").descriptor
+$userDescriptor = ($users |? displayName -eq "$ProjectName Build Service ($Organization)").descriptor
 Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$groupDescriptor`?api-version=6.1-preview.1" -Method Put | Out-Null
 
 # Permissions > Contributors > Members > Add > Project Collection Build Service
@@ -260,10 +260,10 @@ $body = @"
             "enforceJobAuthScope": "false",
             "enforceSettableVar": "false",
             "sourcePage": {
-                "url": "https://dev.azure.com/$Organization/$tenant/_settings/settings",
+                "url": "https://dev.azure.com/$Organization/$ProjectName/_settings/settings",
                 "routeId": "ms.vss-admin-web.project-admin-hub-route",
                 "routeValues": {
-                    "project": "$tenant",
+                    "project": "$ProjectName",
                     "adminPivot": "settings",
                     "controller": "ContributedPage",
                     "action": "Execute"
@@ -275,74 +275,101 @@ $body = @"
 "@
 Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -Body $body | Out-Null
 
-# Repositories > rename $tenant to default
+# Repositories > rename $ProjectName to default
 $repos = (Invoke-Api -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get).value
-if ($repos.name -contains "$tenant") {
-    $repoId = ($repos |? { $_.name -eq "$tenant"}).id
+if ($repos.name -contains "$ProjectName") {
+    $repoId = ($repos |? { $_.name -eq "$ProjectName"}).id
     $body = "{""name"":""Default""}"
-    Invoke-Api -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body $body
+    Invoke-Api -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body $body | Out-Null
 }
 
 <#
 # Create Service connection
 $githubAccessToken ="Get from keyvault"
-Install-SimeonGitHubServiceConnection -Organization $Organization -Project Tenants -GitHubAccessToken $githubAccessToken
-#>
+Install-SimeonGitHubServiceConnection -Organization $Organization -Project $ProjectName -GitHubAccessToken $githubAccessToken
 
-<#
 # Install Retry failed Pipelines
 Install-SimeonRetryPipeline -Organization $organization
-#>
 
-<#
-# Navigate to Project settings > Service connections > ... > Security > Add > Contributors > set role to Administrator > Add
-$groupId = ((Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get).value | where principalName -eq "[Tenants]\Contributors").originId
-$body = "[{""roleName"":""Administrator"",""userId"":""$groupId""}]"
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/securityroles/scopes/distributedtask.project.serviceendpointrole/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -Body $body -ContentType "application/json"
-#>
-
-<#
 # Install SummaryReport pipeline
-$emailPw =
+$emailPw = "Get from keyvault"
 Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -FromEmailPw $emailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $organization
 #>
 
-<#
+# Navigate to Project settings > Service connections > ... > Security > Add > Contributors > set role to Administrator > Add
+$groupId = ($groups |? principalName -eq "[$ProjectName]\Contributors").originId
+$body = @"
+[
+    {
+        "roleName": "Administrator",
+        "userId": "$groupId"
+    }
+]
+"@
+Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/securityroles/scopes/distributedtask.project.serviceendpointrole/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -Body $body | Out-Null
+
+
 # Pipelines > ... > Manage security > Contributors > ensure Administer build permissions and Edit build pipeline are set to Allow
-$groupDescriptor = ($groups | Where-Object { $_.principalName -eq "[Tenants]\Contributors" }).descriptor
-$identityDescriptor = ((Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get -ContentType "application/json").value).descriptor
+$groupDescriptor = ($groups |? { $_.principalName -eq "[$ProjectName]\Contributors" }).descriptor
+$identityDescriptor = ((Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get).value).descriptor
 
+$body = @"
+{
+    "token": "$projectId",
+    "merge": true,
+    "accessControlEntries": [
+        {
+            "descriptor": "$identityDescriptor",
+            "allow": 16384,
+            "deny": 0,
+            "extendedInfo": {
+                "effectiveAllow": 16384,
+                "effectiveDeny": 0,
+                "inheritedAllow": 16384,
+                "inheritedDeny": 0
+            }
+        }
+    ]
+}
+"@
+Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body | Out-Null
 
-$body = "{""token"":""$projectId"",""merge"":true,""accessControlEntries"":[{""descriptor"":""$identityDescriptor"",""allow"":16384,""deny"":0,""extendedInfo"":{""effectiveAllow"":16384,""effectiveDeny"":0,""inheritedAllow"":16384,""inheritedDeny"":0}}]}"
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body -ContentType "application/json"
+$body = @"
+{
+    "token": "$projectId",
+    "merge": true,
+    "accessControlEntries": [
+        {
+            "descriptor": "$identityDescriptor",
+            "allow": 2048,
+            "deny": 0,
+            "extendedInfo": {
+                "effectiveAllow": 2048,
+                "effectiveDeny": 0,
+                "inheritedAllow": 2048,
+                "inheritedDeny": 0
+            }
+        }
+    ]
+}
+"@
+Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body
 
-$body = "{""token"":""$projectId"",""merge"":true,""accessControlEntries"":[{""descriptor"":""$identityDescriptor"",""allow"":2048,""deny"":0,""extendedInfo"":{""effectiveAllow"":2048,""effectiveDeny"":0,""inheritedAllow"":2048,""inheritedDeny"":0}}]}"
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body -ContentType "application/json"
-#>
-
-<#
-I THINK I CAN REMOVE THESE COVERED BELOW
-# Organization settings > Global notifications > disable Build completes and Pull request changes
-# disable Build completes
-$body = '{"status":-2}'
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription?api-version=6.1-preview.1" -Method Patch -Body $body -ContentType "application/json"
-
-# Pull request changes
-$body = '{"status":-2}'
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription?api-version=6.1-preview.1" -Method Patch -Body $body -ContentType "application/json"
-#>
-
-<#
-# No idea if this works on org that hasn't had code search installed
 # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
-$body = '{"assignmentType":0,"billingId":null,"itemId":"ms.vss-code-search","operationType":1,"quantity":0,"properties":{}}'
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://extmgmt.dev.azure.com/$organization/_apis/ExtensionManagement/AcquisitionRequests?api-version=6.1-preview.1" -Method Post -Body $body -ContentType "application/json"
-#>
+$body = @"
+{
+    "assignmentType": 0,
+    "billingId": null,
+    "itemId": "ms.vss-code-search",
+    "operationType": 1,
+    "quantity": 0,
+    "properties": {}
+}
+"@
+Invoke-Api -Uri "https://extmgmt.dev.azure.com/$organization/_apis/ExtensionManagement/AcquisitionRequests?api-version=6.1-preview.1" -Method Post -Body $body
 
-
-$groupId = ($groups |? {$_.PrincipalName -eq "[Tenants]\Tenants Team" }).originId
 # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
-
+$groupId = ($groups |? {$_.PrincipalName -eq "[$ProjectName]\$ProjectName Team" }).originId
 $body = @"
     {
     "description": "A build completes",
@@ -363,14 +390,14 @@ $body = @"
     "notificationEventInformation": null,
     "type": 2,
     "subscriber": {
-        "displayName": "[Tenants]\\Tenants Team",
+        "displayName": "[$ProjectName]\\$ProjectName Team",
         "id": "$groupId",
-        "uniqueName": "vstfs:///Classification/TeamProject/$projectId\\Tenants Team",
+        "uniqueName": "vstfs:///Classification/TeamProject/$projectId\\$ProjectName Team",
         "isContainer": true
     },
     "channel": {
         "type": "EmailHtml",
-        "address": "pipelinenotifications@simeoncloud.com",
+        "address": $PipelineNotificationEmail,
         "useCustomAddress": true
     },
     "scope": {
@@ -380,15 +407,14 @@ $body = @"
 }
 "@
 
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -Body $body -ContentType "application/json"
+Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -Body $body | Out-Null
 
 # Disable pipeline notifications
 $body = '{"optedOut":true}'
 # Build completes
-Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body -ContentType "application/json"
+Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body | Out-Null
 # Pull requests
-Invoke-RestMethod  -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body -ContentType "application/json"
-
+Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body | Out-Null
 
 
 <#
