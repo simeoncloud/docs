@@ -26,6 +26,8 @@ $params = @{
 
     while (-not $completed) {
         try {
+            Write-Verbose "Invoking rest method with params:"
+            Write-Verbose ($params | Out-String)
             $response = Invoke-RestMethod @params
             if (!$response -or !$response.StatusCode -ne 200) {
                 throw "Expecting reponse code 200, was: $($response.StatusCode)"
@@ -57,6 +59,7 @@ $groups = (Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/grap
 
 if ($SimeonUserToInviteToOrg) {
     # Send invite to org for Simeon User
+    Write-Information "Send invite to: $Orgnization to user: $SimeonUserToInviteToOrg"
     $body = @"
     [
         {
@@ -83,19 +86,23 @@ if ($SimeonUserToInviteToOrg) {
 "@
     Invoke-Api -Uri "https://vsaex.dev.azure.com/$Organization/_apis/UserEntitlements?api-version=6.1-preview.1" -Method Patch -ContentType "application/json-patch+json" -Body $body
 
-
     # assign project collection admin
+    Write-Information "Making user: $SimeonUserToInviteToOrg Project Collection Admin"
     $groupDescriptor = ($groups|? displayname -eq "Project Collection Administrators").descriptor
     $userDescriptor = ((Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get).value |? principalName -eq "$SimeonUserToInviteToOrg").descriptor
     Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$groupDescriptor`?api-version=6.1-preview.1" -Method Put | Out-Null
 }
+
+Write-Information "Getting all users"
 # Get users after inviting Simeon User
 $users = (Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get).value
 
+Write-Information "Getting project id for: $projectName"
 # Set or get Project id
 $projectId = ((Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Get).value |? {$_.name -eq "$ProjectName"}).id
 if (!$projectId)
 {
+    Write-Information "Creating project: $projectName"
     $body = @"
     {
         "name": "$ProjectName",
@@ -116,7 +123,8 @@ if (!$projectId)
 }
 
 
-
+# TODO THESE NEED TO MOVE TO PROJECT LEVEL
+Write-Information "Configuring pipeline settings"
 # Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
 $body = @"
 {
@@ -135,12 +143,14 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -Body $body | Out-Null
 
 # Permissions > Project Collection Build Service Accounts > Members > Add > Project Collection Build Service
+Write-Information "Setting Project Collection Build Service as Project Collection Build Service Accounts"
 $groupDescriptor = ($groups |? displayname -eq "Project Collection Build Service Accounts").descriptor
 $userDescriptor = ($users |? displayName -eq "Project Collection Build Service ($Organization)").descriptor
 Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$groupDescriptor`?api-version=6.1-preview.1" -Method Put | Out-Null
 
 ## Project settings
 # Overview > uncheck Boards and Test Plans
+Write-Information "Update project settings turn off Boards and Test Plans"
 $body = @"
 {
     "featureId": "ms.vss-work.agile",
@@ -154,6 +164,7 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/FeatureStates/host/project/$projectId/ms.vss-work.agile?api-version=4.1-preview.1" -Method Patch -Body $body | Out-Null
 
 # Overview > uncheck Artifacts
+Write-Information "Update project settings turn off Artifacts"
 $body = @"
 {
     "featureId": "ms.feed.feed",
@@ -168,15 +179,19 @@ Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/Fea
 
 #  Permissions > Contributors > Members > Add > $ProjectName Build Service
 ### Contributors group actions
+Write-Information "Configure permissions for Contributors group"
+Write-Information "Add $ProjectName Build Service ($Organization)"
 $groupDescriptor = ($groups |? principalName -eq "[$ProjectName]\Contributors").descriptor
 $userDescriptor = ($users |? displayName -eq "$ProjectName Build Service ($Organization)").descriptor
 Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$groupDescriptor`?api-version=6.1-preview.1" -Method Put | Out-Null
 
 # Permissions > Contributors > Members > Add > Project Collection Build Service
+Write-Information "Add Project Collection Build Service ($Organization)"
 $userDescriptor = ($users |? displayName -eq "Project Collection Build Service ($Organization)").descriptor
 Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$groupDescriptor`?api-version=6.1-preview.1" -Method Put | Out-Null
 
 # Repositories > Permissions > Contributors > allow Create repository
+Write-Information "Allow Contributors to create repository"
 $identityDescriptor = ((Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get).value).descriptor
 $body = @"
 {
@@ -200,6 +215,7 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87?api-version=5.0" -Method Post -Body $body | Out-Null
 
 # Repositories > Permissions > Project Collection Administrators > allow Force push
+Write-Information "Allow force push for Project Collection Administrators"
 $groupDescriptor = ($groups |? { $_.principalName -eq "[$Organization]\Project Collection Administrators" }).descriptor
 $identityDescriptor = ((Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get).value).descriptor
 $body = @"
@@ -224,6 +240,7 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87?api-version=5.0" -Method Post -Body $body | Out-Null
 
 # Repositories > Permissions > Project Collection Build Service Accounts > allow Force Push
+Write-Information "Allow force push for Project Collection Build Service Accounts"
 $groupDescriptor = ($groups |? { $_.principalName -eq "[$Organization]\Project Collection Build Service Accounts" }).descriptor
 $identityDescriptor = ((Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get).value).descriptor
 $body = @"
@@ -248,6 +265,7 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87?api-version=5.0" -Method Post -Body $body | Out-Null
 
 # Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines
+Write-Information "Uncheck Limit job authorization scope to current project for non-release pipelines"
 # Limit job authorization scope to referenced Azure DevOps repositories
 $body = @"
 {
@@ -276,6 +294,7 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -Body $body | Out-Null
 
 # Repositories > rename $ProjectName to default
+Write-Information "Rename $ProjectName to default"
 $repos = (Invoke-Api -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get).value
 if ($repos.name -contains "$ProjectName") {
     $repoId = ($repos |? { $_.name -eq "$ProjectName"}).id
@@ -285,18 +304,22 @@ if ($repos.name -contains "$ProjectName") {
 
 <#
 # Create Service connection
+Write-Information "Create Github Service connection"
 $githubAccessToken ="Get from keyvault"
 Install-SimeonGitHubServiceConnection -Organization $Organization -Project $ProjectName -GitHubAccessToken $githubAccessToken
 
 # Install Retry failed Pipelines
+Write-Information "Install retry pipelines"
 Install-SimeonRetryPipeline -Organization $organization
 
 # Install SummaryReport pipeline
+Write-Information "Install reporting pipeline"
 $emailPw = "Get from keyvault"
 Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -FromEmailPw $emailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $organization
 #>
 
 # Navigate to Project settings > Service connections > ... > Security > Add > Contributors > set role to Administrator > Add
+Write-Information "Make Contributors admin for Github service connection"
 $groupId = ($groups |? principalName -eq "[$ProjectName]\Contributors").originId
 $body = @"
 [
@@ -308,8 +331,8 @@ $body = @"
 "@
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/securityroles/scopes/distributedtask.project.serviceendpointrole/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -Body $body | Out-Null
 
-
 # Pipelines > ... > Manage security > Contributors > ensure Administer build permissions and Edit build pipeline are set to Allow
+Write-Information "Ensure Administer build permissions and Edit build pipeline are set to Allow"
 $groupDescriptor = ($groups |? { $_.principalName -eq "[$ProjectName]\Contributors" }).descriptor
 $identityDescriptor = ((Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get).value).descriptor
 
@@ -356,6 +379,7 @@ $body = @"
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/AccessControlEntries/33344d9c-fc72-4d6f-aba5-fa317101a7e9?api-version=5.0" -Method Post -Body $body
 
 # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
+Write-Information "Install code search"
 $body = @"
 {
     "assignmentType": 0,
@@ -369,6 +393,7 @@ $body = @"
 Invoke-Api -Uri "https://extmgmt.dev.azure.com/$organization/_apis/ExtensionManagement/AcquisitionRequests?api-version=6.1-preview.1" -Method Post -Body $body
 
 # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
+Write-Information "Update pipeline notifications"
 $groupId = ($groups |? {$_.PrincipalName -eq "[$ProjectName]\$ProjectName Team" }).originId
 $body = @"
     {
@@ -412,8 +437,10 @@ Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/notification/Subscrip
 # Disable pipeline notifications
 $body = '{"optedOut":true}'
 # Build completes
+Write-Information "Disable build completes pipeline notifications"
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body | Out-Null
 # Pull requests
+Write-Information "Disable pull request pipeline notifications"
 Invoke-Api -Uri "https://dev.azure.com/$organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body | Out-Null
 
 
