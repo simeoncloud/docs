@@ -121,25 +121,6 @@ Write-Information "Getting all users"
 $users = (Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get).value
 $groups = (Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get).value
 
-# TODO THESE NEED TO MOVE TO PROJECT LEVEL
-Write-Information "Configuring pipeline settings"
-# Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
-$body = @"
-{
-    "contributionIds": [
-        "ms.vss-build-web.pipelines-org-settings-data-provider"
-    ],
-    "dataProviderContext": {
-        "properties": {
-            "enforceReferencedRepoScopedToken": "false",
-            "enforceJobAuthScope": "false",
-            "enforceSettableVar": "false"
-        }
-    }
-}
-"@
-Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -Body $body | Out-Null
-
 # Permissions > Project Collection Build Service Accounts > Members > Add > Project Collection Build Service
 Write-Information "Setting Project Collection Build Service as Project Collection Build Service Accounts"
 $groupDescriptor = ($groups |? displayname -eq "Project Collection Build Service Accounts").descriptor
@@ -147,6 +128,34 @@ $userDescriptor = ($users |? displayName -like "Project Collection Build Service
 Invoke-Api -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$groupDescriptor`?api-version=6.1-preview.1" -Method Put | Out-Null
 
 ## Project settings
+Write-Information "Configuring pipeline settings"
+# Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
+$body = @"
+{
+    "contributionIds": [
+        "ms.vss-build-web.pipelines-general-settings-data-provider"
+    ],
+    "dataProviderContext": {
+        "properties": {
+            "enforceSettableVar": "false",
+            "enforceJobAuthScope": "false",
+            "enforceJobAuthScopeForReleases": "false",
+            "sourcePage": {
+                "url": "https://dev.azure.com/$Organization/$ProjectName/_settings/settings",
+                "routeId": "ms.vss-admin-web.project-admin-hub-route",
+                "routeValues": {
+                    "project": "$ProjectName",
+                    "adminPivot": "settings",
+                    "controller": "ContributedPage",
+                    "action": "Execute"
+                }
+            }
+        }
+    }
+}
+"@
+Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -Body $body | Out-Null
+
 # Overview > uncheck Boards and Test Plans
 Write-Information "Updating project settings turning off Boards and Test Plans"
 $body = @"
@@ -391,46 +400,51 @@ $body = @"
 Invoke-Api -Uri "https://extmgmt.dev.azure.com/$Organization/_apis/ExtensionManagement/AcquisitionRequests?api-version=6.1-preview.1" -Method Post -Body $body | Out-Null
 
 # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
-Write-Information "Updating pipeline notifications"
-$groupId = ($groups |? {$_.PrincipalName -eq "[$ProjectName]\$ProjectName Team" }).originId
-$body = @"
-    {
-    "description": "A build completes",
-    "filter": {
-        "eventType": "ms.vss-build.build-completed-event",
-        "criteria": {
-            "clauses": [
-                {
-                    "fieldName": "Build reason",
-                    "operator": "Does not contain",
-                    "value": "-",
-                    "index": 0
-                }
-            ]
+$existingSubscriptions = (Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Get).value
+# Need to get address long way due to this https://github.com/PowerShell/PowerShell/issues/8105
+$subExists = ((($existingSubscriptions |? { $_.description -eq "A build completes" }).channel | Select -Property address) |? {$_ -match "$PipelineNotificationEmail" })
+if(!$subExists) {
+    Write-Information "Creating build complete notification for $PipelineNotificationEmail"
+    $groupId = ($groups |? {$_.PrincipalName -eq "[$ProjectName]\$ProjectName Team" }).originId
+    $body = @"
+        {
+        "description": "A build completes",
+        "filter": {
+            "eventType": "ms.vss-build.build-completed-event",
+            "criteria": {
+                "clauses": [
+                    {
+                        "fieldName": "Build reason",
+                        "operator": "Does not contain",
+                        "value": "-",
+                        "index": 0
+                    }
+                ]
+            },
+            "type": "Expression"
         },
-        "type": "Expression"
-    },
-    "notificationEventInformation": null,
-    "type": 2,
-    "subscriber": {
-        "displayName": "[$ProjectName]\\$ProjectName Team",
-        "id": "$groupId",
-        "uniqueName": "vstfs://Classification/TeamProject/$projectId\\$ProjectName Team",
-        "isContainer": true
-    },
-    "channel": {
-        "type": "EmailHtml",
-        "address": "$PipelineNotificationEmail",
-        "useCustomAddress": true
-    },
-    "scope": {
-        "id": "$projectId"
-    },
-    "dirty": true
-}
+        "notificationEventInformation": null,
+        "type": 2,
+        "subscriber": {
+            "displayName": "[$ProjectName]\\$ProjectName Team",
+            "id": "$groupId",
+            "uniqueName": "vstfs://Classification/TeamProject/$projectId\\$ProjectName Team",
+            "isContainer": true
+        },
+        "channel": {
+            "type": "EmailHtml",
+            "address": "$PipelineNotificationEmail",
+            "useCustomAddress": true
+        },
+        "scope": {
+            "id": "$projectId"
+        },
+        "dirty": true
+    }
 "@
 
-Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -Body $body | Out-Null
+    Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -Body $body | Out-Null
+}
 
 # Disable pipeline notifications
 $body = '{"optedOut":true}'
@@ -440,7 +454,6 @@ Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscrip
 # Pull requests
 Write-Information "Disableing pull request pipeline notifications"
 Invoke-Api -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$groupId`?api-version=6.1-preview.1" -Method Put -Body $body | Out-Null
-
 
 <#
 # Get from keyvault by org name - This needs to run from webapp, not installer
