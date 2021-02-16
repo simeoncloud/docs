@@ -794,12 +794,18 @@ CRLFOption=CRLFAlways
             if ($importUrl) {
                 Write-Information "Importing repository contents from '$importUrl'"
 
+                # endpoint for pipeline templates in GitHub
+                $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
+
+                if (!$serviceEndpoint) { throw "No git service endpoint found for Simeon Cloud." }
+
                 $importOperation = irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests" -Method Post -Body (@{
                         parameters = @{
                             gitSource = @{
                                 overwrite = $false
                                 url = $importUrl
                             }
+                            serviceEndpointId = $serviceEndpoint.id
                         }
                     } | ConvertTo-Json)
 
