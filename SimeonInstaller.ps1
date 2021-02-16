@@ -310,7 +310,7 @@ CRLFOption=CRLFAlways
         param (
             # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph')]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'Vault')]
             [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
@@ -337,6 +337,9 @@ CRLFOption=CRLFAlways
                 $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
+            }
+            'Vault' {
+                $Scopes = 'https://vault.azure.net/.default'
             }
         }
 
