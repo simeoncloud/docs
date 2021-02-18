@@ -148,10 +148,6 @@
     "Description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)"
   },
   {
-    "Namespace": "TeamsApi:Users:TenantWideAppsSettings",
-    "Description": "Office 365 > Teams > Apps"
-  },
-  {
     "Namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
     "Description": "Office 365 > Teams > Apps > Permission policies"
   },
