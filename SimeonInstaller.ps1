@@ -951,9 +951,10 @@ CRLFOption=CRLFAlways
             $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
             {
                 "authorization": {
-                    "scheme": "Token",
+                    "scheme": "UsernamePassword",
                     "parameters": {
-                        "AccessToken": "$GitHubAccessToken"
+                        "username": "GitHubToken",
+                        "password": "$GitHubAccessToken"
                     }
                 },
                 "name": "simeoncloud",
@@ -1657,6 +1658,6 @@ CRLFOption=CRLFAlways
         Write-Information "Completed installing tenant"
     }
 
-    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*, Get-GitRepository 
+    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*, Get-GitRepository
 
 } | Import-Module -Force
