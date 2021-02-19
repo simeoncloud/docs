@@ -124,6 +124,34 @@
     "Description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+  },
+  {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishRules",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+  },
+  {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links:ATP Safe Attachments > Global Settings"
+  },
+  {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentPolicies",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+  },
+  {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentRules",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+  },
+  {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksPolicies",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+  },
+  {
+    "Namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksRules",
+    "Description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+  },
+  {
     "Namespace": "PowerShell:Exchange:Organization:AdminAuditLogConfig",
     "Description": "Office 365 > Exchange > AdminAuditLogConfig"
   },
