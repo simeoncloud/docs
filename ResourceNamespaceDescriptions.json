@@ -156,7 +156,7 @@
     "Description": "Office 365 > Exchange > AdminAuditLogConfig"
   },
   {
-    "Namespace": "PowerShell:Exchange:Organization:AuthenticationPolicy",
+    "Namespace": "PowerShell:Exchange:Organization:AuthenticationPolicies",
     "Description": "Office 365 > Exchange > Modern authentication"
   },
   {
