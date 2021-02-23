@@ -121,6 +121,19 @@ function Install-SimeonDevOpsOrganization {
         }
 "@
             } | Out-Null
+
+            # Remove from AAD, but retain access
+            Invoke-WithRetry { Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/Organization/Organizations/Me?api-version=6.1-preview.1" -ContentType "application/json-patch+json" -Method "Patch" -Body @"
+            [
+                {
+                    "from": "",
+                    "op": 2,
+                    "path": "/TenantId",
+                    "value": "00000000-0000-0000-0000-000000000000"
+                }
+            ]
+"@
+            }
         }
     }
 
@@ -131,7 +144,7 @@ function Install-SimeonDevOpsOrganization {
         if ($SimeonUserToInviteToOrg) {
             # Send invite to org for Simeon User
             Write-Information "Sending invite to DevOps Organization: $Organization for user: $SimeonUserToInviteToOrg"
-            Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vsaex.dev.azure.com/$Organization/_apis/UserEntitlements?api-version=6.1-preview.1" -Method Patch -ContentType "application/json-patch+json" -Body @"
+            Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vsaex.dev.azure.com/$Organization/_apis/UserEntitlements?api-version=5.1-preview.3" -Method Patch -ContentType "application/json-patch+json" -Body @"
         [
             {
                 "from": "",
@@ -191,10 +204,10 @@ function Install-SimeonDevOpsOrganization {
 
             # Repositories > rename $ProjectName to default
             Write-Information "Renaming $ProjectName to default"
-            $repos = (Invoke-WithRetry { Invoke-RestMethod -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
+            $repos = (Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
             if ($repos.name -contains "$ProjectName") {
                 $repoId = ($repos |? { $_.name -eq "$ProjectName" }).id
-                Invoke-WithRetry { Invoke-RestMethod -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"Default"}' } -ContentType "application/json" | Out-Null
+                Invoke-WithRetry { Invoke-RestMethod  -Headers $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"Default"}' -ContentType "application/json" } | Out-Null
             }
         }
     }
