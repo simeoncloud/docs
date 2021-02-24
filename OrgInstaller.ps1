@@ -121,19 +121,6 @@ function Install-SimeonDevOpsOrganization {
         }
 "@
             } | Out-Null
-
-            # Remove from AAD, but retain access
-            Invoke-WithRetry { Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/Organization/Organizations/Me?api-version=6.1-preview.1" -ContentType "application/json-patch+json" -Method "Patch" -Body @"
-            [
-                {
-                    "from": "",
-                    "op": 2,
-                    "path": "/TenantId",
-                    "value": "00000000-0000-0000-0000-000000000000"
-                }
-            ]
-"@
-            }
         }
     }
 
@@ -177,6 +164,19 @@ function Install-SimeonDevOpsOrganization {
             Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userToInviteDescriptor/$projectCollectionAdminGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
         }
     }
+
+#                 # Remove from AAD, but retain access
+#                 Invoke-WithRetry { Invoke-RestMethod -Headers $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/Organization/Organizations/Me?api-version=6.1-preview.1" -ContentType "application/json-patch+json" -Method "Patch" -Body @"
+#                 [
+#                     {
+#                         "from": "",
+#                         "op": 2,
+#                         "path": "/TenantId",
+#                         "value": "00000000-0000-0000-0000-000000000000"
+#                     }
+#                 ]
+# "@
+#                 }
 
     Write-Information "Getting project information"
     Invoke-Command -ScriptBlock {
