@@ -310,7 +310,7 @@ CRLFOption=CRLFAlways
         param (
             # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'Vault')]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'KeyVault')]
             [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
