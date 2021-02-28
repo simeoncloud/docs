@@ -338,7 +338,7 @@ CRLFOption=CRLFAlways
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
             }
-            'Vault' {
+            'KeyVault' {
                 $Scopes = 'https://vault.azure.net/.default'
             }
         }
@@ -1781,23 +1781,21 @@ CRLFOption=CRLFAlways
             [string]$GitHubAccessTokenKeyVaultUrl = "https://installer.vault.azure.net/secrets/$Organization",
             [string]$ReportingEmailPasswordKeyVaultUrl = "https://installer.vault.azure.net/secrets/ReportingEmailPw",
             # List of user email addresses to invite to the DevOps organization and make project collection admins
-            [string][]$InviteToOrgAsAdmin = "devops@simeoncloud.com",
+            [string[]]$InviteToOrgAsAdmin = "devops@simeoncloud.com",
             [string]$PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
         )
 
         Write-Information "Getting required values from Key Vault"
-        Invoke-Command -ScriptBlock {
-            Write-Information "Getting GitHub access token"
-            $gitHubAccessToken = (Get-AzureKeyVaultSecret -KeyVaultSecretUri $GitHubAccessTokenKeyVaultUrl)
-            if (!$gitHubAccessToken) {
-                throw "Please check that the DevOps organization is correct or contact Simeon Support for a trial."
-            }
+        Write-Information "Getting GitHub access token"
+        $gitHubAccessToken = (Get-AzureKeyVaultSecret -KeyVaultSecretUri $GitHubAccessTokenKeyVaultUrl)
+        if (!$gitHubAccessToken) {
+            throw "Please check that the DevOps organization is correct or contact Simeon Support for a trial."
+        }
 
-            Write-Information "Getting reporting email password"
-            $reportingEmailPw = (Get-AzureKeyVaultSecret -KeyVaultSecretUri $ReportingEmailPasswordKeyVaultUrl)
-            if (!$reportingEmailPw) {
-                throw "Unable to retrieve reporting email password please contact Simeon Support for assistance."
-            }
+        Write-Information "Getting reporting email password"
+        $reportingEmailPw = (Get-AzureKeyVaultSecret -KeyVaultSecretUri $ReportingEmailPasswordKeyVaultUrl)
+        if (!$reportingEmailPw) {
+            throw "Unable to retrieve reporting email password please contact Simeon Support for assistance."
         }
 
         $token = Get-SimeonAzureDevOpsAccessToken
@@ -1820,7 +1818,8 @@ CRLFOption=CRLFAlways
             }
             else {
                 Write-Information "Creating DevOps Organization: $Organization"
-                Invoke-WithRetry { Invoke-RestMethod -Headers $AuthenicationHeader -ContentType "application/json" -Method Post -Uri "https://aex.dev.azure.com/_apis/HostAcquisition/Collections?collectionName=$Organization`&api-version=5.0-preview.2" -Body @"
+                # TODO decide what to do with region
+                Invoke-WithRetry { Invoke-RestMethod -Headers $AuthenicationHeader -ContentType "application/json" -Method Post -Uri "https://aex.dev.azure.com/_apis/HostAcquisition/Collections?collectionName=$Organization`&preferredRegion=CUS&api-version=5.0-preview.2" -Body @"
                     {
                         "VisualStudio.Services.HostResolution.UseCodexDomainForHostCreation": "true",
                         "CampaignId": "",
@@ -1875,7 +1874,7 @@ CRLFOption=CRLFAlways
         Write-Information "Setting project information"
         Invoke-Command -ScriptBlock {
             # Set or get Project id
-            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -ProjectName $Project)
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
             if (!$projectId) {
                 Write-Information "Creating project: $Project"
                 Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Post -ContentType "application/json" -Body @"
@@ -1895,7 +1894,7 @@ CRLFOption=CRLFAlways
 "@
                 } | Out-Null
                 # Get projectId after creating
-                $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -ProjectName $Project)
+                $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
                 # Repositories > rename $Project to default
                 Write-Information "Renaming the repository: $Project to default"
                 $repos = (Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
@@ -1968,7 +1967,7 @@ CRLFOption=CRLFAlways
 
         Write-Information "Updating project permissions"
         Invoke-Command -ScriptBlock {
-            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -ProjectName $Project)
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
             $users = (Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
             $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
 
@@ -2029,7 +2028,7 @@ CRLFOption=CRLFAlways
 
         Write-Information "Updating permissions for GitHub service connection"
         Invoke-Command -ScriptBlock {
-            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -ProjectName $Project)
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
             $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
 
             # Navigate to Project settings > Service connections > ... > Security > Add > Contributors > set role to Administrator > Add
@@ -2064,7 +2063,7 @@ CRLFOption=CRLFAlways
 
         Write-Information "Updating notification settings"
         Invoke-Command -ScriptBlock {
-            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -ProjectName $Project)
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
             $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $AuthenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
 
             # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
