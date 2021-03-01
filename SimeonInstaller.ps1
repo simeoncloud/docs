@@ -830,7 +830,7 @@ CRLFOption=CRLFAlways
             [string]$Repository,
             [string]$Baseline
         )
-        Write-Information "Setting baseline for '$Name'"
+        Write-Information "Setting baseline for '$Repository'"
 
         if (!([uri]$Repository).IsAbsoluteUri) {
             $Repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Repository).remoteUrl
