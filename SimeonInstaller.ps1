@@ -1882,6 +1882,35 @@ CRLFOption=CRLFAlways
             }
         }
 
+        # Organization Settings > Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
+        Write-Information "Unchecking Limit job authorization scope to current project for non-release pipelines"
+        Invoke-Command -ScriptBlock {
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
+            {
+                "contributionIds": [
+                    "ms.vss-build-web.pipelines-org-settings-data-provider"
+                ],
+                "dataProviderContext": {
+                    "properties": {
+                        "enforceSettableVar": "false",
+                        "enforceJobAuthScope": "false",
+                        "enforceJobAuthScopeForReleases": "false",
+                        "sourcePage": {
+                            "url": "https://dev.azure.com/$Organization/_settings/pipelinessettings",
+                            "routeId": "ms.vss-admin-web.collection-admin-hub-route",
+                            "routeValues": {
+                                "adminPivot": "pipelinessettings",
+                                "controller": "ContributedPage",
+                                "action": "Execute"
+                            }
+                        }
+                    }
+                }
+            }
+"@
+            } | Out-Null
+        }
+
         Write-Information "Setting project information"
         Invoke-Command -ScriptBlock {
             # Set or get Project id
@@ -1991,9 +2020,10 @@ CRLFOption=CRLFAlways
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
             # Repositories > Permissions > Contributors > allow Create repository
 
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Organization]\Project Collection Administrators" -PermissionNumber 8 -PermissionDescription "Force Push"
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
 
             # Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines
             Write-Information "Unchecking Limit job authorization scope to current project for non-release pipelines"
