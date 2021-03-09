@@ -1895,6 +1895,7 @@ CRLFOption=CRLFAlways
                         "enforceSettableVar": "false",
                         "enforceJobAuthScope": "false",
                         "enforceJobAuthScopeForReleases": "false",
+                        "enforceReferencedRepoScopedToken": "false,
                         "sourcePage": {
                             "url": "https://dev.azure.com/$Organization/_settings/pipelinessettings",
                             "routeId": "ms.vss-admin-web.collection-admin-hub-route",
@@ -1988,6 +1989,7 @@ CRLFOption=CRLFAlways
                             "enforceSettableVar": "false",
                             "enforceJobAuthScope": "false",
                             "enforceJobAuthScopeForReleases": "false",
+                            "enforceReferencedRepoScopedToken": "false",
                             "sourcePage": {
                                 "url": "https://dev.azure.com/$Organization/$Project/_settings/settings",
                                 "routeId": "ms.vss-admin-web.project-admin-hub-route",
@@ -2024,35 +2026,6 @@ CRLFOption=CRLFAlways
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
-
-            # Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines
-            Write-Information "Unchecking Limit job authorization scope to current project for non-release pipelines"
-            # Limit job authorization scope to referenced Azure DevOps repositories
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
-                {
-                    "contributionIds": [
-                        "ms.vss-build-web.pipelines-general-settings-data-provider"
-                    ],
-                    "dataProviderContext": {
-                        "properties": {
-                            "enforceReferencedRepoScopedToken": "false",
-                            "enforceJobAuthScope": "false",
-                            "enforceSettableVar": "false",
-                            "sourcePage": {
-                                "url": "https://dev.azure.com/$Organization/$Project/_settings/settings",
-                                "routeId": "ms.vss-admin-web.project-admin-hub-route",
-                                "routeValues": {
-                                    "project": "$Project",
-                                    "adminPivot": "settings",
-                                    "controller": "ContributedPage",
-                                    "action": "Execute"
-                                }
-                            }
-                        }
-                    }
-                }
-"@
-            } | Out-Null
         }
 
         # Create Service connection
