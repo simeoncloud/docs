@@ -1940,7 +1940,7 @@ CRLFOption=CRLFAlways
                 $repos = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
                 if ($repos.name -contains "$Project") {
                     $repoId = ($repos |? { $_.name -eq "$Project" }).id
-                    Invoke-WithRetry { Invoke-RestMethod  -Headers $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"Default"}' -ContentType "application/json" } | Out-Null
+                    Invoke-WithRetry { Invoke-RestMethod  -Headers $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"default"}' -ContentType "application/json" } | Out-Null
                 }
 
                 # Overview > uncheck Boards and Test Plans
@@ -2161,8 +2161,14 @@ CRLFOption=CRLFAlways
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$projectTeamGroupId`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body '{"optedOut":true}' }| Out-Null
         }
 
-        # If org was created now, remove connection to aad
+        # If org was created now, remove connection to aad and make sure the selection for new url is selected
         if ($createdOrg) {
+
+            Write-Information "Checking box to use new URL"
+            Invoke-Command -ScriptBlock {
+                Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/NewDomainUrlOrchestration?codexDomainUrls=true&api-version=5.0-preview.1" -Method Post -ContentType "application/json" }
+            }
+
             Invoke-Command -ScriptBlock {
                 Write-Verbose "Disconnecting Organization from Azure Active Directory"
                 # Remove from AAD, but retain access
