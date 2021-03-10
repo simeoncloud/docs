@@ -567,6 +567,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [int]$PermissionNumber
         )
+
+        $token = Get-SimeonAzureDevOpsAccessToken
+        $authenicationHeader = @{Authorization = "Bearer $token" }
+
         $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
 
         Write-Information "Allowing $SubjectGroupPrincipalName to $PermissionDescription"
@@ -607,6 +611,9 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project
         )
+
+        $token = Get-SimeonAzureDevOpsAccessToken
+        $authenicationHeader = @{Authorization = "Bearer $token" }
 
         if (!$azureDevOpsProjectIdCache.$Project) {
             Write-Information "Getting project id for Organization: $Organization project: $Project"
@@ -2143,7 +2150,7 @@ CRLFOption=CRLFAlways
             }
 
             Invoke-Command -ScriptBlock {
-                Write-Verbose "Disconnecting Organization from Azure Active Directory"
+                Write-Information "Disconnecting Organization from Azure Active Directory"
                 # Remove from AAD, but retain access
                 Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/Organization/Organizations/Me?api-version=6.1-preview.1" -ContentType "application/json-patch+json" -Method "Patch" -Body @"
             [
