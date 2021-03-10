@@ -1902,7 +1902,7 @@ CRLFOption=CRLFAlways
                         "enforceSettableVar": "false",
                         "enforceJobAuthScope": "false",
                         "enforceJobAuthScopeForReleases": "false",
-                        "enforceReferencedRepoScopedToken": "false,
+                        "enforceReferencedRepoScopedToken": "false",
                         "sourcePage": {
                             "url": "https://dev.azure.com/$Organization/_settings/pipelinessettings",
                             "routeId": "ms.vss-admin-web.collection-admin-hub-route",
