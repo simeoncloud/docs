@@ -1849,6 +1849,12 @@ CRLFOption=CRLFAlways
             }
         }
 
+        # Even though this property is set to true on org creation, setting setting is not always correct for the org
+        Write-Information "Checking box to use new URL"
+        Invoke-Command -ScriptBlock {
+            Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/NewDomainUrlOrchestration?codexDomainUrls=true&api-version=5.0-preview.1" -Method Post -ContentType "application/json" }
+        }
+
         Write-Information "Inviting users to org and setting permissions."
         Invoke-Command -ScriptBlock {
             $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
@@ -2143,12 +2149,6 @@ CRLFOption=CRLFAlways
 
         # If org was created now, remove connection to aad and make sure the selection for new url is selected
         if ($createdOrg) {
-
-            Write-Information "Checking box to use new URL"
-            Invoke-Command -ScriptBlock {
-                Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/NewDomainUrlOrchestration?codexDomainUrls=true&api-version=5.0-preview.1" -Method Post -ContentType "application/json" }
-            }
-
             Invoke-Command -ScriptBlock {
                 Write-Information "Disconnecting Organization from Azure Active Directory"
                 # Remove from AAD, but retain access
