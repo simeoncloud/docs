@@ -2164,7 +2164,7 @@ CRLFOption=CRLFAlways
 "@ | Out-Null
                 }
             }
-            Write-Warning "Accept email invite"
+            Write-Warning "Accept the DevOps email invite in an incognito browser"
         }
     }
 
