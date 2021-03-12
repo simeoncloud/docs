@@ -1678,7 +1678,7 @@ CRLFOption=CRLFAlways
         while (!$Tenant) { $Tenant = Read-Tenant }
 
         $simeonTenantServiceAccountArgs = @{}
-        if ($PSBoundParameters.Contains('Subscription')) {
+        if ($PSBoundParameters.ContainsKey('Subscription')) {
             $simeonTenantServiceAccountArgs['Subscription'] = $Subscription
         }
 
