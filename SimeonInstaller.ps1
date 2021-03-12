@@ -528,7 +528,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant domain name to configure Simeon for
             [ValidateNotNullOrEmpty()]
             [string]$Tenant,
-            # The name or id of the subscription for Simeon to use - defaults to the first subscription available
+            # The name or id of the subscription for Simeon to use
             [string]$Subscription
         )
 
@@ -606,18 +606,15 @@ CRLFOption=CRLFAlways
         $getSubscriptionId = {
             try {
                 $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
-                $response.value |? { $_.displayName -ne 'Access to Azure Active Directory' -and $_.state -eq 'Enabled' -and (!$Subscription -or $Subscription -in @($_.displayName, $_.subscriptionId)) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
+                $response.value |? { $_.state -eq 'Enabled' -and $Subscription -in @($_.displayName, $_.subscriptionId) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
             }
             catch {
                 Write-Warning $_.Exception.Message
-                if ($Subscription) {
-                    throw "Subscription $Subscription could not be found."
-                }
-                throw "Could not list Azure subscriptions."
+                throw "Could not list Azure subscriptions"
             }
         }
 
-        if ($PSBoundParameters.ContainsKey('Subscription') -and !$Subscription) {
+        if (!$Subscription) {
             # Find Azure RM subscription to use
             Write-Information 'Skipping Azure subscription configuration because no subscription was specified'
         }
@@ -1677,12 +1674,7 @@ CRLFOption=CRLFAlways
 
         while (!$Tenant) { $Tenant = Read-Tenant }
 
-        $simeonTenantServiceAccountArgs = @{}
-        if ($PSBoundParameters.ContainsKey('Subscription')) {
-            $simeonTenantServiceAccountArgs['Subscription'] = $Subscription
-        }
-
-        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant @simeonTenantServiceAccountArgs
+        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
 
         $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
