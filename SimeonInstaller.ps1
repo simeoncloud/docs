@@ -1682,7 +1682,7 @@ CRLFOption=CRLFAlways
             $simeonTenantServiceAccountArgs['Subscription'] = $Subscription
         }
 
-        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription @simeonTenantServiceAccountArgs
+        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant @simeonTenantServiceAccountArgs
 
         $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
