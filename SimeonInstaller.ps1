@@ -606,7 +606,14 @@ CRLFOption=CRLFAlways
         $getSubscriptionId = {
             try {
                 $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
-                $response.value |? { $_.state -eq 'Enabled' -and $Subscription -in @($_.displayName, $_.subscriptionId) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
+                $subscriptions = $response.value |? { $Subscription -in @($_.displayName, $_.subscriptionId) }
+                if ($subscriptions.Length -gt 1) {
+                    throw "Found multiple Azure subscriptions named '$Subscription'"
+                }
+                if ($subscriptions.Length -eq 1 -and $subscriptions[0].state -ne 'Enabled') {
+                    throw "Subscription '$Subscription' is not enabled"
+                }
+                return $subscriptions[0].subscriptionId
             }
             catch {
                 Write-Warning $_.Exception.Message
