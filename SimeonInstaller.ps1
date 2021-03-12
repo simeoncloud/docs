@@ -617,7 +617,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        if ($PSBoundParameters.Contains('Subscription') -and !$Subscription) {
+        if ($PSBoundParameters.ContainsKey('Subscription') -and !$Subscription) {
             # Find Azure RM subscription to use
             Write-Information 'Skipping Azure subscription configuration because no subscription was specified'
         }
