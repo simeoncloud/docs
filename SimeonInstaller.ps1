@@ -621,7 +621,7 @@ CRLFOption=CRLFAlways
         else {
             $subscriptionId = . $getSubscriptionId
         }
-        if (!$subscriptionId) {
+        if ($Subscription -and !$subscriptionId) {
             # Elevate access to see all subscriptions in the tenant and force re-login
             irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
 
