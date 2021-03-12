@@ -617,8 +617,13 @@ CRLFOption=CRLFAlways
             }
         }
 
-        # Find Azure RM subscription to use
-        $subscriptionId = . $getSubscriptionId
+        if ($PSBoundParameters.Contains('Subscription') -and !$Subscription) {
+            # Find Azure RM subscription to use
+            Write-Information 'Skipping Azure subscription configuration because no subscription was specified'
+        }
+        else {
+            $subscriptionId = . $getSubscriptionId
+        }
         if (!$subscriptionId) {
             # Elevate access to see all subscriptions in the tenant and force re-login
             irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
@@ -1672,7 +1677,12 @@ CRLFOption=CRLFAlways
 
         while (!$Tenant) { $Tenant = Read-Tenant }
 
-        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
+        $simeonTenantServiceAccountArgs = @{}
+        if ($PSBoundParameters.Contains('Subscription')) {
+            $simeonTenantServiceAccountArgs['Subscription'] = $Subscription
+        }
+
+        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription @simeonTenantServiceAccountArgs
 
         $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
