@@ -616,7 +616,7 @@ CRLFOption=CRLFAlways
                 throw "Found multiple Azure subscriptions named '$Subscription'"
             }
             if ($subscriptions.Length -eq 1 -and $subscriptions[0].state -ne 'Enabled') {
-                throw "Subscription '$Subscription' is not enabled"
+                throw "Subscription '$Subscription' is not enabled - please install again using an active subscription"
             }
             return $subscriptions[0].subscriptionId
         }
