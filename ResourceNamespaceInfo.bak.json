@@ -5,13 +5,11 @@
   },
   {
     "Namespace": "AadIam:ExternalUserDirectorySettings",
-    "Description": "Azure AD > External user directory settings",
-    "isDeletable": false
+    "Description": "Azure AD > External user directory settings"
   },
   {
     "Namespace": "AadIam:ExternalUserGuestSettings",
-    "Description": "Azure AD > External user guest settings",
-    "isDeletable": false
+    "Description": "Azure AD > External user guest settings"
   },
   {
     "Namespace": "AadIam:FeatureSettings",
@@ -19,8 +17,7 @@
   },
   {
     "Namespace": "AadIam:GroupSettings",
-    "Description": "Azure AD > Group settings",
-    "isDeletable": false
+    "Description": "Azure AD > Group settings"
   },
   {
     "Namespace": "AadIam:MdmApplications",
@@ -28,13 +25,11 @@
   },
   {
     "Namespace": "AadIam:PasswordResetPolicies",
-    "Description": "Azure AD > Password reset",
-    "isDeletable": false
+    "Description": "Azure AD > Password reset"
   },
   {
     "Namespace": "AadIam:UserSettings",
-    "Description": "Azure AD > User settings",
-    "isDeletable": false
+    "Description": "Azure AD > User settings"
   },
   {
     "Namespace": "AzureManagement:MicrosoftAadIam:DiagnosticSettings",
