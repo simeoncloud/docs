@@ -1907,7 +1907,6 @@ CRLFOption=CRLFAlways
                     "properties": {
                         "enforceSettableVar": "false",
                         "enforceJobAuthScope": "false",
-                        "enforceJobAuthScopeForReleases": "false",
                         "enforceReferencedRepoScopedToken": "false",
                         "sourcePage": {
                             "url": "https://dev.azure.com/$Organization/_settings/pipelinessettings",
@@ -2001,7 +2000,6 @@ CRLFOption=CRLFAlways
                         "properties": {
                             "enforceSettableVar": "false",
                             "enforceJobAuthScope": "false",
-                            "enforceJobAuthScopeForReleases": "false",
                             "enforceReferencedRepoScopedToken": "false",
                             "sourcePage": {
                                 "url": "https://dev.azure.com/$Organization/$Project/_settings/settings",
