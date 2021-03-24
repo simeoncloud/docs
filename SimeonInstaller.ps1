@@ -1102,7 +1102,12 @@ CRLFOption=CRLFAlways
             # By default the email will be sent to all non-simeon users in the devops org, this can be used to exclude users
             [string]$ExcludeUsersFromSummaryEmail,
             # By default the email will be generated for all pipelines in the org, this can be used to exclude pipelines
-            [string]$ExcludePipelinesFromEmail
+            [string]$ExcludePipelinesFromEmail,
+            # The server used to send emails from, defaults to smtp.office365.com
+            [string]$SmtpServer = "smtp.office365.com",
+            # The port used to send emails from, defaults to 25
+            [int]$SmtpPort = 25
+
         )
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
@@ -1142,6 +1147,12 @@ CRLFOption=CRLFAlways
             }
             ExcludePipelinesFromEmail = @{
                 value = $ExcludePipelinesFromEmail
+            }
+            SmtpServer = @{
+                SmtpServer = $SmtpServer
+            }
+            SmtpPort = @{
+                SmtpPort = $SmtpPort
             }
         }
         $queueName = $poolName = "Azure Pipelines"
