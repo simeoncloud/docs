@@ -1105,8 +1105,8 @@ CRLFOption=CRLFAlways
             [string]$ExcludePipelinesFromEmail,
             # The server used to send emails from, defaults to smtp.office365.com
             [string]$SmtpServer = "smtp.office365.com",
-            # The port used to send emails from, defaults to 25
-            [int]$SmtpPort = 25
+            # The port used to send emails from, defaults to 587
+            [int]$SmtpPort = 587
 
         )
 
