@@ -158,6 +158,10 @@ CRLFOption=CRLFAlways
         Write-Information "Git was successfully installed"
     }
 
+    <#
+    .SYNOPSIS
+    Clones a git repository using a bearer access token. Returns the path of the cloned repository.
+    #>
     function Get-GitRepository {
         [CmdletBinding()]
         [OutputType([string])]
@@ -652,7 +656,7 @@ CRLFOption=CRLFAlways
             # The Azure tenant domain name to configure Simeon for
             [ValidateNotNullOrEmpty()]
             [string]$Tenant,
-            # The name or id of the subscription for Simeon to use - defaults to the first subscription available
+            # The name or id of the subscription for Simeon to use
             [string]$Subscription
         )
 
@@ -728,13 +732,31 @@ CRLFOption=CRLFAlways
         }
 
         $getSubscriptionId = {
-            $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
-            $response.value |? { $_.displayName -ne 'Access to Azure Active Directory' -and $_.state -eq 'Enabled' -and (!$Subscription -or $Subscription -in @($_.displayName, $_.subscriptionId)) } | Sort-Object name | Select -First 1 -ExpandProperty subscriptionId
+            try {
+                $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
+                $subscriptions = $response.value |? { $Subscription -in @($_.displayName, $_.subscriptionId) }
+            }
+            catch {
+                Write-Warning $_.Exception.Message
+                throw "Could not list Azure subscriptions"
+            }
+            if ($subscriptions.Length -gt 1) {
+                throw "Found multiple Azure subscriptions named '$Subscription'"
+            }
+            if ($subscriptions.Length -eq 1 -and $subscriptions[0].state -ne 'Enabled') {
+                throw "Subscription '$Subscription' is not enabled - please install again using an active subscription"
+            }
+            return $subscriptions[0].subscriptionId
         }
 
-        # Find Azure RM subscription to use
-        $subscriptionId = . $getSubscriptionId
-        if (!$subscriptionId) {
+        if (!$Subscription) {
+            # Find Azure RM subscription to use
+            Write-Information 'Skipping Azure subscription configuration because no subscription was specified'
+        }
+        else {
+            $subscriptionId = . $getSubscriptionId
+        }
+        if ($Subscription -and !$subscriptionId) {
             # Elevate access to see all subscriptions in the tenant and force re-login
             irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
 
@@ -757,12 +779,19 @@ CRLFOption=CRLFAlways
         }
 
         if ($subscriptionId) {
-            $contributorRoleId = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions?`$filter=roleName eq 'Contributor'&api-version=2018-01-01-preview" -Headers (. $getAzureManagementHeaders)).value.id
-            $roleAssignments = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments?`$filter=principalId eq '$($user.ObjectId)'&api-version=2018-09-01-preview" -Headers (. $getAzureManagementHeaders)).value |? { $_.properties.roleDefinitionId -eq $contributorRoleId }
+            try {
+                $contributorRoleId = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions?`$filter=roleName eq 'Contributor'&api-version=2018-01-01-preview" -Headers (. $getAzureManagementHeaders)).value.id
+                $roleAssignments = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments?`$filter=principalId eq '$($user.ObjectId)'&api-version=2018-09-01-preview" -Headers (. $getAzureManagementHeaders)).value |? { $_.properties.roleDefinitionId -eq $contributorRoleId }
+            }
+            catch {
+                Write-Warning $_.Exception.Message
+                throw "Could not access subscription '$subscriptionId' - make sure your user has the 'Owner' role on the subscription"
+            }
             # Add as contributor to an Azure RM Subscription
             if (!$roleAssignments) {
                 Write-Information "Adding service account to 'Contributor' role on subscription '$subscriptionId'"
-                irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments/$([guid]::NewGuid())?api-version=2018-09-01-preview" -Method Put -ContentType 'application/json' -Headers (. $getAzureManagementHeaders) -Body @"
+                try {
+                    irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments/$([guid]::NewGuid())?api-version=2018-09-01-preview" -Method Put -ContentType 'application/json' -Headers (. $getAzureManagementHeaders) -Body @"
 {
     "properties": {
         "roleDefinitionId": "$contributorRoleId",
@@ -770,6 +799,11 @@ CRLFOption=CRLFAlways
     }
 }
 "@| Out-Null
+                }
+                catch {
+                    Write-Warning $_.Exception.Message
+                    throw "Could not add 'Contributor' role for service account to subscription '$subscriptionId' - make sure your user has the 'Owner' role on the subscription"
+                }
             }
             else {
                 Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
@@ -958,7 +992,7 @@ CRLFOption=CRLFAlways
             [string]$Repository,
             [string]$Baseline
         )
-        Write-Information "Setting baseline for '$Name'"
+        Write-Information "Setting baseline for '$Repository'"
 
         if (!([uri]$Repository).IsAbsoluteUri) {
             $Repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Repository).remoteUrl
@@ -1196,7 +1230,12 @@ CRLFOption=CRLFAlways
             # By default the email will be sent to all non-simeon users in the devops org, this can be used to exclude users
             [string]$ExcludeUsersFromSummaryEmail,
             # By default the email will be generated for all pipelines in the org, this can be used to exclude pipelines
-            [string]$ExcludePipelinesFromEmail
+            [string]$ExcludePipelinesFromEmail,
+            # The server used to send emails from, defaults to smtp.office365.com
+            [string]$SmtpServer = "smtp.office365.com",
+            # The port used to send emails from, defaults to 587
+            [int]$SmtpPort = 587
+
         )
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
@@ -1236,6 +1275,12 @@ CRLFOption=CRLFAlways
             }
             ExcludePipelinesFromEmail = @{
                 value = $ExcludePipelinesFromEmail
+            }
+            SmtpServer = @{
+                SmtpServer = $SmtpServer
+            }
+            SmtpPort = @{
+                SmtpPort = $SmtpPort
             }
         }
         $queueName = $poolName = "Azure Pipelines"
@@ -1765,6 +1810,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
+            # Indicates the Azure subscription to use
+            [string]$Subscription,
             # Specify to true to not require deploy approval
             [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
@@ -1773,7 +1820,7 @@ CRLFOption=CRLFAlways
 
         while (!$Tenant) { $Tenant = Read-Tenant }
 
-        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
+        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
 
         $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
@@ -2166,6 +2213,6 @@ CRLFOption=CRLFAlways
         }
     }
 
-    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
+    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*, Get-GitRepository
 
 } | Import-Module -Force
