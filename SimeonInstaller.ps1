@@ -1149,10 +1149,10 @@ CRLFOption=CRLFAlways
                 value = $ExcludePipelinesFromEmail
             }
             SmtpServer = @{
-                SmtpServer = $SmtpServer
+                value = $SmtpServer
             }
             SmtpPort = @{
-                SmtpPort = $SmtpPort
+                value = "$SmtpPort"
             }
         }
         $queueName = $poolName = "Azure Pipelines"
