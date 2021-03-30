@@ -1088,11 +1088,11 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             # Email address used to send emails from
-            [ValidateNotNullOrEmpty()]
             [string]$FromEmailAddress,
-            # Email address pw used to send emails
-            [ValidateNotNullOrEmpty()]
-            [string]$FromEmailPw,
+            # Password for authenticating to smtp server
+            [string]$SmtpUserPassword,
+            # Use this user for smtp credential object if specified, if not will use FromEmailAddress
+            [string]$SmtpUser,
             # Semicolon delimited list of email addresses to send the summary email, if not provided uses all non-Simeon orginzation users
             [string]$SendSummaryEmailToAddresses,
             # Semicolon delimited list of email addresses to include in the CC for the summary email
@@ -1106,12 +1106,7 @@ CRLFOption=CRLFAlways
             # The server used to send emails from, defaults to smtp.office365.com
             [string]$SmtpServer = "smtp.office365.com",
             # The port used to send emails from, defaults to 587
-            [int]$SmtpPort = 587,
-            # User if using an SMTP interface
-            [string]$SmtpUser,
-            # User password if using an SMTP interface
-            [string]$SmtpUserPw
-
+            [int]$SmtpPort = 587
         )
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
@@ -1133,8 +1128,8 @@ CRLFOption=CRLFAlways
             FromEmailAddress = @{
                 value = $FromEmailAddress
             }
-            FromEmailPw = @{
-                value = $FromEmailPw
+            SmtpUserPassword = @{
+                value = $SmtpUserPassword
                 isSecret = $true
             }
             ToCCAddress = @{
@@ -1160,9 +1155,6 @@ CRLFOption=CRLFAlways
             }
             SmtpUser = @{
                 value = $SmtpUser
-            }
-            SmtpUserPw = @{
-                value = $SmtpUserPw
             }
         }
         $queueName = $poolName = "Azure Pipelines"
