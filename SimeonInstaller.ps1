@@ -685,7 +685,7 @@ CRLFOption=CRLFAlways
             # The baseline repository to use for pipelines (an empty string indicates to use no baseline) (may be the name of another repository DevOps or a full repository url)
             [string]$Baseline,
             # If true, will clear the repository contents if creating it for the first time
-            [switch]$UseEmptyRepositoryIfNew,
+            [switch]$ClearRepositoryContentsOnCreate,
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
@@ -714,7 +714,7 @@ CRLFOption=CRLFAlways
 
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -UseEmptyRepositoryIfNew:$UseEmptyRepositoryIfNew -GetSourceUrl {
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -GetSourceUrl {
             if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
                 # start with Simeon baseline
                 return 'https://github.com/simeoncloud/Baseline.git'
@@ -751,10 +751,10 @@ CRLFOption=CRLFAlways
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
-            # A function that returns a url to import this repository from if it is empty
-            [scriptblock]$GetSourceUrl,
             # If true, will clear the repository contents if creating it for the first time
-            [switch]$UseEmptyRepositoryIfNew
+            [switch]$ClearRepositoryContentsOnCreate,
+            # A function that returns a url to import this repository from if it is empty
+            [scriptblock]$GetSourceUrl
         )
 
         $Name = $Name.ToLower()
@@ -794,15 +794,30 @@ CRLFOption=CRLFAlways
         }
 
         if (!$repo.defaultBranch -and $GetSourceUrl) {
-            Push-Location (Get-GitRepository (. $GetSourceUrl)) {
-                if ($UseEmptyRepositoryIfNew) {
-                    # delete Source/Resources/Content
-                }
-                # delete .git
-                # git init
-                # git set upstream to $repo.url
-                # git push --force
+            Push-Location (Get-GitRepository (. $GetSourceUrl))
+
+            if ($ClearRepositoryContentsOnCreate) {
+                # delete Source/Resources/Content
+                Write-Information "Empty Baseline Selected. Removing template code."
+                $folderToDelete = '.\Source\Resources\Content'
+                if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
             }
+
+            if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
+
+            Write-Verbose "Deleting existing .git directory"
+            Remove-Item '.\.git' -Recurse -Force
+
+            Write-Verbose "Initializing new git repository with existing contents"
+            Invoke-CommandLine "git init 2>&1" | Write-Verbose
+            Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+            Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+            Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+            Write-Verbose "Pushing new repository to remote"
+            Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
+
+            Pop-Location
         }
     }
 
@@ -1629,7 +1644,7 @@ CRLFOption=CRLFAlways
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
             # If true, will clear the repository contents if creating it for the first time
-            [switch]$UseEmptyRepositoryIfNew,
+            [switch]$ClearRepositoryContentsOnCreate,
             # Specify to true to not require deploy approval
             [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
@@ -1641,7 +1656,7 @@ CRLFOption=CRLFAlways
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'UseEmptyRepositoryIfNew') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'ClearRepositoryContentsOnCreate') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
