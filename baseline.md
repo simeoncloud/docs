@@ -1224,20 +1224,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/retention-policies) |
 
-## Office 365 > Teams > Apps
-*TeamsApi/Users/TenantWideAppsSettings*
-
-###### hidden-header
-
-### Configuration
-
-|Name |Configuration|
-| :-- | :-- |
-| What does this do? | Defines global settings for Microsoft Teams. The baseline allows users to add Teams apps in general, and another setting (TeamsAppPermissionPolicy) allows you to specify approved Teams applications. The baseline uses the default configurations provided by Microsoft. |
-| Why should you use this? | To allow users to add Teams apps. |
-| What is the end-user impact? | Users will be able to add Teams apps. |
-| Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365), [Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
-
 ## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
 

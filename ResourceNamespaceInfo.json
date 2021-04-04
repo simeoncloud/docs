@@ -1,0 +1,203 @@
+[
+  {
+    "namespace": "AadIam:CompanyBrandings",
+    "description": "Azure AD > Company branding"
+  },
+  {
+    "namespace": "AadIam:ExternalUserDirectorySettings",
+    "description": "Azure AD > External user directory settings",
+    "isDeletable": false
+  },
+  {
+    "namespace": "AadIam:ExternalUserGuestSettings",
+    "description": "Azure AD > External user guest settings",
+    "isDeletable": false
+  },
+  {
+    "namespace": "AadIam:FeatureSettings",
+    "description": "Azure AD > User feature preview settings"
+  },
+  {
+    "namespace": "AadIam:GroupSettings",
+    "description": "Azure AD > Group settings",
+    "isDeletable": false
+  },
+  {
+    "namespace": "AadIam:MdmApplications",
+    "description": "Azure AD > Mobility (MDM and MAM)"
+  },
+  {
+    "namespace": "AadIam:PasswordResetPolicies",
+    "description": "Azure AD > Password reset",
+    "isDeletable": false
+  },
+  {
+    "namespace": "AadIam:UserSettings",
+    "description": "Azure AD > User settings",
+    "isDeletable": false
+  },
+  {
+    "namespace": "AzureManagement:MicrosoftAadIam:DiagnosticSettings",
+    "description": "Azure AD > Diagnostic settings"
+  },
+  {
+    "namespace": "AzureManagement:MicrosoftIntune:DiagnosticSettings",
+    "description": "Intune > Diagnostic settings"
+  },
+  {
+    "namespace": "AzureManagement:MicrosoftResources:ResourceGroups",
+    "description": "Azure > Resource groups"
+  },
+  {
+    "namespace": "MSGraph:Applications",
+    "description": "Azure AD > App registrations"
+  },
+  {
+    "namespace": "MSGraph:Groups",
+    "description": "Azure AD > Groups"
+  },
+  {
+    "namespace": "MSGraph:ServicePrincipals",
+    "description": "Azure AD > Enterprise applications"
+  },
+  {
+    "namespace": "MSGraph:Settings",
+    "description": "Azure AD > Directory settings"
+  },
+  {
+    "namespace": "MSGraph:Users",
+    "description": "Azure AD > Users"
+  },
+  {
+    "namespace": "MSGraph:ConditionalAccess:NamedLocations",
+    "description": "Azure AD > Security > Conditional Access > Named locations"
+  },
+  {
+    "namespace": "MSGraph:ConditionalAccess:Policies",
+    "description": "Azure AD > Security > Conditional Access > Policies"
+  },
+  {
+    "namespace": "MSGraph:DeviceAppManagement:AndroidManagedAppProtections",
+    "description": "Intune > Apps > App protection policies (Platform = Android)"
+  },
+  {
+    "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections",
+    "description": "Intune > Apps > App protection policies (Platform = iOS:iPadOS)"
+  },
+  {
+    "namespace": "MSGraph:DeviceAppManagement:MobileApps",
+    "description": "Intune > Apps"
+  },
+  {
+    "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
+    "description": "Intune > Apps > App configuration policies"
+  },
+  {
+    "namespace": "MSGraph:DeviceAppManagement:WindowsInformationProtectionPolicies",
+    "description": "Intune > Apps > App protection policies (Platform = Windows 10)"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
+    "description": "Intune > Devices > Compliance policies"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:DeviceConfigurations",
+    "description": "Intune > Devices > Configuration profiles"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:DeviceEnrollmentConfigurations",
+    "description": "Intune > Devices > Enrollment restrictions"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:DeviceManagementScripts",
+    "description": "Intune > Devices > Scripts"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations",
+    "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:MobileThreatDefenseConnectors",
+    "description": "Intune > Mobile Threat Defense"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
+    "description": "Intune > Devices > Windows Autopilot deployment profiles"
+  },
+  {
+    "namespace": "PowerShell:Exchange:ClientAccess:OwaMailboxPolicies",
+    "description": "Office 365 > Exchange > Outlook Web App policies"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishRules",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links:ATP Safe Attachments > Global Settings"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentPolicies",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentRules",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksPolicies",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+  },
+  {
+    "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksRules",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+  },
+  {
+    "namespace": "PowerShell:Exchange:Organization:AdminAuditLogConfig",
+    "description": "Office 365 > Exchange > AdminAuditLogConfig"
+  },
+  {
+    "namespace": "PowerShell:Exchange:Organization:AuthenticationPolicies",
+    "description": "Office 365 > Exchange > Modern authentication"
+  },
+  {
+    "namespace": "PowerShell:Exchange:Organization:OrganizationConfig",
+    "description": "Office 365 > Exchange > OrganizationConfig"
+  },
+  {
+    "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
+    "description": "Azure AD > Device settings"
+  },
+  {
+    "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention"
+  },
+  {
+    "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)"
+  },
+  {
+    "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
+    "description": "Office 365 > Teams > Apps > Permission policies"
+  },
+  {
+    "namespace": "TeamsPSAdmin:TeamsCallingPolicy",
+    "description": "Office 365 > Teams > Voice > Calling policies"
+  },
+  {
+    "namespace": "TeamsPSAdmin:TeamsClientConfiguration",
+    "description": "Office 365 > Teams > Org-wide settings"
+  },
+  {
+    "namespace": "TeamsPSAdmin:TeamsMeetingPolicy",
+    "description": "Office 365 > Teams > Meetings > Meeting policies"
+  },
+  {
+    "namespace": "TeamsPSAdmin:TeamsMessagingPolicy",
+    "description": "Office 365 > Teams > Messaging policies"
+  }
+]
