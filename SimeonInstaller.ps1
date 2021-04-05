@@ -97,6 +97,7 @@ New-Module -Name 'SimeonInstaller' -ScriptBlock {
         [CmdletBinding()]
         param()
 
+        git config --system core.longpaths true
         git config user.email "noreply@simeoncloud.com"
         git config user.name "Simeon"
     }
