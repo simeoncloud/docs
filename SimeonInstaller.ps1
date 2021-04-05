@@ -718,6 +718,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # The baseline repository to use for pipelines (an empty string indicates to use no baseline) (may be the name of another repository DevOps or a full repository url)
             [string]$Baseline,
+            # If true, will clear the repository contents if creating it for the first time
+            [switch]$ClearRepositoryContentsOnCreate,
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
@@ -746,7 +748,7 @@ CRLFOption=CRLFAlways
 
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -GetImportUrl {
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -GetSourceUrl {
             if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
                 # start with Simeon baseline
                 return 'https://github.com/simeoncloud/Baseline.git'
@@ -771,6 +773,7 @@ CRLFOption=CRLFAlways
     Creates/updates a repository for a tenant in Azure DevOps
     #>
     function Install-SimeonTenantRepository {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -782,8 +785,10 @@ CRLFOption=CRLFAlways
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
+            # If true, will clear the repository contents if creating it for the first time
+            [switch]$ClearRepositoryContentsOnCreate,
             # A function that returns a url to import this repository from if it is empty
-            [scriptblock]$GetImportUrl
+            [scriptblock]$GetSourceUrl
         )
 
         $Name = $Name.ToLower()
@@ -822,30 +827,31 @@ CRLFOption=CRLFAlways
             Write-Information "Repository already exists - will not create"
         }
 
-        if (!$repo.defaultBranch -and $GetImportUrl) {
-            $importUrl = . $GetImportUrl
+        if (!$repo.defaultBranch -and $GetSourceUrl) {
+            Push-Location (Get-GitRepository (. $GetSourceUrl))
 
-            if ($importUrl) {
-                Write-Information "Importing repository contents from '$importUrl'"
-
-                $importOperation = irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests" -Method Post -Body (@{
-                        parameters = @{
-                            gitSource = @{
-                                overwrite = $false
-                                url = $importUrl
-                            }
-                        }
-                    } | ConvertTo-Json)
-
-                while ($importOperation.status -ne 'completed') {
-                    if ($importOperation.status -eq 'failed') { throw "Importing repository from $importUrl failed" }
-                    $importOperation = irm @restProps $importOperation.url
-                    Start-Sleep -Seconds 1
-                }
+            if ($ClearRepositoryContentsOnCreate) {
+                # delete Source/Resources/Content
+                Write-Information "Clearing repository contents"
+                $folderToDelete = './Source/Resources/Content'
+                if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
             }
-            else {
-                Write-Information "No import url was provider - will not import initial repository contents"
-            }
+
+            if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
+
+            Write-Verbose "Deleting existing .git directory"
+            Remove-Item '.\.git' -Recurse -Force
+
+            Write-Verbose "Initializing new git repository with existing contents"
+            Invoke-CommandLine "git init 2>&1" | Write-Verbose
+            Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+            Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+            Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+            Write-Verbose "Pushing new repository to remote"
+            Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
+
+            Pop-Location
         }
     }
 
@@ -1684,6 +1690,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
+            # If true, will clear the repository contents if creating it for the first time
+            [switch]$ClearRepositoryContentsOnCreate,
             # Indicates the Azure subscription to use
             [string]$Subscription,
             # Specify to true to not require deploy approval
@@ -1697,7 +1705,7 @@ CRLFOption=CRLFAlways
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'ClearRepositoryContentsOnCreate') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
