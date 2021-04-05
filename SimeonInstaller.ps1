@@ -832,8 +832,8 @@ CRLFOption=CRLFAlways
 
             if ($ClearRepositoryContentsOnCreate) {
                 # delete Source/Resources/Content
-                Write-Information "Empty Baseline Selected. Removing template code."
-                $folderToDelete = '.\Source\Resources\Content'
+                Write-Information "Clearing repository contents"
+                $folderToDelete = './Source/Resources/Content'
                 if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
             }
 
