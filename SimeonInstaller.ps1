@@ -1221,7 +1221,7 @@ CRLFOption=CRLFAlways
     .SYNOPSIS
     Clones git repo into Azure an DevOps project
     #>
-    function Install-DevOpsRepoFromGithub {
+    function Install-DevOpsRepoFromGitHub {
         param(
             # The Azure DevOps organization name
             [ValidateNotNullOrEmpty()]
@@ -1252,7 +1252,7 @@ CRLFOption=CRLFAlways
         $repos = irm @restProps "$apiBaseUrl/git/repositories"
         $repo = $repos.value | ? name -eq $RepoName
 
-        if(!$repo) {
+        if (!$repo) {
             Write-Information "Creating repository"
             $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
                     name = $RepoName
@@ -1261,7 +1261,8 @@ CRLFOption=CRLFAlways
                         name = $Project
                     }
                 } | ConvertTo-Json)
-        } else {
+        }
+        else {
             Write-Verbose "Repository already exists - will not create"
             return $repo
         }
@@ -1374,7 +1375,7 @@ CRLFOption=CRLFAlways
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        $repo = Install-DevOpsRepoFromGithub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
+        $repo = Install-DevOpsRepoFromGitHub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
 
         #$set scheduled on pipeline
         $body = @{
@@ -1470,7 +1471,7 @@ CRLFOption=CRLFAlways
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
 
-        $repo = Install-DevOpsRepoFromGithub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
+        $repo = Install-DevOpsRepoFromGitHub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
 
         $body = @{
             name = $pipelineName
