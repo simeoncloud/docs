@@ -562,9 +562,9 @@ CRLFOption=CRLFAlways
     function Get-AuthenticationHeader {
         $token = Get-SimeonAzureDevOpsAccessToken
         try {
-                $convert = [Convert]::FromBase64String($token)
-                return @{Authorization = "Basic $token" }
-            }
+            $convert = [Convert]::FromBase64String($token)
+            return @{Authorization = "Basic $token" }
+        }
         catch {
             return @{Authorization = "Bearer $token" }
         }
@@ -1219,6 +1219,81 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Clones git repo into Azure an DevOps project
+    #>
+    function Install-DevOpsRepoFromGithub {
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants',
+            # Name of target repo to create
+            [ValidateNotNullOrEmpty()]
+            [string]$RepoName,
+            # Git url of source repo
+            [ValidateNotNullOrEmpty()]
+            [string]$GitSourceUrl
+        )
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview"
+            }
+            ContentType = 'application/json'
+        }
+
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+        $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+
+        $repos = irm @restProps "$apiBaseUrl/git/repositories"
+        $repo = $repos.value | ? name -eq $RepoName
+
+        if(!$repo) {
+            Write-Information "Creating repository"
+            $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
+                    name = $RepoName
+                    project = @{
+                        id = $projectId
+                        name = $Project
+                    }
+                } | ConvertTo-Json)
+        } else {
+            Write-Verbose "Repository already exists - will not create"
+            return $repo
+        }
+
+        Write-Information "Installing repo: $RepoName for $organization"
+
+        Push-Location (Get-GitRepository $GitSourceUrl)
+
+        Write-Information "Deleting existing .git directory"
+        Remove-Item '.\.git' -Recurse -Force
+
+        Write-Verbose "Initializing new git repository with existing contents"
+        Invoke-CommandLine "git init 2>&1" | Write-Verbose
+        Initialize-GitConfiguration
+
+        $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`""
+        Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+        Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+        Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+        Write-Verbose "Pushing new repository to remote"
+        Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
+
+        Pop-Location
+
+        $repos = irm @restProps "$apiBaseUrl/git/repositories"
+        $repo = $repos.value | ? name -eq $repoName
+        return $repo
+    }
+
+    <#
+    .SYNOPSIS
     Creates/updates the pipeline used to send organization summary emails
     #>
     function Install-SimeonReportingPipeline {
@@ -1263,7 +1338,6 @@ CRLFOption=CRLFAlways
         }
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
         $pipelineName = "SummaryEmail"
         $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
 
@@ -1300,8 +1374,7 @@ CRLFOption=CRLFAlways
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        $repoName = "AzurePipelineTemplates"
-        $repoOrgName = "simeoncloud"
+        $repo = Install-DevOpsRepoFromGithub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
 
         #$set scheduled on pipeline
         $body = @{
@@ -1320,26 +1393,16 @@ CRLFOption=CRLFAlways
                 }
             }
             repository = @{
-                url = "https://github.com/$repoOrgName/$repoName.git"
-                name = "$repoOrgName/$repoName"
-                id = "$repoOrgName/$repoName"
-                type = "GitHub"
+                url = $repo.remoteUrl
+                id = $repo.id
+                name = $repo.name
+                type = "tfsgit"
                 defaultBranch = "master"
-                properties = @{
-                    apiUrl = "https://api.github.com/repos/$repoOrgName/$repoName"
-                    branchesUrl = "https://api.github.com/repos/$repoOrgName/$repoName/branches"
-                    cloneUrl = "https://github.com/$repoOrgName/$repoName.git"
-                    defaultBranch = "master"
-                    fullName = "$repoOrgName/$repoName"
-                    manageUrl = "https://github.com/$repoOrgName/$repoName"
-                    orgName = "$repoOrgName"
-                    refsUrl = "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
-                    connectedServiceId = $serviceEndpoint.Id
-                }
             }
             uri = "$pipelineName.yml"
             variables = $pipelineVariables
         }
+
         if ($pipeline) {
             $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
@@ -1389,7 +1452,6 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
-
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
         $restProps = @{
@@ -1401,15 +1463,14 @@ CRLFOption=CRLFAlways
         }
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
         $pipelineName = "RetryPipelines"
         $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
 
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        $repoName = "AzurePipelineTemplates"
-        $repoOrgName = "simeoncloud"
+
+        $repo = Install-DevOpsRepoFromGithub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
 
         $body = @{
             name = $pipelineName
@@ -1427,25 +1488,15 @@ CRLFOption=CRLFAlways
                 }
             }
             repository = @{
-                url = "https://github.com/$repoOrgName/$repoName.git"
-                name = "$repoOrgName/$repoName"
-                id = "$repoOrgName/$repoName"
-                type = "GitHub"
+                url = $repo.remoteUrl
+                id = $repo.id
+                name = $repo.name
+                type = "tfsgit"
                 defaultBranch = "master"
-                properties = @{
-                    apiUrl = "https://api.github.com/repos/$repoOrgName/$repoName"
-                    branchesUrl = "https://api.github.com/repos/$repoOrgName/$repoName/branches"
-                    cloneUrl = "https://github.com/$repoOrgName/$repoName.git"
-                    defaultBranch = "master"
-                    fullName = "$repoOrgName/$repoName"
-                    manageUrl = "https://github.com/$repoOrgName/$repoName"
-                    orgName = "$repoOrgName"
-                    refsUrl = "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
-                    connectedServiceId = $serviceEndpoint.Id
-                }
             }
             uri = "$pipelineName.yml"
         }
+
         if ($pipeline) {
             $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
@@ -1951,8 +2002,7 @@ CRLFOption=CRLFAlways
                 }
 
                 # assign project collection admin
-                if($userToInvite)
-                {
+                if ($userToInvite) {
                     Write-Information "Making user: $userToInvite Project Collection Admin"
                     $projectCollectionAdminGroupDescriptor = ($groups |? displayname -eq "Project Collection Administrators").descriptor
                     $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$userToInvite").descriptor
@@ -2012,7 +2062,7 @@ CRLFOption=CRLFAlways
                         }
                     }
 "@
-} | Out-Null
+                } | Out-Null
                 # Get projectId after creating
                 $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
                 # Repositories > rename $Project to default
