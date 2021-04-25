@@ -559,14 +559,14 @@ CRLFOption=CRLFAlways
     .SYNOPSIS
         If using PAT token use basic auth else use bearer token. PAT token not currently supported
     #>
-    function Get-AuthenticationHeader {
+    function Get-AzureDevOpsAuthHeader {
         $token = Get-SimeonAzureDevOpsAccessToken
         try {
             $convert = [Convert]::FromBase64String($token)
-            return @{Authorization = "Basic $token" }
+            return @{ Authorization = "Basic $token" }
         }
         catch {
-            return @{Authorization = "Bearer $token" }
+            return @{ Authorization = "Bearer $token" }
         }
     }
 
@@ -588,7 +588,7 @@ CRLFOption=CRLFAlways
             [int]$PermissionNumber
         )
 
-        $authenicationHeader = Get-AuthenticationHeader
+        $authenicationHeader = Get-AzureDevOpsAuthHeader
 
         $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
 
@@ -631,7 +631,7 @@ CRLFOption=CRLFAlways
             [string]$Project
         )
 
-        $authenicationHeader = Get-AuthenticationHeader
+        $authenicationHeader = Get-AzureDevOpsAuthHeader
 
         if (!$azureDevOpsProjectIdCache.$Project) {
             Write-Information "Getting project id for Organization: $Organization project: $Project"
@@ -1300,8 +1300,8 @@ CRLFOption=CRLFAlways
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
-        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "jobs"
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "Jobs"
 
         #$set scheduled on pipeline
         $body = @{
@@ -1397,8 +1397,8 @@ CRLFOption=CRLFAlways
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
-        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "jobs"
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "Jobs"
 
 
         $body = @{
@@ -1852,7 +1852,7 @@ CRLFOption=CRLFAlways
             throw "Unable to retrieve reporting email password please contact Simeon Support for assistance."
         }
 
-        $authenicationHeader = Get-AuthenticationHeader
+        $authenicationHeader = Get-AzureDevOpsAuthHeader
 
         # Check for org, create if it doesn't exist
         Write-Information "Validating DevOps organization"
