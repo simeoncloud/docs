@@ -178,8 +178,8 @@ CRLFOption=CRLFAlways
         New-Item -ItemType Directory $Path -EA SilentlyContinue | Out-Null
 
         Write-Verbose "Cloning '$RepositoryUrl'"
-        if ($AccessToken) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $AccessToken`"" }
-        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $gitConfig $RepositoryUrl `"$Path`" 2>&1" | Write-Verbose
+        if ($AccessToken) { Invoke-CommandLine "git config http.extraheader=`"AUTHORIZATION: bearer $token" }
+        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $RepositoryUrl `"$Path`" 2>&1" | Write-Verbose
 
         Push-Location $Path
         try {
@@ -913,6 +913,7 @@ CRLFOption=CRLFAlways
     Creates/updates a repository for a tenant in Azure DevOps
     #>
     function Install-SimeonTenantRepository {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -924,8 +925,10 @@ CRLFOption=CRLFAlways
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
+            # If true, will clear the repository contents if creating it for the first time
+            [switch]$ClearRepositoryContentsOnCreate,
             # A function that returns a url to import this repository from if it is empty
-            [scriptblock]$GetImportUrl
+            [scriptblock]$GetSourceUrl
         )
 
         $Name = $Name.ToLower()
@@ -946,10 +949,7 @@ CRLFOption=CRLFAlways
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
-
-        $repo = $repos.value |? name -eq $Name
-
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name
         if (!$repo) {
             Write-Information "Creating repository"
             $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
@@ -964,29 +964,31 @@ CRLFOption=CRLFAlways
             Write-Information "Repository already exists - will not create"
         }
 
-        if (!$repo.defaultBranch -and $GetImportUrl) {
-            $importUrl = . $GetImportUrl
-
-            if ($importUrl) {
-                Write-Information "Importing repository contents from '$importUrl'"
-
-                $importOperation = irm @restProps "$apiBaseUrl/git/repositories/$($repo.id)/importRequests" -Method Post -Body (@{
-                        parameters = @{
-                            gitSource = @{
-                                overwrite = $false
-                                url = $importUrl
-                            }
-                        }
-                    } | ConvertTo-Json)
-
-                while ($importOperation.status -ne 'completed') {
-                    if ($importOperation.status -eq 'failed') { throw "Importing repository from $importUrl failed" }
-                    $importOperation = irm @restProps $importOperation.url
-                    Start-Sleep -Seconds 1
+        if (!$repo.defaultBranch -and $GetSourceUrl) {
+            Push-Location (Get-GitRepository (. $GetSourceUrl))
+            try {
+                if ($ClearRepositoryContentsOnCreate) {
+                    # delete Source/Resources/Content
+                    Write-Information "Clearing repository contents"
+                    $folderToDelete = './Source/Resources/Content'
+                    if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
                 }
+
+                Write-Verbose "Deleting existing .git directory"
+                Remove-Item '.\.git' -Recurse -Force
+
+                Write-Verbose "Initializing new git repository with existing contents"
+                Invoke-CommandLine "git init 2>&1" | Write-Verbose
+                Initialize-GitConfiguration
+                Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+                Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+                Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+                Write-Verbose "Pushing new repository to remote"
+                Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
             }
-            else {
-                Write-Information "No import url was provider - will not import initial repository contents"
+            finally {
+                Pop-Location
             }
         }
     }
@@ -1051,8 +1053,7 @@ CRLFOption=CRLFAlways
             if ($Baseline) {
                 Write-Information "Setting baseline to '$Baseline'"
                 "" | Set-Content .gitmodules
-                if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
-                Invoke-CommandLine "git $gitConfig -c core.longpaths=true submodule add -b master -f $Baseline `"$baselinePath`" 2>&1" | Write-Verbose
+                Invoke-CommandLine "git -c core.longpaths=true submodule add -b master -f $Baseline `"$baselinePath`" 2>&1" | Write-Verbose
             }
             else {
                 Write-Information "Setting repository to have no baseline"
@@ -1219,82 +1220,6 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Clones git repo into Azure an DevOps project
-    #>
-    function Install-DevOpsRepoFromGitHub {
-        param(
-            # The Azure DevOps organization name
-            [ValidateNotNullOrEmpty()]
-            [string]$Organization,
-            # The project name in DevOps
-            [ValidateNotNullOrEmpty()]
-            [string]$Project = 'Tenants',
-            # Name of target repo to create
-            [ValidateNotNullOrEmpty()]
-            [string]$RepoName,
-            # Git url of source repo
-            [ValidateNotNullOrEmpty()]
-            [string]$GitSourceUrl
-        )
-        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
-
-        $restProps = @{
-            Headers = @{
-                Authorization = "Bearer $token"
-                Accept = "application/json;api-version=5.1-preview"
-            }
-            ContentType = 'application/json'
-        }
-
-        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
-
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
-        $repo = $repos.value | ? name -eq $RepoName
-
-        if (!$repo) {
-            Write-Information "Creating repository"
-            $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
-                    name = $RepoName
-                    project = @{
-                        id = $projectId
-                        name = $Project
-                    }
-                } | ConvertTo-Json)
-        }
-        else {
-            Write-Verbose "Repository already exists - will not create"
-            return $repo
-        }
-
-        Write-Information "Installing repo: $RepoName for $organization"
-
-        Push-Location (Get-GitRepository $GitSourceUrl)
-
-        Write-Information "Deleting existing .git directory"
-        Remove-Item '.\.git' -Recurse -Force
-
-        Write-Verbose "Initializing new git repository with existing contents"
-        Invoke-CommandLine "git init 2>&1" | Write-Verbose
-        Initialize-GitConfiguration
-
-        $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`""
-        Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
-        Invoke-CommandLine "git add . 2>&1" | Write-Verbose
-        Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
-
-        Write-Verbose "Pushing new repository to remote"
-        Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
-
-        Pop-Location
-
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
-        $repo = $repos.value | ? name -eq $repoName
-        return $repo
-    }
-
-    <#
-    .SYNOPSIS
     Creates/updates the pipeline used to send organization summary emails
     #>
     function Install-SimeonReportingPipeline {
@@ -1375,7 +1300,8 @@ CRLFOption=CRLFAlways
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        $repo = Install-DevOpsRepoFromGitHub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "jobs"
 
         #$set scheduled on pipeline
         $body = @{
@@ -1471,7 +1397,9 @@ CRLFOption=CRLFAlways
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
 
-        $repo = Install-DevOpsRepoFromGitHub -Organization $Organization -Project $Project -RepoName "jobs" -GitSourceUrl "https://github.com/simeoncloud/OrganizationJobs.git"
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "jobs"
+
 
         $body = @{
             name = $pipelineName
@@ -1592,13 +1520,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
-
-        $repo = $repos.value |? name -eq $Name
-
-        if (!$repo) {
-            throw "Could not find repository $Name"
-        }
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name
 
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
