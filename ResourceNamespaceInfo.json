@@ -61,6 +61,10 @@
     "description": "Azure AD > App registrations"
   },
   {
+    "namespace": "MSGraph:Domains",
+    "description": "Azure AD > Custom domain names"
+  },
+  {
     "namespace": "MSGraph:Groups",
     "description": "Azure AD > Groups"
   },
