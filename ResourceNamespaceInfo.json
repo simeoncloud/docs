@@ -1,7 +1,15 @@
 [
   {
+    "namespace": "AadGraph:Policies",
+    "description": "Azure AD > Security > Identity Protection"
+  },
+  {
     "namespace": "AadIam:CompanyBrandings",
     "description": "Azure AD > Company branding"
+  },
+  {
+    "namespace": "AadIam:EnterpriseApplicationUserSettings",
+    "description": "Azure AD > Enterprise applications > User settings"
   },
   {
     "namespace": "AadIam:ExternalUserDirectorySettings",
@@ -191,6 +199,10 @@
   {
     "namespace": "TeamsPSAdmin:TeamsClientConfiguration",
     "description": "Office 365 > Teams > Org-wide settings"
+  },
+  {
+    "namespace": "TeamsPSAdmin:TeamsMeetingConfiguration",
+    "description": "Office 365 > Teams > Meetings > Meeting settings"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsMeetingPolicy",
