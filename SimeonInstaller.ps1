@@ -97,6 +97,7 @@ New-Module -Name 'SimeonInstaller' -ScriptBlock {
         [CmdletBinding()]
         param()
 
+        git config core.longpaths true
         git config user.email "noreply@simeoncloud.com"
         git config user.name "Simeon"
     }
@@ -178,8 +179,8 @@ CRLFOption=CRLFAlways
         New-Item -ItemType Directory $Path -EA SilentlyContinue | Out-Null
 
         Write-Verbose "Cloning '$RepositoryUrl'"
-        if ($AccessToken) { Invoke-CommandLine "git config http.extraheader=`"AUTHORIZATION: bearer $token" }
-        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $RepositoryUrl `"$Path`" 2>&1" | Write-Verbose
+        if ($AccessToken) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $AccessToken`"" }
+        Invoke-CommandLine "git clone --single-branch -c core.longpaths=true $gitConfig $RepositoryUrl `"$Path`" 2>&1" | Write-Verbose
 
         Push-Location $Path
         try {
@@ -860,6 +861,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # The baseline repository to use for pipelines (an empty string indicates to use no baseline) (may be the name of another repository DevOps or a full repository url)
             [string]$Baseline,
+            # If true, will clear the repository contents if creating it for the first time
+            [switch]$ClearRepositoryContentsOnCreate,
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
@@ -888,7 +891,7 @@ CRLFOption=CRLFAlways
 
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -GetImportUrl {
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -GetSourceUrl {
             if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
                 # start with Simeon baseline
                 return 'https://github.com/simeoncloud/Baseline.git'
@@ -949,7 +952,7 @@ CRLFOption=CRLFAlways
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
-        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name -ErrorAction SilentlyContinue
         if (!$repo) {
             Write-Information "Creating repository"
             $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
@@ -973,6 +976,8 @@ CRLFOption=CRLFAlways
                     $folderToDelete = './Source/Resources/Content'
                     if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
                 }
+
+                if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
 
                 Write-Verbose "Deleting existing .git directory"
                 Remove-Item '.\.git' -Recurse -Force
@@ -1053,7 +1058,8 @@ CRLFOption=CRLFAlways
             if ($Baseline) {
                 Write-Information "Setting baseline to '$Baseline'"
                 "" | Set-Content .gitmodules
-                Invoke-CommandLine "git -c core.longpaths=true submodule add -b master -f $Baseline `"$baselinePath`" 2>&1" | Write-Verbose
+                if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
+                Invoke-CommandLine "git $gitConfig -c core.longpaths=true submodule add -b master -f $Baseline `"$baselinePath`" 2>&1" | Write-Verbose
             }
             else {
                 Write-Information "Setting repository to have no baseline"
@@ -1798,6 +1804,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
+            # If true, will clear the repository contents if creating it for the first time
+            [switch]$ClearRepositoryContentsOnCreate,
             # Indicates the Azure subscription to use
             [string]$Subscription,
             # Specify to true to not require deploy approval
@@ -1811,7 +1819,7 @@ CRLFOption=CRLFAlways
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'ClearRepositoryContentsOnCreate') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
@@ -1993,7 +2001,7 @@ CRLFOption=CRLFAlways
                 $repos = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
                 if ($repos.name -contains "$Project") {
                     $repoId = ($repos |? { $_.name -eq "$Project" }).id
-                    Invoke-WithRetry { Invoke-RestMethod  -Headers $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"default"}' -ContentType "application/json" } | Out-Null
+                    Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"default"}' -ContentType "application/json" } | Out-Null
                 }
             }
             # Overview > uncheck Boards and Test Plans
@@ -2136,7 +2144,7 @@ CRLFOption=CRLFAlways
             if (!$subExists) {
                 Write-Information "Creating build completed notification for $PipelineNotificationEmail"
                 $projectTeamGroupId = ($groups |? { $_.PrincipalName -eq "[$Project]\$Project Team" }).originId
-                Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body  @"
+                Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body @"
                     {
                     "description": "A build completes",
                     "filter": {
