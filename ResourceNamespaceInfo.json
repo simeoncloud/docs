@@ -1,6 +1,6 @@
 [
   {
-    "namespace": "AadGraph:Policies",
+    "namespace": "AadGraph:IdentityProtectionPolicies",
     "description": "Azure AD > Security > Identity Protection"
   },
   {
