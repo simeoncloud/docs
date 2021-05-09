@@ -37,6 +37,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - End users are restricted from inviting external users to view corporate data
 
 ###### hidden-header
+## 
+*TeamsApi/Users/TenantWideAppsSettings*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
+| :-- | :-- |
+| What does this do? | Defines global settings for Microsoft Teams. The baseline allows users to add Teams apps in general, and another setting (TeamsAppPermissionPolicy) allows you to specify approved Teams applications. The baseline uses the default configurations provided by Microsoft. |
+| Why should you use this? | To allow users to add Teams apps. |
+| What is the end-user impact? | Users will be able to add Teams apps. |
+| Learn more | [Manage Teams settings for your organization](https://docs.microsoft.com/en-us/microsoftteams/enable-features-office-365), [Manage your apps in the Microsoft Teams admin center](https://docs.microsoft.com/en-us/microsoftteams/manage-apps) |
+
 ## Azure > Resource groups
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
@@ -77,6 +91,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to provide your users with a personalized login screen for added security, familiarity, and branding. |
 | What is the end-user impact? | Users will see the watermark (username hint) on Azure login screens. |
 | Learn more | [Customize your Azure AD sign-in page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/customize-branding) |
+
+## Azure AD > Custom domain names
+*MSGraph/Domains*
+
+###### hidden-header
+
+### Default
+
+|Name |Default|
+| :-- | :-- |
+| What does this do? | Disables password expiration per Microsoft's recommendation. |
+| Why should you use this? | This is recommended by Microsoft and affects Microsoft secure score. |
+| What is the end-user impact? | Users will not be required to change their passwords. |
+| Learn more | [Dropping the password expiration policies](https://docs.microsoft.com/en-us/archive/blogs/secguide/security-baseline-final-for-windows-10-v1903-and-windows-server-v1903) |
 
 ## Azure AD > Device settings
 *MSGraph/Policies/DeviceRegistrationPolicy*
@@ -119,6 +147,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to tighten security around group creation. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> User who are not in "Baseline - Group Creators" will not be allowed to create Azure AD groups. |
 | Learn more | [Manage who can create Microsoft 365 Groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) |
+
+## Azure AD > Enterprise applications > User settings
+*AadIam/EnterpriseApplicationUserSettings*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
+| :-- | :-- |
+| What does this do? | Prohibits users from registering enterprise applications. |
+| Why should you use this? | If you want to prohibit users from registering enterprise applications. |
+| What is the end-user impact? | Users will not be able to register enterprise applications. |
+| Learn more | [Default user permissions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#to-restrict-the-default-permissions-for-member-users) |
 
 ## Azure AD > External user directory settings
 *AadIam/ExternalUserDirectorySettings*
@@ -262,10 +304,10 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Device Administrators|
 | :-- | :-- |
-| What does this do? | Creates a group of users assigned as local administrators on Azure AD joined devices. The baseline grants users in this group the Azure AD role "Device Administrators." |
+| What does this do? | Creates a group of users assigned as local administrators on Azure AD joined devices. The baseline grants users in this group the Azure AD role "Azure AD Joined Device Local Administrator." |
 | Why should you use this? | If you want to have a group of users with local administrator permissions on Azure AD joined devices. |
 | What is the end-user impact? | Members in this group will have local administrator access on Azure AD joined devices. |
-| Learn more | [Device Administrators Role](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#device-administrators) |
+| Learn more | [Azure AD Joined Device Local Administrator Role](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#device-administrators) |
 
 
 
@@ -395,7 +437,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Block Legacy Apps|
 | :-- | :-- |
-| What does this do? | Blocks legacy protocols (POP, SMTP, IMAP, and MAPI) which can be used to bypass security controls in your environment. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." |
+| What does this do? | Blocks legacy protocols (POP, SMTP, IMAP, and MAPI) which can be used to bypass security controls in your environment. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." |
 | Why should you use this? | Improves security by preventing use of insecure protocols. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users may not use legacy protocols (POP, SMTP, IMAP, and MAPI). |
 | Learn more | [How to: Block legacy authentication to Azure AD with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication) |
@@ -421,7 +463,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
+| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
 | Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users are restricted to iOS and Android platforms for authenticating devices when connecting from untrusted devices and locations. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -434,7 +476,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
+| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
 | Why should you use this? | This policy helps protect your data. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users may only use applications that support protection policies to access data from iOS and Android devices off-network. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -447,7 +489,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Require Compliant Device for Intune Enrollment|
 | :-- | :-- |
-| What does this do? | Requires that a device be registered in Autopilot by uploading a hardware hash before it can be enrolled in Intune. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Company Administrator" or "Directory Synchronization Accounts." |
+| What does this do? | Requires that a device be registered in Autopilot by uploading a hardware hash before it can be enrolled in Intune. This policy does not apply to users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." |
 | Why should you use this? | This increases security by preventing unauthorized devices from being enrolled into your tenant. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> An administrator must register devices in Autopilot before a general user can enroll it. |
 | Learn more | N/A |
@@ -473,10 +515,37 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Require MFA from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Requires MFA when authenticating from an unmanaged device that is off-network. This policy does not apply to users with the role "Company Administrator" or "Directory Synchronization Accounts." |
+| What does this do? | Requires MFA when authenticating from an unmanaged device that is off-network. This policy does not apply to users with the role "Global Administrator" or "Directory Synchronization Accounts." |
 | Why should you use this? | This protects your data by requiring MFA from unmanaged devices and when off-network. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users must authenticate using MFA when accessing data from unmanaged devices and when off-network. |
 | Learn more | [How to: Require MFA for access from untrusted networks with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/untrusted-networks) |
+
+## Azure AD > Security > Identity Protection
+*AadGraph/IdentityProtectionPolicies*
+
+###### hidden-header
+
+### Sign-In Risk Policy
+
+|Name |Sign-In Risk Policy|
+| :-- | :-- |
+| What does this do? | Analyzes user sign-ins and calculates a risk score based on the probability that the sign-in was not performed by the user. If a risky sign-in is detected, the user will be prompted for MFA. |
+| Why should you use this? | This protects your tenants from nefarious sign-in attempts. |
+| What is the end-user impact? | When a sign-in attempt is flagged as risky, the user will be required to complete MFA. If a user has not yet registered for MFA on their account, they would be blocked from accessing their account. You must configure the MFA registration policy for all users who are a part of the sign-in risk policy to ensure that they are not locked out of their accounts. |
+| Learn more | [Sign-in risk policy](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-policies#sign-in-risk-policy) |
+
+
+
+###### hidden-header
+
+### User Risk and MFA Registration Policy
+
+|Name |User Risk and MFA Registration Policy|
+| :-- | :-- |
+| What does this do? | Blocks users that are deemed risky by Microsoft and requires those users to change their password. |
+| Why should you use this? | This protects your tenants from hijacked user accounts. |
+| What is the end-user impact? | Users deemed risky by Microsoft will be required to perform self-service password reset. Password reset must be configured for all users who are a part of this policy to ensure that they are not locked out of their accounts. |
+| Learn more | [User risk policy](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-policies#user-risk-policy) |
 
 ## Azure AD > User settings
 *AadIam/UserSettings*
@@ -487,7 +556,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Configuration|
 | :-- | :-- |
-| What does this do? | Enables additional controls for users in Azure. The baseline allows users to register new applications and access the Azure portal, but does not allow LinkedIn connectors. |
+| What does this do? | Enables additional controls for users in Azure. The baseline allows users to access the Azure portal, but does not allow users to register applications and does not allow LinkedIn connectors. |
 | Why should you use this? | If you want your users to be able to register new applications and access the Azure portal, but not share data with LinkedIn. |
 | What is the end-user impact? | Users may register new applications and access the Azure portal, but not access their LinkedIn connections within Microsoft applications. |
 | Learn more | [Default user permissions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#to-restrict-the-default-permissions-for-member-users) |
@@ -1210,8 +1279,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
-## Office 365 > Security & Compliance > Information governance > Retention (Teams)
-*PowerShell/PolicyAndCompliance/Retention/TeamsRetentionCompliancePolicies*
+
 
 ###### hidden-header
 
@@ -1222,7 +1290,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What does this do? | Defines the data retention policy for Microsoft Teams. Teams retention policies must be created independently of other retention policies. The baseline retains Teams data for one year. |
 | Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
-| Learn more | [Retention policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/retention-policies) |
+| Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
 ## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
@@ -1237,6 +1305,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to be able to restrict users from using unapproved Teams apps. |
 | What is the end-user impact? | Users may use only those Teams apps allowed by admins. |
 | Learn more | [Manage app permission policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies) |
+
+## Office 365 > Teams > Meetings > Meeting settings
+*TeamsPSAdmin/TeamsMeetingConfiguration*
+
+###### hidden-header
+
+### Global
+
+|Name |Global|
+| :-- | :-- |
+| What does this do? | Configures Microsoft Teams meeting policies. The baseline prohibits anonymous users from joining Teams meetings.  |
+| Why should you use this? | The Microsoft default allows all anonymous users to join Teams meetings. Disabling this feature can protect users from unwanted Teams meeting attendees. |
+| What is the end-user impact? | Users without Teams accounts will not be allowed into Teams meetings. |
+| Learn more | [Meeting Settings in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams) |
 
 ## Office 365 > Teams > Org-wide settings
 *TeamsPSAdmin/TeamsClientConfiguration*
