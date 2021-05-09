@@ -94,7 +94,7 @@
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections",
-    "description": "Intune > Apps > App protection policies (Platform = iOS:iPadOS)"
+    "description": "Intune > Apps > App protection policies (Platform = iOS/iPadOS)"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
