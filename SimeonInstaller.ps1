@@ -1716,6 +1716,6 @@ CRLFOption=CRLFAlways
         Write-Information "Completed installing tenant"
     }
 
-    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*, Get-GitRepository
+    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
 } | Import-Module -Force
