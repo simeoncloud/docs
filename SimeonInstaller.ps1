@@ -233,6 +233,9 @@ CRLFOption=CRLFAlways
             $m.Remove('Repository')
             Import-Module @m
         }
+
+        # don't install again
+        $script:SkipSimeonModuleInstallation = $true
     }
 
     function Connect-Azure {
