@@ -297,10 +297,11 @@ CRLFOption=CRLFAlways
         [CmdletBinding()]
         param(
             [string]$Organization,
-            [string]$Project = 'Tenants'
+            [string]$Project = 'Tenants',
+            [switch]$Interactive
         )
 
-        $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps
+        $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps -Interactive:$Interactive
 
         if ($Organization -and $Project) {
             Assert-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project -Token $token
@@ -318,7 +319,7 @@ CRLFOption=CRLFAlways
         param (
             # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph')]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'KeyVault')]
             [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
@@ -345,6 +346,9 @@ CRLFOption=CRLFAlways
                 $clientId = 'ae3b8772-f3f2-4c33-a24a-f30bc14e4904' # Simeon Cloud PowerShell
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
+            }
+            'KeyVault' {
+                $Scopes = 'https://vault.azure.net/.default'
             }
         }
 
@@ -518,6 +522,144 @@ CRLFOption=CRLFAlways
                 resourceId = $msGraphServicePrincipalObjectId
                 scope = ([string]::Join(' ', $scopes))
             } | ConvertTo-Json) | Out-Null
+    }
+
+    <#
+    .SYNOPSIS
+        Invokes the given command block with retries on failure
+    #>
+    function Invoke-WithRetry {
+        [CmdletBinding()]
+        param(
+            [ValidateNotNullOrEmpty()]
+            [scriptblock]$ScriptBlock,
+            [int]$MaxRetryCount = 5,
+            [int]$DelaySeconds = 10
+        )
+
+        $retryCount = 0
+        while ($true) {
+            try {
+                . $ScriptBlock
+                return
+            }
+            catch {
+                $ex = $_.Exception
+                if ($ex -is [System.AggregateException] -and $ex.InnerExceptions.Count -eq 1 -and $ex.InnerExceptions[0].Message) {
+                    $ex = $ex.InnerExceptions[0]
+                }
+                $operation = $ScriptBlock -split '\n' | % { $_.Trim() } | ? { $_ } | Select -First 1
+                Write-Warning "Operation '$operation' failed. Trying again in $DelaySeconds seconds - Exception: $($ex.Message)"
+                Start-Sleep -Seconds $DelaySeconds
+                $retryCount++
+                if ($retryCount -ge $MaxRetryCount) {
+                    throw $ScriptBlock
+                }
+            }
+        }
+    }
+
+    <#
+    .SYNOPSIS
+        If using PAT token use basic auth else use bearer token. PAT token not currently supported
+    #>
+    function Get-AzureDevOpsAuthHeader {
+        $token = Get-SimeonAzureDevOpsAccessToken
+        try {
+            $convert = [Convert]::FromBase64String($token)
+            return @{ Authorization = "Basic $token" }
+        }
+        catch {
+            return @{ Authorization = "Bearer $token" }
+        }
+    }
+
+    <#
+    .SYNOPSIS
+        Sets Azure DevOps project permissions
+    #>
+    function Set-AzureDevOpsAccessControlEntry {
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            [ValidateNotNullOrEmpty()]
+            [string]$ProjectId,
+            [ValidateNotNullOrEmpty()]
+            [string]$SubjectGroupPrincipalName,
+            [ValidateNotNullOrEmpty()]
+            [string]$PermissionDescription,
+            [ValidateNotNullOrEmpty()]
+            [int]$PermissionNumber
+        )
+
+        $authenicationHeader = Get-AzureDevOpsAuthHeader
+
+        $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+
+        Write-Information "Allowing $SubjectGroupPrincipalName to $PermissionDescription"
+        $groupDescriptor = ($Groups |? principalName -eq $SubjectGroupPrincipalName).descriptor
+        $identityDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get }).value).descriptor
+        # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
+        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/AccessControlEntries/2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87?api-version=5.0" -Method Post -ContentType "application/json" -Body @"
+        {
+            "token": "repoV2/$ProjectId/",
+            "merge": true,
+            "accessControlEntries": [
+                {
+                    "descriptor": "$identityDescriptor",
+                    "allow": $PermissionNumber,
+                    "deny": 0,
+                    "extendedInfo": {
+                        "effectiveAllow": $PermissionNumber,
+                        "effectiveDeny": 0,
+                        "inheritedAllow": $PermissionNumber,
+                        "inheritedDeny": 0
+                    }
+                }
+            ]
+        }
+"@
+        } | Out-Null
+    }
+
+    $azureDevOpsProjectIdCache = @{}
+    <#
+    .SYNOPSIS
+        Gets the Azure DevOps project id for the given project
+    #>
+    function Get-AzureDevOpsProjectId {
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            [ValidateNotNullOrEmpty()]
+            [string]$Project
+        )
+
+        $authenicationHeader = Get-AzureDevOpsAuthHeader
+
+        if (!$azureDevOpsProjectIdCache.$Project) {
+            Write-Information "Getting project id for Organization: $Organization project: $Project"
+            $azureDevOpsProjectIdCache.$Project = ((Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Get).value |? { $_.name -eq "$Project" }).id
+        }
+        return $azureDevOpsProjectIdCache.$Project
+    }
+
+
+    <#
+    .SYNOPSIS
+        Gets a secret from Azure Key vault for a given secret url
+    #>
+    function Get-AzureKeyVaultSecret {
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$KeyVaultSecretUri
+        )
+
+        $token = Get-SimeonAzureADAccessToken -Resource 'KeyVault'
+        Write-Information "Getting keyvault secret access token from Uri: $KeyVaultSecretUri"
+        $secret = (Invoke-WithRetry { Invoke-RestMethod -Header @{Authorization = "Bearer $token" } -Uri "$KeyVaultSecretUri`?api-version=7.1" -Method Get }).Value
+
+        return $secret
     }
 
     <#
@@ -813,10 +955,7 @@ CRLFOption=CRLFAlways
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
-
-        $repo = $repos.value |? name -eq $Name
-
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name -ErrorAction SilentlyContinue
         if (!$repo) {
             Write-Information "Creating repository"
             $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
@@ -833,30 +972,32 @@ CRLFOption=CRLFAlways
 
         if (!$repo.defaultBranch -and $GetSourceUrl) {
             Push-Location (Get-GitRepository (. $GetSourceUrl))
+            try {
+                if ($ClearRepositoryContentsOnCreate) {
+                    # delete Source/Resources/Content
+                    Write-Information "Clearing repository contents"
+                    $folderToDelete = './Source/Resources/Content'
+                    if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
+                }
 
-            if ($ClearRepositoryContentsOnCreate) {
-                # delete Source/Resources/Content
-                Write-Information "Clearing repository contents"
-                $folderToDelete = './Source/Resources/Content'
-                if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
+                if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
+
+                Write-Verbose "Deleting existing .git directory"
+                Remove-Item '.\.git' -Recurse -Force
+
+                Write-Verbose "Initializing new git repository with existing contents"
+                Invoke-CommandLine "git init 2>&1" | Write-Verbose
+                Initialize-GitConfiguration
+                Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+                Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+                Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+                Write-Verbose "Pushing new repository to remote"
+                Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
             }
-
-            if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
-
-            Write-Verbose "Deleting existing .git directory"
-            Remove-Item '.\.git' -Recurse -Force
-
-            Write-Verbose "Initializing new git repository with existing contents"
-            Invoke-CommandLine "git init 2>&1" | Write-Verbose
-            Initialize-GitConfiguration
-            Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
-            Invoke-CommandLine "git add . 2>&1" | Write-Verbose
-            Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
-
-            Write-Verbose "Pushing new repository to remote"
-            Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
-
-            Pop-Location
+            finally {
+                Pop-Location
+            }
         }
     }
 
@@ -1101,6 +1242,7 @@ CRLFOption=CRLFAlways
             # Email address used to send emails from
             [string]$FromEmailAddress,
             # Password for authenticating to smtp server
+            [ValidateNotNullOrEmpty()]
             [string]$SmtpUserPassword,
             # Use this user for smtp credential object if specified, if not will use FromEmailAddress
             [string]$SmtpUser,
@@ -1131,7 +1273,6 @@ CRLFOption=CRLFAlways
         }
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
         $pipelineName = "SummaryEmail"
         $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
 
@@ -1171,8 +1312,8 @@ CRLFOption=CRLFAlways
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        $repoName = "AzurePipelineTemplates"
-        $repoOrgName = "simeoncloud"
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "Jobs"
 
         #$set scheduled on pipeline
         $body = @{
@@ -1191,26 +1332,16 @@ CRLFOption=CRLFAlways
                 }
             }
             repository = @{
-                url = "https://github.com/$repoOrgName/$repoName.git"
-                name = "$repoOrgName/$repoName"
-                id = "$repoOrgName/$repoName"
-                type = "GitHub"
+                url = $repo.remoteUrl
+                id = $repo.id
+                name = $repo.name
+                type = "tfsgit"
                 defaultBranch = "master"
-                properties = @{
-                    apiUrl = "https://api.github.com/repos/$repoOrgName/$repoName"
-                    branchesUrl = "https://api.github.com/repos/$repoOrgName/$repoName/branches"
-                    cloneUrl = "https://github.com/$repoOrgName/$repoName.git"
-                    defaultBranch = "master"
-                    fullName = "$repoOrgName/$repoName"
-                    manageUrl = "https://github.com/$repoOrgName/$repoName"
-                    orgName = "$repoOrgName"
-                    refsUrl = "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
-                    connectedServiceId = $serviceEndpoint.Id
-                }
             }
             uri = "$pipelineName.yml"
             variables = $pipelineVariables
         }
+
         if ($pipeline) {
             $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
@@ -1260,7 +1391,6 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
-
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
         $restProps = @{
@@ -1272,15 +1402,16 @@ CRLFOption=CRLFAlways
         }
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $serviceEndpoint = (irm @restProps "$apiBaseUrl/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
         $pipelineName = "RetryPipelines"
         $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
 
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        $repoName = "AzurePipelineTemplates"
-        $repoOrgName = "simeoncloud"
+
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "Jobs"
+
 
         $body = @{
             name = $pipelineName
@@ -1298,25 +1429,15 @@ CRLFOption=CRLFAlways
                 }
             }
             repository = @{
-                url = "https://github.com/$repoOrgName/$repoName.git"
-                name = "$repoOrgName/$repoName"
-                id = "$repoOrgName/$repoName"
-                type = "GitHub"
+                url = $repo.remoteUrl
+                id = $repo.id
+                name = $repo.name
+                type = "tfsgit"
                 defaultBranch = "master"
-                properties = @{
-                    apiUrl = "https://api.github.com/repos/$repoOrgName/$repoName"
-                    branchesUrl = "https://api.github.com/repos/$repoOrgName/$repoName/branches"
-                    cloneUrl = "https://github.com/$repoOrgName/$repoName.git"
-                    defaultBranch = "master"
-                    fullName = "$repoOrgName/$repoName"
-                    manageUrl = "https://github.com/$repoOrgName/$repoName"
-                    orgName = "$repoOrgName"
-                    refsUrl = "https://api.github.com/repos/$repoOrgName/$repoName/git/refs"
-                    connectedServiceId = $serviceEndpoint.Id
-                }
             }
             uri = "$pipelineName.yml"
         }
+
         if ($pipeline) {
             $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
@@ -1411,13 +1532,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
-
-        $repo = $repos.value |? name -eq $Name
-
-        if (!$repo) {
-            throw "Could not find repository $Name"
-        }
+        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name
 
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
@@ -1717,6 +1832,390 @@ CRLFOption=CRLFAlways
         Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential
 
         Write-Information "Completed installing tenant"
+    }
+
+    <#
+    .SYNOPSIS
+        Creates and/or configures the provided Azure DevOps organization to be compatible with Simeon Cloud
+    #>
+    function Install-SimeonDevOpsOrganization {
+        param (
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # Disconnects the Dev Ops organization from Azure AD (Beware when using this option as you can lose access to the org)
+            [switch]$DisconnectDevOpsOrganizationFromAzureAd,
+            [string]$Project = "Tenants",
+            [string]$DevOpsRegion = "CUS",
+            [string]$GitHubAccessTokenKeyVaultUrl = "https://installer.vault.azure.net/secrets/$Organization",
+            [string]$ReportingEmailPasswordKeyVaultUrl = "https://installer.vault.azure.net/secrets/ReportingEmailPw",
+            # List of user email addresses to invite to the DevOps organization and make project collection admins
+            [string[]]$InviteToOrgAsAdmin = "devops@simeoncloud.com",
+            [string]$PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
+        )
+
+        Write-Information "Getting required values from Key Vault"
+        Write-Information "Getting GitHub access token"
+        $gitHubAccessToken = (Get-AzureKeyVaultSecret -KeyVaultSecretUri $GitHubAccessTokenKeyVaultUrl)
+        if (!$gitHubAccessToken) {
+            throw "Please check that the DevOps organization is correct or contact Simeon Support for a trial."
+        }
+
+        Write-Information "Getting reporting email password"
+        $reportingEmailPw = (Get-AzureKeyVaultSecret -KeyVaultSecretUri $ReportingEmailPasswordKeyVaultUrl)
+        if (!$reportingEmailPw) {
+            throw "Unable to retrieve reporting email password please contact Simeon Support for assistance."
+        }
+
+        $authenicationHeader = Get-AzureDevOpsAuthHeader
+
+        # Check for org, create if it doesn't exist
+        Write-Information "Validating DevOps organization"
+        Invoke-Command -ScriptBlock {
+            Write-Information "Checking if Organization: $Organization is available"
+            $existingOrg = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://aex.dev.azure.com/_apis/HostAcquisition/NameAvailability/$Organization" -Method Get }
+            if (!$existingOrg.isAvailable) {
+                $currentUserId = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://app.vssps.visualstudio.com/_apis/profile/profiles/me?api-version=5.1" -Method Get }).id
+                $accessToOrgs = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://app.vssps.visualstudio.com/_apis/accounts?memberId=$currentUserId&api-version=5.1" -Method Get }).value
+                if ($accessToOrgs.accountName -contains "$Organization") {
+                    Write-Information "DevOps Organization: $Organization exists and current user has access"
+                }
+                else {
+                    throw "DevOps Organization: $Organization exists but the current user does not have access to $Organization"
+                }
+            }
+            else {
+                Write-Information "Creating DevOps Organization: $Organization"
+                Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -ContentType "application/json" -Method Post -Uri "https://aex.dev.azure.com/_apis/HostAcquisition/Collections?collectionName=$Organization`&preferredRegion=$DevOpsRegion&api-version=5.0-preview.2" -Body @"
+                    {
+                        "VisualStudio.Services.HostResolution.UseCodexDomainForHostCreation": "true",
+                        "CampaignId": "",
+                        "AcquisitionId": $(New-Guid),
+                        "SignupEntryPoint": "WebSuite"
+                    }
+"@
+                } | Out-Null
+            }
+        }
+
+        # Even though this property is set to true on org creation, setting setting is not always correct for the org
+        Write-Information "Checking box to use new URL"
+        Invoke-Command -ScriptBlock {
+            Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/NewDomainUrlOrchestration?codexDomainUrls=true&api-version=5.0-preview.1" -Method Post -ContentType "application/json" } | Out-Null
+        }
+
+        Write-Information "Inviting users to org and setting permissions."
+        Invoke-Command -ScriptBlock {
+            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+            $users = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
+            foreach ($userToInvite in $InviteToOrgAsAdmin) {
+                if ($users.principalName -notcontains $userToInvite) {
+                    # Send invite to org
+                    Write-Information "Sending invite to DevOps Organization: $Organization for user: $userToInvite"
+                    Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vsaex.dev.azure.com/$Organization/_apis/UserEntitlements?api-version=5.1-preview.3" -Method Patch -ContentType "application/json-patch+json" -Body @"
+                [
+                    {
+                        "from": "",
+                        "op": 0,
+                        "path": "",
+                        "value": {
+                            "accessLevel": {
+                                "licensingSource": 1,
+                                "accountLicenseType": 2,
+                                "msdnLicenseType": 0,
+                                "licenseDisplayName": "Basic",
+                                "status": 0,
+                                "statusMessage": "",
+                                "assignmentSource": 1
+                            },
+                            "user": {
+                                "principalName": "$userToInvite",
+                                "subjectKind": "user"
+                            }
+                        }
+                    }
+                ]
+"@
+                    } | Out-Null
+                }
+
+                # assign project collection admin
+                if ($userToInvite) {
+                    Write-Information "Making user: $userToInvite Project Collection Admin"
+                    $projectCollectionAdminGroupDescriptor = ($groups |? displayname -eq "Project Collection Administrators").descriptor
+                    $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$userToInvite").descriptor
+                    Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userToInviteDescriptor/$projectCollectionAdminGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+                }
+            }
+        }
+
+        # Organization Settings > Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
+        Write-Information "Unchecking Limit job authorization scope to current project for non-release pipelines"
+        Invoke-Command -ScriptBlock {
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
+            {
+                "contributionIds": [
+                    "ms.vss-build-web.pipelines-org-settings-data-provider"
+                ],
+                "dataProviderContext": {
+                    "properties": {
+                        "enforceSettableVar": "false",
+                        "enforceJobAuthScope": "false",
+                        "enforceReferencedRepoScopedToken": "false",
+                        "sourcePage": {
+                            "url": "https://dev.azure.com/$Organization/_settings/pipelinessettings",
+                            "routeId": "ms.vss-admin-web.collection-admin-hub-route",
+                            "routeValues": {
+                                "adminPivot": "pipelinessettings",
+                                "controller": "ContributedPage",
+                                "action": "Execute"
+                            }
+                        }
+                    }
+                }
+            }
+"@
+            } | Out-Null
+        }
+
+        Write-Information "Setting project information"
+        Invoke-Command -ScriptBlock {
+            # Set or get Project id
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+            if (!$projectId) {
+                Write-Information "Creating project: $Project"
+                Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/projects?api-version=6.1-preview.4" -Method Post -ContentType "application/json" -Body @"
+                    {
+                        "name": "$Project",
+                        "description": "",
+                        "visibility": 0,
+                        "capabilities": {
+                            "versioncontrol": {
+                                "sourceControlType": "Git"
+                            },
+                            "processTemplate": {
+                                "templateTypeId": "b8a3a935-7e91-48b8-a94c-606d37c3e9f2"
+                            }
+                        }
+                    }
+"@
+                } | Out-Null
+                # Get projectId after creating
+                $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+                # Repositories > rename $Project to default
+                Write-Information "Renaming the repository: $Project to default"
+                $repos = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
+                if ($repos.name -contains "$Project") {
+                    $repoId = ($repos |? { $_.name -eq "$Project" }).id
+                    Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"default"}' -ContentType "application/json" } | Out-Null
+                }
+            }
+            # Overview > uncheck Boards and Test Plans
+            Write-Information "Updating project settings turning off Boards and Test Plans"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/FeatureStates/host/project/$projectId/ms.vss-work.agile?api-version=4.1-preview.1" -Method Patch -ContentType "application/json" -Body @"
+                    {
+                        "featureId": "ms.vss-work.agile",
+                        "scope": {
+                            "settingScope": "project",
+                            "userScoped": false
+                        },
+                        "state": 0
+                    }
+"@
+            } | Out-Null
+
+            # Overview > uncheck Artifacts
+            Write-Information "Updating project settings turning off Artifacts"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/FeatureStates/host/project/$projectId/ms.feed.feed?api-version=4.1-preview.1" -Method Patch -ContentType "application/json" -Body @"
+                    {
+                        "featureId": "ms.feed.feed",
+                        "scope": {
+                            "settingScope": "project",
+                            "userScoped": false
+                        },
+                        "state": 0
+                    }
+"@
+            } | Out-Null
+        }
+
+        ## Project settings
+        Write-Information "Configuring pipeline settings"
+        Invoke-Command -ScriptBlock {
+            # Pipelines > Settings > uncheck Limit job authorization scope to current project for non-release pipelines (enforceReferencedRepoScopedToken), Limit job authorization scope to referenced Azure DevOps repositories (enforceJobAuthScope), and Limit variables that can be set at queue time (enforceSettableVar)
+            Write-Information "Updating general pipeline settings"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/Contribution/HierarchyQuery?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
+                {
+                    "contributionIds": [
+                        "ms.vss-build-web.pipelines-general-settings-data-provider"
+                    ],
+                    "dataProviderContext": {
+                        "properties": {
+                            "enforceSettableVar": "false",
+                            "enforceJobAuthScope": "false",
+                            "enforceReferencedRepoScopedToken": "false",
+                            "sourcePage": {
+                                "url": "https://dev.azure.com/$Organization/$Project/_settings/settings",
+                                "routeId": "ms.vss-admin-web.project-admin-hub-route",
+                                "routeValues": {
+                                    "project": "$Project",
+                                    "adminPivot": "settings",
+                                    "controller": "ContributedPage",
+                                    "action": "Execute"
+                                }
+                            }
+                        }
+                    }
+                }
+"@
+            } | Out-Null
+        }
+
+        Write-Information "Updating project permissions"
+        Invoke-Command -ScriptBlock {
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+            $users = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
+            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+
+            #  Permissions > Contributors > Members > Add > $Project Build Service
+            ### Contributors group actions
+            Write-Information "Configuring permissions for Contributors group"
+            Write-Information "Adding $Project Build Service ($Organization)"
+            $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
+            $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Repositories > Permissions > Contributors > allow Create repository
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
+        }
+
+        # Create Service connection
+        Write-Information "Creating GitHub Service connection"
+        Install-SimeonGitHubServiceConnection -Organization $Organization -Project $Project -GitHubAccessToken $gitHubAccessToken
+
+        # Install Retry failed Pipelines
+        Write-Information "Installing retry pipelines"
+        Install-SimeonRetryPipeline -Organization $Organization
+
+        # Install SummaryReport pipeline
+        Write-Information "Installing reporting pipeline"
+        Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -SmtpUserPassword $reportingEmailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $Organization
+
+        Write-Information "Updating permissions for GitHub service connection"
+        Invoke-Command -ScriptBlock {
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+
+            # Navigate to Project settings > Service connections > ... > Security > Add > Contributors > set role to Administrator > Add
+            Write-Information "Making Contributors admin for GitHub service connection"
+            $contributorsGroupId = ($groups |? principalName -eq "[$Project]\Contributors").originId
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.project.serviceendpointrole/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
+                [
+                    {
+                        "roleName": "Administrator",
+                        "userId": "$contributorsGroupId"
+                    }
+                ]
+"@
+            } | Out-Null
+        }
+
+        # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
+        Write-Information "Installing code search"
+        Invoke-Command -ScriptBlock {
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://extmgmt.dev.azure.com/$Organization/_apis/ExtensionManagement/AcquisitionRequests?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body @"
+                {
+                    "assignmentType": 0,
+                    "billingId": null,
+                    "itemId": "ms.vss-code-search",
+                    "operationType": 1,
+                    "quantity": 0,
+                    "properties": {}
+                }
+"@
+            } | Out-Null
+        }
+
+        Write-Information "Updating notification settings"
+        Invoke-Command -ScriptBlock {
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+
+            # Project settings > Notifications > New subscription > Build > A build completes > Next > change 'Deliver to' to custom email address > pipelinenotifications@simeoncloud.com
+            $existingSubscriptions = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Get }).value
+            # Need to get address long way due to this https://github.com/PowerShell/PowerShell/issues/8105
+            $subExists = ((($existingSubscriptions |? { $_.description -eq "A build completes" }).channel | Select -Property address) |? { $_ -match "$PipelineNotificationEmail" })
+            if (!$subExists) {
+                Write-Information "Creating build completed notification for $PipelineNotificationEmail"
+                $projectTeamGroupId = ($groups |? { $_.PrincipalName -eq "[$Project]\$Project Team" }).originId
+                Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body @"
+                    {
+                    "description": "A build completes",
+                    "filter": {
+                        "eventType": "ms.vss-build.build-completed-event",
+                        "criteria": {
+                            "clauses": [
+                                {
+                                    "fieldName": "Build reason",
+                                    "operator": "Does not contain",
+                                    "value": "-",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "type": "Expression"
+                    },
+                    "notificationEventInformation": null,
+                    "type": 2,
+                    "subscriber": {
+                        "displayName": "[$Project]\\$Project Team",
+                        "id": "$projectTeamGroupId",
+                        "uniqueName": "vstfs://Classification/TeamProject/$projectId\\$Project Team",
+                        "isContainer": true
+                    },
+                    "channel": {
+                        "type": "EmailHtml",
+                        "address": "$PipelineNotificationEmail",
+                        "useCustomAddress": true
+                    },
+                    "scope": {
+                        "id": "$projectId"
+                    },
+                    "dirty": true
+                }
+"@ } | Out-Null
+            }
+            # Disable pipeline notifications
+            # Build completes
+            Write-Information "Disabling build completes pipeline notifications"
+            $projectTeamGroupId = ($groups |? { $_.PrincipalName -eq "[$Project]\$Project Team" }).originId
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription/UserSettings/$projectTeamGroupId`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body '{"optedOut":true}' }| Out-Null
+            # Pull requests
+            Write-Information "Disabling pull request pipeline notifications"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription/UserSettings/$projectTeamGroupId`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body '{"optedOut":true}' }| Out-Null
+        }
+
+        # If setting DisconnectDevOpsOrganizationFromAzureAd is set, disconnect from Azure AD
+        if ($DisconnectDevOpsOrganizationFromAzureAd) {
+            Invoke-Command -ScriptBlock {
+                Write-Information "Disconnecting Organization from Azure Active Directory"
+                # Remove from AAD, but retain access
+                Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/Organization/Organizations/Me?api-version=6.1-preview.1" -ContentType "application/json-patch+json" -Method "Patch" -Body @"
+            [
+                {
+                    "from": "",
+                    "op": 2,
+                    "path": "/TenantId",
+                    "value": "00000000-0000-0000-0000-000000000000"
+                }
+            ]
+"@ | Out-Null
+                }
+            }
+            Write-Warning "Accept the DevOps email invite in an incognito browser"
+        }
     }
 
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
