@@ -955,7 +955,10 @@ CRLFOption=CRLFAlways
         $projects = irm @restProps "https://dev.azure.com/$Organization/_apis/projects"
         $projectId = $projects.value |? name -eq $Project | Select -ExpandProperty id
 
-        $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Name -ErrorAction SilentlyContinue
+        # Can't use shared function here since it throws error if repo doesn't exist
+        $repos = irm @restProps "$apiBaseUrl/git/repositories"
+        $repo = $repos.value |? name -eq $Name
+
         if (!$repo) {
             Write-Information "Creating repository"
             $repo = irm @restProps "$apiBaseUrl/git/repositories" -Method Post -Body (@{
