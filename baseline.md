@@ -557,8 +557,8 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 |Name |Configuration|
 | :-- | :-- |
 | What does this do? | Enables additional controls for users in Azure. The baseline allows users to access the Azure portal, but does not allow users to register applications and does not allow LinkedIn connectors. |
-| Why should you use this? | If you want your users to be able to register new applications and access the Azure portal, but not share data with LinkedIn. |
-| What is the end-user impact? | Users may register new applications and access the Azure portal, but not access their LinkedIn connections within Microsoft applications. |
+| Why should you use this? | If you want to prohibit users from registering new applications and from sharing data with LinkedIn, but allow them to access the Azure portal. |
+| What is the end-user impact? | Users can neither register new applications nor access their LinkedIn connections within Microsoft applications, but users can access the Azure portal. |
 | Learn more | [Default user permissions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions#to-restrict-the-default-permissions-for-member-users) |
 
 ## Intune > Apps
