@@ -1947,7 +1947,6 @@ CRLFOption=CRLFAlways
                     $projectCollectionAdminGroupDescriptor = ($groups |? displayname -eq "Project Collection Administrators").descriptor
                     $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$userToInvite").descriptor
                     Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userToInviteDescriptor/$projectCollectionAdminGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
                 }
             }
         }
@@ -2088,10 +2087,28 @@ CRLFOption=CRLFAlways
             $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
+            # Add project collection build service user to tenants contributors
+            Write-Information "Adding Project Collection Build Service ($Organization)"
+            $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
             # Repositories > Permissions > Contributors > allow Create repository
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
+        }
+
+        # Invite users to tenants contributor group
+        if($InviteToOrgAsAdmin) {
+            foreach ($userToInvite in $InviteToOrgAsAdmin) {
+                Invoke-Command -ScriptBlock {
+                    Write-Information "Adding invited users to Contributors group"
+                    $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+                    $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
+                    $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$userToInvite").descriptor
+                    Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userToInviteDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+                }
+            }
         }
 
         # Create Service connection
