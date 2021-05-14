@@ -1847,6 +1847,8 @@ CRLFOption=CRLFAlways
             [string]$Organization,
             # Disconnects the Dev Ops organization from Azure AD (Beware when using this option as you can lose access to the org)
             [switch]$DisconnectDevOpsOrganizationFromAzureAd,
+            # Exits the installer after the org and tenant are created. Used primarily to prepare orgs in order to send to Microsoft for unblocking free tier
+            [switch]$ExitAfterDevOpsProjectCreation,
             [string]$Project = "Tenants",
             [string]$DevOpsRegion = "CUS",
             [string]$GitHubAccessTokenKeyVaultUrl = "https://installer.vault.azure.net/secrets/$Organization",
@@ -2109,6 +2111,11 @@ CRLFOption=CRLFAlways
                     Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
                 }
             }
+        }
+
+        if($ExitAfterDevOpsProjectCreation) {
+            Write-Warning "The property ExitAfterDevOpsProjectCreation is set to true, so exiting install before installing GitHub connections or pipelines. Re-run without ExitAfterDevOpsProjectCreation before using with Simeon."
+            exit
         }
 
         # Create Service connection
