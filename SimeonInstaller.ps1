@@ -2100,13 +2100,13 @@ CRLFOption=CRLFAlways
 
         # Invite users to tenants contributor group
         if($InviteToOrgAsAdmin) {
-            foreach ($userToInvite in $InviteToOrgAsAdmin) {
+            foreach ($user in $InviteToOrgAsAdmin) {
                 Invoke-Command -ScriptBlock {
-                    Write-Information "Adding invited users to Contributors group"
+                    Write-Information "Adding user $user to Contributors group"
                     $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
                     $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
-                    $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$userToInvite").descriptor
-                    Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userToInviteDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+                    $userDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$user").descriptor
+                    Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
                 }
             }
         }
