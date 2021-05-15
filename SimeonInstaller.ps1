@@ -1132,39 +1132,44 @@ CRLFOption=CRLFAlways
 
         # endpoint for pipeline templates in GitHub
         $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
+        $gitHubConnectionBody = @"
+        {
+            "authorization": {
+                "scheme": "Token",
+                "parameters": {
+                    "AccessToken": "$GitHubAccessToken"
+                }
+            },
+            "name": "simeoncloud",
+            "serviceEndpointProjectReferences": [
+                {
+                    "description": "",
+                    "name": "simeoncloud",
+                    "projectReference": {
+                        "id": "$projectId",
+                        "name": "$Project"
+                    }
+                }
+            ],
+            "type": "github",
+            "url": "https://github.com",
+            "isShared": false,
+            "owner": "library"
+        }
+"@
 
         if (!$serviceEndpoint) {
             Write-Information "Creating 'simeoncloud' GitHub service connection"
             while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
             if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
-            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
-            {
-                "authorization": {
-                    "scheme": "Token",
-                    "parameters": {
-                        "AccessToken": "$GitHubAccessToken"
-                    }
-                },
-                "name": "simeoncloud",
-                "serviceEndpointProjectReferences": [
-                    {
-                        "description": "",
-                        "name": "simeoncloud",
-                        "projectReference": {
-                            "id": "$projectId",
-                            "name": "$Project"
-                        }
-                    }
-                ],
-                "type": "github",
-                "url": "https://github.com",
-                "isShared": false,
-                "owner": "library"
-            }
-"@
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body $gitHubConnectionBody
+        }
+        elseif ($GitHubAccessToken) {
+            Write-Information "Updating access token for GitHub service connection 'simeoncloud'"
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $gitHubConnectionBody
         }
         else {
-            Write-Information "GitHub service connection 'simeoncloud' already exists"
+            Write-Information "GitHub service connection 'simeoncloud' already exists and does not require an update"
         }
 
         irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
@@ -1181,40 +1186,45 @@ CRLFOption=CRLFAlways
 
         # NuGet packages endpoint
         $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud-packages'
+        $packagesConnectionBody = @"
+        {
+            "authorization": {
+                "scheme": "UsernamePassword",
+                "parameters": {
+                    "username": "simeoncloud",
+                    "password": "$GitHubAccessToken"
+                }
+            },
+            "name": "simeoncloud-packages",
+            "serviceEndpointProjectReferences": [
+                {
+                    "description": "",
+                    "name": "simeoncloud-packages",
+                    "projectReference": {
+                        "id": "$projectId",
+                        "name": "$Project"
+                    }
+                }
+            ],
+            "type": "externalnugetfeed",
+            "url": "https://nuget.pkg.github.com/simeoncloud/index.json",
+            "isShared": false,
+            "owner": "library"
+        }
+"@
 
         if (!$serviceEndpoint) {
             Write-Information "Creating 'simeoncloud-packages' GitHub service connection"
             while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
             if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
-            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
-            {
-                "authorization": {
-                    "scheme": "UsernamePassword",
-                    "parameters": {
-                        "username": "simeoncloud",
-                        "password": "$GitHubAccessToken"
-                    }
-                },
-                "name": "simeoncloud-packages",
-                "serviceEndpointProjectReferences": [
-                    {
-                        "description": "",
-                        "name": "simeoncloud-packages",
-                        "projectReference": {
-                            "id": "$projectId",
-                            "name": "$Project"
-                        }
-                    }
-                ],
-                "type": "externalnugetfeed",
-                "url": "https://nuget.pkg.github.com/simeoncloud/index.json",
-                "isShared": false,
-                "owner": "library"
-            }
-"@
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body $packagesConnectionBody
+        }
+        elseif ($GitHubAccessToken) {
+            Write-Information "Updating access token for GitHub service connection 'simeoncloud-packages'"
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $packagesConnectionBody
         }
         else {
-            Write-Information "GitHub service connection 'simeoncloud-packages' already exists"
+            Write-Information "GitHub service connection 'simeoncloud-packages' already exists and does not require an update"
         }
 
         irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
@@ -1847,8 +1857,6 @@ CRLFOption=CRLFAlways
             [string]$Organization,
             # Disconnects the Dev Ops organization from Azure AD (Beware when using this option as you can lose access to the org)
             [switch]$DisconnectDevOpsOrganizationFromAzureAd,
-            # Exits the installer after the org and tenant are created. Used primarily to prepare orgs in order to send to Microsoft for unblocking free tier
-            [switch]$ExitAfterDevOpsProjectCreation,
             [string]$Project = "Tenants",
             [string]$DevOpsRegion = "CUS",
             [string]$GitHubAccessTokenKeyVaultUrl = "https://installer.vault.azure.net/secrets/$Organization",
@@ -2101,7 +2109,7 @@ CRLFOption=CRLFAlways
         }
 
         # Invite users to tenants contributor group
-        if($InviteToOrgAsAdmin) {
+        if ($InviteToOrgAsAdmin) {
             foreach ($user in $InviteToOrgAsAdmin) {
                 Invoke-Command -ScriptBlock {
                     Write-Information "Adding user $user to Contributors group"
@@ -2111,11 +2119,6 @@ CRLFOption=CRLFAlways
                     Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
                 }
             }
-        }
-
-        if($ExitAfterDevOpsProjectCreation) {
-            Write-Warning "The property ExitAfterDevOpsProjectCreation is set to true, so exiting install before installing GitHub connections or pipelines. Re-run without ExitAfterDevOpsProjectCreation before using with Simeon."
-            exit
         }
 
         # Create Service connection
