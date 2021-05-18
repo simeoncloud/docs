@@ -686,9 +686,9 @@ CRLFOption=CRLFAlways
 
         Connect-Azure $Tenant
 
-        Install-MSGraphPowerShell $Tenant
+        Invoke-WithRetry { Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant }
 
-        Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
+        Install-MSGraphPowerShell $Tenant
 
         if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
             throw "Cannot install service account using a federated Azure AD domain"
@@ -843,7 +843,7 @@ CRLFOption=CRLFAlways
             $message = $_.Exception.Message
             try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description | % { $_.Split("`n")[0].Trim() } }
             catch { Write-Error -ErrorRecord $_ -ErrorAction Continue }
-            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $message"
+            throw "Could not acquire token using the Simeon service account - please ensure that no conditional access policies are blocking $upn (Microsoft 365 Management Service Account) and then install again - $message"
         }
 
         return $cred
