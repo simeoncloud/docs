@@ -6,7 +6,7 @@ This statement defines parameters for the Partner MSP’s creation of a Simeon-d
 
 Partner will designate a service account related to each tenant under Simeon management. Simeon connects Azure DevOps pipeline functionality to the service account in order to export and deploy Partner’s Microsoft 365 configurations.
     
-    - Credentials that are created for the service account are:
+Credentials that are created for the service account are:
 
     - Randomly generated and encrypted at time of creation
 
