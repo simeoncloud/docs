@@ -10,9 +10,9 @@ Partner will designate a service account related to each tenant under Simeon man
 
     - Randomly generated and encrypted at time of creation
 
-    - Never shared in plain text with Simeon
-    
     - Stored encrypted in the tenant's DevOps pipeline as a variable
+   
+    - Never shared in plain text with Simeon
 
     - Not retrievable in plain text thereafter
 
