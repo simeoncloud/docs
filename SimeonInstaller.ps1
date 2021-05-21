@@ -745,6 +745,12 @@ CRLFOption=CRLFAlways
             }
         }
 
+        $groupsWithDuplicateNames = Get-AzureADGroup -All:$true | Group-Object DisplayName |? Count -gt 1 | Select -ExpandProperty Name
+        if ($groupsWithDuplicateNames) {
+            $message = [string]::Join(', ', $groupsWithDuplicateNames)
+            Write-Warning "Found the following groups with duplicate names - Simeon may not function correctly if you try to manage these groups: $message."
+        }
+
         $getAzureManagementHeaders = {
             @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureManagement -Tenant $Tenant)" }
         }
