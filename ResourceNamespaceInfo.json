@@ -125,6 +125,10 @@
     "description": "Intune > Devices > Scripts"
   },
   {
+    "namespace": "MSGraph:DeviceManagement:DeviceShellScripts",
+    "description": "Intune > Devices > Scripts"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations",
     "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
   },
