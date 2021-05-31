@@ -21,7 +21,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - Multifactor authentication is required whenever authenticating from a personal device or as an administrator
 - Corporate devices have a randomized local administrator password
 
-### Device security
+### Endpoint security
 - Corporate devices block the use of simple passwords
 - Corporate devices are blocked from communicating using insecure protocols
 - Corporate devices are encrypted
