@@ -579,6 +579,19 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
+### Adobe Acrobat Pro DC
+
+|Name |Adobe Acrobat Pro DC|
+| :-- | :-- |
+| What does this do? | Installs Adobe Acrobat Pro DC. |
+| Why should you use this? | If you want users to have Adobe Acrobat Pro DC installed on their computers. |
+| What is the end-user impact? | Users will have Adobe Acrobat Pro DC installed on their computer. |
+| Learn more | [Adobe](https://acrobat.adobe.com/us/en/acrobat/acrobat-pro.html)
+
+
+
+###### hidden-header
+
 ### AnyDesk
 
 |Name |AnyDesk|
