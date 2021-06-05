@@ -686,9 +686,9 @@ CRLFOption=CRLFAlways
 
         Connect-Azure $Tenant
 
-        Install-MSGraphPowerShell $Tenant
+        Invoke-WithRetry { Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant }
 
-        Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
+        Install-MSGraphPowerShell $Tenant
 
         if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
             throw "Cannot install service account using a federated Azure AD domain"
@@ -743,6 +743,12 @@ CRLFOption=CRLFAlways
             else {
                 Write-Information "Service account already has directory role '$($_.DisplayName)'"
             }
+        }
+
+        $groupsWithDuplicateNames = Get-AzureADGroup -All:$true | Group-Object DisplayName |? Count -gt 1 | Select -ExpandProperty Name
+        if ($groupsWithDuplicateNames) {
+            $message = [string]::Join(', ', $groupsWithDuplicateNames)
+            Write-Warning "Found the following groups with duplicate names - Simeon may not function correctly if you try to manage these groups: $message."
         }
 
         $getAzureManagementHeaders = {
@@ -843,7 +849,7 @@ CRLFOption=CRLFAlways
             $message = $_.Exception.Message
             try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description | % { $_.Split("`n")[0].Trim() } }
             catch { Write-Error -ErrorRecord $_ -ErrorAction Continue }
-            throw "Could not acquire token using the Simeon service account - please ensure that no MFA policies are applied to the $upn - $message"
+            throw "Could not acquire token using the Simeon service account - please ensure that no conditional access policies are blocking $upn (Microsoft 365 Management Service Account) and then install again - $message"
         }
 
         return $cred
@@ -1132,39 +1138,44 @@ CRLFOption=CRLFAlways
 
         # endpoint for pipeline templates in GitHub
         $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud'
+        $gitHubConnectionBody = @"
+        {
+            "authorization": {
+                "scheme": "Token",
+                "parameters": {
+                    "AccessToken": "$GitHubAccessToken"
+                }
+            },
+            "name": "simeoncloud",
+            "serviceEndpointProjectReferences": [
+                {
+                    "description": "",
+                    "name": "simeoncloud",
+                    "projectReference": {
+                        "id": "$projectId",
+                        "name": "$Project"
+                    }
+                }
+            ],
+            "type": "github",
+            "url": "https://github.com",
+            "isShared": false,
+            "owner": "library"
+        }
+"@
 
         if (!$serviceEndpoint) {
             Write-Information "Creating 'simeoncloud' GitHub service connection"
             while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
             if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
-            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
-            {
-                "authorization": {
-                    "scheme": "Token",
-                    "parameters": {
-                        "AccessToken": "$GitHubAccessToken"
-                    }
-                },
-                "name": "simeoncloud",
-                "serviceEndpointProjectReferences": [
-                    {
-                        "description": "",
-                        "name": "simeoncloud",
-                        "projectReference": {
-                            "id": "$projectId",
-                            "name": "$Project"
-                        }
-                    }
-                ],
-                "type": "github",
-                "url": "https://github.com",
-                "isShared": false,
-                "owner": "library"
-            }
-"@
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body $gitHubConnectionBody
+        }
+        elseif ($GitHubAccessToken) {
+            Write-Information "Updating access token for GitHub service connection 'simeoncloud'"
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $gitHubConnectionBody
         }
         else {
-            Write-Information "GitHub service connection 'simeoncloud' already exists"
+            Write-Information "GitHub service connection 'simeoncloud' already exists and does not require an update"
         }
 
         irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
@@ -1181,40 +1192,45 @@ CRLFOption=CRLFAlways
 
         # NuGet packages endpoint
         $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud-packages'
+        $packagesConnectionBody = @"
+        {
+            "authorization": {
+                "scheme": "UsernamePassword",
+                "parameters": {
+                    "username": "simeoncloud",
+                    "password": "$GitHubAccessToken"
+                }
+            },
+            "name": "simeoncloud-packages",
+            "serviceEndpointProjectReferences": [
+                {
+                    "description": "",
+                    "name": "simeoncloud-packages",
+                    "projectReference": {
+                        "id": "$projectId",
+                        "name": "$Project"
+                    }
+                }
+            ],
+            "type": "externalnugetfeed",
+            "url": "https://nuget.pkg.github.com/simeoncloud/index.json",
+            "isShared": false,
+            "owner": "library"
+        }
+"@
 
         if (!$serviceEndpoint) {
             Write-Information "Creating 'simeoncloud-packages' GitHub service connection"
             while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
             if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
-            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body @"
-            {
-                "authorization": {
-                    "scheme": "UsernamePassword",
-                    "parameters": {
-                        "username": "simeoncloud",
-                        "password": "$GitHubAccessToken"
-                    }
-                },
-                "name": "simeoncloud-packages",
-                "serviceEndpointProjectReferences": [
-                    {
-                        "description": "",
-                        "name": "simeoncloud-packages",
-                        "projectReference": {
-                            "id": "$projectId",
-                            "name": "$Project"
-                        }
-                    }
-                ],
-                "type": "externalnugetfeed",
-                "url": "https://nuget.pkg.github.com/simeoncloud/index.json",
-                "isShared": false,
-                "owner": "library"
-            }
-"@
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body $packagesConnectionBody
+        }
+        elseif ($GitHubAccessToken) {
+            Write-Information "Updating access token for GitHub service connection 'simeoncloud-packages'"
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $packagesConnectionBody
         }
         else {
-            Write-Information "GitHub service connection 'simeoncloud-packages' already exists"
+            Write-Information "GitHub service connection 'simeoncloud-packages' already exists and does not require an update"
         }
 
         irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
@@ -1945,9 +1961,8 @@ CRLFOption=CRLFAlways
                 if ($userToInvite) {
                     Write-Information "Making user: $userToInvite Project Collection Admin"
                     $projectCollectionAdminGroupDescriptor = ($groups |? displayname -eq "Project Collection Administrators").descriptor
-                    $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? principalName -eq "$userToInvite").descriptor
+                    $userToInviteDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? { $_.principalName -eq "$userToInvite" -and $_.origin -eq "aad" }).descriptor
                     Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userToInviteDescriptor/$projectCollectionAdminGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
                 }
             }
         }
@@ -2088,10 +2103,28 @@ CRLFOption=CRLFAlways
             $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
+            # Add project collection build service user to tenants contributors
+            Write-Information "Adding Project Collection Build Service ($Organization)"
+            $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
             # Repositories > Permissions > Contributors > allow Create repository
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
+        }
+
+        # Invite users to tenants contributor group
+        if ($InviteToOrgAsAdmin) {
+            foreach ($user in $InviteToOrgAsAdmin) {
+                Invoke-Command -ScriptBlock {
+                    Write-Information "Adding user $user to Contributors group"
+                    $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+                    $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
+                    $userDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value |? { $_.principalName -eq "$user" -and $_.origin -eq "aad" }).descriptor
+                    Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$userDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+                }
+            }
         }
 
         # Create Service connection

@@ -4,21 +4,21 @@ This statement defines parameters for the Partner MSP’s creation of a Simeon-d
 
 1. Service Account 
 
-    - Partner will designate a service account related to each tenant under Simeon management. Simeon connects Azure Dev Ops pipeline functionality to the service account in order to export and deploy Partner’s Microsoft 365 configurations.  
+Partner will designate a service account related to each tenant under Simeon management. Simeon connects Azure DevOps pipeline functionality to the service account in order to export and deploy Partner’s Microsoft 365 configurations.
+    
+Credentials that are created for the service account are:
 
-    - Credentials that are created for the service account are: 
+    - Randomly generated and encrypted at time of creation
 
-    - Entered by Partner only 
+    - Stored encrypted in the tenant's DevOps pipeline as a variable
+   
+    - Never shared in plain text with Simeon
 
-    - Encrypted at time of creation 
+    - Not retrievable in plain text thereafter
 
-    - Not retrievable in plain text thereafter 
+    - Not used outside the context of running pipeline jobs 
 
-    - Never shared in plain text with Simeon 
-
-    - Not used outside the context of running pipelines 
-
-2. Partner reserves all rights to the service account including but not limited to: 
+Partner reserves all rights to the service account including but not limited to: 
 
     - Revoking Simeon’s access  
 
@@ -26,23 +26,22 @@ This statement defines parameters for the Partner MSP’s creation of a Simeon-d
 
     - Changing the credentials 
  
-3. Usage of Service Account in Initial Reconciliation 
+Usage of Service Account 
 
-The service account will be connected to Azure Dev Ops pipeline functionality. Partner will run an export pipeline, or grant Simeon access to run an export pipeline, for the purpose of creating a Reconciliation Preview report. 
+The service account will be connected to Azure DevOps pipeline functionality.
 
 Partner does not grant Simeon access to:  
 
-Use the service account outside of the stated purpose of creating a Reconciliation Preview 
+    - Use the service account outside of the stated purpose of running pipeline jobs in Azure DevOps 
 
-Make changes to Partner’s configurations 
+    - Make changes to Partner’s configurations without permission
 
-4. Usage of Service Account for Ongoing Management of Partner 
-  - Changes made to Partner’s configurations: 
+Usage of Service Account for Ongoing Management of Partner
+
+Changes made to Partner’s configurations: 
  
-  - Can be set to require both preview and authorization for each deployment 
+    - Can be set to require both preview and authorization for each deployment 
 
-  - If initiated by Simeon are always at Partner’s request 
+    - If initiated by Simeon are always at Partner’s request 
 
-  - Never made by Simeon without preauthorization by Partner 
-
-  - Can be rolled back within the pipeline functionality to the previous state of configurations  
+    - Can be rolled back within the pipeline functionality to the previous state of configurations  
