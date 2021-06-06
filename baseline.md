@@ -21,7 +21,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - Multifactor authentication is required whenever authenticating from a personal device or as an administrator
 - Corporate devices have a randomized local administrator password
 
-### Device security
+### Endpoint security
 - Corporate devices block the use of simple passwords
 - Corporate devices are blocked from communicating using insecure protocols
 - Corporate devices are encrypted
@@ -574,6 +574,19 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | 7-Zip is one of the most popular, compatible and fastest file archiving software. |
 | What is the end-user impact? | Users will have 7-Zip installed on their computer. |
 | Learn more | [7-Zip](https://www.7-zip.org/)
+
+
+
+###### hidden-header
+
+### Adobe Acrobat Pro DC
+
+|Name |Adobe Acrobat Pro DC|
+| :-- | :-- |
+| What does this do? | Installs Adobe Acrobat Pro DC. |
+| Why should you use this? | If you want users to have Adobe Acrobat Pro DC installed on their computers. |
+| What is the end-user impact? | Users will have Adobe Acrobat Pro DC installed on their computer. |
+| Learn more | [Adobe](https://acrobat.adobe.com/us/en/acrobat/acrobat-pro.html)
 
 
 
