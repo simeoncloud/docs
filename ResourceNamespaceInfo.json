@@ -117,6 +117,14 @@
     "description": "Intune > Devices > Configuration profiles"
   },
   {
+    "namespace": "MSGraph:DeviceManagement:ConfigurationPolicies",
+    "description": "Intune > Devices > Configuration profiles (Settings Catalog)"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:Intents",
+    "description": "Intune > Endpoint security"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:DeviceEnrollmentConfigurations",
     "description": "Intune > Devices > Enrollment restrictions"
   },
