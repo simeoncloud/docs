@@ -877,7 +877,9 @@ CRLFOption=CRLFAlways
             # Specify to true to require approval when deploying
             [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
-            [string]$GitHubAccessToken
+            [string]$GitHubAccessToken,
+            # Settings to write to the config.tenant.json
+            [hashtable]$ConfigSettings
         )
 
         # Creates repo and pipelines and stores service account password
@@ -900,7 +902,10 @@ CRLFOption=CRLFAlways
 
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -GetSourceUrl {
+        if (!$ConfigSettings) { $ConfigSettings = @{} }
+        $ConfigSettings['ResourceContet:TenantName'] = $Name.Substring(0, 12).ToLower()
+
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -ConfigSettings $ConfigSettings -GetSourceUrl {
             if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
                 # start with Simeon baseline
                 return 'https://github.com/simeoncloud/Baseline.git'
@@ -940,7 +945,9 @@ CRLFOption=CRLFAlways
             # If true, will clear the repository contents if creating it for the first time
             [switch]$ClearRepositoryContentsOnCreate,
             # A function that returns a url to import this repository from if it is empty
-            [scriptblock]$GetSourceUrl
+            [scriptblock]$GetSourceUrl,
+            # Settings to write to the config.tenant.json
+            [hashtable]$ConfigSettings
         )
 
         $Name = $Name.ToLower()
@@ -1003,6 +1010,11 @@ CRLFOption=CRLFAlways
 
                 Write-Verbose "Pushing new repository to remote"
                 Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
+
+                if ($ConfigSettings) {
+                    $config = gc ./Source/Resources/config.tenant.json | ConvertFrom-Json
+                    # update file and write back
+                }
             }
             finally {
                 Pop-Location
@@ -1848,7 +1860,10 @@ CRLFOption=CRLFAlways
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
-        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential
+        $configSettings = @{}
+        if ($Subscription) { $configSettings['AzureManagement:SubscriptionId'] = $Subscription }
+
+        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -ConfigSettings $configSettings
 
         Write-Information "Completed installing tenant"
     }
