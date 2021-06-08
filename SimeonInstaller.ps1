@@ -878,8 +878,8 @@ CRLFOption=CRLFAlways
             [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken,
-            # Settings to write to the config.tenant.json
-            [hashtable]$ConfigSettings
+            # Settings to write to the pipeline variables
+            [hashtable]$PipelineVariables
         )
 
         # Creates repo and pipelines and stores service account password
@@ -902,10 +902,21 @@ CRLFOption=CRLFAlways
 
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
-        if (!$ConfigSettings) { $ConfigSettings = @{} }
-        $ConfigSettings['ResourceContet:TenantName'] = $Name.Substring(0, 12).ToLower()
+        if (!$PipelineVariables) { $PipelineVariables = @{} }
+        if ($Name.Length -le 12) {
+            $PipelineVariables['ResourceContext:TenantName'] = @{
+                allowOverride = $true
+                value = $Name.ToLower()
+            }
+        } else {
+            $PipelineVariables['ResourceContext:TenantName'] = @{
+                allowOverride = $true
+                value = $Name.Substring(0, 12).ToLower()
+            }
+        }
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -ConfigSettings $ConfigSettings -GetSourceUrl {
+
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -GetSourceUrl {
             if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
                 # start with Simeon baseline
                 return 'https://github.com/simeoncloud/Baseline.git'
@@ -922,7 +933,7 @@ CRLFOption=CRLFAlways
             if ($PSBoundParameters.ContainsKey($_)) { $environmentArgs[$_] = $PSBoundParameters.$_ }
         }
 
-        Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential @environmentArgs
+        Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential -PipelineVariables $PipelineVariables @environmentArgs
     }
 
     <#
@@ -945,9 +956,7 @@ CRLFOption=CRLFAlways
             # If true, will clear the repository contents if creating it for the first time
             [switch]$ClearRepositoryContentsOnCreate,
             # A function that returns a url to import this repository from if it is empty
-            [scriptblock]$GetSourceUrl,
-            # Settings to write to the config.tenant.json
-            [hashtable]$ConfigSettings
+            [scriptblock]$GetSourceUrl
         )
 
         $Name = $Name.ToLower()
@@ -1010,11 +1019,6 @@ CRLFOption=CRLFAlways
 
                 Write-Verbose "Pushing new repository to remote"
                 Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
-
-                if ($ConfigSettings) {
-                    $config = gc ./Source/Resources/config.tenant.json | ConvertFrom-Json
-                    # update file and write back
-                }
             }
             finally {
                 Pop-Location
@@ -1518,7 +1522,9 @@ CRLFOption=CRLFAlways
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
-            [switch]$DisableDeployApproval
+            [switch]$DisableDeployApproval,
+            # Settings to write to the pipeline variables
+            [hashtable]$PipelineVariables
         )
 
         $Name = $Name.ToLower()
@@ -1547,16 +1553,16 @@ CRLFOption=CRLFAlways
 
         $pipelines = irm @restProps "$apiBaseUrl/build/definitions" -Method Get
 
-        $pipelineVariables = @{}
+        if (!$PipelineVariables) { $PipelineVariables = @{} }
 
         if ($Credential.UserName) {
-            $pipelineVariables['AadAuth:Username'] = @{
+            $PipelineVariables['AadAuth:Username'] = @{
                 allowOverride = $true
                 value = $Credential.UserName
             }
         }
         if ($Credential -and $Credential.GetNetworkCredential().Password) {
-            $pipelineVariables['AadAuth:Password'] = @{
+            $PipelineVariables['AadAuth:Password'] = @{
                 allowOverride = $true
                 isSecret = $true
                 value = $Credential.GetNetworkCredential().Password
@@ -1860,10 +1866,15 @@ CRLFOption=CRLFAlways
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
-        $configSettings = @{}
-        if ($Subscription) { $configSettings['AzureManagement:SubscriptionId'] = $Subscription }
+        $pipelineVariables = @{}
+        if ($Subscription) {
+            $pipelineVariables['AzureManagement:SubscriptionId'] = @{
+            allowOverride = $true
+            value = $Subscription
+            }
+        }
 
-        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -ConfigSettings $configSettings
+        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -PipelineVariables $pipelineVariables
 
         Write-Information "Completed installing tenant"
     }
