@@ -1869,8 +1869,8 @@ CRLFOption=CRLFAlways
         $pipelineVariables = @{}
         if ($Subscription) {
             $pipelineVariables['AzureManagement:SubscriptionId'] = @{
-            allowOverride = $true
-            value = $Subscription
+                allowOverride = $true
+                value = $Subscription
             }
         }
 
