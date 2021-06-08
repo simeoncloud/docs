@@ -903,16 +903,9 @@ CRLFOption=CRLFAlways
         Write-Information "Installing Azure DevOps repository and pipelines for '$Name' in project '$Organization\$Project'"
 
         if (!$PipelineVariables) { $PipelineVariables = @{} }
-        if ($Name.Length -le 12) {
-            $PipelineVariables['ResourceContext:TenantName'] = @{
-                allowOverride = $true
-                value = $Name.ToLower()
-            }
-        } else {
-            $PipelineVariables['ResourceContext:TenantName'] = @{
-                allowOverride = $true
-                value = $Name.Substring(0, 12).ToLower()
-            }
+        $PipelineVariables['ResourceContext:TenantName'] = @{
+            allowOverride = $true
+            value = $Name.Substring(0, [Math]::Min($Name.Length, 12)).ToLower()
         }
 
 
