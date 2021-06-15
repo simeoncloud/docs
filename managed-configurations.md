@@ -12,11 +12,13 @@
   * Conditional access policies
   * Named locations
   * External user settings
+  * Identity protection
   * User settings
   * User feature preview settings
   * Users
 * Office 365
   * Outlook web app policies
+  * Password expiration policies
   * Retention policies
   * Teams settings
   * Teams apps
@@ -29,6 +31,15 @@
   * Devices compliance policies
   * Devices enrollment restrictions
   * Device configuration profiles
+    * Settings catalog 
+  * Endpoint security
+    * Antivirus
+    * Disk encryption
+    * Firewall
+    * Attack surface reduction
+    * Account protection
+    * Device compliance
+    * Conditional access 
   * Windows PowerShell scripts
   * Windows Autopilot deployment 
 * Azure
