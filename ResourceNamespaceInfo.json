@@ -196,6 +196,12 @@
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Azure AD > Device settings"
   },
+
+  {
+    "namespace": "MSGraph:Policies:AuthorizationPolicy",
+    "description": "Azure AD > Group settings",
+    "isDeletable": false
+  },
   {
     "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention"
