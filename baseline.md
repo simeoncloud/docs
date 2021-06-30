@@ -734,20 +734,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> iOS device users cannot copy or save data outside of your managed client apps. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
 
-## Intune > Apps > App protection policies (Platform = Windows 10)
-*MSGraph/DeviceAppManagement/WindowsInformationProtectionPolicies*
-
-###### hidden-header
-
-### Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices
-
-|Name |Baseline - Protect Policy Managed Client Apps on Unmanaged Windows Devices|
-| :-- | :-- |
-| What does this do? | Configures the default behavior for managed client applications on unmanaged Windows devices. The baseline allows data to flow between protected applications, but prohibits users from copying or saving data outside of managed applications except for users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations". The default list of protected applications are Microsoft applications that support application protection policies. |
-| Why should you use this? |  If you want to protect your data on users' personal Windows devices by preventing organization data from leaving protected applications. |
-| What is the end-user impact? | <span style='color: red'>High Impact.</span> Windows device users cannot copy or save data outside of your managed client apps. |
-| Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
-
 ## Intune > Devices > Compliance policies
 *MSGraph/DeviceManagement/DeviceCompliancePolicies*
 
