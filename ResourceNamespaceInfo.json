@@ -113,12 +113,28 @@
     "description": "Intune > Devices > Compliance policies"
   },
   {
+    "namespace": "MSGraph:DeviceManagementSettings",
+    "description": "Intune > Devices > Compliance policies > Compliance policy settings"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:ManagementConditions",
+    "description": "Intune > Devices > Compliance policies > Locations"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates",
+    "description": "Intune > Devices > Compliance policies > Notifications"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:DeviceConfigurations",
     "description": "Intune > Devices > Configuration profiles"
   },
   {
     "namespace": "MSGraph:DeviceManagement:ConfigurationPolicies",
     "description": "Intune > Devices > Configuration profiles (Settings Catalog)"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations",
+    "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
   },
   {
     "namespace": "MSGraph:DeviceManagement:Intents",
@@ -137,12 +153,16 @@
     "description": "Intune > Devices > Scripts"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations",
-    "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
+    "namespace": "MSGraph:DeviceManagement:ManagedDeviceCleanupSettings",
+    "description": "Intune > Devices > Device clean-up rules"
   },
   {
     "namespace": "MSGraph:DeviceManagement:MobileThreatDefenseConnectors",
     "description": "Intune > Mobile Threat Defense"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:DeviceHealthScripts",
+    "description": "Intune > Reports > Endpoint analytics > Proactive Remediations"
   },
   {
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
@@ -196,7 +216,6 @@
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Azure AD > Device settings"
   },
-
   {
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
     "description": "Azure AD > Group settings",
