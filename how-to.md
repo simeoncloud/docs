@@ -148,3 +148,12 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 * Approvals can easily be removed by navigating to the environment you want to remove an approval from \(Deploy or Export\)
 * Once you have selected either the **Deploy** or **Export** environment, click **...** > **Approvals and checks** > hover mouse over the approval you want to delete > **trash icon** > **Delete**
+
+## Remove a tenant from Simeon
+
+* Delete the Simeon service account from your tenant
+  * http://portal.azure.com/ > log in to the tenant you are uninstalling > **Azure Active Directory** > **Users** > select the Simeon service account (named simeon@[tenantdomain]) > **Delete user**
+* Remove the tenant from [DevOps](https://dev.azure.com/)
+  * **Tenants** > **Repos** > select dropdown at the top of the page > **Manage repositories** > **...** (next to the tenant you want to remove) > **Delete** > follow the on-screen instructions to delete the repository
+  * **Pipelines** > **...** (next to the tenant you want to remove) > follow the on-screen instructions to delete the pipeline
+  * **Environments** (on the left pane under **Pipelines**) > select the tenant you want to remove > **...** > **Delete** > **Delete**
