@@ -1,49 +1,78 @@
-
-* Azure Active Directory
-  * App registrations
-  * Company branding
-  * Device settings
-  * Diagnostic settings
-  * Enterprise applications
-  * Group settings
-  * Groups
-  * Mobility \(MDM and MAM\)
-  * Password Reset
-  * Conditional access policies
-  * Named locations
-  * External user settings
-  * Identity protection
-  * User settings
-  * User feature preview settings
-  * Users
-* Office 365
-  * Outlook web app policies
-  * Password expiration policies
-  * Retention policies
-  * Teams settings
-  * Teams apps
-  * Teams app permission policies 
-* Intune
-  * Diagnostic settings
-  * Apps
-  * App configuration policies
-  * App protection policies
-  * Devices compliance policies
-  * Devices enrollment restrictions
-  * Device configuration profiles
-    * Settings catalog 
-  * Endpoint security
-    * Antivirus
-    * Disk encryption
-    * Firewall
-    * Attack surface reduction
-    * Account protection
-    * Device compliance
-    * Conditional access 
-  * Windows PowerShell scripts
-  * Windows Autopilot deployment 
-* Azure
-  * Resource group deployments 
-
-
+- Azure
+  - Resource groups
+- Azure AD
+  - App registrations
+  - Company branding
+  - Custom domain names
+  - Device settings
+  - Diagnostic settings
+  - Directory settings
+  - Enterprise applications
+    - User settings
+  - External user directory settings
+  - External user guest settings
+  - Group settings
+  - Groups
+  - Mobility (MDM and MAM)
+  - Password reset
+  - Security
+    - Conditional Access
+      - Named locations
+      - Policies
+    - Identity Protection
+  - User feature preview settings
+  - User settings
+  - Users
+- Intune
+  - Apps
+    - App configuration policies
+    - App protection policies (Platform = Android)
+    - App protection policies (Platform = iOS/iPadOS)
+    - App protection policies (Platform = Windows 10)
+  - Devices
+    - Compliance policies
+      - Compliance policy settings
+      - Locations
+      - Notifications
+    - Configuration profiles
+    - Configuration profiles (Profile Type = Administrative Templates)
+    - Configuration profiles (Settings Catalog)
+    - Device clean-up rules
+    - Enrollment restrictions
+    - Scripts
+    - Windows Autopilot deployment profiles
+  - Diagnostic settings
+  - Endpoint security
+  - Mobile Threat Defense
+  - Reports
+    - Endpoint analytics
+      - Proactive Remediations
+- Office 365
+  - Exchange
+    - AdminAuditLogConfig
+    - Modern authentication
+    - OrganizationConfig
+    - Outlook Web App policies
+  - Security & Compliance
+    - Information governance
+      - Retention
+      - Retention (Teams)
+  - Teams
+    - Apps
+      - Permission policies
+    - Meetings
+      - Meeting policies
+      - Meeting settings
+    - Messaging policies
+    - Org-wide settings
+    - Voice
+      - Calling policies
+- Office 365 Security & Compliance
+  - Threat management
+    - Policy
+      - ATP Anti-Phishing
+      - ATP Safe Attachments
+      - ATP Safe Links
+      - ATP Safe Links:ATP Safe Attachments
+        - Global Settings
 
