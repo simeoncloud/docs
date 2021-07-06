@@ -1,76 +1,93 @@
 [
   {
     "namespace": "AadGraph:IdentityProtectionPolicies",
-    "description": "Azure AD > Security > Identity Protection"
+    "description": "Azure AD > Security > Identity Protection",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/Overview"
   },
   {
     "namespace": "AadIam:CompanyBrandings",
-    "description": "Azure AD > Company branding"
+    "description": "Azure AD > Company branding",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding"
   },
   {
     "namespace": "AadIam:EnterpriseApplicationUserSettings",
-    "description": "Azure AD > Enterprise applications > User settings"
+    "description": "Azure AD > Enterprise applications > User settings",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/"
   },
   {
     "namespace": "AadIam:ExternalUserDirectorySettings",
     "description": "Azure AD > External user directory settings",
-    "isDeletable": false
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/UserSettings"
   },
   {
     "namespace": "AadIam:ExternalUserGuestSettings",
     "description": "Azure AD > External user guest settings",
-    "isDeletable": false
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/Settings"
   },
   {
     "namespace": "AadIam:FeatureSettings",
-    "description": "Azure AD > User feature preview settings"
+    "description": "Azure AD > User feature preview settings",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/FeatureSettingsBlade"
   },
   {
     "namespace": "AadIam:GroupSettings",
     "description": "Azure AD > Group settings",
-    "isDeletable": false
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General"
   },
   {
     "namespace": "AadIam:MdmApplications",
-    "description": "Azure AD > Mobility (MDM and MAM)"
+    "description": "Azure AD > Mobility (MDM and MAM)",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility"
   },
   {
     "namespace": "AadIam:PasswordResetPolicies",
     "description": "Azure AD > Password reset",
-    "isDeletable": false
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/Properties"
   },
   {
     "namespace": "AadIam:UserSettings",
     "description": "Azure AD > User settings",
-    "isDeletable": false
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/UserSettings"
   },
   {
     "namespace": "AzureManagement:MicrosoftAadIam:DiagnosticSettings",
-    "description": "Azure AD > Diagnostic settings"
+    "description": "Azure AD > Diagnostic settings",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/DiagnosticSettings"
   },
   {
     "namespace": "AzureManagement:MicrosoftIntune:DiagnosticSettings",
-    "description": "Intune > Diagnostic settings"
+    "description": "Intune > Diagnostic settings",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/TenantAdminMenu/diagnostics"
   },
   {
     "namespace": "AzureManagement:MicrosoftResources:ResourceGroups",
-    "description": "Azure > Resource groups"
+    "description": "Azure > Resource groups",
+    "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups"
   },
   {
     "namespace": "MSGraph:Applications",
-    "description": "Azure AD > App registrations"
+    "description": "Azure AD > App registrations",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps"
   },
   {
     "namespace": "MSGraph:Domains",
-    "description": "Azure AD > Custom domain names"
+    "description": "Azure AD > Custom domain names",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Domains"
   },
   {
     "namespace": "MSGraph:Groups",
-    "description": "Azure AD > Groups"
+    "description": "Azure AD > Groups",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups"
   },
   {
     "namespace": "MSGraph:ServicePrincipals",
-    "description": "Azure AD > Enterprise applications"
+    "description": "Azure AD > Enterprise applications",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/"
   },
   {
     "namespace": "MSGraph:Settings",
@@ -78,95 +95,118 @@
   },
   {
     "namespace": "MSGraph:Users",
-    "description": "Azure AD > Users"
+    "description": "Azure AD > Users",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers"
   },
   {
     "namespace": "MSGraph:ConditionalAccess:NamedLocations",
-    "description": "Azure AD > Security > Conditional Access > Named locations"
+    "description": "Azure AD > Security > Conditional Access > Named locations",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/NamedLocations"
   },
   {
     "namespace": "MSGraph:ConditionalAccess:Policies",
-    "description": "Azure AD > Security > Conditional Access > Policies"
+    "description": "Azure AD > Security > Conditional Access > Policies",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:AndroidManagedAppProtections",
-    "description": "Intune > Apps > App protection policies (Platform = Android)"
+    "description": "Intune > Apps > App protection policies (Platform = Android)",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections",
-    "description": "Intune > Apps > App protection policies (Platform = iOS/iPadOS)"
+    "description": "Intune > Apps > App protection policies (Platform = iOS/iPadOS)",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
-    "description": "Intune > Apps"
+    "description": "Intune > Apps",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
-    "description": "Intune > Apps > App configuration policies"
+    "description": "Intune > Apps > App configuration policies",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:WindowsInformationProtectionPolicies",
-    "description": "Intune > Apps > App protection policies (Platform = Windows 10)"
+    "description": "Intune > Apps > App protection policies (Platform = Windows 10)",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
-    "description": "Intune > Devices > Compliance policies"
+    "description": "Intune > Devices > Compliance policies",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceManagementSettings",
-    "description": "Intune > Devices > Compliance policies > Compliance policy settings"
+    "description": "Intune > Devices > Compliance policies > Compliance policy settings",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policySettings"
   },
   {
     "namespace": "MSGraph:DeviceManagement:ManagementConditions",
-    "description": "Intune > Devices > Compliance policies > Locations"
+    "description": "Intune > Devices > Compliance policies > Locations",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/locations"
   },
   {
     "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates",
-    "description": "Intune > Devices > Compliance policies > Notifications"
+    "description": "Intune > Devices > Compliance policies > Notifications",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceConfigurations",
-    "description": "Intune > Devices > Configuration profiles"
+    "description": "Intune > Devices > Configuration profiles",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles"
   },
   {
     "namespace": "MSGraph:DeviceManagement:ConfigurationPolicies",
-    "description": "Intune > Devices > Configuration profiles (Settings Catalog)"
+    "description": "Intune > Devices > Configuration profiles (Settings Catalog)",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles"
   },
   {
     "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations",
-    "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)"
+    "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles"
   },
   {
     "namespace": "MSGraph:DeviceManagement:Intents",
-    "description": "Intune > Endpoint security"
+    "description": "Intune > Endpoint security",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/overview"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceEnrollmentConfigurations",
-    "description": "Intune > Devices > Enrollment restrictions"
+    "description": "Intune > Devices > Enrollment restrictions",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesEnrollmentMenu/enrollmentRestrictions"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceManagementScripts",
-    "description": "Intune > Devices > Scripts"
+    "description": "Intune > Devices > Scripts",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceShellScripts",
-    "description": "Intune > Devices > Scripts"
+    "description": "Intune > Devices > Scripts",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell"
   },
   {
     "namespace": "MSGraph:DeviceManagement:ManagedDeviceCleanupSettings",
-    "description": "Intune > Devices > Device clean-up rules"
+    "description": "Intune > Devices > Device clean-up rules",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/deviceCleanUp"
   },
   {
     "namespace": "MSGraph:DeviceManagement:MobileThreatDefenseConnectors",
-    "description": "Intune > Mobile Threat Defense"
+    "description": "Intune > Mobile Threat Defense",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/mobileThreatDefense"
   },
   {
     "namespace": "MSGraph:DeviceManagement:DeviceHealthScripts",
-    "description": "Intune > Reports > Endpoint analytics > Proactive Remediations"
+    "description": "Intune > Reports > Endpoint analytics > Proactive Remediations",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/proactiveRemediations"
   },
   {
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
-    "description": "Intune > Devices > Windows Autopilot deployment profiles"
+    "description": "Intune > Devices > Windows Autopilot deployment profiles",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade"
   },
   {
     "namespace": "PowerShell:Exchange:ClientAccess:OwaMailboxPolicies",
@@ -174,31 +214,38 @@
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
+    "url": "https://security.microsoft.com/antiphishing"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishRules",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
+    "url": "https://security.microsoft.com/antiphishing"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links:ATP Safe Attachments > Global Settings"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links:ATP Safe Attachments > Global Settings",
+    "url": "https://security.microsoft.com/safelinksv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentPolicies",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
+    "url": "https://security.microsoft.com/safeattachmentv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentRules",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
+    "url": "https://security.microsoft.com/safeattachmentv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksPolicies",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
+    "url": "https://security.microsoft.com/safelinksv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksRules",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links"
+    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
+    "url": "https://security.microsoft.com/safelinksv2"
   },
   {
     "namespace": "PowerShell:Exchange:Organization:AdminAuditLogConfig",
@@ -214,43 +261,48 @@
   },
   {
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
-    "description": "Azure AD > Device settings"
+    "description": "Azure AD > Device settings",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/DeviceSettings/menuId/"
   },
   {
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
     "description": "Azure AD > Group settings",
-    "isDeletable": false
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General"
   },
   {
     "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
-    "description": "Office 365 > Security & Compliance > Information governance > Retention"
-  },
-  {
-    "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
-    "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)"
+    "description": "Office 365 > Security & Compliance > Information governance > Retention",
+    "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
-    "description": "Office 365 > Teams > Apps > Permission policies"
+    "description": "Office 365 > Teams > Apps > Permission policies",
+    "url": "https://admin.teams.microsoft.com/policies/app-permission"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsCallingPolicy",
-    "description": "Office 365 > Teams > Voice > Calling policies"
+    "description": "Office 365 > Teams > Voice > Calling policies",
+    "url": "https://admin.teams.microsoft.com/policies/calling"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsClientConfiguration",
-    "description": "Office 365 > Teams > Org-wide settings"
+    "description": "Office 365 > Teams > Org-wide settings > Teams settings",
+    "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsMeetingConfiguration",
-    "description": "Office 365 > Teams > Meetings > Meeting settings"
+    "description": "Office 365 > Teams > Meetings > Meeting settings",
+    "url": "https://admin.teams.microsoft.com/meetings/settings"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsMeetingPolicy",
-    "description": "Office 365 > Teams > Meetings > Meeting policies"
+    "description": "Office 365 > Teams > Meetings > Meeting policies",
+    "url": "https://admin.teams.microsoft.com/policies/meetings"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsMessagingPolicy",
-    "description": "Office 365 > Teams > Messaging policies"
+    "description": "Office 365 > Teams > Messaging policies",
+    "url": "https://admin.teams.microsoft.com/policies/messaging"
   }
 ]
