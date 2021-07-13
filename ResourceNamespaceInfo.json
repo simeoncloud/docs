@@ -266,7 +266,7 @@
   },
   {
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
-    "description": "Azure AD > Group settings",
+    "description": "Azure AD > Authorization Policy",
     "isDeletable": false,
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General"
   },
