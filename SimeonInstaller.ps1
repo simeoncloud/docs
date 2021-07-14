@@ -686,7 +686,7 @@ CRLFOption=CRLFAlways
 
         Connect-Azure $Tenant
 
-        Invoke-WithRetry { Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant }
+        Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
 
         Install-MSGraphPowerShell $Tenant
 
