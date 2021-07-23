@@ -224,7 +224,7 @@
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links:ATP Safe Attachments > Global Settings",
+    "description": "Office 365 Security & Compliance > Threat management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2"
   },
   {
