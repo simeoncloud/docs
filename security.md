@@ -10,8 +10,6 @@ Simeon can also run without a service account at all. In this scenario, when syn
 
 Simeon support can be granted read-only or contributor access to your Azure DevOps environment to help troubleshoot any issues. Simeon support will never make changes to your tenants and can be explicitly denied permissioned to do so.
 
-## How am I protected from a supply chain attack?
-
 Because Simeon runs in your own Azure DevOps environment, you are in complete control of the security. You can harden access to your Azure DevOps environment as much as you like.
 
 Additionally, we digitally sign our software and the processes that run in Azure DevOps confirm the integrity of the software before interacting with your tenant. 
