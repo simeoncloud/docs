@@ -5,4 +5,4 @@
 - [Application Packaging](application-packaging.md)
 - [Managed Configurations](managed-configurations.md)
 - [Baseline](baseline.md)
-- [Policies](policies.md)
+- [Security](security.md)
