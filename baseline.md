@@ -37,10 +37,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 - End users are restricted from inviting external users to view corporate data
 
 ###### hidden-header
-## 
-*TeamsApi/Users/TenantWideAppsSettings*
-
-###### hidden-header
 
 ### Configuration
 
