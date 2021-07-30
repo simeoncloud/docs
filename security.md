@@ -4,7 +4,7 @@ Our Web Admin user interface connects directly to your Azure DevOps environment 
 
 Simeon uses a service account to interact with your tenants. When installing Simeon into a tenant, the install process creates the service account with a randomly generated 15 character password that is immediately stored in a secret variable in Azure DevOps and then discarded. This password cannot be viewed by anyone. Only the Sync job can use this password to connect to and configure your tenant.
 
-We also support using PIM, in which case the service account will be granted Global Reader access to your tenant and will prompt for elevation to Global Administrator only when deploying changes. If you do not use PIM, the service account is configured as a Global Administrator. Because the service account runs non-interactively, it must be excluded from an multi-factor authentication policies in your tenant.
+We also support using PIM, in which case the service account will be granted Global Reader access to your tenant and will prompt for elevation to Global Administrator only when deploying changes. If you do not use PIM, the service account is configured as a Global Administrator. Because the service account runs non-interactively, it must be excluded from any multi-factor authentication policies in your tenant.
 
 Simeon can also run without a service account at all. In this scenario, when syncing your tenant, Simeon will provide a one-time passcode you can enter at https://https://aka.ms/devicelogin and the software will run as the logged in user, without ever providing your credentials to the Simeon software. However, with this approach, the nightly sync jobs will not be able to run on their own and you will need to sync your tenants manually.
 
