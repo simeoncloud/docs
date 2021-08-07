@@ -301,6 +301,10 @@ CRLFOption=CRLFAlways
             [switch]$Interactive
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps -Interactive:$Interactive
 
         if ($Organization -and $Project) {
@@ -402,6 +406,10 @@ CRLFOption=CRLFAlways
             [string]$Token
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $Token"
@@ -427,6 +435,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
@@ -634,6 +646,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $authenicationHeader = Get-AzureDevOpsAuthHeader
 
@@ -888,6 +904,10 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         # Creates repo and pipelines and stores service account password
 
         while (!$Organization) { $Organization = Read-Organization }
@@ -957,6 +977,10 @@ CRLFOption=CRLFAlways
             # A function that returns a url to import this repository from if it is empty
             [scriptblock]$GetSourceUrl
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $Name = $Name.ToLower()
 
@@ -1040,6 +1064,11 @@ CRLFOption=CRLFAlways
             [string]$Repository,
             [string]$Baseline
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         Write-Information "Setting baseline for '$Repository'"
 
         if (!([uri]$Repository).IsAbsoluteUri) {
@@ -1134,6 +1163,10 @@ CRLFOption=CRLFAlways
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         Write-Information "Ensuring GitHub service connections are configured for project '$Organization\$Project'"
 
@@ -1296,6 +1329,10 @@ CRLFOption=CRLFAlways
             [int]$SmtpPort = 587
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
         $restProps = @{
@@ -1425,6 +1462,11 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
         $restProps = @{
@@ -1525,6 +1567,10 @@ CRLFOption=CRLFAlways
             # Settings to write to the pipeline variables
             [hashtable]$PipelineVariables
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $Name = $Name.ToLower()
 
@@ -1662,6 +1708,10 @@ CRLFOption=CRLFAlways
             [switch]$DisableDeployApproval
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $Name = $Name.ToLower()
 
         Write-Information "Installing pipeline environments for '$Name'"
@@ -1781,6 +1831,10 @@ CRLFOption=CRLFAlways
             [string]$Repository
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         Write-Information "Installing pipeline template files for '$Organization'"
 
         if (!([uri]$Repository).IsAbsoluteUri) {
@@ -1856,6 +1910,10 @@ CRLFOption=CRLFAlways
             [string]$GitHubAccessToken
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         while (!$Tenant) { $Tenant = Read-Tenant }
 
         $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
@@ -1896,6 +1954,10 @@ CRLFOption=CRLFAlways
             [string[]]$InviteToOrgAsAdmin = "devops@simeoncloud.com",
             [string]$PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         Write-Information "Getting required values from Key Vault"
         Write-Information "Getting GitHub access token"
