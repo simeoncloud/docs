@@ -995,7 +995,7 @@ CRLFOption=CRLFAlways
         }
 
         if (!$repo.defaultBranch -and $GetSourceUrl) {
-            Push-Location (Get-GitRepository (. $GetSourceUrl))
+            Push-Location (Get-GitRepository (. $GetSourceUrl) -AccessToken $env:GITHUB_TOKEN)
             try {
                 if ($ClearRepositoryContentsOnCreate) {
                     # delete Source/Resources/Content
