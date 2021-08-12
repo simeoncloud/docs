@@ -664,6 +664,32 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Removes a service account named simeon@yourcompany.com
+    #>
+    function Remove-SimeonTenantServiceAccount {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
+        [OutputType([pscredential])]
+        param(
+            # The Azure tenant domain name to configure Simeon for
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant
+        )
+
+        while (!$Tenant) { $Tenant = Read-Tenant }
+
+        Connect-Azure $Tenant
+
+        $user = Get-AzureADUser -Filter "userPrincipalName eq 'simeon@$Tenant'"
+        if ($user) {
+            Write-Information "Removing Simeon service account for tenant '$Tenant'"
+            Remove-AzureADUser -ObjectId "simeon@$Tenant"
+        }
+
+    }
+
+    <#
+    .SYNOPSIS
     Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
     #>
     function Install-SimeonTenantServiceAccount {
@@ -1907,6 +1933,8 @@ CRLFOption=CRLFAlways
         $credential = $null
         if ($UseServiceAccount) {
             $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
+        } else {
+            Remove-SimeonTenantServiceAccount -Tenant $Tenant
         }
 
         $devOpsArgs = @{}
