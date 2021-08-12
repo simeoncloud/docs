@@ -1544,7 +1544,7 @@ CRLFOption=CRLFAlways
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
-                Accept = "application/json;api-version=5.1"
+                Accept = "application/json;api-version=5.1-preview"
             }
             ContentType = 'application/json'
         }
@@ -1605,12 +1605,14 @@ CRLFOption=CRLFAlways
                 variables = $pipelineVariables
             }
 
+            $pipelineId = $pipeline.id
             if ($pipeline) {
                 Write-Information "Pipeline '$pipelineName' already exists - updating"
 
                 $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
                 $body.variables = $definition.variables
+                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password') | % {    $body.PSObject.Properties.Remove($_.Name)   } }
                 $body.queueStatus = $definition.queueStatus
 
                 if (!$body.variables) {
@@ -1637,7 +1639,49 @@ CRLFOption=CRLFAlways
             }
             else {
                 Write-Information "Creating pipeline '$pipelineName'"
-                irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+                $buildDefinition = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
+                $pipelineId = $buildDefinition.id
+            }
+
+            if (!$Credential) {
+                $cachePath = Join-Path ([IO.Path]::GetTempPath()) 'M365Management'
+                if (!(Test-Path $cachePath)) {
+                    New-Item -Path $cachePath -ItemType "directory" -Force
+                }
+                # remove unnecessary cache files
+                gci $cachePath -Exclude @('keys', 'msal') | Remove-Item -Recurse -Force
+
+                # add empty file
+                New-Item -Path $cachePath -Name "simeoncloud.txt" -ItemType "file" -Value "" | Out-Null
+
+                #zip cache
+                Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force
+                if (!(Test-Path "$cachePath.zip")) {
+                    Write-Host "$cachePath.zip does not exist - will not save cache"
+                    return
+                }
+
+                $secureFileName = "$pipelineName"
+                $secureFilesUri = "$apiBaseUrl/distributedtask/securefiles"
+
+                # Invoke-RestMethod @restProps $secureFilesUri -Method Get
+                # can't update existing secure files - delete and recreate
+                $secureFileId = Invoke-WithRetry { ((Invoke-RestMethod @restProps "$secureFilesUri" -Method Get).value |? name -eq $secureFileName).id }
+                if ($secureFileId) {
+                    Write-Host "Deleting existing secure file $secureFileName ($secureFileId)"
+                    Invoke-WithRetry { Invoke-RestMethod @restProps "$secureFilesUri/$secureFileId" -Method Delete | Out-Null }
+                }
+
+                Write-Host "Creating secure file $secureFileName"
+                $createSecureFileUri = "$secureFilesUri`?name=$([System.Net.WebUtility]::UrlEncode($secureFileName))"
+                $secureFile = Invoke-WithRetry { (Invoke-RestMethod @restProps $createSecureFileUri -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
+                $secureFileId = $secureFile.id
+                Write-Host "Created secure file $secureFileId"
+                Write-Host "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
+                Invoke-WithRetry { Invoke-RestMethod  @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -ContentType 'application/json' -Body (@{
+                    resources = @{}
+                    pipelines = @(@{ authorized = $true; id = $($pipelineId) })
+                } | ConvertTo-Json -Depth 100) | Out-Null }
             }
         }
     }
@@ -1853,12 +1897,17 @@ CRLFOption=CRLFAlways
             # Specify to true to not require deploy approval
             [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
-            [string]$GitHubAccessToken
+            [string]$GitHubAccessToken,
+            # Install a Simeon Service account vs. use Delegated Auth
+            [boolean]$UseServiceAccount = $true
         )
 
         while (!$Tenant) { $Tenant = Read-Tenant }
 
-        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
+        $credential = $null
+        if ($UseServiceAccount) {
+            $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
+        }
 
         $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'ClearRepositoryContentsOnCreate') |? { $PSBoundParameters.ContainsKey($_) } | % {
@@ -1868,8 +1917,15 @@ CRLFOption=CRLFAlways
         $pipelineVariables = @{}
         if ($Subscription) {
             $pipelineVariables['AzureManagement:SubscriptionId'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 value = $Subscription
+            }
+        }
+
+        if (!$UseServiceAccount) {
+            $pipelineVariables['AadAuth:TenantId'] = @{
+                allowOverride = $false
+                value = $Tenant
             }
         }
 
