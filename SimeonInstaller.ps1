@@ -1638,7 +1638,7 @@ CRLFOption=CRLFAlways
                 $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
                 $body.variables = $definition.variables
-                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password') | % {    $body.PSObject.Properties.Remove($_.Name)   } }
+                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password') | % {    $body.variables.PSObject.Properties.Remove($_.Name)   } }
                 $body.queueStatus = $definition.queueStatus
 
                 if (!$body.variables) {
