@@ -1009,6 +1009,11 @@ CRLFOption=CRLFAlways
                 Write-Verbose "Deleting existing .git directory"
                 Remove-Item '.\.git' -Recurse -Force
 
+                if (Test-Path -Path '.\.github') {
+                    Write-Verbose "Deleting existing .github directory"
+                    Remove-Item '.\.github' -Recurse -Force
+                }
+
                 Write-Verbose "Initializing new git repository with existing contents"
                 Invoke-CommandLine "git init 2>&1" | Write-Verbose
                 Initialize-GitConfiguration
