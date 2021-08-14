@@ -1683,7 +1683,7 @@ CRLFOption=CRLFAlways
                 #zip cache
                 Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force
                 if (!(Test-Path "$cachePath.zip")) {
-                    Write-Host "$cachePath.zip does not exist - will not save cache"
+                    Write-Information "$cachePath.zip does not exist - will not save cache"
                     return
                 }
 
@@ -1694,16 +1694,22 @@ CRLFOption=CRLFAlways
                 # can't update existing secure files - delete and recreate
                 $secureFileId = Invoke-WithRetry { ((Invoke-RestMethod @restProps "$secureFilesUri" -Method Get).value |? name -eq $secureFileName).id }
                 if ($secureFileId) {
-                    Write-Host "Deleting existing secure file $secureFileName ($secureFileId)"
+                    Write-Information "Deleting existing secure file $secureFileName ($secureFileId)"
                     Invoke-WithRetry { Invoke-RestMethod @restProps "$secureFilesUri/$secureFileId" -Method Delete | Out-Null }
                 }
 
-                Write-Host "Creating secure file $secureFileName"
+                Write-Information "Creating secure file $secureFileName"
                 $createSecureFileUri = "$secureFilesUri`?name=$([System.Net.WebUtility]::UrlEncode($secureFileName))"
-                $secureFile = Invoke-WithRetry { (Invoke-RestMethod @restProps $createSecureFileUri -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
+
+                $secureFile = Invoke-WithRetry { (Invoke-RestMethod $createSecureFileUri -Headers @{
+                    Authorization = "Bearer $token"
+                    Accept = "application/json;api-version=5.1-preview"
+                }  -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
+
                 $secureFileId = $secureFile.id
-                Write-Host "Created secure file $secureFileId"
-                Write-Host "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
+                Write-Information "Created secure file $secureFileId"
+                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
+
                 Invoke-WithRetry { Invoke-RestMethod  @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -ContentType 'application/json' -Body (@{
                     resources = @{}
                     pipelines = @(@{ authorized = $true; id = $($pipelineId) })
@@ -1713,7 +1719,7 @@ CRLFOption=CRLFAlways
                 foreach ($user in @("Tenants Build Service", "Project Collection Build Service")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     Write-Information "Making $user admin for Secure File"
-                    $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+                    $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
                             "query": "$user",
                             "identityTypes": [
@@ -1731,18 +1737,18 @@ CRLFOption=CRLFAlways
                                 "DisplayName"
                             ]
                         }
-"@
+"@ | Out-Null }
                     $contributorsDisplayName = "$user ($Organization)"
                     $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
 
-                    Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
+                    Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
                     [
                         {
                             "roleName": "Administrator",
                             "userId": "$contributorsId"
                         }
                     ]
-"@
+"@ | Out-Null }
                 }
             }
         }
