@@ -1700,9 +1700,6 @@ CRLFOption=CRLFAlways
 
                 Write-Information "Creating secure file $secureFileName"
                 $createSecureFileUri = "$secureFilesUri`?name=$([System.Net.WebUtility]::UrlEncode($secureFileName))"
-                Write-Information @"
-                Invoke-WithRetry { (Invoke-RestMethod @restProps $createSecureFileUri -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
-"@
                 $secureFile = Invoke-WithRetry { (Invoke-RestMethod @restProps $createSecureFileUri -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
                 $secureFileId = $secureFile.id
                 Write-Information "Created secure file $secureFileId"
