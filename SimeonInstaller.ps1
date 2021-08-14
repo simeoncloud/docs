@@ -213,7 +213,8 @@ CRLFOption=CRLFAlways
 
         # Install required modules
         $requiredModules = @(
-            @{ Name = 'MSAL.PS' }
+            @{ Name = 'MSAL.PS' },
+            @{ Name = 'powershell-yaml' }
         )
         if ($PSVersionTable.PSEdition -eq 'Core') {
             Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
@@ -1554,7 +1555,7 @@ CRLFOption=CRLFAlways
 
         $Name = $Name.ToLower()
 
-        Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
+        Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name -UseServiceAccount ([boolean]$Credential)
 
         $environmentArgs = @{}
         @('DisableDeployApproval') | % {
@@ -1886,7 +1887,8 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             [ValidateNotNullOrEmpty()]
-            [string]$Repository
+            [string]$Repository,
+            [boolean]$UseServiceAccount
         )
 
         Write-Information "Installing pipeline template files for '$Organization'"
@@ -1911,6 +1913,17 @@ CRLFOption=CRLFAlways
                 if (Test-Path "$_.yml") { Remove-Item "$_.yml" -Force -EA SilentlyContinue }
                 irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/master/$_.yml" -OutFile "$_.yml"
             }
+
+            if (!$UseServiceAccount) {
+                Write-Verbose "Writing Cache parameter to Sync.yml"
+                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered
+                $syncYaml.stages[0].parameters.UseCache = $true
+
+                $output = (ConvertTo-Yaml $syncYaml)
+                # This is required becuase the ConvertTo-Yaml adds single quotes around double quotes
+                $output.Replace("""'", '"').Replace("'""", '"') | Set-Content 'Sync.yml' -Force
+            }
+
             Invoke-CommandLine "git add . 2>&1" | Write-Verbose
 
             git diff-index --quiet HEAD --
