@@ -670,7 +670,6 @@ CRLFOption=CRLFAlways
     function Remove-SimeonTenantServiceAccount {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
-        [OutputType([pscredential])]
         param(
             # The Azure tenant domain name to configure Simeon for
             [ValidateNotNullOrEmpty()]
@@ -1639,7 +1638,7 @@ CRLFOption=CRLFAlways
                 $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
                 $body.variables = $definition.variables
-                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password', 'AadAuth:TenantId', 'AzureManagement:SubscriptionId') | % {    $body.variables.PSObject.Properties.Remove($_.Name)   } }
+                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password', 'AadAuth:TenantId', 'AzureManagement:SubscriptionId') | % { $body.variables.PSObject.Properties.Remove($_.Name) } }
                 $body.queueStatus = $definition.queueStatus
 
                 if (!$body.variables) {
@@ -1675,8 +1674,6 @@ CRLFOption=CRLFAlways
                 if (!(Test-Path $cachePath)) {
                     New-Item -Path $cachePath -ItemType "directory" -Force | Out-Null
                 }
-                # remove unnecessary cache files
-                gci $cachePath -Exclude @('keys', 'msal') | Remove-Item -Recurse -Force
 
                 # add empty file
                 New-Item -Path $cachePath -Name "simeoncloud.txt" -ItemType "file" -Value "" | Out-Null
@@ -1703,12 +1700,12 @@ CRLFOption=CRLFAlways
                 Write-Information "Created secure file $secureFileId"
                 Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
                 Invoke-WithRetry { Invoke-RestMethod @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -Body (@{
-                    resources = @{}
-                    pipelines = @(@{ authorized = $true; id = $($pipelineId) })
-                } | ConvertTo-Json -Depth 100) | Out-Null }
+                            resources = @{}
+                            pipelines = @(@{ authorized = $true; id = $($pipelineId) })
+                        } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
-                foreach ($user in @("Tenants Build Service", "Project Collection Build Service")) {
+                foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     Write-Information "Making $user admin for Secure File"
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
@@ -1730,14 +1727,14 @@ CRLFOption=CRLFAlways
                             ]
                         }
 "@ | Out-Null }
-                    $contributorsDisplayName = "$user ($Organization)"
-                    $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+                    $userDisplayName = "$user ($Organization)"
+                    $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
                     [
                         {
                             "roleName": "Administrator",
-                            "userId": "$contributorsId"
+                            "userId": "$userId"
                         }
                     ]
 "@ | Out-Null }
@@ -1979,7 +1976,8 @@ CRLFOption=CRLFAlways
         $credential = $null
         if ($UseServiceAccount) {
             $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
-        } else {
+        }
+        else {
             Remove-SimeonTenantServiceAccount -Tenant $Tenant
         }
 
