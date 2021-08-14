@@ -1631,7 +1631,6 @@ CRLFOption=CRLFAlways
                 variables = $pipelineVariables
             }
 
-            $pipelineId = $pipeline.id
             if ($pipeline) {
                 Write-Information "Pipeline '$pipelineName' already exists - updating"
 
@@ -1666,7 +1665,6 @@ CRLFOption=CRLFAlways
             else {
                 Write-Information "Creating pipeline '$pipelineName'"
                 $buildDefinition = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
-                $pipelineId = $buildDefinition.id
             }
 
             if (!$Credential) {
@@ -1698,6 +1696,9 @@ CRLFOption=CRLFAlways
                 $secureFile = Invoke-WithRetry { (Invoke-RestMethod @secureFileCreateRestProps $createSecureFileUri -Method Post -InFile "$cachePath.zip") }
                 $secureFileId = $secureFile.id
                 Write-Information "Created secure file $secureFileId"
+
+                $pipelineId = $pipeline ? $pipeline.id : $buildDefinition.id
+
                 Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
                 Invoke-WithRetry { Invoke-RestMethod @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -Body (@{
                             resources = @{}
