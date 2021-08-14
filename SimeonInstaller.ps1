@@ -1712,16 +1712,37 @@ CRLFOption=CRLFAlways
                 # Set Role Assignment
                 $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                 Write-Information "Making Tenant Build Service admin for Secure File"
-                $contributorsGroupId = ($groups |? principalName -eq "Tenants Build Service ($Organization)").originId
-                Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
+                $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+                    {
+                        "query": "Tenants Build Service",
+                        "identityTypes": [
+                            "user"
+                        ],
+                        "operationScopes": [
+                            "ims",
+                            "source"
+                        ],
+                        "options": {
+                            "MinResults": 1,
+                            "MaxResults": 20
+                        },
+                        "properties": [
+                            "DisplayName"
+                        ]
+                    }
+"@
+                $contributorsDisplayName = "Tenants Build Service ($Organization)"
+                $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+
+                Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
                 [
                     {
                         "roleName": "Administrator",
-                        "userId": "$contributorsGroupId"
+                        "userId": "$contributorsId"
                     }
                 ]
 "@
-                } | Out-Null
+
             }
         }
     }
