@@ -1700,17 +1700,13 @@ CRLFOption=CRLFAlways
 
                 Write-Information "Creating secure file $secureFileName"
                 $createSecureFileUri = "$secureFilesUri`?name=$([System.Net.WebUtility]::UrlEncode($secureFileName))"
-
-                $secureFile = Invoke-WithRetry { (Invoke-RestMethod $createSecureFileUri -Headers @{
-                    Authorization = "Bearer $token"
-                    Accept = "application/json;api-version=5.1-preview"
-                }  -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
-
+                $secureFileCreateRestProps = $restProps.Clone()
+                $secureFileCreateRestProps['ContentType'] = 'application/octet-stream'
+                $secureFile = Invoke-WithRetry { (Invoke-RestMethod @secureFileCreateRestProps $createSecureFileUri -Method Post -InFile "$cachePath.zip") }
                 $secureFileId = $secureFile.id
                 Write-Information "Created secure file $secureFileId"
                 Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
-
-                Invoke-WithRetry { Invoke-RestMethod  @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -ContentType 'application/json' -Body (@{
+                Invoke-WithRetry { Invoke-RestMethod @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -Body (@{
                     resources = @{}
                     pipelines = @(@{ authorized = $true; id = $($pipelineId) })
                 } | ConvertTo-Json -Depth 100) | Out-Null }
