@@ -1683,7 +1683,7 @@ CRLFOption=CRLFAlways
                 #zip cache
                 Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force
                 if (!(Test-Path "$cachePath.zip")) {
-                    Write-Host "$cachePath.zip does not exist - will not save cache"
+                    Write-Information "$cachePath.zip does not exist - will not save cache"
                     return
                 }
 
@@ -1694,16 +1694,19 @@ CRLFOption=CRLFAlways
                 # can't update existing secure files - delete and recreate
                 $secureFileId = Invoke-WithRetry { ((Invoke-RestMethod @restProps "$secureFilesUri" -Method Get).value |? name -eq $secureFileName).id }
                 if ($secureFileId) {
-                    Write-Host "Deleting existing secure file $secureFileName ($secureFileId)"
+                    Write-Information "Deleting existing secure file $secureFileName ($secureFileId)"
                     Invoke-WithRetry { Invoke-RestMethod @restProps "$secureFilesUri/$secureFileId" -Method Delete | Out-Null }
                 }
 
-                Write-Host "Creating secure file $secureFileName"
+                Write-Information "Creating secure file $secureFileName"
                 $createSecureFileUri = "$secureFilesUri`?name=$([System.Net.WebUtility]::UrlEncode($secureFileName))"
+                Write-Information @"
+                Invoke-WithRetry { (Invoke-RestMethod @restProps $createSecureFileUri -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
+"@
                 $secureFile = Invoke-WithRetry { (Invoke-RestMethod @restProps $createSecureFileUri -Method Post -ContentType 'application/octet-stream' -InFile "$cachePath.zip") }
                 $secureFileId = $secureFile.id
-                Write-Host "Created secure file $secureFileId"
-                Write-Host "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
+                Write-Information "Created secure file $secureFileId"
+                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
                 Invoke-WithRetry { Invoke-RestMethod  @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -ContentType 'application/json' -Body (@{
                     resources = @{}
                     pipelines = @(@{ authorized = $true; id = $($pipelineId) })
