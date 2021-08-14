@@ -1710,39 +1710,40 @@ CRLFOption=CRLFAlways
                 } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
-                $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
-                Write-Information "Making Tenant Build Service admin for Secure File"
-                $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
-                    {
-                        "query": "Tenants Build Service",
-                        "identityTypes": [
-                            "user"
-                        ],
-                        "operationScopes": [
-                            "ims",
-                            "source"
-                        ],
-                        "options": {
-                            "MinResults": 1,
-                            "MaxResults": 20
-                        },
-                        "properties": [
-                            "DisplayName"
-                        ]
-                    }
+                foreach ($user in @("Tenants Build Service", "Project Collection Build Service")) {
+                    $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
+                    Write-Information "Making $user admin for Secure File"
+                    $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+                        {
+                            "query": "$user",
+                            "identityTypes": [
+                                "user"
+                            ],
+                            "operationScopes": [
+                                "ims",
+                                "source"
+                            ],
+                            "options": {
+                                "MinResults": 1,
+                                "MaxResults": 20
+                            },
+                            "properties": [
+                                "DisplayName"
+                            ]
+                        }
 "@
-                $contributorsDisplayName = "Tenants Build Service ($Organization)"
-                $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+                    $contributorsDisplayName = "$user ($Organization)"
+                    $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
 
-                Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
-                [
-                    {
-                        "roleName": "Administrator",
-                        "userId": "$contributorsId"
-                    }
-                ]
+                    Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
+                    [
+                        {
+                            "roleName": "Administrator",
+                            "userId": "$contributorsId"
+                        }
+                    ]
 "@
-
+                }
             }
         }
     }
