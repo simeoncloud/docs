@@ -1639,7 +1639,7 @@ CRLFOption=CRLFAlways
                 $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
                 $body.variables = $definition.variables
-                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password') | % {    $body.variables.PSObject.Properties.Remove($_.Name)   } }
+                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password', 'AadAuth:TenantId', 'AzureManagement:SubscriptionId') | % {    $body.variables.PSObject.Properties.Remove($_.Name)   } }
                 $body.queueStatus = $definition.queueStatus
 
                 if (!$body.variables) {
@@ -1673,7 +1673,7 @@ CRLFOption=CRLFAlways
             if (!$Credential) {
                 $cachePath = Join-Path ([IO.Path]::GetTempPath()) 'M365Management'
                 if (!(Test-Path $cachePath)) {
-                    New-Item -Path $cachePath -ItemType "directory" -Force
+                    New-Item -Path $cachePath -ItemType "directory" -Force | Out-Null
                 }
                 # remove unnecessary cache files
                 gci $cachePath -Exclude @('keys', 'msal') | Remove-Item -Recurse -Force
@@ -1683,15 +1683,10 @@ CRLFOption=CRLFAlways
 
                 #zip cache
                 Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force
-                if (!(Test-Path "$cachePath.zip")) {
-                    Write-Information "$cachePath.zip does not exist - will not save cache"
-                    return
-                }
 
                 $secureFileName = "$pipelineName"
                 $secureFilesUri = "$apiBaseUrl/distributedtask/securefiles"
 
-                # Invoke-RestMethod @restProps $secureFilesUri -Method Get
                 # can't update existing secure files - delete and recreate
                 $secureFileId = Invoke-WithRetry { ((Invoke-RestMethod @restProps "$secureFilesUri" -Method Get).value |? name -eq $secureFileName).id }
                 if ($secureFileId) {
