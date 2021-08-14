@@ -1708,6 +1708,20 @@ CRLFOption=CRLFAlways
                     resources = @{}
                     pipelines = @(@{ authorized = $true; id = $($pipelineId) })
                 } | ConvertTo-Json -Depth 100) | Out-Null }
+
+                # Set Role Assignment
+                $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
+                Write-Information "Making Tenant Build Service admin for Secure File"
+                $contributorsGroupId = ($groups |? principalName -eq "Tenants Build Service ($Organization)").originId
+                Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
+                [
+                    {
+                        "roleName": "Administrator",
+                        "userId": "$contributorsGroupId"
+                    }
+                ]
+"@
+                } | Out-Null
             }
         }
     }
