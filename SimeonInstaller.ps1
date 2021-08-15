@@ -1731,7 +1731,7 @@ CRLFOption=CRLFAlways
                     $userDisplayName = "$user ($Organization)"
                     $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
 
-                    Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -ContentType "application/json" -Body @"
+                    Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
                         {
                             "roleName": "Administrator",
