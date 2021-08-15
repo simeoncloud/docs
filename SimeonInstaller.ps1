@@ -1702,7 +1702,7 @@ CRLFOption=CRLFAlways
                 # Set Role Assignment
                 foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
-                    Write-Information "Making $user admin for Secure File"
+                    Write-Information "Making $user admin for secure file $secureFileId"
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
                             "query": "$user",
