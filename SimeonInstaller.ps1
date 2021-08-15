@@ -1996,10 +1996,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -PipelineVariables $pipelineVariables |% {
-            Write-Information "GOT OUTPUT"
-            Write-Information $_
-        }
+        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -PipelineVariables $pipelineVariables
 
         Write-Information "Completed installing tenant"
     }
