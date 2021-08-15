@@ -1668,13 +1668,7 @@ CRLFOption=CRLFAlways
             }
 
             if (!$Credential) {
-                $cachePath = Join-Path ([IO.Path]::GetTempPath()) 'M365Management'
-                if (!(Test-Path $cachePath)) {
-                    New-Item -Path $cachePath -ItemType "directory" -Force | Out-Null
-                }
-
-                # add empty file
-                New-Item -Path $cachePath -Name "simeoncloud.txt" -ItemType "file" -Value "" | Out-Null
+                $cachePath = [System.IO.Path]::GetTempFileName()
 
                 #zip cache
                 Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force | Out-Null
