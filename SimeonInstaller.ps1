@@ -2404,4 +2404,4 @@ CRLFOption=CRLFAlways
 
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
-} | Import-Module -Force
+} | Import-Module -Force -PassThru
