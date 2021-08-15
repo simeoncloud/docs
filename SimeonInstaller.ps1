@@ -1677,7 +1677,7 @@ CRLFOption=CRLFAlways
                 New-Item -Path $cachePath -Name "simeoncloud.txt" -ItemType "file" -Value "" | Out-Null
 
                 #zip cache
-                Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force
+                Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force | Out-Null
 
                 $secureFileName = "$pipelineName"
                 $secureFilesUri = "$apiBaseUrl/distributedtask/securefiles"
@@ -2002,7 +2002,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -PipelineVariables $pipelineVariables
+        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -PipelineVariables $pipelineVariables | Write-Information
 
         Write-Information "Completed installing tenant"
     }
