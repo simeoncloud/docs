@@ -1903,10 +1903,10 @@ CRLFOption=CRLFAlways
 
             if (!$UseServiceAccount) {
                 Write-Verbose "Writing Cache parameter to Sync.yml"
-                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered
+                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered 2> $null
                 $syncYaml.stages[0].parameters.UseCache = $true
 
-                $output = (ConvertTo-Yaml $syncYaml)
+                $output = (ConvertTo-Yaml $syncYaml 2> $null)
                 # This is required becuase the ConvertTo-Yaml adds single quotes around double quotes
                 $output.Replace("""'", '"').Replace("'""", '"') | Set-Content 'Sync.yml' -Force
             }
