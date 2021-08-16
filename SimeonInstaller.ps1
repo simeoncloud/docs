@@ -1704,7 +1704,6 @@ CRLFOption=CRLFAlways
                 # Set Role Assignment
                 foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
-                    Write-Information "Making $user admin for secure file $secureFileId"
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
                             "query": "$user",
@@ -1723,9 +1722,10 @@ CRLFOption=CRLFAlways
                                 "DisplayName"
                             ]
                         }
-"@ | Out-Null }
+"@ }
                     $userDisplayName = "$user ($Organization)"
                     $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
+                    Write-Information "Making $userDisplayName ($userId) admin for Secure File"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
