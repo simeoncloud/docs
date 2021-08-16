@@ -1666,7 +1666,7 @@ CRLFOption=CRLFAlways
             }
             else {
                 Write-Information "Creating pipeline '$pipelineName'"
-                $buildDefinition = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
+                $pipeline = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
             }
 
             if (!$Credential) {
@@ -1693,12 +1693,10 @@ CRLFOption=CRLFAlways
                 $secureFileId = $secureFile.id
                 Write-Information "Created secure file $secureFileId"
 
-                $pipelineId = $pipeline ? $pipeline.id : $buildDefinition.id
-
-                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
+                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipeline.id)"
                 Invoke-WithRetry { Invoke-RestMethod @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -Body (@{
                             resources = @{}
-                            pipelines = @(@{ authorized = $true; id = $($pipelineId) })
+                            pipelines = @(@{ authorized = $true; id = $($pipeline.id) })
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
@@ -1725,7 +1723,7 @@ CRLFOption=CRLFAlways
 "@ }
                     $userDisplayName = "$user ($Organization)"
                     $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
-                    Write-Information "Making $userDisplayName ($userId) admin for Secure File"
+                    Write-Information "Making $userDisplayName ($userId) admin for secure file $secureFileId"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
