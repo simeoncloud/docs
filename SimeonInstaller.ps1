@@ -938,7 +938,7 @@ CRLFOption=CRLFAlways
 
         if (!$PipelineVariables) { $PipelineVariables = @{} }
         $PipelineVariables['ResourceContext:TenantName'] = @{
-            allowOverride = $true
+            allowOverride = $false
             value = $Name.Substring(0, [Math]::Min($Name.Length, 12)).ToLower()
         }
 
@@ -1584,13 +1584,13 @@ CRLFOption=CRLFAlways
 
         if ($Credential.UserName) {
             $PipelineVariables['AadAuth:Username'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 value = $Credential.UserName
             }
         }
         if ($Credential -and $Credential.GetNetworkCredential().Password) {
             $PipelineVariables['AadAuth:Password'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 isSecret = $true
                 value = $Credential.GetNetworkCredential().Password
             }
