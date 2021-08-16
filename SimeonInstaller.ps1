@@ -581,6 +581,7 @@ CRLFOption=CRLFAlways
         Sets Azure DevOps project permissions
     #>
     function Set-AzureDevOpsAccessControlEntry {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -2007,6 +2008,7 @@ CRLFOption=CRLFAlways
         Creates and/or configures the provided Azure DevOps organization to be compatible with Simeon Cloud
     #>
     function Install-SimeonDevOpsOrganization {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         param (
             [ValidateNotNullOrEmpty()]
             [string]$Organization,

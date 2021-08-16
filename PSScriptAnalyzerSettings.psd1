@@ -4,6 +4,8 @@
         'PSAvoidUsingWriteHost'
         'PSAvoidUsingInvokeExpression'
         'PSAvoidUsingUsernameAndPasswordParams'
-        'PSAvoidUsingConvertToSecureStringWithPlainText'
+        'PSAvoidUsingConvertToSecureStringWithPlainText',
+        'PSUseShouldProcessForStateChangingFunctions'
+        'PSAvoidUsingPlainTextForPassword'
     )
 }
