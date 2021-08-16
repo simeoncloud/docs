@@ -565,15 +565,15 @@ CRLFOption=CRLFAlways
         If using PAT token use basic auth else use bearer token. PAT token not currently supported
     #>
     function Get-AzureDevOpsAuthHeader {
+        [OutputType([hashtable])]
+        [CmdletBinding()]
+        param()
+
         $token = Get-SimeonAzureDevOpsAccessToken
-        try {
-            [Convert]::FromBase64String($token) | Out-Null
+        if ($token -match "^[a-zA-Z0-9\+/]*={0,2}$") {
             return @{ Authorization = "Basic $token" }
         }
-        catch {
-            $Error.RemoveAt(0)
-            return @{ Authorization = "Bearer $token" }
-        }
+        return @{ Authorization = "Bearer $token" }
     }
 
     <#
