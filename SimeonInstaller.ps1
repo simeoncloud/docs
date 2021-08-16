@@ -567,10 +567,11 @@ CRLFOption=CRLFAlways
     function Get-AzureDevOpsAuthHeader {
         $token = Get-SimeonAzureDevOpsAccessToken
         try {
-            $convert = [Convert]::FromBase64String($token)
+            [Convert]::FromBase64String($token) | Out-Null
             return @{ Authorization = "Basic $token" }
         }
         catch {
+            $Error.RemoveAt(0)
             return @{ Authorization = "Bearer $token" }
         }
     }
@@ -1903,10 +1904,10 @@ CRLFOption=CRLFAlways
 
             if (!$UseServiceAccount) {
                 Write-Verbose "Writing Cache parameter to Sync.yml"
-                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered 2> $null
+                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered
                 $syncYaml.stages[0].parameters.UseCache = $true
 
-                $output = (ConvertTo-Yaml $syncYaml 2> $null)
+                $output = (ConvertTo-Yaml $syncYaml)
                 # This is required becuase the ConvertTo-Yaml adds single quotes around double quotes
                 $output.Replace("""'", '"').Replace("'""", '"') | Set-Content 'Sync.yml' -Force
             }
