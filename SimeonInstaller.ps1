@@ -302,6 +302,10 @@ CRLFOption=CRLFAlways
             [switch]$Interactive
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureADAccessToken -Resource AzureDevOps -Interactive:$Interactive
 
         if ($Organization -and $Project) {
@@ -403,6 +407,10 @@ CRLFOption=CRLFAlways
             [string]$Token
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $Token"
@@ -428,6 +436,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
@@ -637,6 +649,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $authenicationHeader = Get-AzureDevOpsAuthHeader
 
@@ -916,6 +932,10 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         # Creates repo and pipelines and stores service account password
 
         while (!$Organization) { $Organization = Read-Organization }
@@ -938,7 +958,7 @@ CRLFOption=CRLFAlways
 
         if (!$PipelineVariables) { $PipelineVariables = @{} }
         $PipelineVariables['ResourceContext:TenantName'] = @{
-            allowOverride = $true
+            allowOverride = $false
             value = $Name.Substring(0, [Math]::Min($Name.Length, 12)).ToLower()
         }
 
@@ -985,6 +1005,10 @@ CRLFOption=CRLFAlways
             # A function that returns a url to import this repository from if it is empty
             [scriptblock]$GetSourceUrl
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $Name = $Name.ToLower()
 
@@ -1037,6 +1061,11 @@ CRLFOption=CRLFAlways
                 Write-Verbose "Deleting existing .git directory"
                 Remove-Item '.\.git' -Recurse -Force
 
+                if (Test-Path -Path '.\.github') {
+                    Write-Verbose "Deleting existing .github directory"
+                    Remove-Item '.\.github' -Recurse -Force
+                }
+
                 Write-Verbose "Initializing new git repository with existing contents"
                 Invoke-CommandLine "git init 2>&1" | Write-Verbose
                 Initialize-GitConfiguration
@@ -1068,6 +1097,11 @@ CRLFOption=CRLFAlways
             [string]$Repository,
             [string]$Baseline
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         Write-Information "Setting baseline for '$Repository'"
 
         if (!([uri]$Repository).IsAbsoluteUri) {
@@ -1162,6 +1196,10 @@ CRLFOption=CRLFAlways
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         Write-Information "Ensuring GitHub service connections are configured for project '$Organization\$Project'"
 
@@ -1324,6 +1362,10 @@ CRLFOption=CRLFAlways
             [int]$SmtpPort = 587
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
         $restProps = @{
@@ -1453,6 +1495,11 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
 
         $restProps = @{
@@ -1554,6 +1601,10 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $Name = $Name.ToLower()
 
         Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name -UseServiceAccount ([boolean]$Credential)
@@ -1584,13 +1635,13 @@ CRLFOption=CRLFAlways
 
         if ($Credential.UserName) {
             $PipelineVariables['AadAuth:Username'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 value = $Credential.UserName
             }
         }
         if ($Credential -and $Credential.GetNetworkCredential().Password) {
             $PipelineVariables['AadAuth:Password'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 isSecret = $true
                 value = $Credential.GetNetworkCredential().Password
             }
@@ -1666,7 +1717,7 @@ CRLFOption=CRLFAlways
             }
             else {
                 Write-Information "Creating pipeline '$pipelineName'"
-                $buildDefinition = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
+                $pipeline = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
             }
 
             if (!$Credential) {
@@ -1693,18 +1744,15 @@ CRLFOption=CRLFAlways
                 $secureFileId = $secureFile.id
                 Write-Information "Created secure file $secureFileId"
 
-                $pipelineId = $pipeline ? $pipeline.id : $buildDefinition.id
-
-                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipelineId)"
+                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipeline.id)"
                 Invoke-WithRetry { Invoke-RestMethod @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -Body (@{
                             resources = @{}
-                            pipelines = @(@{ authorized = $true; id = $($pipelineId) })
+                            pipelines = @(@{ authorized = $true; id = $($pipeline.id) })
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
                 foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
-                    Write-Information "Making $user admin for secure file $secureFileId"
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
                             "query": "$user",
@@ -1723,9 +1771,10 @@ CRLFOption=CRLFAlways
                                 "DisplayName"
                             ]
                         }
-"@ | Out-Null }
+"@ }
                     $userDisplayName = "$user ($Organization)"
                     $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
+                    Write-Information "Making $userDisplayName ($userId) admin for secure file $secureFileId"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
@@ -1759,6 +1808,10 @@ CRLFOption=CRLFAlways
             # Specify to true to require approval when deploying
             [switch]$DisableDeployApproval
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $Name = $Name.ToLower()
 
@@ -1880,6 +1933,10 @@ CRLFOption=CRLFAlways
             [boolean]$UseServiceAccount
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         Write-Information "Installing pipeline template files for '$Organization'"
 
         if (!([uri]$Repository).IsAbsoluteUri) {
@@ -1968,6 +2025,10 @@ CRLFOption=CRLFAlways
             [boolean]$UseServiceAccount = $true
         )
 
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         while (!$Tenant) { $Tenant = Read-Tenant }
 
         $credential = $null
@@ -2022,6 +2083,10 @@ CRLFOption=CRLFAlways
             [string[]]$InviteToOrgAsAdmin = "devops@simeoncloud.com",
             [string]$PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
         )
+
+        if($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         Write-Information "Getting required values from Key Vault"
         Write-Information "Getting GitHub access token"
