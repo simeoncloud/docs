@@ -2045,11 +2045,9 @@ CRLFOption=CRLFAlways
         }
 
         $pipelineVariables = @{}
-        if ($PSBoundParameters.ContainsKey('Subscription')) {
-            $pipelineVariables['AzureManagement:SubscriptionId'] = @{
-                allowOverride = $false
-                value = $Subscription ?? ''
-            }
+        $pipelineVariables['AzureManagement:SubscriptionId'] = @{
+            allowOverride = $false
+            value = $Subscription ?? ' '
         }
 
         if (!$UseServiceAccount) {
