@@ -213,7 +213,8 @@ CRLFOption=CRLFAlways
 
         # Install required modules
         $requiredModules = @(
-            @{ Name = 'MSAL.PS' }
+            @{ Name = 'MSAL.PS' },
+            @{ Name = 'powershell-yaml' }
         )
         if ($PSVersionTable.PSEdition -eq 'Core') {
             Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
@@ -576,14 +577,15 @@ CRLFOption=CRLFAlways
         If using PAT token use basic auth else use bearer token. PAT token not currently supported
     #>
     function Get-AzureDevOpsAuthHeader {
+        [OutputType([hashtable])]
+        [CmdletBinding()]
+        param()
+
         $token = Get-SimeonAzureDevOpsAccessToken
-        try {
-            $convert = [Convert]::FromBase64String($token)
+        if ($token -match "^[a-zA-Z0-9\+/]*={0,2}$") {
             return @{ Authorization = "Basic $token" }
         }
-        catch {
-            return @{ Authorization = "Bearer $token" }
-        }
+        return @{ Authorization = "Bearer $token" }
     }
 
     <#
@@ -591,6 +593,7 @@ CRLFOption=CRLFAlways
         Sets Azure DevOps project permissions
     #>
     function Set-AzureDevOpsAccessControlEntry {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -676,6 +679,31 @@ CRLFOption=CRLFAlways
         $secret = (Invoke-WithRetry { Invoke-RestMethod -Header @{Authorization = "Bearer $token" } -Uri "$KeyVaultSecretUri`?api-version=7.1" -Method Get }).Value
 
         return $secret
+    }
+
+    <#
+    .SYNOPSIS
+    Removes a service account named simeon@yourcompany.com
+    #>
+    function Remove-SimeonTenantServiceAccount {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
+        param(
+            # The Azure tenant domain name to configure Simeon for
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant
+        )
+
+        while (!$Tenant) { $Tenant = Read-Tenant }
+
+        Connect-Azure $Tenant
+
+        $user = Get-AzureADUser -Filter "userPrincipalName eq 'simeon@$Tenant'"
+        if ($user) {
+            Write-Information "Removing Simeon service account for tenant '$Tenant'"
+            Remove-AzureADUser -ObjectId "simeon@$Tenant"
+        }
+
     }
 
     <#
@@ -930,7 +958,7 @@ CRLFOption=CRLFAlways
 
         if (!$PipelineVariables) { $PipelineVariables = @{} }
         $PipelineVariables['ResourceContext:TenantName'] = @{
-            allowOverride = $true
+            allowOverride = $false
             value = $Name.Substring(0, [Math]::Min($Name.Length, 12)).ToLower()
         }
 
@@ -1579,7 +1607,7 @@ CRLFOption=CRLFAlways
 
         $Name = $Name.ToLower()
 
-        Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name
+        Install-SimeonTenantPipelineTemplateFile -Organization $Organization -Project $Project -Repository $Name -UseServiceAccount ([boolean]$Credential)
 
         $environmentArgs = @{}
         @('DisableDeployApproval') | % {
@@ -1595,7 +1623,7 @@ CRLFOption=CRLFAlways
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
-                Accept = "application/json;api-version=5.1"
+                Accept = "application/json;api-version=5.1-preview"
             }
             ContentType = 'application/json'
         }
@@ -1607,13 +1635,13 @@ CRLFOption=CRLFAlways
 
         if ($Credential.UserName) {
             $PipelineVariables['AadAuth:Username'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 value = $Credential.UserName
             }
         }
         if ($Credential -and $Credential.GetNetworkCredential().Password) {
             $PipelineVariables['AadAuth:Password'] = @{
-                allowOverride = $true
+                allowOverride = $false
                 isSecret = $true
                 value = $Credential.GetNetworkCredential().Password
             }
@@ -1662,6 +1690,7 @@ CRLFOption=CRLFAlways
                 $definition = irm @restProps "$apiBaseUrl/build/definitions/$($pipeline.id)?revision=$($pipeline.revision)" -Method Get
 
                 $body.variables = $definition.variables
+                if (!$Credential) { $body.variables | gm |? Name -in @('AadAuth:Username', 'AadAuth:Password', 'AadAuth:TenantId', 'AzureManagement:SubscriptionId') | % { $body.variables.PSObject.Properties.Remove($_.Name) } }
                 $body.queueStatus = $definition.queueStatus
 
                 if (!$body.variables) {
@@ -1688,7 +1717,74 @@ CRLFOption=CRLFAlways
             }
             else {
                 Write-Information "Creating pipeline '$pipelineName'"
-                irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) | Out-Null
+                $pipeline = Invoke-WithRetry { irm @restProps "$apiBaseUrl/build/definitions" -Method Post -Body ($body | ConvertTo-Json -Depth 10) }
+            }
+
+            if (!$Credential) {
+                $cachePath = [System.IO.Path]::GetTempFileName()
+
+                #zip cache
+                Compress-Archive $cachePath "$cachePath.zip" -CompressionLevel Optimal -Force | Out-Null
+
+                $secureFileName = "$pipelineName"
+                $secureFilesUri = "$apiBaseUrl/distributedtask/securefiles"
+
+                # can't update existing secure files - delete and recreate
+                $secureFileId = Invoke-WithRetry { ((Invoke-RestMethod @restProps "$secureFilesUri" -Method Get).value |? name -eq $secureFileName).id }
+                if ($secureFileId) {
+                    Write-Information "Deleting existing secure file $secureFileName ($secureFileId)"
+                    Invoke-WithRetry { Invoke-RestMethod @restProps "$secureFilesUri/$secureFileId" -Method Delete | Out-Null }
+                }
+
+                Write-Information "Creating secure file $secureFileName"
+                $createSecureFileUri = "$secureFilesUri`?name=$([System.Net.WebUtility]::UrlEncode($secureFileName))"
+                $secureFileCreateRestProps = $restProps.Clone()
+                $secureFileCreateRestProps['ContentType'] = 'application/octet-stream'
+                $secureFile = Invoke-WithRetry { (Invoke-RestMethod @secureFileCreateRestProps $createSecureFileUri -Method Post -InFile "$cachePath.zip") }
+                $secureFileId = $secureFile.id
+                Write-Information "Created secure file $secureFileId"
+
+                Write-Information "Setting secure file $secureFileId to be accessible by pipeline $($pipeline.id)"
+                Invoke-WithRetry { Invoke-RestMethod @restProps "$apiBaseUrl/pipelines/pipelinePermissions/securefile/$secureFileId" -Method Patch -Body (@{
+                            resources = @{}
+                            pipelines = @(@{ authorized = $true; id = $($pipeline.id) })
+                        } | ConvertTo-Json -Depth 100) | Out-Null }
+
+                # Set Role Assignment
+                foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
+                    $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
+                    $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+                        {
+                            "query": "$user",
+                            "identityTypes": [
+                                "user"
+                            ],
+                            "operationScopes": [
+                                "ims",
+                                "source"
+                            ],
+                            "options": {
+                                "MinResults": 1,
+                                "MaxResults": 20
+                            },
+                            "properties": [
+                                "DisplayName"
+                            ]
+                        }
+"@ }
+                    $userDisplayName = "$user ($Organization)"
+                    $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
+                    Write-Information "Making $userDisplayName ($userId) admin for secure file $secureFileId"
+
+                    Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
+                    [
+                        {
+                            "roleName": "Administrator",
+                            "userId": "$userId"
+                        }
+                    ]
+"@ | Out-Null }
+                }
             }
         }
     }
@@ -1833,7 +1929,8 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             [ValidateNotNullOrEmpty()]
-            [string]$Repository
+            [string]$Repository,
+            [boolean]$UseServiceAccount
         )
 
         if($Project.Contains(" ")) {
@@ -1862,6 +1959,17 @@ CRLFOption=CRLFAlways
                 if (Test-Path "$_.yml") { Remove-Item "$_.yml" -Force -EA SilentlyContinue }
                 irm "https://raw.githubusercontent.com/simeoncloud/$ymlRepo/master/$_.yml" -OutFile "$_.yml"
             }
+
+            if (!$UseServiceAccount) {
+                Write-Verbose "Writing Cache parameter to Sync.yml"
+                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered
+                $syncYaml.stages[0].parameters.UseCache = $true
+
+                $output = (ConvertTo-Yaml $syncYaml)
+                # This is required becuase the ConvertTo-Yaml adds single quotes around double quotes
+                $output.Replace("""'", '"').Replace("'""", '"') | Set-Content 'Sync.yml' -Force
+            }
+
             Invoke-CommandLine "git add . 2>&1" | Write-Verbose
 
             git diff-index --quiet HEAD --
@@ -1912,7 +2020,9 @@ CRLFOption=CRLFAlways
             # Specify to true to not require deploy approval
             [switch]$DisableDeployApproval,
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
-            [string]$GitHubAccessToken
+            [string]$GitHubAccessToken,
+            # Install a Simeon Service account vs. use Delegated Auth
+            [boolean]$UseServiceAccount = $true
         )
 
         if($Project.Contains(" ")) {
@@ -1921,7 +2031,13 @@ CRLFOption=CRLFAlways
 
         while (!$Tenant) { $Tenant = Read-Tenant }
 
-        $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
+        $credential = $null
+        if ($UseServiceAccount) {
+            $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
+        }
+        else {
+            Remove-SimeonTenantServiceAccount -Tenant $Tenant
+        }
 
         $devOpsArgs = @{}
         @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'ClearRepositoryContentsOnCreate') |? { $PSBoundParameters.ContainsKey($_) } | % {
@@ -1929,10 +2045,15 @@ CRLFOption=CRLFAlways
         }
 
         $pipelineVariables = @{}
-        if ($Subscription) {
-            $pipelineVariables['AzureManagement:SubscriptionId'] = @{
-                allowOverride = $true
-                value = $Subscription
+        $pipelineVariables['AzureManagement:SubscriptionId'] = @{
+            allowOverride = $false
+            value = $Subscription ?? ' '
+        }
+
+        if (!$UseServiceAccount) {
+            $pipelineVariables['AadAuth:TenantId'] = @{
+                allowOverride = $false
+                value = $Tenant
             }
         }
 
@@ -1946,6 +2067,7 @@ CRLFOption=CRLFAlways
         Creates and/or configures the provided Azure DevOps organization to be compatible with Simeon Cloud
     #>
     function Install-SimeonDevOpsOrganization {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         param (
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -2348,4 +2470,4 @@ CRLFOption=CRLFAlways
 
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
-} | Import-Module -Force
+} | Import-Module -Force -PassThru
