@@ -36,16 +36,16 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 *   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
 *   From the [Simeon portal](https://app.simeoncloud.com), click **Install** on the navigation pane
-*   For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
-*   Once the installation has completed, click **Run an export**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
+*   For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
+*   Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
 ## Install a baseline
 
 *   First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
     
-*   From the Simeon portal, click Install on the navigation pane
+* From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
     
-*   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
+*   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
     
 *   Once the installation has completed, click **Deploy**. Doing so will populate the baseline tenant portal
     
@@ -54,11 +54,25 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 *   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
     
-*   From the Simeon portal, click Install on the navigation pane
+* From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
     
-*   For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
+* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
     
-*   Once the installation has completed, click **Run an export**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
+* Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
+
+## Install a tenant with delegated authentication
+
+* From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
+
+* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to 
+
+* Expand **Advanced Settings** > toggle off **Use Simeon service account** > **Install**
+
+* Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
+
+* Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 4x
+
+* After the fourth authentication, and **in progress** returns to **Idle**, the install and initial Sync are complete 
     
 
 ## Reconcile and deploy a client tenant
