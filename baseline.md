@@ -577,19 +577,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### AnyDesk
-
-|Name |AnyDesk|
-| :-- | :-- |
-| What does this do? | AnyDesk is a remote desktop application that provides remote access to computers. The baseline includes the application but the app will not be deployed unless a valid AnyDesk licensed msi url is specified in your config.json via the property "ResourceContext:MSGraph:DeviceAppManagement:MobileApps:AnyDesk:Url." The baseline installs AnyDesk and sets the password for unattended access from the first three portions of the device's BitLocker recovery key (which can be viewed in the Azure portal) plus the letter "X" (e.g. 123456-123456-123456X). |
-| Why should you use this? | If you want to be able to easily remote into computers to help end-users troubleshoot problems. |
-| What is the end-user impact? | Users will have AnyDesk installed on their computer. |
-| Learn more | [AnyDesk](https://anydesk.com/en)
-
-
-
-###### hidden-header
-
 ### CMTrace
 
 |Name |CMTrace|
