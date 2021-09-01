@@ -25,20 +25,6 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
-## Set up Simeon for a baseline tenant
-
-*   First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
-*   From the [Simeon portal](https://app.simeoncloud.com), click **Install** on the navigation pane    
-*   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Organization** should be **Simeon-\[YourCompanyName\]** > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
-*   Once the installation has completed, click **Deploy**. Doing so will populate the baseline tenant portal
-
-## Set up Simeon for a client tenant
-
-*   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
-*   From the [Simeon portal](https://app.simeoncloud.com), click **Install** on the navigation pane
-*   For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
-*   Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
-
 ## Install a baseline
 
 *   First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
@@ -46,17 +32,17 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
     
 *   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
+*   If you would like to use the Simeon Baseline, leave **Use Simeon Baseline** toggled on. Otherwise, toggle off **Use Simeon Baseline**.
+*   Click **Install** > (optional) select a subscription for Simeon to use for deploying resource groups > **Sync now**
+*   Once the installation has completed, click **Sync now**. Doing so will cause the tenant to pend approval to populate the baseline tenant portal.
     
-*   Once the installation has completed, click **Deploy**. Doing so will populate the baseline tenant portal
-    
-
 ## Install a client tenant onto Simeon
 
 *   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
     
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
     
-* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to deploy to this tenant > **Install**
+* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to 
     
 * Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
