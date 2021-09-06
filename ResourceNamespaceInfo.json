@@ -67,8 +67,14 @@
   {
     "namespace": "AzureManagement:MicrosoftResources:ResourceGroups",
     "description": "Azure > Resource groups",
-    "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups"
+    "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups",
+    "$obsolete": "Use AzureManagement:MicrosoftResources:ResourceGroupDeployments"
   },
+  {
+    "namespace": "AzureManagement:MicrosoftResources:ResourceGroupDeployments",
+    "description": "Azure > Resource groups",
+    "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups"
+  },  
   {
     "namespace": "MSGraph:Applications",
     "description": "Azure AD > App registrations",
