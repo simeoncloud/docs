@@ -68,7 +68,7 @@
     "namespace": "AzureManagement:MicrosoftResources:ResourceGroups",
     "description": "Azure > Resource groups",
     "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups",
-    "$obsolete": "Use AzureManagement:MicrosoftResources:ResourceGroupDeployments"
+    "obsolete": "Use AzureManagement:MicrosoftResources:ResourceGroupDeployments"
   },
   {
     "namespace": "AzureManagement:MicrosoftResources:ResourceGroupDeployments",
