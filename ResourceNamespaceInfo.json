@@ -218,6 +218,10 @@
     "description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:AcceptedDomain",
+    "description": "test"
+  },
+  {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
