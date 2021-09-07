@@ -322,10 +322,10 @@
     "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
-    "$obsolete": "PowerShell:SecurityAndCompliance:RetentionCompliancePolicies"
+    "$obsolete": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
   },
   {
-    "namespace": "PowerShell:SecurityAndCompliance:RetentionCompliancePolicies",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention"
   },
