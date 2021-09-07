@@ -74,7 +74,7 @@
     "namespace": "AzureManagement:MicrosoftResources:ResourceGroupDeployments",
     "description": "Azure > Resource groups",
     "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups"
-  },  
+  },
   {
     "namespace": "MSGraph:Applications",
     "description": "Azure AD > App registrations",
@@ -208,6 +208,11 @@
     "namespace": "MSGraph:DeviceManagement:DeviceHealthScripts",
     "description": "Intune > Reports > Endpoint analytics > Proactive Remediations",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/proactiveRemediations"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:AssignmentFilters",
+    "description": "Intune > Tenant administration > Filters",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/TenantAdminMenu/assignmentFilters"
   },
   {
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
