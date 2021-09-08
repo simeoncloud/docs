@@ -282,6 +282,12 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention"
   },
   {
+    "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)",
+    "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
+    "obsolete": "Use PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies"
+  },  
+  {
     "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
     "description": "Office 365 > Teams > Apps > Permission policies",
     "url": "https://admin.teams.microsoft.com/policies/app-permission"
