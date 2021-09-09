@@ -12,6 +12,7 @@
   {
     "namespace": "AadIam:EnterpriseApplicationUserSettings",
     "description": "Azure AD > Enterprise applications > User settings",
+    "isDeletable": false,
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/"
   },
   {
@@ -29,7 +30,9 @@
   {
     "namespace": "AadIam:FeatureSettings",
     "description": "Azure AD > User feature preview settings",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/FeatureSettingsBlade"
+    "isDeletable": false,
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/FeatureSettingsBlade",
+    "obsolete": "No longer supported by Microsoft"
   },
   {
     "namespace": "AadIam:GroupSettings",
@@ -40,6 +43,7 @@
   {
     "namespace": "AadIam:MdmApplications",
     "description": "Azure AD > Mobility (MDM and MAM)",
+    "isDeletable": false,
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility"
   },
   {
@@ -67,6 +71,12 @@
   {
     "namespace": "AzureManagement:MicrosoftResources:ResourceGroups",
     "description": "Azure > Resource groups",
+    "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups",
+    "obsolete": "Use AzureManagement:MicrosoftResources:ResourceGroupDeployments"
+  },
+  {
+    "namespace": "AzureManagement:MicrosoftResources:ResourceGroupDeployments",
+    "description": "Azure > Resource groups",
     "url": "https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups"
   },
   {
@@ -77,6 +87,7 @@
   {
     "namespace": "MSGraph:Domains",
     "description": "Azure AD > Custom domain names",
+    "isDeletable": false,
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Domains"
   },
   {
@@ -141,6 +152,7 @@
   {
     "namespace": "MSGraph:DeviceManagement:DeviceManagementSettings",
     "description": "Intune > Devices > Compliance policies > Compliance policy settings",
+    "isDeletable": false,
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policySettings"
   },
   {
@@ -191,6 +203,7 @@
   {
     "namespace": "MSGraph:DeviceManagement:ManagedDeviceCleanupSettings",
     "description": "Intune > Devices > Device clean-up rules",
+    "isDeletable": false,
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/deviceCleanUp"
   },
   {
@@ -246,6 +259,7 @@
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:AtpPolicyForO365",
     "description": "Office 365 Security & Compliance > Threat management > Policy > Global Settings",
+    "isDeletable": false,
     "url": "https://security.microsoft.com/safelinksv2"
   },
   {
@@ -287,7 +301,8 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AdminAuditLogConfig",
-    "description": "Office 365 > Exchange > AdminAuditLogConfig"
+    "description": "Office 365 > Exchange > AdminAuditLogConfig",
+    "isDeletable": false
   },
   {
     "namespace": "PowerShell:Exchange:Organization:AuthenticationPolicy",
@@ -305,11 +320,13 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:OrganizationConfig",
-    "description": "Office 365 > Exchange > OrganizationConfig"
+    "description": "Office 365 > Exchange > OrganizationConfig",
+    "isDeletable": false
   },
   {
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Azure AD > Device settings",
+    "isDeletable": false,
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/DeviceSettings/menuId/"
   },
   {
@@ -330,6 +347,12 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention"
   },
   {
+    "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)",
+    "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
+    "obsolete": "Use PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies"
+  },
+  {
     "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
     "description": "Office 365 > Teams > Apps > Permission policies",
     "url": "https://admin.teams.microsoft.com/policies/app-permission"
@@ -342,11 +365,13 @@
   {
     "namespace": "TeamsPSAdmin:TeamsClientConfiguration",
     "description": "Office 365 > Teams > Org-wide settings > Teams settings",
+    "isDeletable": false,
     "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings"
   },
   {
     "namespace": "TeamsPSAdmin:TeamsMeetingConfiguration",
     "description": "Office 365 > Teams > Meetings > Meeting settings",
+    "isDeletable": false,
     "url": "https://admin.teams.microsoft.com/meetings/settings"
   },
   {
