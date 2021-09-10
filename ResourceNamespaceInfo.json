@@ -356,7 +356,7 @@
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General"
   },
   {
-    "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "$obsolete": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
