@@ -243,6 +243,18 @@
     "description": "Office 365 > Exchange > AddressBookPolicy"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:AddressList",
+    "description": "TBD"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:OfflineAddressBook",
+    "description": "TBD"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:GlobalAddressList",
+    "description": "TBD"
+  },
+  {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
