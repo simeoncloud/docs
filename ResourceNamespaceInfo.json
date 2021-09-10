@@ -236,6 +236,10 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRule",
+    "description": "Classic Exchange admin center > mobile device access > Device Access Rules"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AddressBookPolicy",
     "description": "Not found yet"
   },
   {
