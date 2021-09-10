@@ -232,7 +232,7 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AcceptedDomain",
-    "description": "test"
+    "description": "Exchange admin center > Mail flow > Accepted Domains"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
