@@ -235,6 +235,10 @@
     "description": "Exchange admin center > Mail flow > Accepted Domains"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRule",
+    "description": "Not found yet"
+  },
+  {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
