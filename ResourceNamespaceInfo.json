@@ -240,7 +240,7 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AddressBookPolicy",
-    "description": "Not found yet"
+    "description": "Office 365 > Exchange > AddressBookPolicy"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
