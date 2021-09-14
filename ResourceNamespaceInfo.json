@@ -231,11 +231,11 @@
     "description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:AcceptedDomain",
+    "namespace": "PowerShell:ExchangeOnline:AcceptedDomains",
     "description": "Exchange admin center > Mail flow > Accepted Domains"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRule",
+    "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRules",
     "description": "Classic Exchange admin center > mobile device access > Device Access Rules"
   },
   {
