@@ -258,10 +258,10 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
-    "obsolete": "PowerShell:SecurityAndComplianceCenter:AntiPhishPolicies"
+    "obsolete": "PowerShell:ExchangeOnline:AntiPhishPolicies"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:AntiPhishPolicies",
+    "namespace": "PowerShell:ExchangeOnline:AntiPhishPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing"
   },
@@ -274,10 +274,10 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
     "description": "Office 365 Security & Compliance > Threat management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2",
-    "obsolete": "PowerShell:SecurityAndComplianceCenter:AtpPolicyForO365"
+    "obsolete": "PowerShell:ExchangeOnline:AtpPolicyForO365"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:AtpPolicyForO365",
+    "namespace": "PowerShell:ExchangeOnline:AtpPolicyForO365",
     "description": "Office 365 Security & Compliance > Threat management > Policy > Global Settings",
     "isDeletable": false,
     "url": "https://security.microsoft.com/safelinksv2"
@@ -286,10 +286,10 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
-    "obsolete": "PowerShell:SecurityAndComplianceCenter:SafeAttachmentPolicies"
+    "obsolete": "PowerShell:ExchangeOnline:SafeAttachmentPolicies"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:SafeAttachmentPolicies",
+    "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2"
   },
@@ -302,10 +302,10 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2",
-    "obsolete": "PowerShell:SecurityAndComplianceCenter:SafeLinksPolicies"
+    "obsolete": "PowerShell:ExchangeOnline:SafeLinksPolicies"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:SafeLinksPolicies",
+    "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2"
   },
