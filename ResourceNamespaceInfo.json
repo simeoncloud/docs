@@ -232,27 +232,32 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AcceptedDomains",
-    "description": "Exchange admin center > Mail flow > Accepted Domains"
+    "description": "Exchange admin center > Mail flow > Accepted Domains",
+    "url": "https://admin.exchange.microsoft.com/#/accepteddomains"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRules",
     "description": "Classic Exchange admin center > mobile device access > Device Access Rules"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:AddressBookPolicy",
-    "description": "Office 365 > Exchange > AddressBookPolicy"
+    "namespace": "PowerShell:ExchangeOnline:AddressBookPolicies",
+    "description": "Office 365 > Exchange > AddressBookPolicy",
+    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/create-an-address-book-policy"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:AddressList",
-    "description": "TBD"
+    "namespace": "PowerShell:ExchangeOnline:AddressLists",
+    "description": "Office 365 > Exchange > AddressList",
+    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:OfflineAddressBook",
-    "description": "TBD"
+    "namespace": "PowerShell:ExchangeOnline:OfflineAddressBooks",
+    "description": "Office 365 > Exchange > OfflineAddressBook",
+    "url": "Offline address books in Exchange Online | Microsoft Docs"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:GlobalAddressList",
-    "description": "TBD"
+    "namespace": "PowerShell:ExchangeOnline:GlobalAddressLists",
+    "description": "Office 365 > Exchange > GlobalAddressList",
+    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
