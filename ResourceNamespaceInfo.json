@@ -224,7 +224,7 @@
   {
     "namespace": "PowerShell:Exchange:ClientAccess:OwaMailboxPolicies",
     "description": "Office 365 > Exchange > Outlook Web App policies",
-    "obsolete": "PowerShell:ExchangeOnline:OwaMailboxPolicies"
+    "obsolete": "Use PowerShell:ExchangeOnline:OwaMailboxPolicies"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:OwaMailboxPolicies",
@@ -328,7 +328,7 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
-    "obsolete": "PowerShell:ExchangeOnline:AntiPhishPolicies"
+    "obsolete": "Use PowerShell:ExchangeOnline:AntiPhishPolicies"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AntiPhishPolicies",
@@ -344,7 +344,7 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
     "description": "Office 365 Security & Compliance > Threat management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2",
-    "obsolete": "PowerShell:ExchangeOnline:AtpPolicyForO365"
+    "obsolete": "Use PowerShell:ExchangeOnline:AtpPolicyForO365"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AtpPolicyForO365",
@@ -356,7 +356,7 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
-    "obsolete": "PowerShell:ExchangeOnline:SafeAttachmentPolicies"
+    "obsolete": "Use PowerShell:ExchangeOnline:SafeAttachmentPolicies"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
@@ -372,7 +372,7 @@
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksPolicies",
     "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2",
-    "obsolete": "PowerShell:ExchangeOnline:SafeLinksPolicies"
+    "obsolete": "Use PowerShell:ExchangeOnline:SafeLinksPolicies"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
@@ -387,7 +387,7 @@
   {
     "namespace": "PowerShell:Exchange:Organization:AdminAuditLogConfig",
     "description": "Office 365 > Exchange > AdminAuditLogConfig",
-    "obsolete": "PowerShell:ExchangeOnline:AdminAuditLogConfig"
+    "obsolete": "Use PowerShell:ExchangeOnline:AdminAuditLogConfig"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AdminAuditLogConfig",
@@ -397,7 +397,7 @@
   {
     "namespace": "PowerShell:Exchange:Organization:AuthenticationPolicy",
     "description": "Office 365 > Exchange > Modern authentication",
-    "obsolete": "PowerShell:ExchangeOnline:AuthenticationPolicy"
+    "obsolete": "Use PowerShell:ExchangeOnline:AuthenticationPolicy"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AuthenticationPolicy",
@@ -406,7 +406,7 @@
   {
     "namespace": "PowerShell:Exchange:Organization:OrganizationConfig",
     "description": "Office 365 > Exchange > OrganizationConfig",
-    "obsolete": "PowerShell:ExchangeOnline:OrganizationConfig"
+    "obsolete": "Use PowerShell:ExchangeOnline:OrganizationConfig"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:OrganizationConfig",
@@ -429,7 +429,7 @@
     "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
-    "obsolete": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
+    "obsolete": "Use PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicy",
