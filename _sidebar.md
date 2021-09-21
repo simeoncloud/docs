@@ -2,6 +2,7 @@
 - [Getting Started](getting-started.md)
 - [How It Works](how-it-works.md)
 - [How To](how-to.md)
+- [Permissions](permissions.md)
 - [Application Packaging](application-packaging.md)
 - [Managed Configurations](managed-configurations.md)
 - [Baseline](baseline.md)
