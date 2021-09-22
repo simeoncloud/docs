@@ -511,7 +511,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCategory",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCategories",
     "description": "Office 365 > Security & Compliance > File plan property categories",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps"
   },
