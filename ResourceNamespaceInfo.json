@@ -217,6 +217,11 @@
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/proactiveRemediations"
   },
   {
+    "namespace": "MSGraph:DeviceManagement:AssignmentFilters",
+    "description": "Intune > Tenant administration > Filters",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/TenantAdminMenu/assignmentFilters"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
     "description": "Intune > Devices > Windows Autopilot deployment profiles",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade"
@@ -432,7 +437,7 @@
     "obsolete": "Use PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicy",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicies",
     "description": "Office 365 > Security & Compliance > Audit configuration policy",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps"
   },
@@ -511,12 +516,12 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCategory",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCategories",
     "description": "Office 365 > Security & Compliance > File plan property categories",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCitation",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCitations",
     "description": "Office 365 > Security & Compliance > File plan property citations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycitation?view=exchange-ps"
   },
