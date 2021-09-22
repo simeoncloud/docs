@@ -516,7 +516,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCitation",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCitations",
     "description": "Office 365 > Security & Compliance > File plan property citations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycitation?view=exchange-ps"
   },
