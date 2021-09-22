@@ -42,7 +42,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
     
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
     
-* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to 
+* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to > authenticate with a global administrator in the tenant 
     
 * Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
@@ -52,7 +52,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 * For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to 
 
-* Expand **Advanced Settings** > toggle off **Use Simeon service account** > **Install**
+* Expand **Advanced Settings** > toggle off **Use Simeon service account** > **Install** > authenticate with a global administrator in the tenant
 
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 
@@ -84,7 +84,17 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
     *   (1) **I’M DONE** commits the changes to the tenant repository but does not deploy to the tenant. Note that if you do this, the tenant will be synced during the scheduled nightly sync and you will be prompted for approval as indicated in your daily summary email. To immediately deploy these changes to your tenant, you can manually sync the tenant in the Sync page.
         
     *   (2) **SYNC NOW** immediately deploys the changes to the tenant.
-        
+
+
+## Generate Health Check Reports
+* First, in the tenant you are generating the report for, create a user and assign it either (1) Global Administrator role or (2) [the minimum required roles](https://simeoncloud.github.io/docs/#/permissions?id=permissions)
+* If you are using a global administrator user, follow these instructions to [install your tenant](https://simeoncloud.github.io/docs/#/how-to?id=install-a-client-tenant-onto-simeon)
+* If you are using a user with the minimum required roles, follow these instruction to [install your tenant using delegated authentication](https://simeoncloud.github.io/docs/#/how-to?id=install-a-tenant-with-delegated-authentication)
+* Once the tenant is installed and the initial Sync is complete, navigate to [**Reconcile**](https://app.simeoncloud.com/reconcile) > select your tenant > click Export Report in the bottom left
+  * To white label the report, upload a logo and enter in your company's information in the text box
+  * To include more granular data, you have the option to include conficting property names and values
+* Click **Export** and your report will be downloaded as a .xlsx
+
 
 ## Update a baseline configuration and sync to tenants
 
