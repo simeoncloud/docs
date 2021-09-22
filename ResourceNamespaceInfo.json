@@ -437,7 +437,7 @@
     "obsolete": "Use PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicy",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicies",
     "description": "Office 365 > Security & Compliance > Audit configuration policy",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps"
   },
