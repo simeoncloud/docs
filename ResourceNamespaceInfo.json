@@ -491,9 +491,9 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:DlpComplianceRules",
-    "description": "Office 365 > Security & Compliance > DLP compliance rules",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancerule?view=exchange-ps"
+    "namespace": "PowerShell:SecurityAndComplianceCenter:DlpSensitiveInformationTypes",
+    "description": "Office 365 > Security & Compliance > DLP senstitive information types",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps"
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:DeviceConditionalAccessPolicies",
