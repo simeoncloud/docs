@@ -228,55 +228,193 @@
   },
   {
     "namespace": "PowerShell:Exchange:ClientAccess:OwaMailboxPolicies",
+    "description": "Office 365 > Exchange > Outlook Web App policies",
+    "obsolete": "Use PowerShell:ExchangeOnline:OwaMailboxPolicies"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:OwaMailboxPolicies",
     "description": "Office 365 > Exchange > Outlook Web App policies"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:AcceptedDomains",
+    "description": "Exchange > Mail flow > Accepted Domains",
+    "url": "https://admin.exchange.microsoft.com/#/accepteddomains"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRules",
+    "description": "Exchange > Mobile device access > Device Access Rules"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AddressBookPolicies",
+    "description": "Office 365 > Exchange > AddressBookPolicy",
+    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/create-an-address-book-policy"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AddressLists",
+    "description": "Office 365 > Exchange > AddressList",
+    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:ApplicationAccessPolicies",
+    "description": "Office 365 > Exchange > Application access policies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-applicationaccesspolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AvailabilityAddressSpaces",
+    "description": "Office 365 > Exchange > Availability address spaces",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AvailabilityConfig",
+    "description": "Office 365 > Exchange > Availability config",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-availabilityconfig?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:CASMailboxPlan",
+    "description": "Office 365 > Exchange > CAS mailbox plan",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-casmailboxplan?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:ClientAccessRules",
+    "description": "Office 365 > Exchange > Client access rules",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:DomainkeysIdentifiedMailSigningConfig",
+    "description": "Office 365 > Exchange > DomainKeys identified mail signing config",
+    "url": "https://security.microsoft.com/dkimv2"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:EmailAddressPolicies",
+    "description": "Office 365 > Exchange > Email address policies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:HostedConnectionFilterPolicies",
+    "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
+    "url": "https://security.microsoft.com/antispam"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:HostedContentFilterPolicies",
+    "description": "Office 365 > Security & Compliance > Hosted content filter policies",
+    "url": "https://security.microsoft.com/antispam"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:HostedContentFilterRules",
+    "description": "Office 365 > Security & Compliance > Hosted content filter rules",
+    "url": "https://security.microsoft.com/antispam"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:HostedOutboundSpamFilterPolicies",
+    "description": "Office 365 > Security & Compliance > Hosted outbound spam filter policies",
+    "url": "https://security.microsoft.com/antispam"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:HostedOutboundSpamFilterRules",
+    "description": "Office 365 > Security & Compliance > Hosted outbound spam filter rules",
+    "url": "https://security.microsoft.com/antispam"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:InboundConnectors",
+    "description": "Office 365 > Exchange > Inbound connectors",
+    "url": "https://admin.exchange.microsoft.com/#/connectors"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:OfflineAddressBooks",
+    "description": "Office 365 > Exchange > OfflineAddressBook",
+    "url": "Offline address books in Exchange Online | Microsoft Docs"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:GlobalAddressLists",
+    "description": "Office 365 > Exchange > GlobalAddressList",
+    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list"
+  },
+  {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishPolicies",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
+    "url": "https://security.microsoft.com/antiphishing",
+    "obsolete": "Use PowerShell:ExchangeOnline:AntiPhishPolicies"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AntiPhishPolicies",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AntiPhishRules",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:AtpPolicyForO365",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > Global Settings",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > Global Settings",
+    "url": "https://security.microsoft.com/safelinksv2",
+    "obsolete": "Use PowerShell:ExchangeOnline:AtpPolicyForO365"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AtpPolicyForO365",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > Global Settings",
     "isDeletable": false,
     "url": "https://security.microsoft.com/safelinksv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentPolicies",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
+    "url": "https://security.microsoft.com/safeattachmentv2",
+    "obsolete": "Use PowerShell:ExchangeOnline:SafeAttachmentPolicies"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeAttachmentRules",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Attachments",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksPolicies",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Links",
+    "url": "https://security.microsoft.com/safelinksv2",
+    "obsolete": "Use PowerShell:ExchangeOnline:SafeLinksPolicies"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2"
   },
   {
     "namespace": "PowerShell:Exchange:AdvancedThreatProtection:SafeLinksRules",
-    "description": "Office 365 Security & Compliance > Threat management > Policy > ATP Safe Links",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2"
   },
   {
     "namespace": "PowerShell:Exchange:Organization:AdminAuditLogConfig",
     "description": "Office 365 > Exchange > AdminAuditLogConfig",
+    "obsolete": "Use PowerShell:ExchangeOnline:AdminAuditLogConfig"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AdminAuditLogConfig",
+    "description": "Office 365 > Exchange > AdminAuditLogConfig",
     "isDeletable": false
   },
   {
     "namespace": "PowerShell:Exchange:Organization:AuthenticationPolicy",
+    "description": "Office 365 > Exchange > Modern authentication",
+    "obsolete": "Use PowerShell:ExchangeOnline:AuthenticationPolicy"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:AuthenticationPolicy",
     "description": "Office 365 > Exchange > Modern authentication"
   },
   {
     "namespace": "PowerShell:Exchange:Organization:OrganizationConfig",
+    "description": "Office 365 > Exchange > OrganizationConfig",
+    "obsolete": "Use PowerShell:ExchangeOnline:OrganizationConfig"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:OrganizationConfig",
     "description": "Office 365 > Exchange > OrganizationConfig",
     "isDeletable": false
   },
@@ -295,14 +433,104 @@
   {
     "namespace": "PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
+    "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
+    "obsolete": "Use PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicies",
+    "description": "Office 365 > Security & Compliance > Audit configuration policy",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceCases",
+    "description": "Office 365 > Security & Compliance > Compliance cases",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancecase?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:CaseHoldPolicies",
+    "description": "Office 365 > Security & Compliance > Case hold policies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:CaseHoldRules",
+    "description": "Office 365 > Security & Compliance > Case hold rules",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdrule?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceSearches",
+    "description": "Office 365 > Security & Compliance > Content searches",
+    "url": "https://compliance.microsoft.com/contentsearchv2?viewid=search"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceSearchActions",
+    "description": "Office 365 > Security & Compliance > Content search actions",
+    "url": "https://compliance.microsoft.com/contentsearchv2?viewid=search"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceTag",
+    "description": "Office 365 > Security & Compliance > ComplianceTags",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancetag?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionComplianceRules",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-retentioncompliancerule?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionEventType",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:DlpCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > DLP compliance policies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:DlpComplianceRules",
+    "description": "Office 365 > Security & Compliance > DLP compliance rules",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancerule?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:DeviceConditionalAccessPolicies",
+    "description": "Office 365 > Security & Compliance > Device conditional access policies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-deviceconditionalaccesspolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:DeviceConfigurationPolicies",
+    "description": "Office 365 > Security & Compliance > Device configuration policies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-deviceconfigurationpolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyAuthorities",
+    "description": "Office 365 > Security & Compliance > File plan property authorities",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCategories",
+    "description": "Office 365 > Security & Compliance > File plan property categories",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCitations",
+    "description": "Office 365 > Security & Compliance > File plan property citations",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycitation?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyDepartments",
+    "description": "Office 365 > Security & Compliance > File plan property departments",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertydepartment?view=exchange-ps"
   },
   {
     "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "obsolete": "Use PowerShell:PolicyAndCompliance:Retention:RetentionCompliancePolicies"
-  },  
+  },
   {
     "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
     "description": "Office 365 > Teams > Apps > Permission policies",
