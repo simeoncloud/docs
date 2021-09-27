@@ -262,7 +262,6 @@
   {
     "namespace": "PowerShell:ExchangeOnline:AvailabilityAddressSpaces",
     "description": "Office 365 > Exchange > Availability address spaces",
-    "isDeletable": false,
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps"
   },
   {
