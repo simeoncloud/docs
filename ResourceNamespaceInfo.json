@@ -482,8 +482,9 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-retentioncompliancerule?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionEventType",
-    "description": "Office 365 > Security & Compliance > Information governance > Retention"
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceRetentionEventTypes",
+    "description": "Office 365 > Security & Compliance > Information governance > Compliance Retention Event Types",
+    "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/get-complianceretentioneventtype?view=exchange-ps"
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:DlpCompliancePolicies",
