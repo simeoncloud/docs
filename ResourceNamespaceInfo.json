@@ -270,7 +270,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-availabilityconfig?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:CASMailboxPlan",
+    "namespace": "PowerShell:ExchangeOnline:CASMailboxPlans",
     "description": "Office 365 > Exchange > CAS mailbox plan",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-casmailboxplan?view=exchange-ps"
   },
@@ -280,7 +280,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:DomainkeysIdentifiedMailSigningConfig",
+    "namespace": "PowerShell:ExchangeOnline:DkimSigningConfigs",
     "description": "Office 365 > Exchange > DomainKeys identified mail signing config",
     "url": "https://security.microsoft.com/dkimv2"
   },
