@@ -419,6 +419,10 @@
     "isDeletable": false
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:IntraOrganizationConnectors",
+    "description": "Office 365 > Exchange > IntraOrganizationConnectors"
+  },
+  {
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Azure AD > Device settings",
     "isDeletable": false,
