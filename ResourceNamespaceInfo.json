@@ -471,7 +471,7 @@
     "url": "https://compliance.microsoft.com/contentsearchv2?viewid=search"
   },
   {
-    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceTag",
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceTags",
     "description": "Office 365 > Security & Compliance > ComplianceTags",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancetag?view=exchange-ps"
   },
