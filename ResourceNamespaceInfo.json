@@ -531,6 +531,11 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertydepartment?view=exchange-ps"
   },
   {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyReferenceIds",
+    "description": "Office 365 > Security & Compliance > File plan property reference ids",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyreferenceid?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
