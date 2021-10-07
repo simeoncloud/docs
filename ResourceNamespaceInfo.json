@@ -541,6 +541,11 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertysubcategory?view=exchange-ps"
   },
   {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:Labels",
+    "description": "Office 365 > Security & Compliance > Labels",
+    "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-label?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:PolicyAndCompliance:Retention:TeamsRetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention (Teams)",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
