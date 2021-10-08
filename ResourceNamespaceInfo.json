@@ -290,6 +290,11 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:JournalRules",
+    "description": "Office 365 > Exchange > Journal Rules",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:HostedConnectionFilterPolicies",
     "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
     "url": "https://security.microsoft.com/antispam"
