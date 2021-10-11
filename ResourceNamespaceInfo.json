@@ -295,6 +295,11 @@
     "url": "https://admin.exchange.microsoft.com/#/mailboxes"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:MailboxPlans",
+    "description": "Office 365 > Exchange > MailboxPlans",
+    "url": "https://admin.exchange.microsoft.com/#/mailboxes"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:MailboxRegionalConfigurations",
     "description": "Office 365 > Exchange > Mailboxes",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mailboxregionalconfiguration?view=exchange-ps"
