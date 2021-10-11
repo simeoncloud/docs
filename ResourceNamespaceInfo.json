@@ -310,6 +310,11 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-malwarefilterpolicy?view=exchange-ps"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:MobileDeviceMailboxPolicies",
+    "description": "Office 365 > Exchange > MobileDeviceMailboxPolicies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mobiledevicemailboxpolicy?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:JournalRules",
     "description": "Office 365 > Exchange > Journal Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps"
