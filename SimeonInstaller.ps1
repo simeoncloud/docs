@@ -1903,6 +1903,7 @@ CRLFOption=CRLFAlways
             Write-Information "Approval does not exist - no change is required"
         }
 
+        # Allow pipeline to use environment
         $environmentPermissionsUrl = "$apiBaseUrl/pipelines/pipelinepermissions/environment/$($environment.id)"
         Invoke-WithRetry { Invoke-RestMethod @restProps -Uri $environmentPermissionsUrl -Method Patch -Body @"
         {
