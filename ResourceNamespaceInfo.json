@@ -290,6 +290,41 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:Mailboxes",
+    "description": "Office 365 > Exchange > Mailboxes",
+    "url": "https://admin.exchange.microsoft.com/#/mailboxes"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:MailboxPlans",
+    "description": "Office 365 > Exchange > MailboxPlans",
+    "url": "https://admin.exchange.microsoft.com/#/mailboxes"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:MailboxRegionalConfigurations",
+    "description": "Office 365 > Exchange > Mailboxes",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mailboxregionalconfiguration?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:ManagementRole",
+    "description": "Office 365 > Exchange > ManagementRole",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-managementrole?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:MalwareFilterPolicies",
+    "description": "Office 365 > Exchange > MalwareFilterPolicies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-malwarefilterpolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:MobileDeviceMailboxPolicies",
+    "description": "Office 365 > Exchange > MobileDeviceMailboxPolicies",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mobiledevicemailboxpolicy?view=exchange-ps"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:JournalRules",
+    "description": "Office 365 > Exchange > Journal Rules",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:HostedConnectionFilterPolicies",
     "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
     "url": "https://security.microsoft.com/antispam"
@@ -323,6 +358,11 @@
     "namespace": "PowerShell:ExchangeOnline:OfflineAddressBooks",
     "description": "Office 365 > Exchange > OfflineAddressBook",
     "url": "Offline address books in Exchange Online | Microsoft Docs"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:OutboundConnectors",
+    "description": "Office 365 > Exchange > Outbound connectors",
+    "url": "https://admin.exchange.microsoft.com/#/connectors"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:GlobalAddressLists",
