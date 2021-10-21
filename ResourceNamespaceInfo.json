@@ -250,6 +250,11 @@
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/create-an-address-book-policy"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:SharingPolicies",
+    "description": "Office 365 > Exchange > SharingPolicies",
+    "url": "https://admin.exchange.microsoft.com/#/sharing"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:AddressLists",
     "description": "Office 365 > Exchange > AddressList",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists"
