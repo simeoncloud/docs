@@ -365,6 +365,11 @@
     "url": "https://admin.exchange.microsoft.com/#/connectors"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:TransportRules",
+    "description": "Office 365 > Exchange > TransportRules",
+    "url": "https://admin.exchange.microsoft.com/#/transportrules"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:GlobalAddressLists",
     "description": "Office 365 > Exchange > GlobalAddressList",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list"
