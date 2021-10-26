@@ -255,6 +255,11 @@
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:PolicyTipConfigs",
+    "description": "Office 365 > Exchange > PolicyTipConfig",
+    "url": "https://docs.microsoft.com/en-us/exchange/security-and-compliance/data-loss-prevention/manage-policy-tips"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:ApplicationAccessPolicies",
     "description": "Office 365 > Exchange > Application access policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-applicationaccesspolicy?view=exchange-ps"
