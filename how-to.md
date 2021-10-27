@@ -71,11 +71,11 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
     
 *   Now, you may go through the four sections and decide on how to reconcile the different configurations with your baseline.
     
-    *   **Exported from Tenant** contains those configurations that were exported from your tenant and do not overlap with the baseline. For each configuration in this section, you must decide whether you want to **keep the configuration** or **remove the configuration**. By keeping the box checked, you are choosing to keep the configuration. If you uncheck the box, you are choosing to remove the configuration from the tenant.
+    *   **Tenant-Specific Configurations** contains those configurations that were exported from your tenant and do not overlap with the baseline. For each configuration in this section, you must decide whether you want to **keep the configuration** or **remove the configuration**. By keeping the box checked, you are choosing to keep the configuration. If you uncheck the box, you are choosing to remove the configuration from the tenant.
         
-    *   **Missing from Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box checked, you are choosing to **exclude the baseline configuration from the tenant**. If you uncheck the box, you are choosing to **use the baseline configuration in the tenant**.
+    *   **Available From Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box checked, you are choosing to **exclude the baseline configuration from the tenant**. If you uncheck the box, you are choosing to **use the baseline configuration in the tenant**.
         
-    *   **Conflicting with Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different values. You can choose between **keeping the configuration you have** versus **reverting to the baseline configuration**. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
+    *   **Conflicting With Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different values. You can choose between **keeping the configuration you have** versus **reverting to the baseline configuration**. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
         
     *   **Matching Baseline** contains those configurations that are in both your tenant and the baseline. By keeping the box checked, you are choosing to **keep the baseline configuration**. If you uncheck the box, you are choosing to **exclude the baseline configuration**.
         
