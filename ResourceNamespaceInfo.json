@@ -241,6 +241,11 @@
     "url": "https://admin.exchange.microsoft.com/#/accepteddomains"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:RemoteDomains",
+    "description": "Exchange > Mail flow > Remote Domains",
+    "url": "https://admin.exchange.microsoft.com/#/remotedomains"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRules",
     "description": "Exchange > Mobile device access > Device Access Rules"
   },
