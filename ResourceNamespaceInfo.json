@@ -158,7 +158,8 @@
   {
     "namespace": "MSGraph:DeviceManagement:ManagementConditions",
     "description": "Intune > Devices > Compliance policies > Locations",
-    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/locations"
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/locations",
+    "obsolete": "No longer supported by Microsoft"
   },
   {
     "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates",
