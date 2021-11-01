@@ -56,7 +56,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 
-* Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 4x
+* Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 3x
 
 * After the fourth authentication, and **in progress** returns to **Idle**, the install and initial Sync are complete 
     
