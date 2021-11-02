@@ -241,6 +241,11 @@
     "url": "https://admin.exchange.microsoft.com/#/accepteddomains"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:RemoteDomains",
+    "description": "Exchange > Mail flow > Remote Domains",
+    "url": "https://admin.exchange.microsoft.com/#/remotedomains"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRules",
     "description": "Exchange > Mobile device access > Device Access Rules"
   },
@@ -368,6 +373,11 @@
     "namespace": "PowerShell:ExchangeOnline:OutboundConnectors",
     "description": "Office 365 > Exchange > Outbound connectors",
     "url": "https://admin.exchange.microsoft.com/#/connectors"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:TransportRules",
+    "description": "Office 365 > Exchange > TransportRules",
+    "url": "https://admin.exchange.microsoft.com/#/transportrules"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:GlobalAddressLists",
