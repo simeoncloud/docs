@@ -365,6 +365,11 @@
     "url": "Offline address books in Exchange Online | Microsoft Docs"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:OnPremisesOrganizations",
+    "description": "Office 365 > Exchange > On-Premises Organizations",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-onpremisesorganization?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:OutboundConnectors",
     "description": "Office 365 > Exchange > Outbound connectors",
     "url": "https://admin.exchange.microsoft.com/#/connectors"
