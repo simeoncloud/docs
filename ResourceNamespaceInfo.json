@@ -265,6 +265,11 @@
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:PolicyTipConfigs",
+    "description": "Office 365 > Exchange > PolicyTipConfig",
+    "url": "https://docs.microsoft.com/en-us/exchange/security-and-compliance/data-loss-prevention/manage-policy-tips"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:ApplicationAccessPolicies",
     "description": "Office 365 > Exchange > Application access policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-applicationaccesspolicy?view=exchange-ps"
@@ -371,6 +376,11 @@
     "namespace": "PowerShell:ExchangeOnline:OfflineAddressBooks",
     "description": "Office 365 > Exchange > OfflineAddressBook",
     "url": "Offline address books in Exchange Online | Microsoft Docs"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:OrganizationRelationships",
+    "description": "Office 365 > Exchange > Organization Relationship",
+    "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-organizationrelationship?view=exchange-ps"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:OutboundConnectors",
