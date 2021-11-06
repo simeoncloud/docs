@@ -385,6 +385,11 @@
     "url": "https://admin.exchange.microsoft.com/#/connectors"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:PartnerApplications",
+    "description": "Office 365 > Exchange > Partner Applications",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:TransportRules",
     "description": "Office 365 > Exchange > TransportRules",
     "url": "https://admin.exchange.microsoft.com/#/transportrules"
