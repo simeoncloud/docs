@@ -385,6 +385,11 @@
     "url": "https://admin.exchange.microsoft.com/#/connectors"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:RoleAssignmentPolicies",
+    "description": "Office 365 > Exchange > Role Assignment Policies",
+    "url": "https://admin.exchange.microsoft.com/#/adminRoles"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:PartnerApplications",
     "description": "Office 365 > Exchange > Partner Applications",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps"
