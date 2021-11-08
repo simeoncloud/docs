@@ -378,6 +378,11 @@
     "url": "Offline address books in Exchange Online | Microsoft Docs"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:OnPremisesOrganizations",
+    "description": "Office 365 > Exchange > On-Premises Organizations",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-onpremisesorganization?view=exchange-ps"
+   },
+   {
     "namespace": "PowerShell:ExchangeOnline:OrganizationRelationships",
     "description": "Office 365 > Exchange > Organization Relationship",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-organizationrelationship?view=exchange-ps"
@@ -386,6 +391,16 @@
     "namespace": "PowerShell:ExchangeOnline:OutboundConnectors",
     "description": "Office 365 > Exchange > Outbound connectors",
     "url": "https://admin.exchange.microsoft.com/#/connectors"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:RoleAssignmentPolicies",
+    "description": "Office 365 > Exchange > Role Assignment Policies",
+    "url": "https://admin.exchange.microsoft.com/#/adminRoles"
+  },
+  {
+    "namespace": "PowerShell:ExchangeOnline:PartnerApplications",
+    "description": "Office 365 > Exchange > Partner Applications",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:TransportRules",
