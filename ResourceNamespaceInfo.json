@@ -322,7 +322,7 @@
   {
     "namespace": "PowerShell:ExchangeOnline:MalwareFilterPolicies",
     "description": "Office 365 > Exchange > MalwareFilterPolicies",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-malwarefilterpolicy?view=exchange-ps"
+    "url": "https://security.microsoft.com/antimalwarev2"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:MobileDeviceMailboxPolicies",
