@@ -14,6 +14,13 @@
   - You can verify the license has been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 - [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-baseline-tenant)
 
+## Set up billing for your organization
+
+- Navigate to [Azure DevOps](https://dev.azure.com/)
+- **Organization settings**
+  - **Billing** > **Set up billing** > select either an existing subscription or **+ New Azure Subscription** > **Save**
+  - Next to **MS Hosted CI/CD**, change the Paid parallel jobs from **0** to **1**
+
 ## Make sure a tenant meets the prerequisites to use Simeon
 
 - You must be operating on global Azure cloud (not [Government Community Cloud](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)). The Azure Government cloud is not currently supported
@@ -57,6 +64,8 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 
 * Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 3x
+
+    *   Please note you cannot authenticate with a guest user in the tenant.
 
 * After the fourth authentication, and **in progress** returns to **Idle**, the install and initial Sync are complete 
     

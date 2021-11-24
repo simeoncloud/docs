@@ -22,11 +22,6 @@
     - Identity Protection
   - User settings
   - Users
-- Exchange
-  - Mail flow
-    - Accepted Domains
-  - Mobile device access
-    - Device Access Rules
 - Intune
   - Apps
     - App configuration policies
@@ -69,16 +64,27 @@
     - Inbound connectors
     - IntraOrganizationConnectors
     - Journal Rules
+    - Mail flow
+      - Accepted Domains
+      - Remote Domains
     - Mailboxes
     - MailboxPlans
     - MalwareFilterPolicies
     - ManagementRole
+    - Mobile device access
+      - Device Access Rules
     - MobileDeviceMailboxPolicies
     - Modern authentication
     - OfflineAddressBook
+    - On-Premises Organizations
+    - Organization Relationship
     - OrganizationConfig
     - Outbound connectors
     - Outlook Web App policies
+    - Partner Applications
+    - PolicyTipConfig
+    - Role Assignment Policies
+    - TransportRules
   - Security & Compliance
     - Audit configuration policy
     - Case hold policies
