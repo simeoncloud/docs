@@ -307,7 +307,6 @@
   {
     "namespace": "PowerShell:ExchangeOnline:Mailboxes",
     "description": "Office 365 > Exchange > Mailboxes",
-    "isDeletable": false,
     "url": "https://admin.exchange.microsoft.com/#/mailboxes"
   },
   {
