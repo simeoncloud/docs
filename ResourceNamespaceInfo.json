@@ -310,6 +310,12 @@
     "url": "https://admin.exchange.microsoft.com/#/mailboxes"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:TransportConfig",
+    "description": "Office 365 > Exchange > Transport Config",
+    "url": "https://admin.exchange.microsoft.com/#/mailboxes",
+    "isDeletable": false
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:MailboxPlans",
     "description": "Office 365 > Exchange > MailboxPlans",
     "isDeletable": false,
