@@ -290,6 +290,11 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:DistributionGroups",
+    "description": "Office 365 > Exchange > Distribution Groups",
+    "url": "https://admin.exchange.microsoft.com/#/groups"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:DkimSigningConfigs",
     "description": "Office 365 > Exchange > DomainKeys identified mail signing config",
     "url": "https://security.microsoft.com/dkimv2"
