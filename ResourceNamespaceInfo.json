@@ -390,6 +390,11 @@
     "url": "https://admin.exchange.microsoft.com/#/adminRoles"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:RoleGroups",
+    "description": "Office 365 > Exchange > Role Groups",
+    "url": "https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:PartnerApplications",
     "description": "Office 365 > Exchange > Partner Applications",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps"
