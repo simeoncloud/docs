@@ -324,7 +324,6 @@
   {
     "namespace": "PowerShell:ExchangeOnline:MailboxRegionalConfigurations",
     "description": "Office 365 > Exchange > Mailboxes",
-    "isDeletable": false,
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mailboxregionalconfiguration?view=exchange-ps"
   },
   {
