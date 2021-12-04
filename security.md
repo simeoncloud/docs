@@ -18,6 +18,7 @@ Before making any changes to your tenant, Azure DevOps will wait for you to expl
 
 ### Support 
 
+
 Simeon support can be granted read-only or contributor access to your Azure DevOps environment to help troubleshoot any issues. Simeon support will never make changes to your tenants and can be explicitly denied permissioned to do so.
 
 ### The software
