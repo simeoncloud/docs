@@ -1,6 +1,6 @@
 ## Permissions required to run Simeon using delegated authentication
 
-**Assign the following roles to a **non-guest** user in Azure AD:**
+**Assign the following roles to a non-guest user in Azure AD:**
 * Intune administrator
   * Required to manage Intune/Endpoint
 * Compliance administrator 
