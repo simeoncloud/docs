@@ -1853,7 +1853,7 @@ CRLFOption=CRLFAlways
 
         $contributorsDisplayName = "[$Project]\Contributors"
         $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-        if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
+        if (!$contributorsId) { throw "Could not find Contributors group for project $Project - response was:`r`n$($identities | ConvertTo-Json -Depth 100)" }
 
         irm @restProps "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.environmentreferencerole/roleassignments/resources/$($environment.project.id)_$($environment.id)" -Method Put -Body @"
             [{"userId":"$contributorsId","roleName":"Administrator"}]
