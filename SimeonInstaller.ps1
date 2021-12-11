@@ -1753,7 +1753,7 @@ CRLFOption=CRLFAlways
                             ],
                             "options": {
                                 "MinResults": 1,
-                                "MaxResults": 20
+                                "MaxResults": 1000
                             },
                             "properties": [
                                 "DisplayName"
@@ -1843,7 +1843,7 @@ CRLFOption=CRLFAlways
                 ],
                 "options": {
                     "MinResults": 1,
-                    "MaxResults": 20
+                    "MaxResults": 1000
                 },
                 "properties": [
                     "DisplayName"
