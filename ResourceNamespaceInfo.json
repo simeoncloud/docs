@@ -632,6 +632,14 @@
     "isCreateSupportedFilter": ".*"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:RoleGroups",
+    "description": "Office 365 > Exchange > Role Groups",
+    "url": "https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup",
+    "isDeleteSupportedFilter": "^(?:(?!^Address List Group$|^Organization Management$|^Recipient Management$|^View-Only Organization Management|^Help Desk|^Records Management$|^Discovery Management$|^Hygiene Management|^Compliance Management|^Security Reader$|^Security Administrator|^Security Operator$|^RIM-MailboxAdmins|^ComplianceAdmins|^CLBAccessApprovers|^HelpdeskAdmins|^GlobalReaders|^ExchangeServiceAdmins|^SecurityReaders|^SecurityAdmins|^TenantAdmins).)+$",
+    "isUpdateSupportedFilter": ".*",
+    "isCreateSupportedFilter": ".*"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
