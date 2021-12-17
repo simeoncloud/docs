@@ -203,7 +203,7 @@
     "namespace": "MSGraph:DeviceManagement:DeviceHealthScripts",
     "description": "Intune > Reports > Endpoint analytics > Proactive Remediations",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/proactiveRemediations",
-    "isDeleteSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Update stale Group Policies$|^Restart stopped Office C2R svc$).)+$",
     "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": ".*"
   },
