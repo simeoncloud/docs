@@ -528,14 +528,6 @@
     "isCreateSupportedFilter": ".*"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:MailboxRegionalConfigurations",
-    "description": "Office 365 > Exchange > Mailboxes",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mailboxregionalconfiguration?view=exchange-ps",
-    "isDeleteSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isCreateSupportedFilter": ".*"
-  },
-  {
     "namespace": "PowerShell:ExchangeOnline:MalwareFilterPolicies",
     "description": "Office 365 > Exchange > MalwareFilterPolicies",
     "url": "https://security.microsoft.com/antimalwarev2",
