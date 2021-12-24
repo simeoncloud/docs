@@ -380,7 +380,7 @@
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
     "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy).*",
-    "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy).*",
+    "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy).*"
   },
   {
