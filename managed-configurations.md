@@ -34,6 +34,7 @@
       - Notifications
     - Configuration profiles
     - Configuration profiles (Profile Type = Administrative Templates)
+    - Configuration profiles (Settings Catalog)
     - Device clean-up rules
     - Enrollment restrictions
     - Scripts
@@ -93,6 +94,7 @@
     - DLP compliance policies
     - DLP sensitive information types
     - File plan property authorities
+    - File plan property categories
     - File plan property citations
     - File plan property departments
     - File plan property reference ids
@@ -101,6 +103,7 @@
     - Hosted content filter policies
     - Hosted outbound spam filter policies
     - Information governance
+      - Compliance Retention Event Types
       - Retention
     - Label Policy
     - Labels
@@ -111,6 +114,8 @@
         - ATP Safe Links
         - Global Settings
   - Teams
+    - Apps
+      - Permission policies
     - Meetings
       - Meeting policies
       - Meeting settings
