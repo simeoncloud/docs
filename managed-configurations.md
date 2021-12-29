@@ -98,6 +98,7 @@
     - File plan property reference ids
     - File plan property reference sub categories
     - Hosted connection filter policies
+    - Hosted content filter policies
     - Hosted outbound spam filter policies
     - Information governance
       - Retention
@@ -108,6 +109,7 @@
         - ATP Anti-Phishing
         - ATP Safe Attachments
         - ATP Safe Links
+        - Global Settings
   - Teams
     - Meetings
       - Meeting policies
@@ -117,5 +119,4 @@
       - Teams settings
     - Voice
       - Calling policies
-- PowerShell:ExchangeOnline:AtpPolicyForO365
 

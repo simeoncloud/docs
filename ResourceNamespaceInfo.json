@@ -385,7 +385,7 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AtpPolicyForO365",
-    "description": "PowerShell:ExchangeOnline:AtpPolicyForO365",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2",
     "isDeleteSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -473,7 +473,7 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:HostedContentFilterPolicies",
-    "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
+    "description": "Office 365 > Security & Compliance > Hosted content filter policies",
     "url": "https://security.microsoft.com/antispam",
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$",
     "isUpdateSupportedFilter": ".*",
