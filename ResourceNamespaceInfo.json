@@ -169,8 +169,8 @@
   },
   {
     "namespace": "MSGraph:DeviceManagement:ConfigurationPolicies",
-    "description": "Office 365 > Security & Compliance > Audit configuration policy",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps",
+    "description": "Intune > Devices > Configuration profiles (Settings Catalog)",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isDeleteSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": ".*"
@@ -385,7 +385,7 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AtpPolicyForO365",
-    "description": "PowerShell:ExchangeOnline:AtpPolicyForO365",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2",
     "isDeleteSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -473,7 +473,7 @@
   },
   {
     "namespace": "PowerShell:ExchangeOnline:HostedContentFilterPolicies",
-    "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
+    "description": "Office 365 > Security & Compliance > Hosted content filter policies",
     "url": "https://security.microsoft.com/antispam",
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$",
     "isUpdateSupportedFilter": ".*",
@@ -697,8 +697,8 @@
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:ComplianceRetentionEventTypes",
-    "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Links",
-    "url": "https://security.microsoft.com/safelinksv2",
+    "description": "Office 365 > Security & Compliance > Information governance > Compliance Retention Event Types",
+    "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/get-complianceretentioneventtype?view=exchange-ps",
     "isDeleteSupportedFilter": "^(?:(?!^Employee activity$|^Expiration or termination of contracts and agreements$|^Product lifetime$).)+$",
     "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": ".*"
@@ -737,8 +737,8 @@
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:FilePlanPropertyCategories",
-    "description": "Office 365 > Security & Compliance > File plan property departments",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertydepartment?view=exchange-ps",
+    "description": "Office 365 > Security & Compliance > File plan property categories",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps",
     "isDeleteSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$",
     "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": ".*"
@@ -801,8 +801,8 @@
   },
   {
     "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
-    "description": "Office 365 > Teams > Voice > Calling policies",
-    "url": "https://admin.teams.microsoft.com/policies/calling",
+    "description": "Office 365 > Teams > Apps > Permission policies",
+    "url": "https://admin.teams.microsoft.com/policies/app-permission",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
     "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": ".*"

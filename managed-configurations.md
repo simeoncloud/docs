@@ -31,7 +31,6 @@
   - Devices
     - Compliance policies
       - Compliance policy settings
-      - Locations
       - Notifications
     - Configuration profiles
     - Configuration profiles (Profile Type = Administrative Templates)
@@ -53,11 +52,11 @@
     - AddressBookPolicy
     - AddressList
     - AdminAuditLogConfig
-    - Application access policies
     - Availability address spaces
     - Availability config
     - CAS mailbox plan
     - Client access rules
+    - Distribution Groups
     - DomainKeys identified mail signing config
     - Email address policies
     - GlobalAddressList
@@ -70,7 +69,6 @@
     - Mailboxes
     - MailboxPlans
     - MalwareFilterPolicies
-    - ManagementRole
     - Mobile device access
       - Device Access Rules
     - MobileDeviceMailboxPolicies
@@ -84,19 +82,17 @@
     - Partner Applications
     - PolicyTipConfig
     - Role Assignment Policies
+    - Role Groups
+    - SharingPolicies
+    - Transport Config
     - TransportRules
   - Security & Compliance
     - Audit configuration policy
     - Case hold policies
-    - Case hold rules
     - Compliance cases
     - ComplianceTags
-    - Content search actions
-    - Content searches
-    - Device conditional access policies
-    - Device configuration policies
     - DLP compliance policies
-    - DLP senstitive information types
+    - DLP sensitive information types
     - File plan property authorities
     - File plan property categories
     - File plan property citations
@@ -105,9 +101,7 @@
     - File plan property reference sub categories
     - Hosted connection filter policies
     - Hosted content filter policies
-    - Hosted content filter rules
     - Hosted outbound spam filter policies
-    - Hosted outbound spam filter rules
     - Information governance
       - Compliance Retention Event Types
       - Retention
