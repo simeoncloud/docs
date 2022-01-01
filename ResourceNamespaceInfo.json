@@ -52,7 +52,7 @@
     "description": "Azure AD > Mobility (MDM and MAM)",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility",
     "isDeleteSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
     "isCreateSupportedFilter": ".*"
   },
   {
