@@ -338,7 +338,7 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
+        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Simeon Installer
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global Administrator' Azure Active Directory role"
         switch ($Resource) {
             'AzureManagement' {
@@ -579,11 +579,6 @@ CRLFOption=CRLFAlways
                 "User.ReadWrite.All"
             )
         }
-
-        # EXO
-        Grant-AzureADOAuth2Permission -Tenant $Tenant -ClientAppId $azurePowerShellAppId -ResourceAppId '00000002-0000-0ff1-ce00-000000000000' -ResourceScopes @(
-            "user_impersonation"
-        )
     }
 
     <#
@@ -642,7 +637,7 @@ CRLFOption=CRLFAlways
         Sets Azure DevOps project permissions
     #>
     function Set-AzureDevOpsAccessControlEntry {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -735,7 +730,7 @@ CRLFOption=CRLFAlways
     Removes a service account named simeon@yourcompany.com
     #>
     function Remove-SimeonTenantServiceAccount {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure tenant domain name to configure Simeon for
@@ -760,7 +755,7 @@ CRLFOption=CRLFAlways
     Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
     #>
     function Install-SimeonTenantServiceAccount {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         [OutputType([pscredential])]
         param(
@@ -947,7 +942,7 @@ CRLFOption=CRLFAlways
     Creates necessary DevOps repositories and pipelines and securely stores service account credentials
     #>
     function Install-SimeonTenantAzureDevOps {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name (e.g. 'Simeon-MyOrganization')
@@ -1029,7 +1024,7 @@ CRLFOption=CRLFAlways
     Creates/updates a repository for a tenant in Azure DevOps
     #>
     function Install-SimeonTenantRepository {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -1617,7 +1612,7 @@ CRLFOption=CRLFAlways
     Creates/updates pipelines for a Simeon tenant
     #>
     function Install-SimeonTenantPipeline {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -2036,7 +2031,7 @@ CRLFOption=CRLFAlways
     - Creates necessary DevOps repositories and pipelines and securely stores service account credentials
     #>
     function Install-SimeonTenant {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure tenant domain name to configure Simeon for
@@ -2058,7 +2053,7 @@ CRLFOption=CRLFAlways
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken,
             # Install a Simeon Service account vs. use Delegated Auth
-            [boolean]$UseServiceAccount = $true
+            [boolean]$UseServiceAccount
         )
 
         if ($Project.Contains(" ")) {
@@ -2103,7 +2098,7 @@ CRLFOption=CRLFAlways
         Creates and/or configures the provided Azure DevOps organization to be compatible with Simeon Cloud
     #>
     function Install-SimeonDevOpsOrganization {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         param (
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
