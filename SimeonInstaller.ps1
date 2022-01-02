@@ -518,7 +518,7 @@ CRLFOption=CRLFAlways
         $apiVersion = 'api-version=1.6'
         $baseUrl = "https://graph.windows.net/$Tenant"
 
-        $clientId = Get-AzureADServicePrincipalObjectId $Tenant $PrincipalAppId
+        $clientId = Get-AzureADServicePrincipalId $Tenant $PrincipalAppId
         $resourceId = Get-AzureADServicePrincipalId $Tenant $ResourceAppId
         $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'" -Headers $headers).value[0]
 
