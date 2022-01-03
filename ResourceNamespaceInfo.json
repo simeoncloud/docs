@@ -179,7 +179,7 @@
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
     "description": "Intune > Devices > Compliance policies",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "^(?:(?!^Default compliance policy for Android$).)+$",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
