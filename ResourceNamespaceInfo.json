@@ -452,7 +452,7 @@
     "description": "Office 365 > Exchange > Email address policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "^(?:(?!^Default Policy$).)+$",
     "isDeleteSupportedFilter": "^(?:(?!^Default Policy$).)+$"
   },
   {
