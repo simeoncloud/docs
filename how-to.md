@@ -116,7 +116,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 * :warning: **Warning**	:warning: this is a destructive operation that can result in deleting data (such as users) from your tenant(s). Please carefully review the pending changes on the Sync page before approving 
 * Navigate to https://dev.azure.com/ > **Tenants** > **Pipelines** > select the tenant that you want to revert > **Run pipeline** > **master** > **Tags** > enter the date of the commit you want to revert to (e.g. 20210112.1) > select the commit you want to revert by clicking the date > **Run** > several minutes later you will be required to approve the Sync to make the changes to your tenant 
-<img src="https://github.com/simeoncloud/docs/blob/master/assets/images/revert_to_point_in_time.gif" width="300" height="822.5" />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/revert_to_point_in_time.gif" width="300" height="822.5" />
 
 ## Remove a tenant from Simeon
 
