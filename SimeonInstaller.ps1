@@ -969,6 +969,41 @@ CRLFOption=CRLFAlways
         }
 
         Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential -PipelineVariables $PipelineVariables @environmentArgs
+
+        Install-SimeonTenantLibrary -Organization $Organization -Project $Project
+    }
+
+    <#
+    .SYNOPSIS
+    Creates/updates a shared library for a tenant in Azure DevOps
+    #>
+    function Install-SimeonTenantLibrary {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants'
+        )
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+        $variableGroupsApi = "$apiBaseUrl/distributedtask/variablegroups"
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=6.0-preview.2"
+            }
+            ContentType = 'application/json'
+        }
+
+        irm @restProps "$variableGroupsApi" -Method Post -Body (@{
+            description = 'Simeon shared variables'
+            name = 'SimeonVariables'
+        } | ConvertTo-Json)
     }
 
     <#
