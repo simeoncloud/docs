@@ -970,14 +970,14 @@ CRLFOption=CRLFAlways
 
         Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential -PipelineVariables $PipelineVariables @environmentArgs
 
-        Install-SimeonTenantLibrary -Organization $Organization -Project $Project
+        Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
     }
 
     <#
     .SYNOPSIS
     Creates/updates a shared library for a tenant in Azure DevOps
     #>
-    function Install-SimeonTenantLibrary {
+    function Install-SimeonSyncVariableGroup {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
