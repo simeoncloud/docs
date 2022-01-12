@@ -1026,9 +1026,9 @@ CRLFOption=CRLFAlways
                     providerData = $null
                     type = 'Vsts'
                     variables = @{
-                        test = @{
+                        M365ManagementToolVersion = @{
                             isSecret = $false
-                            value = 'test'
+                            value = '*'
                         }
                     }
                     variableGroupProjectReferences = @(
@@ -1037,7 +1037,7 @@ CRLFOption=CRLFAlways
                             name = 'Sync'
                             projectReference = @{
                                 id = $projectId
-                                name = 'Tenants'
+                                name = ''
                             }
                         }
                     )
