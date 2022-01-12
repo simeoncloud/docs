@@ -977,7 +977,7 @@ CRLFOption=CRLFAlways
     .SYNOPSIS
     Creates/updates a shared library for a tenant in Azure DevOps
     #>
-    function SimeonTenantVariableLibrary {
+    function Install-SimeonTenantLibrary {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
