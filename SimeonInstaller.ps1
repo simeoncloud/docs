@@ -302,7 +302,7 @@ CRLFOption=CRLFAlways
             [switch]$Interactive
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -407,7 +407,7 @@ CRLFOption=CRLFAlways
             [string]$Token
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -437,7 +437,7 @@ CRLFOption=CRLFAlways
             [string]$Name
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -650,7 +650,7 @@ CRLFOption=CRLFAlways
             [string]$Project
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -920,7 +920,7 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -977,7 +977,7 @@ CRLFOption=CRLFAlways
     .SYNOPSIS
     Creates/updates a shared library for a tenant in Azure DevOps
     #>
-    function Install-SimeonTenantLibrary {
+    function SimeonTenantVariableLibrary {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
@@ -991,7 +991,6 @@ CRLFOption=CRLFAlways
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $variableGroupsApi = "$apiBaseUrl/distributedtask/variablegroups"
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
@@ -1000,27 +999,43 @@ CRLFOption=CRLFAlways
             ContentType = 'application/json'
         }
 
-        $variableGroup = irm @restProps "$variableGroupsApi" -Method Post -Body (@{
-            description = 'Simeon shared variables'
-            name = 'SimeonVariables'
-        } | ConvertTo-Json)
+        $variableGroupsApi = "$apiBaseUrl/distributedtask/variablegroups"
+        $variableGroups = irm @restProps $variableGroupsApi -Method Get
 
-        $variableGroupId = $variableGroup.id;
+        $createVariableGroup = $true;
+        if ($variableGroups) {
+            foreach ($variableGroup in $variableGroups) {
+                if ($variableGroup.name -eq 'SyncVariables') {
+                    $createVariableGroup = $false;
+                    break;
+                }
+            }
+        }
 
-        $permissionsApi = "$apiBaseUrl/pipelines/pipelinePermissions/variablegroup/$variableGroupId"
-        irm @restProps "$permissionsApi" -Method Patch -Body (@{
-            name = $Name
-            resource = @{
-                id = $projectId
-                type = 'variablegroup'
-            }
-            pipelines = @()
-            allPipelines = @{
-                authorized = $true
-                authorizedBy = $null
-                authorizedOn = $null
-            }
-        } | ConvertTo-Json)
+        if ($createVariableGroup) {
+            $newVariableGroup = irm @restProps $variableGroupsApi -Method Post -Body (@{
+                    description = 'Simeon Sync shared variables'
+                    name = 'SyncVariables'
+                } | ConvertTo-Json)
+
+            $newVariableGroupId = $newVariableGroup.id;
+
+            $permissionsApi = "$apiBaseUrl/pipelines/pipelinePermissions/variablegroup/$newVariableGroupId"
+            irm @restProps $permissionsApi -Method Patch -Body (@{
+                    name = $Name
+                    resource = @{
+                        id = $projectId
+                        type = 'variablegroup'
+                    }
+                    pipelines = @()
+                    allPipelines = @{
+                        authorized = $true
+                        authorizedBy = $null
+                        authorizedOn = $null
+                    }
+                } | ConvertTo-Json)
+        }
+
     }
 
     <#
@@ -1046,7 +1061,7 @@ CRLFOption=CRLFAlways
             [scriptblock]$GetSourceUrl
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1138,7 +1153,7 @@ CRLFOption=CRLFAlways
             [string]$Baseline
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1237,7 +1252,7 @@ CRLFOption=CRLFAlways
             [string]$GitHubAccessToken
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1402,7 +1417,7 @@ CRLFOption=CRLFAlways
             [int]$SmtpPort = 587
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1536,7 +1551,7 @@ CRLFOption=CRLFAlways
             [string]$Project = 'Tenants'
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1641,7 +1656,7 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1849,7 +1864,7 @@ CRLFOption=CRLFAlways
             [switch]$DisableDeployApproval
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1982,7 +1997,7 @@ CRLFOption=CRLFAlways
             [boolean]$UseServiceAccount
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -2074,7 +2089,7 @@ CRLFOption=CRLFAlways
             [boolean]$UseServiceAccount = $true
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -2131,7 +2146,7 @@ CRLFOption=CRLFAlways
             [string]$PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
