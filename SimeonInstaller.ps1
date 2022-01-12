@@ -990,28 +990,25 @@ CRLFOption=CRLFAlways
         )
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
-
         $projectsApi = "https://dev.azure.com/$Organization/_apis/projects"
-        $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
-                Accept = "application/json;api-version=6.0-preview.2"
+                Accept = "application/json;api-version=5.1-preview.1"
             }
             ContentType = 'application/json'
         }
 
         $projectId = ''
         $projects = irm @restProps $projectsApi -Method Get
-        foreach ($prj in $projects) {
-            if($prj.name -eq $Project) {
+        foreach ($prj in $projects.value) {
+            if ($prj.name -eq $Project) {
                 $projectId = $prj.id
             }
         }
 
-        $variableGroupsApi = "$apiBaseUrl/distributedtask/variablegroups"
+        $variableGroupsApi = "https://dev.azure.com/$Organization/$projectId/_apis/distributedtask/variablegroups"
         $variableGroups = irm @restProps $variableGroupsApi -Method Get
-
         $createVariableGroup = $true;
         if ($variableGroups) {
             foreach ($variableGroup in $variableGroups) {
@@ -1023,30 +1020,37 @@ CRLFOption=CRLFAlways
         }
 
         if ($createVariableGroup) {
-            $newVariableGroup = irm @restProps $variableGroupsApi -Method Post -Body (@{
+            $messageBody = (@{
                     description = 'Simeon Sync shared variables'
                     name = 'Sync'
                     providerData = $null
                     type = 'Vsts'
-                    variableGroupProjectRefereces = @(
+                    variables = @{
+                        test = @{
+                            isSecret = $false
+                            value = 'test'
+                        }
+                    }
+                    variableGroupProjectReferences = @(
                         @{
-                            description = ''
+                            description = 'Sync'
                             name = 'Sync'
                             projectReference = @{
                                 id = $projectId
-                                name = ''
+                                name = 'Tenants'
                             }
                         }
                     )
-                } | ConvertTo-Json)
+                } | ConvertTo-Json -Depth 100)
+
+            $newVariableGroup = irm @restProps $variableGroupsApi -Method Post -Body $messageBody
 
             $newVariableGroupId = $newVariableGroup.id;
 
-            $permissionsApi = "$apiBaseUrl/pipelines/pipelinePermissions/variablegroup/$newVariableGroupId"
-            irm @restProps $permissionsApi -Method Patch -Body (@{
-                    name = $Name
+            $permissionsApi = "https://dev.azure.com/$Organization/$projectId/_apis/pipelines/pipelinePermissions/variablegroup/$newVariableGroupId"
+            $permissionBody = (@{
                     resource = @{
-                        id = $projectId
+                        id = "$newVariableGroupId"
                         type = 'variablegroup'
                     }
                     pipelines = @()
@@ -1055,7 +1059,8 @@ CRLFOption=CRLFAlways
                         authorizedBy = $null
                         authorizedOn = $null
                     }
-                } | ConvertTo-Json)
+                } | ConvertTo-Json -Depth 100)
+            irm @restProps $permissionsApi -Method Patch -Body $permissionBody
         }
 
     }
