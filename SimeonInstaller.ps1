@@ -1000,9 +1000,26 @@ CRLFOption=CRLFAlways
             ContentType = 'application/json'
         }
 
-        irm @restProps "$variableGroupsApi" -Method Post -Body (@{
+        $variableGroup = irm @restProps "$variableGroupsApi" -Method Post -Body (@{
             description = 'Simeon shared variables'
             name = 'SimeonVariables'
+        } | ConvertTo-Json)
+
+        $variableGroupId = $variableGroup.id;
+
+        $permissionsApi = "$apiBaseUrl/pipelines/pipelinePermissions/variablegroup/$variableGroupId"
+        irm @restProps "$permissionsApi" -Method Patch -Body (@{
+            name = $Name
+            resource = @{
+                id = $projectId
+                type = 'variablegroup'
+            }
+            pipelines = @()
+            allPipelines = @{
+                authorized = $true
+                authorizedBy = $null
+                authorizedOn = $null
+            }
         } | ConvertTo-Json)
     }
 
