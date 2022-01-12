@@ -975,7 +975,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Creates/updates a shared library for a tenant in Azure DevOps
+    Creates/updates a shared library for an organization in Azure DevOps
     #>
     function Install-SimeonSyncVariableGroup {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
@@ -990,6 +990,8 @@ CRLFOption=CRLFAlways
         )
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $projectsApi = "https://dev.azure.com/$Organization/_apis/projects"
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
         $restProps = @{
             Headers = @{
@@ -997,6 +999,14 @@ CRLFOption=CRLFAlways
                 Accept = "application/json;api-version=6.0-preview.2"
             }
             ContentType = 'application/json'
+        }
+
+        $projectId = ''
+        $projects = irm @restProps $projectsApi -Method Get
+        foreach ($prj in $projects) {
+            if($prj.name -eq $Project) {
+                $projectId = $prj.id
+            }
         }
 
         $variableGroupsApi = "$apiBaseUrl/distributedtask/variablegroups"
@@ -1016,6 +1026,18 @@ CRLFOption=CRLFAlways
             $newVariableGroup = irm @restProps $variableGroupsApi -Method Post -Body (@{
                     description = 'Simeon Sync shared variables'
                     name = 'Sync'
+                    providerData = $null
+                    type = 'Vsts'
+                    variableGroupProjectRefereces = @(
+                        @{
+                            description = ''
+                            name = 'Sync'
+                            projectReference = @{
+                                id = $projectId
+                                name = ''
+                            }
+                        }
+                    )
                 } | ConvertTo-Json)
 
             $newVariableGroupId = $newVariableGroup.id;
