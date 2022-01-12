@@ -1005,7 +1005,7 @@ CRLFOption=CRLFAlways
         $createVariableGroup = $true;
         if ($variableGroups) {
             foreach ($variableGroup in $variableGroups) {
-                if ($variableGroup.name -eq 'SyncVariables') {
+                if ($variableGroup.name -eq 'Sync') {
                     $createVariableGroup = $false;
                     break;
                 }
@@ -1015,7 +1015,7 @@ CRLFOption=CRLFAlways
         if ($createVariableGroup) {
             $newVariableGroup = irm @restProps $variableGroupsApi -Method Post -Body (@{
                     description = 'Simeon Sync shared variables'
-                    name = 'SyncVariables'
+                    name = 'Sync'
                 } | ConvertTo-Json)
 
             $newVariableGroupId = $newVariableGroup.id;
