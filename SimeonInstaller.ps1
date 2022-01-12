@@ -1008,7 +1008,7 @@ CRLFOption=CRLFAlways
         }
 
         $variableGroupsApi = "https://dev.azure.com/$Organization/$projectId/_apis/distributedtask/variablegroups"
-        $variableGroups = irm @restProps $variableGroupsApi -Method Get
+        $variableGroups = (irm @restProps $variableGroupsApi -Method Get).value
         $createVariableGroup = $true;
         if ($variableGroups) {
             foreach ($variableGroup in $variableGroups) {
