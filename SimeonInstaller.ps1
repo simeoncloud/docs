@@ -992,7 +992,7 @@ CRLFOption=CRLFAlways
         if (!$PipelineVariables) { $PipelineVariables = @{} }
         $PipelineVariables['ResourceContext:TenantName'] = @{
             allowOverride = $false
-            value = $Name.Substring(0, [Math]::Min($Name.Length, 12)).ToLower()
+            value = $Name
         }
 
         if (!$TemplateRepositoryUrl) {
