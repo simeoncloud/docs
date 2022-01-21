@@ -20,7 +20,6 @@
       - Named locations
       - Policies
     - Identity Protection
-  - User feature preview settings
   - User settings
   - Users
 - Intune
@@ -32,7 +31,6 @@
   - Devices
     - Compliance policies
       - Compliance policy settings
-      - Locations
       - Notifications
     - Configuration profiles
     - Configuration profiles (Profile Type = Administrative Templates)
@@ -47,16 +45,74 @@
   - Reports
     - Endpoint analytics
       - Proactive Remediations
+  - Tenant administration
+    - Filters
 - Office 365
   - Exchange
+    - AddressBookPolicy
+    - AddressList
     - AdminAuditLogConfig
+    - Availability address spaces
+    - Availability config
+    - CAS mailbox plan
+    - Client access rules
+    - Distribution Groups
+    - DomainKeys identified mail signing config
+    - Email address policies
+    - GlobalAddressList
+    - Inbound connectors
+    - IntraOrganizationConnectors
+    - Journal Rules
+    - Mail flow
+      - Accepted Domains
+      - Remote Domains
+    - Mailboxes
+    - MailboxPlans
+    - MalwareFilterPolicies
+    - Mobile device access
+      - Device Access Rules
+    - MobileDeviceMailboxPolicies
     - Modern authentication
+    - OfflineAddressBook
+    - On-Premises Organizations
+    - Organization Relationship
     - OrganizationConfig
+    - Outbound connectors
     - Outlook Web App policies
+    - Partner Applications
+    - PolicyTipConfig
+    - Role Assignment Policies
+    - Role Groups
+    - SharingPolicies
+    - Transport Config
+    - TransportRules
   - Security & Compliance
+    - Audit configuration policy
+    - Case hold policies
+    - Compliance cases
+    - ComplianceTags
+    - DLP compliance policies
+    - DLP sensitive information types
+    - File plan property authorities
+    - File plan property categories
+    - File plan property citations
+    - File plan property departments
+    - File plan property reference ids
+    - File plan property reference sub categories
+    - Hosted connection filter policies
+    - Hosted content filter policies
+    - Hosted outbound spam filter policies
     - Information governance
+      - Compliance Retention Event Types
       - Retention
-      - Retention (Teams)
+    - Label Policy
+    - Labels
+    - Threat management
+      - Policy
+        - ATP Anti-Phishing
+        - ATP Safe Attachments
+        - ATP Safe Links
+        - Global Settings
   - Teams
     - Apps
       - Permission policies
@@ -65,14 +121,7 @@
       - Meeting settings
     - Messaging policies
     - Org-wide settings
+      - Teams settings
     - Voice
       - Calling policies
-- Office 365 Security & Compliance
-  - Threat management
-    - Policy
-      - ATP Anti-Phishing
-      - ATP Safe Attachments
-      - ATP Safe Links
-      - ATP Safe Links:ATP Safe Attachments
-        - Global Settings
 

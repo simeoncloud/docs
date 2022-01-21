@@ -1796,7 +1796,7 @@ CRLFOption=CRLFAlways
                             ],
                             "options": {
                                 "MinResults": 1,
-                                "MaxResults": 20
+                                "MaxResults": 1000
                             },
                             "properties": [
                                 "DisplayName"
@@ -1886,7 +1886,7 @@ CRLFOption=CRLFAlways
                 ],
                 "options": {
                     "MinResults": 1,
-                    "MaxResults": 20
+                    "MaxResults": 1000
                 },
                 "properties": [
                     "DisplayName"
@@ -1896,7 +1896,7 @@ CRLFOption=CRLFAlways
 
         $contributorsDisplayName = "[$Project]\Contributors"
         $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-        if (!$contributorsId) { throw "Could not find Contributors group for project $Project" }
+        if (!$contributorsId) { throw "Could not find Contributors group for project $Project - response was:`r`n$($identities | ConvertTo-Json -Depth 100)" }
 
         irm @restProps "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.environmentreferencerole/roleassignments/resources/$($environment.project.id)_$($environment.id)" -Method Put -Body @"
             [{"userId":"$contributorsId","roleName":"Administrator"}]
@@ -1946,6 +1946,15 @@ CRLFOption=CRLFAlways
             Write-Information "Approval does not exist - no change is required"
         }
 
+        # Allow pipeline to use environment
+        $environmentPermissionsUrl = "$apiBaseUrl/pipelines/pipelinepermissions/environment/$($environment.id)"
+        Invoke-WithRetry { Invoke-RestMethod @restProps -Uri $environmentPermissionsUrl -Method Patch -Body @"
+        {
+            "resource":{"type":"environment","id":"$($environment.id)"},
+            "pipelines":[],
+            "allPipelines":{"authorized":true,"authorizedBy":null,"authorizedOn":null}
+        }
+"@ } | Out-Null
     }
 
     <#

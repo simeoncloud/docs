@@ -14,6 +14,13 @@
   - You can verify the license has been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 - [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-baseline-tenant)
 
+## Set up billing for your organization
+
+- Navigate to [Azure DevOps](https://dev.azure.com/)
+- **Organization settings**
+  - **Billing** > **Set up billing** > select either an existing subscription or **+ New Azure Subscription** > **Save**
+  - Next to **MS Hosted CI/CD**, change the Paid parallel jobs from **0** to **1**
+
 ## Make sure a tenant meets the prerequisites to use Simeon
 
 - You must be operating on global Azure cloud (not [Government Community Cloud](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)). The Azure Government cloud is not currently supported
@@ -56,7 +63,9 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 
-* Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 4x
+* Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 3x
+
+    *   Please note you cannot authenticate with a guest user in the tenant.
 
 * After the fourth authentication, and **in progress** returns to **Idle**, the install and initial Sync are complete 
     
@@ -71,11 +80,11 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
     
 *   Now, you may go through the four sections and decide on how to reconcile the different configurations with your baseline.
     
-    *   **Exported from Tenant** contains those configurations that were exported from your tenant and do not overlap with the baseline. For each configuration in this section, you must decide whether you want to **keep the configuration** or **remove the configuration**. By keeping the box checked, you are choosing to keep the configuration. If you uncheck the box, you are choosing to remove the configuration from the tenant.
+    *   **Tenant-Specific Configurations** contains those configurations that were exported from your tenant and do not overlap with the baseline. For each configuration in this section, you must decide whether you want to **keep the configuration** or **remove the configuration**. By keeping the box checked, you are choosing to keep the configuration. If you uncheck the box, you are choosing to remove the configuration from the tenant.
         
-    *   **Missing from Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box checked, you are choosing to **exclude the baseline configuration from the tenant**. If you uncheck the box, you are choosing to **use the baseline configuration in the tenant**.
+    *   **Available From Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box checked, you are choosing to **exclude the baseline configuration from the tenant**. If you uncheck the box, you are choosing to **use the baseline configuration in the tenant**.
         
-    *   **Conflicting with Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different values. You can choose between **keeping the configuration you have** versus **reverting to the baseline configuration**. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
+    *   **Conflicting With Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different values. You can choose between **keeping the configuration you have** versus **reverting to the baseline configuration**. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
         
     *   **Matching Baseline** contains those configurations that are in both your tenant and the baseline. By keeping the box checked, you are choosing to **keep the baseline configuration**. If you uncheck the box, you are choosing to **exclude the baseline configuration**.
         
@@ -87,7 +96,7 @@ You can verify the subscriptions in your tenant [in the Azure Portal](https://po
 
 
 ## Generate Health Check Reports
-* First, in the tenant you are generating the report for, create a user and assign it either (1) Global Administrator role or (2) [the minimum required roles](https://simeoncloud.github.io/docs/#/permissions?id=permissions)
+* First, in the tenant you are generating the report for, obtain a user with either (1) Global Administrator role or (2) [the minimum required roles](https://simeoncloud.github.io/docs/#/permissions?id=permissions)
 * If you are using a global administrator user, follow these instructions to [install your tenant](https://simeoncloud.github.io/docs/#/how-to?id=install-a-client-tenant-onto-simeon)
 * If you are using a user with the minimum required roles, follow these instruction to [install your tenant using delegated authentication](https://simeoncloud.github.io/docs/#/how-to?id=install-a-tenant-with-delegated-authentication)
 * Once the tenant is installed and the initial Sync is complete, navigate to [**Reconcile**](https://app.simeoncloud.com/reconcile) > select your tenant > click Export Report in the bottom left
