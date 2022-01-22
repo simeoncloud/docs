@@ -570,6 +570,7 @@ CRLFOption=CRLFAlways
                 "Organization.ReadWrite.All",
                 "RoleManagement.ReadWrite.Directory",
                 "Policy.Read.All",
+                "Policy.ReadWrite.AuthenticationMethod",
                 "Policy.ReadWrite.ConditionalAccess",
                 "Policy.ReadWrite.DeviceConfiguration",
                 "Policy.ReadWrite.FeatureRollout",
