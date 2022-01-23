@@ -485,7 +485,7 @@ CRLFOption=CRLFAlways
         $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$AppId'" -Headers $headers).value[0].objectId
         if (!$principalObjectId) {
             Write-Information "Installing AppId $AppId"
-            $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $PrincipalAppId } | ConvertTo-Json)).objectId
+            $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $AppId } | ConvertTo-Json)).objectId
         }
         else {
             Write-Information "AppId $AppId is already installed"
@@ -518,7 +518,7 @@ CRLFOption=CRLFAlways
         $apiVersion = 'api-version=1.6'
         $baseUrl = "https://graph.windows.net/$Tenant"
 
-        $clientId = Get-AzureADServicePrincipalId $Tenant $PrincipalAppId
+        $clientId = Get-AzureADServicePrincipalId $Tenant $ClientAppId
         $resourceId = Get-AzureADServicePrincipalId $Tenant $ResourceAppId
         $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'" -Headers $headers).value[0]
 
