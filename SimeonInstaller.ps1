@@ -338,7 +338,7 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Simeon Installer
+        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global Administrator' Azure Active Directory role"
         switch ($Resource) {
             'AzureManagement' {
