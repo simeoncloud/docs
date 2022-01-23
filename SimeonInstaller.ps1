@@ -338,7 +338,7 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
+        $clientId = '9e956d26-4663-420a-9863-7afea8f94737' # Simeon Cloud PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global Administrator' Azure Active Directory role"
         switch ($Resource) {
             'AzureManagement' {
@@ -348,11 +348,12 @@ CRLFOption=CRLFAlways
                 $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
             }
             'AzureDevOps' {
-                $clientId = '9e956d26-4663-420a-9863-7afea8f94737' # Simeon Cloud PowerShell
+                $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
             }
             'KeyVault' {
+                $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
                 $Scopes = 'https://vault.azure.net/.default'
             }
         }
