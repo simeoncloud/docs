@@ -296,6 +296,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:Email",
+    "description": "Azure AD > External Collaboration Settings > Email",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
     "description": "Azure AD > Group settings",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General",
