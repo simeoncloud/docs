@@ -778,7 +778,7 @@ CRLFOption=CRLFAlways
 
         Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
 
-        Install-SimeonTenantAzureADAppPermission $Tenant
+        Install-SimeonTenantAzureADAppPermission -Tenant $Tenant
 
         if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
             throw "Cannot install service account using a federated Azure AD domain"
@@ -2079,6 +2079,7 @@ CRLFOption=CRLFAlways
         }
         else {
             Remove-SimeonTenantServiceAccount -Tenant $Tenant
+            Install-SimeonTenantAzureADAppPermission -Tenant $Tenant
         }
 
         $devOpsArgs = @{}
