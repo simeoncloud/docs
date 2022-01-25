@@ -302,7 +302,7 @@ CRLFOption=CRLFAlways
             [switch]$Interactive
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -338,7 +338,7 @@ CRLFOption=CRLFAlways
 
         Install-RequiredModule
 
-        $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
+        $clientId = '9e956d26-4663-420a-9863-7afea8f94737' # Simeon Cloud PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global Administrator' Azure Active Directory role"
         switch ($Resource) {
             'AzureManagement' {
@@ -348,11 +348,12 @@ CRLFOption=CRLFAlways
                 $Scopes = 'https://graph.windows.net/Directory.AccessAsUser.All'
             }
             'AzureDevOps' {
-                $clientId = '9e956d26-4663-420a-9863-7afea8f94737' # Simeon Cloud PowerShell
+                $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
                 $Scopes = '499b84ac-1321-427f-aa17-267ca6975798/.default'
                 $interactiveMessage = "Connecting to Azure DevOps - if prompted, log in as an account with access to your Simeon Azure DevOps organization"
             }
             'KeyVault' {
+                $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
                 $Scopes = 'https://vault.azure.net/.default'
             }
         }
@@ -407,7 +408,7 @@ CRLFOption=CRLFAlways
             [string]$Token
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -437,7 +438,7 @@ CRLFOption=CRLFAlways
             [string]$Name
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -465,76 +466,121 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Installs MS Graph PowerShell Enterprise Application and grants required permissions
+    Grants the specified scopes to the service principal with the specified AppId. Installs a ServicePrincipal for the AppId if it is not already.
     #>
-    function Install-MSGraphPowerShell {
+    function Get-AzureADServicePrincipalId {
         [CmdletBinding()]
         param(
-            # The Azure tenant domain name to configure Simeon for
+            # The Azure tenant domain name to configure
             [ValidateNotNullOrEmpty()]
-            [string]$Tenant
+            [string]$Tenant,
+            # The AppId of the ServicePrincpal to get or install
+            [ValidateNotNullOrEmpty()]
+            [string]$AppId
         )
         $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
 
         $apiVersion = 'api-version=1.6'
         $baseUrl = "https://graph.windows.net/$Tenant"
 
-        $msGraphServicePrincipalObjectId = (irm "$baseUrl/servicePrincipals?`$filter=appId eq '00000003-0000-0000-c000-000000000000'&$apiVersion" -Headers $headers).value[0].objectId
-
-        $msGraphPowerShellClientId = '14d82eec-204b-4c2f-b7e8-296a70dab67e'
-        $msGraphPowerShellServicePrincipalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$msGraphPowerShellClientId'" -Headers $headers).value[0].objectId
-
-        if (!$msGraphPowerShellServicePrincipalObjectId) {
-            Write-Information "Installing MS Graph PowerShell"
-            irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $msGraphPowerShellClientId } | ConvertTo-Json) | Out-Null
+        $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$AppId'" -Headers $headers).value[0].objectId
+        if (!$principalObjectId) {
+            Write-Information "Installing AppId $AppId"
+            $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $AppId } | ConvertTo-Json)).objectId
         }
-
-        while (!$msGraphPowerShellServicePrincipalObjectId) {
-            $msGraphPowerShellServicePrincipalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$msGraphPowerShellClientId'" -Headers $headers).value[0].objectId
+        else {
+            Write-Information "AppId $AppId is already installed"
         }
+        return $principalObjectId
+    }
 
-        Write-Information "MS Graph PowerShell is installed"
+    <#
+    .SYNOPSIS
+    Grants the specified scopes to the service principal with the specified AppId. Installs the ServicePrincipal if it is not already.
+    #>
+    function Grant-AzureADOAuth2Permission {
+        [CmdletBinding()]
+        param(
+            # The Azure tenant domain name to configure
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant,
+            # The AppId of the principal that needs permissions
+            [ValidateNotNullOrEmpty()]
+            [string]$ClientAppId,
+            # The AppId resource for which scopes should be granted
+            [ValidateNotNullOrEmpty()]
+            [string]$ResourceAppId,
+            # The scopes required for the ResourceAppId
+            [ValidateNotNullOrEmpty()]
+            [string[]]$ResourceScopes
+        )
+        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
 
-        $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$msGraphPowerShellServicePrincipalObjectId' and resourceId eq '$msGraphServicePrincipalObjectId'" -Headers $headers).value[0]
+        $apiVersion = 'api-version=1.6'
+        $baseUrl = "https://graph.windows.net/$Tenant"
+
+        $clientId = Get-AzureADServicePrincipalId $Tenant $ClientAppId
+        $resourceId = Get-AzureADServicePrincipalId $Tenant $ResourceAppId
+        $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'" -Headers $headers).value[0]
 
         if ($grant) {
-            Write-Information "Deleting existing permission grant for MS Graph PowerShell"
+            Write-Information "Deleting existing permission grant for client $ClientAppId on resource $ResourceAppId"
             irm "$baseUrl/oauth2PermissionGrants/$($grant.objectId)?$apiVersion" -Method Delete -Headers $headers | Out-Null
         }
 
-        $scopes = @(
-            "Application.ReadWrite.All",
-            "AppRoleAssignment.ReadWrite.All",
-            "DeviceManagementApps.ReadWrite.All",
-            "DeviceManagementConfiguration.ReadWrite.All",
-            "DeviceManagementManagedDevices.ReadWrite.All",
-            "DeviceManagementRBAC.ReadWrite.All",
-            "DeviceManagementServiceConfig.ReadWrite.All",
-            "Directory.AccessAsUser.All",
-            "Directory.ReadWrite.All",
-            "Files.ReadWrite.All",
-            "Group.ReadWrite.All",
-            "Organization.ReadWrite.All",
-            "RoleManagement.ReadWrite.Directory",
-            "Policy.Read.All",
-            "Policy.ReadWrite.ConditionalAccess",
-            "Policy.ReadWrite.DeviceConfiguration",
-            "Policy.ReadWrite.FeatureRollout",
-            "Policy.ReadWrite.PermissionGrant",
-            "Policy.ReadWrite.TrustFramework",
-            "Sites.ReadWrite.All",
-            "User.ReadWrite.All"
-        )
-
-        Write-Information "Adding permission grant for MS Graph PowerShell"
+        Write-Information "Adding permission grant for client $ClientAppId on resource $ResourceAppId"
         irm "$baseUrl/oauth2PermissionGrants?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{
-                clientId = $msGraphPowerShellServicePrincipalObjectId
+                clientId = $clientId
                 consentType = "AllPrincipals"
                 expiryTime = "9000-01-01T00:00:00"
                 principalId = $null
-                resourceId = $msGraphServicePrincipalObjectId
-                scope = ([string]::Join(' ', $scopes))
+                resourceId = $resourceId
+                scope = ([string]::Join(' ', $ResourceScopes))
             } | ConvertTo-Json) | Out-Null
+    }
+
+    <#
+    .SYNOPSIS
+        Installs all permissions required to use Simeon in an Azure AD tenant.
+    #>
+    function Install-SimeonTenantAzureADAppPermission {
+        [CmdletBinding()]
+        param (
+            # The Azure tenant domain name to configure
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant
+        )
+
+        $azurePowerShellAppId = "1950a258-227b-4e31-a9cf-717495945fc2"
+        $msGraphPowerShellAppId = '14d82eec-204b-4c2f-b7e8-296a70dab67e'
+
+        foreach ($clientAppId in @($azurePowerShellAppId, $msGraphPowerShellAppId)) {
+            # MS Graph
+            Grant-AzureADOAuth2Permission -Tenant $Tenant -ClientAppId $clientAppId -ResourceAppId '00000003-0000-0000-c000-000000000000' -ResourceScopes @(
+                "Application.ReadWrite.All",
+                "AppRoleAssignment.ReadWrite.All",
+                "DeviceManagementApps.ReadWrite.All",
+                "DeviceManagementConfiguration.ReadWrite.All",
+                "DeviceManagementManagedDevices.ReadWrite.All",
+                "DeviceManagementRBAC.ReadWrite.All",
+                "DeviceManagementServiceConfig.ReadWrite.All",
+                "Directory.AccessAsUser.All",
+                "Directory.ReadWrite.All",
+                "Files.ReadWrite.All",
+                "Group.ReadWrite.All",
+                "Organization.ReadWrite.All",
+                "RoleManagement.ReadWrite.Directory",
+                "Policy.Read.All",
+                "Policy.ReadWrite.AuthenticationMethod",
+                "Policy.ReadWrite.ConditionalAccess",
+                "Policy.ReadWrite.DeviceConfiguration",
+                "Policy.ReadWrite.FeatureRollout",
+                "Policy.ReadWrite.PermissionGrant",
+                "Policy.ReadWrite.TrustFramework",
+                "Sites.ReadWrite.All",
+                "User.ReadWrite.All"
+            )
+        }
     }
 
     <#
@@ -593,7 +639,7 @@ CRLFOption=CRLFAlways
         Sets Azure DevOps project permissions
     #>
     function Set-AzureDevOpsAccessControlEntry {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -650,7 +696,7 @@ CRLFOption=CRLFAlways
             [string]$Project
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -686,7 +732,7 @@ CRLFOption=CRLFAlways
     Removes a service account named simeon@yourcompany.com
     #>
     function Remove-SimeonTenantServiceAccount {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure tenant domain name to configure Simeon for
@@ -711,7 +757,7 @@ CRLFOption=CRLFAlways
     Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
     #>
     function Install-SimeonTenantServiceAccount {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         [OutputType([pscredential])]
         param(
@@ -732,7 +778,7 @@ CRLFOption=CRLFAlways
 
         Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
 
-        Install-MSGraphPowerShell $Tenant
+        Install-SimeonTenantAzureADAppPermission -Tenant $Tenant
 
         if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
             throw "Cannot install service account using a federated Azure AD domain"
@@ -898,6 +944,7 @@ CRLFOption=CRLFAlways
     Creates necessary DevOps repositories and pipelines and securely stores service account credentials
     #>
     function Install-SimeonTenantAzureDevOps {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name (e.g. 'Simeon-MyOrganization')
@@ -908,8 +955,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # The baseline repository to use for pipelines (an empty string indicates to use no baseline) (may be the name of another repository DevOps or a full repository url)
             [string]$Baseline,
-            # If true, will clear the repository contents if creating it for the first time
-            [switch]$ClearRepositoryContentsOnCreate,
+            # Url of the template git repository to use when creating the repository
+            [string]$TemplateRepositoryUrl,
             # The Azure tenant service account credentials to use for running pipelines
             [pscredential]$Credential,
             # Specify to true to require approval when deploying
@@ -920,7 +967,7 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -947,17 +994,20 @@ CRLFOption=CRLFAlways
         if (!$PipelineVariables) { $PipelineVariables = @{} }
         $PipelineVariables['ResourceContext:TenantName'] = @{
             allowOverride = $false
-            value = $Name.Substring(0, [Math]::Min($Name.Length, 12)).ToLower()
+            value = $Name
         }
 
-
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -ClearRepositoryContentsOnCreate:$ClearRepositoryContentsOnCreate -GetSourceUrl {
-            if (!$Baseline -and (Read-HostBooleanValue 'This repository is empty - do you want to start with the Simeon baseline?' -Default $true)) {
+        if (!$TemplateRepositoryUrl) {
+            if (!$Baseline) {
                 # start with Simeon baseline
-                return 'https://github.com/simeoncloud/Baseline.git'
+                $TemplateRepositoryUrl = 'https://github.com/simeoncloud/Baseline.git'
             }
-            return 'https://github.com/simeoncloud/DefaultTenant.git'
+            else {
+                $TemplateRepositoryUrl = 'https://github.com/simeoncloud/DefaultTenant.git'
+            }
         }
+
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -TemplateRepositoryUrl $TemplateRepositoryUrl
 
         Install-SimeonTenantBaseline -Organization $Organization -Project $Project -Repository $Name -Baseline $Baseline
 
@@ -976,7 +1026,7 @@ CRLFOption=CRLFAlways
     Creates/updates a repository for a tenant in Azure DevOps
     #>
     function Install-SimeonTenantRepository {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -988,13 +1038,11 @@ CRLFOption=CRLFAlways
             # The name of the repository
             [ValidateNotNullOrEmpty()]
             [string]$Name,
-            # If true, will clear the repository contents if creating it for the first time
-            [switch]$ClearRepositoryContentsOnCreate,
-            # A function that returns a url to import this repository from if it is empty
-            [scriptblock]$GetSourceUrl
+            # Url of the template git repository to use when creating the repository
+            [string]$TemplateRepositoryUrl
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1034,16 +1082,13 @@ CRLFOption=CRLFAlways
             Write-Information "Repository already exists - will not create"
         }
 
-        if (!$repo.defaultBranch -and $GetSourceUrl) {
-            Push-Location (Get-GitRepository (. $GetSourceUrl) -AccessToken $env:GITHUB_TOKEN)
-            try {
-                if ($ClearRepositoryContentsOnCreate) {
-                    # delete Source/Resources/Content
-                    Write-Information "Clearing repository contents"
-                    $folderToDelete = './Source/Resources/Content'
-                    if (Test-Path $folderToDelete) { Remove-Item $folderToDelete -Recurse }
-                }
+        if (!$repo.defaultBranch) {
+            if ($TemplateRepositoryUrl -like 'https://github.com/simeoncloud/*') {
+                $accessToken = $env:GITHUB_TOKEN
+            }
 
+            Push-Location (Get-GitRepository $TemplateRepositoryUrl -AccessToken $accessToken)
+            try {
                 if ($token) { $gitConfig = "-c http.extraheader=`"AUTHORIZATION: bearer $token`"" }
 
                 Write-Verbose "Deleting existing .git directory"
@@ -1086,7 +1131,7 @@ CRLFOption=CRLFAlways
             [string]$Baseline
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1185,7 +1230,7 @@ CRLFOption=CRLFAlways
             [string]$GitHubAccessToken
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1350,7 +1395,7 @@ CRLFOption=CRLFAlways
             [int]$SmtpPort = 587
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1404,7 +1449,7 @@ CRLFOption=CRLFAlways
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -TemplateRepositoryUrl 'https://github.com/simeoncloud/OrganizationJobs.git'
         $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "Jobs"
 
         #$set scheduled on pipeline
@@ -1484,7 +1529,7 @@ CRLFOption=CRLFAlways
             [string]$Project = 'Tenants'
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1506,7 +1551,7 @@ CRLFOption=CRLFAlways
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
         $poolId = ((irm @restProps "https://dev.azure.com/$Organization/_apis/distributedtask/pools").Value |? Name -eq $poolName).id
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -GetSourceUrl { 'https://github.com/simeoncloud/OrganizationJobs.git' } -ClearRepositoryContentsOnCreate
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name "Jobs" -TemplateRepositoryUrl 'https://github.com/simeoncloud/OrganizationJobs.git'
         $repo = Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name "Jobs"
 
 
@@ -1569,7 +1614,7 @@ CRLFOption=CRLFAlways
     Creates/updates pipelines for a Simeon tenant
     #>
     function Install-SimeonTenantPipeline {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure DevOps organization name
@@ -1589,7 +1634,7 @@ CRLFOption=CRLFAlways
             [hashtable]$PipelineVariables
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1797,7 +1842,7 @@ CRLFOption=CRLFAlways
             [switch]$DisableDeployApproval
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1930,7 +1975,7 @@ CRLFOption=CRLFAlways
             [boolean]$UseServiceAccount
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -1997,7 +2042,7 @@ CRLFOption=CRLFAlways
     - Creates necessary DevOps repositories and pipelines and securely stores service account credentials
     #>
     function Install-SimeonTenant {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         [CmdletBinding()]
         param(
             # The Azure tenant domain name to configure Simeon for
@@ -2010,8 +2055,8 @@ CRLFOption=CRLFAlways
             [string]$Name,
             # Indicates the baseline repository to use for pipelines
             [string]$Baseline,
-            # If true, will clear the repository contents if creating it for the first time
-            [switch]$ClearRepositoryContentsOnCreate,
+            # Url of the template git repository to use when creating the repository
+            [string]$TemplateRepositoryUrl,
             # Indicates the Azure subscription to use
             [string]$Subscription,
             # Specify to true to not require deploy approval
@@ -2019,10 +2064,10 @@ CRLFOption=CRLFAlways
             # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
             [string]$GitHubAccessToken,
             # Install a Simeon Service account vs. use Delegated Auth
-            [boolean]$UseServiceAccount = $true
+            [boolean]$UseServiceAccount
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
@@ -2034,10 +2079,11 @@ CRLFOption=CRLFAlways
         }
         else {
             Remove-SimeonTenantServiceAccount -Tenant $Tenant
+            Install-SimeonTenantAzureADAppPermission -Tenant $Tenant
         }
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'ClearRepositoryContentsOnCreate') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
@@ -2064,7 +2110,7 @@ CRLFOption=CRLFAlways
         Creates and/or configures the provided Azure DevOps organization to be compatible with Simeon Cloud
     #>
     function Install-SimeonDevOpsOrganization {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
         param (
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -2079,7 +2125,7 @@ CRLFOption=CRLFAlways
             [string]$PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
         )
 
-        if($Project.Contains(" ")) {
+        if ($Project.Contains(" ")) {
             throw “Project name must not contain spaces”
         }
 
