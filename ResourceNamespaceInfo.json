@@ -388,8 +388,8 @@
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Anti-Phishing",
     "url": "https://security.microsoft.com/antiphishing",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy).*",
-    "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy).*"
+    "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
+    "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:AtpPolicyForO365",
