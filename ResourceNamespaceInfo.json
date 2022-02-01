@@ -541,7 +541,7 @@
     "url": "https://security.microsoft.com/antimalwarev2",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:MobileDeviceMailboxPolicies",
