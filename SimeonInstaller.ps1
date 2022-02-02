@@ -1036,16 +1036,10 @@ CRLFOption=CRLFAlways
             [string]$Organization,
             # The project name in DevOps
             [ValidateNotNullOrEmpty()]
-            [string]$Project = 'Tenants',
-            # Azure auth token
-            [string]$AzureAuthToken
+            [string]$Project = 'Tenants'
         )
 
-        if($AzureAuthToken) {
-            $token = $AzureAuthToken
-        } else {
-            $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
-        }
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
         $projectsApi = "https://dev.azure.com/$Organization/_apis/projects"
         $restProps = @{
             Headers = @{
