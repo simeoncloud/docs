@@ -1019,6 +1019,100 @@ CRLFOption=CRLFAlways
         }
 
         Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential -PipelineVariables $PipelineVariables @environmentArgs
+
+        Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
+    }
+
+    <#
+    .SYNOPSIS
+    Creates/updates a shared library for an organization in Azure DevOps
+    #>
+    function Install-SimeonSyncVariableGroup {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants'
+        )
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+        $projectsApi = "https://dev.azure.com/$Organization/_apis/projects"
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview.1"
+            }
+            ContentType = 'application/json'
+        }
+
+        $projectId = ''
+        $projects = irm @restProps $projectsApi -Method Get
+        foreach ($prj in $projects.value) {
+            if ($prj.name -eq $Project) {
+                $projectId = $prj.id
+            }
+        }
+
+        $variableGroupsApi = "https://dev.azure.com/$Organization/$projectId/_apis/distributedtask/variablegroups"
+        $variableGroups = (irm @restProps $variableGroupsApi -Method Get).value
+        $createVariableGroup = $true;
+        if ($variableGroups) {
+            foreach ($variableGroup in $variableGroups) {
+                if ($variableGroup.name -eq 'Sync') {
+                    $createVariableGroup = $false;
+                    break;
+                }
+            }
+        }
+
+        if ($createVariableGroup) {
+            $messageBody = (@{
+                    description = 'Simeon Sync shared variables'
+                    name = 'Sync'
+                    providerData = $null
+                    type = 'Vsts'
+                    variables = @{
+                        M365ManagementToolVersion = @{
+                            isSecret = $false
+                            value = '*'
+                        }
+                    }
+                    variableGroupProjectReferences = @(
+                        @{
+                            description = 'Sync'
+                            name = 'Sync'
+                            projectReference = @{
+                                id = $projectId
+                                name = ''
+                            }
+                        }
+                    )
+                } | ConvertTo-Json -Depth 100)
+
+            $newVariableGroup = irm @restProps $variableGroupsApi -Method Post -Body $messageBody
+
+            $newVariableGroupId = $newVariableGroup.id;
+
+            $permissionsApi = "https://dev.azure.com/$Organization/$projectId/_apis/pipelines/pipelinePermissions/variablegroup/$newVariableGroupId"
+            $permissionBody = (@{
+                    resource = @{
+                        id = "$newVariableGroupId"
+                        type = 'variablegroup'
+                    }
+                    pipelines = @()
+                    allPipelines = @{
+                        authorized = $true
+                        authorizedBy = $null
+                        authorizedOn = $null
+                    }
+                } | ConvertTo-Json -Depth 100)
+            irm @restProps $permissionsApi -Method Patch -Body $permissionBody
+        }
+
     }
 
     <#
