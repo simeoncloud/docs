@@ -1,3 +1,68 @@
+# The Simeon Baseline: A comprehensive set of best practice Microsoft 365 configurations.
+
+Welcome to the Simeon Baseline. Simeon Cloud has expertly configured these settings to optimize your Microsoft 365 environments in accordance with industry best practices. This list represents the most important, relevant and security-focused configurations across Azure AD, Office 365, and Intune. These configurations can be deployed to a tenant to provide a fully functional environment out of the box, capable of enrolling devices using Autopilot, managing devices using Intune and providing secure access to Office 365 for users.
+
+Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
+
+## Summary of security-focused configurations
+
+### Data loss prevention (DLP)
+- Users can only access corporate data from:
+  - Compliant corporate devices managed by Intune
+  - In-office locations
+  - Approved applications on personal mobile devices
+- Corporate data on personal mobile devices are restricted from leaving approved client applications, preventing data loss
+- Integration with third-party services, such as LinkedIn, Dropbox, Google Drive, personal Microsoft accounts, etc., is disabled
+
+### Security auditing
+- Microsoft 365 is configured to audit and optionally alert on all login and device management operations
+
+### Authentication
+- Multifactor authentication is required whenever authenticating from a personal device or as an administrator
+- Corporate devices have a randomized local administrator password
+
+### Endpoint security
+- Corporate devices block the use of simple passwords
+- Corporate devices are blocked from communicating using insecure protocols
+- Corporate devices are encrypted
+- Corporate devices use a fixed list of trusted internet sites
+- Corporate devices are continuously monitored for security compliance, including encryption status, antivirus protection, and malware protection; non-compliant devices are restricted from accessing corporate data
+
+### Data retention
+- All corporate data in O365 is retained for one year, including emails, chat, and files
+
+### User privileges
+- End users are restricted from connecting their personal Windows computers to O365
+- End users are restricted from creating groups
+- End users are restricted from inviting external users to view corporate data
+
+## Azure > Resource groups
+*AzureManagement/MicrosoftResources/ResourceGroups*
+
+###### hidden-header
+
+### baseline-m365alertsactiongroup
+
+|Name |baseline-m365alertsactiongroup|
+| :-- | :-- |
+| What does this do? | Creates an Azure Monitor Action group to notify specified users of an alert. The baseline includes alerting the email address "alerts@yourtenantname.com." |
+| Why should you use this? | This keeps your tenant secure by immediately notifying you of suspicious activity. |
+| What is the end-user impact? | N/A |
+| Learn more | [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) |
+
+
+
+###### hidden-header
+
+### baseline-m365logging
+
+|Name |baseline-m365logging|
+| :-- | :-- |
+| What does this do? | Creates an Azure Event Hub, Azure Log Analytics Workspace, and Azure Storage account to capture Azure and Intune logs. |
+| Why should you use this? | This provides the essential resources required to capture logs, analyze trends, and be alerted of suspicious events. |
+| What is the end-user impact? | N/A |
+| Learn more | [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/design-logs-deployment) |
+
 ## Azure AD > Company branding
 *AadIam/CompanyBrandings*
 
@@ -17,9 +82,9 @@
 
 ###### hidden-header
 
-### ${ResourceContext%3ATenantDomainName}
+### Default
 
-|Name |${ResourceContext%3ATenantDomainName}|
+|Name |Default|
 | :-- | :-- |
 | What does this do? | Disables password expiration per Microsoft's recommendation. |
 | Why should you use this? | This is recommended by Microsoft and affects Microsoft secure score. |
@@ -31,9 +96,9 @@
 
 ###### hidden-header
 
-### Configuration
+### Device Registration Policy
 
-|Name |Configuration|
+|Name |Device Registration Policy|
 | :-- | :-- |
 | What does this do? | Configures settings that control joining devices to Azure AD. The baseline allows only the groups "Baseline - Device Enrollers" and "Baseline - Microsoft 365 Users" to join devices to Azure AD. These groups may join up to 100 devices and are required to perform MFA when joining the device. |
 | Why should you use this? | If you want to restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
@@ -123,17 +188,6 @@
 | Why should you use this? | If you want to have a more secure group settings environment. |
 | What is the end-user impact? | The following activities will be restricted to administrators: owners managing group membership requests, access to features in the portal, creation of security groups, and creation of Microsoft 365 groups. |
 | Learn more | [Users, groups, and roles](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-self-service-management) |
-
-## Azure AD > Group settings
-*MSGraph/Policies/AuthorizationPolicy*
-
-###### hidden-header
-
-### Configuration
-
-|Name |Configuration|
-| :-- | :-- |
-Used to manage authorization related settings across the company.
 
 ## Azure AD > Groups
 *MSGraph/Groups*
@@ -274,11 +328,10 @@ Used to manage authorization related settings across the company.
 
 |Name |Baseline - Microsoft 365 Users|
 | :-- | :-- |
-| What does this do? | Creates a group that is used to assign configurations that should be applied to all Microsoft 365 users. |
-| Why should you use this? | If you want to apply certain Simeon Baseline configurations to your users. |
-| What is the end-user impact? | Users in this group will have the following configurations applied. |
-| [Sign-In Risk Policy](https://simeoncloud.github.io/docs/#/baseline?id=azure-ad-gt-security-gt-identity-protection), [User Risk and MFA Registration Policy](https://simeoncloud.github.io/docs/#/baseline?id=user-risk-and-mfa-registration-policy), [Password Reset Policy](https://simeoncloud.github.io/docs/#/baseline?id=azure-ad-gt-password-reset), [Baseline - Protect Policy Managed Client Apps on Unmanaged Android Devices](https://simeoncloud.github.io/docs/#/baseline?id=baseline-protect-policy-managed-client-apps-on-unmanaged-android-devices), [Baseline - Protect Policy Managed Client Apps on Unmanaged iOS Devices](https://simeoncloud.github.io/docs/#/baseline?id=baseline-protect-policy-managed-client-apps-on-unmanaged-ios-devices), [Baseline - Configure Policy Managed Client Apps on Unmanaged iOS Devices](https://simeoncloud.github.io/docs/#/baseline?id=baseline-configure-policy-managed-client-apps-on-unmanaged-ios-devices), [Baseline - Microsoft 365 Users - Preview](https://simeoncloud.github.io/docs/#/baseline?id=baseline-microsoft-365-users-preview), [Device Registration Policy](https://simeoncloud.github.io/docs/#/baseline?id=azure-ad-gt-device-settings) |
-| Learn more | [Assign policies to users and groups](https://docs.microsoft.com/en-us/microsoftteams/assign-policies-users-and-groups) |
+| What does this do? | Creates a group that is used to assign Microsoft 365 licenses to users for EMS and O365 functionality. This group also is used to assign configurations that should be applied to all licensed Microsoft 365 users. |
+| Why should you use this? |  If you want to dynamically manage the user license assignment and configurations targeted to licensed users. |
+| What is the end-user impact? | Users in this group will have Microsoft 365 licenses assigned and receive targeted configurations. |
+| Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide), [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
 
 
 
@@ -288,7 +341,7 @@ Used to manage authorization related settings across the company.
 
 |Name |Baseline - Microsoft 365 Users - Insiders|
 | :-- | :-- |
-| What does this do? | Creates a manually assigned group to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
+| What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
 | Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Users) containing a subset of users before deploying to all users. |
 | What is the end-user impact? | Users in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
@@ -301,7 +354,7 @@ Used to manage authorization related settings across the company.
 
 |Name |Baseline - Microsoft 365 Users - Preview|
 | :-- | :-- |
-| What does this do? | Creates a manually assigned group to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
+| What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
 | Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Users) containing a subset of users before deploying to all users. |
 | What is the end-user impact? | Users in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
@@ -395,7 +448,7 @@ Used to manage authorization related settings across the company.
 
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy excludes the applications Microsoft Intune and Microsoft Intune Enrollment. |
+| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
 | Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users are restricted to iOS and Android platforms for authenticating devices when connecting from untrusted devices and locations. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -408,7 +461,7 @@ Used to manage authorization related settings across the company.
 
 |Name |Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy is assigned to all applications except Microsoft Intune and Microsoft Intune Enrollment. These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. |
+| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
 | Why should you use this? | This policy helps protect your data. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users may only use applications that support protection policies to access data from iOS and Android devices off-network. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -537,6 +590,19 @@ Used to manage authorization related settings across the company.
 
 ###### hidden-header
 
+### Company Portal
+
+|Name |Company Portal|
+| :-- | :-- |
+| What does this do? | Company Portal is the application that lets end users securely access company resources. |
+| Why should you use this? | You can publish applications to the Company Portal that end users can install on their devices even if they do not have administrator privileges. |
+| What is the end-user impact? | End users may install pre-approved software without administrator privileges. |
+| Learn more | [Company Portal](https://www.microsoft.com/en-us/p/company-portal/9wzdncrfj3pz?activetab=pivot:overviewtab)
+
+
+
+###### hidden-header
+
 ### Microsoft .NET Framework 3.5
 
 |Name |Microsoft .NET Framework 3.5|
@@ -550,9 +616,35 @@ Used to manage authorization related settings across the company.
 
 ###### hidden-header
 
-### officeSuiteApp - Office 365
+### Microsoft Edge for Windows 10
 
-|Name |officeSuiteApp - Office 365|
+|Name |Microsoft Edge for Windows 10|
+| :-- | :-- |
+| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. This is the new Chromium based version of Edge and is a viable replacement for Chrome for many organizations. |
+| Why should you use this? | If you want users to have a faster default web browser with more features. |
+| What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
+| Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+
+
+
+###### hidden-header
+
+### Netflix
+
+|Name |Netflix|
+| :-- | :-- |
+| What does this do? | Microsoft installs Netflix by default. The baseline uninstalls the Netflix applications from devices. |
+| Why should you use this? | If you want to uninstall the Netflix applications from devices. |
+| What is the end-user impact? | Users will not have Netflix installed on their devices. |
+| Learn more | N/A
+
+
+
+###### hidden-header
+
+### Office 365
+
+|Name |Office 365|
 | :-- | :-- |
 | What does this do? | Office 365 is Microsoft’s productivity suite with popular applications such as Word, Excel and PowerPoint. |
 | Why should you use this? | If you want Office 365 desktop applications to be installed on managed devices. |
@@ -563,14 +655,14 @@ Used to manage authorization related settings across the company.
 
 ###### hidden-header
 
-### windowsMicrosoftEdgeApp - Microsoft Edge for Windows 10
+### Xbox Console Companion
 
-|Name |windowsMicrosoftEdgeApp - Microsoft Edge for Windows 10|
+|Name |Xbox Console Companion|
 | :-- | :-- |
-| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. This is the new Chromium based version of Edge and is a viable replacement for Chrome for many organizations. |
-| Why should you use this? | If you want users to have a faster default web browser with more features. |
-| What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
-| Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+| What does this do? | Windows automatically installs Xbox Console Companion. The baseline uninstalls it. |
+| Why should you use this? | If you want to have Xbox Console Companion uninstalled. |
+| What is the end-user impact? | Users will not have Xbox Companion Console installed. |
+| Learn more | N/A
 
 ## Intune > Apps > App configuration policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
@@ -741,7 +833,7 @@ Used to manage authorization related settings across the company.
 
 |Name |Baseline - Security - IE Site-to-Zone Assignment|
 | :-- | :-- |
-| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. |
+| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. To add or remove additional sites, update the config variable "ResourceContext:AllowSiteToZoneAssignmentList". |
 | Why should you use this? | Improves your users' browsing experience by automatically logging in to sites secured by Azure AD. |
 | What is the end-user impact? | Users will be unable to configure URLs for browser security zones themselves. |
 | Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users), [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
@@ -1066,9 +1158,9 @@ Used to manage authorization related settings across the company.
 
 ###### hidden-header
 
-### Baseline%3A Self Deploying Profile
+### Baseline - Self Deploying Profile
 
-|Name |Baseline%3A Self Deploying Profile|
+|Name |Baseline - Self Deploying Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune Autopilot profile for enrolling machines using the self-deploying method, which enables a device to be enrolled into your environment with little to no user interaction. Self-deployment mode comes with restrictions including that the device must have TPM 2.0, and it is not supported on virtual machines even if they have a virtual TPM. Devices in the Azure AD group "Baseline - Autopilot Devices - Self Deploying" will be assigned this profile. |
 | Why should you use this? | This is most useful for devices that will be shared or used as a kiosk. If a device is going to be used by a single user it is best to use the user-driven method. |
@@ -1079,9 +1171,9 @@ Used to manage authorization related settings across the company.
 
 ###### hidden-header
 
-### Baseline%3A User Driven Profile
+### Baseline - User Driven Profile
 
-|Name |Baseline%3A User Driven Profile|
+|Name |Baseline - User Driven Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune Autopilot profile for enrolling machines using the user-driven method. Devices in the Azure AD group "Autopilot Devices - User Driven" will be assigned this profile. |
 | Why should you use this? | When a device is going to be used by a single user, this approach is ideal because the device shows as assigned in all relevant Intune pages and reports. It is also the most stable and consistent Autopilot mode. |
@@ -1102,36 +1194,28 @@ Used to manage authorization related settings across the company.
 | What is the end-user impact? | N/A |
 | Learn more | [Microsoft Intune and Azure Log Analytics](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/microsoft-intune-and-azure-log-analytics/ba-p/463145) |
 
-## Intune > Reports > Endpoint analytics > Proactive Remediations
-*MSGraph/DeviceManagement/DeviceHealthScripts*
+## Office 365 > Exchange > AdminAuditLogConfig
+*PowerShell/Exchange/Organization/AdminAuditLogConfig*
 
 ###### hidden-header
 
-### Restart stopped Office C2R svc
+### Admin Audit Log Settings
 
-|Name |Restart stopped Office C2R svc|
+|Name |Admin Audit Log Settings|
 | :-- | :-- |
-If service is stopped, try to start it. If not auto-start, change to automatic.
-Important since Win32 OPP won’t launch if C2R isn’t running.
-
-
-
-###### hidden-header
-
-### Update stale Group Policies
-
-|Name |Update stale Group Policies|
-| :-- | :-- |
-If GP refresh was > 7 days ago, then gpupdate. IT can customize the 7 day threshold. Important for reducing network-related helpdesk calls, since many network certs and configurations are delivered via GP.
+| What does this do? | Configures Exchange logging so that IT users can search Exchange audit logs. The baseline turns on Exchange logging. |
+| Why should you use this? | If you want to identify who made the change, augment your change logs with detailed records of the change as it was implemented, comply with regulatory requirements and requests for discovery, as well as other tracing. |
+| What is the end-user impact? | N/A |
+| Learn more | [Turn audit log search on or off](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) |
 
 ## Office 365 > Exchange > OrganizationConfig
-*PowerShell/ExchangeOnline/OrganizationConfig*
+*PowerShell/Exchange/Organization/OrganizationConfig*
 
 ###### hidden-header
 
-### Configuration
+### First Organization
 
-|Name |Configuration|
+|Name |First Organization|
 | :-- | :-- |
 | What does this do? | Defines various Exchange settings. Microsoft changes these settings frequently as features are added and removed. The baseline uses the default configurations provided by Microsoft. |
 | Why should you use this? | If you want to track configuration changes made in the environment. |
@@ -1139,7 +1223,7 @@ If GP refresh was > 7 days ago, then gpupdate. IT can customize the 7 day thresh
 | Learn more | [Set-OrganizationConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-organizationconfig?view=exchange-ps) |
 
 ## Office 365 > Exchange > Outlook Web App policies
-*PowerShell/ExchangeOnline/OwaMailboxPolicies*
+*PowerShell/Exchange/ClientAccess/OwaMailboxPolicies*
 
 ###### hidden-header
 
@@ -1153,7 +1237,7 @@ If GP refresh was > 7 days ago, then gpupdate. IT can customize the 7 day thresh
 | Learn more | [OwaMailboxPolicy](https://docs.microsoft.com/en-us/powershell/module/exchange/set-owamailboxpolicy?view=exchange-ps) |
 
 ## Office 365 > Security & Compliance > Information governance > Retention
-*PowerShell/SecurityAndComplianceCenter/RetentionCompliancePolicies*
+*PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies*
 
 ###### hidden-header
 
@@ -1161,7 +1245,10 @@ If GP refresh was > 7 days ago, then gpupdate. IT can customize the 7 day thresh
 
 |Name |Baseline - Default Retention Policy|
 | :-- | :-- |
-Default retention policy that retains content.
+| What does this do? | Defines the data retention policy for SharePoint, OneDrive and Exchange Online. The baseline retains this data for one year. |
+| Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
+| What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
+| Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
 
 
@@ -1171,7 +1258,10 @@ Default retention policy that retains content.
 
 |Name |Baseline - Teams Retention Policy|
 | :-- | :-- |
-Microsoft Teams retention policies must be created and managed independently. This policy defines an retention policy for all Microsoft Teams content.
+| What does this do? | Defines the data retention policy for Microsoft Teams. Teams retention policies must be created independently of other retention policies. The baseline retains Teams data for one year. |
+| Why should you use this? | If you want this data to be retained for one year and to be searchable in Office 365 content search tools. |
+| What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
+| Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
 ## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
@@ -1192,23 +1282,23 @@ Microsoft Teams retention policies must be created and managed independently. Th
 
 ###### hidden-header
 
-### Configuration
+### Global
 
-|Name |Configuration|
+|Name |Global|
 | :-- | :-- |
 | What does this do? | Configures Microsoft Teams meeting policies. The baseline prohibits anonymous users from joining Teams meetings.  |
 | Why should you use this? | The Microsoft default allows all anonymous users to join Teams meetings. Disabling this feature can protect users from unwanted Teams meeting attendees. |
 | What is the end-user impact? | Users without Teams accounts will not be allowed into Teams meetings. |
 | Learn more | [Meeting Settings in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams) |
 
-## Office 365 > Teams > Org-wide settings > Teams settings
+## Office 365 > Teams > Org-wide settings
 *TeamsPSAdmin/TeamsClientConfiguration*
 
 ###### hidden-header
 
-### Configuration
+### Global
 
-|Name |Configuration|
+|Name |Global|
 | :-- | :-- |
 | What does this do? | Defines global settings for Microsoft Teams. The baseline blocks third party file sharing applications (e.g. Box, DropBox, Google Drive). |
 | Why should you use this? | To prevent users from sharing company content externally. |
