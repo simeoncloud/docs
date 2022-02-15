@@ -40,10 +40,14 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
 ###### hidden-header
+## Azure > Resource groups
+*AzureManagement/MicrosoftResources/ResourceGroupDeployments*
 
-### baseline-m365alertsactiongroup
+###### hidden-header
 
-|Name |baseline-m365alertsactiongroup|
+### ${ResourceContext:TenantShortName}-baseline-m365alertsactiongroup-M365.Deployment
+
+|Name |${ResourceContext:TenantShortName}-baseline-m365alertsactiongroup-M365.Deployment|
 | :-- | :-- |
 | What does this do? | Creates an Azure Monitor Action group to notify specified users of an alert. The baseline includes alerting the email address "alerts@yourtenantname.com." |
 | Why should you use this? | This keeps your tenant secure by immediately notifying you of suspicious activity. |
@@ -54,9 +58,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### baseline-m365logging
+### ${ResourceContext:TenantShortName}-baseline-m365logging-M365.Deployment
 
-|Name |baseline-m365logging|
+|Name |${ResourceContext:TenantShortName}-baseline-m365logging-M365.Deployment|
 | :-- | :-- |
 | What does this do? | Creates an Azure Event Hub, Azure Log Analytics Workspace, and Azure Storage account to capture Azure and Intune logs. |
 | Why should you use this? | This provides the essential resources required to capture logs, analyze trends, and be alerted of suspicious events. |
@@ -82,9 +86,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Default
+### ${ResourceContext:TenantDomainName}
 
-|Name |Default|
+|Name |${ResourceContext:TenantDomainName}|
 | :-- | :-- |
 | What does this do? | Disables password expiration per Microsoft's recommendation. |
 | Why should you use this? | This is recommended by Microsoft and affects Microsoft secure score. |
@@ -96,9 +100,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Device Registration Policy
+### Configuration
 
-|Name |Device Registration Policy|
+|Name |Configuration|
 | :-- | :-- |
 | What does this do? | Configures settings that control joining devices to Azure AD. The baseline allows only the groups "Baseline - Device Enrollers" and "Baseline - Microsoft 365 Users" to join devices to Azure AD. These groups may join up to 100 devices and are required to perform MFA when joining the device. |
 | Why should you use this? | If you want to restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
@@ -188,6 +192,17 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to have a more secure group settings environment. |
 | What is the end-user impact? | The following activities will be restricted to administrators: owners managing group membership requests, access to features in the portal, creation of security groups, and creation of Microsoft 365 groups. |
 | Learn more | [Users, groups, and roles](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-self-service-management) |
+
+## Azure AD > Group settings
+*MSGraph/Policies/AuthorizationPolicy*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
+| :-- | :-- |
+Used to manage authorization related settings across the company.
 
 ## Azure AD > Groups
 *MSGraph/Groups*
@@ -328,10 +343,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Microsoft 365 Users|
 | :-- | :-- |
-| What does this do? | Creates a group that is used to assign Microsoft 365 licenses to users for EMS and O365 functionality. This group also is used to assign configurations that should be applied to all licensed Microsoft 365 users. |
-| Why should you use this? |  If you want to dynamically manage the user license assignment and configurations targeted to licensed users. |
-| What is the end-user impact? | Users in this group will have Microsoft 365 licenses assigned and receive targeted configurations. |
-| Learn more | [Assign licenses to users](https://docs.microsoft.com/en-us/microsoft-365/admin/manage/assign-licenses-to-users?view=o365-worldwide), [Editing a user's department](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal) |
+| What does this do? | This group is used to assign configurations that should be applied to all Microsoft 365 users. |
+| Why should you use this? | If you want to apply certain Simeon Baseline configurations to your users. |
+| Learn more | [Assign policies to users and groups](https://docs.microsoft.com/en-us/microsoftteams/assign-policies-users-and-groups) |
 
 
 
@@ -341,7 +355,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Microsoft 365 Users - Insiders|
 | :-- | :-- |
-| What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
+| What does this do? | Creates a manually assigned group to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
 | Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Users) containing a subset of users before deploying to all users. |
 | What is the end-user impact? | Users in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
@@ -354,7 +368,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Microsoft 365 Users - Preview|
 | :-- | :-- |
-| What does this do? | Creates a manually assigned group to which Microsoft 365 licenses are assigned and to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
+| What does this do? | Creates a manually assigned group to which configurations can be deployed before other rings of users. The baseline does not assign this group to any configurations. It is provided as a convenience. |
 | Why should you use this? | If you want to test configuration changes using release rings (Insiders > Preview > All Users) containing a subset of users before deploying to all users. |
 | What is the end-user impact? | Users in this group may receive and test configuration changes before others. |
 | Learn more | N/A |
@@ -448,7 +462,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy also excludes applications listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." |
+| What does this do? | Blocks platforms other than iOS and Android from devices that are off-network and not Intune-managed. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy excludes the applications Microsoft Intune and Microsoft Intune Enrollment. |
 | Why should you use this? | This policy helps protect your data by blocking authentication from untrusted devices and locations. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users are restricted to iOS and Android platforms for authenticating devices when connecting from untrusted devices and locations. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -461,7 +475,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Require Approved Client Apps from Unmanaged Devices and Untrusted Locations|
 | :-- | :-- |
-| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy is also assigned to all applications except those listed in the config property "ResourceContext:AppsAllowedFromUntrustedLocations." These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. The policy excludes apps specified in "AppsAllowedFromUntrustedLocations.", which can be used to whitelist applications that do not support application protection policies. |
+| What does this do? | Allows only mobile applications (iOS and Android) that support application protection policies (e.g. Outlook, SharePoint, OneDrive, Excel) to connect from off-network and from unmanaged devices. This policy does not apply to external/guest users, users in the Azure AD group "Baseline - Unrestricted Access From Unmanaged Devices And Untrusted Locations" or users with the role "Global Administrator" or "Directory Synchronization Accounts." The policy is assigned to all applications except Microsoft Intune and Microsoft Intune Enrollment. These protection policies do not work from other device types. This policy works in conjunction with the policy "Block Platforms Other than iOS or Android from Unmanaged Devices and Untrusted Locations" to restrict non-iOS and Android platforms and unprotected applications. |
 | Why should you use this? | This policy helps protect your data. Application protection policies on iOS and Android protect data and provide DLP. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users may only use applications that support protection policies to access data from iOS and Android devices off-network. |
 | Learn more | [How you can protect app data](https://docs.microsoft.com/en-us/mem/intune/apps/app-protection-policy) |
@@ -590,19 +604,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Company Portal
-
-|Name |Company Portal|
-| :-- | :-- |
-| What does this do? | Company Portal is the application that lets end users securely access company resources. |
-| Why should you use this? | You can publish applications to the Company Portal that end users can install on their devices even if they do not have administrator privileges. |
-| What is the end-user impact? | End users may install pre-approved software without administrator privileges. |
-| Learn more | [Company Portal](https://www.microsoft.com/en-us/p/company-portal/9wzdncrfj3pz?activetab=pivot:overviewtab)
-
-
-
-###### hidden-header
-
 ### Microsoft .NET Framework 3.5
 
 |Name |Microsoft .NET Framework 3.5|
@@ -616,35 +617,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Microsoft Edge for Windows 10
+### officeSuiteApp - Office 365
 
-|Name |Microsoft Edge for Windows 10|
-| :-- | :-- |
-| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. This is the new Chromium based version of Edge and is a viable replacement for Chrome for many organizations. |
-| Why should you use this? | If you want users to have a faster default web browser with more features. |
-| What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
-| Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
-
-
-
-###### hidden-header
-
-### Netflix
-
-|Name |Netflix|
-| :-- | :-- |
-| What does this do? | Microsoft installs Netflix by default. The baseline uninstalls the Netflix applications from devices. |
-| Why should you use this? | If you want to uninstall the Netflix applications from devices. |
-| What is the end-user impact? | Users will not have Netflix installed on their devices. |
-| Learn more | N/A
-
-
-
-###### hidden-header
-
-### Office 365
-
-|Name |Office 365|
+|Name |officeSuiteApp - Office 365|
 | :-- | :-- |
 | What does this do? | Office 365 is Microsoft’s productivity suite with popular applications such as Word, Excel and PowerPoint. |
 | Why should you use this? | If you want Office 365 desktop applications to be installed on managed devices. |
@@ -655,14 +630,14 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Xbox Console Companion
+### windowsMicrosoftEdgeApp - Microsoft Edge for Windows 10
 
-|Name |Xbox Console Companion|
+|Name |windowsMicrosoftEdgeApp - Microsoft Edge for Windows 10|
 | :-- | :-- |
-| What does this do? | Windows automatically installs Xbox Console Companion. The baseline uninstalls it. |
-| Why should you use this? | If you want to have Xbox Console Companion uninstalled. |
-| What is the end-user impact? | Users will not have Xbox Companion Console installed. |
-| Learn more | N/A
+| What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. This is the new Chromium based version of Edge and is a viable replacement for Chrome for many organizations. |
+| Why should you use this? | If you want users to have a faster default web browser with more features. |
+| What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
+| Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 
 ## Intune > Apps > App configuration policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
@@ -833,7 +808,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Baseline - Security - IE Site-to-Zone Assignment|
 | :-- | :-- |
-| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. To add or remove additional sites, update the config variable "ResourceContext:AllowSiteToZoneAssignmentList". |
+| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. |
 | Why should you use this? | Improves your users' browsing experience by automatically logging in to sites secured by Azure AD. |
 | What is the end-user impact? | Users will be unable to configure URLs for browser security zones themselves. |
 | Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users), [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
@@ -1158,9 +1133,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Baseline - Self Deploying Profile
+### Baseline: Self Deploying Profile
 
-|Name |Baseline - Self Deploying Profile|
+|Name |Baseline: Self Deploying Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune Autopilot profile for enrolling machines using the self-deploying method, which enables a device to be enrolled into your environment with little to no user interaction. Self-deployment mode comes with restrictions including that the device must have TPM 2.0, and it is not supported on virtual machines even if they have a virtual TPM. Devices in the Azure AD group "Baseline - Autopilot Devices - Self Deploying" will be assigned this profile. |
 | Why should you use this? | This is most useful for devices that will be shared or used as a kiosk. If a device is going to be used by a single user it is best to use the user-driven method. |
@@ -1171,9 +1146,9 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Baseline - User Driven Profile
+### Baseline: User Driven Profile
 
-|Name |Baseline - User Driven Profile|
+|Name |Baseline: User Driven Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune Autopilot profile for enrolling machines using the user-driven method. Devices in the Azure AD group "Autopilot Devices - User Driven" will be assigned this profile. |
 | Why should you use this? | When a device is going to be used by a single user, this approach is ideal because the device shows as assigned in all relevant Intune pages and reports. It is also the most stable and consistent Autopilot mode. |
@@ -1208,14 +1183,36 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | N/A |
 | Learn more | [Turn audit log search on or off](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) |
 
-## Office 365 > Exchange > OrganizationConfig
-*PowerShell/Exchange/Organization/OrganizationConfig*
+## Intune > Reports > Endpoint analytics > Proactive Remediations
+*MSGraph/DeviceManagement/DeviceHealthScripts*
 
 ###### hidden-header
 
-### First Organization
+### Restart stopped Office C2R svc
 
-|Name |First Organization|
+|Name |Restart stopped Office C2R svc|
+| :-- | :-- |
+If service is stopped, try to start it. If not auto-start, change to automatic.
+Important since Win32 OPP won’t launch if C2R isn’t running.
+
+
+
+###### hidden-header
+
+### Update stale Group Policies
+
+|Name |Update stale Group Policies|
+| :-- | :-- |
+If GP refresh was > 7 days ago, then gpupdate. IT can customize the 7 day threshold. Important for reducing network-related helpdesk calls, since many network certs and configurations are delivered via GP.
+
+## Office 365 > Exchange > OrganizationConfig
+*PowerShell/ExchangeOnline/OrganizationConfig*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
 | :-- | :-- |
 | What does this do? | Defines various Exchange settings. Microsoft changes these settings frequently as features are added and removed. The baseline uses the default configurations provided by Microsoft. |
 | Why should you use this? | If you want to track configuration changes made in the environment. |
@@ -1223,7 +1220,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Learn more | [Set-OrganizationConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-organizationconfig?view=exchange-ps) |
 
 ## Office 365 > Exchange > Outlook Web App policies
-*PowerShell/Exchange/ClientAccess/OwaMailboxPolicies*
+*PowerShell/ExchangeOnline/OwaMailboxPolicies*
 
 ###### hidden-header
 
@@ -1237,7 +1234,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Learn more | [OwaMailboxPolicy](https://docs.microsoft.com/en-us/powershell/module/exchange/set-owamailboxpolicy?view=exchange-ps) |
 
 ## Office 365 > Security & Compliance > Information governance > Retention
-*PowerShell/PolicyAndCompliance/Retention/RetentionCompliancePolicies*
+*PowerShell/SecurityAndComplianceCenter/RetentionCompliancePolicies*
 
 ###### hidden-header
 
@@ -1282,23 +1279,23 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### Global
+### Configuration
 
-|Name |Global|
+|Name |Configuration|
 | :-- | :-- |
 | What does this do? | Configures Microsoft Teams meeting policies. The baseline prohibits anonymous users from joining Teams meetings.  |
 | Why should you use this? | The Microsoft default allows all anonymous users to join Teams meetings. Disabling this feature can protect users from unwanted Teams meeting attendees. |
 | What is the end-user impact? | Users without Teams accounts will not be allowed into Teams meetings. |
 | Learn more | [Meeting Settings in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams) |
 
-## Office 365 > Teams > Org-wide settings
+## Office 365 > Teams > Org-wide settings > Teams settings
 *TeamsPSAdmin/TeamsClientConfiguration*
 
 ###### hidden-header
 
-### Global
+### Configuration
 
-|Name |Global|
+|Name |Configuration|
 | :-- | :-- |
 | What does this do? | Defines global settings for Microsoft Teams. The baseline blocks third party file sharing applications (e.g. Box, DropBox, Google Drive). |
 | Why should you use this? | To prevent users from sharing company content externally. |
