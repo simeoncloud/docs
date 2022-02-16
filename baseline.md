@@ -1172,6 +1172,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | N/A |
 | Learn more | [Microsoft Intune and Azure Log Analytics](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/microsoft-intune-and-azure-log-analytics/ba-p/463145) |
 
+## Office 365 > Exchange > AdminAuditLogConfig
+*PowerShell/ExchangeOnline/AdminAuditLogConfig*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
+| :-- | :-- |
+| What does this do? | Configures Exchange logging so that IT users can search Exchange audit logs. The baseline turns on Exchange logging. |
+| Why should you use this? | If you want to identify who made the change, augment your change logs with detailed records of the change as it was implemented, comply with regulatory requirements and requests for discovery, as well as other tracing. |
+| What is the end-user impact? | N/A |
+| Learn more | [Turn audit log search on or off](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) |
+
 ## Office 365 > Exchange > OrganizationConfig
 *PowerShell/ExchangeOnline/OrganizationConfig*
 
