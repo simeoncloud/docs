@@ -202,7 +202,10 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Configuration|
 | :-- | :-- |
-Used to manage authorization related settings across the company.
+| What does this do? | Defines Azure Active Directory authorization settings. The baseline allows users to sign up for email based subscriptions, use Self-Serve Password Reset, and join the tenant by email validation. Only adminstrators and guest inviters can invite external users to the organization. Users are allowed to read other users. |
+| Why should you use this? | If you want to apply Azure Active Directory authorization settings. |
+| What is the end-user impact? | Users are not allowed to read BitLocker keys for their owned device. |
+| Learn more | [Authorization Policy](https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0) |
 
 ## Azure AD > Groups
 *MSGraph/Groups*
@@ -1170,40 +1173,18 @@ Used to manage authorization related settings across the company.
 | Learn more | [Microsoft Intune and Azure Log Analytics](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/microsoft-intune-and-azure-log-analytics/ba-p/463145) |
 
 ## Office 365 > Exchange > AdminAuditLogConfig
-*PowerShell/Exchange/Organization/AdminAuditLogConfig*
+*PowerShell/ExchangeOnline/AdminAuditLogConfig*
 
 ###### hidden-header
 
-### Admin Audit Log Settings
+### Configuration
 
-|Name |Admin Audit Log Settings|
+|Name |Configuration|
 | :-- | :-- |
 | What does this do? | Configures Exchange logging so that IT users can search Exchange audit logs. The baseline turns on Exchange logging. |
 | Why should you use this? | If you want to identify who made the change, augment your change logs with detailed records of the change as it was implemented, comply with regulatory requirements and requests for discovery, as well as other tracing. |
 | What is the end-user impact? | N/A |
 | Learn more | [Turn audit log search on or off](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#turn-on-audit-log-search) |
-
-## Intune > Reports > Endpoint analytics > Proactive Remediations
-*MSGraph/DeviceManagement/DeviceHealthScripts*
-
-###### hidden-header
-
-### Restart stopped Office C2R svc
-
-|Name |Restart stopped Office C2R svc|
-| :-- | :-- |
-If service is stopped, try to start it. If not auto-start, change to automatic.
-Important since Win32 OPP won’t launch if C2R isn’t running.
-
-
-
-###### hidden-header
-
-### Update stale Group Policies
-
-|Name |Update stale Group Policies|
-| :-- | :-- |
-If GP refresh was > 7 days ago, then gpupdate. IT can customize the 7 day threshold. Important for reducing network-related helpdesk calls, since many network certs and configurations are delivered via GP.
 
 ## Office 365 > Exchange > OrganizationConfig
 *PowerShell/ExchangeOnline/OrganizationConfig*
