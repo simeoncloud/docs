@@ -1877,31 +1877,8 @@ CRLFOption=CRLFAlways
                             pipelines = @(@{ authorized = $true; id = $($pipeline.id) })
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
-                $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
-                {
-                    "query": "Contributors",
-                    "identityTypes": [
-                        "group"
-                    ],
-                    "operationScopes": [
-                        "ims",
-                        "source"
-                    ],
-                    "options": {
-                        "MinResults": 1,
-                        "MaxResults": 1000
-                    },
-                    "properties": [
-                        "DisplayName"
-                    ]
-                }
-"@
-
-                $contributorsDisplayName = "[$Project]\Contributors"
-                $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
                 # Set Role Assignment
                 foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
-
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
@@ -1931,10 +1908,6 @@ CRLFOption=CRLFAlways
                         {
                             "roleName": "Administrator",
                             "userId": "$userId"
-                        },
-                        {
-                            "roleName": "Administrator",
-                            "userId": "$contributorsId"
                         }
                     ]
 "@ | Out-Null }
