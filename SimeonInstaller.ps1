@@ -2490,7 +2490,7 @@ CRLFOption=CRLFAlways
         Write-Information "Installing reporting pipeline"
         Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -SmtpUserPassword $reportingEmailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $Organization
 
-        Write-Information "Updating permissions for GitHub service connection"
+        Write-Information "Updating permissions for GitHub service connection and project library"
         Invoke-Command -ScriptBlock {
             $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
             $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
@@ -2507,6 +2507,17 @@ CRLFOption=CRLFAlways
                 ]
 "@
             } | Out-Null
+
+            Write-Information "Making Contributors admin for project library"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
+            [
+                {
+                    "roleName": "Administrator",
+                    "userId": "$contributorsGroupId"
+                }
+            ]
+"@
+        } | Out-Null
         }
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
