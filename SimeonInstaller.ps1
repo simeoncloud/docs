@@ -2510,7 +2510,8 @@ CRLFOption=CRLFAlways
         }
 
 
-        $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
         {
             "query": "Contributors",
             "identityTypes": [
@@ -2529,9 +2530,11 @@ CRLFOption=CRLFAlways
             ]
         }
 "@
+        } | Out-Null
 
         $contributorsDisplayName = "[$Project]\Contributors"
         $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+
 
         Write-Information "Making Contributors admin for project library"
         Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
