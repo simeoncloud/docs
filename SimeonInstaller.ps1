@@ -2511,7 +2511,7 @@ CRLFOption=CRLFAlways
 
 
 
-        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities`?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
         {
             "query": "Contributors",
             "identityTypes": [
