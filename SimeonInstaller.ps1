@@ -2530,14 +2530,14 @@ CRLFOption=CRLFAlways
             ]
         }
 "@
-        } | Out-Null
+        }
 
         $contributorsDisplayName = "[$Project]\Contributors"
         $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-
+        $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
 
         Write-Information "Making Contributors admin for project library"
-        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
+        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
         [
             {
                 "roleName": "Administrator",
