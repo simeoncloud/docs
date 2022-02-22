@@ -2507,18 +2507,42 @@ CRLFOption=CRLFAlways
                 ]
 "@
             } | Out-Null
+        }
 
-            Write-Information "Making Contributors admin for project library"
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
-            [
-                {
-                    "roleName": "Administrator",
-                    "userId": "$contributorsGroupId"
-                }
+
+        $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+        {
+            "query": "Contributors",
+            "identityTypes": [
+                "group"
+            ],
+            "operationScopes": [
+                "ims",
+                "source"
+            ],
+            "options": {
+                "MinResults": 1,
+                "MaxResults": 1000
+            },
+            "properties": [
+                "DisplayName"
             ]
+        }
 "@
-        }
-        }
+
+        $contributorsDisplayName = "[$Project]\Contributors"
+        $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+
+        Write-Information "Making Contributors admin for project library"
+        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`?api-version=5.0-preview.1" -Method Put -ContentType "application/json" -Body @"
+        [
+            {
+                "roleName": "Administrator",
+                "userId": "$contributorsId"
+            }
+        ]
+"@
+    } | Out-Null
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
         Write-Information "Installing code search"
