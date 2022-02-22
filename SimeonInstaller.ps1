@@ -2517,7 +2517,7 @@ CRLFOption=CRLFAlways
                 }
             ]
 "@
-        } | Out-Null
+        }
         }
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
