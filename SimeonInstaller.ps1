@@ -2490,7 +2490,7 @@ CRLFOption=CRLFAlways
         Write-Information "Installing reporting pipeline"
         Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -SmtpUserPassword $reportingEmailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $Organization
 
-        Write-Information "Updating permissions for GitHub service connection"
+        Write-Information "Updating permissions for GitHub service connection and project library"
         Invoke-Command -ScriptBlock {
             $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
             $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
@@ -2508,6 +2508,44 @@ CRLFOption=CRLFAlways
 "@
             } | Out-Null
         }
+
+
+
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities`?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
+        {
+            "query": "Contributors",
+            "identityTypes": [
+                "group"
+            ],
+            "operationScopes": [
+                "ims",
+                "source"
+            ],
+            "options": {
+                "MinResults": 1,
+                "MaxResults": 1000
+            },
+            "properties": [
+                "DisplayName"
+            ]
+        }
+"@
+        }
+
+        $contributorsDisplayName = "[$Project]\Contributors"
+        $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+        $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+
+        Write-Information "Making Contributors admin for project library"
+        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
+        [
+            {
+                "roleName": "Administrator",
+                "userId": "$contributorsId"
+            }
+        ]
+"@
+    } | Out-Null
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
         Write-Information "Installing code search"
