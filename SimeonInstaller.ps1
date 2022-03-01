@@ -1027,7 +1027,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Creates/updates a subscrition to notify support in case a build partially succeeds
+    Creates a subscrition to notify support in case a build partially succeeds
     #>
     function Install-SimeonNotificationSubscription {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
