@@ -1040,6 +1040,11 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
+
+        if ($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
         $restProps = @{
             Headers = @{
@@ -1096,6 +1101,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
+
+        if ($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
         $projectsApi = "https://dev.azure.com/$Organization/_apis/projects"
