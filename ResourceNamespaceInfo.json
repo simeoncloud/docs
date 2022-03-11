@@ -139,9 +139,9 @@
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidStoreApp - ).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidStoreApp - ).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^iosStoreApp - |^androidStoreApp - ).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
