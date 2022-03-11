@@ -795,9 +795,9 @@
     "namespace": "PowerShell:SecurityAndComplianceCenter:Labels",
     "description": "Office 365 > Security & Compliance > Labels",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-labelpolicy?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "^(?!^defa).+$",
+    "isUpdateSupportedFilter": "^(?!^defa).+$",
+    "isDeleteSupportedFilter": "^(?!^defa).+$"
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies",
