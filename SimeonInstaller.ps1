@@ -1027,7 +1027,7 @@ CRLFOption=CRLFAlways
     
     <#
     .SYNOPSIS
-    Creates a subscrition to notify support when a new tenant repository is created
+    Creates a subscrition to notify sales when a new tenant repository is created
     #>
     function Install-SimeonNewTenantRepositoryCreationSubscription {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
@@ -1040,7 +1040,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             # The email address for the notification
-            $PipelineNotificationEmail = "pipelinenotifications@simeoncloud.com"
+            $salesEmail = "sales@simeoncloud.com"
         )
 
         if ($Project.Contains(" ")) {
@@ -1084,7 +1084,7 @@ CRLFOption=CRLFAlways
                 type = 2
                 channel = @{
                     type = "EmailHtml"
-                    address = $using:PipelineNotificationEmail
+                    address = $using:salesEmail
                     useCustomAddress = $true
                 }
             } | ConvertTo-Json -Depth 100
