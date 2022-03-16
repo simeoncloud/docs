@@ -1054,30 +1054,6 @@ CRLFOption=CRLFAlways
             ContentType = 'application/json'
         }
 
-
-        $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
-            {
-                "query": "$Project Team",
-                "identityTypes": [
-                    "group"
-                ],
-                "operationScopes": [
-                    "ims",
-                    "source"
-                ],
-                "options": {
-                    "MinResults": 1,
-                    "MaxResults": 1000
-                },
-                "properties": [
-                    "DisplayName"
-                ]
-            }
-"@
-
-        $projectTeamName = "[$Project]\$Project Team"
-        $projectTeamId = $identities.results.identities |? displayName -eq $projectTeamName | Select -ExpandProperty localId
-
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
         $simeonSubscription = $subscriptions | where { $_.description -eq "Simeon Support Notification" }
@@ -1101,11 +1077,8 @@ CRLFOption=CRLFAlways
                 }
                 notificationEventInformation = $null
                 type = 2
-                subscriber = @{
-                    id = $projectTeamId
-                }
                 channel = @{
-                    type= "EmailHtml"
+                    type = "EmailHtml"
                     address = "support@simeoncloud.com"
                     useCustomAddress = $true
                 }
