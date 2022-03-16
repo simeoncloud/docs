@@ -1445,16 +1445,7 @@ CRLFOption=CRLFAlways
             while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
             if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
             $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body $gitHubConnectionBody
-        }
-        elseif ($GitHubAccessToken) {
-            Write-Information "Updating access token for GitHub service connection 'simeoncloud'"
-            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $gitHubConnectionBody
-        }
-        else {
-            Write-Information "GitHub service connection 'simeoncloud' already exists and does not require an update"
-        }
-
-        irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
+            irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
         {
             "resource": {
                 "id": "$($serviceEndpoint.id)",
@@ -1465,6 +1456,14 @@ CRLFOption=CRLFAlways
             }
         }
 "@ | Out-Null
+        }
+        elseif ($GitHubAccessToken) {
+            Write-Information "Updating access token for GitHub service connection 'simeoncloud'"
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $gitHubConnectionBody
+        }
+        else {
+            Write-Information "GitHub service connection 'simeoncloud' already exists and does not require an update"
+        }
 
         # NuGet packages endpoint
         $serviceEndpoint = (irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints").value |? name -eq 'simeoncloud-packages'
@@ -1500,16 +1499,7 @@ CRLFOption=CRLFAlways
             while (!$GitHubAccessToken -and $ConfirmPreference -ne 'None') { $GitHubAccessToken = Read-Host 'Enter GitHub access token provided by Simeon support' }
             if (!$GitHubAccessToken) { throw "GitHubAccessToken not specified" }
             $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints" -Method Post -Body $packagesConnectionBody
-        }
-        elseif ($GitHubAccessToken) {
-            Write-Information "Updating access token for GitHub service connection 'simeoncloud-packages'"
-            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $packagesConnectionBody
-        }
-        else {
-            Write-Information "GitHub service connection 'simeoncloud-packages' already exists and does not require an update"
-        }
-
-        irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
+            irm @restProps "$apiBaseUrl/$Project/_apis/pipelines/pipelinePermissions/endpoint/$($serviceEndpoint.id)" -Method Patch -Body @"
         {
             "resource": {
                 "id": "$($serviceEndpoint.id)",
@@ -1520,6 +1510,16 @@ CRLFOption=CRLFAlways
             }
         }
 "@ | Out-Null
+        }
+        elseif ($GitHubAccessToken) {
+            Write-Information "Updating access token for GitHub service connection 'simeoncloud-packages'"
+            $serviceEndpoint = irm @restProps "$apiBaseUrl/$Project/_apis/serviceendpoint/endpoints/$($serviceEndpoint.id)" -Method Put -Body $packagesConnectionBody
+        }
+        else {
+            Write-Information "GitHub service connection 'simeoncloud-packages' already exists and does not require an update"
+        }
+
+
     }
 
     <#
