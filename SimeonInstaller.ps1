@@ -1022,14 +1022,14 @@ CRLFOption=CRLFAlways
 
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
         
-        Install-SimeonNewTenantRepoCreationSubscription -Organization $Organization -Project $Project
+        Install-SimeonNewTenantNotification -Organization $Organization -Project $Project
     }
     
     <#
     .SYNOPSIS
     Creates a subscrition to notify sales when a new tenant repository is created
     #>
-    function Install-SimeonNewTenantRepoCreationSubscription {
+    function Install-SimeonNewTenantNotification {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
@@ -1062,10 +1062,10 @@ CRLFOption=CRLFAlways
 
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
-        $newTenantRepoSubscription = $subscriptions | where { $_.description -eq "Notification Email" }
+        $newTenantRepoSubscription = $subscriptions | where { $_.description -eq "New tenant install" }
         if (!$newTenantRepoSubscription) {
             $subscriptionBody = @{
-                description = "Notification Email"
+                description = "New tenant install"
                 filter = @{
                     eventType = "ms.vss-code.git-push-event"
                     criteria = @{
