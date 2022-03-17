@@ -21,7 +21,7 @@ Simeon uses 3 first-party client service principles when authenticating with you
 - Microsoft Graph PowerShell
 - Microsoft Exchange Online PowerShell
 
-First-party service principals are used in order to reduce the footprint of the Simeon assets that must be installed in a managed tenant and because certain Microsoft APIs are only accessible when using a first-party client. When performing delegated authentication, you will be prompted to log in once for each of these clients.
+First-party service principals are used in order to reduce the footprint of the Simeon assets that must be installed in a managed tenant and because certain Microsoft APIs are only accessible when using a first-party client.
 
 ### Approvals
 
