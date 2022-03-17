@@ -1022,14 +1022,14 @@ CRLFOption=CRLFAlways
 
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
         
-        Install-SimeonNotificationEmail -Organization $Organization -Project $Project
+        Install-SimeonNewTenantRepoCreationSubscription -Organization $Organization -Project $Project
     }
     
     <#
     .SYNOPSIS
     Creates a subscrition to notify sales when a new tenant repository is created
     #>
-    function Install-SimeonNotificationEmail {
+    function Install-SimeonNewTenantRepoCreationSubscription {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
@@ -1040,7 +1040,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             # The email address for the notification
-            $SalesEmail = "sales@simeoncloud.com"
+            $NotificationEmail = "sales@simeoncloud.com"
         )
 
         if ($Project.Contains(" ")) {
@@ -1084,7 +1084,7 @@ CRLFOption=CRLFAlways
                 type = 2
                 channel = @{
                     type = "EmailHtml"
-                    address = $using:SalesEmail
+                    address = $using:NotificationEmail
                     useCustomAddress = $true
                 }
             } | ConvertTo-Json -Depth 100
