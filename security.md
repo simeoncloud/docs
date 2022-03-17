@@ -4,7 +4,7 @@ The Simeon software runs securely in your own Azure DevOps environment, tied dir
 
 Because Simeon runs in your own Azure DevOps environment, you are in complete control of the security. You can harden access to your Azure DevOps environment as much as you like.
 
-Our Web Admin user interface is a single page application that runs entirely in your browser and connects directly to your Azure DevOps environment. None of your data ever passes through our servers. The Web Admin an Azure Static Web App with zone redundant storage. All traffic is secured via HTTPS with TLS 1.2.
+Our Web Admin user interface is a single page application that runs entirely in your browser and connects directly to your Azure DevOps environment. None of your data ever passes through our servers. The Web Admin is an Azure Static Web App with zone redundant storage. All traffic is secured via HTTPS with TLS 1.2.
 
 Access to the Web Admin is protected via Azure AD authentication using OIDC with PKCE.
 
