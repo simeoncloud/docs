@@ -1022,14 +1022,14 @@ CRLFOption=CRLFAlways
 
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
         
-        Install-SimeonNewTenantRepositoryCreationSubscription -Organization $Organization -Project $Project
+        Install-SimeonNotificationEmail -Organization $Organization -Project $Project
     }
     
     <#
     .SYNOPSIS
     Creates a subscrition to notify sales when a new tenant repository is created
     #>
-    function Install-SimeonNewTenantRepositoryCreationSubscription {
+    function Install-SimeonNotificationEmail {
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
         [CmdletBinding()]
         param(
@@ -1040,7 +1040,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
             # The email address for the notification
-            $salesEmail = "sales@simeoncloud.com"
+            $SalesEmail = "sales@simeoncloud.com"
         )
 
         if ($Project.Contains(" ")) {
@@ -1062,10 +1062,10 @@ CRLFOption=CRLFAlways
 
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
-        $newTenantRepoSubscription = $subscriptions | where { $_.description -eq "New Tenant Repository" }
+        $newTenantRepoSubscription = $subscriptions | where { $_.description -eq "Notification Email" }
         if (!$newTenantRepoSubscription) {
             $subscriptionBody = @{
-                description = "New Tenant Repository"
+                description = "Notification Email"
                 filter = @{
                     eventType = "ms.vss-code.git-push-event"
                     criteria = @{
@@ -1084,7 +1084,7 @@ CRLFOption=CRLFAlways
                 type = 2
                 channel = @{
                     type = "EmailHtml"
-                    address = $using:salesEmail
+                    address = $using:SalesEmail
                     useCustomAddress = $true
                 }
             } | ConvertTo-Json -Depth 100
