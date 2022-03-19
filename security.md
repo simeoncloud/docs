@@ -16,12 +16,12 @@ When using delegated authentication, Simeon will securely store an encrypted ref
 
 When using a service account, Simeon creates a service account with a randomly generated 15 character password that is immediately stored in a secret variable in Azure DevOps and then discarded. This password cannot be viewed by anyone. Only the Sync job can use this password to connect to and configure your tenant.
 
-Simeon uses 3 first-party client service principles when authenticating with your tenant:
+Simeon uses three first-party client service principles when authenticating with your tenant:
 - Microsoft Azure PoweShell
 - Microsoft Graph PowerShell
 - Microsoft Exchange Online PowerShell
 
-First-party service principals are used in order to reduce the footprint of the Simeon assets that must be installed in a managed tenant and because certain Microsoft APIs are only accessible when using a first-party client.
+First-party service principals are used to reduce the footprint of the Simeon assets that must be installed in a managed tenant and because certain Microsoft APIs are only accessible when using a first-party client.
 
 ### Approvals
 
