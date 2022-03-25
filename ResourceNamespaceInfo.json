@@ -139,9 +139,9 @@
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
@@ -795,9 +795,9 @@
     "namespace": "PowerShell:SecurityAndComplianceCenter:Labels",
     "description": "Office 365 > Security & Compliance > Labels",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-labelpolicy?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$",
+    "isUpdateSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$",
+    "isDeleteSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$"
   },
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies",
