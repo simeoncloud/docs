@@ -1021,6 +1021,8 @@ CRLFOption=CRLFAlways
         Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential -PipelineVariables $PipelineVariables @environmentArgs
 
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
+
+        Install-SimeonNotificationSubscription -Organization $Organization -Project $Project
         
         Install-SimeonNewTenantNotification -Organization $Organization -Project $Project
     }
@@ -1094,6 +1096,68 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Creates a subscrition to notify support in case a build partially succeeds
+    #>
+    function Install-SimeonNotificationSubscription {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants'
+        )
+
+        if ($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview.1"
+            }
+            ContentType = 'application/json'
+        }
+
+        $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
+        $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
+        $simeonSubscription = $subscriptions | where { $_.description -eq "Simeon Support Notification" }
+        if (!$simeonSubscription) {
+            $subscriptionBody = @{
+                description = "Simeon Support Notification"
+                filter = @{
+                    eventType = "ms.vss-build.build-completed-event"
+                    criteria = @{
+                        clauses = @(
+                            @{
+                                logicalOperator = "And"
+                                fieldName = "Status"
+                                operator = "="
+                                value = "Partially succeeded"
+                                index = 0
+                            }
+                        )
+                    }
+                    type = "Expression"
+                }
+                notificationEventInformation = $null
+                type = 2
+                channel = @{
+                    type = "EmailHtml"
+                    address = "support@simeoncloud.com"
+                    useCustomAddress = $true
+                }
+            } | ConvertTo-Json -Depth 100
+            irm @restProps $subscriptionApi -Method Post -Body $subscriptionBody | Out-Null
+        }
+    }
+
+    <#
+    .SYNOPSIS
     Creates/updates a shared library for an organization in Azure DevOps
     #>
     function Install-SimeonSyncVariableGroup {
@@ -1107,6 +1171,10 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants'
         )
+
+        if ($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
         $projectsApi = "https://dev.azure.com/$Organization/_apis/projects"
@@ -2614,7 +2682,7 @@ CRLFOption=CRLFAlways
             }
         ]
 "@
-    } | Out-Null
+        } | Out-Null
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
         Write-Information "Installing code search"
