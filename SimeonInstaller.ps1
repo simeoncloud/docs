@@ -1086,7 +1086,7 @@ CRLFOption=CRLFAlways
                 type = 2
                 channel = @{
                     type = "EmailHtml"
-                    address = $using:NotificationEmail
+                    address = $NotificationEmail
                     useCustomAddress = $true
                 }
             } | ConvertTo-Json -Depth 100
