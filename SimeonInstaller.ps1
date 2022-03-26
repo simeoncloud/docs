@@ -1023,6 +1023,75 @@ CRLFOption=CRLFAlways
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
 
         Install-SimeonNotificationSubscription -Organization $Organization -Project $Project
+        
+        Install-SimeonNewTenantNotification -Organization $Organization -Project $Project
+    }
+    
+    <#
+    .SYNOPSIS
+    Creates a subscrition to notify sales when a new tenant repository is created
+    #>
+    function Install-SimeonNewTenantNotification {
+        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Scope = 'Function')]
+        [CmdletBinding()]
+        param(
+            # The Azure DevOps organization name
+            [ValidateNotNullOrEmpty()]
+            [string]$Organization,
+            # The project name in DevOps
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = 'Tenants',
+            # The email address for the notification
+            $NotificationEmail = "sales@simeoncloud.com"
+        )
+
+        if ($Project.Contains(" ")) {
+            throw “Project name must not contain spaces”
+        }
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview.1"
+            }
+            ContentType = 'application/json'
+        }
+
+        $projectTeamName = "[$Project]\$Project Team"
+        $projectTeamId = $identities.results.identities |? displayName -eq $projectTeamName | Select -ExpandProperty localId
+
+        $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
+        $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
+        $newTenantRepoSubscription = $subscriptions | where { $_.description -eq "New tenant install" }
+        if (!$newTenantRepoSubscription) {
+            $subscriptionBody = @{
+                description = "New tenant install"
+                filter = @{
+                    eventType = "ms.vss-code.git-push-event"
+                    criteria = @{
+                        clauses = @(
+                            @{
+                                fieldName = "Comment"
+                                operator = "Contains"
+                                value = "created repository"
+                                index = 0
+                            }
+                        )
+                    }
+                    type = "Expression"
+                }
+                notificationEventInformation = $null
+                type = 2
+                channel = @{
+                    type = "EmailHtml"
+                    address = $NotificationEmail
+                    useCustomAddress = $true
+                }
+            } | ConvertTo-Json -Depth 100
+            irm @restProps $subscriptionApi -Method Post -Body $subscriptionBody | Out-Null
+        }
     }
 
     <#
