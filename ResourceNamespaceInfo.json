@@ -786,7 +786,7 @@
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:LabelPolicies",
     "description": "Office 365 > Security & Compliance > Label Policy",
-    "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-label?view=exchange-ps",
+    "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabelpolicies",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -794,7 +794,7 @@
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:Labels",
     "description": "Office 365 > Security & Compliance > Labels",
-    "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-labelpolicy?view=exchange-ps",
+    "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabels",
     "isCreateSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$",
     "isUpdateSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$",
     "isDeleteSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$"
