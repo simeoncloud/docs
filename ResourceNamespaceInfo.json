@@ -259,8 +259,8 @@
     "namespace": "MSGraph:DeviceManagement:MobileThreatDefenseConnectors",
     "description": "Intune > Mobile Threat Defense",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/mobileThreatDefense",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -275,14 +275,6 @@
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
     "description": "Intune > Devices > Windows Autopilot deployment profiles",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles",
-    "description": "Intune > Devices > Feature updates for Windows 10 and later",
-    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
