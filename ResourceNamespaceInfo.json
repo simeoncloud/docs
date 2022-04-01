@@ -259,8 +259,8 @@
     "namespace": "MSGraph:DeviceManagement:MobileThreatDefenseConnectors",
     "description": "Intune > Mobile Threat Defense",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/mobileThreatDefense",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
