@@ -39,8 +39,8 @@
     - Configuration profiles (Settings Catalog)
     - Device clean-up rules
     - Enrollment restrictions
-    - Quality updates for Windows 10 and later 
     - Feature updates for Windows 10 and later
+    - Quality updates for Windows 10 and later 
     - Scripts
     - Windows Autopilot deployment profiles
   - Diagnostic settings

@@ -280,17 +280,17 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:WindowsQualityUpdateProfiles",
-    "description": "Intune > Devices > Quality updates for Windows 10 and later ",
-    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/windows10QualityUpdate",
+    "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles",
+    "description": "Intune > Devices > Feature updates for Windows 10 and later",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles",
-    "description": "Intune > Devices > Feature updates for Windows 10 and later",
-    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
+    "namespace": "MSGraph:DeviceManagement:WindowsQualityUpdateProfiles",
+    "description": "Intune > Devices > Quality updates for Windows 10 and later ",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/windows10QualityUpdate",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
