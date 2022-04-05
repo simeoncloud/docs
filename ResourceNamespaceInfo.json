@@ -144,6 +144,14 @@
     "isDeleteSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$"
   },
   {
+    "namespace": "MSGraph:DeviceAppManagement:PolicySets",
+    "description": "Intune > Policy Sets",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_Workflows/PolicySetMenuBlade/overview",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
     "description": "Intune > Apps > App configuration policies",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
