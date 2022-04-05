@@ -46,6 +46,7 @@
   - Diagnostic settings
   - Endpoint security
   - Mobile Threat Defense
+  - Policy Sets
   - Reports
     - Endpoint analytics
       - Proactive Remediations
