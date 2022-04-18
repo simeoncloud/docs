@@ -118,6 +118,7 @@
         - ATP Safe Attachments
         - ATP Safe Links
         - Global Settings
+        - Quarantine Policies
   - Teams
     - Apps
       - Permission policies
