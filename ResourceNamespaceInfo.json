@@ -648,6 +648,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:QuarantinePolicies",
+    "description": "Office 365 > Security & Compliance > Threat management > Policy > Quarantine Policies",
+    "url": "https://security.microsoft.com/quarantinePolicies",
+    "isCreateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$).)+$"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:RemoteDomains",
     "description": "Office 365 > Exchange > Mail flow > Remote Domains",
     "url": "https://admin.exchange.microsoft.com/#/remotedomains",
