@@ -503,6 +503,7 @@ CRLFOption=CRLFAlways
         }
 
         $scopes = @(
+            "AuditLog.Read.All",
             "Application.ReadWrite.All",
             "AppRoleAssignment.ReadWrite.All",
             "DeviceManagementApps.ReadWrite.All",
