@@ -5,8 +5,6 @@
   - **Do not** create one using a personal account - otherwise it will create an Azure AD tenant called johndoegmail.onmicrosoft.com
   - Note that the user you create the new tenant as will be added to the tenant as an External User in the Global Administrator directory role
 - **Create a new user** in the tenant and assign the user the Global Administrator role, then sign in as this new user for subsequent steps (this is required so that the licenses and subscriptions created in subsequent steps are linked to your new tenant)
-- (Optional) Get an **Azure Subscription** - purchase via the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or an [Enterprise Agreement](https://ea.azure.com/manage/enrollment)
-  - Note that an Azure Subscription is required to use the baseline configurations for logging and alerting. The cost of the subscription ranges between $5 and $10 USD per month. 
 - Get a **Microsoft 365** license
   - Purchase via the [Microsoft 365 Admin Portal](https://admin.microsoft.com/AdminPortal/Home#/catalog) or [Volume Licensing](https://www.microsoft.com/Licensing/servicecenter/default.aspx)
   - All licensed SKUs are supported
@@ -27,10 +25,6 @@
 - Make sure the tenant has a valid Microsoft 365 license - all licensed SKUs are supported
 
 You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
-
-- If you want to use the baseline configurations for logging and alerting, make sure the tenant has an Azure Subscription for Simeon to use
-
-You can verify the subscriptions in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
 ## Install a baseline
 
