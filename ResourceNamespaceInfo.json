@@ -507,9 +507,9 @@
     "namespace": "PowerShell:ExchangeOnline:HostedConnectionFilterPolicies",
     "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
     "url": "https://security.microsoft.com/antispam",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:HostedContentFilterPolicies",
