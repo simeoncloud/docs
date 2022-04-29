@@ -40,33 +40,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
 ###### hidden-header
-## Azure > Resource groups
-*AzureManagement/MicrosoftResources/ResourceGroupDeployments*
-
-###### hidden-header
-
-### ${ResourceContext:TenantShortName}-baseline-m365alertsactiongroup-M365.Deployment
-
-|Name |${ResourceContext:TenantShortName}-baseline-m365alertsactiongroup-M365.Deployment|
-| :-- | :-- |
-| What does this do? | Creates an Azure Monitor Action group to notify specified users of an alert. The baseline includes alerting the email address "alerts@yourtenantname.com." |
-| Why should you use this? | This keeps your tenant secure by immediately notifying you of suspicious activity. |
-| What is the end-user impact? | N/A |
-| Learn more | [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) |
-
-
-
-###### hidden-header
-
-### ${ResourceContext:TenantShortName}-baseline-m365logging-M365.Deployment
-
-|Name |${ResourceContext:TenantShortName}-baseline-m365logging-M365.Deployment|
-| :-- | :-- |
-| What does this do? | Creates an Azure Event Hub, Azure Log Analytics Workspace, and Azure Storage account to capture Azure and Intune logs. |
-| Why should you use this? | This provides the essential resources required to capture logs, analyze trends, and be alerted of suspicious events. |
-| What is the end-user impact? | N/A |
-| Learn more | [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/design-logs-deployment) |
-
 ## Azure AD > Company branding
 *AadIam/CompanyBrandings*
 
@@ -108,20 +81,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to restrict the ability to join devices to Azure AD to only authorized groups and require MFA. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Only authorized groups may join devices, and users in those groups will be prompted for MFA to join. |
 | Learn more | N/A |
-
-## Azure AD > Diagnostic settings
-*AzureManagement/MicrosoftAadIam/DiagnosticSettings*
-
-###### hidden-header
-
-### Baseline - Logging
-
-|Name |Baseline - Logging|
-| :-- | :-- |
-| What does this do? | Configures logging to capture Azure sign-in events, which can then be analyzed using Log Analytics Workspaces. The baseline captures all audit logs as well as all sign-in attempts. Logs can be viewed in the log analytics workspace and storage account created by "baseline-m365logging." |
-| Why should you use this? | These settings improve security by providing you with the data needed to monitor and be alerted of log-in activity within your tenant. |
-| What is the end-user impact? | N/A |
-| Learn more | [Analyze Azure AD activity logs with Azure Monitor logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) |
 
 ## Azure AD > Directory settings
 *MSGraph/Settings*
@@ -991,37 +950,21 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### deviceEnrollmentLimitConfiguration - All users and all devices
+### Limit - All users and all devices
 
-|Name |deviceEnrollmentLimitConfiguration - All users and all devices|
+|Name |Limit - All users and all devices|
 | :-- | :-- |
-| What does this do? | Limits the default number of devices that a single user can enroll. The baseline sets this limit to 5, however it can be overwritten by other configurations with a higher priority. |
-| Why should you use this? | If you want to ensure that no more than 5 devices are enrolled by a single user to prevent enrollment of unwanted devices. |
-| What is the end-user impact? | <span style='color: red'>High Impact.</span> Users will be limited to enrolling 5 devices. |
-| Learn more | [Create a device limit restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-limit-restriction) |
+This is the default Device Limit Restriction applied with the lowest priority to all users regardless of group membership.
 
 
 
 ###### hidden-header
 
-### deviceEnrollmentPlatformRestrictionsConfiguration - All users and all devices
+### PlatformRestriction - android - Baseline - Device Enrollers can enroll any devices
 
-|Name |deviceEnrollmentPlatformRestrictionsConfiguration - All users and all devices|
+|Name |PlatformRestriction - android - Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
-| What does this do? | Restricts the type of device that can be enrolled. The baseline allows enrollment of Autopiloted registered devices only. This limit can be overridden by other configurations with a higher priority. |
-| Why should you use this? | If you want to ensure that only Autopilot registered devices are enrolled in Intune. |
-| What is the end-user impact? | <span style='color: red'>High Impact.</span> Users will be restricted to enrolling only Autopilot registered devices in Intune. |
-| Learn more | [Create a device type restriction](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set#create-a-device-type-restriction) |
-
-
-
-###### hidden-header
-
-### deviceEnrollmentPlatformRestrictionsConfiguration - Baseline - Device Enrollers can enroll personal devices
-
-|Name |deviceEnrollmentPlatformRestrictionsConfiguration - Baseline - Device Enrollers can enroll personal devices|
-| :-- | :-- |
-| What does this do? | The baseline allows users in the Azure AD group "Baseline – Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
+| What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
 | Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
@@ -1030,27 +973,83 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 ###### hidden-header
 
-### deviceEnrollmentWindowsHelloForBusinessConfiguration - All users and all devices
+### PlatformRestriction - androidForWork - Baseline - Device Enrollers can enroll any devices
 
-|Name |deviceEnrollmentWindowsHelloForBusinessConfiguration - All users and all devices|
+|Name |PlatformRestriction - androidForWork - Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
-| What does this do? | The baseline disables Windows Hello for Business. |
-| Why should you use this? | If you do not want users to be prompted to setup Windows Hello the first time they log into a device. |
-| What is the end-user impact? | Users will not be prompted to set up Windows Hello when they log in to a device for the first time. |
-| Learn more | [Windows Hello for Business](https://docs.microsoft.com/en-us/mem/intune/protect/identity-protection-windows-settings) |
+| What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
+| Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
 
 
 
 ###### hidden-header
 
-### windows10EnrollmentCompletionPageConfiguration - All users and all devices
+### PlatformRestriction - ios - Baseline - Device Enrollers can enroll any devices
 
-|Name |windows10EnrollmentCompletionPageConfiguration - All users and all devices|
+|Name |PlatformRestriction - ios - Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
-| What does this do? | Configures the page that is displayed to users while a device enrollment is in progress. The baseline allows the user to select the "Continue Anyway" option as soon as it is available and times out after 40 minutes. |
-| Why should you use this? | If you want to allow users to click "Continue Anyway" during the app installation phase of enrollment or when a single configuration in the enrollment process fails and you do not want users to get stuck indefinitely on the enrollment screen. |
-| What is the end-user impact? | Users will be able to click "Continue Anyway" when device enrollment enters the Device Enrollment phase as well as when a single configuration in the enrollment process fails. |
-| Learn more | [Set up the Enrollment Status Page](https://docs.microsoft.com/en-us/mem/intune/enrollment/windows-enrollment-status) |
+| What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
+| Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
+
+
+
+###### hidden-header
+
+### PlatformRestriction - mac - Baseline - Device Enrollers can enroll any devices
+
+|Name |PlatformRestriction - mac - Baseline - Device Enrollers can enroll any devices|
+| :-- | :-- |
+| What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
+| Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
+
+
+
+###### hidden-header
+
+### PlatformRestriction - windows - Baseline - Device Enrollers can enroll any devices
+
+|Name |PlatformRestriction - windows - Baseline - Device Enrollers can enroll any devices|
+| :-- | :-- |
+| What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
+| Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Only certain users will be able to enroll devices to Intune that are non-Autopilot registered. |
+| Learn more | [Set enrollment restrictions](https://docs.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set) |
+
+
+
+###### hidden-header
+
+### PlatformRestrictions - All users and all devices
+
+|Name |PlatformRestrictions - All users and all devices|
+| :-- | :-- |
+This is the default Device Type Restriction applied with the lowest priority to all users regardless of group membership.
+
+
+
+###### hidden-header
+
+### windows10EnrollmentCompletionPage - All users and all devices
+
+|Name |windows10EnrollmentCompletionPage - All users and all devices|
+| :-- | :-- |
+This is the default enrollment status screen configuration applied with the lowest priority to all users and all devices regardless of group membership.
+
+
+
+###### hidden-header
+
+### WindowsHelloForBusiness - All users and all devices
+
+|Name |WindowsHelloForBusiness - All users and all devices|
+| :-- | :-- |
+This is the default Windows Hello for Business configuration applied with the lowest priority to all users regardless of group membership.
 
 ## Intune > Devices > Scripts
 *MSGraph/DeviceManagement/DeviceManagementScripts*
@@ -1158,20 +1157,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | Devices with this profile can be enrolled by users themselves. The device will be registered to the user and the user will be able to use the company portal application. |
 | Learn more | [Windows Autopilot user-driven mode](https://docs.microsoft.com/en-us/mem/autopilot/user-driven) |
 
-## Intune > Diagnostic settings
-*AzureManagement/MicrosoftIntune/DiagnosticSettings*
-
-###### hidden-header
-
-### Baseline - Logging
-
-|Name |Baseline - Logging|
-| :-- | :-- |
-| What does this do? | Configures logging to capture Intune events, which can then be analyzed using Log Analytics Workspaces. The baseline captures device audit logs, compliance, and operational logs. Logs can be viewed in the Analytics Workspace named "[tenant name]-baseline-M365logging" and are stored in the Azure Storage Account named "tenantNameM365Logging." |
-| Why should you use this? | You can set up alerts for when a managed device is marked non-compliant or when a new device is enrolled into the environment. This improves security by providing you with the data needed to monitor Intune events within your tenant. |
-| What is the end-user impact? | N/A |
-| Learn more | [Microsoft Intune and Azure Log Analytics](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/microsoft-intune-and-azure-log-analytics/ba-p/463145) |
-
 ## Office 365 > Exchange > AdminAuditLogConfig
 *PowerShell/ExchangeOnline/AdminAuditLogConfig*
 
@@ -1241,6 +1226,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | What is the end-user impact? | Users cannot permanently delete data that is less than one year old. |
 | Learn more | [Retention policies and labels](https://docs.microsoft.com/en-us/microsoft-365/compliance/retention?view=o365-worldwide) |
 
+## Office 365 > Security & Compliance > Threat management > Policy > Global Settings
+*PowerShell/ExchangeOnline/AtpPolicyForO365*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
+| :-- | :-- |
+| What does this do? | Defines Azure Active Directory authorization settings. The baseline allows users to sign up for email based subscriptions, use Self-Serve Password Reset, and join the tenant by email validation. Only adminstrators and guest inviters can invite external users to the organization. Users are allowed to read other users. |
+| Why should you use this? | If you want to apply Azure Active Directory authorization settings. |
+| What is the end-user impact? | Users are not allowed to read BitLocker keys for their owned device. |
+| Learn more | [Authorization Policy](https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0) |
+
 ## Office 365 > Teams > Apps > Permission policies
 *TeamsPSAdmin/TeamsAppPermissionPolicy*
 
@@ -1282,5 +1281,3 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | To prevent users from sharing company content externally. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users will not be able to share content outside of the organization using Microsoft Teams. |
 | Learn more | [Disable additional cloud storage (DropBox, Box and Google Drive)](https://techcommunity.microsoft.com/t5/microsoft-teams/disable-additional-cloud-storage-dropbox-box-and-google-drive/m-p/253335) |
-
-
