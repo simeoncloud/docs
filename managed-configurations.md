@@ -63,6 +63,7 @@
     - Client access rules
     - Distribution Groups
     - DomainKeys identified mail signing config
+    - Dynamic Distribution Groups
     - Email address policies
     - GlobalAddressList
     - Inbound connectors
