@@ -488,14 +488,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:DynamicDistributionGroups",
-    "description": "Office 365 > Exchange > Dynamic Distribution Groups",
-    "url": "https://admin.exchange.microsoft.com/#/groups",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "PowerShell:ExchangeOnline:EmailAddressPolicies",
     "description": "Office 365 > Exchange > Email address policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
