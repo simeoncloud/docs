@@ -2015,12 +2015,11 @@ CRLFOption=CRLFAlways
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
-                $contributorsDisplayName = "[$Project]\Contributors"
-                foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
+                foreach ($directoryObject in @("$Project Build Service", "Project Collection Build Service", "[$Project]\Contributors")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
-                            "query": "$user",
+                            "query": "$directoryObject",
                             "identityTypes": [
                                 "user",
                                 "group"
@@ -2038,20 +2037,16 @@ CRLFOption=CRLFAlways
                             ]
                         }
 "@ }
-                    $userDisplayName = "$user ($Organization)"
-                    $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
-                    $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-                    Write-Information "Making $userDisplayName ($userId) admin for secure file $secureFileId"
+                    $displayName = "$directoryObject ($Organization)"
+                    $directoryObjectId = $identities.results.identities |? displayName -eq $displayName | Select -ExpandProperty localId
+                    Write-Information "Making $displayName ($directoryObjectId) admin for secure file $secureFileId"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
                         {
                             "roleName": "Administrator",
-                            "userId": "$userId"
-                        },
-                        {
-                            "roleName": "Administrator",
-                            "userId": "$contributorsId"
+                            "userId": "$directoryObjectId"
+                        }
                     ]
 "@ | Out-Null }
                 }
