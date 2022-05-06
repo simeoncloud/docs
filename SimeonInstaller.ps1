@@ -2015,11 +2015,11 @@ CRLFOption=CRLFAlways
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
-                foreach ($directoryObject in @("$Project Build Service", "Project Collection Build Service", "[$Project]\Contributors")) {
+                foreach ($identity in @("$Project Build Service", "Project Collection Build Service", "[$Project]\Contributors")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
-                            "query": "$directoryObject",
+                            "query": "$identity",
                             "identityTypes": [
                                 "user",
                                 "group"
@@ -2037,15 +2037,15 @@ CRLFOption=CRLFAlways
                             ]
                         }
 "@ }
-                    $displayName = "$directoryObject ($Organization)"
-                    $directoryObjectId = $identities.results.identities |? displayName -eq $displayName | Select -ExpandProperty localId
-                    Write-Information "Making $displayName ($directoryObjectId) admin for secure file $secureFileId"
+                    $displayName = "$identity ($Organization)"
+                    $identityId = $identities.results.identities |? displayName -eq $displayName | Select -ExpandProperty localId
+                    Write-Information "Making $displayName ($identityId) admin for secure file $secureFileId"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
                         {
                             "roleName": "Administrator",
-                            "userId": "$directoryObjectId"
+                            "userId": "$identityId"
                         }
                     ]
 "@ | Out-Null }
