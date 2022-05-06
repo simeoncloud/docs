@@ -2015,6 +2015,7 @@ CRLFOption=CRLFAlways
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
+                $contributorsDisplayName = "[$Project]\Contributors"
                 foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
@@ -2039,7 +2040,6 @@ CRLFOption=CRLFAlways
 "@ }
                     $userDisplayName = "$user ($Organization)"
                     $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
-                    $contributorsDisplayName = "[$Project]\Contributors"
                     $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
                     Write-Information "Making $userDisplayName ($userId) admin for secure file $secureFileId"
 
