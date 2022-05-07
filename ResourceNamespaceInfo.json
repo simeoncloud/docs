@@ -305,7 +305,7 @@
   },
   {
     "namespace": "MSGraph:DeviceManagement:WindowsQualityUpdateProfiles",
-    "description": "Intune > Devices > Quality updates for Windows 10 and later ",
+    "description": "Intune > Devices > Quality updates for Windows 10 and later",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/windows10QualityUpdate",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -488,6 +488,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "PowerShell:ExchangeOnline:DynamicDistributionGroups",
+    "description": "Office 365 > Exchange > Dynamic Distribution Groups",
+    "url": "https://admin.exchange.microsoft.com/#/groups",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "PowerShell:ExchangeOnline:EmailAddressPolicies",
     "description": "Office 365 > Exchange > Email address policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
@@ -507,9 +515,9 @@
     "namespace": "PowerShell:ExchangeOnline:HostedConnectionFilterPolicies",
     "description": "Office 365 > Security & Compliance > Hosted connection filter policies",
     "url": "https://security.microsoft.com/antispam",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:HostedContentFilterPolicies",
