@@ -2015,7 +2015,7 @@ CRLFOption=CRLFAlways
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
-                foreach ($identity in @("$Project Build Service", "Project Collection Build Service", "[$Project]\Contributors")) {
+                foreach ($directoryObject in @("$Project Build Service", "Project Collection Build Service", "[$Project]\\Contributors")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
