@@ -2038,7 +2038,7 @@ CRLFOption=CRLFAlways
                         }
 "@ }
                     $displayName = "$directoryObject ($Organization)"
-                    $directoryObjectId = $identities.results.identities |? displayName -eq $displayName | Select -ExpandProperty localId
+                    $directoryObjectId = $identities.results.identities |? displayName -eq $displayName -or displayName -eq $directoryObject | Select -ExpandProperty localId
                     Write-Information "Making $displayName ($directoryObjectId) admin for secure file $secureFileId"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
