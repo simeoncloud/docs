@@ -432,7 +432,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:AuthenticationPolicy",
+    "namespace": "PowerShell:ExchangeOnline:AuthenticationPolicies",
     "description": "Office 365 > Exchange > Modern authentication",
     "url": null,
     "isCreateSupportedFilter": ".*",

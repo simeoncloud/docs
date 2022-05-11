@@ -1023,10 +1023,10 @@ CRLFOption=CRLFAlways
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
 
         Install-SimeonNotificationSubscription -Organization $Organization -Project $Project
-        
+
         Install-SimeonNewTenantNotification -Organization $Organization -Project $Project
     }
-    
+
     <#
     .SYNOPSIS
     Creates a subscrition to notify sales when a new tenant repository is created
@@ -2015,13 +2015,14 @@ CRLFOption=CRLFAlways
                         } | ConvertTo-Json -Depth 100) | Out-Null }
 
                 # Set Role Assignment
-                foreach ($user in @("$Project Build Service", "Project Collection Build Service")) {
+                foreach ($identity in @("$Project Build Service", "Project Collection Build Service", "[$Project]\Contributors")) {
                     $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
                     $identities = Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
                         {
-                            "query": "$user",
+                            "query": "$($identity.Replace("\","\\"))",
                             "identityTypes": [
-                                "user"
+                                "user",
+                                "group"
                             ],
                             "operationScopes": [
                                 "ims",
@@ -2036,15 +2037,15 @@ CRLFOption=CRLFAlways
                             ]
                         }
 "@ }
-                    $userDisplayName = "$user ($Organization)"
-                    $userId = $identities.results.identities |? displayName -eq $userDisplayName | Select -ExpandProperty localId
-                    Write-Information "Making $userDisplayName ($userId) admin for secure file $secureFileId"
+                    $displayName = "$identity ($Organization)"
+                    $identityId = $identities.results.identities |? { $_.displayName -eq $displayName -or $_.displayName -eq $identity } | Select -ExpandProperty localId
+                    Write-Information "Making $displayName ($identityId) admin for secure file $secureFileId"
 
                     Invoke-WithRetry { Invoke-RestMethod @restProps -Method Put "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.securefile/roleassignments/resources/$projectId`$$($secureFileId)?api-version=6.0-preview" -Body @"
                     [
                         {
                             "roleName": "Administrator",
-                            "userId": "$userId"
+                            "userId": "$identityId"
                         }
                     ]
 "@ | Out-Null }
