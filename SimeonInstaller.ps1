@@ -2593,11 +2593,14 @@ CRLFOption=CRLFAlways
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Add project collection build service user to tenants contributors
-            Write-Information "Adding Project Collection Build Service ($Organization)"
+            Write-Information "Adding Project Collection Build Service to tenants contributors ($Organization)"
             $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-            
+
             # Add project collection build service to Project Collection Build Service Accounts
+            Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
+            $collectionBuildServiceAccounts = ($groups |? principalName -eq "Project Collection Build Service Accounts").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$collectionBuildServiceAccounts`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Repositories > Permissions > Contributors > allow Create repository
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
