@@ -856,7 +856,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
+    "namespace": "TeamsApi:TeamsAppPermissionPolicies",
     "description": "Office 365 > Teams > Apps > Permission policies",
     "url": "https://admin.teams.microsoft.com/policies/app-permission",
     "isCreateSupportedFilter": ".*",
@@ -864,7 +864,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsCallingPolicy",
+    "namespace": "TeamsApi:TeamsCallingPolicies",
     "description": "Office 365 > Teams > Voice > Calling policies",
     "url": "https://admin.teams.microsoft.com/policies/calling",
     "isCreateSupportedFilter": ".*",
@@ -872,23 +872,23 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsClientConfiguration",
+    "namespace": "TeamsApi:TeamsClientConfiguration",
     "description": "Office 365 > Teams > Org-wide settings > Teams settings",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsMeetingConfiguration",
+    "namespace": "TeamsApi:TeamsMeetingConfiguration",
     "description": "Office 365 > Teams > Meetings > Meeting settings",
     "url": "https://admin.teams.microsoft.com/policies/meetings",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsMeetingPolicy",
+    "namespace": "TeamsApi:TeamsMeetingPolicies",
     "description": "Office 365 > Teams > Meetings > Meeting policies",
     "url": "https://admin.teams.microsoft.com/policies/meetings",
     "isCreateSupportedFilter": ".*",
@@ -896,11 +896,19 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsMessagingPolicy",
+    "namespace": "TeamsApi:TeamsMessagingPolicies",
     "description": "Office 365 > Teams > Messaging policies",
     "url": "https://admin.teams.microsoft.com/policies/messaging",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
+  },
+  {
+    "namespace": "TeamsApi:TenantFederationSettings",
+    "description": "Office 365 > Teams > Users > External access",
+    "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   }
 ]
