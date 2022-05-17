@@ -2755,6 +2755,12 @@ CRLFOption=CRLFAlways
                 }
 "@ } | Out-Null
             }
+            # Disable Organization notification
+            # Build Completes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription`?api-version=7.1-preview" -Method Put -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+            # Pull request changes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription`?api-version=7.1-preview" -Method Put -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+
             # Disable pipeline notifications
             # Build completes
             Write-Information "Disabling build completes pipeline notifications"
