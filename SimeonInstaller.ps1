@@ -557,6 +557,7 @@ CRLFOption=CRLFAlways
         foreach ($clientAppId in @($azurePowerShellAppId, $msGraphPowerShellAppId)) {
             # MS Graph
             Grant-AzureADOAuth2Permission -Tenant $Tenant -ClientAppId $clientAppId -ResourceAppId '00000003-0000-0000-c000-000000000000' -ResourceScopes @(
+                "AuditLog.Read.All",
                 "Application.ReadWrite.All",
                 "AppRoleAssignment.ReadWrite.All",
                 "DeviceManagementApps.ReadWrite.All",
