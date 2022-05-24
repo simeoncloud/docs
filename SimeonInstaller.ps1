@@ -1345,8 +1345,8 @@ CRLFOption=CRLFAlways
             "ResourceContext:TenantDomainName": "$Tenant"
         }
 "@
-                New-Item -Path '.\variables.json' -ItemType File
-                $variablesContent | Set-Content variables.json -Force
+
+                $variablesContent | Out-File variables.json -Force
 
                 Invoke-CommandLine "git add . 2>&1" | Write-Verbose
                 Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
