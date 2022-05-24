@@ -1339,7 +1339,7 @@ CRLFOption=CRLFAlways
                 Invoke-CommandLine "git init 2>&1" | Write-Verbose
                 Initialize-GitConfiguration
                 Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
-                "{ 'ResourceContext:TenantDomainName' : '$Tenant' }" | Set-Content config.variables.json
+                "{ 'ResourceContext:TenantDomainName' : '$Tenant' }" | Set-Content variables.json
                 Invoke-CommandLine "git add . 2>&1" | Write-Verbose
                 Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
 
