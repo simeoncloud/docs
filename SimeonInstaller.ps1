@@ -1341,9 +1341,9 @@ CRLFOption=CRLFAlways
                 Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
 
                 $variablesContent = @"
-        {
-            "ResourceContext:TenantDomainName": "$Tenant"
-        }
+{
+    "ResourceContext:TenantDomainName": "$Tenant"
+}
 "@
 
                 $variablesContent | Out-File variables.json -Force
