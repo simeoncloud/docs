@@ -948,6 +948,8 @@ CRLFOption=CRLFAlways
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
         [CmdletBinding()]
         param(
+            # The tenant domain name to be added to variables.json
+            [string]$Tenant,
             # The Azure DevOps organization name (e.g. 'Simeon-MyOrganization')
             [string]$Organization,
             # The project name in DevOps (defaults to 'Tenants')
@@ -1008,7 +1010,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -TemplateRepositoryUrl $TemplateRepositoryUrl
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -TemplateRepositoryUrl $TemplateRepositoryUrl -Tenant $Tenant
 
         Install-SimeonTenantBaseline -Organization $Organization -Project $Project -Repository $Name -Baseline $Baseline
 
@@ -1271,7 +1273,9 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name,
             # Url of the template git repository to use when creating the repository
-            [string]$TemplateRepositoryUrl
+            [string]$TemplateRepositoryUrl,
+            # The tenant domain name to be add to variables.json
+            [string]$Tenant
         )
 
         if ($Project.Contains(" ")) {
@@ -1335,6 +1339,7 @@ CRLFOption=CRLFAlways
                 Invoke-CommandLine "git init 2>&1" | Write-Verbose
                 Initialize-GitConfiguration
                 Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+                "{ 'ResourceContext:TenantDomainName' : '$Tenant' }" | Set-Content config.variables.json
                 Invoke-CommandLine "git add . 2>&1" | Write-Verbose
                 Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
 
@@ -2316,7 +2321,7 @@ CRLFOption=CRLFAlways
         }
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Tenant','Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
