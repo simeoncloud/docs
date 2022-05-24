@@ -1433,7 +1433,7 @@ CRLFOption=CRLFAlways
                 }
                 Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
 
-                if($baselineReplaced) {
+                if ($baselineReplaced) {
                     Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" -m `"reset baseline`" 2>&1" | Write-Verbose
                 }
 
