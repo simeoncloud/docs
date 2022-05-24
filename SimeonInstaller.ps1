@@ -1339,9 +1339,19 @@ CRLFOption=CRLFAlways
                 Invoke-CommandLine "git init 2>&1" | Write-Verbose
                 Initialize-GitConfiguration
                 Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
-                "{ 'ResourceContext:TenantDomainName' : '$Tenant' }" | Set-Content variables.json
+
+                $variablesContent = @"
+        {
+            "ResourceContext:TenantDomainName": "$Tenant"
+        }
+"@
+
+                $variablesContent | Set-Content variables.json
+
                 Invoke-CommandLine "git add . 2>&1" | Write-Verbose
                 Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+
 
                 Write-Verbose "Pushing new repository to remote"
                 Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
@@ -2321,7 +2331,7 @@ CRLFOption=CRLFAlways
         }
 
         $devOpsArgs = @{}
-        @('Tenant','Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Tenant', 'Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
