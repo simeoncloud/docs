@@ -1416,6 +1416,7 @@ CRLFOption=CRLFAlways
             }
 
             if (Test-Path $baselinePath) {
+                $baselineReplaced = $true;
                 Invoke-CommandLine "git submodule deinit -f . 2>&1" | Write-Verbose
                 @($baselinePath, ".git/modules/$baselinePath", ".gitmodules") |? { Test-Path $_ } | Remove-Item -Force -Recurse -EA SilentlyContinue
             }
@@ -1446,6 +1447,10 @@ CRLFOption=CRLFAlways
                     $message = "Set repository to have no baseline"
                 }
                 Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
+
+                if ($baselineReplaced) {
+                    Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" -m `"reset baseline`" 2>&1" | Write-Verbose
+                }
 
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
