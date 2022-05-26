@@ -14,8 +14,8 @@ New-Module -Name 'SimeonInstaller' -ScriptBlock {
         )
 
         $ErrorActionPreference = 'Continue'
-        iex $Expression
-        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode" }
+        $output = iex $Expression
+        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode`r`n$output" }
     }
 
     function Read-HostBooleanValue {
