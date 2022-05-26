@@ -2550,7 +2550,7 @@ CRLFOption=CRLFAlways
                         "state": 0
                     }
 "@
-            } | Out-Null
+            } -MaxRetryCount 10 -DelaySeconds 15 | Out-Null
 
             # Overview > uncheck Artifacts
             Write-Information "Updating project settings turning off Artifacts"
