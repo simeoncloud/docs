@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+#Requires -Version 6
 $ErrorActionPreference = 'Stop'
 $InformationPreference = 'Continue'
 
@@ -225,6 +225,22 @@ CRLFOption=CRLFAlways
             }
             $m.Remove('Repository')
             Import-Module @m
+        }
+
+        if (Get-Module AzureAD.Standard.Preview -ListAvailable -EA SilentlyContinue) {
+            Import-Module AzureAD.Standard.Preview
+        }
+        elseif ($IsWindows) {
+            $modules = Get-Module 'AzureAD', 'AzureAD.Preview' -ListAvailable -EA SilentlyContinue
+            if (!$modules) {
+                Install-Module AzureAD -Scope CurrentUser -Force -AllowClobber -AcceptLicense -SkipPublisherCheck | Out-Null
+            }
+            else {
+                $modules | Import-Module
+            }
+        }
+        else {
+            throw "Please install AzureAD.Standard.Preview module."
         }
 
         # don't install again
