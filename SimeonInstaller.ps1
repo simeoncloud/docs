@@ -2628,8 +2628,7 @@ CRLFOption=CRLFAlways
             # Add project collection build service to Project Collection Build Service Accounts
             Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
             $buildServiceAccountsGroupDescriptor = ($groups |? principalName -eq "[$Organization]\Project Collection Build Service Accounts").descriptor
-            $projectCollectionBuildServiceDescriptor = ($users |? displayName -like  "Project Collection Build Service ($Organization)").descriptor
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$projectCollectionBuildServiceDescriptor/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Repositories > Permissions > Contributors > allow Create repository
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
