@@ -216,14 +216,6 @@ CRLFOption=CRLFAlways
             @{ Name = 'MSAL.PS' },
             @{ Name = 'powershell-yaml' }
         )
-        if ($PSVersionTable.PSEdition -eq 'Core') {
-            Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
-            if (!(Get-PackageSource PoshTestGallery -EA SilentlyContinue)) { Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null }
-            $requiredModules += @{ Name = 'AzureAD.Standard.Preview'; RequiredVersion = '0.0.0.10'; Repository = 'PoshTestGallery' }
-        }
-        else {
-            $requiredModules += @{ Name = 'AzureAD' }
-        }
 
         foreach ($m in $requiredModules) {
             if (!$m.Repository) { $m.Repository = 'PSGallery' }
