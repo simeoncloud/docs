@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+#Requires -Version 6
 $ErrorActionPreference = 'Stop'
 $InformationPreference = 'Continue'
 
@@ -216,14 +216,6 @@ CRLFOption=CRLFAlways
             @{ Name = 'MSAL.PS' },
             @{ Name = 'powershell-yaml' }
         )
-        if ($PSVersionTable.PSEdition -eq 'Core') {
-            Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
-            if (!(Get-PackageSource PoshTestGallery -EA SilentlyContinue)) { Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null }
-            $requiredModules += @{ Name = 'AzureAD.Standard.Preview'; RequiredVersion = '0.0.0.10'; Repository = 'PoshTestGallery' }
-        }
-        else {
-            $requiredModules += @{ Name = 'AzureAD' }
-        }
 
         foreach ($m in $requiredModules) {
             if (!$m.Repository) { $m.Repository = 'PSGallery' }
@@ -233,6 +225,22 @@ CRLFOption=CRLFAlways
             }
             $m.Remove('Repository')
             Import-Module @m
+        }
+
+        if (Get-Module AzureAD.Standard.Preview -ListAvailable -EA SilentlyContinue) {
+            Import-Module AzureAD.Standard.Preview
+        }
+        elseif ($IsWindows) {
+            $modules = Get-Module 'AzureAD', 'AzureAD.Preview' -ListAvailable -EA SilentlyContinue
+            if (!$modules) {
+                Install-Module AzureAD -Scope CurrentUser -Force -AllowClobber -AcceptLicense -SkipPublisherCheck | Out-Null
+            }
+            else {
+                $modules | Import-Module
+            }
+        }
+        else {
+            throw "Please install AzureAD.Standard.Preview module."
         }
 
         # don't install again
@@ -1063,7 +1071,6 @@ CRLFOption=CRLFAlways
         }
 
         $projectTeamName = "[$Project]\$Project Team"
-        $projectTeamId = $identities.results.identities |? displayName -eq $projectTeamName | Select -ExpandProperty localId
 
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
