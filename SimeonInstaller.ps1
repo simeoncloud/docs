@@ -1071,7 +1071,6 @@ CRLFOption=CRLFAlways
         }
 
         $projectTeamName = "[$Project]\$Project Team"
-        $projectTeamId = $identities.results.identities |? displayName -eq $projectTeamName | Select -ExpandProperty localId
 
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
