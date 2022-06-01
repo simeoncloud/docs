@@ -2614,9 +2614,15 @@ CRLFOption=CRLFAlways
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Add project collection build service user to tenants contributors
-            Write-Information "Adding Project Collection Build Service ($Organization)"
+            Write-Information "Adding Project Collection Build Service to tenants contributors ($Organization)"
             $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Add project collection build service to Project Collection Build Service Accounts
+            Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
+            $buildServiceAccountsGroupDescriptor = ($groups |? principalName -eq "[$Organization]\Project Collection Build Service Accounts").descriptor
+            $projectCollectionBuildServiceDescriptor = ($users |? displayName -like  "Project Collection Build Service ($Organization)").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$projectCollectionBuildServiceDescriptor/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Repositories > Permissions > Contributors > allow Create repository
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
@@ -2771,6 +2777,12 @@ CRLFOption=CRLFAlways
                 }
 "@ } | Out-Null
             }
+            # Disable Organization notification
+            # Build Completes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+            # Pull request changes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+
             # Disable pipeline notifications
             # Build completes
             Write-Information "Disabling build completes pipeline notifications"
