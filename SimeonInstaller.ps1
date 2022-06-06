@@ -1453,12 +1453,11 @@ CRLFOption=CRLFAlways
                 if (!$Baseline) {
                     $message = "Set repository to have no baseline"
                 }
-                Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
-
                 if ($baselineReplaced) {
                     Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" -m `"reset baseline`" 2>&1" | Write-Verbose
                 }
 
+                Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
             }
