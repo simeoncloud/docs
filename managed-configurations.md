@@ -129,6 +129,8 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
+    - Users
+      - External access
     - Voice
       - Calling policies
 
