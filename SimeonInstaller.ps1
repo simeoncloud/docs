@@ -1412,6 +1412,10 @@ CRLFOption=CRLFAlways
             $gitModules = git config --file .gitmodules --get-regexp submodule\.Baseline\.url
             $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
 
+            if ($submodule) {
+                Write-Information "Baseline being replaced"
+            }
+
             if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule -and (Test-Path $baselinePath)) {
                 Write-Information "Baseline is already configured to use '$($PSBoundParameters.Baseline)'"
                 return
@@ -1423,8 +1427,6 @@ CRLFOption=CRLFAlways
             }
 
             if (Test-Path $baselinePath) {
-                $baselineReplaced = $true;
-                Write-Information "Baseline being replaced"
                 Invoke-CommandLine "git submodule deinit -f . 2>&1" | Write-Verbose
                 @($baselinePath, ".git/modules/$baselinePath", ".gitmodules") |? { Test-Path $_ } | Remove-Item -Force -Recurse -EA SilentlyContinue
             }
@@ -1454,7 +1456,7 @@ CRLFOption=CRLFAlways
                 if (!$Baseline) {
                     $message = "Set repository to have no baseline"
                 }
-                if ($baselineReplaced) {
+                if ($submodule) {
                     Write-Information "Adding reset baseline tag"
                     Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" -m `"reset baseline`" 2>&1" | Write-Verbose
                 }
