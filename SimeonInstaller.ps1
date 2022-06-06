@@ -1462,7 +1462,7 @@ CRLFOption=CRLFAlways
                     Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" HEAD -m `"reset baseline`" 2>&1" | Write-Verbose
                 }
                 Write-Information "Pushing changes to remote repository"
-                Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
+                Invoke-CommandLine 'git push origin master –follow-tags 2>&1' | Write-Verbose
             }
         }
         finally {
