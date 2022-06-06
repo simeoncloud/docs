@@ -882,7 +882,7 @@
   {
     "namespace": "TeamsApi:TeamsMeetingConfiguration",
     "description": "Office 365 > Teams > Meetings > Meeting settings",
-    "url": "https://admin.teams.microsoft.com/policies/meetings",
+    "url": "https://admin.teams.microsoft.com/meetings/settings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
