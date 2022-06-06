@@ -1459,7 +1459,7 @@ CRLFOption=CRLFAlways
                 Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
                 if ($submodule) {
                     Write-Information "Adding reset baseline tag"
-                    Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" -m `"reset baseline`" 2>&1" | Write-Verbose
+                    Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" HEAD -m `"reset baseline`" 2>&1" | Write-Verbose
                 }
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
