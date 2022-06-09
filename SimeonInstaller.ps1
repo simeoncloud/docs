@@ -1463,7 +1463,7 @@ CRLFOption=CRLFAlways
                 }
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
-                if($submodule) {
+                if ($submodule) {
                     Invoke-CommandLine 'git push origin master --tags 2>&1' | Write-Verbose
                 }
             }
