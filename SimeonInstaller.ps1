@@ -2814,13 +2814,20 @@ CRLFOption=CRLFAlways
           [string]$Tenant,
           [string]$SimeonReportingDisplayName = 'Simeon PowerBI Reporting'
         )
-        $graphToken = Get-SimeonAzureADAccessToken -Resource 'MSGraph'
+        $token = Get-SimeonAzureADAccessToken -Resource 'MSGraph'
 
-        # Create Service Principal if not exist
-        $app = (Invoke-WithRetry { Invoke-RestMethod "https://graph.microsoft.com/beta/applications/?filter=startsWith(displayName, '$SimeonReportingDisplayName')" -Headers @{Authorization = "Bearer $($graphToken.token)" }}).value
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json"
+            }
+            ContentType = 'application/json'
+        }
+
+        $app = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/?filter=startsWith(displayName, '$SimeonReportingDisplayName')" -Method Get}).value
         if(!$app) {
             Write-Information "Creating application $SimeonReportingDisplayName"
-            $app = (Invoke-WithRetry { Invoke-RestMethod "https://graph.microsoft.com/beta/applications" -Headers @{Authorization = "Bearer $($graphToken.token)"; 'Content-Type' = 'application/json' } -Method POST -Body @"
+            $app = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications" -Method POST -Body @"
             {
               "displayName": "$SimeonReportingDisplayName"
             }
@@ -2835,7 +2842,7 @@ CRLFOption=CRLFAlways
         $credentials = ($app.passwordCredentials |? { $_.displayName -eq "'$SimeonReportingDisplayName'" })
         if(!$credentials) {
           Write-Information "Creating client credentials for $SimeonReportingDisplayName"
-          $credentials = Invoke-WithRetry { Invoke-RestMethod "https://graph.microsoft.com/beta/applications/$($app.id)/addPassword" -Headers @{Authorization = "Bearer $($graphToken.token)"; 'Content-Type' = 'application/json' } -Method POST -Body @"
+          $credentials = Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/$($app.id)/addPassword" -Method POST -Body @"
           {
             "passwordCredential": {
               "displayName": "$SimeonReportingDisplayName",
