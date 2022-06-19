@@ -324,7 +324,7 @@ CRLFOption=CRLFAlways
         param (
             # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'KeyVault')]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'KeyVault', 'MSGraph')]
             [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
@@ -355,6 +355,10 @@ CRLFOption=CRLFAlways
             'KeyVault' {
                 $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
                 $Scopes = 'https://vault.azure.net/.default'
+            }
+            'MSGraph' {
+                $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
+                $Scopes = 'https://graph.microsoft.com/Directory.AccessAsUser.All'
             }
         }
 
@@ -2796,7 +2800,96 @@ CRLFOption=CRLFAlways
             Write-Warning "Accept the DevOps email invite in an incognito browser"
         }
     }
+    <#
+    .SYNOPSIS
+        Creates an App registration in the specified tenant. Generates app credentials and uploads to the DevOps variable group.
+    #>
+    function Install-SimeonReportingApplication {
+        param(
+          [ValidateNotNullOrEmpty()]
+          [string]$Organization,
+          [ValidateNotNullOrEmpty()]
+          [string]$Project = 'Tenants',
+          [ValidateNotNullOrEmpty()]
+          [string]$Tenant,
+          [string]$SimeonReportingDisplayName = 'Simeon PowerBI Reporting'
+        )
+        $graphToken = Get-SimeonAzureADAccessToken -Resource 'MSGraph'
 
+        # Create Service Principal if not exist
+        $app = (Invoke-WithRetry { Invoke-RestMethod "https://graph.microsoft.com/beta/applications/?filter=startsWith(displayName, '$SimeonReportingDisplayName')" -Headers @{Authorization = "Bearer $($graphToken.token)" }}).value
+        if(!$app) {
+            Write-Information "Creating application $SimeonReportingDisplayName"
+            $app = (Invoke-WithRetry { Invoke-RestMethod "https://graph.microsoft.com/beta/applications" -Headers @{Authorization = "Bearer $($graphToken.token)"; 'Content-Type' = 'application/json' } -Method POST -Body @"
+            {
+              "displayName": "$SimeonReportingDisplayName"
+            }
+"@
+          })
+        }
+        else {
+            Write-Information "Application $SimeonReportingDisplayName already exists"
+        }
+
+        # Generate creds if not exist and save to DevOps
+        $credentials = ($app.passwordCredentials |? { $_.displayName -eq "'$SimeonReportingDisplayName'" })
+        if(!$credentials) {
+          Write-Information "Creating client credentials for $SimeonReportingDisplayName"
+          $credentials = Invoke-WithRetry { Invoke-RestMethod "https://graph.microsoft.com/beta/applications/$($app.id)/addPassword" -Headers @{Authorization = "Bearer $($graphToken.token)"; 'Content-Type' = 'application/json' } -Method POST -Body @"
+          {
+            "passwordCredential": {
+              "displayName": "$SimeonReportingDisplayName",
+              "endDateTime": "$(Get-Date ((Get-Date).AddYears(100)) -Format "o")"
+            }
+          }
+"@
+        }
+
+          # Save to DevOps variable group
+          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'AppId' -VariableValue $app.id
+          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'Secret' -VariableValue "$($credentials.secretText)" -IsSecret
+          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'Tenant' -VariableValue $Tenant
+        }
+      }
+
+        <#
+        .SYNOPSIS
+            Adds a given variable name and secret to a variable group.
+        #>
+      function Set-VariableInDevOpsVariableGroup {
+        param(
+          [ValidateNotNullOrEmpty()]
+          [string]$Organization,
+          [ValidateNotNullOrEmpty()]
+          [string]$Project,
+          [ValidateNotNullOrEmpty()]
+          [string]$VariableName,
+          [ValidateNotNullOrEmpty()]
+          [string]$VariableValue,
+          [switch]$IsSecret,
+          [string]$VariableGroupName = 'Sync'
+        )
+        Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
+
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json;api-version=5.1-preview.1"
+            }
+            ContentType = 'application/json'
+        }
+
+        $variableGroups = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups?api-version=5.1-preview.1" -Method Get }).value
+
+        # This is required since when getting all variable groups, it doesn't return all properties
+        $variableGroupId = ($variableGroups |? {$_.name -eq "$VariableGroupName"}).id
+        $variableGroup = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=5.1-preview.1" -Method Get})
+
+        $variableGroup.variables | Add-Member -Name "$VariableName" -Value @{Value = "$VariableValue"; isSecret = $IsSecret.IsPresent} -Type NoteProperty
+        Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=6.1-preview.2" -Method Put -Body ($variableGroup | ConvertTo-Json -Depth 100) }
+      }
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
 } | Import-Module -Force -PassThru
