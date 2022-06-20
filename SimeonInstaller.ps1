@@ -2815,7 +2815,6 @@ CRLFOption=CRLFAlways
           [string]$SimeonReportingDisplayName = 'Simeon PowerBI Reporting'
         )
         $token = Get-SimeonAzureADAccessToken -Resource 'MSGraph'
-
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
@@ -2851,11 +2850,10 @@ CRLFOption=CRLFAlways
           }
 "@
         }
-
           # Save to DevOps variable group
-          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'AppId' -VariableValue $app.id
-          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'Secret' -VariableValue "$($credentials.secretText)" -IsSecret
-          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'Tenant' -VariableValue $Tenant
+          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'PowerBIAppId' -VariableValue $app.id
+          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'PowerBIAppSecret' -VariableValue "$($credentials.secretText)" -IsSecret
+          Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'PowerBITenant' -VariableValue $Tenant
         }
       }
 
@@ -2879,7 +2877,6 @@ CRLFOption=CRLFAlways
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
 
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
-
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
