@@ -434,7 +434,7 @@
   {
     "namespace": "PowerShell:ExchangeOnline:AuthenticationPolicies",
     "description": "Office 365 > Exchange > Modern authentication",
-    "url": null,
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-authenticationpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
