@@ -1073,11 +1073,6 @@ CRLFOption=CRLFAlways
         Write-Information "Polling to make Contributors admin for project library"
         $currentContributorsScopeDisplayName = ''
         while ($currentContributorsScopeDisplayName -ne 'Administrator') {
-            $currentScopesUrl = "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$($projectId)`$0"
-            $currentScopes = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $currentScopesUrl -Method Get }
-            $currentContributorsScope = $currentScopes | where { $_.identity.uniqueName -eq $contributorsDisplayName }
-            $currentContributorsScopeDisplayName = $currentContributorsScope.role.displayName
-
             Write-Information "Trying to make Contributors admin for project library"
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
             [
@@ -1088,6 +1083,11 @@ CRLFOption=CRLFAlways
             ]
 "@
             } | Out-Null
+
+            $currentScopesUrl = "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$($projectId)`$0"
+            $currentScopes = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $currentScopesUrl -Method Get }
+            $currentContributorsScope = $currentScopes | where { $_.identity.uniqueName -eq $contributorsDisplayName }
+            $currentContributorsScopeDisplayName = $currentContributorsScope.role.displayName
         }
     }
 
