@@ -1258,6 +1258,51 @@ CRLFOption=CRLFAlways
                     }
                 } | ConvertTo-Json -Depth 100)
             irm @restProps $permissionsApi -Method Patch -Body $permissionBody
+
+            $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+            {
+                "query": "Contributors",
+                "identityTypes": [
+                    "group"
+                ],
+                "operationScopes": [
+                    "ims",
+                    "source"
+                ],
+                "options": {
+                    "MinResults": 1,
+                    "MaxResults": 1000
+                },
+                "properties": [
+                    "DisplayName"
+                ]
+            }
+"@
+
+            $contributorsDisplayName = "[$Project]\Contributors"
+            $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+
+
+            Write-Information "Polling to make Contributors admin for project library"
+            $currentContributorsScopeDisplayName = ''
+            while ($currentContributorsScopeDisplayName -ne 'Administrator') {
+                $currentScopesUrl = "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$($projectId)`$0"
+                $currentScopes = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $currentScopesUrl -Method Get }
+                $currentContributorsScope = $currentScopes | where { $_.identity.uniqueName -eq $contributorsDisplayName }
+                $currentContributorsScopeDisplayName = $currentContributorsScope.role.displayName
+
+                Write-Information "Trying to make Contributors admin for project library"
+                Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
+            [
+                {
+                    "roleName": "Administrator",
+                    "userId": "$contributorsId"
+                }
+            ]
+"@
+                } | Out-Null
+            }
         }
 
     }
