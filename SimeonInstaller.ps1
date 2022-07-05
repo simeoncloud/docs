@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+#Requires -Version 6
 $ErrorActionPreference = 'Stop'
 $InformationPreference = 'Continue'
 
@@ -14,8 +14,8 @@ New-Module -Name 'SimeonInstaller' -ScriptBlock {
         )
 
         $ErrorActionPreference = 'Continue'
-        iex $Expression
-        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode" }
+        $output = iex $Expression
+        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode`r`n$output" }
     }
 
     function Read-HostBooleanValue {
@@ -216,14 +216,6 @@ CRLFOption=CRLFAlways
             @{ Name = 'MSAL.PS' },
             @{ Name = 'powershell-yaml' }
         )
-        if ($PSVersionTable.PSEdition -eq 'Core') {
-            Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
-            if (!(Get-PackageSource PoshTestGallery -EA SilentlyContinue)) { Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null }
-            $requiredModules += @{ Name = 'AzureAD.Standard.Preview'; RequiredVersion = '0.0.0.10'; Repository = 'PoshTestGallery' }
-        }
-        else {
-            $requiredModules += @{ Name = 'AzureAD' }
-        }
 
         foreach ($m in $requiredModules) {
             if (!$m.Repository) { $m.Repository = 'PSGallery' }
@@ -233,6 +225,22 @@ CRLFOption=CRLFAlways
             }
             $m.Remove('Repository')
             Import-Module @m
+        }
+
+        if (Get-Module AzureAD.Standard.Preview -ListAvailable -EA SilentlyContinue) {
+            Import-Module AzureAD.Standard.Preview
+        }
+        elseif ($IsWindows) {
+            $modules = Get-Module 'AzureAD', 'AzureAD.Preview' -ListAvailable -EA SilentlyContinue
+            if (!$modules) {
+                Install-Module AzureAD -Scope CurrentUser -Force -AllowClobber -AcceptLicense -SkipPublisherCheck | Out-Null
+            }
+            else {
+                $modules | Import-Module
+            }
+        }
+        else {
+            throw "Please install AzureAD.Standard.Preview module."
         }
 
         # don't install again
@@ -557,6 +565,7 @@ CRLFOption=CRLFAlways
         foreach ($clientAppId in @($azurePowerShellAppId, $msGraphPowerShellAppId)) {
             # MS Graph
             Grant-AzureADOAuth2Permission -Tenant $Tenant -ClientAppId $clientAppId -ResourceAppId '00000003-0000-0000-c000-000000000000' -ResourceScopes @(
+                "AuditLog.Read.All",
                 "Application.ReadWrite.All",
                 "AppRoleAssignment.ReadWrite.All",
                 "DeviceManagementApps.ReadWrite.All",
@@ -947,6 +956,8 @@ CRLFOption=CRLFAlways
         [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
         [CmdletBinding()]
         param(
+            # The tenant domain name to be added to variables.json
+            [string]$Tenant,
             # The Azure DevOps organization name (e.g. 'Simeon-MyOrganization')
             [string]$Organization,
             # The project name in DevOps (defaults to 'Tenants')
@@ -1007,7 +1018,7 @@ CRLFOption=CRLFAlways
             }
         }
 
-        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -TemplateRepositoryUrl $TemplateRepositoryUrl
+        Install-SimeonTenantRepository -Organization $Organization -Project $Project -Name $Name -TemplateRepositoryUrl $TemplateRepositoryUrl -Tenant $Tenant
 
         Install-SimeonTenantBaseline -Organization $Organization -Project $Project -Repository $Name -Baseline $Baseline
 
@@ -1060,7 +1071,6 @@ CRLFOption=CRLFAlways
         }
 
         $projectTeamName = "[$Project]\$Project Team"
-        $projectTeamId = $identities.results.identities |? displayName -eq $projectTeamName | Select -ExpandProperty localId
 
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
@@ -1270,7 +1280,9 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Name,
             # Url of the template git repository to use when creating the repository
-            [string]$TemplateRepositoryUrl
+            [string]$TemplateRepositoryUrl,
+            # The tenant domain name to be add to variables.json
+            [string]$Tenant
         )
 
         if ($Project.Contains(" ")) {
@@ -1334,8 +1346,19 @@ CRLFOption=CRLFAlways
                 Invoke-CommandLine "git init 2>&1" | Write-Verbose
                 Initialize-GitConfiguration
                 Invoke-CommandLine "git remote add origin $($repo.remoteUrl) 2>&1" | Write-Verbose
+
+                $variablesContent = @"
+{
+    "ResourceContext:TenantDomainName": "$Tenant"
+}
+"@
+
+                $variablesContent | Out-File variables.json -Force
+
                 Invoke-CommandLine "git add . 2>&1" | Write-Verbose
                 Invoke-CommandLine "git commit -m 'Created Repository' 2>&1" | Write-Verbose
+
+
 
                 Write-Verbose "Pushing new repository to remote"
                 Invoke-CommandLine "git $gitConfig push --force -u origin --all 2>&1" | Write-Verbose
@@ -1389,6 +1412,10 @@ CRLFOption=CRLFAlways
             $gitModules = git config --file .gitmodules --get-regexp submodule\.Baseline\.url
             $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
 
+            if ($submodule) {
+                Write-Information "Baseline being replaced"
+            }
+
             if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule -and (Test-Path $baselinePath)) {
                 Write-Information "Baseline is already configured to use '$($PSBoundParameters.Baseline)'"
                 return
@@ -1430,9 +1457,15 @@ CRLFOption=CRLFAlways
                     $message = "Set repository to have no baseline"
                 }
                 Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
-
+                if ($submodule) {
+                    Write-Information "Adding reset baseline tag"
+                    Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" HEAD -m `"reset baseline`" 2>&1" | Write-Verbose
+                }
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
+                if ($submodule) {
+                    Invoke-CommandLine 'git push origin master -f --tags 2>&1' | Write-Verbose
+                }
             }
         }
         finally {
@@ -2315,7 +2348,7 @@ CRLFOption=CRLFAlways
         }
 
         $devOpsArgs = @{}
-        @('Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
+        @('Tenant', 'Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
             $devOpsArgs[$_] = $PSBoundParameters.$_
         }
 
@@ -2529,7 +2562,7 @@ CRLFOption=CRLFAlways
                         "state": 0
                     }
 "@
-            } | Out-Null
+            } -MaxRetryCount 10 -DelaySeconds 15 | Out-Null
 
             # Overview > uncheck Artifacts
             Write-Information "Updating project settings turning off Artifacts"
@@ -2593,9 +2626,14 @@ CRLFOption=CRLFAlways
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Add project collection build service user to tenants contributors
-            Write-Information "Adding Project Collection Build Service ($Organization)"
+            Write-Information "Adding Project Collection Build Service to tenants contributors ($Organization)"
             $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Add project collection build service to Project Collection Build Service Accounts
+            Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
+            $buildServiceAccountsGroupDescriptor = ($groups |? principalName -eq "[$Organization]\Project Collection Build Service Accounts").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
 
             # Repositories > Permissions > Contributors > allow Create repository
             Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
@@ -2750,6 +2788,12 @@ CRLFOption=CRLFAlways
                 }
 "@ } | Out-Null
             }
+            # Disable Organization notification
+            # Build Completes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+            # Pull request changes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+
             # Disable pipeline notifications
             # Build completes
             Write-Information "Disabling build completes pipeline notifications"

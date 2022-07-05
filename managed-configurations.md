@@ -40,7 +40,7 @@
     - Device clean-up rules
     - Enrollment restrictions
     - Feature updates for Windows 10 and later
-    - Quality updates for Windows 10 and later 
+    - Quality updates for Windows 10 and later
     - Scripts
     - Windows Autopilot deployment profiles
   - Diagnostic settings
@@ -129,6 +129,8 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
+    - Users
+      - External access
     - Voice
       - Calling policies
 
