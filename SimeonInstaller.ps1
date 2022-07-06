@@ -2685,17 +2685,9 @@ CRLFOption=CRLFAlways
             } | Out-Null
         }
 
-        $restProps = @{
-            Headers = @{
-                Authorization = "Bearer $token"
-                Accept = "application/json;api-version=5.1-preview.1"
-            }
-            ContentType = 'application/json'
-        }
-
         $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
 
-        $identities = irm @restProps "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
             {
                 "query": "Contributors",
                 "identityTypes": [
@@ -2714,6 +2706,7 @@ CRLFOption=CRLFAlways
                 ]
             }
 "@
+        }
 
         $contributorsDisplayName = "[$Project]\Contributors"
         $contributorsId = $identities.results.identities | ? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
@@ -2722,7 +2715,7 @@ CRLFOption=CRLFAlways
         $currentContributorsScopeDisplayName = ''
         while ($currentContributorsScopeDisplayName -ne 'Administrator') {
             Write-Information "Trying to make Contributors admin for project library"
-            irm @restProps -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
               [
                   {
                       "roleName": "Administrator",
@@ -2730,11 +2723,14 @@ CRLFOption=CRLFAlways
                   }
               ]
 "@ | Out-Null
-
+            }
             $currentScopesUrl = "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$($projectId)`$0"
-            $currentScopes = irm @restProps -Uri $currentScopesUrl -Method Get
+            $currentScopes = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $currentScopesUrl -Method Get }
             $currentContributorsScope = $currentScopes.value | where { $_.identity.uniqueName -eq $contributorsDisplayName }
             $currentContributorsScopeDisplayName = $currentContributorsScope.role.displayName
+            if ($currentContributorsScopeDisplayName -ne 'Administrator') {
+                Start-Sleep -Seconds 2
+            }
         }
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
