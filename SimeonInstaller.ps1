@@ -666,7 +666,6 @@ CRLFOption=CRLFAlways
         $groupDescriptor = ($Groups |? principalName -eq $SubjectGroupPrincipalName).descriptor
         $identityDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get }).value).descriptor
         $uri = "https://dev.azure.com/$Organization/_apis/AccessControlEntries/$($ResourceId)?api-version=5.0"
-        Write-Information $uri
         Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $uri -Method Post -ContentType "application/json" -Body @"
         {
             "token": "$EntryToken",
