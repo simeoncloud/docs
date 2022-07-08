@@ -227,21 +227,15 @@ CRLFOption=CRLFAlways
             Import-Module @m
         }
 
-        if (Get-Module AzureAD.Standard.Preview -ListAvailable -EA SilentlyContinue) {
-            Import-Module AzureAD.Standard.Preview
-        }
-        elseif ($IsWindows) {
-            $modules = Get-Module 'AzureAD', 'AzureAD.Preview' -ListAvailable -EA SilentlyContinue
-            if (!$modules) {
-                Install-Module AzureAD -Scope CurrentUser -Force -AllowClobber -AcceptLicense -SkipPublisherCheck | Out-Null
-            }
-            else {
-                $modules | Import-Module
-            }
+
+        $modules = Get-Module 'AzureAD', 'AzureAD.Preview' -ListAvailable -EA SilentlyContinue
+        if (!$modules) {
+            Install-Module AzureAD -Scope CurrentUser -Force -AllowClobber -AcceptLicense -SkipPublisherCheck | Out-Null
         }
         else {
-            throw "Please install AzureAD.Standard.Preview module."
+            $modules | Import-Module
         }
+
 
         # don't install again
         $script:SkipSimeonModuleInstallation = $true
@@ -653,13 +647,15 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$ProjectId,
-            [ValidateNotNullOrEmpty()]
             [string]$SubjectGroupPrincipalName,
             [ValidateNotNullOrEmpty()]
             [string]$PermissionDescription,
             [ValidateNotNullOrEmpty()]
-            [int]$PermissionNumber
+            [int]$PermissionNumber,
+            [ValidateNotNullOrEmpty()]
+            [string]$ResourceId,
+            [ValidateNotNullOrEmpty()]
+            [string]$EntryToken
         )
 
         $authenicationHeader = Get-AzureDevOpsAuthHeader
@@ -669,10 +665,11 @@ CRLFOption=CRLFAlways
         Write-Information "Allowing $SubjectGroupPrincipalName to $PermissionDescription"
         $groupDescriptor = ($Groups |? principalName -eq $SubjectGroupPrincipalName).descriptor
         $identityDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get }).value).descriptor
-        # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
-        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/AccessControlEntries/2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87?api-version=5.0" -Method Post -ContentType "application/json" -Body @"
+        $uri = "https://dev.azure.com/$Organization/_apis/AccessControlEntries/$($ResourceId)?api-version=5.0"
+        Write-Information $uri
+        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $uri -Method Post -ContentType "application/json" -Body @"
         {
-            "token": "repoV2/$ProjectId/",
+            "token": "$EntryToken",
             "merge": true,
             "accessControlEntries": [
                 {
@@ -2608,36 +2605,6 @@ CRLFOption=CRLFAlways
             } | Out-Null
         }
 
-        Write-Information "Updating project permissions"
-        Invoke-Command -ScriptBlock {
-            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
-            $users = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
-            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
-
-            #  Permissions > Contributors > Members > Add > $Project Build Service
-            ### Contributors group actions
-            Write-Information "Configuring permissions for Contributors group"
-            Write-Information "Adding $Project Build Service ($Organization)"
-            $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
-            $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
-            # Add project collection build service user to tenants contributors
-            Write-Information "Adding Project Collection Build Service to tenants contributors ($Organization)"
-            $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
-            # Add project collection build service to Project Collection Build Service Accounts
-            Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
-            $buildServiceAccountsGroupDescriptor = ($groups |? principalName -eq "[$Organization]\Project Collection Build Service Accounts").descriptor
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
-            # Repositories > Permissions > Contributors > allow Create repository
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
-        }
-
         # Invite users to tenants contributor group
         if ($InviteToOrgAsAdmin) {
             foreach ($user in $InviteToOrgAsAdmin) {
@@ -2728,6 +2695,39 @@ CRLFOption=CRLFAlways
             if ($currentContributorsScopeDisplayName -ne 'Administrator') {
                 Start-Sleep -Seconds 2
             }
+        }
+
+        Write-Information "Updating project permissions"
+        Invoke-Command -ScriptBlock {
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+            $users = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
+            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+
+            #  Permissions > Contributors > Members > Add > $Project Build Service
+            ### Contributors group actions
+            Write-Information "Configuring permissions for Contributors group"
+            Write-Information "Adding $Project Build Service ($Organization)"
+            $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
+            $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Add project collection build service user to tenants contributors
+            Write-Information "Adding Project Collection Build Service to tenants contributors ($Organization)"
+            $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Add project collection build service to Project Collection Build Service Accounts
+            Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
+            $buildServiceAccountsGroupDescriptor = ($groups |? principalName -eq "[$Organization]\Project Collection Build Service Accounts").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Repositories > Permissions > Contributors > allow Create repository
+            # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository" -EntryToken "repoV2/$projectId/" -ResourceId "2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87"
+            # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push" -EntryToken "repoV2/$projectId/" -ResourceId "2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87"
+            # 33344d9c-fc72-4d6f-aba5-fa317101a7e9 is the pipelines namespace
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions" -EntryToken $projectId -ResourceId "33344d9c-fc72-4d6f-aba5-fa317101a7e9"
         }
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
