@@ -324,7 +324,7 @@ CRLFOption=CRLFAlways
         param (
             # Resource to obtain a token for
             [Parameter(Mandatory)]
-            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'KeyVault', 'MSGraph')]
+            [ValidateSet('AzureDevOps', 'AzureManagement', 'AzureADGraph', 'KeyVault', 'MSGraph', 'PowerBI')]
             [string]$Resource,
             # Tenant Id or name
             [ValidateNotNullOrEmpty()]
@@ -359,6 +359,10 @@ CRLFOption=CRLFAlways
             'MSGraph' {
                 $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
                 $Scopes = 'https://graph.microsoft.com/Directory.AccessAsUser.All'
+            }
+            'PowerBI' {
+                $clientId = '1950a258-227b-4e31-a9cf-717495945fc2' # Azure PowerShell
+                $Scopes = 'https://analysis.windows.net/powerbi/api/.default'
             }
         }
 
@@ -2342,7 +2346,7 @@ CRLFOption=CRLFAlways
         $pipelineVariables = @{}
         $pipelineVariables['AzureManagement:SubscriptionId'] = @{
             allowOverride = $false
-            value = $Subscription ?? ' '
+            value = if ($Subscription) { $Subscription } else { ' ' }
         }
 
         if (!$UseServiceAccount) {
@@ -2802,7 +2806,7 @@ CRLFOption=CRLFAlways
     }
     <#
     .SYNOPSIS
-        Creates an App registration in the specified tenant. Generates app credentials and uploads to the DevOps variable group.
+        Creates an App registration in the specified tenant. Generates app credentials and returns an object with appId and Credentials
     #>
     function Install-SimeonReportingApplication {
         param(
@@ -2848,14 +2852,47 @@ CRLFOption=CRLFAlways
               "endDateTime": "$(Get-Date ((Get-Date).AddYears(100)) -Format "o")"
             }
           }
-"@
+"@ }
         }
           # Save to DevOps variable group
           Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'PowerBIAppId' -VariableValue $app.id
           Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'PowerBIAppSecret' -VariableValue "$($credentials.secretText)" -IsSecret
           Set-VariableInDevOpsVariableGroup -Organization $Organization -Project $Project -VariableName 'PowerBITenant' -VariableValue $Tenant
+
+          # Update sync.yml, set PublishToPowerBI for all tenants
+          $devOpsToken = Get-SimeonAzureDevOpsAccessToken -Organization $Organization
+
+          $restProps = @{
+              Headers = @{
+                  Authorization = "Bearer $devOpsToken"
+                  Accept = "application/json;api-version=5.1"
         }
+              ContentType = 'application/json'
+          }
+          $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
+
+          $repos = irm @restProps "$apiBaseUrl/git/repositories"
+          foreach ($repo in $repos) {
+            $repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $Repository).remoteUrl
+            $repositoryPath = (Get-GitRepository -Repository $Repository -AccessToken $token)
+            Push-Location $repositoryPath
+
       }
+
+      }
+      <#
+        .SYNOPSIS
+            Confirms that each of the sync.yml files in the organization are configured to send to Power BI
+        #>
+      function Set-PowerBIPropertiesInTenantSyncYml {
+      param()
+
+          # For each tenant
+            # Get the repo
+            # Update yml - resources, variable group, sync property
+            # commit
+      }
+
 
         <#
         .SYNOPSIS
@@ -2894,6 +2931,63 @@ CRLFOption=CRLFAlways
         $variableGroup.variables | Add-Member -Name "$VariableName" -Value @{Value = "$VariableValue"; isSecret = $IsSecret.IsPresent} -Type NoteProperty
         Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=6.1-preview.2" -Method Put -Body ($variableGroup | ConvertTo-Json -Depth 100) }
       }
-    Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
+
+      function Install-SimeonPowerBIWorkspace {
+        param(
+            [ValidateNotNullOrEmpty()]
+            [string]$GrantAccessToAppId,
+            [string]$Name = 'Simeon Sync'
+        )
+
+        $token = Get-SimeonAzureADAccessToken -Resource 'PowerBI'
+        $restProps = $restPropsTenant = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+            }
+            ContentType = 'application/json'
+        }
+
+        # Create the workspace if it doesn't exist
+        try{
+            $worksapce = (Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups").value |? name -eq $Name
+        } catch {
+            if($_.ErrorDetails.Message -match 'User is not licensed') {
+                Write-Error "The current user is not licensed for Power BI, please assign a premium license and run the installer again"
+            } # TODO, what error does it throw if a user is not allowed to create workspaces, get that error type and throw that error
+            else {
+                Write-Error $_.Exception.Message
+            }
+        }
+        if(!$worksapce) {
+            $workspace = Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups?workspaceV2=True" -Method Post -Body @"
+            {
+                "name":"$Name"
+            }
+"@ }
+        }
+         #TODO, does the report need premium capacity, if so need to add this:  "capacityObjectId":"E1C31DE5-E999-4990-9BCB-602F79CAADBD", (or capacityId)
+
+        # Update the tenant settings to allow Service Principals access to Power BI
+        $restPropsTenant.Headers.'x-powerbi-user-admin' = $true
+        $settings = Invoke-WithRetry { Invoke-RestMethod @restPropsTenant 'https://wabi-west-us-d-primary-redirect.analysis.windows.net/metadata/tenantsettings' }
+
+        $servicePrincipalAccess = ($settings.featureSwitches |? switchName -eq 'ServicePrincipalAccess')
+        if (!$servicePrincipalAccess.isEnabled) {
+            $index = 0..($settings.featureSwitches.Count -1) | Where { $settings.featureSwitches[$_].switchName -eq 'ServicePrincipalAccess' }
+            $settings.featureSwitches[$index].isEnabled = $true
+            # TODO Power BI suggests only granting to certain groups. Should we create a group and add the app to it?
+            $settings.featureSwitches[$index].isGranular = $false
+            Invoke-WithRetry { Invoke-RestMethod @restPropsTenant 'https://wabi-west-us-d-primary-redirect.analysis.windows.net/metadata/tenantsettings' -Method Put -Body (ConvertTo-Json -Depth 100 $settings) }
+        }
+
+        # Grant access for the Workspace to the App
+        Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups/$($worksapce.id)/users" -Body @"
+        {
+          "identifier": "$GrantAccessToAppId",
+          "groupUserAccessRight": "Admin",
+          "principalType": "App"
+        }
+"@ }
+      }
 
 } | Import-Module -Force -PassThru
