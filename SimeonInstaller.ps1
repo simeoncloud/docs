@@ -2687,7 +2687,7 @@ CRLFOption=CRLFAlways
 
         $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
 
-        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities" -Method Post -Body @"
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body @"
             {
                 "query": "Contributors",
                 "identityTypes": [
