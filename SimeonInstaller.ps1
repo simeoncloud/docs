@@ -2682,43 +2682,53 @@ CRLFOption=CRLFAlways
             } | Out-Null
         }
 
+        $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
 
-
-        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities`?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
-        {
-            "query": "Contributors",
-            "identityTypes": [
-                "group"
-            ],
-            "operationScopes": [
-                "ims",
-                "source"
-            ],
-            "options": {
-                "MinResults": 1,
-                "MaxResults": 1000
-            },
-            "properties": [
-                "DisplayName"
-            ]
-        }
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body @"
+            {
+                "query": "Contributors",
+                "identityTypes": [
+                    "group"
+                ],
+                "operationScopes": [
+                    "ims",
+                    "source"
+                ],
+                "options": {
+                    "MinResults": 1,
+                    "MaxResults": 1000
+                },
+                "properties": [
+                    "DisplayName"
+                ]
+            }
 "@
         }
 
         $contributorsDisplayName = "[$Project]\Contributors"
-        $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-        $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+        $contributorsId = $identities.results.identities | ? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
 
-        Write-Information "Making Contributors admin for project library"
-        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
-        [
-            {
-                "roleName": "Administrator",
-                "userId": "$contributorsId"
+        Write-Information "Polling to make Contributors admin for project library"
+        $currentContributorsScopeDisplayName = ''
+        while ($currentContributorsScopeDisplayName -ne 'Administrator') {
+            Write-Information "Trying to make Contributors admin for project library"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
+              [
+                  {
+                      "roleName": "Administrator",
+                      "userId": "$contributorsId"
+                  }
+              ]
+"@ | Out-Null
             }
-        ]
-"@
-        } | Out-Null
+            $currentScopesUrl = "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$($projectId)`$0"
+            $currentScopes = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $currentScopesUrl -Method Get }
+            $currentContributorsScope = $currentScopes.value | where { $_.identity.uniqueName -eq $contributorsDisplayName }
+            $currentContributorsScopeDisplayName = $currentContributorsScope.role.displayName
+            if ($currentContributorsScopeDisplayName -ne 'Administrator') {
+                Start-Sleep -Seconds 2
+            }
+        }
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
         Write-Information "Installing code search"
