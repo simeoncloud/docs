@@ -525,7 +525,7 @@
     "url": "https://security.microsoft.com/antispam",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:HostedOutboundSpamFilterPolicies",
@@ -581,7 +581,7 @@
     "url": "https://security.microsoft.com/antimalwarev2",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:MobileDeviceMailboxPolicies",
@@ -691,17 +691,17 @@
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
-    "isCreateSupportedFilter": "^(?:(?!^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$",
+    "isCreateSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2",
-    "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SharingPolicies",
