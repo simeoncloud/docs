@@ -2808,7 +2808,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-        Creates an app registration in the specified tenant. Generates app credentials and returns an object with appId and Credentials
+        Creates an app registration in the specified tenant. Generates app credentials and returns an object with appId and credentials
     #>
     function Get-AzureADAppRegistration {
         param(
@@ -2872,7 +2872,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-        Creates an app registration and service principal in the specified tenant. Returns an object with appId and Credentials
+        Creates an app registration and service principal required for Power BI Reporting. Returns an object with appId and credentials
     #>
     function Install-SimeonReportingApplication {
         param(
@@ -2889,9 +2889,9 @@ CRLFOption=CRLFAlways
     }
 
     <#
-        .SYNOPSIS
-            Confirms that each of the sync.yml files in the organization are configured to send sync data to Power BI
-        #>
+    .SYNOPSIS
+        Confirms that each of the sync.yml files in the organization are configured to send sync data to Power BI
+    #>
     function Install-SimeonPowerBIPropertiesInTenantSyncYml {
         param(
             [ValidateNotNullOrEmpty()]
@@ -2968,15 +2968,17 @@ CRLFOption=CRLFAlways
     }
 
     <#
-        .SYNOPSIS
-            Adds a given variable name and secret to a variable group.
-        #>
+    .SYNOPSIS
+        Adds a given variable name and secret to a variable group.
+    #>
     function Install-SimeonVariableInDevOpsVariableGroup {
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
             [string]$Project = "Tenants",
+            # Variable group to add variables to
+            [string]$VariableGroupName = 'Sync',
             # The name of the variable to be created
             [ValidateNotNullOrEmpty()]
             [string]$VariableName,
@@ -2984,9 +2986,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$VariableValue,
             # Should the variable be kept secret in DevOps
-            [switch]$IsSecret,
-            # Variable group to add variables to
-            [string]$VariableGroupName = 'Sync'
+            [switch]$IsSecret
         )
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
 
@@ -3008,13 +3008,19 @@ CRLFOption=CRLFAlways
         Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=6.1-preview.2" -Method Put -Body ($variableGroup | ConvertTo-Json -Depth 100) }
     }
 
+    <#
+    .SYNOPSIS
+        Creates a Power BI workspace and permissions the provided App registration to the workspace
+    #>
     function Install-SimeonPowerBIWorkspace {
         param(
-            [ValidateNotNullOrEmpty()]
-            [string]$GrantAccessToAppId,
+            # The tenant to be used to create the workspace
             [ValidateNotNullOrEmpty()]
             [string]$Tenant,
-            [string]$Name = 'Simeon Sync'
+            # Name of the Power BI Workspace to be created
+            [string]$Name = 'Simeon Sync',
+            [ValidateNotNullOrEmpty()]
+            [string]$GrantAccessToAppId
         )
         $token = Get-SimeonAzureADAccessToken -Resource 'PowerBI' -Tenant $Tenant
         $restProps = @{
