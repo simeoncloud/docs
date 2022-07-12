@@ -1260,7 +1260,6 @@ CRLFOption=CRLFAlways
                 } | ConvertTo-Json -Depth 100)
             irm @restProps $permissionsApi -Method Patch -Body $permissionBody
         }
-
     }
 
     <#
@@ -1782,8 +1781,10 @@ CRLFOption=CRLFAlways
             # The project name in DevOps
             [ValidateNotNullOrEmpty()]
             [string]$Project = 'Tenants',
+            # The pipeline name, should match the yml file
             [ValidateNotNullOrEmpty()]
             [string]$PipelineName,
+            # Display name of the pipeline to be created
             [string]$DisplayName
         )
         if (!$DisplayName) {
@@ -2804,17 +2805,22 @@ CRLFOption=CRLFAlways
             Write-Warning "Accept the DevOps email invite in an incognito browser"
         }
     }
+
     <#
     .SYNOPSIS
-        Creates an App registration in the specified tenant. Generates app credentials and returns an object with appId and Credentials
+        Creates an app registration in the specified tenant. Generates app credentials and returns an object with appId and Credentials
     #>
-    function Install-SimeonReportingApplication {
+    function Get-AzureADAppRegistration {
         param(
             [ValidateNotNullOrEmpty()]
-            [string]$ReportingTenant,
-            [string]$SimeonReportingDisplayName = 'Simeon Power BI Reporting'
+            [string]$Tenant,
+            # The name of the app registration to be created
+            [ValidateNotNullOrEmpty()]
+            [string]$Name,
+            # If provided, creates a password credential with the same name as the app
+            [switch]$GenerateCredentials
         )
-        $token = Get-SimeonAzureADAccessToken -Resource 'MSGraph' -Tenant $ReportingTenant
+        $token = Get-SimeonAzureADAccessToken -Resource 'MSGraph' -Tenant $Tenant
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
@@ -2823,48 +2829,75 @@ CRLFOption=CRLFAlways
             ContentType = 'application/json'
         }
 
-        $app = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/?filter=startsWith(displayName, '$SimeonReportingDisplayName')" -Method Get }).value
+        $app = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/?filter=startsWith(displayName, '$Name')" -Method Get }).value
         if (!$app) {
-            Write-Information "Creating application $SimeonReportingDisplayName"
-            $app = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications" -Method POST -Body @"
+            Write-Information "Creating application $Name"
+            $app = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications" -Method Post -Body @"
             {
-              "displayName": "$SimeonReportingDisplayName"
+              "displayName": "$Name"
             }
 "@
                 })
         }
         else {
-            Write-Information "Application $SimeonReportingDisplayName already exists"
+            Write-Information "Application $Name already exists"
         }
-
-        Grant-AzureADOAuth2Permission -Tenant $ReportingTenant -ClientAppId $app.id -ResourceAppId '00000009-0000-0000-c000-000000000000' -ResourceScopes @('Tenant.ReadWrite.All')
-        $credentials = ($app.passwordCredentials |? { $_.displayName -eq "'$SimeonReportingDisplayName'" })
-        if (!$credentials) {
-            Write-Information "Creating client credentials for $SimeonReportingDisplayName"
-            $credentials = Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/$($app.id)/addPassword" -Method POST -Body @"
-          {
-            "passwordCredential": {
-              "displayName": "$SimeonReportingDisplayName",
-              "endDateTime": "$(Get-Date ((Get-Date).AddYears(100)) -Format "o")"
+        if ($GenerateCredentials) {
+            $credentials = $app.passwordCredentials |? displayName -eq "$Name"
+            # Can have max of 2 credentials, remove any credentials matching $Name so it can be created again
+            foreach ($credential in $credentials) {
+                Write-Information "Removing client credential $($credential.displayName) for $Name"
+                Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/$($app.id)/removePassword" -Method Post -Body @"
+            {
+              "keyId": "$($credential.keyId)"
             }
+"@ }
+            }
+
+            Write-Information "Creating client credentials for $Name"
+            $credentials = Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/applications/$($app.id)/addPassword" -Method Post -Body @"
+        {
+          "passwordCredential": {
+            "displayName": "$Name",
+            "endDateTime": "$(Get-Date ((Get-Date).AddYears(100)) -Format "o")"
           }
+        }
 "@ }
         }
         return @{
-            id = $app.id
+            appId = $app.appId
             secret = "$($credentials.secretText)"
         }
     }
 
+    <#
+    .SYNOPSIS
+        Creates an app registration and service principal in the specified tenant. Returns an object with appId and Credentials
+    #>
+    function Install-SimeonReportingApplication {
+        param(
+            # The name of the tenant that will hold the Power BI report
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant,
+            # Display name of the app registration to be created in the reporting tenant
+            [string]$SimeonReportingDisplayName = 'Simeon Power BI Reporting'
+        )
+        $app = Get-AzureADAppRegistration -Name $SimeonReportingDisplayName -Tenant $Tenant -GenerateCredentials
+        # Grant access to read the Power BI APIs
+        Grant-AzureADOAuth2Permission -Tenant $Tenant -ClientAppId $app.appId -ResourceAppId '00000009-0000-0000-c000-000000000000' -ResourceScopes @('Tenant.ReadWrite.All')
+        return $app
+    }
 
     <#
         .SYNOPSIS
-            Confirms that each of the sync.yml files in the organization are configured to send to Power BI
+            Confirms that each of the sync.yml files in the organization are configured to send sync data to Power BI
         #>
-    function Set-PowerBIPropertiesInTenantSyncYml {
+    function Install-SimeonPowerBIPropertiesInTenantSyncYml {
         param(
             [ValidateNotNullOrEmpty()]
-            [string]$Organization
+            [string]$Organization,
+            [ValidateNotNullOrEmpty()]
+            [string]$Project = "Tenants"
         )
         $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization
         $restProps = @{
@@ -2874,18 +2907,20 @@ CRLFOption=CRLFAlways
             }
             ContentType = 'application/json'
         }
-        $repos = irm @restProps "$apiBaseUrl/git/repositories"
+        $repos = (irm @restProps "https://dev.azure.com/$Organization/$Project/_apis/git/repositories").value
         foreach ($repo in $repos) {
             $repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $($repo.name)).remoteUrl
             $repositoryPath = (Get-GitRepository -Repository $repository -AccessToken $token)
             Push-Location $repositoryPath
             try {
-                Write-Verbose "Configuring Sync.yml to use Power BI"
-                $syncYaml = Get-Content -Raw 'Sync.yml' | ConvertFrom-Yaml -Ordered
-                if (!$syncYaml) {
-                    Write-Error "Unable to find the Sync.yml file in path: $repositoryPath"
+                $syncFile = Get-Content -Raw 'Sync.yml' -ErrorAction SilentlyContinue
+                # Cases were sync file won't exist is organization jobs
+                if (!$syncFile) {
+                    Write-Information "Unable to find the Sync.yml file in path: $repositoryPath"
+                    continue
                 }
-
+                Write-Verbose "Configuring Sync.yml to use Power BI"
+                $syncYaml = $syncFile | ConvertFrom-Yaml -Ordered
                 $syncYaml.stages[0].parameters.PublishToPowerBI = $true
                 # Insert call will fail if key exists
                 if (!$syncYaml.variables) {
@@ -2936,17 +2971,21 @@ CRLFOption=CRLFAlways
         .SYNOPSIS
             Adds a given variable name and secret to a variable group.
         #>
-    function Set-VariableInDevOpsVariableGroup {
+    function Install-SimeonVariableInDevOpsVariableGroup {
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Project,
+            [string]$Project = "Tenants",
+            # The name of the variable to be created
             [ValidateNotNullOrEmpty()]
             [string]$VariableName,
+            # The value of the variable
             [ValidateNotNullOrEmpty()]
             [string]$VariableValue,
+            # Should the variable be kept secret in DevOps
             [switch]$IsSecret,
+            # Variable group to add variables to
             [string]$VariableGroupName = 'Sync'
         )
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
@@ -2974,21 +3013,27 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$GrantAccessToAppId,
             [ValidateNotNullOrEmpty()]
-            [string]$ReportingTenant,
+            [string]$Tenant,
             [string]$Name = 'Simeon Sync'
         )
-        $token = Get-SimeonAzureADAccessToken -Resource 'PowerBI' -Tenant $ReportingTenant
-        $restProps = $restPropsAdmin = @{
+        $token = Get-SimeonAzureADAccessToken -Resource 'PowerBI' -Tenant $Tenant
+        $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
             }
             ContentType = 'application/json'
         }
-        $restPropsAdmin.Headers.'x-powerbi-user-admin' = $true
+        $restPropsAdmin = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                'x-powerbi-user-admin' = $true
+            }
+            ContentType = 'application/json'
+        }
 
         # Create the workspace if it doesn't exist
         try {
-            $worksapce = (Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups").value |? name -eq $Name
+            $worksapce = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups" }).value |? name -eq $Name
         }
         catch {
             if ($_.ErrorDetails.Message -match 'User is not licensed') {
@@ -2998,6 +3043,7 @@ CRLFOption=CRLFAlways
                 Write-Error $_.Exception.Message
             }
         }
+
         if (!$worksapce) {
             $workspace = Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups?workspaceV2=True" -Method Post -Body @"
             {
@@ -3008,8 +3054,8 @@ CRLFOption=CRLFAlways
         #TODO, does the report need premium capacity, if so need to add this:  "capacityObjectId":"E1C31DE5-E999-4990-9BCB-602F79CAADBD", (or capacityId)
 
         # Update the tenant settings to allow Service Principals access to Power BI
+        # TODO Test with this URL, I made the change to west-us, but did not see that in the portal, even after waiting over night
         $settings = Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/tenantsettings' }
-        # TODO Figure out the url, I made the change to west-us, but did not see that in the portal.
         $servicePrincipalAccess = ($settings.featureSwitches |? switchName -eq 'ServicePrincipalAccess')
         if (!$servicePrincipalAccess.isEnabled) {
             $servicePrincipalAccess.isEnabled = $true
@@ -3024,20 +3070,32 @@ CRLFOption=CRLFAlways
                     }
                 })
             # TODO Power BI suggests only granting to certain groups. Should we create a group and add the app to it?
-
             Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/tenantsettings' -Method Put -Body (ConvertTo-Json -Depth 100 $body) }
         }
         # Need to get the folderId, which is required to grant access
-        $folder = (Invoke-RestMethod @restProps 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/folders' -Method Get) |? objectId -eq $worksapce.id
-        $sp = Get-AzureADServicePrincipalId -Tenant $ReportingTenant -AppId $GrantAccessToAppId
-        # Grant access for the Workspace to the App
-        Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin "https://wabi-us-west2-redirect.analysis.windows.net/metadata/access/folders/$($folder.id)" -Method Put -Body @"
+        # The folder takes a minute to be created, wait until available
+        $i = 0
+        $maxAttempts = 10
+        do {
+            $folder = Invoke-WithRetry { (Invoke-RestMethod @restProps 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/folders' -Method Get) } |? objectId -eq $workspace.id
+            Write-Information "Power BI Worksapace not yet available, try $i out of $maxAttempts"
+            $i++
+            Start-Sleep -Seconds 60
+        }
+        while ($null -eq $folder -and $i -lt $maxAttempts)
+        if (!$folder) {
+            Write-Error "Timed out while granting access to the App Id '$GrantAccessToAppId'"
+        }
+
+        $sp = Get-AzureADServicePrincipalId -Tenant $Tenant -AppId $GrantAccessToAppId
+        # Grant admin (permission 15) access for the Workspace to the App
+        Invoke-WithRetry { Invoke-RestMethod @restProps "https://wabi-us-west2-redirect.analysis.windows.net/metadata/access/folders/$($folder.id)" -Method Put -Body @"
         {
             "folders":
                 [
                     {
                         "id": $($folder.id),
-                        "permissions": $($folder.permissions),
+                        "permissions": 15,
                         "userObjectId":"$sp",
                         "isServicePrincipal": true
                      }
