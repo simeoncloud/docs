@@ -18,6 +18,9 @@
   - Mobility (MDM and MAM)
   - Password reset
   - Security
+    - Authentication methods
+      - Policies
+        - Microsoft Authenticator
     - Conditional Access
       - Named locations
       - Policies
