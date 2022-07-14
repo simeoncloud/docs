@@ -2880,7 +2880,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Tenant,
             # Display name of the app registration to be created in the reporting tenant
-            [string]$SimeonReportingDisplayName = 'Simeon Power BI Reporting'
+            [string]$SimeonReportingDisplayName = 'Simeon Cloud Power BI Reporting'
         )
         $app = Get-AzureADAppRegistration -Name $SimeonReportingDisplayName -Tenant $Tenant -GenerateCredentials
         # Grant access to read the Power BI APIs
@@ -2971,7 +2971,7 @@ CRLFOption=CRLFAlways
     .SYNOPSIS
         Adds a given variable name and secret to a variable group.
     #>
-    function Install-SimeonVariableInDevOpsVariableGroup {
+    function Install-SimeonAzureDevOpsVariableGroupVariable {
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
@@ -3043,10 +3043,10 @@ CRLFOption=CRLFAlways
         }
         catch {
             if ($_.ErrorDetails.Message -match 'User is not licensed') {
-                Write-Error "The current user is not licensed for Power BI, please assign a premium license and run the installer again"
+                throw { "The current user is not licensed for Power BI, please assign a premium license and run the installer again." }
             } # TODO, what error does it throw if a user is not allowed to create workspaces, get that error type and throw that error
             else {
-                Write-Error $_.Exception.Message
+                throw { $_.Exception.Message }
             }
         }
 
@@ -3090,7 +3090,7 @@ CRLFOption=CRLFAlways
         }
         while ($null -eq $folder -and $i -lt $maxAttempts)
         if (!$folder) {
-            Write-Error "Timed out while granting access to the App Id '$GrantAccessToAppId'"
+            throw { "Timed out while granting access to the App Id '$GrantAccessToAppId'." }
         }
 
         $sp = Get-AzureADServicePrincipalId -Tenant $Tenant -AppId $GrantAccessToAppId
