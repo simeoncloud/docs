@@ -474,7 +474,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Grants the specified scopes to the service principal with the specified AppId. Installs a ServicePrincipal for the AppId if it is not already.
+        Grants the specified scopes to the service principal with the specified AppId. Installs a ServicePrincipal for the AppId if it is not already.
     #>
     function Get-AzureADServicePrincipalId {
         [CmdletBinding()]
@@ -486,15 +486,19 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$AppId
         )
-        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+        $token = Get-SimeonAzureADAccessToken -Resource 'MSGraph' -Tenant $Tenant
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json"
+            }
+            ContentType = 'application/json'
+        }
 
-        $apiVersion = 'api-version=1.6'
-        $baseUrl = "https://graph.windows.net/$Tenant"
-
-        $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$AppId'" -Headers $headers).value[0].objectId
+        $principalObjectId = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/servicePrincipals?`$filter=appId eq '$AppId'" -Method Get }).value.id
         if (!$principalObjectId) {
             Write-Information "Installing AppId $AppId"
-            $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $AppId } | ConvertTo-Json)).objectId
+            $principalObjectId = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://graph.microsoft.com/beta/servicePrincipals" -Method Post -Body (@{appId = $AppId } | ConvertTo-Json) }).id
         }
         else {
             Write-Information "AppId $AppId is already installed"
@@ -504,7 +508,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Grants the specified scopes to the service principal with the specified AppId. Installs the ServicePrincipal if it is not already.
+        Grants the specified scopes to the service principal with the specified AppId. Installs the ServicePrincipal if it is not already.
     #>
     function Grant-AzureADOAuth2Permission {
         [CmdletBinding()]
@@ -522,22 +526,28 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string[]]$ResourceScopes
         )
-        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+        $token = Get-SimeonAzureADAccessToken -Resource 'MSGraph' -Tenant $Tenant
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+                Accept = "application/json"
+            }
+            ContentType = 'application/json'
+        }
 
-        $apiVersion = 'api-version=1.6'
-        $baseUrl = "https://graph.windows.net/$Tenant"
-
+        $baseUrl = "https://graph.microsoft.com/beta"
         $clientId = Get-AzureADServicePrincipalId $Tenant $ClientAppId
         $resourceId = Get-AzureADServicePrincipalId $Tenant $ResourceAppId
-        $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'" -Headers $headers).value[0]
+
+        $grant = (irm @restProps "$baseUrl/oauth2PermissionGrants?`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'").value
 
         if ($grant) {
             Write-Information "Deleting existing permission grant for client $ClientAppId on resource $ResourceAppId"
-            irm "$baseUrl/oauth2PermissionGrants/$($grant.objectId)?$apiVersion" -Method Delete -Headers $headers | Out-Null
+            irm @restProps "$baseUrl/oauth2PermissionGrants/$($grant.id)" -Method Delete | Out-Null
         }
 
         Write-Information "Adding permission grant for client $ClientAppId on resource $ResourceAppId"
-        irm "$baseUrl/oauth2PermissionGrants?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{
+        irm  @restProps "$baseUrl/oauth2PermissionGrants" -Method Post -Body (@{
                 clientId = $clientId
                 consentType = "AllPrincipals"
                 expiryTime = "9000-01-01T00:00:00"
