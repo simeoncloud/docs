@@ -3020,7 +3020,7 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-        Creates a Power BI workspace and permissions the provided App registration to the workspace
+        Creates a Power BI workspace and permissions the provided App registration to the workspace. Returns the workspace id.
     #>
     function Install-SimeonPowerBIWorkspace {
         param(
@@ -3029,6 +3029,7 @@ CRLFOption=CRLFAlways
             [string]$Tenant,
             # Name of the Power BI Workspace to be created
             [string]$Name = 'Simeon Cloud',
+            # The app id to be granted access to the workspace
             [ValidateNotNullOrEmpty()]
             [string]$GrantAccessToAppId
         )
@@ -3049,7 +3050,8 @@ CRLFOption=CRLFAlways
 
         # Create the workspace if it doesn't exist
         try {
-            $worksapce = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups" }).value |? name -eq $Name
+            $workspace = Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups" }
+            $workspaceId = ($workspace.value |? name -eq $Name).id
         }
         catch {
             if ($_.ErrorDetails.Message -match 'User is not licensed') {
@@ -3060,18 +3062,18 @@ CRLFOption=CRLFAlways
             }
         }
 
-        if (!$worksapce) {
+        if (!$workspace) {
             $workspace = Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/v1.0/myorg/groups?workspaceV2=True" -Method Post -Body @"
             {
                 "name":"$Name"
             }
 "@ }
+            $workspaceId = $workspaceId
         }
-        #TODO, does the report need premium capacity, if so need to add this:  "capacityObjectId":"E1C31DE5-E999-4990-9BCB-602F79CAADBD", (or capacityId)
-
+        # The Power BI url for the workspace, including the correct region e.g., https://wabi-us-west2-redirect.analysis.windows.net
+        $baseUrl = $workspace.'@odata.context'.Split('/')[0..2] -Join '/'
         # Update the tenant settings to allow Service Principals access to Power BI
-        # TODO Test with this URL, I made the change to west-us, but did not see that in the portal, even after waiting over night
-        $settings = Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/tenantsettings' }
+        $settings = Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin "$baseUrl/metadata/tenantsettings" }
         $servicePrincipalAccess = ($settings.featureSwitches |? switchName -eq 'ServicePrincipalAccess')
         if (!$servicePrincipalAccess.isEnabled) {
             $servicePrincipalAccess.isEnabled = $true
@@ -3086,15 +3088,15 @@ CRLFOption=CRLFAlways
                     }
                 })
             # TODO Power BI suggests only granting to certain groups. Should we create a group and add the app to it?
-            Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/tenantsettings' -Method Put -Body (ConvertTo-Json -Depth 100 $body) }
+            Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin "$baseUrl/metadata/tenantsettings" -Method Put -Body (ConvertTo-Json -Depth 100 $body) }
         }
         # Need to get the folderId, which is required to grant access
         # The folder takes a minute to be created, wait until available
         $i = 0
         $maxAttempts = 10
         do {
-            $folders = Invoke-WithRetry { (Invoke-RestMethod @restProps 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/folders' -Method Get) }
-            $folder = $folders |? objectId -eq $worksapce.id
+            $folders = Invoke-WithRetry { Invoke-RestMethod @restProps "$baseUrl/metadata/folders" -Method Get }
+            $folder = $folders |? objectId -eq $workspaceId
             Write-Information "Power BI Worksapace not yet available, try $i out of $maxAttempts"
             $i++
             Start-Sleep -Seconds 60
@@ -3106,7 +3108,7 @@ CRLFOption=CRLFAlways
 
         $sp = Get-AzureADServicePrincipalId -Tenant $Tenant -AppId $GrantAccessToAppId
         # Grant admin (permission 15) access for the Workspace to the App
-        Invoke-WithRetry { Invoke-RestMethod @restProps "https://wabi-us-west2-redirect.analysis.windows.net/metadata/access/folders/$($folder.id)" -Method Put -Body @"
+        Invoke-WithRetry { Invoke-RestMethod @restProps "$baseUrl/metadata/access/folders/$($folder.id)" -Method Put -Body @"
         {
             "folders":
                 [
@@ -3119,6 +3121,64 @@ CRLFOption=CRLFAlways
                 ]
         }
 "@ }
+        return $workspaceId
+    }
+
+    <#
+    .SYNOPSIS
+        Creates a default datasource and table and returns the PbiServiceModelId. The PbiServiceModelId is required when publishing a report built in a different tenant and is currently not available in rest APIs accessible using a Service Account.
+    #>
+    function Install-SimeonDefaultPowerBIDataSource {
+        param (
+            # The tenant to be used to create the workspace
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant,
+            # The id of the Power BI workspace
+            [ValidateNotNullOrEmpty()]
+            [string]$WorkspaceId,
+            # The Power BI dataset name be be created
+            [string]$DatasetName = 'Simeon Sync',
+            # The Power BI table name to be created in the dataset
+            [string]$TableName = 'Sync Details'
+        )
+        $token = Get-SimeonAzureADAccessToken -Resource 'PowerBI' -Tenant $Tenant
+        $restProps = @{
+            Headers = @{
+                Authorization = "Bearer $token"
+            }
+            ContentType = 'application/json'
+        }
+
+        $datasetRaw = Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/beta/myorg/groups/$WorkspaceId/datasets" }
+        $baseUrl = $datasetRaw.'@odata.context'.Split('/')[0..2] -Join '/'
+        $dataset = $datasetRaw |? name -eq $DatasetName
+        if (!$dataset) {
+            Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/beta/myorg/groups/$WorkspaceId/datasets" -Method Post -Body @"
+            {
+            "name": $DatasetName,
+            "defaultMode": "Push",
+            "tables": [
+                    {
+                    "name": $TableName,
+                    "columns": [
+                        {
+                        "name": "Tenant",
+                        "dataType": "string"
+                        }
+                    ]
+                    }
+                ]
+            }
+"@ }
+        }
+        $rawDataSets = Invoke-WithRetry { Invoke-RestMethod @restProps "$baseUrl/metadata/gallery/SharedDatasets" }
+        # Fails to convert to json due to duplicate json keys
+        $workSpaceModels = (($rawDataSets.Replace('nextRefreshTime', '_nextRefreshTime').Replace('lastRefreshTime', '_lastRefreshTime') | ConvertFrom-Json) |? workspaceObjectId -eq $WorkspaceId).model
+        $modelId = ($workSpaceModels |? displayName -eq $DatasetName).id
+        if (!$modelId) {
+            throw "Failed to determine the Power BI model id."
+        }
+        return $modelId
     }
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
