@@ -3028,7 +3028,7 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Tenant,
             # Name of the Power BI Workspace to be created
-            [string]$Name = 'Simeon Sync',
+            [string]$Name = 'Simeon Cloud',
             [ValidateNotNullOrEmpty()]
             [string]$GrantAccessToAppId
         )
@@ -3053,10 +3053,10 @@ CRLFOption=CRLFAlways
         }
         catch {
             if ($_.ErrorDetails.Message -match 'User is not licensed') {
-                throw { "The current user is not licensed for Power BI, please assign a premium license and run the installer again." }
+                throw "The current user is not licensed for Power BI, please assign a premium license and run the installer again."
             } # TODO, what error does it throw if a user is not allowed to create workspaces, get that error type and throw that error
             else {
-                throw { $_.Exception.Message }
+                throw $_.Exception.Message
             }
         }
 
@@ -3093,14 +3093,15 @@ CRLFOption=CRLFAlways
         $i = 0
         $maxAttempts = 10
         do {
-            $folder = Invoke-WithRetry { (Invoke-RestMethod @restProps 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/folders' -Method Get) } |? objectId -eq $workspace.id
+            $folders = Invoke-WithRetry { (Invoke-RestMethod @restProps 'https://wabi-us-west2-redirect.analysis.windows.net/metadata/folders' -Method Get) }
+            $folder = $folders |? objectId -eq $worksapce.id
             Write-Information "Power BI Worksapace not yet available, try $i out of $maxAttempts"
             $i++
             Start-Sleep -Seconds 60
         }
         while ($null -eq $folder -and $i -lt $maxAttempts)
         if (!$folder) {
-            throw { "Timed out while granting access to the App Id '$GrantAccessToAppId'." }
+            throw "Timed out while granting access to the App Id '$GrantAccessToAppId'."
         }
 
         $sp = Get-AzureADServicePrincipalId -Tenant $Tenant -AppId $GrantAccessToAppId
@@ -3112,7 +3113,7 @@ CRLFOption=CRLFAlways
                     {
                         "id": $($folder.id),
                         "permissions": 15,
-                        "userObjectId":"$sp",
+                        "userObjectId": "$sp",
                         "isServicePrincipal": true
                      }
                 ]
