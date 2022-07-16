@@ -3071,7 +3071,7 @@ CRLFOption=CRLFAlways
             $workspaceId = $workspaceId
         }
         # The Power BI url for the workspace, including the correct region e.g., https://wabi-us-west2-redirect.analysis.windows.net
-        $baseUrl = $workspace.'@odata.context'.Split('/')[0..2] -Join '/'
+        $baseUrl = "https://$(([uri]$workspace.'@odata.context').Authority)"
         # Update the tenant settings to allow Service Principals access to Power BI
         $settings = Invoke-WithRetry { Invoke-RestMethod @restPropsAdmin "$baseUrl/metadata/tenantsettings" }
         $servicePrincipalAccess = ($settings.featureSwitches |? switchName -eq 'ServicePrincipalAccess')
@@ -3150,8 +3150,8 @@ CRLFOption=CRLFAlways
         }
 
         $datasetRaw = Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/beta/myorg/groups/$WorkspaceId/datasets" }
-        $baseUrl = $datasetRaw.'@odata.context'.Split('/')[0..2] -Join '/'
-        $dataset = $datasetRaw |? name -eq $DatasetName
+        $baseUrl = "https://$(([uri]$datasetRaw.'@odata.context').Authority)"
+        $dataset = $datasetRaw.value |? name -eq $DatasetName
         if (!$dataset) {
             Invoke-WithRetry { Invoke-RestMethod @restProps "https://api.powerbi.com/beta/myorg/groups/$WorkspaceId/datasets" -Method Post -Body @"
             {
