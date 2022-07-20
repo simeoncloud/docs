@@ -1273,7 +1273,7 @@ CRLFOption=CRLFAlways
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
         $pipelineName = "SummaryEmail"
-        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $DisplayName
+        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
 
         $pipelineVariables = @{
             FromEmailAddress = @{
@@ -1410,7 +1410,7 @@ CRLFOption=CRLFAlways
         }
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
-        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $PipelineName
+        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $DisplayName
 
         $queueName = $poolName = "Azure Pipelines"
         $queueId = ((irm @restProps "$apiBaseUrl/distributedtask/queues?api-version=6.1-preview.1").Value |? Name -eq $queueName).id
