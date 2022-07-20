@@ -1657,7 +1657,7 @@ CRLFOption=CRLFAlways
 
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
         $pipelineName = "SummaryEmail"
-        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $pipelineName
+        $pipeline = (irm @restProps "$apiBaseUrl/build/definitions" -Method Get).value |? name -eq $DisplayName
 
         $pipelineVariables = @{
             FromEmailAddress = @{
