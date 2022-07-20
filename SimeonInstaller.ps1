@@ -2370,48 +2370,80 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-        Adds a given variable name and secret to a variable group.
+        Confirms that each of the sync.yml files in the organization are configured to send sync data to Power BI
     #>
-    function Install-SimeonAzureDevOpsVariableGroupVariable {
+    function Install-SimeonPowerBIPropertiesInTenantSyncYml {
         param(
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$Project = "Tenants",
-            # Variable group to add variables to
-            [string]$VariableGroupName = 'Sync',
-            # The name of the variable to be created
-            [ValidateNotNullOrEmpty()]
-            [string]$VariableName,
-            # The value of the variable
-            [ValidateNotNullOrEmpty()]
-            [string]$VariableValue,
-            # Should the variable be kept secret in DevOps
-            [switch]$IsSecret
+            [string]$Project = "Tenants"
         )
-        Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
-
-        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization -Project $Project
+        $token = Get-SimeonAzureDevOpsAccessToken -Organization $Organization
         $restProps = @{
             Headers = @{
                 Authorization = "Bearer $token"
-                Accept = "application/json;api-version=5.1-preview.1"
+                Accept = "application/json;api-version=5.1"
             }
             ContentType = 'application/json'
         }
-        $variableGroups = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups?api-version=5.1-preview.1" -Method Get }).value
-
-        # This is required since when getting all variable groups, it doesn't return all properties
-        $variableGroupId = ($variableGroups |? { $_.name -eq "$VariableGroupName" }).id
-        $variableGroup = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=5.1-preview.1" -Method Get })
-
-        if (Get-Member -InputObject $variableGroup.variables -Name $VariableName -MemberType Properties) {
-            $variableGroup.variables.$VariableName = $VariableValue
-        } else {
-            $variableGroup.variables | Add-Member -Name "$VariableName" -Value @{Value = "$VariableValue"; isSecret = $IsSecret.IsPresent } -Type NoteProperty
+        $repos = (irm @restProps "https://dev.azure.com/$Organization/$Project/_apis/git/repositories").value
+        foreach ($repo in $repos) {
+            $repository = (Get-AzureDevOpsRepository -Organization $Organization -Project $Project -Name $($repo.name)).remoteUrl
+            $repositoryPath = (Get-GitRepository -Repository $repository -AccessToken $token)
+            Push-Location $repositoryPath
+            try {
+                $syncFile = Get-Content -Raw 'Sync.yml' -ErrorAction SilentlyContinue
+                # Cases were sync file won't exist is organization jobs
+                if (!$syncFile) {
+                    Write-Information "Unable to find the Sync.yml file in path: $repositoryPath"
+                    continue
+                }
+                Write-Verbose "Configuring Sync.yml to use Power BI"
+                $syncYaml = $syncFile | ConvertFrom-Yaml -Ordered
+                $syncYaml.stages[0].parameters.PublishToPowerBI = $true
+                # Insert call will fail if key exists
+                if (!$syncYaml.variables) {
+                    # Add variable group after parameters
+                    $syncYaml.Insert(1, 'variables', @())
+                }
+                # Variables can exist pointing to a different group
+                if (!($syncYaml.variables |? group -eq 'Sync')) {
+                    $syncYaml.variables += @{ group = 'Sync' }
+                }
+                if (!($syncYaml.resources.repositories |? repository -eq 'Reporting')) {
+                    $syncYaml.resources.repositories += [ordered]@{
+                        repository = 'Reporting'
+                        type = 'github'
+                        name = 'simeoncloud/reporting'
+                        ref = 'refs/heads/feature/installReport'
+                        endpoint = 'simeoncloud'
+                    }
+                }
+                $output = (ConvertTo-Yaml $syncYaml)
+                # This is required becuase the ConvertTo-Yaml adds single quotes around double quotes
+                $output.Replace("""'", '"').Replace("'""", '"') | Set-Content 'Sync.yml' -Force
+                Invoke-CommandLine "git add . 2>&1" | Write-Verbose
+                git diff-index --quiet HEAD --
+                if ($lastexitcode -eq 0) {
+                    Write-Information "Pipeline templates files are already up to date"
+                }
+                else {
+                    Write-Information "Committing changes"
+                    Invoke-CommandLine "git commit -m `"Updating pipeline template files`" -m `"[skip ci]`" 2>&1" | Write-Verbose
+                    Write-Information "Pushing changes to remote repository"
+                    Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
+                }
+            }
+            finally {
+                Pop-Location
+            }
+            if (Test-Path $repositoryPath) {
+                Remove-Item $repositoryPath -Recurse -Force
+            }
         }
-        Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=6.1-preview.2" -Method Put -Body ($variableGroup | ConvertTo-Json -Depth 100) }
     }
+
     Install-RequiredModule
 
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
