@@ -336,6 +336,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:MicrosoftAuthenticator",
+    "description": "Azure AD > Security > Authentication methods > Policies > Microsoft Authenticator",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
     "description": "Azure AD > Group settings",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General",
@@ -434,7 +442,7 @@
   {
     "namespace": "PowerShell:ExchangeOnline:AuthenticationPolicies",
     "description": "Office 365 > Exchange > Modern authentication",
-    "url": null,
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-authenticationpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -525,7 +533,7 @@
     "url": "https://security.microsoft.com/antispam",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:HostedOutboundSpamFilterPolicies",
@@ -581,7 +589,7 @@
     "url": "https://security.microsoft.com/antimalwarev2",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:MobileDeviceMailboxPolicies",
@@ -691,17 +699,17 @@
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
-    "isCreateSupportedFilter": "^(?:(?!^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$",
+    "isCreateSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2",
-    "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy$|^Built-In Protection Policy$).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SharingPolicies",
@@ -856,7 +864,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsAppPermissionPolicy",
+    "namespace": "TeamsApi:TeamsAppPermissionPolicies",
     "description": "Office 365 > Teams > Apps > Permission policies",
     "url": "https://admin.teams.microsoft.com/policies/app-permission",
     "isCreateSupportedFilter": ".*",
@@ -864,7 +872,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsCallingPolicy",
+    "namespace": "TeamsApi:TeamsCallingPolicies",
     "description": "Office 365 > Teams > Voice > Calling policies",
     "url": "https://admin.teams.microsoft.com/policies/calling",
     "isCreateSupportedFilter": ".*",
@@ -872,23 +880,23 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsClientConfiguration",
+    "namespace": "TeamsApi:TeamsClientConfiguration",
     "description": "Office 365 > Teams > Org-wide settings > Teams settings",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsMeetingConfiguration",
+    "namespace": "TeamsApi:TeamsMeetingConfiguration",
     "description": "Office 365 > Teams > Meetings > Meeting settings",
-    "url": "https://admin.teams.microsoft.com/policies/meetings",
-    "isCreateSupportedFilter": ".*",
+    "url": "https://admin.teams.microsoft.com/meetings/settings",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsMeetingPolicy",
+    "namespace": "TeamsApi:TeamsMeetingPolicies",
     "description": "Office 365 > Teams > Meetings > Meeting policies",
     "url": "https://admin.teams.microsoft.com/policies/meetings",
     "isCreateSupportedFilter": ".*",
@@ -896,11 +904,19 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsPSAdmin:TeamsMessagingPolicy",
+    "namespace": "TeamsApi:TeamsMessagingPolicies",
     "description": "Office 365 > Teams > Messaging policies",
     "url": "https://admin.teams.microsoft.com/policies/messaging",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
+  },
+  {
+    "namespace": "TeamsApi:TenantFederationSettings",
+    "description": "Office 365 > Teams > Users > External access",
+    "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   }
 ]

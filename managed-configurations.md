@@ -18,6 +18,9 @@
   - Mobility (MDM and MAM)
   - Password reset
   - Security
+    - Authentication methods
+      - Policies
+        - Microsoft Authenticator
     - Conditional Access
       - Named locations
       - Policies
@@ -129,6 +132,8 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
+    - Users
+      - External access
     - Voice
       - Calling policies
 

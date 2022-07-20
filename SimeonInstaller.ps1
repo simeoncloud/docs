@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+#Requires -Version 6
 $ErrorActionPreference = 'Stop'
 $InformationPreference = 'Continue'
 
@@ -14,8 +14,8 @@ New-Module -Name 'SimeonInstaller' -ScriptBlock {
         )
 
         $ErrorActionPreference = 'Continue'
-        iex $Expression
-        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode" }
+        $output = iex $Expression
+        if ($lastexitcode -ne 0) { throw "$Expression exited with code $lastexitcode`r`n$output" }
     }
 
     function Read-HostBooleanValue {
@@ -216,14 +216,6 @@ CRLFOption=CRLFAlways
             @{ Name = 'MSAL.PS' },
             @{ Name = 'powershell-yaml' }
         )
-        if ($PSVersionTable.PSEdition -eq 'Core') {
-            Get-PackageSource |? { $_.Location -eq 'https://www.poshtestgallery.com/api/v2/' -and $_.Name -ne 'PoshTestGallery' } | Unregister-PackageSource -Force
-            if (!(Get-PackageSource PoshTestGallery -EA SilentlyContinue)) { Register-PackageSource -Name PoshTestGallery -Location https://www.poshtestgallery.com/api/v2/ -ProviderName PowerShellGet -Force | Out-Null }
-            $requiredModules += @{ Name = 'AzureAD.Standard.Preview'; RequiredVersion = '0.0.0.10'; Repository = 'PoshTestGallery' }
-        }
-        else {
-            $requiredModules += @{ Name = 'AzureAD' }
-        }
 
         foreach ($m in $requiredModules) {
             if (!$m.Repository) { $m.Repository = 'PSGallery' }
@@ -237,56 +229,6 @@ CRLFOption=CRLFAlways
 
         # don't install again
         $script:SkipSimeonModuleInstallation = $true
-    }
-
-    function Connect-Azure {
-        [CmdletBinding()]
-        param(
-            [ValidateNotNullOrEmpty()]
-            [Parameter(Mandatory)]
-            [string]$Tenant,
-            [switch]$Interactive
-        )
-
-        Install-RequiredModule
-
-        try {
-            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant -Interactive:$Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
-        }
-        catch {
-            Write-Warning $_.Exception.Message
-            Connect-AzureAD -AadAccessToken (Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant -Interactive) -AccountId $Tenant -TenantId $Tenant | Out-Null
-        }
-    }
-
-    function Assert-AzureADCurrentUserRole {
-        [CmdletBinding()]
-        [OutputType([bool])]
-        param(
-            [ValidateNotNullOrEmpty()]
-            [Parameter(Mandatory)]
-            [string[]]$Name,
-            [ValidateNotNullOrEmpty()]
-            [Parameter(Mandatory)]
-            [string]$Tenant
-        )
-
-        try {
-            $value = @()
-            $url = 'https://graph.windows.net/me/memberOf?$select=displayName,objectType&api-version=1.6'
-            while ($url) {
-                $res = irm $url -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
-                if ($res.value) { $value += $res.value }
-                $url = $res."@odata.nextLink"
-            }
-            if ($value |? objectType -eq 'Role' |? displayName -in $Name) {
-                return
-            }
-        }
-        catch {
-            Write-Warning $_.Exception.Message
-        }
-        throw "Could not access Azure Active Directory '$Tenant' with sufficient permissions - please make sure you signed in using an account with the 'Global Administrator' role."
     }
 
     <#
@@ -335,8 +277,6 @@ CRLFOption=CRLFAlways
 
         $token = Get-Variable "$($Resource)AccessToken" -EA SilentlyContinue
         if ($token.Value) { return $token.Value }
-
-        Install-RequiredModule
 
         $clientId = '9e956d26-4663-420a-9863-7afea8f94737' # Simeon Cloud PowerShell
         $interactiveMessage = "Connecting to Azure Tenant $Tenant - sign in using an account with the 'Global Administrator' Azure Active Directory role"
@@ -466,126 +406,6 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Grants the specified scopes to the service principal with the specified AppId. Installs a ServicePrincipal for the AppId if it is not already.
-    #>
-    function Get-AzureADServicePrincipalId {
-        [CmdletBinding()]
-        param(
-            # The Azure tenant domain name to configure
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant,
-            # The AppId of the ServicePrincpal to get or install
-            [ValidateNotNullOrEmpty()]
-            [string]$AppId
-        )
-        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
-
-        $apiVersion = 'api-version=1.6'
-        $baseUrl = "https://graph.windows.net/$Tenant"
-
-        $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$AppId'" -Headers $headers).value[0].objectId
-        if (!$principalObjectId) {
-            Write-Information "Installing AppId $AppId"
-            $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $AppId } | ConvertTo-Json)).objectId
-        }
-        else {
-            Write-Information "AppId $AppId is already installed"
-        }
-        return $principalObjectId
-    }
-
-    <#
-    .SYNOPSIS
-    Grants the specified scopes to the service principal with the specified AppId. Installs the ServicePrincipal if it is not already.
-    #>
-    function Grant-AzureADOAuth2Permission {
-        [CmdletBinding()]
-        param(
-            # The Azure tenant domain name to configure
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant,
-            # The AppId of the principal that needs permissions
-            [ValidateNotNullOrEmpty()]
-            [string]$ClientAppId,
-            # The AppId resource for which scopes should be granted
-            [ValidateNotNullOrEmpty()]
-            [string]$ResourceAppId,
-            # The scopes required for the ResourceAppId
-            [ValidateNotNullOrEmpty()]
-            [string[]]$ResourceScopes
-        )
-        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
-
-        $apiVersion = 'api-version=1.6'
-        $baseUrl = "https://graph.windows.net/$Tenant"
-
-        $clientId = Get-AzureADServicePrincipalId $Tenant $ClientAppId
-        $resourceId = Get-AzureADServicePrincipalId $Tenant $ResourceAppId
-        $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'" -Headers $headers).value[0]
-
-        if ($grant) {
-            Write-Information "Deleting existing permission grant for client $ClientAppId on resource $ResourceAppId"
-            irm "$baseUrl/oauth2PermissionGrants/$($grant.objectId)?$apiVersion" -Method Delete -Headers $headers | Out-Null
-        }
-
-        Write-Information "Adding permission grant for client $ClientAppId on resource $ResourceAppId"
-        irm "$baseUrl/oauth2PermissionGrants?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{
-                clientId = $clientId
-                consentType = "AllPrincipals"
-                expiryTime = "9000-01-01T00:00:00"
-                principalId = $null
-                resourceId = $resourceId
-                scope = ([string]::Join(' ', $ResourceScopes))
-            } | ConvertTo-Json) | Out-Null
-    }
-
-    <#
-    .SYNOPSIS
-        Installs all permissions required to use Simeon in an Azure AD tenant.
-    #>
-    function Install-SimeonTenantAzureADAppPermission {
-        [CmdletBinding()]
-        param (
-            # The Azure tenant domain name to configure
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant
-        )
-
-        $azurePowerShellAppId = "1950a258-227b-4e31-a9cf-717495945fc2"
-        $msGraphPowerShellAppId = '14d82eec-204b-4c2f-b7e8-296a70dab67e'
-
-        foreach ($clientAppId in @($azurePowerShellAppId, $msGraphPowerShellAppId)) {
-            # MS Graph
-            Grant-AzureADOAuth2Permission -Tenant $Tenant -ClientAppId $clientAppId -ResourceAppId '00000003-0000-0000-c000-000000000000' -ResourceScopes @(
-                "AuditLog.Read.All",
-                "Application.ReadWrite.All",
-                "AppRoleAssignment.ReadWrite.All",
-                "DeviceManagementApps.ReadWrite.All",
-                "DeviceManagementConfiguration.ReadWrite.All",
-                "DeviceManagementManagedDevices.ReadWrite.All",
-                "DeviceManagementRBAC.ReadWrite.All",
-                "DeviceManagementServiceConfig.ReadWrite.All",
-                "Directory.AccessAsUser.All",
-                "Directory.ReadWrite.All",
-                "Files.ReadWrite.All",
-                "Group.ReadWrite.All",
-                "Organization.ReadWrite.All",
-                "RoleManagement.ReadWrite.Directory",
-                "Policy.Read.All",
-                "Policy.ReadWrite.AuthenticationMethod",
-                "Policy.ReadWrite.ConditionalAccess",
-                "Policy.ReadWrite.DeviceConfiguration",
-                "Policy.ReadWrite.FeatureRollout",
-                "Policy.ReadWrite.PermissionGrant",
-                "Policy.ReadWrite.TrustFramework",
-                "Sites.ReadWrite.All",
-                "User.ReadWrite.All"
-            )
-        }
-    }
-
-    <#
-    .SYNOPSIS
         Invokes the given command block with retries on failure
     #>
     function Invoke-WithRetry {
@@ -645,13 +465,15 @@ CRLFOption=CRLFAlways
             [ValidateNotNullOrEmpty()]
             [string]$Organization,
             [ValidateNotNullOrEmpty()]
-            [string]$ProjectId,
-            [ValidateNotNullOrEmpty()]
             [string]$SubjectGroupPrincipalName,
             [ValidateNotNullOrEmpty()]
             [string]$PermissionDescription,
             [ValidateNotNullOrEmpty()]
-            [int]$PermissionNumber
+            [int]$PermissionNumber,
+            [ValidateNotNullOrEmpty()]
+            [string]$ResourceId,
+            [ValidateNotNullOrEmpty()]
+            [string]$EntryToken
         )
 
         $authenicationHeader = Get-AzureDevOpsAuthHeader
@@ -661,10 +483,10 @@ CRLFOption=CRLFAlways
         Write-Information "Allowing $SubjectGroupPrincipalName to $PermissionDescription"
         $groupDescriptor = ($Groups |? principalName -eq $SubjectGroupPrincipalName).descriptor
         $identityDescriptor = ((Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/identities?api-version=6.0&subjectDescriptors=$groupDescriptor" -Method Get }).value).descriptor
-        # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
-        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/AccessControlEntries/2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87?api-version=5.0" -Method Post -ContentType "application/json" -Body @"
+        $uri = "https://dev.azure.com/$Organization/_apis/AccessControlEntries/$($ResourceId)?api-version=5.0"
+        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $uri -Method Post -ContentType "application/json" -Body @"
         {
-            "token": "repoV2/$ProjectId/",
+            "token": "$EntryToken",
             "merge": true,
             "accessControlEntries": [
                 {
@@ -726,218 +548,6 @@ CRLFOption=CRLFAlways
         $secret = (Invoke-WithRetry { Invoke-RestMethod -Header @{Authorization = "Bearer $token" } -Uri "$KeyVaultSecretUri`?api-version=7.1" -Method Get }).Value
 
         return $secret
-    }
-
-    <#
-    .SYNOPSIS
-    Removes a service account named simeon@yourcompany.com
-    #>
-    function Remove-SimeonTenantServiceAccount {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
-        [CmdletBinding()]
-        param(
-            # The Azure tenant domain name to configure Simeon for
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant
-        )
-
-        while (!$Tenant) { $Tenant = Read-Tenant }
-
-        Connect-Azure $Tenant
-
-        $user = Get-AzureADUser -Filter "userPrincipalName eq 'simeon@$Tenant'"
-        if ($user) {
-            Write-Information "Removing Simeon service account for tenant '$Tenant'"
-            Remove-AzureADUser -ObjectId "simeon@$Tenant"
-        }
-
-    }
-
-    <#
-    .SYNOPSIS
-    Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
-    #>
-    function Install-SimeonTenantServiceAccount {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
-        [CmdletBinding()]
-        [OutputType([pscredential])]
-        param(
-            # The Azure tenant domain name to configure Simeon for
-            [ValidateNotNullOrEmpty()]
-            [string]$Tenant,
-            # The name or id of the subscription for Simeon to use
-            [string]$Subscription
-        )
-
-        while (!$Tenant) { $Tenant = Read-Tenant }
-
-        # Creates/updates service account and required permissions
-
-        Write-Information "Installing Simeon service account for tenant '$Tenant'"
-
-        Connect-Azure $Tenant
-
-        Assert-AzureADCurrentUserRole -Name @('Global Administrator', 'Company Administrator') -Tenant $Tenant
-
-        Install-SimeonTenantAzureADAppPermission -Tenant $Tenant
-
-        if ((Get-AzureADDomain -Name $Tenant).AuthenticationType -eq 'Federated') {
-            throw "Cannot install service account using a federated Azure AD domain"
-        }
-
-        $activeLicenses = (irm "https://graph.windows.net/$Tenant/subscribedSkus?api-version=1.6" -Method Get -Headers @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }).value |? capabilityStatus -eq "Enabled"
-        $activeServicePlans = $activeLicenses.servicePlans
-        Write-Verbose "Found active plans $($activeServicePlans | Out-String)."
-        if (!($activeServicePlans | Select -ExpandProperty servicePlanName |? { $_ -and $_.Split('_')[0] -like "INTUNE*" })) {
-            if ($activeServicePlans) {
-                $activeServicePlansString = " - found: " + [string]::Join(', ', (@($activeServicePlans) | Sort-Object))
-            }
-            else {
-                $activeServicePlansString = " - found no active service plans"
-            }
-            Write-Warning "The tenant does not have an enabled Intune license - see https://docs.microsoft.com/en-us/mem/intune/fundamentals/licenses for license information$activeServicePlansString"
-        }
-
-        # Create/update Azure AD user with random password
-        $upn = "simeon@$Tenant"
-        $user = Get-AzureADUser -Filter "userPrincipalName eq '$upn'"
-        $password = [Guid]::NewGuid().ToString("N").Substring(0, 15) + "Ul!"
-
-        if (!$user) {
-            Write-Information "Creating account '$upn'"
-            $user = New-AzureADUser -DisplayName 'Microsoft 365 Management Service Account' `
-                -UserPrincipalName $upn `
-                -MailNickName simeon -AccountEnabled $true `
-                -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
-        }
-        else {
-            Write-Information "Service account already exists - updating '$upn'"
-            $user | Set-AzureADUser -UserPrincipalName $upn -DisplayName 'Microsoft 365 Management Service Account' -PasswordProfile @{ Password = $password; ForceChangePasswordNextLogin = $false } -PasswordPolicies DisablePasswordExpiration
-        }
-
-        # this can sometimes fail on first request
-        try { Get-AzureADDirectoryRole | Out-Null } catch { Write-Verbose "Initial request for directory roles failed - will try again" }
-
-        # Make sure Directory Synchronization Accounts role is activated
-        if (!(Get-AzureADDirectoryRole |? DisplayName -eq 'Directory Synchronization Accounts')) {
-            Write-Information "Activating role 'Directory Synchronization Accounts'"
-            Get-AzureADDirectoryRoleTemplate |? DisplayName -eq 'Directory Synchronization Accounts' | % { Enable-AzureADDirectoryRole -RoleTemplateId $_.ObjectId -EA SilentlyContinue | Out-Null }
-        }
-
-        # Add to Global Administrator role for administration purposes and Directory Synchronization Accounts role so account is excluded from MFA
-        # Include Company Administrator for legacy support
-        Get-AzureADDirectoryRole |? { $_.DisplayName -in @('Global Administrator', 'Company Administrator', 'Directory Synchronization Accounts') } | % {
-            if (!(Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId |? ObjectId -eq $user.ObjectId)) {
-                Write-Information "Adding service account to directory role '$($_.DisplayName)'"
-                Add-AzureADDirectoryRoleMember -ObjectId $_.ObjectId -RefObjectId $user.ObjectId | Out-Null
-            }
-            else {
-                Write-Information "Service account already has directory role '$($_.DisplayName)'"
-            }
-        }
-
-        $getAzureManagementHeaders = {
-            @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureManagement -Tenant $Tenant)" }
-        }
-
-        $getSubscriptionId = {
-            try {
-                $response = irm "https://management.azure.com/subscriptions?api-version=2019-06-01" -Headers (. $getAzureManagementHeaders)
-                $subscriptions = $response.value |? { $Subscription -in @($_.displayName, $_.subscriptionId) }
-            }
-            catch {
-                Write-Warning $_.Exception.Message
-                throw "Could not list Azure subscriptions"
-            }
-            if ($subscriptions.Length -gt 1) {
-                throw "Found multiple Azure subscriptions named '$Subscription'"
-            }
-            if ($subscriptions.Length -eq 1 -and $subscriptions[0].state -ne 'Enabled') {
-                throw "Subscription '$Subscription' is not enabled - please install again using an active subscription"
-            }
-            return $subscriptions[0].subscriptionId
-        }
-
-        if (!$Subscription) {
-            # Find Azure RM subscription to use
-            Write-Information 'Skipping Azure subscription configuration because no subscription was specified'
-        }
-        else {
-            $subscriptionId = . $getSubscriptionId
-        }
-        if ($Subscription -and !$subscriptionId) {
-            # Elevate access to see all subscriptions in the tenant and force re-login
-            irm 'https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01' -Method Post -Headers (. $getAzureManagementHeaders) | Out-Null
-
-            Write-Warning "Elevating access to allow assignment of subscription roles - you will need to sign in again"
-
-            if ($ConfirmPreference -eq 'None') {
-                Write-Warning "Tried to elevate access to allow assignment of subscription roles - please verify there is an Azure subscription in the tenant and re-run the install or if you do not want to use an Azure subscription, you can continue anyway, but configuration types that require a subscription will be skipped"
-            }
-            else {
-
-                Clear-MsalTokenCache -FromDisk
-                Clear-MsalTokenCache
-
-                $subscriptionId = . $getSubscriptionId
-
-                if (!$subscriptionId) {
-                    Write-Warning "Could not find a subscription to use - please make sure you have signed up for an Azure subscription or if you do not want to use an Azure subscription, you can continue anyway, but configuration types that require a subscription will be skipped"
-                }
-            }
-        }
-
-        if ($subscriptionId) {
-            try {
-                $contributorRoleId = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions?`$filter=roleName eq 'Contributor'&api-version=2018-01-01-preview" -Headers (. $getAzureManagementHeaders)).value.id
-                $roleAssignments = (irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments?`$filter=principalId eq '$($user.ObjectId)'&api-version=2018-09-01-preview" -Headers (. $getAzureManagementHeaders)).value |? { $_.properties.roleDefinitionId -eq $contributorRoleId }
-            }
-            catch {
-                Write-Warning $_.Exception.Message
-                throw "Could not access subscription '$subscriptionId' - make sure your user has the 'Owner' role on the subscription"
-            }
-            # Add as contributor to an Azure RM Subscription
-            if (!$roleAssignments) {
-                Write-Information "Adding service account to 'Contributor' role on subscription '$subscriptionId'"
-                try {
-                    irm "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleAssignments/$([guid]::NewGuid())?api-version=2018-09-01-preview" -Method Put -ContentType 'application/json' -Headers (. $getAzureManagementHeaders) -Body @"
-{
-    "properties": {
-        "roleDefinitionId": "$contributorRoleId",
-        "principalId": "$($user.ObjectId)",
-    }
-}
-"@| Out-Null
-                }
-                catch {
-                    Write-Warning $_.Exception.Message
-                    throw "Could not add 'Contributor' role for service account to subscription '$subscriptionId' - make sure your user has the 'Owner' role on the subscription"
-                }
-            }
-            else {
-                Write-Information "Service account already has 'Contributor' role on subscription '$subscriptionId'"
-            }
-        }
-
-        $cred = [pscredential]::new($upn, (ConvertTo-SecureString -AsPlainText -Force $password))
-
-        try {
-            irm "https://login.microsoftonline.com/$Tenant/oauth2/v2.0/token/" -Method Post -Body @{
-                client_id = '1950a258-227b-4e31-a9cf-717495945fc2'
-                username = $cred.UserName
-                password = $cred.GetNetworkCredential().Password
-                grant_type = 'password'
-                scope = 'https://management.core.windows.net//.default'
-            } | Out-Null
-        }
-        catch {
-            $message = $_.Exception.Message
-            try { $message = $_.ErrorDetails.Message | ConvertFrom-Json | Select -ExpandProperty error_description | % { $_.Split("`n")[0].Trim() } }
-            catch { Write-Error -ErrorRecord $_ -ErrorAction Continue }
-            throw "Could not acquire token using the Simeon service account - please ensure that no conditional access policies are blocking $upn (Microsoft 365 Management Service Account) and then install again - $message"
-        }
-
-        return $cred
     }
 
     <#
@@ -1063,7 +673,6 @@ CRLFOption=CRLFAlways
         }
 
         $projectTeamName = "[$Project]\$Project Team"
-        $projectTeamId = $identities.results.identities |? displayName -eq $projectTeamName | Select -ExpandProperty localId
 
         $subscriptionApi = "https://dev.azure.com/$Organization/_apis/notification/Subscriptions"
         $subscriptions = (irm @restProps $subscriptionApi -Method Get).value
@@ -1404,6 +1013,10 @@ CRLFOption=CRLFAlways
             $gitModules = git config --file .gitmodules --get-regexp submodule\.Baseline\.url
             $submodule = git submodule |? { ($_.Trim().Split(' ') | Select -Skip 1 -First 1) -eq 'Baseline' }
 
+            if ($submodule) {
+                Write-Information "Baseline being replaced"
+            }
+
             if ($gitModules -eq "submodule.Baseline.url $Baseline" -and $submodule -and (Test-Path $baselinePath)) {
                 Write-Information "Baseline is already configured to use '$($PSBoundParameters.Baseline)'"
                 return
@@ -1445,9 +1058,12 @@ CRLFOption=CRLFAlways
                     $message = "Set repository to have no baseline"
                 }
                 Invoke-CommandLine "git commit -m `"$message`" -m `"[skip ci]`" 2>&1" | Write-Verbose
+                Write-Information "Adding reset baseline tag"
+                Invoke-CommandLine "git tag -a `"deploy-resetbaseline`" HEAD -m `"reset baseline`" 2>&1" | Write-Verbose
 
                 Write-Information "Pushing changes to remote repository"
                 Invoke-CommandLine 'git push origin master 2>&1' | Write-Verbose
+                Invoke-CommandLine 'git push origin master -f --tags 2>&1' | Write-Verbose
             }
         }
         finally {
@@ -2286,76 +1902,6 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
-    Prepares a tenant for use with Simeon
-    - Creates/updates a service account named simeon@yourcompany.com with a random password and grants it access to necessary resources
-    - Creates necessary DevOps repositories and pipelines and securely stores service account credentials
-    #>
-    function Install-SimeonTenant {
-        [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '')]
-        [CmdletBinding()]
-        param(
-            # The Azure tenant domain name to configure Simeon for
-            [string]$Tenant,
-            # The Azure DevOps organization name - e.g. 'simeon-orgName'
-            [string]$Organization,
-            # The project name in DevOps - usually 'Tenants'
-            [string]$Project = 'Tenants',
-            # Indicates the name for the repository and pipelines to create - defaults to the tenant name up to the first .
-            [string]$Name,
-            # Indicates the baseline repository to use for pipelines
-            [string]$Baseline,
-            # Url of the template git repository to use when creating the repository
-            [string]$TemplateRepositoryUrl,
-            # Indicates the Azure subscription to use
-            [string]$Subscription,
-            # Specify to true to not require deploy approval
-            [switch]$DisableDeployApproval,
-            # Used to create a GitHub service connection to simeoncloud if one doesn't already exist
-            [string]$GitHubAccessToken,
-            # Install a Simeon Service account vs. use Delegated Auth
-            [boolean]$UseServiceAccount
-        )
-
-        if ($Project.Contains(" ")) {
-            throw “Project name must not contain spaces”
-        }
-
-        while (!$Tenant) { $Tenant = Read-Tenant }
-
-        $credential = $null
-        if ($UseServiceAccount) {
-            $credential = Install-SimeonTenantServiceAccount -Tenant $Tenant -Subscription $Subscription
-        }
-        else {
-            Remove-SimeonTenantServiceAccount -Tenant $Tenant
-            Install-SimeonTenantAzureADAppPermission -Tenant $Tenant
-        }
-
-        $devOpsArgs = @{}
-        @('Tenant', 'Organization', 'Project', 'Name', 'Baseline', 'DisableDeployApproval', 'TemplateRepositoryUrl') |? { $PSBoundParameters.ContainsKey($_) } | % {
-            $devOpsArgs[$_] = $PSBoundParameters.$_
-        }
-
-        $pipelineVariables = @{}
-        $pipelineVariables['AzureManagement:SubscriptionId'] = @{
-            allowOverride = $false
-            value = if ($Subscription) { $Subscription } else { ' ' }
-        }
-
-        if (!$UseServiceAccount) {
-            $pipelineVariables['AadAuth:TenantId'] = @{
-                allowOverride = $false
-                value = $Tenant
-            }
-        }
-
-        Install-SimeonTenantAzureDevOps @devOpsArgs -Credential $credential -PipelineVariables $pipelineVariables
-
-        Write-Information "Completed installing tenant"
-    }
-
-    <#
-    .SYNOPSIS
         Creates and/or configures the provided Azure DevOps organization to be compatible with Simeon Cloud
     #>
     function Install-SimeonDevOpsOrganization {
@@ -2546,7 +2092,7 @@ CRLFOption=CRLFAlways
                         "state": 0
                     }
 "@
-            } | Out-Null
+            } -MaxRetryCount 10 -DelaySeconds 15 | Out-Null
 
             # Overview > uncheck Artifacts
             Write-Information "Updating project settings turning off Artifacts"
@@ -2595,31 +2141,6 @@ CRLFOption=CRLFAlways
             } | Out-Null
         }
 
-        Write-Information "Updating project permissions"
-        Invoke-Command -ScriptBlock {
-            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
-            $users = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
-            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
-
-            #  Permissions > Contributors > Members > Add > $Project Build Service
-            ### Contributors group actions
-            Write-Information "Configuring permissions for Contributors group"
-            Write-Information "Adding $Project Build Service ($Organization)"
-            $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
-            $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
-            # Add project collection build service user to tenants contributors
-            Write-Information "Adding Project Collection Build Service ($Organization)"
-            $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
-
-            # Repositories > Permissions > Contributors > allow Create repository
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository"
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push"
-            Set-AzureDevOpsAccessControlEntry -Organization $Organization -ProjectId $projectId -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions"
-        }
-
         # Invite users to tenants contributor group
         if ($InviteToOrgAsAdmin) {
             foreach ($user in $InviteToOrgAsAdmin) {
@@ -2664,43 +2185,86 @@ CRLFOption=CRLFAlways
             } | Out-Null
         }
 
+        $projectId = Get-AzureDevOpsProjectId -Organization $Organization -Project $Project
 
-
-        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities`?api-version=5.0-preview.1" -Method Post -ContentType "application/json" -Body @"
-        {
-            "query": "Contributors",
-            "identityTypes": [
-                "group"
-            ],
-            "operationScopes": [
-                "ims",
-                "source"
-            ],
-            "options": {
-                "MinResults": 1,
-                "MaxResults": 1000
-            },
-            "properties": [
-                "DisplayName"
-            ]
-        }
+        $identities = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader "https://dev.azure.com/$Organization/_apis/IdentityPicker/Identities?api-version=6.1-preview.1" -Method Post -ContentType "application/json" -Body @"
+            {
+                "query": "Contributors",
+                "identityTypes": [
+                    "group"
+                ],
+                "operationScopes": [
+                    "ims",
+                    "source"
+                ],
+                "options": {
+                    "MinResults": 1,
+                    "MaxResults": 1000
+                },
+                "properties": [
+                    "DisplayName"
+                ]
+            }
 "@
         }
 
         $contributorsDisplayName = "[$Project]\Contributors"
-        $contributorsId = $identities.results.identities |? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
-        $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+        $contributorsId = $identities.results.identities | ? displayName -eq $contributorsDisplayName | Select -ExpandProperty localId
 
-        Write-Information "Making Contributors admin for project library"
-        Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
-        [
-            {
-                "roleName": "Administrator",
-                "userId": "$contributorsId"
+        Write-Information "Polling to make Contributors admin for project library"
+        $currentContributorsScopeDisplayName = ''
+        while ($currentContributorsScopeDisplayName -ne 'Administrator') {
+            Write-Information "Trying to make Contributors admin for project library"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$projectId`$0`?api-version=6.1-preview.1" -Method Put -ContentType "application/json" -Body @"
+              [
+                  {
+                      "roleName": "Administrator",
+                      "userId": "$contributorsId"
+                  }
+              ]
+"@ | Out-Null
             }
-        ]
-"@
-        } | Out-Null
+            $currentScopesUrl = "https://dev.azure.com/$Organization/_apis/securityroles/scopes/distributedtask.library/roleassignments/resources/$($projectId)`$0"
+            $currentScopes = Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri $currentScopesUrl -Method Get }
+            $currentContributorsScope = $currentScopes.value | where { $_.identity.uniqueName -eq $contributorsDisplayName }
+            $currentContributorsScopeDisplayName = $currentContributorsScope.role.displayName
+            if ($currentContributorsScopeDisplayName -ne 'Administrator') {
+                Start-Sleep -Seconds 2
+            }
+        }
+
+        Write-Information "Updating project permissions"
+        Invoke-Command -ScriptBlock {
+            $projectId = (Get-AzureDevOpsProjectId -Organization $Organization -Project $Project)
+            $users = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/users?api-version=6.1-preview.1" -Method Get }).value
+            $groups = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/groups?api-version=6.1-preview.1" -Method Get }).value
+
+            #  Permissions > Contributors > Members > Add > $Project Build Service
+            ### Contributors group actions
+            Write-Information "Configuring permissions for Contributors group"
+            Write-Information "Adding $Project Build Service ($Organization)"
+            $contributorsgroupDescriptor = ($groups |? principalName -eq "[$Project]\Contributors").descriptor
+            $buildServiceUserDescriptor = ($users |? displayName -like "$Project Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$buildServiceUserDescriptor/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Add project collection build service user to tenants contributors
+            Write-Information "Adding Project Collection Build Service to tenants contributors ($Organization)"
+            $collectionBuildService = ($users |? displayName -like "Project Collection Build Service (*").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$contributorsgroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Add project collection build service to Project Collection Build Service Accounts
+            Write-Information "Adding Project Collection Build Service to Project Collection Build Service Accounts ($Organization)"
+            $buildServiceAccountsGroupDescriptor = ($groups |? principalName -eq "[$Organization]\Project Collection Build Service Accounts").descriptor
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://vssps.dev.azure.com/$Organization/_apis/graph/memberships/$collectionBuildService/$buildServiceAccountsGroupDescriptor`?api-version=6.1-preview.1" -Method Put } | Out-Null
+
+            # Repositories > Permissions > Contributors > allow Create repository
+            # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 256 -PermissionDescription "Create Repository" -EntryToken "repoV2/$projectId/" -ResourceId "2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87"
+            # 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87 is the Git Repositories namespace
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 8 -PermissionDescription "Force Push" -EntryToken "repoV2/$projectId/" -ResourceId "2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87"
+            # 33344d9c-fc72-4d6f-aba5-fa317101a7e9 is the pipelines namespace
+            Set-AzureDevOpsAccessControlEntry -Organization $Organization -SubjectGroupPrincipalName "[$Project]\Contributors" -PermissionNumber 16384 -PermissionDescription "Administer build permissions" -EntryToken $projectId -ResourceId "33344d9c-fc72-4d6f-aba5-fa317101a7e9"
+        }
 
         # Install code search Organization settings > Extensions > Browse marketplace > search for Code Search > Get it free
         Write-Information "Installing code search"
@@ -2767,6 +2331,12 @@ CRLFOption=CRLFAlways
                 }
 "@ } | Out-Null
             }
+            # Disable Organization notification
+            # Build Completes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+            # Pull request changes
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+
             # Disable pipeline notifications
             # Build completes
             Write-Information "Disabling build completes pipeline notifications"
@@ -2838,6 +2408,8 @@ CRLFOption=CRLFAlways
         $variableGroup.variables | Add-Member -Name "$VariableName" -Value @{Value = "$VariableValue"; isSecret = $IsSecret.IsPresent } -Type NoteProperty
         Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=6.1-preview.2" -Method Put -Body ($variableGroup | ConvertTo-Json -Depth 100) }
     }
+    Install-RequiredModule
+
     Export-ModuleMember -Function Install-Simeon*, Get-Simeon*
 
 } | Import-Module -Force -PassThru
