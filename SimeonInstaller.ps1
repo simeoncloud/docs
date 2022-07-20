@@ -2405,7 +2405,11 @@ CRLFOption=CRLFAlways
         $variableGroupId = ($variableGroups |? { $_.name -eq "$VariableGroupName" }).id
         $variableGroup = (Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=5.1-preview.1" -Method Get })
 
-        $variableGroup.variables | Add-Member -Name "$VariableName" -Value @{Value = "$VariableValue"; isSecret = $IsSecret.IsPresent } -Type NoteProperty
+        if (Get-Member -InputObject $variableGroup.variables -Name $VariableName -MemberType Properties) {
+            $variableGroup.variables.$VariableName = $VariableValue
+        } else {
+            $variableGroup.variables | Add-Member -Name "$VariableName" -Value @{Value = "$VariableValue"; isSecret = $IsSecret.IsPresent } -Type NoteProperty
+        }
         Invoke-WithRetry { Invoke-RestMethod @restProps "https://dev.azure.com/$($Organization)/$($Project)/_apis/distributedtask/variablegroups/$($variableGroupId)?api-version=6.1-preview.2" -Method Put -Body ($variableGroup | ConvertTo-Json -Depth 100) }
     }
     Install-RequiredModule
