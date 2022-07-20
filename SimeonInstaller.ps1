@@ -466,6 +466,81 @@ CRLFOption=CRLFAlways
 
     <#
     .SYNOPSIS
+    Grants the specified scopes to the service principal with the specified AppId. Installs a ServicePrincipal for the AppId if it is not already.
+    #>
+    function Get-AzureADServicePrincipalId {
+        [CmdletBinding()]
+        param(
+            # The Azure tenant domain name to configure
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant,
+            # The AppId of the ServicePrincpal to get or install
+            [ValidateNotNullOrEmpty()]
+            [string]$AppId
+        )
+        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+
+        $apiVersion = 'api-version=1.6'
+        $baseUrl = "https://graph.windows.net/$Tenant"
+
+        $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion&`$filter=appId eq '$AppId'" -Headers $headers).value[0].objectId
+        if (!$principalObjectId) {
+            Write-Information "Installing AppId $AppId"
+            $principalObjectId = (irm "$baseUrl/servicePrincipals?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{appId = $AppId } | ConvertTo-Json)).objectId
+        }
+        else {
+            Write-Information "AppId $AppId is already installed"
+        }
+        return $principalObjectId
+    }
+
+    <#
+    .SYNOPSIS
+    Grants the specified scopes to the service principal with the specified AppId. Installs the ServicePrincipal if it is not already.
+    #>
+    function Grant-AzureADOAuth2Permission {
+        [CmdletBinding()]
+        param(
+            # The Azure tenant domain name to configure
+            [ValidateNotNullOrEmpty()]
+            [string]$Tenant,
+            # The AppId of the principal that needs permissions
+            [ValidateNotNullOrEmpty()]
+            [string]$ClientAppId,
+            # The AppId resource for which scopes should be granted
+            [ValidateNotNullOrEmpty()]
+            [string]$ResourceAppId,
+            # The scopes required for the ResourceAppId
+            [ValidateNotNullOrEmpty()]
+            [string[]]$ResourceScopes
+        )
+        $headers = @{ Authorization = "Bearer $(Get-SimeonAzureADAccessToken -Resource AzureADGraph -Tenant $Tenant)" }
+
+        $apiVersion = 'api-version=1.6'
+        $baseUrl = "https://graph.windows.net/$Tenant"
+
+        $clientId = Get-AzureADServicePrincipalId $Tenant $ClientAppId
+        $resourceId = Get-AzureADServicePrincipalId $Tenant $ResourceAppId
+        $grant = (irm "$baseUrl/oauth2PermissionGrants?$apiVersion&`$filter=clientId eq '$clientId' and resourceId eq '$resourceId'" -Headers $headers).value[0]
+
+        if ($grant) {
+            Write-Information "Deleting existing permission grant for client $ClientAppId on resource $ResourceAppId"
+            irm "$baseUrl/oauth2PermissionGrants/$($grant.objectId)?$apiVersion" -Method Delete -Headers $headers | Out-Null
+        }
+
+        Write-Information "Adding permission grant for client $ClientAppId on resource $ResourceAppId"
+        irm "$baseUrl/oauth2PermissionGrants?$apiVersion" -Method Post -ContentType 'application/json' -Headers $headers -Body (@{
+                clientId = $clientId
+                consentType = "AllPrincipals"
+                expiryTime = "9000-01-01T00:00:00"
+                principalId = $null
+                resourceId = $resourceId
+                scope = ([string]::Join(' ', $ResourceScopes))
+            } | ConvertTo-Json) | Out-Null
+    }
+
+    <#
+    .SYNOPSIS
         Installs all permissions required to use Simeon in an Azure AD tenant.
     #>
     function Install-SimeonTenantAzureADAppPermission {
