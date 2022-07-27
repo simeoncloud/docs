@@ -634,10 +634,6 @@ CRLFOption=CRLFAlways
         Install-SimeonTenantPipeline -Organization $Organization -Project $Project -Name $Name -Credential $Credential -PipelineVariables $PipelineVariables @environmentArgs
 
         Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
-
-        Install-SimeonNotificationSubscription -Organization $Organization -Project $Project
-
-        Install-SimeonNewTenantNotification -Organization $Organization -Project $Project
     }
 
     <#
@@ -2335,6 +2331,12 @@ CRLFOption=CRLFAlways
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-build.build-requested-personal-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
             # Pull request changes
             Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/notification/Subscriptions/ms.vss-code.pull-request-updated-subscription`?api-version=6.1-preview.1" -Method Patch -ContentType "application/json" -Body '{"status":-2}' }| Out-Null
+
+            # Add subscription for partially suceeded builds
+            Install-SimeonNotificationSubscription -Organization $Organization -Project $Project
+
+            # Add subscription for new tenants
+            Install-SimeonNewTenantNotification -Organization $Organization -Project $Project
 
             # Disable pipeline notifications
             # Build completes
