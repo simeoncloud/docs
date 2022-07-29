@@ -10,18 +10,18 @@ Access to the Web Admin is protected via Azure AD authentication using OIDC with
 
 ### Authenticating with the tenant
 
-Simeon can use either delegated authentication or a service account to interact with your tenants. 
+Simeon can use service principal authentication, delegated authentication and/or a service account to interact with your tenants.
+
+If you use service principal authentication, you must still use either delegated authentication or service account authentication in conjuction in order for Simeon to connect to certain Azure AD and Teams APIs that do not support service principal authentication.
 
 When using delegated authentication, Simeon will securely store an encrypted refresh token in your Azure DevOps environment and the software will run as the account used to install the tenant. This works in the same way as Microsoft Flow does when authenticating with connectors.
 
 When using a service account, Simeon creates a service account with a randomly generated 15 character password that is immediately stored in a secret variable in Azure DevOps and then discarded. This password cannot be viewed by anyone. Only the Sync job can use this password to connect to and configure your tenant.
 
-Simeon uses three first-party client service principles when authenticating with your tenant:
+When using delegated authentication or service account authentication, Simeon uses three first-party client service principles when authenticating with your tenant:
 - Microsoft Azure PoweShell
 - Microsoft Graph PowerShell
 - Microsoft Exchange Online PowerShell
-
-First-party service principals are used to reduce the footprint of the Simeon assets that must be installed in a managed tenant and because certain Microsoft APIs are only accessible when using a first-party client.
 
 ### Approvals
 
