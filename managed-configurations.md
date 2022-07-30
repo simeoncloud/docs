@@ -2,9 +2,12 @@
   - Resource groups
 - Azure AD
   - App registrations
+  - Authorization policies
   - Company branding
   - Custom domain names
   - Device settings
+  - Devices
+    - Enterprise State Roaming
   - Diagnostic settings
   - Directory settings
   - Enterprise applications
