@@ -2091,9 +2091,9 @@ CRLFOption=CRLFAlways
 
             # Overview > uncheck Artifacts
             Write-Information "Updating project settings turning off Artifacts"
-            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/FeatureStates/host/project/$projectId/ms.feed.feed?api-version=4.1-preview.1" -Method Patch -ContentType "application/json" -Body @"
+            Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/_apis/FeatureManagement/FeatureStates/host/project/$projectId/ms.azure-artifacts.feature?api-version=4.1-preview.1" -Method Patch -ContentType "application/json" -Body @"
                     {
-                        "featureId": "ms.feed.feed",
+                        "featureId": "ms.azure-artifacts.feature",
                         "scope": {
                             "settingScope": "project",
                             "userScoped": false
@@ -2101,7 +2101,7 @@ CRLFOption=CRLFAlways
                         "state": 0
                     }
 "@
-            } | Out-Null
+            } -MaxRetryCount 10 -DelaySeconds 15 | Out-Null
         }
 
         ## Project settings
