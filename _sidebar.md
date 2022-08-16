@@ -7,3 +7,4 @@
 - [Managed Configurations](managed-configurations.md)
 - [Baseline](baseline.md)
 - [Security](security.md)
+- [Reporting](reporting.md)
