@@ -29,34 +29,34 @@ During installation, you will be prompted to log in with a user account. Select 
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
 
 ## Backfill Power BI Pipeline
-The backfill pipeline ensures the data source schema is up to date, install the [Baseline Compliance Report](#baseline-compliance-report), and initiate a backfill to upload Simeon Sync results from the past 72 hours to Power BI.
+The backfill pipeline uploads historical data to Power BI and also keeps the data source schema and reports up to date.
 
 The backfill can also be initiated via Azure DevOps. To do so:
 - Go to [Azure DevOps](https://dev.azure.com) > **Tenants** > **Pipelines**
 - Find the pipeline **Backfill Power BI** > **Run pipeline**
-- Select the desired options or keep defaults > **Run**
+- Select the desired parameters or keep defaults > **Run**
 
-The pipeline options are as follows:
-- **Update the Power BI Table schema to the latest schema** is selected by default and is used to keep the data source updated
+The pipeline parameters are as follows:
+- **Update the Power BI Table schema to the latest schema** keeps the data source schema up to date
 - **Delete all data in the Simeon Power BI dataset** running a data backfill with this unselected will result in duplicate data being uploaded to the data source
 - **Install or reinstall Simeon Power BI report(s)** updates all Simeon reports to the latest version
 - **Backfill only failed upload to Power BI steps** only backfills Syncs that have failed to upload to Power BI, allows you to run the backfill without duplicating data
 - **Number of hours to include in backfill** uploads to Power BI all export/deploy Syncs in the specified number of hours
 - **Number of parallel pipelines to backfill** for most runs should stay as default of 1, shouldn't be greater than 5
 
-Run with the options listed below if you need to do any of the following tasks:
+Run with the parameters listed below if you need to do any of the following tasks:
 ### Reinstall/update Simeon reports
 - Check the option for **Backfill only failed upload to Power BI steps**
-- Keep all other options as default
+- Keep all other parameters as default
 
 ### Backfill more than 72 hours worth of Syncs
 - Update the number in **Number of hours to include in backfill**
-- Keep all other options as default
+- Keep all other parameters as default
 
 ### Capture data from a Sync that failed to upload to Power BI
 - Check the option for **Backfill only failed upload to Power BI steps**
 - Ensure the failed step happened within 72 hours. If not, update **Number of hours to include in backfill** to a value that will capture the Sync
-- Keep all other options as default
+- Keep all other parameters as default
 
 
 ## Simeon Sync Power BI dataset
