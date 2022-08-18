@@ -93,6 +93,7 @@
     - Outlook Web App policies
     - Partner Applications
     - PolicyTipConfig
+    - RMS Templates
     - Role Assignment Policies
     - Role Groups
     - SharingPolicies
