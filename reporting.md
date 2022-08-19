@@ -28,6 +28,11 @@ During installation, you will be prompted to log in with a user account. Select 
 - Enter the domain name of the tenant > **Install** > authenticate with an account that meets the [prerequisites](#prerequisites)
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
 
+### Grant access to the Power BI Workspace
+The user account that runs the Power BI installer will be the administrator of the workspace. Other users will not be able to view the workspace unless given access. To grant access:
+- Go to [Power BI](https://app.powerbi.com) > **Workspaces** > Click the **three dots** next to **Simeon Cloud** > **Workspace access**
+- Enter the group or email address > Select the **role** > **Add**
+
 ## Backfill Power BI Pipeline
 The backfill pipeline uploads historical data to Power BI and also keeps the data source schema and reports up to date.
 
@@ -88,7 +93,7 @@ The fields available in the dataset are as follows:
 - Property Name: The name of the property being reported on
 - Property Value: The value of the property at the time of the sync
 - Old Property Value: Captures the previous value of the property before the Sync changes are applied
-- Change Type: The action the Sync performed - **removed**, **added**, **changed**, **unchanged**
+- Change Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**
 - Error Message: If the configuration fails for any reason, the full error message is captured in this column
 
 ## Baseline and Compliance report
@@ -98,7 +103,7 @@ Note, the preview Sync results and baseline tenant data are filtered out of the 
 
 ## Building custom reports
 Simeon will pre-install reports, but you are more than welcome to create your own reports with the data in the Simeon Sync Power BI dataset. To do so:
-- [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
+- Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
 - Select the **Simeon Sync** dataset
 - At the top of the page, select **+ Create a report** > **Start from Scratch**
 
@@ -113,6 +118,9 @@ Yes, please! If you build a report you think others might like, please let us kn
 
 ### Why does this dataset not have some of the functions I'm used to in other Power BI datasets?
 We are using a [direct query dataset](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-use-directquery#benefits-of-using-directquery), which has many benefits including speed and ease of management, but it does come with some limitations. The biggest limitation is the inability to transform the data or to create certain calculated fields. If you find that you need additional data points to build a report, please contact us and we will do what we can to help.
+
+### I don't have a Power BI Pro license, can I still see the workspace?
+Accessing a shared Power BI workspace requires at least a Power BI Pro license. If you are unsure that you want to signup, Power BI does offer a number of trial options. Also, keep in mind, a Power BI Pro license is incuded in the **Office E5 license**.
 
 # Daily Summary Email
 Sends a daily digest of all changes made to your tenants, providing you an easy way to monitor your tenants.
