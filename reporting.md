@@ -34,7 +34,7 @@ The user account that runs the Power BI installer will be the administrator of t
 - Enter the group or email address > Select the **role** > **Add**
 
 ## Backfill Power BI Pipeline
-The backfill pipeline uploads historical data to Power BI and also keeps the data source schema and reports up to date.
+The backfill pipeline uploads historical data to Power BI and keeps the data source schema and reports up to date.
 
 The backfill can also be initiated via Azure DevOps. To do so:
 - Go to [Azure DevOps](https://dev.azure.com) > **Tenants** > **Pipelines**
