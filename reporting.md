@@ -3,22 +3,21 @@ Report on your Simeon Sync data from a single location. Use one of our builtin r
 
 ## Tenant updates
 When installing Simeon Cloud Power BI Reporting, the installer will make the following changes to the tenant selected to host the Power BI report:
-- Creates an **Azure Service Principal** named Simeon Cloud Power BI Reporting
-- **Generates credentials** for Simeon Cloud Power BI Reporting and saves the credentials in an Azure DevOps Variable Group shared only with your tenant pipelines
 - Creates the Simeon Cloud **Power BI Workspace**
-    - Grants admin access to Simeon Cloud Power BI Reporting
+- Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with admin access** to the Simeon Cloud Power BI Workspace
+- **Generates a client secret** for Simeon Cloud Power BI Reporting and saves it as a secure variable in an Azure DevOps Variable Group shared only with your tenant pipelines
 - Updates the Power BI tenant setting to **allow Service Principals access to the Power BI APIs**
 - Updates the Power BI setting to allow the **logged in user access to create Power BI workspaces**
-    - Power BI defaults restrict workspace creation to accounts with rights to create M365 Groups. If your tenant has this setting and the account running the installer is not allowed to create M365 Groups, the account will be added to the group during installation
+    - Power BI defaults restrict workspace creation to accounts with rights to create M365 Groups. If your tenant has this setting and the account running the installer is not allowed to create M365 Groups, the account will be added to the group of users allowed to create M365 groups
 
 ## Installation
-The first step to install Simeon Power BI Reporting is to determine which tenant will host the report. If you're an MSP, we recommend installing into your production or baseline tenant. If you're an enterprise, we recommend installing into your production tenant.
+The first step to install Simeon Power BI Reporting is to determine which tenant will host the report. If you're an MSP we recommend installing into your MSP's own tenant. If you're an enterprise, we recommend installing into your production tenant
 
 ### Prerequisites
-During installation, you will be prompted to log in with a user account. Select an account that has:
-- A **Power BI Pro license**
-- Has recently **logged in to [Power BI](https://app.powerbi.com)**
-- Has either the **Global Administrator role** or **all of the following Azure AD roles**:
+During installation, you will be prompted to log in with a user account. The account used must:
+- Have a **Power BI Pro license**
+- Have **logged in to [Power BI](https://app.powerbi.com)** at least once
+- Have either the **Global Administrator role** or **all of the following Azure AD roles**:
     - Application Administrator
     - Groups Administrator
     - Power BI Administrator
@@ -29,12 +28,12 @@ During installation, you will be prompted to log in with a user account. Select 
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
 
 ### Grant access to the Power BI Workspace
-The user account that runs the Power BI installer will be the administrator of the workspace. Other users will not be able to view the workspace unless given access. To grant access:
+The user account that runs the Power BI installer will be the administrator of the workspace. Other users will not be able to view the workspace until given access. To grant access:
 - Go to [Power BI](https://app.powerbi.com) > **Workspaces** > Click the **three dots** next to **Simeon Cloud** > **Workspace access**
 - Enter the group or email address > Select the **role** > **Add**
 
-## Backfill Power BI Pipeline
-The backfill pipeline uploads historical data to Power BI and keeps the data source schema and reports up to date.
+## Backfill Power BI Job
+The backfill job uploads historical data to Power BI and keeps the data source schema and reports up to date.
 
 The backfill can also be initiated via Azure DevOps. To do so:
 - Go to [Azure DevOps](https://dev.azure.com) > **Tenants** > **Pipelines**
@@ -44,10 +43,10 @@ The backfill can also be initiated via Azure DevOps. To do so:
 The pipeline parameters are as follows:
 - **Update the Power BI Table schema to the latest schema** keeps the data source schema up to date
 - **Delete all data in the Simeon Power BI dataset** running a data backfill with this unselected will result in duplicate data being uploaded to the data source
-- **Install or reinstall Simeon Power BI report(s)** updates all Simeon reports to the latest version
-- **Backfill only failed upload to Power BI steps** only backfills Syncs that have failed to upload to Power BI, allows you to run the backfill without duplicating data
+- **Install or reinstall Simeon Power BI report(s)** updates all Simeon provided (not custom) reports to the latest version
+- **Backfill only failed upload to Power BI steps** only backfills Syncs that have failed to upload to Power BI - allows you to run the backfill without duplicating data
 - **Number of hours to include in backfill** uploads to Power BI all export/deploy Syncs in the specified number of hours
-- **Number of parallel pipelines to backfill** for most runs should stay as default of 1, shouldn't be greater than 5
+- **Number of parallel pipelines to backfill** for most runs should stay as the default defined in the backfill job
 
 Run with the parameters listed below if you need to do any of the following tasks:
 ### Reinstall/update Simeon reports
@@ -88,7 +87,7 @@ The fields available in the dataset are as follows:
 - Configuration Type Description: The translation of the Configuration Type
 - Baseline Name: The name of the baseline the tenant is using. If the tenant does not have a baseline, the value is be **[No Baseline]**
 - Baseline Property Value: The baseline value of the property (if applicable) at the time of the Sync
-- Configuration Reconciliation Type: The section that the configuration falls into on the reconcile screen - **only in tenant**, **available from baseline**, **conflicting with baseline**, **matching baseline**
+- Configuration Reconciliation Type: The section that the configuration falls into on the Reconcile Screen - **only in tenant**, **available from baseline**, **conflicting with baseline**, **matching baseline**
 - Property Reconciliation Type: Similar to the Configuration Reconcile Type, but at the property level
 - Property Name: The name of the property being reported on
 - Property Value: The value of the property at the time of the sync
@@ -111,7 +110,7 @@ From here, you can build a Power BI report that meets your needs.
 
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
-Simeon will continually work to enhance reports. Pushing these report updates to your tenant will require us to delete the existing report and create a new copy. So, any changes you make to the report will be removed when the **Backfill Power BI Pipeline** is run with the option to **install/reinstall the report** selected. If, by accident, you lose changes to your reports, we do take a copy of the report before reinstalling and can assist in recovering the old copy.
+Simeon will continually work to enhance reports. Pushing these report updates to your tenant will require us to delete the existing report and create a new copy. So, any changes you make to the report will be removed when the **Backfill Power BI job** is run with the option to **Reinstall/update Simeon reports** selected. If, by accident, you lose changes to your reports, we do take a copy of the report before reinstalling and can assist in recovering the old copy.
 
 ### Can I use the dataset to build my own reports?
 Yes, please! If you build a report you think others might like, please let us know and we would be happy to spread the word!
