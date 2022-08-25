@@ -680,14 +680,6 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:RmsTemplates",
-    "description": "Office 365 > Exchange > RMS Templates",
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "PowerShell:ExchangeOnline:RoleAssignmentPolicies",
     "description": "Office 365 > Exchange > Role Assignment Policies",
     "url": "https://admin.exchange.microsoft.com/#/adminRoles",
