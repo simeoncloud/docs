@@ -1,11 +1,11 @@
 # Simeon Cloud Power BI Reporting
-Report on your Simeon Sync data from a single location. Use one of our built in reports or create your own from the raw data.
+Report on your Simeon Sync data from a single location. Use one of our built-in reports or create your own from the raw data.
 
 ## Tenant updates
 When installing Simeon Cloud Power BI Reporting, the installer will make the following changes to the tenant selected to host the Power BI report:
 - Creates the Simeon Cloud **Power BI Workspace**
 - Creates an **Azure SQL server and database**
-    - Defaults to the a Standard S0: with 10 DTUs, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)
+    - Defaults to the Standard S0: with 10 DTUs, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)
     - Uses only Azure Active Directory (Azure AD) authentication
     - Provides contributor access to all users
 - Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with dbo owner role** to the database
@@ -28,7 +28,7 @@ During installation, you will be prompted to log in with a user account. The acc
 
 ### Running the installer
 - From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane > select the **Install Power BI Reporting** tab
-- Enter the domain name of the tenant and Azure Subscription > **Install** > authenticate with an account that meets the [prerequisites](#prerequisites)
+- Enter the domain name of the tenant and the Azure Subscription > **Install** > authenticate with an account that meets the [prerequisites](#prerequisites)
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
 
 ### Grant access to the Power BI Workspace
@@ -114,7 +114,7 @@ Simeon will continually work to enhance reports. Pushing these report updates to
 Yes, please! If you build a report you think others might like, please let us know and we would be happy to spread the word!
 
 ### I don't have a Power BI Pro license; can I still see the workspace?
-Accessing a shared Power BI workspace requires at least a Power BI Pro license. If you are unsure that you want to signup, Power BI offers several trial options. Also, keep in mind, a Power BI Pro license is included in the **Office E5 license**.
+Accessing a shared Power BI workspace requires at least a Power BI Pro license assigned to the user accessing the workspace. If you are unsure that you want to signup, Power BI offers several trial options. Also, keep in mind, a Power BI Pro license is included in the **Office E5 license**.
 
 ### How do I reauthenticate Power BI with the SQL database?
 If, for any reason, the Power BI report has the error: "The data source SimeonSync is missing credentials and cannot be accessed."
