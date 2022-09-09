@@ -4,12 +4,12 @@ Report on your Simeon Sync data from a single location. Use one of our built-in 
 ## Tenant updates
 When installing Simeon Cloud Power BI Reporting, the installer will make the following changes to the tenant selected to host the Power BI report:
 - Creates the Simeon Cloud **Power BI Workspace**
+- Creates the **Azure Resource Group** named SimeonCloudReporting
 - Creates an **Azure SQL server and database**
     - Defaults to the Standard S0: with 10 DTUs, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)
-    - Uses only Azure Active Directory (Azure AD) authentication
-    - Provides contributor access to all users
-- Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with dbo owner role** to the database
+- Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with admin access** to the Simeon Cloud Power BI Workspace and SQL Server
 - **Generates a client secret** for Simeon Cloud Power BI Reporting and saves it as a secure variable in an Azure DevOps Variable Group shared only with your tenant pipelines
+- Updates the Power BI tenant setting to **allow Service Principals access to the Power BI APIs**
 - Updates the Power BI setting to allow the **logged in user access to create Power BI workspaces**
     - Power BI defaults restrict workspace creation to accounts with rights to create M365 Groups. If your tenant has this setting and the account running the installer is not allowed to create M365 Groups, the account will be added to the group of users allowed to create M365 groups
 
@@ -118,9 +118,7 @@ Accessing a shared Power BI workspace requires at least a Power BI Pro license a
 
 ### How do I reauthenticate Power BI with the SQL database?
 If, for any reason, the Power BI report has the error: "The data source SimeonSync is missing credentials and cannot be accessed."
-- Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
-- Select the **Simeon Sync** dataset > **File** > **Settings**
-- Expand **Data source credentials** > **Edit credentials** > Sign-in with a user with access to the database
+- Re-run the Simeon Report installer
 
 ### Can I get access to the data outside of Power BI?
 Yes, you can access from any system that connects to a SQL database, including [Excel](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-excel?view=azuresql) and [SQL Server Management Studio](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-ssms?view=azuresql)
