@@ -4,10 +4,10 @@ Report on your Simeon Sync data from a single location. Use one of our built-in 
 ## Tenant updates
 When installing Simeon Cloud Power BI Reporting, the installer will make the following changes to the tenant selected to host the Power BI report:
 - Creates the Simeon Cloud **Power BI Workspace**
-- Creates the **Azure Resource Group** named SimeonCloudReporting
-- Creates an **Azure SQL server and database**
+- Creates the **Azure Resource Group** named simeoncloud-reporting
+- Creates an **Azure SQL server and database** named simeoncloud-{tenant domain name}
     - Defaults to the Standard S0: with 10 DTUs, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)
-- Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with admin access** to the Simeon Cloud Power BI Workspace and SQL Server
+- Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with admin access** to the Simeon Cloud SQL Server and Power BI Workspace
 - **Generates a client secret** for Simeon Cloud Power BI Reporting and saves it as a secure variable in an Azure DevOps Variable Group shared only with your tenant pipelines
 - Updates the Power BI tenant setting to **allow Service Principals access to the Power BI APIs**
 - Updates the Power BI setting to allow the **logged in user access to create Power BI workspaces**
@@ -28,7 +28,7 @@ During installation, you will be prompted to log in with a user account. The acc
 
 ### Running the installer
 - From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane > select the **Install Power BI Reporting** tab
-- Enter the domain name of the tenant and the Azure Subscription > **Install** > authenticate with an account that meets the [prerequisites](#prerequisites)
+- Enter the domain name of the tenant > **Install** > authenticate with an account that meets the [prerequisites](#prerequisites) > when prompted select the Azure Subscription and desired location for the SQL server
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
 
 ### Grant access to the Power BI Workspace
@@ -119,9 +119,6 @@ Accessing a shared Power BI workspace requires at least a Power BI Pro license a
 ### How do I reauthenticate Power BI with the SQL database?
 If, for any reason, the Power BI report has the error: "The data source SimeonSync is missing credentials and cannot be accessed."
 - Re-run the Simeon Report installer
-
-### Can I get access to the data outside of Power BI?
-Yes, you can access from any system that connects to a SQL database, including [Excel](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-excel?view=azuresql) and [SQL Server Management Studio](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-ssms?view=azuresql)
 
 # Daily Summary Email
 Sends a daily digest of all changes made to your tenants, providing you an easy way to monitor your tenants.
