@@ -310,7 +310,7 @@ CRLFOption=CRLFAlways
         }
         else {
             try {
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes)
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent)
             }
             catch {
                 if ($ConfirmPreference -ne 'None') {
