@@ -306,17 +306,17 @@ CRLFOption=CRLFAlways
 
         if ($Interactive -and $ConfirmPreference -ne 'None') {
             if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent -ForceRefresh)
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes)
         }
         else {
             try {
-                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent)
+                $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes)
             }
             catch {
                 if ($ConfirmPreference -ne 'None') {
                     if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
                     $Interactive = $true
-                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent -ForceRefresh)
+                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes)
                 }
             }
         }
