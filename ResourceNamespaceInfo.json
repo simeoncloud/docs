@@ -536,14 +536,6 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
-    "namespace": "PowerShell:ExchangeOnline:HostedContentFilterPolicies",
-    "description": "Office 365 > Security & Compliance > Hosted content filter policies",
-    "url": "https://security.microsoft.com/antispam",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$"
-  },
-  {
     "namespace": "PowerShell:ExchangeOnline:HostedOutboundSpamFilterPolicies",
     "description": "Office 365 > Security & Compliance > Hosted outbound spam filter policies",
     "url": "https://security.microsoft.com/antispam",

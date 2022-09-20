@@ -114,7 +114,6 @@
     - File plan property reference ids
     - File plan property reference sub categories
     - Hosted connection filter policies
-    - Hosted content filter policies
     - Hosted outbound spam filter policies
     - Information governance
       - Compliance Retention Event Types
