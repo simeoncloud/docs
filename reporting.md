@@ -39,7 +39,7 @@ The user account that runs the Power BI installer will be the administrator of t
 ## Backfill Power BI Job
 The backfill job uploads historical data to Power BI and keeps the data source schema and reports up to date.
 
-The backfill can also be initiated via Azure DevOps. To do so:
+The backfill can be initiated via Azure DevOps. To do so:
 - Go to [Azure DevOps](https://dev.azure.com) > **Tenants** > **Pipelines**
 - Find the pipeline **Backfill Power BI** > **Run pipeline**
 - Select the desired parameters or keep defaults > **Run**
@@ -67,7 +67,7 @@ Run with the parameters listed below if you need to do any of the following task
 - Keep all other parameters as default
 
 ## Simeon Sync Power BI dataset
-The dataset stores all export, preview, and deploy results. If it is the first time running for a tenant, all configurations including those that are unchanged will be uploaded. After the initial load for a tenant, only those configs that are added, updated, or removed will be tracked.
+The dataset stores all export, preview, and deploy results. The latest Sync for a tenant will include unchanged configurations, historical Syncs will only track configurations that are added, updated, or removed. This dataset uses Power BI's [direct connection](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#directquery-connections) to connect to the data and is refreshed every hour.
 
 Each row in the data source represents a single property of a configuration.
 
@@ -96,7 +96,9 @@ The fields available in the dataset are as follows:
 ## Baseline and Compliance report
 Displays how each of your tenants compared to its baseline repository. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
 
-Note, the preview Sync runs and baseline tenant data are filtered out of the report by default. If you need to view/report on this data, please see the section on [building custom reports](#building-custom-reports).
+The data in the Baseline and Compliance report uses Power BI [import connections](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#import-connections) and is refreshed every 3 hours, which is the max number of automated refreshes allowed in Power BI Pro. You can refresh the report manually when viewing in Power BI. To do so:
+- Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
+- Hover your mouse over the **Baseline Compliance Report** dataset > Click on the **refresh** icon
 
 ## Building custom reports
 Simeon will pre-install reports, but you are more than welcome to create your own reports with the data in the Simeon Sync Power BI dataset. To do so:
@@ -104,7 +106,7 @@ Simeon will pre-install reports, but you are more than welcome to create your ow
 - Select the **Simeon Sync** dataset
 - At the top of the page, select **+ Create a report** > **Start from Scratch**
 
-From here, you can build a Power BI report that meets your needs.
+From here, you can build a Power BI report that meets your needs. Note, you must use the **Simeon Sync** dataset. Datasets attached to other reports will be deleted when those reports are updated.
 
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
@@ -119,6 +121,9 @@ Accessing a shared Power BI workspace requires at least a Power BI Pro license a
 ### How do I reauthenticate Power BI with the SQL database?
 If, for any reason, the Power BI report has the error: "The data source SimeonSync is missing credentials and cannot be accessed."
 - Re-run the Simeon Report installer
+
+### Why does Simeon Sync dataset use Direct Query and the dataset for Baseline and Compliance use Import Connection?
+The Baseline and Compliance report includes complicated calculations that are not supported with Direct Query.
 
 # Daily Summary Email
 Sends a daily digest of all changes made to your tenants, providing you an easy way to monitor your tenants.
