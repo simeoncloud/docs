@@ -1719,7 +1719,7 @@ CRLFOption=CRLFAlways
         }
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
-        $environments = irm @restProps "$apiBaseUrl/distributedtask/environments"
+        $environments = irm @restProps "$apiBaseUrl/distributedtask/environments?`$top=10000"
 
         $environment = $environments.value |? name -eq $Name
 
@@ -1746,7 +1746,7 @@ CRLFOption=CRLFAlways
                 ],
                 "options": {
                     "MinResults": 1,
-                    "MaxResults": 1000
+                    "MaxResults": 10000
                 },
                 "properties": [
                     "DisplayName"
