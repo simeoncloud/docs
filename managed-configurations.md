@@ -4,6 +4,8 @@
   - App registrations
   - Authorization policies
   - Company branding
+  - Conditional Access
+    - Terms of use
   - Custom domain names
   - Device settings
   - Devices
