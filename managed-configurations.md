@@ -23,7 +23,11 @@
   - Security
     - Authentication methods
       - Policies
+        - Certificate-base authentication (preview)
+        - Fido 2 Security Key
         - Microsoft Authenticator
+        - Temporary Access Pass
+        - Text Message (preview)
     - Conditional Access
       - Named locations
       - Policies
