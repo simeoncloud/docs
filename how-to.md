@@ -128,5 +128,5 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
   * **Organization settings** > **Users** > **Add users** > enter the email(s) of the user(s) you are inviting > **Add**
   * **Tenants** > **Project settings** > **Permissions** > **Tenants Team** > **Members** > **Add** > **Save**
   * (Optional) If you want to make the user a Project Administrator:
-    * **Organization settings** > **Permissions** > **Project Collection Administrators** > **Members** > click **Add**
+    * **Organization settings** > **Permissions** > **Project Collection Administrators** > **Members** > **Add**
 * Once you have added the user(s), they will receive an email invitation from DevOps. This invitation must be accepted with a work or school account. Also, to avoid login issues, we recommend accepting the invitation with an incognito window.
