@@ -122,6 +122,19 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
   * **Pipelines** > **...** (next to the tenant you want to remove) > follow the on-screen instructions to delete the pipeline
   * **Environments** (on the left pane under **Pipelines**) > select the tenant you want to remove > **...** > **Delete** > **Delete**
 
+## Add users to Simeon
+
+* Navigate to [DevOps](https://dev.azure.com/)
+  * **Organization settings** > **Users** > **Add users** > enter the email(s) of the user(s) you are inviting > **Add**
+  * **Tenants** > **Project settings** > **Permissions** > **Tenants Team** > **Members** > **Add** > **Save**
+  * (Optional) If you want to make the user a Project Administrator:
+    * **Organization settings** > **Permissions** > **Project Collection Administrators** > **Members** > **Add**
+* Once you have added the user(s), they will receive an email invitation from DevOps. This invitation must be accepted with a work or school account. Also, to avoid login issues, we recommend accepting the invitation with an incognito window.
+
+## Change user used for delegated authentication
+
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under Display name > INSTALL > follow the steps on the screen > SYNC NOW > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
+
 ## Re-prompt Sync to complete delegated authentication
 
 * Navigate to the [Sync screen](https://app.simeoncloud.com/sync) > next to the tenant, click **Sync** > **Sync** > when the status changes from *In Progress* to *Pending Authentication*, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
