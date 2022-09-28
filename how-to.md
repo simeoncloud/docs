@@ -121,3 +121,11 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
   * **Tenants** > **Repos** > select dropdown at the top of the page > **Manage repositories** > **...** (next to the tenant you want to remove) > **Delete** > follow the on-screen instructions to delete the repository
   * **Pipelines** > **...** (next to the tenant you want to remove) > follow the on-screen instructions to delete the pipeline
   * **Environments** (on the left pane under **Pipelines**) > select the tenant you want to remove > **...** > **Delete** > **Delete**
+
+## Add users to Simeon
+
+* Navigate to [DevOps](https://dev.azure.com/) > **Organization settings** > **Users** > **Add users** > enter the email(s) of the user(s) you are inviting > **Add**
+* Navigate to [DevOps](https://dev.azure.com/) > **Tenants** > **Project settings** > **Permissions** > **Tenants Team** > **Members** > **Add** > **Save**
+* To add Project Administrators:
+  * Navigate to dev.azure.com > **Organization settings** > **Permissions** > **Project Collection Administrators** > **Members** > click **Add**
+* Once you have added the user(s), they will receive an email invitation from DevOps. This invitation must be accepted with a work or school account. Also, to avoid login issues, we recommend accepting the invitation with an incognito window.
