@@ -115,12 +115,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Remove a tenant from Simeon
 
-* Delete the Simeon service account from your tenant
-  * http://portal.azure.com/ > log in to the tenant you are uninstalling > **Azure Active Directory** > **Users** > select the Simeon service account (named simeon@[tenantdomain]) > **Delete user**
-* Remove the tenant from [DevOps](https://dev.azure.com/)
-  * **Tenants** > **Repos** > select dropdown at the top of the page > **Manage repositories** > **...** (next to the tenant you want to remove) > **Delete** > follow the on-screen instructions to delete the repository
-  * **Pipelines** > **...** (next to the tenant you want to remove) > follow the on-screen instructions to delete the pipeline
-  * **Environments** (on the left pane under **Pipelines**) > select the tenant you want to remove > **...** > **Delete** > **Delete**
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
 
 ## Add users to Simeon
 
@@ -133,7 +128,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Change user used for delegated authentication
 
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under Display name > INSTALL > follow the steps on the screen > SYNC NOW > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **INSTALL** > follow the steps on the screen > **SYNC NOW** > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
 
 ## Re-prompt Sync to complete delegated authentication
 
