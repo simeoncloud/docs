@@ -124,4 +124,4 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Change user used for delegated authentication
 
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under Display name > INSTALL > follow the steps on the screen > SYNC NOW > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user.
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under Display name > INSTALL > follow the steps on the screen > SYNC NOW > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
