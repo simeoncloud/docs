@@ -124,4 +124,4 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Re-prompt Sync to complete delegated authentication
 
-* Navigate to the [Sync](https://app.simeoncloud.com/sync) screen > next to the tenant, click **Sync** > **Sync** > when the status changes from *In Progress* to *Pending Authentication*, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
+* Navigate to the [Sync screen](https://app.simeoncloud.com/sync) > next to the tenant, click **Sync** > **Sync** > when the status changes from *In Progress* to *Pending Authentication*, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
