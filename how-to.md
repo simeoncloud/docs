@@ -121,3 +121,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
   * **Tenants** > **Repos** > select dropdown at the top of the page > **Manage repositories** > **...** (next to the tenant you want to remove) > **Delete** > follow the on-screen instructions to delete the repository
   * **Pipelines** > **...** (next to the tenant you want to remove) > follow the on-screen instructions to delete the pipeline
   * **Environments** (on the left pane under **Pipelines**) > select the tenant you want to remove > **...** > **Delete** > **Delete**
+
+## Re-prompt Sync to complete delegated authentication
+
+* Navigate to the [Sync](https://app.simeoncloud.com/sync) screen > next to the tenant, click **Sync** > **Sync** > when the status changes from *In Progress* to *Pending Authentication*, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
