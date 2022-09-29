@@ -13,6 +13,7 @@
 - [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-baseline-tenant)
 
 ## Set up billing for your organization
+
 - This is required only if you exceed the [free tier of Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/). The free tier includes 5 users and 1800 minutes of runtime per month.
 - Navigate to [Azure DevOps](https://dev.azure.com/)
 - **Organization settings**
@@ -67,6 +68,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     *   (2) **SYNC NOW** immediately deploys the changes to the tenant.
 
 ## Generate Health Check Reports
+
 * First, in the tenant you are generating the report for, obtain a user with either (1) Global Administrator role or (2) [the minimum required roles](https://simeoncloud.github.io/docs/#/permissions?id=permissions)
 * If you are using a global administrator user, follow these instructions to [install your tenant](https://simeoncloud.github.io/docs/#/how-to?id=install-a-client-tenant-onto-simeon)
 * If you are using a user with the minimum required roles, follow these instruction to [install your tenant using delegated authentication](https://simeoncloud.github.io/docs/#/how-to?id=install-a-tenant-with-delegated-authentication)
