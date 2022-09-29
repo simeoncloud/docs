@@ -13,7 +13,7 @@
 - [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-baseline-tenant)
 
 ## Set up billing for your organization
-
+- This is required only if you exceed the free tier of Azure DevOps. The free tier includes 5 users and 1800 minutes of runtime per month.
 - Navigate to [Azure DevOps](https://dev.azure.com/)
 - **Organization settings**
   - **Billing** > **Set up billing** > select either an existing subscription or **+ New Azure Subscription** > **Save**
@@ -128,15 +128,15 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Change user used for delegated authentication
 
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **INSTALL** > follow the steps on the screen > **SYNC NOW** > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **INSTALL** > follow the steps on the screen > **SYNC NOW** > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to **Pending Authentication**, the Sync will time out.
 
 ## Re-prompt Sync to complete delegated authentication
 
-* Navigate to the [Sync screen](https://app.simeoncloud.com/sync) > next to the tenant, click **Sync** > **Sync** > when the status changes from *In Progress* to *Pending Authentication*, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to *Pending Authentication*, the Sync will time out.
+* Navigate to the [Sync screen](https://app.simeoncloud.com/sync) > next to the tenant, click **Sync** > **Sync** > when the status changes from **In Progress** to **Pending Authentication**, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to **Pending Authentication**, the Sync will time out.
 
 ## Add variables to configurations and Intune Apps
 
-* On [DevOps](dev.azure.com), in the baseline tenant repository, define the variable in the config.tenant.json file.
+* On [DevOps](dev.azure.com), in the baseline tenant repository, define the variable in the config.tenant.json file (as shown in the video below).
     * **Tenants** > **Repos** > from the dropdown, select your baseline tenant > expand the **Source** folder > expand the **Resources** folder > **config.tenant.json** > **Edit**
     * Inside ResourceContext, add "VariableName": "PLACEHOLDER_VALUE" as shown below > **Commit** > **Commit**
         ```
@@ -147,15 +147,17 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
             }
         }
         ```
-    * If you add multiple variables, you need to have a trailing comma.
+    * If you define multiple variables, you must include trailing commas.
 
         <br />
-        <video src="https://raw.githubusercontent.com/simeoncloud/docs/add_variables/assets/videos/add_variables.mov" controls="controls" style="max-width: 1000px;"></video>
+        <video src="assets/videos/add_variables.mov" controls="controls" style="max-width: 1000px;"></video>
+<br>
 
-* Create the configuration or Intune app in the baseline portal. Ensure the property that you want to variablize matches the property valued as defined in the config.tenant.json file.
+
+* Create the configuration or Intune app in the baseline tenant. Ensure the property that you want to variablize matches the property value as defined in the config.tenant.json file.
     * If you want to add a variable to an existing configuration or Intune app, contact support@simeoncloud.com.
-* Sync your baseline
-    * The PLACEHOLDER_VALUE should be replaced by ${ResourceContext%003AVariableName} in the baseline Sync log.
+* [Sync](https://app.simeoncloud.com/sync) your baseline
+    * The PLACEHOLDER_VALUE should be replaced by **${ResourceContext%003AVariableName}** in the baseline Sync log.
 * In the downstream tenant repository config.tenant.json file, define the variable with the value you want to be replaced as shown below.
     ```
     {
@@ -165,4 +167,4 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
         }
     }
     ```
-* Sync the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
+* [Sync](https://app.simeoncloud.com/sync) the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
