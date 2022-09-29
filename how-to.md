@@ -159,7 +159,6 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 * Create the configuration or Intune app in the baseline tenant. Ensure the property that you want to variablize matches the property value as defined in the config.tenant.json file.
     * If you want to add a variable to an existing configuration or Intune app, contact support@simeoncloud.com.
 * [Sync](https://app.simeoncloud.com/sync) your baseline
-    * The PLACEHOLDER_VALUE should be replaced by **${ResourceContext%003AVariableName}** in the baseline Sync log.
 * In the downstream tenant repository config.tenant.json file, define the variable with the value you want to be replaced as shown below.
     ```
     {
