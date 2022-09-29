@@ -147,10 +147,10 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
             }
         }
         ```
-    * If you add multiple variables you need to have a trailing comma.
+    * If you add multiple variables, you need to have a trailing comma.
 
         <br />
-        <video src="https://raw.githubusercontent.com/simeoncloud/docs/add_variables/assets/videos/add_variables.mov" controls="controls" style="max-width: 548px;"></video>
+        <video src="https://raw.githubusercontent.com/simeoncloud/docs/add_variables/assets/videos/add_variables.mov" controls="controls" style="max-width: 1000px;"></video>
 
 * Create the configuration or Intune app in the baseline portal. Ensure the property that you want to variablize matches the property valued as defined in the config.tenant.json file.
     * If you want to add a variable to an existing configuration or Intune app, contact support@simeoncloud.com.
