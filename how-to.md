@@ -114,6 +114,57 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/revert_to_point_in_time.gif" width="300" height="822.5" />
 
+## Add users to Simeon
+
+* Navigate to [DevOps](https://dev.azure.com/)
+  * **Organization settings** > **Users** > **Add users** > enter the email(s) of the user(s) you are inviting > **Add**
+  * **Tenants** > **Project settings** > **Permissions** > **Tenants Team** > **Members** > **Add** > **Save**
+  * (Optional) If you want to make the user a Project Administrator:
+    * **Organization settings** > **Permissions** > **Project Collection Administrators** > **Members** > **Add**
+* Once you have added the user(s), they will receive an email invitation from DevOps. This invitation must be accepted with a work or school account. Also, to avoid login issues, we recommend accepting the invitation with an incognito window.
+
+## Change user used for delegated authentication
+
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **INSTALL** > follow the steps on the screen > **SYNC NOW** > when the status of the tenant Sync is **Pending Authentication**, authenticate with a different user. If you don't authenticate within 5 minutes after the status changes to **Pending Authentication**, the Sync will time out.
+
+## Re-prompt Sync to complete delegated authentication
+
+* Navigate to the [Sync screen](https://app.simeoncloud.com/sync) > next to the tenant, click **Sync** > **Sync** > when the status changes from **In Progress** to **Pending Authentication**, click **Pending Authentication** > complete the steps on the screen. If you don't authenticate within 5 minutes after the status changes to **Pending Authentication**, the Sync will time out.
+
+## Add variables to configurations and Intune Apps
+
+* On [DevOps](dev.azure.com), in the baseline tenant repository, define the variable in the config.tenant.json file (as shown in the video below).
+    * **Tenants** > **Repos** > from the dropdown, select your baseline tenant > expand the **Source** folder > expand the **Resources** folder > **config.tenant.json** > **Edit**
+    * Inside ResourceContext, add "VariableName": "PLACEHOLDER_VALUE" as shown below > **Commit** > **Commit**
+        ```
+        {
+            "ResourceContext": {
+                "M365Licenses": "[]",
+                "VariableName": "PLACEHOLDER_VALUE"
+            }
+        }
+        ```
+    * If you define multiple variables, you must include trailing commas.
+
+        <br />
+        <video src="assets/videos/add_variables.mov" controls="controls" style="max-width: 1000px;"></video>
+<br>
+
+
+* Create the configuration or Intune app in the baseline tenant. Ensure the property that you want to variablize matches the property value as defined in the config.tenant.json file.
+    * If you want to add a variable to an existing configuration or Intune app, contact support@simeoncloud.com.
+* [Sync](https://app.simeoncloud.com/sync) your baseline
+* In the downstream tenant repository config.tenant.json file, define the variable with the value you want to be replaced as shown below.
+    ```
+    {
+        "ResourceContext": {
+            "M365Licenses": "[]",
+            "VariableName": "downstream tenant value"
+        }
+    }
+    ```
+* [Sync](https://app.simeoncloud.com/sync) the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
+
 ## Remove a tenant from Simeon
 
 * Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
