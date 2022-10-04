@@ -4,6 +4,8 @@
   - App registrations
   - Authorization policies
   - Company branding
+  - Conditional Access
+    - Terms of use
   - Custom domain names
   - Device settings
   - Devices
@@ -23,7 +25,11 @@
   - Security
     - Authentication methods
       - Policies
+        - Certificate-base authentication (preview)
+        - Fido 2 Security Key
         - Microsoft Authenticator
+        - Temporary Access Pass
+        - Text Message (preview)
     - Conditional Access
       - Named locations
       - Policies

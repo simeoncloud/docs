@@ -104,6 +104,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Agreements",
+    "description": "Azure AD > Conditional Access > Terms of use",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/~/TermsOfUse",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:Applications",
     "description": "Azure AD > App registrations",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
@@ -336,8 +344,40 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:Fido2",
+    "description": "Azure AD > Security > Authentication methods > Policies > Fido 2 Security Key",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:MicrosoftAuthenticator",
     "description": "Azure AD > Security > Authentication methods > Policies > Microsoft Authenticator",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:Sms",
+    "description": "Azure AD > Security > Authentication methods > Policies > Text Message (preview)",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:TemporaryAccessPass",
+    "description": "Azure AD > Security > Authentication methods > Policies > Temporary Access Pass",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:X509Certificate",
+    "description": "Azure AD > Security > Authentication methods > Policies > Certificate-base authentication (preview)",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -693,7 +733,7 @@
     "url": "https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Address List Group$|^Organization Management$|^Recipient Management$|^View-Only Organization Management|^Help Desk|^Records Management$|^Discovery Management$|^Hygiene Management|^Compliance Management|^Security Reader$|^Security Administrator|^Security Operator$|^RIM-MailboxAdmins|^ComplianceAdmins|^CLBAccessApprovers|^HelpdeskAdmins|^GlobalReaders|^ExchangeServiceAdmins|^SecurityReaders|^SecurityAdmins|^TenantAdmins).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Address Lists Management$|^Organization Management$|^Recipient Management$|^View-Only Organization Management|^Help Desk|^Records Management$|^Discovery Management$|^Hygiene Management|^Compliance Management|^Security Reader$|^Security Administrator|^Security Operator$|^RIM-MailboxAdmins|^ComplianceAdmins|^CLBAccessApprovers|^HelpdeskAdmins|^GlobalReaders|^ExchangeServiceAdmins|^SecurityReaders|^SecurityAdmins|^TenantAdmins).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",

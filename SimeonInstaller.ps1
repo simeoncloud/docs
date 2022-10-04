@@ -306,8 +306,7 @@ CRLFOption=CRLFAlways
 
         if ($Interactive -and $ConfirmPreference -ne 'None') {
             if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
-            (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) | Out-Null # get with all required permissions first
-            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent -ForceRefresh)
+            $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes)
         }
         else {
             try {
@@ -317,8 +316,7 @@ CRLFOption=CRLFAlways
                 if ($ConfirmPreference -ne 'None') {
                     if ($interactiveMessage) { Wait-EnterKey $interactiveMessage }
                     $Interactive = $true
-                    (Get-MsalToken -PublicClientApplication $app -Scopes "$clientId/.default" -Interactive -ForceRefresh) | Out-Null # get with all required permissions first
-                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes -Silent -ForceRefresh)
+                    $token = (Get-MsalToken -PublicClientApplication $app -Scopes $Scopes)
                 }
             }
         }
@@ -1721,7 +1719,7 @@ CRLFOption=CRLFAlways
         }
         $apiBaseUrl = "https://dev.azure.com/$Organization/$Project/_apis"
 
-        $environments = irm @restProps "$apiBaseUrl/distributedtask/environments"
+        $environments = irm @restProps "$apiBaseUrl/distributedtask/environments?`$top=10000"
 
         $environment = $environments.value |? name -eq $Name
 
@@ -1748,7 +1746,7 @@ CRLFOption=CRLFAlways
                 ],
                 "options": {
                     "MinResults": 1,
-                    "MaxResults": 1000
+                    "MaxResults": 10000
                 },
                 "properties": [
                     "DisplayName"

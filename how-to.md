@@ -28,8 +28,8 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Install a baseline
 
-* First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
-* From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
+*   First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
+*   From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
 *   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
 *   If you would like to use the Simeon Baseline, toggle on **Use Simeon Baseline**. Otherwise, leave **Use Simeon Baseline** toggled off.
 *   Click **Install** > (optional) select a subscription for Simeon to use for deploying resource groups > **Sync now**
@@ -67,6 +67,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     *   (2) **SYNC NOW** immediately deploys the changes to the tenant.
 
 ## Generate Health Check Reports
+
 * First, in the tenant you are generating the report for, obtain a user with either (1) Global Administrator role or (2) [the minimum required roles](https://simeoncloud.github.io/docs/#/permissions?id=permissions)
 * If you are using a global administrator user, follow these instructions to [install your tenant](https://simeoncloud.github.io/docs/#/how-to?id=install-a-client-tenant-onto-simeon)
 * If you are using a user with the minimum required roles, follow these instruction to [install your tenant using delegated authentication](https://simeoncloud.github.io/docs/#/how-to?id=install-a-tenant-with-delegated-authentication)
@@ -115,12 +116,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Remove a tenant from Simeon
 
-* Delete the Simeon service account from your tenant
-  * [From the Azure Portal](https://portal.azure.com/) > log in to the tenant you are uninstalling > **Azure Active Directory** > **Users** > select the Simeon service account (named simeon@[tenantdomain]) > **Delete user**
-* Remove the tenant from [DevOps](https://dev.azure.com/)
-  * **Tenants** > **Repos** > select dropdown at the top of the page > **Manage repositories** > **...** (next to the tenant you want to remove) > **Delete** > follow the on-screen instructions to delete the repository
-  * **Pipelines** > **...** (next to the tenant you want to remove) > follow the on-screen instructions to delete the pipeline
-  * **Environments** (on the left pane under **Pipelines**) > select the tenant you want to remove > **...** > **Delete** > **Delete**
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
 * If the tenant was used to host **Simeon Cloud Power BI Reporting**:
   * Remove the Service Principal used to write Sync data
     * [From the Azure Portal](https://portal.azure.com/) > log in to the tenant you are uninstalling > **Azure Active Directory** > **App Registrations** > select the tab **All applications** > search for **Simeon Cloud Power BI Reporting** > **Delete**
