@@ -10,7 +10,7 @@
   - All licensed SKUs are supported
   - If you want access to all baseline configurations, we recommend **Microsoft 365 F3** and **Azure AD P2** (optional, if you want to use PIM and/or the secure score baseline)
   - You can verify the license has been added to your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
-- [Set up Simeon for the new baseline tenant](#set-up-simeon-for-a-baseline-tenant)
+- [Set up Simeon for the new baseline tenant](#install-a-baseline)
 
 ## Set up billing for your organization
 
@@ -30,7 +30,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 ## Install a baseline
 
 *   First, create a baseline Azure tenant by following the steps [here](https://simeoncloud.github.io/docs/#/how-to?id=create-a-new-tenant-to-manage-your-baseline)
-* From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
+*   From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
 *   For **Tenant**, enter the primary domain name of your baseline tenant (e.g. [simeonbaseline.onmicrosoft.com](http://simeonbaseline.onmicrosoft.com)) > **Baseline** should be **None/I am creating a baseline tenant** \> **Install**
 *   If you would like to use the Simeon Baseline, toggle on **Use Simeon Baseline**. Otherwise, leave **Use Simeon Baseline** toggled off.
 *   Click **Install** > (optional) select a subscription for Simeon to use for deploying resource groups > **Sync now**
@@ -51,7 +51,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 * Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 3x
     *   Please note you cannot authenticate with a guest user in the tenant.
-* After the fourth authentication, and **in progress** returns to **Idle**, the install and initial Sync are complete
+* After the fourth authentication, and **In Progress** returns to **Idle**, the install and initial Sync are complete
 
 ## Reconcile and deploy a client tenant
 
@@ -115,10 +115,6 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/revert_to_point_in_time.gif" width="300" height="822.5" />
 
-## Remove a tenant from Simeon
-
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
-
 ## Add users to Simeon
 
 * Navigate to [DevOps](https://dev.azure.com/)
@@ -169,3 +165,13 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     }
     ```
 * [Sync](https://app.simeoncloud.com/sync) the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
+
+## Remove a tenant from Simeon
+
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
+* If the tenant was used to host **Simeon Cloud Power BI Reporting**:
+  * Remove the Service Principal used to write Sync data
+    * [From the Azure Portal](https://portal.azure.com/) > log in to the tenant you are uninstalling > **Azure Active Directory** > **App Registrations** > select the tab **All applications** > search for **Simeon Cloud Power BI Reporting** > **Delete**
+  * Remove the Simeon Cloud Power BI workspace
+    * [From Power BI](https://app.powerbi.com) > **Workspaces** > select the three dots next to the Simeon Cloud workspace > **Workspace Settings** > **Delete Workspace**
+  * Remove the Azure resource group simeoncloud-reporting

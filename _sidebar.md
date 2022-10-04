@@ -6,4 +6,5 @@
 - [Application Packaging](application-packaging.md)
 - [Managed Configurations](managed-configurations.md)
 - [Baseline](baseline.md)
+- [Reporting](reporting.md)
 - [Security](security.md)
