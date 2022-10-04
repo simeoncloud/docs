@@ -14,6 +14,7 @@
 
 ## Set up billing for your organization
 
+- This is required only if you exceed the [free tier of Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/). The free tier includes 5 users and 1800 minutes of runtime per month.
 - Navigate to [Azure DevOps](https://dev.azure.com/)
 - **Organization settings**
   - **Billing** > **Set up billing** > select either an existing subscription or **+ New Azure Subscription** > **Save**
