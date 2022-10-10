@@ -104,6 +104,22 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MicrosoftOffice365Portal:Services:Apps:BriefingEmail",
+    "description": "M365 Admin Center > Settings > Org Settings > Briefing Email from Microsoft Viva",
+    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/BriefingEmail",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MicrosoftOffice365Portal:Services:Apps:VivaInsights",
+    "description": "M365 Admin Center > Settings > Org Settings > Microsoft Viva Insights (formerly MyAnalitics)",
+    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Agreements",
     "description": "Azure AD > Conditional Access > Terms of use",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/~/TermsOfUse",

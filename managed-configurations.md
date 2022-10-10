@@ -64,6 +64,11 @@
       - Proactive Remediations
   - Tenant administration
     - Filters
+- M365 Admin Center
+  - Settings
+    - Org Settings
+      - Briefing Email from Microsoft Viva
+      - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
     - AddressBookPolicy
