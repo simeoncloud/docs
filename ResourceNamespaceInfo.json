@@ -168,12 +168,20 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:DeviceAppManagement:MobileAppConfigurations",
+    "description": "Intune > Apps > App configuration policies",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
+    "isCreateSupportedFilter": "^(?:(?!^androidAppConfiguration - ).)+$",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^iosStoreApp - |^androidManagedStoreApp - ).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - ).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^androidManagedStoreApp - ).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - ).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:PolicySets",
