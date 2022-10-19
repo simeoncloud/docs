@@ -1,5 +1,7 @@
+- Azure -> Privileged Identity Management -> Policies and Rules
 - Azure
   - Resource groups
+- Azure AD -> Roles and Administrators
 - Azure AD
   - App registrations
   - Authorization policies
