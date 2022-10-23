@@ -150,4 +150,6 @@
       - External access
     - Voice
       - Calling policies
+- SharePoint
+  - Settings
 

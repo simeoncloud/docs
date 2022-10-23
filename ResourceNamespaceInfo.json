@@ -120,6 +120,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:Admin:SharePoint:Settings",
+    "description": "SharePoint > Settings",
+    "url": "https://{tenantName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/settings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Agreements",
     "description": "Azure AD > Conditional Access > Terms of use",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/~/TermsOfUse",
