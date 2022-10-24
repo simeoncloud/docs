@@ -345,7 +345,7 @@
   },
   {
     "namespace": "MSGraph:DirectoryRoles",
-    "description": "Azure AD -> Roles and Administrators",
+    "description": "Azure AD > Roles and Administrators",
     "url": "https://portal.azure.com/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": "$^",
@@ -433,7 +433,7 @@
   },
   {
     "namespace": "MSGraph:Policies:RoleManagementPolicies",
-    "description": "Azure -> Privileged Identity Management -> Policies and Rules",
+    "description": "Azure > Privileged Identity Management > Policies and Rules",
     "url": "https://portal.azure.com/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -441,7 +441,7 @@
   },
   {
     "namespace": "MSGraph:RoleManagement:Directory:RoleEligibilitySchedules",
-    "description": "Azure -> Privileged Identity Management -> Policies and Rules",
+    "description": "Azure > Privileged Identity Management > Policies and Rules",
     "url": "https://portal.azure.com/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
