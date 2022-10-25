@@ -787,9 +787,9 @@
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
-    "isCreateSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
+    "isCreateSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|ˆStandard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
