@@ -1,4 +1,6 @@
 - Azure
+  - Privileged Identity Management
+    - Policies and Rules
   - Resource groups
 - Azure AD
   - App registrations
@@ -22,6 +24,7 @@
   - Groups
   - Mobility (MDM and MAM)
   - Password reset
+  - Roles and Administrators
   - Security
     - Authentication methods
       - Policies
