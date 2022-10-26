@@ -453,7 +453,7 @@
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Settings",
