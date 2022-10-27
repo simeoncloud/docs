@@ -347,7 +347,7 @@
     "namespace": "MSGraph:DirectoryRoles",
     "description": "Azure AD > Roles and Administrators",
     "url": "https://portal.azure.com/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^"
   },
@@ -453,7 +453,7 @@
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:Settings",
@@ -787,9 +787,9 @@
     "namespace": "PowerShell:ExchangeOnline:SafeAttachmentPolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2",
-    "isCreateSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
+    "isCreateSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|ˆStandard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:SafeLinksPolicies",
@@ -950,6 +950,14 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "SharePoint:Policies",
+    "description": "SharePoint Admin Center > Policies > Sharing and Access Control",
+    "url": "https://{tenant}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/sharing",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "TeamsApi:TeamsAppPermissionPolicies",

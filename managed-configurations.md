@@ -153,4 +153,7 @@
       - External access
     - Voice
       - Calling policies
+- SharePoint Admin Center
+  - Policies
+    - Sharing and Access Control
 
