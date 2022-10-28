@@ -202,7 +202,7 @@
   {
     "namespace": "MSGraph:DeviceAppManagement:WindowsInformationProtectionPolicies",
     "description": "Intune > Apps > App protection policies (Platform = Windows 10)",
-    "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabels",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/~/appProtection",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
