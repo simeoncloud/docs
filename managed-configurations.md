@@ -155,4 +155,7 @@
       - Calling policies
 - SharePoint
   - Settings
+- SharePoint Admin Center
+  - Policies
+    - Sharing and Access Control
 
