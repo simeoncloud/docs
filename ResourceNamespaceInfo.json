@@ -122,7 +122,7 @@
   {
     "namespace": "MSGraph:Admin:SharePoint:Settings",
     "description": "SharePoint > Settings",
-    "url": "https://{tenantName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/settings",
+    "url": "https://{onMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/settings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -134,6 +134,14 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:ApplicationApis",
+    "description": "Azure AD > App registrations > API",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Applications",
@@ -210,7 +218,7 @@
   {
     "namespace": "MSGraph:DeviceAppManagement:WindowsInformationProtectionPolicies",
     "description": "Intune > Apps > App protection policies (Platform = Windows 10)",
-    "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabels",
+    "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/~/appProtection",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -962,7 +970,7 @@
   {
     "namespace": "SharePoint:Policies",
     "description": "SharePoint Admin Center > Policies > Sharing and Access Control",
-    "url": "https://{tenant}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/sharing",
+    "url": "https://{onMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/sharing",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
