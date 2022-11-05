@@ -458,7 +458,7 @@
   {
     "namespace": "MSGraph:ServicePrincipals",
     "description": "Azure AD > Enterprise applications",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/",
+    "url": "https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
