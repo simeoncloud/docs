@@ -4,6 +4,7 @@
   - Resource groups
 - Azure AD
   - App registrations
+    - API
   - Authorization policies
   - Company branding
   - Conditional Access
