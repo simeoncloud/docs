@@ -29,11 +29,12 @@
   - Security
     - Authentication methods
       - Policies
-        - Certificate-base authentication (preview)
+        - Certificate-base authentication
         - Fido 2 Security Key
         - Microsoft Authenticator
         - Temporary Access Pass
-        - Text Message (preview)
+        - Text Message
+        - Third-party software OATH tokens
     - Conditional Access
       - Named locations
       - Policies

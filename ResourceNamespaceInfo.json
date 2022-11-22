@@ -409,7 +409,15 @@
   },
   {
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:Sms",
-    "description": "Azure AD > Security > Authentication methods > Policies > Text Message (preview)",
+    "description": "Azure AD > Security > Authentication methods > Policies > Text Message",
+    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:SoftwareOath",
+    "description": "Azure AD > Security > Authentication methods > Policies > Third-party software OATH tokens",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -425,7 +433,7 @@
   },
   {
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations:X509Certificate",
-    "description": "Azure AD > Security > Authentication methods > Policies > Certificate-base authentication (preview)",
+    "description": "Azure AD > Security > Authentication methods > Policies > Certificate-base authentication",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
