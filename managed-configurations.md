@@ -158,6 +158,6 @@
 - SharePoint
   - Settings
 - SharePoint Admin Center
-  - Policies
-    - Sharing and Access Control
+  - Settings and Policies
+  - Sites
 

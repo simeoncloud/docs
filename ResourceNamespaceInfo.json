@@ -976,9 +976,17 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "SharePoint:Policies",
-    "description": "SharePoint Admin Center > Policies > Sharing and Access Control",
-    "url": "https://{onMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/sharing",
+    "namespace": "SharePoint:Sites",
+    "description": "SharePoint Admin Center > Sites",
+    "url": "https://{OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
+    "isCreateSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*"
+  },
+  {
+    "namespace": "SharePoint:TenantProperties",
+    "description": "SharePoint Admin Center > Settings and Policies",
+    "url": "https://{OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
