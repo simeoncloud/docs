@@ -53,14 +53,14 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     *   Please note you cannot authenticate with a guest user in the tenant.
 * After the fourth authentication, and **In Progress** returns to **Idle**, the install and initial Sync are complete
 
-## Reconcile and deploy a client tenant
+## Reconcile and deploy to a client tenant
 
 *   From the Simeon portal, click **Reconcile** on the navigation pane
 *   Choose the tenant you would like to reconcile. You may reconcile at any time to identify and resolve differences between the baseline and your tenant.
 *   You can expand all and collapse all configurations using the buttons located at the top of the page next to the header. You may also expand individual configurations and their respective properties. Doing so will display more information on the given configuration.
 *   Now, you may go through the four sections and decide on how to reconcile the different configurations with your baseline.
     *   **Tenant-Specific Configurations** contains those configurations that were exported from your tenant and do not overlap with the baseline. For each configuration in this section, you must decide whether you want to **keep the configuration** or **remove the configuration**. By keeping the box checked, you are choosing to keep the configuration. If you uncheck the box, you are choosing to remove the configuration from the tenant.
-    *   **Available From Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box checked, you are choosing to **exclude the baseline configuration from the tenant**. If you uncheck the box, you are choosing to **use the baseline configuration in the tenant**.
+    *   **Available From Baseline** contains those configurations from your baseline that are not in your tenant. By keeping the box unchecked, you are choosing to **exclude the baseline configuration from the tenant**. If you check the box, you are choosing to **use the baseline configuration in the tenant**.
     *   **Conflicting With Baseline** contains those configurations that are in both the tenant and the baseline, but where the configurations have different values. You can choose between **keeping the configuration you have** versus **reverting to the baseline configuration**. By keeping the box checked, you are choosing to keep your existing tenant configuration. If you uncheck the box, you are choosing to revert to the baseline configuration.
     *   **Matching Baseline** contains those configurations that are in both your tenant and the baseline. By keeping the box checked, you are choosing to **keep the baseline configuration**. If you uncheck the box, you are choosing to **exclude the baseline configuration**.
 *   Once you have gone through each section and checked/unchecked boxes accordingly, click **Reconcile** at the bottom of the page. You will have two options from here:
