@@ -360,14 +360,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DirectoryRoles",
-    "description": "Azure AD > Roles and Administrators",
-    "url": "https://portal.azure.com/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "MSGraph:Domains",
     "description": "Azure AD > Custom domain names",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Domains",
@@ -462,6 +454,22 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:RoleManagement:Directory:RoleAssignments",
+    "description": "Azure AD > Roles and Administrators",
+    "url": "https://portal.azure.com/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:RoleManagement:Directory:RoleDefinitions",
+    "description": "Azure AD > Roles and Administrators",
+    "url": "https://portal.azure.com/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:RoleManagement:Directory:RoleEligibilitySchedules",
