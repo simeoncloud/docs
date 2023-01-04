@@ -25,3 +25,5 @@
 **[Assign an Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions:**
 * Address lists
   * Required for Exchange Online settings
+
+**:exclamation: Without the Global Adminstrator Role, you can read but not apply changes to Directory Properties 
