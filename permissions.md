@@ -1,10 +1,10 @@
 ## Permissions required to run Simeon using delegated authentication
 
-**Assign the Global Adminstrator role to a non-guest user in Azure AD:**
+**Assign the Global Adminstrator role to a non-guest user in Azure AD**
 
-**or**
+or
 
-**Assign the following roles to a non-guest user in Azure AD:**
+**Assign the following roles to a non-guest user in Azure AD to give the least privileges:**
 * Authentication Policy Administrator
   * Required to manage Authentication policy settings
 * Intune administrator
