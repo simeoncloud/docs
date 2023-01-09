@@ -219,7 +219,8 @@ CRLFOption=CRLFAlways
 
         foreach ($m in $requiredModules) {
             if (!$m.Repository) { $m.Repository = 'PSGallery' }
-            if (!(Get-Module $m.Name -ListAvailable |? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) {
+            $currentModules = Get-Module $m.Name -ListAvailable;
+            if (!($currentModules |? { !$m.RequiredVersion -or $m.RequiredVersion -eq $_.Version })) {
                 Write-Information "Installing module '$($m.Name)'"
                 Install-Module @m -Scope CurrentUser -Force -AllowClobber -AcceptLicense -SkipPublisherCheck | Out-Null
             }
