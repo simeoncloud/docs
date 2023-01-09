@@ -25,6 +25,8 @@ or
   * Required to manage configurations in Azure AD
 * Cloud device administrator
   * Required to read/write Device registration policy
+* SharePoint administrator
+  * Required to read/write SharePoint settgins
 
 **[Assign an Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions:**
 * Address lists
