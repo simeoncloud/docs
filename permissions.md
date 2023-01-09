@@ -29,4 +29,4 @@ or
 * Address lists
   * Required for Exchange Online settings
 
-:exclamation: **Without the Global Adminstrator Role, you can read but can not apply changes to Azure Active Directory User Settings** :exclamation:
+:exclamation: **Without the Global Adminstrator Role, you can read but cannot apply changes to Azure Active Directory User Settings** :exclamation:
