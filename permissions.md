@@ -1,6 +1,7 @@
 ## To run Simeon with delegated authentication, the Sync must authenticate with an Azure AD non-guest user that has either the Global Admin role
+&nbsp;
 
-
+&nbsp;
 or
 
 ## the following minimum required roles:
