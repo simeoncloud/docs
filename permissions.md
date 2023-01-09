@@ -1,5 +1,6 @@
 ## To run Simeon with delegated authentication, the Sync must authenticate with an Azure AD non-guest user that has either the Global Admin role
 
+
 or
 
 ## the following minimum required roles:
@@ -28,4 +29,4 @@ or
 * Address lists
   * Required for Exchange Online settings
 
-:exclamation: **Without the Global Adminstrator Role, you can read but can not apply changes to Azure Active Directory User Settings** :exclamation:
+:exclamation: **Without the Global Adminstrator Role, you can read but cannot apply changes to Azure Active Directory User Settings** :exclamation:
