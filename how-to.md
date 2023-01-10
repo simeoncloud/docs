@@ -53,6 +53,10 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     *   Please note you cannot authenticate with a guest user in the tenant.
 * After the fourth authentication, and **In Progress** returns to **Idle**, the install and initial Sync are complete
 
+## Re-install a tenant
+
+* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > select the tenant under **Display name** > **INSTALL** > follow the instructions on the screen. 
+
 ## Reconcile and deploy to a client tenant
 
 *   From the Simeon portal, click **Reconcile** on the navigation pane
