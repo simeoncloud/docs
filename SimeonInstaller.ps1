@@ -2366,6 +2366,8 @@ CRLFOption=CRLFAlways
             }
             Write-Warning "Accept the DevOps email invite in an incognito browser"
         }
+
+        Install-SimeonSyncVariableGroup -Organization $Organization -Project $Project
     }
 
     Install-RequiredModule
