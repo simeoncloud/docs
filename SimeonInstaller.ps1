@@ -2069,7 +2069,7 @@ CRLFOption=CRLFAlways
                 # Repositories > rename $Project to default
                 Write-Information "Renaming the repository: $Project to default"
                 $repos = (Invoke-WithRetry { Invoke-RestMethod -Header $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories?api-version=6.0" -Method Get }).value
-                if ($repos.name -contains "$Project") {Get-AzureDevOpsProjectId
+                if ($repos.name -contains "$Project") {
                     $repoId = ($repos |? { $_.name -eq "$Project" }).id
                     Invoke-WithRetry { Invoke-RestMethod -Headers $authenicationHeader -Uri "https://dev.azure.com/$Organization/$projectId/_apis/git/repositories/$repoId`?api-version=5.0" -Method Patch -Body '{"name":"default"}' -ContentType "application/json" } | Out-Null
                 }
