@@ -28,7 +28,7 @@ or
 * SharePoint administrator
   * Required to read/write SharePoint settings
 
-**[Assign an Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions**:
+**[Assign an Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions:**
 * Address lists
   * Required for Exchange Online settings
 
