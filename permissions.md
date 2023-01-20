@@ -1,4 +1,4 @@
-## To run Simeon with delegated authentication, the Sync must authenticate with an Azure AD non-guest user that has either the Global Administrator role
+## To run Simeon with delegated authentication, the Sync must authenticate with an Azure AD, non-guest user that has either the Global Administrator role and the Exchange Online Admin role (with permissions for Address lists)
 &nbsp;
 
 &nbsp;
@@ -28,7 +28,7 @@ or
 * SharePoint administrator
   * Required to read/write SharePoint settings
 
-## Either the global administrator or the user with the minimum required roles need to be [assigned the Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions:
+**[Assign an Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions**:
 * Address lists
   * Required for Exchange Online settings
 
