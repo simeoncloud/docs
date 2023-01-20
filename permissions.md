@@ -28,7 +28,7 @@ or
 * SharePoint administrator
   * Required to read/write SharePoint settings
 
-## Either the global administrator or the user with the minimum required roles need to be [assigned the Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions:**
+## Either the global administrator or the user with the minimum required roles need to be [assigned the Exchange Online Admin role](https://admin.exchange.microsoft.com/#/adminRoles/addRoleGroup) with the following permissions:
 * Address lists
   * Required for Exchange Online settings
 
