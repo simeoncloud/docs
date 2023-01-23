@@ -2154,11 +2154,11 @@ CRLFOption=CRLFAlways
 
         # Install Retry failed Pipelines
         Write-Information "Installing retry pipelines"
-        Install-SimeonRetryPipeline -Organization $Organization
+        Install-SimeonRetryPipeline -Organization $Organization -Project $Project
 
         # Install SummaryReport pipeline
         Write-Information "Installing reporting pipeline"
-        Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -SmtpUserPassword $reportingEmailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $Organization
+        Install-SimeonReportingPipeline -FromEmailAddress 'noreply@simeoncloud.com' -SmtpUserPassword $reportingEmailPw -ToBccAddress '70e1ed48.simeoncloud.com@amer.teams.ms' -Organization $Organization -Project $Project
 
         Write-Information "Updating permissions for GitHub service connection and project library"
         Invoke-Command -ScriptBlock {
