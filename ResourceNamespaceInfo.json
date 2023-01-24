@@ -915,7 +915,7 @@
     "namespace": "PowerShell:SecurityAndComplianceCenter:DlpSensitiveInformationTypes",
     "description": "Office 365 > Security & Compliance > DLP sensitive information types",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps",
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^"
   },
@@ -979,7 +979,7 @@
     "namespace": "PowerShell:SecurityAndComplianceCenter:Labels",
     "description": "Office 365 > Security & Compliance > Labels",
     "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabels",
-    "isCreateSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$",
     "isDeleteSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$"
   },
