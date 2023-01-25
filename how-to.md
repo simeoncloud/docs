@@ -59,7 +59,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Rename a tenant
 
-* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > click **RENAME** > enter the new name for the tenant. 
+* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > click **RENAME** > enter the new name for the tenant > click **RENAME**. 
 
 ## Reconcile and deploy to a client tenant
 
