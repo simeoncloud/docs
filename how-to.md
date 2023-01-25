@@ -57,6 +57,10 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > select the tenant under **Display name** > select the desired authentication method under **ADVANCED SETTINGS** > click **INSTALL** > follow the instructions on the screen. 
 
+## Rename a tenant
+
+* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > click **RENAME** > enter the new name for the tenant > click **RENAME**. 
+
 ## Reconcile and deploy to a client tenant
 
 *   From the Simeon portal, click **Reconcile** on the navigation pane
