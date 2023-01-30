@@ -795,9 +795,9 @@
     "namespace": "PowerShell:ExchangeOnline:QuarantinePolicies",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > Quarantine Policies",
     "url": "https://security.microsoft.com/quarantinePolicies",
-    "isCreateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:RemoteDomains",
