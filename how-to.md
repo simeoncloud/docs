@@ -40,22 +40,35 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 *   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
-* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to > authenticate with a global administrator in the tenant
+* For **Tenant domain name**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com))
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* Expand **Advanced Settings** > select the authentication method > **INSTALL** > authenticate with a global administrator in the tenant
 * Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
 ## Install a tenant with delegated authentication
 
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
-* For **Tenant**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com)) > **Baseline** should be the baseline you wish to point this tenant to
-* Expand **Advanced Settings** > toggle off **Use Simeon service account** > **Install** > authenticate with a global administrator in the tenant
+* For **Tenant domain name**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com))
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* Expand **Advanced Settings** > select **Use Delegated Authentication** > **INSTALL** > authenticate with a global administrator in the tenant
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 * Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 3x
     *   Please note you cannot authenticate with a guest user in the tenant.
 * After the fourth authentication, and **In Progress** returns to **Idle**, the install and initial Sync are complete
 
-## Reinstall a tenant
+## Install a tenant with service account
 
-* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > select the tenant under **Display name** > select the desired authentication method under **ADVANCED SETTINGS** > click **INSTALL** > follow the instructions on the screen. 
+* From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
+* For **Tenant domain name**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com))
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* Expand **Advanced Settings** > select **Use Service Account** > **INSTALL** > authenticate with a global administrator in the tenant
+* Once the installation has completed, click **Sync now**.
+
+## Reinstall an existing tenant
+
+* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > select the tenant under **Display name**
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* Select the desired authentication method under **ADVANCED SETTINGS** > click **INSTALL** > follow the instructions on the screen. 
 
 ## Rename a tenant
 
