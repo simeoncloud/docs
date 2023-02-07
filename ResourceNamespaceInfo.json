@@ -147,9 +147,9 @@
     "namespace": "MSGraph:Applications",
     "description": "Azure AD > App registrations",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$"
   },
   {
     "namespace": "MSGraph:ConditionalAccess:NamedLocations",
