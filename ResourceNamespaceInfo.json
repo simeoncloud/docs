@@ -147,9 +147,9 @@
     "namespace": "MSGraph:Applications",
     "description": "Azure AD > App registrations",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$"
   },
   {
     "namespace": "MSGraph:ConditionalAccess:NamedLocations",
@@ -203,9 +203,9 @@
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - ).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^androidManagedStoreApp - ).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - ).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - ).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - ).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - ).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:PolicySets",
