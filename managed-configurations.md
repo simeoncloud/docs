@@ -29,7 +29,7 @@
   - Security
     - Authentication methods
       - Policies
-        - Certificate-base authentication
+        - Certificate-based authentication
         - Fido 2 Security Key
         - Microsoft Authenticator
         - Temporary Access Pass
