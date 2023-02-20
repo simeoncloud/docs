@@ -74,6 +74,10 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > click **RENAME** > enter the new name for the tenant > click **RENAME**. 
 
+## Remove an existing tenant
+
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > click **REMOVE**.
+
 ## Reconcile and deploy to a client tenant
 
 *   From the Simeon portal, click **Reconcile** on the navigation pane
@@ -190,7 +194,3 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     }
     ```
 * [Sync](https://app.simeoncloud.com/sync) the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
-
-## Remove a tenant from Simeon
-
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > click **REMOVE**.
