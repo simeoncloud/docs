@@ -589,7 +589,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-availabilityconfig?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:CASMailboxPlans",
