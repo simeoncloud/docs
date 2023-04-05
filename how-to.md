@@ -67,7 +67,10 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 ## Reinstall an existing tenant
 
 * Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > select the tenant under **Display name**
-* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+  * If you are reinstalling a baseline, leave the **Baseline or repository URL** empty.
+  * If you are reinstalling a baseline to change it to a downstream tenant, **Baseline or repository URL** should be the baseline you wish to point the tenant to. 
+  * If you are reinstalling a downstream tenant, **Baseline or repository URL** should be the baseline you wish to point the tenant to. 
+  * If you are reinstalling a downstream tenant to change it to a baseline, leave the **Baseline or repository URL** empty. 
 * Select the desired authentication method under **ADVANCED SETTINGS** > click **INSTALL** > follow the instructions on the screen. 
 
 ## Rename a tenant
