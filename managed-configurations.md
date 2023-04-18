@@ -9,7 +9,6 @@
   - Company branding
   - Conditional Access
     - Terms of use
-  - Custom domain names
   - Device settings
   - Devices
     - Enterprise State Roaming
@@ -70,6 +69,7 @@
   - Tenant administration
     - Filters
 - M365 Admin Center
+  - Password expiration policy
   - Settings
     - Org Settings
       - Briefing Email from Microsoft Viva
