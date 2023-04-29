@@ -40,6 +40,20 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 *AzureManagement/MicrosoftResources/ResourceGroups*
 
 ###### hidden-header
+## Azure AD > Authorization policies
+*MSGraph/Policies/AuthorizationPolicy*
+
+###### hidden-header
+
+### Configuration
+
+|Name |Configuration|
+| :-- | :-- |
+| What does this do? | Defines Azure Active Directory authorization settings. The baseline allows users to sign up for email based subscriptions, use Self-Serve Password Reset, and join the tenant by email validation. Only adminstrators and guest inviters can invite external users to the organization. Users are allowed to read other users. |
+| Why should you use this? | If you want to apply Azure Active Directory authorization settings. |
+| What is the end-user impact? | Users are not allowed to read BitLocker keys for their owned device. |
+| Learn more | [Authorization Policy](https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0) |
+
 ## Azure AD > Company branding
 *AadIam/CompanyBrandings*
 
@@ -53,20 +67,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to provide your users with a personalized login screen for added security, familiarity, and branding. |
 | What is the end-user impact? | Users will see the watermark (username hint) on Azure login screens. |
 | Learn more | [Customize your Azure AD sign-in page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/customize-branding) |
-
-## Azure AD > Custom domain names
-*MSGraph/Domains*
-
-###### hidden-header
-
-### ${ResourceContext:TenantDomainName}
-
-|Name |${ResourceContext:TenantDomainName}|
-| :-- | :-- |
-| What does this do? | Disables password expiration per Microsoft's recommendation. |
-| Why should you use this? | This is recommended by Microsoft and affects Microsoft secure score. |
-| What is the end-user impact? | Users will not be required to change their passwords. |
-| Learn more | [Dropping the password expiration policies](https://docs.microsoft.com/en-us/archive/blogs/secguide/security-baseline-final-for-windows-10-v1903-and-windows-server-v1903) |
 
 ## Azure AD > Device settings
 *MSGraph/Policies/DeviceRegistrationPolicy*
@@ -151,20 +151,6 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want to have a more secure group settings environment. |
 | What is the end-user impact? | The following activities will be restricted to administrators: owners managing group membership requests, access to features in the portal, creation of security groups, and creation of Microsoft 365 groups. |
 | Learn more | [Users, groups, and roles](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-self-service-management) |
-
-## Azure AD > Group settings
-*MSGraph/Policies/AuthorizationPolicy*
-
-###### hidden-header
-
-### Configuration
-
-|Name |Configuration|
-| :-- | :-- |
-| What does this do? | Defines Azure Active Directory authorization settings. The baseline allows users to sign up for email based subscriptions, use Self-Serve Password Reset, and join the tenant by email validation. Only adminstrators and guest inviters can invite external users to the organization. Users are allowed to read other users. |
-| Why should you use this? | If you want to apply Azure Active Directory authorization settings. |
-| What is the end-user impact? | Users are not allowed to read BitLocker keys for their owned device. |
-| Learn more | [Authorization Policy](https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0) |
 
 ## Azure AD > Groups
 *MSGraph/Groups*
@@ -388,6 +374,57 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 | Why should you use this? | If you want users to use self-service password reset instead of contacting IT support. This improves password reset security because it requires that users reset their passwords only via Mobile application code (the authenticator app) or SMS. |
 | What is the end-user impact? | <span style='color: red'>High Impact.</span> Users can securely recover and reset their passwords. |
 | Learn more | [How it works: Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-howitworks)
+
+## Azure AD > Roles and Administrators
+*MSGraph/RoleManagement/Directory/RoleDefinitions*
+
+###### hidden-header
+
+### Azure AD Joined Device Local Administrator
+
+|Name |Azure AD Joined Device Local Administrator|
+| :-- | :-- |
+| What does this do? | Users assigned to this role are added to the local administrators group on Azure AD-joined devices. |
+
+
+
+###### hidden-header
+
+### Directory Readers
+
+|Name |Directory Readers|
+| :-- | :-- |
+| What does this do? | Can read basic directory information. Commonly used to grant directory read access to applications and guests. |
+
+
+
+###### hidden-header
+
+### Directory Synchronization Accounts
+
+|Name |Directory Synchronization Accounts|
+| :-- | :-- |
+| What does this do? | Only used by Azure AD Connect service. |
+
+
+
+###### hidden-header
+
+### Global Administrator
+
+|Name |Global Administrator|
+| :-- | :-- |
+| What does this do? | Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. |
+
+
+
+###### hidden-header
+
+### Guest User
+
+|Name |Guest User|
+| :-- | :-- |
+| What does this do? | Default role for guest users. Can read a limited set of directory information. |
 
 ## Azure AD > Security > Conditional Access > Policies
 *MSGraph/ConditionalAccess/Policies*
@@ -954,7 +991,7 @@ Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
 |Name |Limit - All users and all devices|
 | :-- | :-- |
-This is the default Device Limit Restriction applied with the lowest priority to all users regardless of group membership.
+| What does this do? | This is the default Device Limit Restriction applied with the lowest priority to all users regardless of group membership. |
 
 
 
@@ -1029,7 +1066,7 @@ This is the default Device Limit Restriction applied with the lowest priority to
 
 |Name |PlatformRestrictions - All users and all devices|
 | :-- | :-- |
-This is the default Device Type Restriction applied with the lowest priority to all users regardless of group membership.
+| What does this do? | This is the default Device Type Restriction applied with the lowest priority to all users regardless of group membership. |
 
 
 
@@ -1039,7 +1076,7 @@ This is the default Device Type Restriction applied with the lowest priority to 
 
 |Name |windows10EnrollmentCompletionPage - All users and all devices|
 | :-- | :-- |
-This is the default enrollment status screen configuration applied with the lowest priority to all users and all devices regardless of group membership.
+| What does this do? | This is the default enrollment status screen configuration applied with the lowest priority to all users and all devices regardless of group membership. |
 
 
 
@@ -1049,7 +1086,7 @@ This is the default enrollment status screen configuration applied with the lowe
 
 |Name |WindowsHelloForBusiness - All users and all devices|
 | :-- | :-- |
-This is the default Windows Hello for Business configuration applied with the lowest priority to all users regardless of group membership.
+| What does this do? | This is the default Windows Hello for Business configuration applied with the lowest priority to all users regardless of group membership. |
 
 ## Intune > Devices > Scripts
 *MSGraph/DeviceManagement/DeviceManagementScripts*
@@ -1074,7 +1111,7 @@ This is the default Windows Hello for Business configuration applied with the lo
 |Name |Baseline - Management - Set-LocalAdminPassword|
 | :-- | :-- |
 | What does this do? | Creates a local administrator account on Windows devices called "devicelocaladmin". This account password is set from the first three portions of the device's BitLocker recovery key (which can be viewed in the Azure portal) plus the letter "X" (e.g. 123456-123456-123456X) |
-| Why should you use this? | Administrators with permission with permission to view the BitLocker recovery key will be able to log in to Windows devices using a local administrator account. |
+| Why should you use this? | Administrators with permission to view the BitLocker recovery key will be able to log in to Windows devices using a local administrator account. |
 | What is the end-user impact? | N/A |
 | Learn more | [View BitLocker recovery keys](https://365adviser.com/azure/how-to-find-the-bitlocker-recovery-key-in-azure-ad) |
 
@@ -1241,7 +1278,7 @@ This is the default Windows Hello for Business configuration applied with the lo
 | Learn more | [Authorization Policy](https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0) |
 
 ## Office 365 > Teams > Apps > Permission policies
-*TeamsPSAdmin/TeamsAppPermissionPolicy*
+*TeamsApi/TeamsAppPermissionPolicies*
 
 ###### hidden-header
 
@@ -1255,13 +1292,13 @@ This is the default Windows Hello for Business configuration applied with the lo
 | Learn more | [Manage app permission policies in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/teams-app-permission-policies) |
 
 ## Office 365 > Teams > Meetings > Meeting settings
-*TeamsPSAdmin/TeamsMeetingConfiguration*
+*TeamsApi/TeamsMeetingConfiguration*
 
 ###### hidden-header
 
-### Configuration
+### Global
 
-|Name |Configuration|
+|Name |Global|
 | :-- | :-- |
 | What does this do? | Configures Microsoft Teams meeting policies. The baseline prohibits anonymous users from joining Teams meetings.  |
 | Why should you use this? | The Microsoft default allows all anonymous users to join Teams meetings. Disabling this feature can protect users from unwanted Teams meeting attendees. |
@@ -1269,13 +1306,13 @@ This is the default Windows Hello for Business configuration applied with the lo
 | Learn more | [Meeting Settings in Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams) |
 
 ## Office 365 > Teams > Org-wide settings > Teams settings
-*TeamsPSAdmin/TeamsClientConfiguration*
+*TeamsApi/TeamsClientConfiguration*
 
 ###### hidden-header
 
-### Configuration
+### Global
 
-|Name |Configuration|
+|Name |Global|
 | :-- | :-- |
 | What does this do? | Defines global settings for Microsoft Teams. The baseline blocks third party file sharing applications (e.g. Box, DropBox, Google Drive). |
 | Why should you use this? | To prevent users from sharing company content externally. |
