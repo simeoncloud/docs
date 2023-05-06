@@ -148,6 +148,11 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     * **Organization settings** > **Permissions** > **Project Collection Administrators** > **Members** > **Add**
 * Once you have added the user(s), they will receive an email invitation from DevOps. This invitation must be accepted with a work or school account. Also, to avoid login issues, we recommend accepting the invitation with an incognito window.
 
+## Remove a user from Simeon
+
+* Navigate to [DevOps](https://dev.azure.com/)
+  * **Organization settings** > **Users** > click on the three dots on the right side of the user > **Remove from organization**
+
 ## Change user access level
 * Navigate to [DevOps](https://dev.azure.com/)
   * **Organization Settings** > **Users** > next to the user whose access level you want to change, click the “…” > **Manage user** > from the **Access level** dropdown, select **Basic** > **Save**
