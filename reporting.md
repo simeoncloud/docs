@@ -1,4 +1,7 @@
 # Simeon Cloud Power BI Reporting
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" max-width: 100%; height: auto;/>
+
 Report on your Simeon Sync data from a single location. Use one of our built-in reports or create your own from the raw data.
 
 ## Tenant updates
