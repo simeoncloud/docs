@@ -100,7 +100,7 @@ The fields available in the dataset are as follows:
 
 *This screenshot shows the baseline compliance report for a demo environment.*
 
-Displays how each of your tenants compare to their baseline. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
+The Baseline Compliance Report displays how each of your tenants compare to their baseline. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
 
 The data in the Baseline and Compliance report uses Power BI [import connections](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#import-connections) and is refreshed every 3 hours, which is the max number of automated refreshes allowed in Power BI Pro. You can refresh the report manually when viewing in Power BI. To do so:
 - Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
