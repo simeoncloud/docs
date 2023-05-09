@@ -1,6 +1,4 @@
 # Simeon Cloud Power BI Reporting
-<br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" max-width: 100%; height: auto;/>
 
 Report on your Simeon Sync data from a single location. Use one of our built-in reports or create your own from the raw data.
 
@@ -97,6 +95,10 @@ The fields available in the dataset are as follows:
 - Error Message: If the configuration fails for any reason, the full error message is captured in this column
 
 ## Baseline and Compliance report
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" max-width: 70%; height: auto;/>
+*This screenshot shows the compliance report of a demo MSP's customer tenants as of May 06, 2023. The names of the customer tenants are shown in the **Compliance by Tenant** box*
+
 Displays how each of your tenants compare to their baseline. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
 
 The data in the Baseline and Compliance report uses Power BI [import connections](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#import-connections) and is refreshed every 3 hours, which is the max number of automated refreshes allowed in Power BI Pro. You can refresh the report manually when viewing in Power BI. To do so:
