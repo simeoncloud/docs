@@ -96,8 +96,8 @@ The fields available in the dataset are as follows:
 
 ## Baseline and Compliance report
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" max-width: 70%; height: auto;/>
-*This screenshot shows the compliance report of a demo MSP's customer tenants as of May 06, 2023. The names of the customer tenants are shown in the **Compliance by Tenant** box*
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" width: 700; height: auto;/>
+*This screenshot shows the baseline compliance report for a demo environment.*
 
 Displays how each of your tenants compare to their baseline. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
 
