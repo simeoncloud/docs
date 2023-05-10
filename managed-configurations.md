@@ -35,6 +35,7 @@
         - Text Message
         - Third-party software OATH tokens
     - Conditional Access
+      - Authentication Strengths
       - Named locations
       - Policies
     - Identity Protection
