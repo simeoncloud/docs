@@ -135,11 +135,10 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 ## Revert your tenant to a point in time
 
 * :warning: **Warning**	:warning: this is a destructive operation that can result in deleting data (such as users) from your tenant(s). Please carefully review the pending changes on the Sync page before approving.
-* Navigate to https://app.simeoncloud.com/ and select '**Reconcile**'.
-* Choose the tenant that you wish to revert by selecting it from the list.
-* Open the advanced menu by clicking on the arrow to the left of the search bar. Under 'Using Baseline', select the same organization and tenant. This will cause a new drop-down menu to appear. From this menu, select the date of the commit you want to revert to (e.g. 20230504.7).
+* Navigate to [the Simeon web application](https://app.simeoncloud.com/) > **Reconcile** > choose the tenant that you wish to revert by selecting it from the list.
+* Expand **Advanced Settings** by clicking on the arrow to the left of the **Search** bar. Under **USING BASELINE**, select the same organization and tenant. In the new drop-down menu > select the date of the commit you want to revert to (e.g. 20230504.7).
 * Review any differences between the current version of configurations (master) and previous versions of configurations (e.g. deploy-20230504.7), and restore any changes through the normal Reconcile process.
-* Once you're satisfied with the changes, review them once more by clicking Preview and then click the 'Reconcile' button to initiate a Sync.
+* Once you're satisfied with the changes, click **Preview** to verify changes and then click the **Reconcile** button to initiate a Sync.
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/revert_to_point_in_time.gif" width="800"/>
 
