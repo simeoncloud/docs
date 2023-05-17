@@ -41,7 +41,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 *   First, [ensure that the tenant meets the prerequisites to use Simeon](https://simeoncloud.github.io/docs/#/how-to?id=make-sure-a-tenant-meets-the-prerequisites-to-use-simeon)
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
 * For **Tenant domain name**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com))
-* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty
 * Expand **Advanced Settings** > select the authentication method > **INSTALL** > authenticate with a global administrator in the tenant
 * Once the installation has completed, click **Sync now**. Doing so will make a backup of your tenant and prepare the tenant for reconciliation
 
@@ -49,7 +49,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
 * For **Tenant domain name**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com))
-* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty
 * Expand **Advanced Settings** > select **Use Delegated Authentication** > **INSTALL** > authenticate with a global administrator in the tenant
 * Once the installation has completed, click **Sync now**. Doing so will kick off the delegated authentication process
 * Navigate to [**Sync**](https://app.simeoncloud.com/sync) > click on **Pending authentication** next to your newly installed tenant > copy the code > click **login** > authenticate with the account you want to run Simeon with > paste the code > repeat 3x
@@ -60,7 +60,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane
 * For **Tenant domain name**, enter the tenant's primary domain name (e.g. [simeoncloud.com](http://simeoncloud.com))
-* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty 
+* **Baseline or repository URL** should be the baseline you wish to point this tenant to. If you are trying to create a baseline, leave the **Baseline or repository URL** empty
 * Expand **Advanced Settings** > select **Use Service Account** > **INSTALL** > authenticate with a global administrator in the tenant
 * Once the installation has completed, click **Sync now**.
 
@@ -68,14 +68,14 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > select the tenant under **Display name**
   * If you are reinstalling a baseline, leave the **Baseline or repository URL** empty.
-  * If you are reinstalling a baseline to change it to a downstream tenant, **Baseline or repository URL** should be the baseline you wish to point the tenant to. 
-  * If you are reinstalling a downstream tenant, **Baseline or repository URL** should be the baseline you wish to point the tenant to. 
-  * If you are reinstalling a downstream tenant to change it to a baseline, leave the **Baseline or repository URL** empty. 
-* Select the desired authentication method under **ADVANCED SETTINGS** > click **INSTALL** > follow the instructions on the screen. 
+  * If you are reinstalling a baseline to change it to a downstream tenant, **Baseline or repository URL** should be the baseline you wish to point the tenant to.
+  * If you are reinstalling a downstream tenant, **Baseline or repository URL** should be the baseline you wish to point the tenant to.
+  * If you are reinstalling a downstream tenant to change it to a baseline, leave the **Baseline or repository URL** empty.
+* Select the desired authentication method under **ADVANCED SETTINGS** > click **INSTALL** > follow the instructions on the screen.
 
 ## Rename a tenant
 
-* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > click **RENAME** > enter the new name for the tenant > click **RENAME**. 
+* Navigate to [Simeon portal](https://app.simeoncloud.com/) > **Install** > toggle off **New Tenant** > click **RENAME** > enter the new name for the tenant > click **RENAME**.
 
 ## Reconcile and deploy to a client tenant
 
@@ -134,10 +134,13 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Revert your tenant to a point in time
 
-* :warning: **Warning**	:warning: this is a destructive operation that can result in deleting data (such as users) from your tenant(s). Please carefully review the pending changes on the Sync page before approving
-* Navigate to https://dev.azure.com/ > **Tenants** > **Pipelines** > select the tenant that you want to revert > **Run pipeline** > **master** > **Tags** > enter the date of the commit you want to revert to (e.g. 20210112.1) > select the commit you want to revert by clicking the date > **Run** > several minutes later you will be required to approve the Sync to make the changes to your tenant
+* :warning: **Warning**	:warning: this is a destructive operation that can result in deleting data (such as users) from your tenant(s). Please carefully review the pending changes on the Sync page before approving.
+* Navigate to [the Simeon web application](https://app.simeoncloud.com/) > **Reconcile** > choose the tenant that you wish to revert by selecting it from the list.
+* Expand **Advanced Settings** by clicking on the arrow to the left of the **Search** bar. Under **USING BASELINE**, select the same organization and tenant. In the new drop-down menu > select the date of the commit you want to revert to (e.g. 20230504.7).
+* Review any differences between the current version of configurations (master) and previous versions of configurations (e.g. deploy-20230504.7), and restore any changes through the normal Reconcile process.
+* Once you're satisfied with the changes, click **Preview** to verify changes and then click the **Reconcile** button to initiate a Sync.
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/revert_to_point_in_time.gif" width="300" height="822.5" />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/revert_to_point_in_time.gif" width="800"/>
 
 ## Add users to Simeon
 
