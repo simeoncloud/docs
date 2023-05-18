@@ -74,6 +74,10 @@
     - Org Settings
       - Briefing Email from Microsoft Viva
       - Microsoft Viva Insights (formerly MyAnalitics)
+- Microsoft Teams admin center
+  - Meetings
+    - Live event policies
+      - Record an event
 - Office 365
   - Exchange
     - AddressBookPolicy

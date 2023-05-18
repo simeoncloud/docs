@@ -1032,6 +1032,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "TeamsApi:TeamsMeetingBroadcastPolicies",
+    "description": "Microsoft Teams admin center > Meetings > Live event policies > Record an event",
+    "url": "https://admin.teams.microsoft.com/policies/broadcasts",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
+  },
+  {
     "namespace": "TeamsApi:TeamsMeetingConfiguration",
     "description": "Office 365 > Teams > Meetings > Meeting settings",
     "url": "https://admin.teams.microsoft.com/meetings/settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
