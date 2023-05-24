@@ -1033,8 +1033,8 @@
   },
   {
     "namespace": "TeamsApi:TeamsMeetingBroadcastPolicies",
-    "description": "Microsoft Teams admin center > Meetings > Live event policies > Record an event",
-    "url": "https://admin.teams.microsoft.com/policies/broadcasts",
+    "description": "Office 365 > Teams > Meetings > Live event policies > Record an event",
+    "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
