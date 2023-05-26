@@ -22,6 +22,7 @@
   - External user guest settings
   - Group settings
   - Groups
+    - Expiration
   - Mobility (MDM and MAM)
   - Password reset
   - Roles and Administrators
