@@ -148,7 +148,6 @@
       - Permission policies
     - Meetings
       - Live event policies
-        - Record an event
       - Meeting policies
       - Meeting settings
     - Messaging policies
