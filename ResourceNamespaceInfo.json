@@ -153,7 +153,7 @@
   },
   {
     "namespace": "MSGraph:ConditionalAccess:AuthenticationContextClassReferences",
-    "description": "Azure AD > Security > Conditional Access > Authentication Strengths",
+    "description": "Azure AD > Security > Conditional Access > Authentication Contexts",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthenticationContext",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -1046,6 +1046,14 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "TeamsApi:TeamsMeetingBroadcastPolicies",
+    "description": "Office 365 > Teams > Meetings > Live event policies > Record an event",
+    "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
     "namespace": "TeamsApi:TeamsMeetingConfiguration",
