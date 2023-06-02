@@ -22,6 +22,7 @@
   - External user guest settings
   - Group settings
   - Groups
+    - Expiration
   - Mobility (MDM and MAM)
   - Password reset
   - Roles and Administrators
@@ -149,7 +150,6 @@
       - Permission policies
     - Meetings
       - Live event policies
-        - Record an event
       - Meeting policies
       - Meeting settings
     - Messaging policies

@@ -384,6 +384,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:GroupLifecyclePolicies",
+    "description": "Azure AD > Groups > Expiration",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Lifecycle",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:Groups",
     "description": "Azure AD > Groups",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
@@ -1049,7 +1057,7 @@
   },
   {
     "namespace": "TeamsApi:TeamsMeetingBroadcastPolicies",
-    "description": "Office 365 > Teams > Meetings > Live event policies > Record an event",
+    "description": "Office 365 > Teams > Meetings > Live event policies",
     "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
