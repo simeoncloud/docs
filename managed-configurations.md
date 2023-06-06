@@ -1,5 +1,7 @@
 - Azure
   - Privileged Identity Management
+    - Azure AD roles
+      - Access reviews
     - Policies and Rules
   - Resource groups
 - Azure AD
