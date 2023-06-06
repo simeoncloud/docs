@@ -152,6 +152,22 @@
     "isDeleteSupportedFilter": "^(?:(?!^Simeon Cloud Sync$).)+$"
   },
   {
+    "namespace": "MSGraph:ConditionalAccess:AuthenticationContextClassReferences",
+    "description": "Azure AD > Security > Conditional Access > Authentication Contexts",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthenticationContext",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:ConditionalAccess:AuthenticationStrength:Policies",
+    "description": "Azure AD > Security > Conditional Access > Authentication Strengths",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthStrengths",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:ConditionalAccess:NamedLocations",
     "description": "Azure AD > Security > Conditional Access > Named locations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/NamedLocations",

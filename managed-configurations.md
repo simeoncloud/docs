@@ -38,6 +38,8 @@
         - Text Message
         - Third-party software OATH tokens
     - Conditional Access
+      - Authentication Contexts
+      - Authentication Strengths
       - Named locations
       - Policies
     - Identity Protection
