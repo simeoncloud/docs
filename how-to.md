@@ -181,6 +181,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
             }
         }
         ```
+    * Variable values must be a minimum of 7 characters
     * If you define multiple variables, you must include trailing commas.
 
         <br />
