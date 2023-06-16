@@ -29,19 +29,19 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Tenant install options
 
-* **Delegated Authentication**: This option will allow Simeon to read and write to the tenant with a user of your choosing (typically a pre-existing global admin in the tenant). Simeon recommends using delegated authentication for all production tenants.
+* **Delegated Authentication**: This option allows Simeon to read and write to the tenant with a user of your choosing (typically a pre-existing global administrator in the tenant or a user with the minimum [required permissions](https://simeoncloud.github.io/docs/#/permissions)). Simeon recommends using delegated authentication for all production tenants.
   * Simeon will create a refresh token for the user you authenticate with. This refresh token will cache the sign-in information for Simeon to use.
-  * You can authenticate with a user that is subject to MFA, Conditional Access, and other security policies.
+  * You can authenticate with a user subject to MFA, Conditional Access, and other security policies.
   * If you change the login credentials, MFA, or other sign-in policies for that user, you will need to log into the Simeon app and re-authenticate to create a new refresh token.
   * Certain types of MFA enforcement can't be used with delegated authentication, such as location-based enforcement (unless using a self-hosted agent where you control the device location).
 
-* **Service Account**: This option creates a non-interactive Azure AD user with global administrator privileges in the tenant. Simeon will use this user to read and write in the tenant. Simeon recommends using service account for non-production tenants where configurations change frequently, such as reference baseline tenants.
-  * The service account must be excluded from certain Conditional Access policies that might restrict Simeon's access to the tenant
-  * The service account does not require reauthentication when Conditional Access, MFA, or other policies are changed.
+* **Service Account**: This option creates a non-interactive Azure AD user with global administrator privileges to read and write in the tenant. Simeon recommends using the service account for non-production tenants where configurations frequently change, such as reference baseline tenants.
+  * You must exclude the service account from Conditional Access policies that restrict Simeon's access to the tenant.
+  * The service account does not require reauthentication after changing Conditional Access, MFA, or other policies.
 
-* **Service Principal**: This option creates a service principal in the tenant to read and write configurations. Service principal must be used along with delegated authentication or service account.
-  * Microsoft does not support Syncing all configurations with service principal. Wherever possible, Simeon will use the service principal to Sync configuraitons.
-  * When a configuration is Synced that is not supported by the service principal, Simeon will instead use the user account for either delegated authentication or the service account, depending on what was selected when the tenant was installed.
+* **Service Principal**: This option creates a service principal in the tenant to read and write configurations. You must select either delegated authentication or service account when using service principal.
+  * Microsoft does not support Syncing all configurations with a service principal. Wherever possible, Simeon will use the service principal to Sync configurations.
+  * When Syncing a configuration that is unsupported by the service principal, Simeon will use the user account for either delegated authentication or the service account, depending on what was selected when the tenant was installed.
   * The service principal increases security for supported configurations as no user is involved.
 
 ## Install a baseline
