@@ -2,6 +2,7 @@
   - Privileged Identity Management
     - Azure AD roles
       - Access reviews
+      - Assignments
     - Policies and Rules
   - Resource groups
 - Azure AD
@@ -140,6 +141,7 @@
       - Retention
     - Label Policy
     - Labels
+    - ProtectionAlerts
     - Threat management
       - Policy
         - ATP Anti-Phishing
