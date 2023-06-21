@@ -29,19 +29,18 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Tenant install options
 
-* **Delegated Authentication**: This option allows Simeon to read and write to the tenant with a user of your choosing (typically a pre-existing Global Administrator in the tenant or a user with the minimum [required permissions](https://simeoncloud.github.io/docs/#/permissions)). Simeon recommends using delegated authentication for all production tenants.
+* **Delegated Authentication**: With this option, Simeon will authenticate into the tenant with a user of your choosing (typically a pre-existing Global Administrator in the tenant or a user with the minimum [required permissions](https://simeoncloud.github.io/docs/#/permissions)). Simeon recommends using delegated authentication for all production tenants.
   * Simeon will create a refresh token for the user you authenticate with. This refresh token will cache the sign-in information for Simeon to use.
   * You can authenticate with a user subject to MFA, Conditional Access, and other security policies.
   * If the refresh token is invalidated, then you will need to log into the Simeon app and [reauthenticate](https://simeoncloud.github.io/docs/#/how-to?id=re-prompt-sync-to-complete-delegated-authentication) to create a new refresh token. The token can be invalidated for reasons including changes to the login credentials, re-requiring MFA, and token expiration policies.
-  * Certain types of MFA enforcement cannot be used with delegated authentication, such as location-based enforcement (unless using a self-hosted agent where you control the device location).
+  * Certain types of MFA enforcement cannot be used with delegated authentication, such as location-based enforcement (unless you are using a self-hosted agent where you control the device location).
 
-* **Service Account**: This option creates a non-interactive Azure AD user named simeon@tenantdomainname with the Global Administrator role to read and write in the tenant. Simeon recommends using the service account for non-production tenants where configurations frequently change, such as baseline tenants.
-  * You must exclude the service account from Conditional Access policies that restrict Simeon's access to the tenant, as this user must be excluded from MFA.
-  * The service account does not require reauthentication after changing Conditional Access, MFA, or other policies (unless the policy change enforces MFA on the Simeon service account)
+* **Service Account Authentication**: This option creates an Azure AD user named simeon@tenantdomainname with the Global Administrator role to authenticate into the tenant. Simeon randomly generates a 128-character password and stores it along with the username in an encrypted pipeline variable.
+  * You must exclude the service account from Conditional Access policies that restrict Simeon's access to the tenant.
 
-* **Service Principal**: This option creates a service principal in the tenant to read and write configurations. You must select either delegated authentication or service account when using service principal.
-  * Microsoft does not support Syncing all configurations with a service principal. Wherever possible, Simeon will use the service principal to Sync configurations.
-  * When Syncing a configuration that is unsupported by the service principal, Simeon will use the other option selected at install time - delegated authentication or the service account.
+* **Service Principal Authentication**: This option creates a service principal in the tenant to authenticate into the tenant. You must select either delegated authentication or service account when using service principal authentication
+  * Microsoft does not support Syncing all configurations with a service principal. Where possible, Simeon will use the service principal to Sync configurations.
+  * When Syncing a configuration that is unsupported by the service principal, Simeon will use the other option selected at install time - delegated authentication or the service account authentication.
   * The service principal increases security for supported configurations, as no user is involved.
 
 ## Install a baseline
