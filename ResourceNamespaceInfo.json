@@ -1018,7 +1018,7 @@
   {
     "namespace": "PowerShell:SecurityAndComplianceCenter:ProtectionAlerts",
     "description": "Office 365 > Security & Compliance > ProtectionAlerts",
-    "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/new-protectionalert?view=exchange-ps",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-protectionalert?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
