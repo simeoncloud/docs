@@ -904,6 +904,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:AppRetentionCompliancePolicies",
+    "description": "Office 365 > Security & Compliance > Information governance > Retention",
+    "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "PowerShell:SecurityAndComplianceCenter:AuditConfigurationPolicies",
     "description": "Office 365 > Security & Compliance > Audit configuration policy",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps",
@@ -1024,10 +1032,18 @@
     "isDeleteSupportedFilter": "^(?!^defa.{4}-.{4}-.{4}-.{4}-.{12}$).+$"
   },
   {
+    "namespace": "PowerShell:SecurityAndComplianceCenter:ProtectionAlerts",
+    "description": "Office 365 > Security & Compliance > ProtectionAlerts",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-protectionalert?view=exchange-ps",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "PowerShell:SecurityAndComplianceCenter:RetentionCompliancePolicies",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },

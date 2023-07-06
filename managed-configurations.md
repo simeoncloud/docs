@@ -141,6 +141,7 @@
       - Retention
     - Label Policy
     - Labels
+    - ProtectionAlerts
     - Threat management
       - Policy
         - ATP Anti-Phishing
