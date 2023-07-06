@@ -2,6 +2,7 @@
   - Privileged Identity Management
     - Azure AD roles
       - Access reviews
+      - Assignments
     - Policies and Rules
   - Resource groups
 - Azure AD
