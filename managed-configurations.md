@@ -2,6 +2,7 @@
   - Privileged Identity Management
     - Azure AD roles
       - Access reviews
+      - Assignments
     - Policies and Rules
   - Resource groups
 - Azure AD
@@ -43,7 +44,6 @@
       - Named locations
       - Policies
     - Identity Protection
-      - Users at risk detected alerts
   - User settings
   - Users
 - Intune
