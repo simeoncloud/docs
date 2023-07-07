@@ -43,6 +43,7 @@
       - Named locations
       - Policies
     - Identity Protection
+      - Users at risk detected alerts
   - User settings
   - Users
 - Intune
