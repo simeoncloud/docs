@@ -512,6 +512,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:RoleManagement:Directory:RoleAssignmentSchedules",
+    "description": "Azure > Privileged Identity Management > Azure AD roles > Assignments",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/members/resourceId//resourceType/tenant/provider/aadroles",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:RoleManagement:Directory:RoleDefinitions",
     "description": "Azure AD > Roles and Administrators",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
