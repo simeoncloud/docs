@@ -1053,7 +1053,7 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "SharePoint:Sites",
