@@ -99,9 +99,7 @@ The data in the Baseline and Compliance report uses Power BI [import connections
 - Hover your mouse over the **Baseline Compliance Report** dataset > Click on the **refresh** icon
 
 ## Building custom reports
-Simeon will pre-install reports, but users are encouraged to create their own reports with the data in the Simeon Sync Power BI dataset. To do so follow instructions here https://learn.microsoft.com/en-us/power-bi/connect-data/create-dataset-log-analytics#create-a-dataset-from-log-analytics
-
-From here, you can build a Power BI report that meets your needs.
+Simeon includes a **Baseline and Compliance report** and **Summary of Detected changes report** by default. Users are encouraged to create their own custom reports with the data in the Simeon Sync Power BI dataset. To create custom reports, [follow these instructions](https://learn.microsoft.com/en-us/power-bi/connect-data/create-dataset-log-analytics#create-a-dataset-from-log-analytics).
 
 ## Uninstall Power BI Reporting
 
