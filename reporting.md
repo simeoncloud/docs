@@ -106,7 +106,9 @@ Simeon will pre-install reports, but users are encouraged to create their own re
 
 From here, you can build a Power BI report that meets your needs. Note, you must use the **Simeon Sync** dataset. Datasets attached to other reports will be deleted when those reports are updated.
 
-## Removing Azure SQL
+## Uninstall Power BI Reporting
+
+### Uninstall Azure SQL
 Prior to August 2023, Power BI read from Azure SQL. It is now recommended to remove Azure SQL in favor of Log Analytics for Simeon Cloud Power BI reports. To do so:
 - Delete the resource group named **SimeonCloudReporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Resource groups
     - Note, if Log Analytics has already been installed, delete the following resources from the resource group:
@@ -122,6 +124,17 @@ Prior to August 2023, Power BI read from Azure SQL. It is now recommended to rem
     - SQLAzureServerName
     - SQLAzureTenant
 - You may now [reinstall Power BI Reporting](https://simeoncloud.github.io/docs/#/reporting?id=installation) to transition to the Log Analytics workspace
+
+### Uninstall Log Analytics
+Power BI Reporting installed after August 2023 reads from a Log Analytics workspace by default. To remove Power BI Reporting with Log Analytics, do the following:
+- Delete the resource group named **simeoncloudreporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Resource groups
+- Delete the Log Analytics workspace named **SimeonCloud** from [portal.microsoft.com](https://portal.microsoft.com/) > Log Analytics workspaces > SimeonCloud
+- Delete the Log Analytics data collection endpoint named **simeoncloud-tenantdomain** from [portal.microsoft.com](https://portal.microsoft.com/) > Log Analytics workspaces > SimeonCloud > simeoncloudreporting > simeoncloud-tenantdomain
+- Delete the Log Analytics data collection rule named **SyncLogCollectionRule** from [portal.microsoft.com](https://portal.microsoft.com/) > Log Analytics workspaces > SimeonCloud > simeoncloudreporting > SyncLogCollectionRule
+- Delete the Service Principal named **Simeon Cloud Reporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Enterprise applications
+- Update the Library in Azure DevOps to remove all variables that start with **LogAnalytics**. Go to [DevOps](https://dev.azure.com/) > Tenants > Pipelines > Library > Variable Groups > Sync > remove the following:
+    - LogAnalyticsResourceId
+    - LogAnalyticsEndpointUrl
 
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
