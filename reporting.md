@@ -5,10 +5,10 @@ Report on your Simeon Sync data from a single location. Use one of our built-in 
 ## Tenant updates
 When installing Simeon Cloud Power BI Reporting, the installer will make the following changes to the tenant selected to host the Power BI report:
 - Creates the Simeon Cloud **Power BI Workspace**
-- Creates the **Azure Resource Group** named simeoncloud-reporting
-- Creates an **Azure SQL server and database** named simeoncloud-{tenant domain name}
-    - Defaults to the Standard S0: with 10 DTUs, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/)
-- Creates a **Service Principal** named Simeon Cloud Power BI Reporting **with admin access** to the Simeon Cloud SQL Server and Power BI Workspace
+- Creates the **Azure Resource Group** named simeoncloudreporting
+- Creates a **Log Analytics workspace** named SimeonCloud
+    - Defaults to the Analytic logs Pay-As-You-Go tier, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/monitor/)
+- Creates a **Service Principal** named Simeon Cloud Reporting **with admin access** to the SimeonCloud Log Analytics workspace and Power BI Workspace
 - **Generates a client secret** for Simeon Cloud Power BI Reporting and saves it as a secure variable in an Azure DevOps Variable Group shared only with your tenant pipelines
 - Updates the Power BI tenant setting to **allow Service Principals access to the Power BI APIs**
 - Updates the Power BI setting to provide the **logged in user access to create Power BI workspaces**
@@ -29,8 +29,27 @@ During installation, you will be prompted to log in with a user account. The acc
 
 ### Running the installer
 - From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane > select the **Install Power BI Reporting** tab
-- Enter the domain name of the tenant > **INSTALL** > authenticate with an account that meets the [prerequisites](#prerequisites) > when prompted, select the Azure Subscription and desired location for the SQL server
+- Enter the domain name of the tenant > **INSTALL**
+- Authenticate with an account that meets the [prerequisites](#prerequisites)
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_auth_to_tenant.png" width: auto; height: auto;/>
+- When prompted, select the Azure Subscription
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_subscription.png" width: auto; height: auto;/>
+- When prompted, select an Azure location
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_location.png" width: auto; height: auto;/>
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_install_complete.png" width: auto; height: auto;/>
+
+### Setup the Power BI Datasets
+- Go to [Power BI](https://app.powerbi.com) > Workspaces > Simeon Cloud > click the three dots next to **Baseline Compliance Report** Dataset > Settings > **Take Over** > **Take Over**
+- Change the Data source credentials to OAuth2. Go to Data source creditials > Edit credentials > Authentication Method to OAuth2 > Sign In
+- Enter the credentials for the authenticating user
+- Repeat these steps for the Summary of Deteced Changes Dataset
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_dataset.gif" width: auto; height: auto;/>
 
 ### Grant access to the Power BI Workspace
 The user account that runs the Power BI installer will be the administrator of the workspace. Other users will not be able to view the workspace until given access. To grant access:
@@ -114,6 +133,23 @@ Simeon will pre-install reports, but users are encouraged to create their own re
 
 From here, you can build a Power BI report that meets your needs. Note, you must use the **Simeon Sync** dataset. Datasets attached to other reports will be deleted when those reports are updated.
 
+## Removing Azure SQL
+Prior to August 2023, Power BI read from Azure SQL. It is now recommended to remove Azure SQL in favor of Log Analytics for Simeon Cloud Power BI reports. To do so:
+- Delete the resource group named **SimeonCloudReporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Resource groups
+    - Note, if Log Analytics has already been installed, delete the following resources from the resource group:
+        - simeoncloudreporting-tenantname SQL Server
+        - SimeonCloud SQL database
+- Delete the App registration named **Simeon Cloud Power BI Reporting** from [portal.microsoft.com](https://portal.microsoft.com/) > App registrations
+- In [Power BI](https://app.powerbi.com), remove the dataset and report named **Simeon Sync**
+- Update the Library in Azure DevOps to remove all variables that start with **SQLAzure**. Go to [DevOps](https://dev.azure.com/) > Tenants > Pipelines > Library > Variable Groups > Sync > remove the following:
+    - SQLAzureAppId
+    - SQLAzureAppSecret
+    - SQLAzureServerAdminPassword
+    - SQLAzureServerAdminUserName
+    - SQLAzureServerName
+    - SQLAzureTenant
+- You may now [reinstall Power BI Reporting](https://simeoncloud.github.io/docs/#/reporting?id=installation) to transition to the Log Analytics workspace
+
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
 Simeon continually enhances reports. Pushing these report updates to your tenant requires deleting the existing report and creating a new copy. So, any customizations you make to the report will be removed when the **Backfill Power BI job** is run with the option to **Reinstall/update Simeon reports** selected. If you accidentally lose changes to your reports, please contact support@simeoncloud.com.
@@ -123,13 +159,6 @@ Yes! If you build a report you think others might benefit from, let us know. We 
 
 ### I don't have a Power BI Pro license; can I still see the workspace?
 Accessing a shared Power BI workspace requires at least a Power BI Pro license assigned to the user accessing the workspace. If you are unsure that you want to signup, Power BI offers several trial options. Also, a Power BI Pro license is included in the **Office E5 license**.
-
-### How do I reauthenticate Power BI with the SQL database?
-If the Power BI report has the error: "The data source SimeonSync is missing credentials and cannot be accessed."
-- Re-run the Simeon Report installer
-
-### Why does Simeon Sync dataset use Direct Query while the Baseline and Compliance dataset use Import Connection?
-The Baseline and Compliance report includes complex calculations that are not supported with Direct Query.
 
 # Daily Summary Email
 Sends a daily digest of all changes made to your tenants in the past 24 hours, providing you an easy way to monitor your tenants.
