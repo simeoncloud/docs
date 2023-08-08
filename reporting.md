@@ -68,23 +68,23 @@ The fields available in the dataset are as follows:
 - Organization: The DevOps organization the tenant is in
 - Tenant: The name of the tenant running the sync
 - Action: The Sync stage, e.g., **export**, **preview**, **deploy**
-- Sync Run Name: Specified by the user at Sync time, otherwise the automated name of the run given by Azure DevOps
-- Sync Comment: Additional comments entered when running from the Sync page
-- Sync Date Time: The date and time of the Sync in UTC time zone
+- Sync_Run_Name: Specified by the user at Sync time, otherwise the automated name of the run given by Azure DevOps
+- Sync_Comment: Additional comments entered when running from the Sync page
+- Sync_Date_Time: The date and time of the Sync in UTC time zone
 - Configuration: The name of the configuration
-- Configuration Full Name: The full name of the configuration, including the path where the configuration can be found
-- Configuration Description: If the configuration is from the Simeon Baseline this provides a full description about the config
-- Configuration Type: The configuration type used by Simeon to distinguish where a config should be deployed to
-- Configuration Type Description: The translation of the Configuration Type
-- Baseline Name: The name of the baseline the tenant is using. If the tenant does not have a baseline, the value is **[No Baseline]**
-- Baseline Property Value: The baseline value of the property (if applicable) at the time of the Sync
-- Configuration Reconciliation Type: The section that the configuration falls into on the Reconcile Screen - **only in tenant**, **available from baseline**, **conflicting with baseline**, **matching baseline**
-- Property Reconciliation Type: Similar to the Configuration Reconcile Type, but at the property level
-- Property Name: The name of the property being reported on
-- Property Value: The value of the property at the time of the sync
-- Old Property Value: Captures the previous value of the property before the Sync changes are applied
-- Change Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**
-- Error Message: If the configuration fails for any reason, the full error message is captured in this column
+- Configuration_Full_Name: The full name of the configuration, including the path where the configuration can be found
+- Configuration_Description: If the configuration is from the Simeon Baseline this provides a full description about the config
+- Configuration_Type: The configuration type used by Simeon to distinguish where a config should be deployed to
+- Configuration_Type_Description: The translation of the Configuration Type
+- Baseline_Name: The name of the baseline the tenant is using. If the tenant does not have a baseline, the value is **[No Baseline]**
+- Baseline_Property_Value: The baseline value of the property (if applicable) at the time of the Sync
+- Configuration_Reconciliation_Type: The section that the configuration falls into on the Reconcile Screen - **only in tenant**, **available from baseline**, **conflicting with baseline**, **matching baseline**
+- Property_Reconciliation_Type: Similar to the Configuration Reconcile Type, but at the property level
+- Property_Name: The name of the property being reported on
+- Property_Value: The value of the property at the time of the sync
+- Old_Property_Value: Captures the previous value of the property before the Sync changes are applied
+- Change_Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**
+- Error_Message: If the configuration fails for any reason, the full error message is captured in this column
 
 ## Baseline and Compliance report
 <br />
