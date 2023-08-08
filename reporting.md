@@ -32,13 +32,13 @@ During installation, you will be prompted to log in with a user account. The acc
 - Enter the domain name of the tenant > **INSTALL**
 - Authenticate with an account that meets the [prerequisites](#prerequisites)
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_auth_to_tenant.png" width: auto; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_auth_to_tenant.png" width: 338; height: auto;/>
 - When prompted, select the Azure Subscription
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_subscription.png" width: auto; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_subscription.png" width: 337; height: auto;/>
 - When prompted, select an Azure location
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_location.png" width: auto; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_location.png" width: 337; height: auto;/>
 - Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_install_complete.png" width: auto; height: auto;/>
@@ -49,7 +49,7 @@ During installation, you will be prompted to log in with a user account. The acc
 - Enter the credentials for the authenticating user
 - Repeat these steps for the Summary of Deteced Changes Dataset
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_dataset.gif" width: auto; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/feature/loganalytics/assets/images/power_bi_dataset.gif" width: 700; height: auto;/>
 
 ### Grant access to the Power BI Workspace
 The user account that runs the Power BI installer will be the administrator of the workspace. Other users will not be able to view the workspace until given access. To grant access:
