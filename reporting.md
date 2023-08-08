@@ -8,7 +8,9 @@ When installing Simeon Cloud Power BI Reporting, the installer will make the fol
 - Creates the **Azure Resource Group** named simeoncloudreporting
 - Creates a **Log Analytics workspace** named SimeonCloud
     - Defaults to the Analytic logs Pay-As-You-Go tier, see [here for pricing information](https://azure.microsoft.com/en-us/pricing/details/monitor/)
-- Creates a **Service Principal** named Simeon Cloud Reporting **with admin access** to the SimeonCloud Log Analytics workspace and Power BI Workspace
+- Creates a **Log Analytics data collection endpoint**
+- Creates a **Log Analytics data collection rule**
+- Creates a **Service Principal** named Simeon Cloud Reporting with the role **Monitoring Metrics Publisher** on the SimeonCloud Log Analytics workspace and **admin accesss** to the Power BI Workspace
 - **Generates a client secret** for Simeon Cloud Power BI Reporting and saves it as a secure variable in an Azure DevOps Variable Group shared only with your tenant pipelines
 - Updates the Power BI tenant setting to **allow Service Principals access to the Power BI APIs**
 - Updates the Power BI setting to provide the **logged in user access to create Power BI workspaces**
@@ -56,39 +58,10 @@ The user account that runs the Power BI installer will be the administrator of t
 - Go to [Power BI](https://app.powerbi.com) > **Workspaces** > Click the **three dots** next to **Simeon Cloud** > **Workspace access**
 - Enter the group or email address > Select the **role** > **Add**
 
-## Backfill Power BI Job
+## Backfill Sync Integrations
 The backfill job uploads historical data to Power BI and keeps the data source schema and reports up to date.
 
-The backfill can be initiated via Azure DevOps. To do so:
-- Go to [Azure DevOps](https://dev.azure.com) > **Tenants** > **Pipelines**
-- Find the pipeline **Backfill Power BI** > **Run pipeline**
-- Select the desired parameters or keep defaults > **Run**
-
-The pipeline parameters are as follows:
-- **Update the Power BI Table schema to the latest schema** keeps the data source schema up to date
-- **Delete all data in the Simeon Power BI dataset** - running a data backfill with this unselected will result in duplicate data being uploaded to the data source
-- **Install or reinstall Simeon Power BI report(s)** updates all Simeon provided (not custom) reports to the latest version
-- **Backfill only failed upload to Power BI steps** only backfills Syncs that have failed to upload to Power BI - allows you to run the backfill without duplicating data
-- **Number of hours to include in backfill** uploads to Power BI all export/deploy Syncs in the specified number of hours
-- **Number of parallel pipelines to backfill** - for most runs, should stay as the default defined in the backfill job
-
-### Run with the parameters listed below if you need to do any of the following tasks:
-#### Reinstall/update Simeon reports
-- Check the option for **Backfill only failed upload to Power BI steps**
-- Keep all other parameters as default
-
-#### Backfill more than 72 hours worth of Syncs
-- Update the number in **Number of hours to include in backfill**
-- Keep all other parameters as default
-
-#### Capture data from a Sync that failed to upload to Power BI
-- Check the option for **Backfill only failed upload to Power BI steps**
-- Ensure the failed step happened within 72 hours. If not, update **Number of hours to include in backfill** to a value that will capture the Sync
-- Keep all other parameters as default
-
 ## Simeon Sync Power BI dataset
-The dataset stores all export, preview, and deploy results. The latest Sync for a tenant will include unchanged configurations, and historical Syncs will only track configurations that are added, updated, or removed. This dataset uses Power BI's [direct connection](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#directquery-connections) to connect to the data and is refreshed every hour.
-
 Each row in the data source represents a single property of a configuration.
 
 The fields available in the dataset are as follows:
@@ -152,7 +125,7 @@ Prior to August 2023, Power BI read from Azure SQL. It is now recommended to rem
 
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
-Simeon continually enhances reports. Pushing these report updates to your tenant requires deleting the existing report and creating a new copy. So, any customizations you make to the report will be removed when the **Backfill Power BI job** is run with the option to **Reinstall/update Simeon reports** selected. If you accidentally lose changes to your reports, please contact support@simeoncloud.com.
+Simeon continually enhances reports. Pushing these report updates to your tenant requires deleting the existing report and creating a new copy. So, any customizations you make to the report will be removed when the **Backfill Sync Integrations** is run with the option to **Reinstall/update Simeon reports** selected. If you accidentally lose changes to your reports, please contact support@simeoncloud.com.
 
 ### Can I use the dataset to build my own reports?
 Yes! If you build a report you think others might benefit from, let us know. We are happy to spread the word!
