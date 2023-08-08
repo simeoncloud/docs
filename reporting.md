@@ -102,7 +102,10 @@ The data in the Baseline and Compliance report uses Power BI [import connections
 Simeon will pre-install reports, but users are encouraged to create their own reports with the data in the Simeon Sync Power BI dataset. To do so follow instructions here https://learn.microsoft.com/en-us/power-bi/connect-data/create-dataset-log-analytics#create-a-dataset-from-log-analytics
 
 From here, you can build a Power BI report that meets your needs.
-## Removing Azure SQL
+
+## Uninstall Power BI Reporting
+
+### Uninstall Azure SQL
 Prior to August 2023, Power BI read from Azure SQL. It is now recommended to remove Azure SQL in favor of Log Analytics for Simeon Cloud Power BI reports. To do so:
 - Delete the resource group named **SimeonCloudReporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Resource groups
     - Note, if Log Analytics has already been installed, delete the following resources from the resource group:
