@@ -59,7 +59,7 @@ The user account that runs the Power BI installer will be the administrator of t
 - Enter the group or email address > Select the **role** > **Add**
 
 ## Backfill Sync Integrations
-The backfill job uploads historical data to Power BI and keeps the data source schema and reports up to date.
+The backfill job uploads historical data to Power BI and keeps the reports up to date.
 
 ## Simeon Sync Power BI dataset
 Each row in the data source represents a single property of a configuration.
@@ -123,9 +123,6 @@ Prior to August 2023, Power BI read from Azure SQL. It is now recommended to rem
 ### Uninstall Log Analytics
 Power BI Reporting installed after August 2023 reads from a Log Analytics workspace by default. To remove Power BI Reporting with Log Analytics, do the following:
 - Delete the resource group named **simeoncloudreporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Resource groups
-- Delete the Log Analytics workspace named **SimeonCloud** from [portal.microsoft.com](https://portal.microsoft.com/) > Log Analytics workspaces > SimeonCloud
-- Delete the Log Analytics data collection endpoint named **simeoncloud-tenantdomain** from [portal.microsoft.com](https://portal.microsoft.com/) > Log Analytics workspaces > SimeonCloud > simeoncloudreporting > simeoncloud-tenantdomain
-- Delete the Log Analytics data collection rule named **SyncLogCollectionRule** from [portal.microsoft.com](https://portal.microsoft.com/) > Log Analytics workspaces > SimeonCloud > simeoncloudreporting > SyncLogCollectionRule
 - Delete the Service Principal named **Simeon Cloud Reporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Enterprise applications
 - Update the Library in Azure DevOps to remove all variables that start with **LogAnalytics**. Go to [DevOps](https://dev.azure.com/) > Tenants > Pipelines > Library > Variable Groups > Sync > remove the following:
     - LogAnalyticsResourceId
@@ -133,7 +130,7 @@ Power BI Reporting installed after August 2023 reads from a Log Analytics worksp
 
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
-Simeon continually enhances reports. Pushing these report updates to your tenant requires deleting the existing report and creating a new copy. So, any customizations you make to the report will be removed when the **Backfill Sync Integrations** is run with the option to **Reinstall/update Simeon reports** selected. If you accidentally lose changes to your reports, please contact support@simeoncloud.com.
+Simeon continually enhances reports. Pushing these report updates to your tenant requires deleting the existing report and creating a new copy. So, any customizations you make to the report will be removed when the **Backfill Sync Integrations** is run. If you accidentally lose changes to your reports, please contact support@simeoncloud.com.
 
 ### Can I use the dataset to build my own reports?
 Yes! If you build a report you think others might benefit from, let us know. We are happy to spread the word!
