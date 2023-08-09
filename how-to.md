@@ -230,9 +230,4 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
 * If the tenant was installed using the Service Account, remove the Azure AD user (simeon@tenantdomain) from the tenant.
-* If the tenant was used to host **Simeon Cloud Power BI Reporting**:
-  * Remove the Service Principal used to write Sync data
-    * [From the Azure Portal](https://portal.azure.com/) > log in to the tenant you are uninstalling > **Azure Active Directory** > **App Registrations** > select the tab **All applications** > search for **Simeon Cloud Reporting** > **Delete**
-  * Remove the Simeon Cloud Power BI workspace
-    * [From Power BI](https://app.powerbi.com) > **Workspaces** > select the three dots next to the Simeon Cloud workspace > **Workspace Settings** > **Delete Workspace**
-  * Remove the Azure resource group simeoncloudreporting
+* If the tenant was used to host **Simeon Cloud Power BI Reporting**, you may uninstall Power BI Reporting by following [these instructions](https://simeoncloud.github.io/docs/#/reporting?id=uninstall-power-bi-reporting)

@@ -98,7 +98,7 @@ The data in the Baseline and Compliance report uses Power BI [import connections
 - Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
 - Hover your mouse over the **Baseline Compliance Report** dataset > Click on the **refresh** icon
 
-## Building custom reports
+## Building custom reports and alerts
 Simeon includes a **Baseline and Compliance report** and **Summary of Detected changes report** by default. Users are encouraged to create their own custom reports with the data in the Simeon Sync Power BI dataset. To create custom reports, [follow these instructions](https://learn.microsoft.com/en-us/power-bi/connect-data/create-dataset-log-analytics#create-a-dataset-from-log-analytics).
 
 ## Uninstall Power BI Reporting
@@ -124,9 +124,12 @@ Prior to August 2023, Power BI read from Azure SQL. It is now recommended to rem
 Power BI Reporting installed after August 2023 reads from a Log Analytics workspace by default. To remove Power BI Reporting with Log Analytics, do the following:
 - Delete the resource group named **simeoncloudreporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Resource groups
 - Delete the Service Principal named **Simeon Cloud Reporting** from [portal.microsoft.com](https://portal.microsoft.com/) > Enterprise applications
-- Update the Library in Azure DevOps to remove all variables that start with **LogAnalytics**. Go to [DevOps](https://dev.azure.com/) > Tenants > Pipelines > Library > Variable Groups > Sync > remove the following:
+- Update the Library in Azure DevOps to remove all variables that start with **LogAnalytics** AND **SimeonSync**. Go to [DevOps](https://dev.azure.com/) > Tenants > Pipelines > Library > Variable Groups > Sync > remove the following:
     - LogAnalyticsResourceId
     - LogAnalyticsEndpointUrl
+    - SimeonSyncIntegrationTenant
+    - SimeonSyncIntegrationAppSecret
+    - SimeonSyncIntegrationAppId
 
 ## Q & A
 ### Can I make changes to the reports deployed by Simeon?
