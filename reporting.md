@@ -81,18 +81,19 @@ Log Analytics allows you to develop specific queries using the data in your Log 
 
 #### Sample Log Analytics queries
 The following custom queries were developed using the [Simeon Sync dataset](https://simeoncloud.github.io/docs/#/reporting?id=simeon-sync-power-bi-dataset) and highlight what is possible with Log Analytics integration within Simeon Cloud. Users are encouraged to develop custom queries to target specific resources and conditions of interest.
+* Different configurations can be specified using Microsoft’s API schema with colons between the path. In Simeon, this can be found in the parenthesis of the Sync Summary report: Azure AD > Security > Conditional Access > Policies (MSGraph:ConditionalAccess:Policies).
 
 *A configuration type is added/removed/changed in the portal and exported by Simeon Sync*
 ```
 SyncLogs_CL
-| where Change_Type in ('Added', 'Removed', 'Changed') and Configuration_Type in ('MSGraph:Groups')
+| where Change_Type in ('Added', 'Removed', 'Changed') and Configuration_Type in ('MSGraph:ConditionalAccess:Policies')
 ```
-*A specific tenant has an export/deploy/preview change*
+*A specific tenant has an export/deploy/preview change. Update tenant_name_here to the correct tenant name.*
 ```
 SyncLogs_CL
 | where Change_Type in ('Added', 'Removed', 'Changed') and Tenant == 'tenant_name_here'
 ```
-*A CA policy is changed from enabled to disabled or reporting only*
+*A Conditional Access policy is changed from enabled to disabled or reporting only, or the policy is deleted*
 ```
 SyncLogs_CL
 | where Change_Type in ('Added', 'Removed', 'Changed') and Configuration_Type in ('MSGraph:ConditionalAccess:Policies') and Property_Name == 'state' and Old_Property_Value == 'enabled'
@@ -117,7 +118,7 @@ The fields available in the dataset are as follows:
 - Configuration: The name of the configuration
 - Configuration_Full_Name: The full name of the configuration, including the path where the configuration can be found
 - Configuration_Description: If the configuration is from the Simeon Baseline this provides a full description about the config
-- Configuration_Type: The configuration type used by Simeon to distinguish where a config should be deployed to
+- Configuration_Type: The configuration type used by Simeon to distinguish where a config should be deployed to. Follows Microsoft's API schema with colons between the path, i.e. MSGraph:Groups
 - Configuration_Type_Description: The translation of the Configuration Type
 - Baseline_Name: The name of the baseline the tenant is using. If the tenant does not have a baseline, the value is **[No Baseline]**
 - Baseline_Property_Value: The baseline value of the property (if applicable) at the time of the Sync
