@@ -61,8 +61,52 @@ The user account that runs the Power BI installer will be the administrator of t
 ## Backfill Sync Integrations
 The backfill job uploads historical data to Power BI and keeps the reports up to date.
 
-## Simeon Sync Power BI dataset
-Each row in the data source represents a single property of a configuration.
+## Baseline Compliance Report
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" width: 700; height: auto;/>
+
+*This screenshot shows the Baseline Compliance Report for a demo environment.*
+
+The Baseline Compliance Report displays how each of your tenants compare to their baseline. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
+
+The data in the Baseline Compliance Report uses Power BI [import connections](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#import-connections) and is refreshed every 3 hours, which is the max number of automated refreshes allowed in Power BI Pro. You can refresh the report manually when viewing in Power BI. To do so:
+- Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
+- Hover your mouse over the **Baseline Compliance Report** dataset > Click on the **refresh** icon
+
+## Building custom reports and alerts
+Simeon Cloud's integration of Power BI Reporting with Log Analytics provides significant opportunities to monitor tenants using custom reports and targeted alerts. The following resources are designed to help Simeon users interested in developing custom reports and alerts get started.
+
+### Custom Log Analytics queries
+Log Analytics allows you to develop specific queries using the data in your Log Analytics workspace. With Simeon Cloud, you can use the [Simeon Sync dataset](https://simeoncloud.github.io/docs/#/reporting?id=simeon-sync-power-bi-dataset) to tailor queries around nearly all aspects of your tenant configurations. To understand how Log Analytics works and how to start building custom queries, see [this guide](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial).
+
+#### Sample Log Analytics queries
+The following custom queries were developed using the [Simeon Sync dataset](https://simeoncloud.github.io/docs/#/reporting?id=simeon-sync-power-bi-dataset) and highlight what is possible with Log Analytics integration within Simeon Cloud. Users are encouraged to develop custom queries to target specific resources and conditions of interest.
+* Different configurations can be specified using Microsoft’s API's schema with colons between the path. In Simeon, this can be found in the parenthesis of the Sync Summary report: Azure AD > Security > Conditional Access > Policies (MSGraph:ConditionalAccess:Policies).
+
+*A configuration type is added/removed/changed in the portal and exported by Simeon Sync*
+```
+SyncLogs_CL
+| where Change_Type in ('Added', 'Removed', 'Changed') and Configuration_Type in ('MSGraph:ConditionalAccess:Policies')
+```
+*A specific tenant has an export/deploy/preview change. Update tenant_name_here to the correct tenant name.*
+```
+SyncLogs_CL
+| where Change_Type in ('Added', 'Removed', 'Changed') and Tenant == 'tenant_name_here'
+```
+*A Conditional Access policy is changed from enabled to disabled or reporting only, or the policy is deleted*
+```
+SyncLogs_CL
+| where Change_Type in ('Added', 'Removed', 'Changed') and Configuration_Type in ('MSGraph:ConditionalAccess:Policies') and Property_Name == 'state' and Old_Property_Value == 'enabled'
+```
+
+### Building custom alerts
+Log Analytics allows you to turn queries into custom alerting rules. These alerts can be powerful ways to monitor for changes in your tenants and receive notifications or automate certain actions. To create custom alerts, follow the steps in [this guide](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#create-or-edit-an-alert-rule-in-the-azure-portal).
+
+### Build custom Power BI reports
+Simeon includes a **Baseline Compliance Report** and **Summary of Detected Changes report** by default. Users are encouraged to create their own custom reports with the data in the Simeon Sync Power BI dataset. In addition, users can create Power BI reports directly from Log Analytics. To create custom Power BI reports, [follow these instructions](https://learn.microsoft.com/en-us/power-bi/connect-data/create-dataset-log-analytics#create-a-dataset-from-log-analytics).
+
+### Simeon Sync Power BI dataset
+You may use this dataset to develop custom queries for Log Analytics alerts and Power BI reports. Each row in the data source represents a single property of a configuration.
 
 The fields available in the dataset are as follows:
 - Organization: The DevOps organization the tenant is in
@@ -74,7 +118,7 @@ The fields available in the dataset are as follows:
 - Configuration: The name of the configuration
 - Configuration_Full_Name: The full name of the configuration, including the path where the configuration can be found
 - Configuration_Description: If the configuration is from the Simeon Baseline this provides a full description about the config
-- Configuration_Type: The configuration type used by Simeon to distinguish where a config should be deployed to
+- Configuration_Type: The configuration type used by Simeon to distinguish where a config should be deployed to. Follows Microsoft's API's with colons between the path, i.e. MSGraph:Groups
 - Configuration_Type_Description: The translation of the Configuration Type
 - Baseline_Name: The name of the baseline the tenant is using. If the tenant does not have a baseline, the value is **[No Baseline]**
 - Baseline_Property_Value: The baseline value of the property (if applicable) at the time of the Sync
@@ -85,21 +129,6 @@ The fields available in the dataset are as follows:
 - Old_Property_Value: Captures the previous value of the property before the Sync changes are applied
 - Change_Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**
 - Error_Message: If the configuration fails for any reason, the full error message is captured in this column
-
-## Baseline and Compliance report
-<br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi.png" width: 700; height: auto;/>
-
-*This screenshot shows the baseline compliance report for a demo environment.*
-
-The Baseline Compliance Report displays how each of your tenants compare to their baseline. You can see the comparison **by tenant**, **type of configuration**, and **configuration**. You can also drill down to see how properties in a **specific configuration** compare to the baseline.
-
-The data in the Baseline and Compliance report uses Power BI [import connections](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-about#import-connections) and is refreshed every 3 hours, which is the max number of automated refreshes allowed in Power BI Pro. You can refresh the report manually when viewing in Power BI. To do so:
-- Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
-- Hover your mouse over the **Baseline Compliance Report** dataset > Click on the **refresh** icon
-
-## Building custom reports and alerts
-Simeon includes a **Baseline and Compliance report** and **Summary of Detected changes report** by default. Users are encouraged to create their own custom reports with the data in the Simeon Sync Power BI dataset. To create custom reports, [follow these instructions](https://learn.microsoft.com/en-us/power-bi/connect-data/create-dataset-log-analytics#create-a-dataset-from-log-analytics).
 
 ## Uninstall Power BI Reporting
 
