@@ -23,7 +23,7 @@ The first step to install Simeon Power BI Reporting is to determine which tenant
 During installation, you will be prompted to log in with a user account. The account used must:
 - Have a **Power BI Pro license**
 - Have **logged in to [Power BI](https://app.powerbi.com)** at least once
-- Have either **Owner** role on the **Azure Subscription** or **all the following Azure Subscription roles**:
+- Have either **Owner** role on the **Azure Subscription** or **all the following roles on the Azure Subscription**:
     - Contributor
     - User Access Administrator
 - Have either the **Global Administrator role** or **all the following Azure AD roles**:
