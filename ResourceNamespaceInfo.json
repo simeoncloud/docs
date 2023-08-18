@@ -219,9 +219,9 @@
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp ).)+$",
-    "isUpdateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp ).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp ).)+$"
+    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - ).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - ).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - ).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:PolicySets",
