@@ -1059,9 +1059,9 @@
     "namespace": "SharePoint:Sites",
     "description": "SharePoint Admin Center > Sites",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
-    "isCreateSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#].[^\\s]*",
+    "isCreateSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#].[^\\s]*"
+    "isDeleteSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*"
   },
   {
     "namespace": "SharePoint:TenantProperties",
