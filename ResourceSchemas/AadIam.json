@@ -1,0 +1,291 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/aadIam:ExternalUserGuestSettings/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:MdmApplications/MdmApplication"
+    },
+    {
+      "$ref": "#/$defs/aadIam:UserSettings/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:PasswordResetPolicies/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:EnterpriseStateRoaming/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:GroupSettings/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:EnterpriseApplicationUserSettings/Configuration"
+    }
+  ],
+  "$defs": {
+    "AadIam:ExternalUserGuestSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminConsentedForUsersIntoTenantIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "HasListEntries": {
+          "type": "boolean"
+        },
+        "IsAllowlist": {
+          "type": "boolean"
+        },
+        "NoAADConsentForUsersFromTenantsIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "TargetedDomains": {
+          "$ref": "#/$defs/iListOfString"
+        }
+      },
+      "$defs": {
+        "iListOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
+    },
+    "AadIam:MdmApplications/MdmApplication": {
+      "type": "object",
+      "properties": {
+        "AppData": {
+          "type": "object",
+          "properties": {
+            "ComplianceUrl": {
+              "type": "string"
+            },
+            "EnrollmentUrl": {
+              "type": "string"
+            },
+            "MamComplianceUrl": {
+              "type": "string"
+            },
+            "MamEnrollmentUrl": {
+              "type": "string"
+            },
+            "MamTermsOfUseUrl": {
+              "type": "string"
+            },
+            "TermsOfUseUrl": {
+              "type": "string"
+            }
+          }
+        },
+        "AppDisplayName": {
+          "type": "string"
+        },
+        "AppId": {
+          "type": "string"
+        },
+        "IsOnPrem": {
+          "type": "boolean"
+        },
+        "LogoUrl": {
+          "type": "string"
+        },
+        "MamAppliesTo": {
+          "type": "integer"
+        },
+        "MamAppliesToGroups": {
+          "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
+        },
+        "MdmAppliesTo": {
+          "type": "integer"
+        },
+        "MdmAppliesToGroups": {
+          "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
+        }
+      },
+      "$defs": {
+        "iListOfAppliesToGroupInMdmApplication": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ObjectId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:MdmApplications/MdmApplication"
+    },
+    "AadIam:UserSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "EnableLinkedInAppFamily": {
+          "type": "integer"
+        },
+        "LinkedInSelectedGroupObjectId": {
+          "type": "string"
+        },
+        "RestrictNonAdminUsers": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:UserSettings/Configuration"
+    },
+    "AadIam:PasswordResetPolicies/Configuration": {
+      "type": "object",
+      "properties": {
+        "CustomHelpdeskEmailOrUrl": {
+          "type": "string"
+        },
+        "CustomizeHelpdeskLink": {
+          "type": "boolean"
+        },
+        "EmailOptionEnabled": {
+          "type": "boolean"
+        },
+        "EnablementType": {
+          "type": "integer"
+        },
+        "MobileAppCodeEnabled": {
+          "type": "boolean"
+        },
+        "MobileAppNotificationEnabled": {
+          "type": "boolean"
+        },
+        "MobilePhoneOptionEnabled": {
+          "type": "boolean"
+        },
+        "NotifyOnAdminPasswordReset": {
+          "type": "boolean"
+        },
+        "NotifyUsersOnPasswordReset": {
+          "type": "boolean"
+        },
+        "NumberOfAuthenticationMethodsRequired": {
+          "type": "integer"
+        },
+        "NumberOfQuestionsToRegister": {
+          "type": "integer"
+        },
+        "NumberOfQuestionsToReset": {
+          "type": "integer"
+        },
+        "OfficePhoneOptionEnabled": {
+          "type": "boolean"
+        },
+        "PasswordResetEnabledGroupIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "PasswordResetEnabledGroupName": {
+          "type": "string"
+        },
+        "RegistrationReconfirmIntevalInDays": {
+          "type": "integer"
+        },
+        "RegistrationRequiredOnSignIn": {
+          "type": "boolean"
+        },
+        "SecurityQuestions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "SecurityQuestionsOptionEnabled": {
+          "type": "boolean"
+        },
+        "SkipRegistrationAllowed": {
+          "type": "boolean"
+        },
+        "SkipRegistrationMaxAllowedDays": {
+          "type": "integer"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:PasswordResetPolicies/Configuration"
+    },
+    "AadIam:EnterpriseStateRoaming/Configuration": {
+      "type": "object",
+      "properties": {
+        "IsAdminConfigurable": {
+          "type": "boolean"
+        },
+        "SyncSelectedUsers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string"
+              },
+              "Type": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "SyncSetting": {
+          "type": "integer"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:EnterpriseStateRoaming/Configuration"
+    },
+    "AadIam:GroupSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllUsersGroupEnabled": {
+          "type": "boolean"
+        },
+        "GroupsInAccessPanelEnabled": {
+          "type": "boolean"
+        },
+        "Office365GroupsEnabled": {
+          "type": "boolean"
+        },
+        "ScopingGroupIdForManagingOfficeGroups": {
+          "type": "string"
+        },
+        "ScopingGroupIdForManagingSecurityGroups": {
+          "type": "string"
+        },
+        "SecurityGroupsEnabled": {
+          "type": "boolean"
+        },
+        "SelfServiceGroupManagementEnabled": {
+          "type": "boolean"
+        },
+        "UsersCanManageOfficeGroups": {
+          "enum": [
+            "Some",
+            "All",
+            "None"
+          ]
+        },
+        "UsersCanManageSecurityGroups": {
+          "enum": [
+            "Some",
+            "All",
+            "None"
+          ]
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:GroupSettings/Configuration"
+    },
+    "AadIam:EnterpriseApplicationUserSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "HideOffice365Apps": {
+          "type": "boolean"
+        },
+        "UsersCanAddGalleryApps": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:EnterpriseApplicationUserSettings/Configuration"
+    }
+  }
+}
