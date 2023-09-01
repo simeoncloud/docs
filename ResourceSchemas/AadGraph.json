@@ -1,0 +1,28 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/aadGraph:IdentityProtectionPolicies/IdentityProtectionPolicy"
+    }
+  ],
+  "$defs": {
+    "AadGraph:IdentityProtectionPolicies/IdentityProtectionPolicy": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "type": "string"
+        },
+        "PolicyDetail": {
+          "type": "array",
+          "items": true
+        },
+        "PolicyType": {
+          "type": "integer"
+        },
+        "TenantDefaultPolicy": {
+          "type": "integer"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadGraph:IdentityProtectionPolicies/IdentityProtectionPolicy"
+    }
+  }
+}
