@@ -1,7 +1,10 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/aadIam:GroupSettings/Configuration"
+      "$ref": "#/$defs/aadIam:ExternalUserGuestSettings/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:MdmApplications/MdmApplication"
     },
     {
       "$ref": "#/$defs/aadIam:UserSettings/Configuration"
@@ -10,59 +13,110 @@
       "$ref": "#/$defs/aadIam:PasswordResetPolicies/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:MdmApplications/MdmApplication"
+      "$ref": "#/$defs/aadIam:EnterpriseStateRoaming/Configuration"
+    },
+    {
+      "$ref": "#/$defs/aadIam:GroupSettings/Configuration"
     },
     {
       "$ref": "#/$defs/aadIam:EnterpriseApplicationUserSettings/Configuration"
-    },
-    {
-      "$ref": "#/$defs/aadIam:ExternalUserGuestSettings/Configuration"
-    },
-    {
-      "$ref": "#/$defs/aadIam:EnterpriseStateRoaming/Configuration"
     }
   ],
   "$defs": {
-    "AadIam:GroupSettings/Configuration": {
+    "AadIam:ExternalUserGuestSettings/Configuration": {
       "type": "object",
       "properties": {
-        "AllUsersGroupEnabled": {
+        "AdminConsentedForUsersIntoTenantIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "HasListEntries": {
           "type": "boolean"
         },
-        "GroupsInAccessPanelEnabled": {
+        "IsAllowlist": {
           "type": "boolean"
         },
-        "Office365GroupsEnabled": {
-          "type": "boolean"
+        "NoAADConsentForUsersFromTenantsIds": {
+          "$ref": "#/$defs/iListOfString"
         },
-        "ScopingGroupIdForManagingOfficeGroups": {
-          "type": "string"
-        },
-        "ScopingGroupIdForManagingSecurityGroups": {
-          "type": "string"
-        },
-        "SecurityGroupsEnabled": {
-          "type": "boolean"
-        },
-        "SelfServiceGroupManagementEnabled": {
-          "type": "boolean"
-        },
-        "UsersCanManageOfficeGroups": {
-          "enum": [
-            "Some",
-            "All",
-            "None"
-          ]
-        },
-        "UsersCanManageSecurityGroups": {
-          "enum": [
-            "Some",
-            "All",
-            "None"
-          ]
+        "TargetedDomains": {
+          "$ref": "#/$defs/iListOfString"
         }
       },
-      "$id": "https://simeoncloud.com/AadIam:GroupSettings/Configuration"
+      "$defs": {
+        "iListOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
+    },
+    "AadIam:MdmApplications/MdmApplication": {
+      "type": "object",
+      "properties": {
+        "AppData": {
+          "type": "object",
+          "properties": {
+            "ComplianceUrl": {
+              "type": "string"
+            },
+            "EnrollmentUrl": {
+              "type": "string"
+            },
+            "MamComplianceUrl": {
+              "type": "string"
+            },
+            "MamEnrollmentUrl": {
+              "type": "string"
+            },
+            "MamTermsOfUseUrl": {
+              "type": "string"
+            },
+            "TermsOfUseUrl": {
+              "type": "string"
+            }
+          }
+        },
+        "AppDisplayName": {
+          "type": "string"
+        },
+        "AppId": {
+          "type": "string"
+        },
+        "IsOnPrem": {
+          "type": "boolean"
+        },
+        "LogoUrl": {
+          "type": "string"
+        },
+        "MamAppliesTo": {
+          "type": "integer"
+        },
+        "MamAppliesToGroups": {
+          "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
+        },
+        "MdmAppliesTo": {
+          "type": "integer"
+        },
+        "MdmAppliesToGroups": {
+          "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
+        }
+      },
+      "$defs": {
+        "iListOfAppliesToGroupInMdmApplication": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ObjectId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:MdmApplications/MdmApplication"
     },
     "AadIam:UserSettings/Configuration": {
       "type": "object",
@@ -154,113 +208,6 @@
       },
       "$id": "https://simeoncloud.com/AadIam:PasswordResetPolicies/Configuration"
     },
-    "AadIam:MdmApplications/MdmApplication": {
-      "type": "object",
-      "properties": {
-        "AppData": {
-          "type": "object",
-          "properties": {
-            "ComplianceUrl": {
-              "type": "string"
-            },
-            "EnrollmentUrl": {
-              "type": "string"
-            },
-            "MamComplianceUrl": {
-              "type": "string"
-            },
-            "MamEnrollmentUrl": {
-              "type": "string"
-            },
-            "MamTermsOfUseUrl": {
-              "type": "string"
-            },
-            "TermsOfUseUrl": {
-              "type": "string"
-            }
-          }
-        },
-        "AppDisplayName": {
-          "type": "string"
-        },
-        "AppId": {
-          "type": "string"
-        },
-        "IsOnPrem": {
-          "type": "boolean"
-        },
-        "LogoUrl": {
-          "type": "string"
-        },
-        "MamAppliesTo": {
-          "type": "integer"
-        },
-        "MamAppliesToGroups": {
-          "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
-        },
-        "MdmAppliesTo": {
-          "type": "integer"
-        },
-        "MdmAppliesToGroups": {
-          "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
-        }
-      },
-      "$defs": {
-        "iListOfAppliesToGroupInMdmApplication": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "ObjectId": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:MdmApplications/MdmApplication"
-    },
-    "AadIam:EnterpriseApplicationUserSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "HideOffice365Apps": {
-          "type": "boolean"
-        },
-        "UsersCanAddGalleryApps": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:EnterpriseApplicationUserSettings/Configuration"
-    },
-    "AadIam:ExternalUserGuestSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AdminConsentedForUsersIntoTenantIds": {
-          "$ref": "#/$defs/iListOfString"
-        },
-        "HasListEntries": {
-          "type": "boolean"
-        },
-        "IsAllowlist": {
-          "type": "boolean"
-        },
-        "NoAADConsentForUsersFromTenantsIds": {
-          "$ref": "#/$defs/iListOfString"
-        },
-        "TargetedDomains": {
-          "$ref": "#/$defs/iListOfString"
-        }
-      },
-      "$defs": {
-        "iListOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
-    },
     "AadIam:EnterpriseStateRoaming/Configuration": {
       "type": "object",
       "properties": {
@@ -286,6 +233,59 @@
         }
       },
       "$id": "https://simeoncloud.com/AadIam:EnterpriseStateRoaming/Configuration"
+    },
+    "AadIam:GroupSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllUsersGroupEnabled": {
+          "type": "boolean"
+        },
+        "GroupsInAccessPanelEnabled": {
+          "type": "boolean"
+        },
+        "Office365GroupsEnabled": {
+          "type": "boolean"
+        },
+        "ScopingGroupIdForManagingOfficeGroups": {
+          "type": "string"
+        },
+        "ScopingGroupIdForManagingSecurityGroups": {
+          "type": "string"
+        },
+        "SecurityGroupsEnabled": {
+          "type": "boolean"
+        },
+        "SelfServiceGroupManagementEnabled": {
+          "type": "boolean"
+        },
+        "UsersCanManageOfficeGroups": {
+          "enum": [
+            "Some",
+            "All",
+            "None"
+          ]
+        },
+        "UsersCanManageSecurityGroups": {
+          "enum": [
+            "Some",
+            "All",
+            "None"
+          ]
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:GroupSettings/Configuration"
+    },
+    "AadIam:EnterpriseApplicationUserSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "HideOffice365Apps": {
+          "type": "boolean"
+        },
+        "UsersCanAddGalleryApps": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:EnterpriseApplicationUserSettings/Configuration"
     }
   }
 }
