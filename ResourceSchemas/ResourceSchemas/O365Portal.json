@@ -1,0 +1,48 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/o365Portal:Services:Apps:BriefingEmail/Configuration"
+    },
+    {
+      "$ref": "#/$defs/o365Portal:Services:Apps:VivaInsights/Configuration"
+    }
+  ],
+  "$defs": {
+    "O365Portal:Services:Apps:BriefingEmail/Configuration": {
+      "type": "object",
+      "properties": {
+        "IsEmailEnabled": {
+          "type": "boolean"
+        },
+        "IsSubscribedByDefault": {
+          "type": "boolean"
+        },
+        "IsPYDPaused": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365Portal:Services:Apps:BriefingEmail/Configuration"
+    },
+    "O365Portal:Services:Apps:VivaInsights/Configuration": {
+      "type": "object",
+      "properties": {
+        "IsAddInOptedOut": {
+          "type": "boolean"
+        },
+        "IsDashboardOptedOut": {
+          "type": "boolean"
+        },
+        "IsEmailOptedOut": {
+          "type": "boolean"
+        },
+        "IsNudgesOptedOut": {
+          "type": "boolean"
+        },
+        "IsScheduleSendOptedOut": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365Portal:Services:Apps:VivaInsights/Configuration"
+    }
+  }
+}
