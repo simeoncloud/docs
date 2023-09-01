@@ -320,6 +320,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:DeviceManagement:GroupPolicyUploadedDefinitionFiles",
+    "description": "Intune > Devices > Configuration profiles (Import ADMX)",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:Intents",
     "description": "Intune > Endpoint security",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/overview",
@@ -661,7 +669,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^JournalMonitor).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^journalmonitor|^simeon|^mailenablesecurity).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:DkimSigningConfigs",
@@ -749,7 +757,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^journalndr).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:MailboxPlans",
@@ -1059,9 +1067,9 @@
     "namespace": "SharePoint:Sites",
     "description": "SharePoint Admin Center > Sites",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
-    "isCreateSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*",
+    "isCreateSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#].[^\\s]*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*"
+    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#].[^\\s]*"
   },
   {
     "namespace": "SharePoint:TenantProperties",

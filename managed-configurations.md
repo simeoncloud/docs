@@ -58,6 +58,7 @@
       - Compliance policy settings
       - Notifications
     - Configuration profiles
+    - Configuration profiles (Import ADMX)
     - Configuration profiles (Profile Type = Administrative Templates)
     - Configuration profiles (Settings Catalog)
     - Device clean-up rules
