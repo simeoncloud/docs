@@ -1,9 +1,6 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/aadIam:ExternalUserGuestSettings/Configuration"
-    },
-    {
       "$ref": "#/$defs/aadIam:MdmApplications/MdmApplication"
     },
     {
@@ -13,45 +10,19 @@
       "$ref": "#/$defs/aadIam:PasswordResetPolicies/Configuration"
     },
     {
+      "$ref": "#/$defs/aadIam:GroupSettings/Configuration"
+    },
+    {
       "$ref": "#/$defs/aadIam:EnterpriseStateRoaming/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:GroupSettings/Configuration"
+      "$ref": "#/$defs/aadIam:ExternalUserGuestSettings/Configuration"
     },
     {
       "$ref": "#/$defs/aadIam:EnterpriseApplicationUserSettings/Configuration"
     }
   ],
   "$defs": {
-    "AadIam:ExternalUserGuestSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AdminConsentedForUsersIntoTenantIds": {
-          "$ref": "#/$defs/iListOfString"
-        },
-        "HasListEntries": {
-          "type": "boolean"
-        },
-        "IsAllowlist": {
-          "type": "boolean"
-        },
-        "NoAADConsentForUsersFromTenantsIds": {
-          "$ref": "#/$defs/iListOfString"
-        },
-        "TargetedDomains": {
-          "$ref": "#/$defs/iListOfString"
-        }
-      },
-      "$defs": {
-        "iListOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
-    },
     "AadIam:MdmApplications/MdmApplication": {
       "type": "object",
       "properties": {
@@ -208,32 +179,6 @@
       },
       "$id": "https://simeoncloud.com/AadIam:PasswordResetPolicies/Configuration"
     },
-    "AadIam:EnterpriseStateRoaming/Configuration": {
-      "type": "object",
-      "properties": {
-        "IsAdminConfigurable": {
-          "type": "boolean"
-        },
-        "SyncSelectedUsers": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "Id": {
-                "type": "string"
-              },
-              "Type": {
-                "type": "integer"
-              }
-            }
-          }
-        },
-        "SyncSetting": {
-          "type": "integer"
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:EnterpriseStateRoaming/Configuration"
-    },
     "AadIam:GroupSettings/Configuration": {
       "type": "object",
       "properties": {
@@ -274,6 +219,61 @@
         }
       },
       "$id": "https://simeoncloud.com/AadIam:GroupSettings/Configuration"
+    },
+    "AadIam:EnterpriseStateRoaming/Configuration": {
+      "type": "object",
+      "properties": {
+        "IsAdminConfigurable": {
+          "type": "boolean"
+        },
+        "SyncSelectedUsers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string"
+              },
+              "Type": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "SyncSetting": {
+          "type": "integer"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:EnterpriseStateRoaming/Configuration"
+    },
+    "AadIam:ExternalUserGuestSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminConsentedForUsersIntoTenantIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "HasListEntries": {
+          "type": "boolean"
+        },
+        "IsAllowlist": {
+          "type": "boolean"
+        },
+        "NoAADConsentForUsersFromTenantsIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "TargetedDomains": {
+          "$ref": "#/$defs/iListOfString"
+        }
+      },
+      "$defs": {
+        "iListOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
     },
     "AadIam:EnterpriseApplicationUserSettings/Configuration": {
       "type": "object",
