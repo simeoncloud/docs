@@ -669,7 +669,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^JournalMonitor).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^journalmonitor|^simeon|^mailenablesecurity).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:DkimSigningConfigs",
@@ -757,7 +757,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^journalndr).)+$"
   },
   {
     "namespace": "PowerShell:ExchangeOnline:MailboxPlans",
