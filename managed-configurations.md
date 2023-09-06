@@ -76,6 +76,8 @@
       - Proactive Remediations
   - Tenant administration
     - Filters
+    - Roles
+      - Scope Tags
 - M365 Admin Center
   - Password expiration policy
   - Settings
