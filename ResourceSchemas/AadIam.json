@@ -1,28 +1,136 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/aadIam:MdmApplications/MdmApplication"
+      "$ref": "#/$defs/AadIam:EnterpriseApplicationUserSettings/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:UserSettings/Configuration"
+      "$ref": "#/$defs/AadIam:EnterpriseStateRoaming/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:PasswordResetPolicies/Configuration"
+      "$ref": "#/$defs/AadIam:ExternalUserGuestSettings/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:GroupSettings/Configuration"
+      "$ref": "#/$defs/AadIam:GroupSettings/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:EnterpriseStateRoaming/Configuration"
+      "$ref": "#/$defs/AadIam:MdmApplications/MdmApplication"
     },
     {
-      "$ref": "#/$defs/aadIam:ExternalUserGuestSettings/Configuration"
+      "$ref": "#/$defs/AadIam:PasswordResetPolicies/Configuration"
     },
     {
-      "$ref": "#/$defs/aadIam:EnterpriseApplicationUserSettings/Configuration"
+      "$ref": "#/$defs/AadIam:UserSettings/Configuration"
     }
   ],
   "$defs": {
+    "AadIam:EnterpriseApplicationUserSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "HideOffice365Apps": {
+          "type": "boolean"
+        },
+        "UsersCanAddGalleryApps": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:EnterpriseApplicationUserSettings/Configuration"
+    },
+    "AadIam:EnterpriseStateRoaming/Configuration": {
+      "type": "object",
+      "properties": {
+        "IsAdminConfigurable": {
+          "type": "boolean"
+        },
+        "SyncSelectedUsers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string"
+              },
+              "Type": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "SyncSetting": {
+          "type": "integer"
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:EnterpriseStateRoaming/Configuration"
+    },
+    "AadIam:ExternalUserGuestSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminConsentedForUsersIntoTenantIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "HasListEntries": {
+          "type": "boolean"
+        },
+        "IsAllowlist": {
+          "type": "boolean"
+        },
+        "NoAADConsentForUsersFromTenantsIds": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "TargetedDomains": {
+          "$ref": "#/$defs/iListOfString"
+        }
+      },
+      "$defs": {
+        "iListOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
+    },
+    "AadIam:GroupSettings/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllUsersGroupEnabled": {
+          "type": "boolean"
+        },
+        "GroupsInAccessPanelEnabled": {
+          "type": "boolean"
+        },
+        "Office365GroupsEnabled": {
+          "type": "boolean"
+        },
+        "ScopingGroupIdForManagingOfficeGroups": {
+          "type": "string"
+        },
+        "ScopingGroupIdForManagingSecurityGroups": {
+          "type": "string"
+        },
+        "SecurityGroupsEnabled": {
+          "type": "boolean"
+        },
+        "SelfServiceGroupManagementEnabled": {
+          "type": "boolean"
+        },
+        "UsersCanManageOfficeGroups": {
+          "enum": [
+            "Some",
+            "All",
+            "None"
+          ]
+        },
+        "UsersCanManageSecurityGroups": {
+          "enum": [
+            "Some",
+            "All",
+            "None"
+          ]
+        }
+      },
+      "$id": "https://simeoncloud.com/AadIam:GroupSettings/Configuration"
+    },
     "AadIam:MdmApplications/MdmApplication": {
       "type": "object",
       "properties": {
@@ -88,21 +196,6 @@
         }
       },
       "$id": "https://simeoncloud.com/AadIam:MdmApplications/MdmApplication"
-    },
-    "AadIam:UserSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "EnableLinkedInAppFamily": {
-          "type": "integer"
-        },
-        "LinkedInSelectedGroupObjectId": {
-          "type": "string"
-        },
-        "RestrictNonAdminUsers": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:UserSettings/Configuration"
     },
     "AadIam:PasswordResetPolicies/Configuration": {
       "type": "object",
@@ -179,113 +272,20 @@
       },
       "$id": "https://simeoncloud.com/AadIam:PasswordResetPolicies/Configuration"
     },
-    "AadIam:GroupSettings/Configuration": {
+    "AadIam:UserSettings/Configuration": {
       "type": "object",
       "properties": {
-        "AllUsersGroupEnabled": {
-          "type": "boolean"
-        },
-        "GroupsInAccessPanelEnabled": {
-          "type": "boolean"
-        },
-        "Office365GroupsEnabled": {
-          "type": "boolean"
-        },
-        "ScopingGroupIdForManagingOfficeGroups": {
-          "type": "string"
-        },
-        "ScopingGroupIdForManagingSecurityGroups": {
-          "type": "string"
-        },
-        "SecurityGroupsEnabled": {
-          "type": "boolean"
-        },
-        "SelfServiceGroupManagementEnabled": {
-          "type": "boolean"
-        },
-        "UsersCanManageOfficeGroups": {
-          "enum": [
-            "Some",
-            "All",
-            "None"
-          ]
-        },
-        "UsersCanManageSecurityGroups": {
-          "enum": [
-            "Some",
-            "All",
-            "None"
-          ]
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:GroupSettings/Configuration"
-    },
-    "AadIam:EnterpriseStateRoaming/Configuration": {
-      "type": "object",
-      "properties": {
-        "IsAdminConfigurable": {
-          "type": "boolean"
-        },
-        "SyncSelectedUsers": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "Id": {
-                "type": "string"
-              },
-              "Type": {
-                "type": "integer"
-              }
-            }
-          }
-        },
-        "SyncSetting": {
+        "EnableLinkedInAppFamily": {
           "type": "integer"
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:EnterpriseStateRoaming/Configuration"
-    },
-    "AadIam:ExternalUserGuestSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AdminConsentedForUsersIntoTenantIds": {
-          "$ref": "#/$defs/iListOfString"
         },
-        "HasListEntries": {
-          "type": "boolean"
+        "LinkedInSelectedGroupObjectId": {
+          "type": "string"
         },
-        "IsAllowlist": {
-          "type": "boolean"
-        },
-        "NoAADConsentForUsersFromTenantsIds": {
-          "$ref": "#/$defs/iListOfString"
-        },
-        "TargetedDomains": {
-          "$ref": "#/$defs/iListOfString"
-        }
-      },
-      "$defs": {
-        "iListOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/AadIam:ExternalUserGuestSettings/Configuration"
-    },
-    "AadIam:EnterpriseApplicationUserSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "HideOffice365Apps": {
-          "type": "boolean"
-        },
-        "UsersCanAddGalleryApps": {
+        "RestrictNonAdminUsers": {
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/AadIam:EnterpriseApplicationUserSettings/Configuration"
+      "$id": "https://simeoncloud.com/AadIam:UserSettings/Configuration"
     }
   }
 }
