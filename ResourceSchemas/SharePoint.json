@@ -1,10 +1,10 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/sharePoint:Sites/Site"
+      "$ref": "#/$defs/SharePoint:Sites/Site"
     },
     {
-      "$ref": "#/$defs/sharePoint:TenantProperties/Configuration"
+      "$ref": "#/$defs/SharePoint:TenantProperties/Configuration"
     }
   ],
   "$defs": {
