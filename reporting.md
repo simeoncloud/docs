@@ -29,7 +29,7 @@ During installation, you will be prompted to log in with a user account. The acc
 - Have either the **Global Administrator role** or **all the following Azure AD roles**:
     - Application Administrator
     - Groups Administrator
-    - Power BI Administrator
+    - Fabric Administrator
 
 ### Running the installer
 - From the [Simeon portal](https://app.simeoncloud.com/), click **Install** on the navigation pane > select the **Install Power BI Reporting** tab
