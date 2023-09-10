@@ -242,6 +242,13 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
         - Under Configuration Settings, click Computer Configuration on the left tab then select Mozilla > Firefox > Cookies Select “Do not allow preferences to be changed" > on the right panel, select “Enabled" > OK
         - Finish the creation steps
 - Run a Sync to export the newly added ADMX resource and profile to Simeon
+- On Azure DevOps (https://dev.azure.com/) > Tenants > Repos > navigate to Source/Resources/Content/MSGraph/DeviceManagement/GroupPolicyUploadedDefinitionFiles
+- There will be 3 files per ADMX resource that was created. An ADML file, an ADMX file, and a JSON file
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/admx_files.png" width: 300; height: auto;/>
+-   The ADMX and ADML files have the following content: TODO: Add adml file content here
+- Update the contents of the ADMX and ADML files on the baseline repository
+- You can now successfully deploy the files to a downstream tenant  
 
 ## Remove a tenant from Simeon
 
