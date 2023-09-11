@@ -246,9 +246,9 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 - There will be 3 files per ADMX resource that was created. An ADML file, an ADMX file, and a JSON file
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/admx_files.png" width: 300; height: auto;/>
--   The ADMX and ADML files have the following content: TODO: Add adml file content here
+  - The ADMX and ADML files have the following content: TODO: Add adml file content here
 - Update the contents of the ADMX and ADML files on the baseline repository
-- You can now successfully deploy the files to a downstream tenant  
+- You can now successfully deploy the files to a downstream tenant
 
 ## Remove a tenant from Simeon
 
