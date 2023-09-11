@@ -1,0 +1,843 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/SharePoint:Sites/Site"
+    },
+    {
+      "$ref": "#/$defs/SharePoint:TenantProperties/Configuration"
+    }
+  ],
+  "$defs": {
+    "SharePoint:Sites/Site": {
+      "type": "object",
+      "properties": {
+        "AllowDownloadingNonWebViewableFiles": {
+          "type": "boolean"
+        },
+        "AllowEditing": {
+          "type": "boolean"
+        },
+        "AllowSelfServiceUpgrade": {
+          "type": "boolean"
+        },
+        "AnonymousLinkExpirationInDays": {
+          "type": "integer"
+        },
+        "AuthContextStrength": {
+          "type": "string"
+        },
+        "AuthenticationContextName": {
+          "type": "string"
+        },
+        "BlockDownloadLinksFileType": {
+          "enum": [
+            "WebPreviewableFiles",
+            "ServerRenderedFilesOnly"
+          ]
+        },
+        "CommentsOnSitePagesDisabled": {
+          "type": "boolean"
+        },
+        "ConditionalAccessPolicy": {
+          "enum": [
+            "AllowFullAccess",
+            "AllowLimitedAccess",
+            "BlockAccess",
+            "AuthenticationContext"
+          ]
+        },
+        "DefaultLinkPermission": {
+          "enum": [
+            "None",
+            "View",
+            "Edit"
+          ]
+        },
+        "DefaultLinkToExistingAccess": {
+          "type": "boolean"
+        },
+        "DefaultLinkToExistingAccessReset": {
+          "type": "boolean"
+        },
+        "DefaultSharingLinkType": {
+          "enum": [
+            "None",
+            "Direct",
+            "Internal",
+            "AnonymousAccess"
+          ]
+        },
+        "DenyAddAndCustomizePages": {
+          "enum": [
+            "Unknown",
+            "Disabled",
+            "Enabled"
+          ]
+        },
+        "DisableAppViews": {
+          "enum": [
+            "Unknown",
+            "Disabled",
+            "NotDisabled"
+          ]
+        },
+        "DisableCompanyWideSharingLinks": {
+          "enum": [
+            "Unknown",
+            "Disabled",
+            "NotDisabled"
+          ]
+        },
+        "DisableFlows": {
+          "enum": [
+            "Unknown",
+            "Disabled",
+            "NotDisabled"
+          ]
+        },
+        "ExternalUserExpirationInDays": {
+          "type": "integer"
+        },
+        "IBMode": {
+          "type": "string"
+        },
+        "Lcid": {
+          "type": "integer"
+        },
+        "LimitedAccessFileType": {
+          "enum": [
+            "OfficeOnlineFilesOnly",
+            "WebPreviewableFiles",
+            "OtherFiles"
+          ]
+        },
+        "LockState": {
+          "type": "string"
+        },
+        "MediaTranscription": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
+        },
+        "Members": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "OverrideBlockUserInfoVisibility": {
+          "enum": [
+            "OrganizationDefault",
+            "ApplyToNoUsers",
+            "ApplyToGuestAndExternalUsers"
+          ]
+        },
+        "OverrideTenantAnonymousLinkExpirationPolicy": {
+          "type": "boolean"
+        },
+        "OverrideTenantExternalUserExpirationPolicy": {
+          "type": "boolean"
+        },
+        "SiteCollectionOwner": {
+          "type": "string"
+        },
+        "Owners": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "PWAEnabled": {
+          "enum": [
+            "Unknown",
+            "Disabled",
+            "Enabled"
+          ]
+        },
+        "RestrictedToRegion": {
+          "enum": [
+            "NoRestriction",
+            "BlockMoveOnly",
+            "BlockFull",
+            "Unknown"
+          ]
+        },
+        "SecondaryAdmins": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SensitivityLabel": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "SensitivityLabel2": {
+          "type": "string"
+        },
+        "SetOwnerWithoutUpdatingSecondaryAdmin": {
+          "type": "boolean"
+        },
+        "SharingAllowedDomainList": {
+          "type": "string"
+        },
+        "SharingBlockedDomainList": {
+          "type": "string"
+        },
+        "SharingCapability": {
+          "enum": [
+            "Disabled",
+            "ExternalUserSharingOnly",
+            "ExternalUserAndGuestSharing",
+            "ExistingExternalUserSharingOnly"
+          ]
+        },
+        "SharingDomainRestrictionMode": {
+          "enum": [
+            "None",
+            "AllowList",
+            "BlockList"
+          ]
+        },
+        "ShowPeoplePickerSuggestionsForGuestUsers": {
+          "type": "boolean"
+        },
+        "SocialBarOnSitePagesDisabled": {
+          "type": "boolean"
+        },
+        "Template": {
+          "type": "string"
+        },
+        "TimeZoneId": {
+          "enum": [
+            "None",
+            "UTC_GREENWICH_MEAN_TIME_DUBLIN_EDINBURGH_LISBON_LONDON",
+            "UTCPLUS0100_BRUSSELS_COPENHAGEN_MADRID_PARIS",
+            "UTCPLUS0100_AMSTERDAM_BERLIN_BERN_ROME_STOCKHOLM_VIENNA",
+            "UTCPLUS0200_ATHENS_BUCHAREST_ISTANBUL",
+            "UTCPLUS0100_BELGRADE_BRATISLAVA_BUDAPEST_LJUBLJANA_PRAGUE",
+            "UTCPLUS0200_MINSK",
+            "UTCMINUS0300_BRASILIA",
+            "UTCMINUS0400_ATLANTIC_TIME_CANADA",
+            "UTCMINUS0500_EASTERN_TIME_US_AND_CANADA",
+            "UTCMINUS0600_CENTRAL_TIME_US_AND_CANADA",
+            "UTCMINUS0700_MOUNTAIN_TIME_US_AND_CANADA",
+            "UTCMINUS0800_PACIFIC_TIME_US_AND_CANADA",
+            "UTCMINUS0900_ALASKA",
+            "UTCMINUS1000_HAWAII",
+            "UTCMINUS1100_MIDWAY_ISLAND_SAMOA",
+            "UTCPLUS1200_AUCKLAND_WELLINGTON",
+            "UTCPLUS1000_BRISBANE",
+            "UTCPLUS0930_ADELAIDE",
+            "UTCPLUS0900_OSAKA_SAPPORO_TOKYO",
+            "UTCPLUS0800_KUALA_LUMPUR_SINGAPORE",
+            "UTCPLUS0700_BANGKOK_HANOI_JAKARTA",
+            "UTCPLUS0530_CHENNAI_KOLKATA_MUMBAI_NEW_DELHI",
+            "UTCPLUS0400_ABU_DHABI_MUSCAT",
+            "UTCPLUS0330_TEHRAN",
+            "UTCPLUS0300_BAGHDAD",
+            "UTCPLUS0200_JERUSALEM",
+            "UTCMINUS0330_NEWFOUNDLAND_AND_LABRADOR",
+            "UTCMINUS0100_AZORES",
+            "UTCMINUS0200_MID_ATLANTIC",
+            "UTC_MONROVIA",
+            "UTCMINUS0300_CAYENNE",
+            "UTCMINUS0400_GEORGETOWN_LA_PAZ_SAN_JUAN",
+            "UTCMINUS0500_INDIANA_EAST",
+            "UTCMINUS0500_BOGOTA_LIMA_QUITO",
+            "UTCMINUS0600_SASKATCHEWAN",
+            "UTCMINUS0600_GUADALAJARA_MEXICO_CITY_MONTERREY",
+            "UTCMINUS0700_ARIZONA",
+            "UTCMINUS1200_INTERNATIONAL_DATE_LINE_WEST",
+            "UTCPLUS1200_FIJI_ISLANDS_MARSHALL_ISLANDS",
+            "UTCPLUS1100_MADAGAN_SOLOMON_ISLANDS_NEW_CALENDONIA",
+            "UTCPLUS1000_HOBART",
+            "UTCPLUS1000_GUAM_PORT_MORESBY",
+            "UTCPLUS0930_DARWIN",
+            "UTCPLUS0800_BEIJING_CHONGQING_HONG_KONG_SAR_URUMQI",
+            "UTCPLUS0600_NOVOSIBIRSK",
+            "UTCPLUS0500_TASHKENT",
+            "UTCPLUS0430_KABUL",
+            "UTCPLUS0200_CAIRO",
+            "UTCPLUS0200_HARARE_PRETORIA",
+            "UTCPLUS0300_MOSCOW_STPETERSBURG_VOLGOGRAD",
+            "UTCMINUS0100_CAPE_VERDE_ISLANDS",
+            "UTCPLUS0400_BAKU",
+            "UTCMINUS0600_CENTRAL_AMERICA",
+            "UTCPLUS0300_NAIROBI",
+            "UTCPLUS0100_SARAJEVO_SKOPJE_WARSAW_ZAGREB",
+            "UTCPLUS0500_EKATERINBURG",
+            "UTCPLUS0200_HELSINKI_KYIV_RIGA_SOFIA_TALLINN_VILNIUS",
+            "UTCMINUS0300_GREENLAND",
+            "UTCPLUS0630_YANGON_RANGOON",
+            "UTCPLUS0545_KATHMANDU",
+            "UTCPLUS0800_IRKUTSK",
+            "UTCPLUS0700_KRASNOYARSK",
+            "UTCMINUS0400_SANTIAGO",
+            "UTCPLUS0530_SRI_JAYAWARDENEPURA",
+            "UTCPLUS1300_NUKU_ALOFA",
+            "UTCPLUS1000_VLADIVOSTOK",
+            "UTCPLUS0100_WEST_CENTRAL_AFRICA",
+            "UTCPLUS0900_YAKUTSK",
+            "UTCPLUS0600_ASTANA_DHAKA",
+            "UTCPLUS0900_SEOUL",
+            "UTCPLUS0800_PERTH",
+            "UTCPLUS0300_KUWAIT_RIYADH",
+            "UTCPLUS0800_TAIPEI",
+            "UTCPLUS1000_CANBERRA_MELBOURNE_SYDNEY",
+            "UTCMINUS0700_CHIHUAHUA_LA_PAZ_MAZATLAN",
+            "UTCMINUS0800_TIJUANA_BAJA_CALFORNIA",
+            "UTCPLUS0200_AMMAN",
+            "UTCPLUS0200_BEIRUT",
+            "UTCMINUS0400_MANAUS",
+            "UTCPLUS0400_TBILISI",
+            "UTCPLUS0200_WINDHOEK",
+            "UTCPLUS0400_YEREVAN",
+            "UTCMINUS0300_BUENOS_AIRES",
+            "UTC_CASABLANCA",
+            "UTCPLUS0500_ISLAMABAD_KARACHI",
+            "UTCMINUS0430_CARACAS",
+            "UTCPLUS0400_PORT_LOUIS",
+            "UTCMINUS0300_MONTEVIDEO",
+            "UTCMINUS0400_ASUNCION",
+            "UTCPLUS1200_PETROPAVLOVSK_KACHATSKY",
+            "UTC_COORDINATED_UNIVERSAL_TIME",
+            "UTCMINUS0800_ULAANBAATAR"
+          ]
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Visitors": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/SharePoint:Sites/Site"
+    },
+    "SharePoint:TenantProperties/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowCommentsTextOnEmailEnabled": {
+          "type": "boolean"
+        },
+        "AllowDownloadingNonWebViewableFiles": {
+          "type": "boolean"
+        },
+        "AllowedDomainListForSyncClient": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/guid"
+          }
+        },
+        "AllowEditing": {
+          "type": "boolean"
+        },
+        "AllowGuestUserShareToUsersNotInSiteCollection": {
+          "type": "boolean"
+        },
+        "AllowLimitedAccessOnUnmanagedDevices": {
+          "type": "boolean"
+        },
+        "AllowOverrideForBlockUserInfoVisibility": {
+          "type": "boolean"
+        },
+        "AllowSelectSGsInODBListInTenant": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "AnyoneLinkTrackUsers": {
+          "type": "boolean"
+        },
+        "ApplyAppEnforcedRestrictionsToAdHocRecipients": {
+          "type": "boolean"
+        },
+        "BccExternalSharingInvitations": {
+          "type": "boolean"
+        },
+        "BccExternalSharingInvitationsList": {
+          "type": "string"
+        },
+        "BlockAccessOnUnmanagedDevices": {
+          "type": "boolean"
+        },
+        "BlockDownloadLinksFileType": {
+          "enum": [
+            "WebPreviewableFiles",
+            "ServerRenderedFilesOnly"
+          ]
+        },
+        "BlockDownloadOfAllFilesForGuests": {
+          "type": "boolean"
+        },
+        "BlockDownloadOfAllFilesOnUnmanagedDevices": {
+          "type": "boolean"
+        },
+        "BlockDownloadOfViewableFilesForGuests": {
+          "type": "boolean"
+        },
+        "BlockDownloadOfViewableFilesOnUnmanagedDevices": {
+          "type": "boolean"
+        },
+        "BlockMacSync": {
+          "type": "boolean"
+        },
+        "BlockSendLabelMismatchEmail": {
+          "type": "boolean"
+        },
+        "BlockUserInfoVisibilityInOneDrive": {
+          "enum": [
+            "ApplyToNoUsers",
+            "ApplyToGuestAndExternalUsers"
+          ]
+        },
+        "BlockUserInfoVisibilityInSharePoint": {
+          "enum": [
+            "ApplyToNoUsers",
+            "ApplyToGuestAndExternalUsers"
+          ]
+        },
+        "CommentsOnFilesDisabled": {
+          "type": "boolean"
+        },
+        "CommentsOnListItemsDisabled": {
+          "type": "boolean"
+        },
+        "CommentsOnSitePagesDisabled": {
+          "type": "boolean"
+        },
+        "ConditionalAccessPolicy": {
+          "enum": [
+            "AllowFullAccess",
+            "AllowLimitedAccess",
+            "BlockAccess",
+            "AuthenticationContext"
+          ]
+        },
+        "ConditionalAccessPolicyErrorHelpLink": {
+          "type": "string"
+        },
+        "ContentTypeSyncSiteTemplatesList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CustomizedExternalSharingServiceUrl": {
+          "type": "string"
+        },
+        "DefaultLinkPermission": {
+          "enum": [
+            "None",
+            "View",
+            "Edit"
+          ]
+        },
+        "DefaultODBMode": {
+          "type": "string"
+        },
+        "DefaultSharingLinkType": {
+          "enum": [
+            "None",
+            "Direct",
+            "Internal",
+            "AnonymousAccess"
+          ]
+        },
+        "DisableAddToOneDrive": {
+          "type": "boolean"
+        },
+        "DisableBackToClassic": {
+          "type": "boolean"
+        },
+        "DisableCustomAppAuthentication": {
+          "type": "boolean"
+        },
+        "DisabledModernListTemplateIds": {
+          "$ref": "#/$defs/arrayOfGuid"
+        },
+        "DisabledWebPartIds": {
+          "$ref": "#/$defs/arrayOfGuid"
+        },
+        "DisableListSync": {
+          "type": "boolean"
+        },
+        "DisableOutlookPSTVersionTrimming": {
+          "type": "boolean"
+        },
+        "DisablePersonalListCreation": {
+          "type": "boolean"
+        },
+        "DisableReportProblemDialog": {
+          "type": "boolean"
+        },
+        "DisableSpacesActivation": {
+          "type": "boolean"
+        },
+        "DisallowInfectedFileDownload": {
+          "type": "boolean"
+        },
+        "DisplayNamesOfFileViewers": {
+          "type": "boolean"
+        },
+        "DisplayNamesOfFileViewersInSpo": {
+          "type": "boolean"
+        },
+        "DisplayStartASiteOption": {
+          "type": "boolean"
+        },
+        "EmailAttestationEnabled": {
+          "type": "boolean"
+        },
+        "EmailAttestationReAuthDays": {
+          "type": "integer"
+        },
+        "EmailAttestationRequired": {
+          "type": "boolean"
+        },
+        "EnableAIPIntegration": {
+          "type": "boolean"
+        },
+        "EnableAutoNewsDigest": {
+          "type": "boolean"
+        },
+        "EnableAzureADB2BIntegration": {
+          "type": "boolean"
+        },
+        "EnableGuestSignInAcceleration": {
+          "type": "boolean"
+        },
+        "EnableMinimumVersionRequirement": {
+          "type": "boolean"
+        },
+        "EnableMipSiteLabel": {
+          "type": "boolean"
+        },
+        "EnablePromotedFileHandlers": {
+          "type": "boolean"
+        },
+        "ExcludedFileExtensionsForSyncClient": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "ExternalServicesEnabled": {
+          "type": "boolean"
+        },
+        "ExternalUserExpirationRequired": {
+          "type": "boolean"
+        },
+        "ExternalUserExpireInDays": {
+          "type": "integer"
+        },
+        "FileAnonymousLinkType": {
+          "enum": [
+            "None",
+            "View",
+            "Edit"
+          ]
+        },
+        "FilePickerExternalImageSearchEnabled": {
+          "type": "boolean"
+        },
+        "FolderAnonymousLinkType": {
+          "enum": [
+            "None",
+            "View",
+            "Edit"
+          ]
+        },
+        "GuestSharingGroupAllowListInTenant": {
+          "type": "string"
+        },
+        "GuestSharingGroupAllowListInTenantAcl": {
+          "type": "object",
+          "properties": {
+            "AccessControlEntries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "AllowRights": {
+                    "type": "string"
+                  },
+                  "DenyRights": {
+                    "type": "string"
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "IdentityName": {
+                    "type": "string"
+                  },
+                  "Sid": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "GuestSharingGroupAllowListInTenantByPrincipalIdentity": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "HasAdminCompletedCUConfiguration": {
+          "type": "boolean"
+        },
+        "HasIntelligentContentServicesCapability": {
+          "type": "boolean"
+        },
+        "HasTopicExperiencesCapability": {
+          "type": "boolean"
+        },
+        "HideSyncButtonOnDocLib": {
+          "type": "boolean"
+        },
+        "HideSyncButtonOnODB": {
+          "type": "boolean"
+        },
+        "ImageTaggingOption": {
+          "enum": [
+            "Disabled",
+            "Basic",
+            "Enhanced"
+          ]
+        },
+        "IncludeAtAGlanceInShareEmails": {
+          "type": "boolean"
+        },
+        "InformationBarriersSuspension": {
+          "type": "boolean"
+        },
+        "IPAddressAllowList": {
+          "type": "string"
+        },
+        "IPAddressEnforcement": {
+          "type": "boolean"
+        },
+        "IPAddressWACTokenLifetime": {
+          "type": "integer"
+        },
+        "IsAppBarTemporarilyDisabled": {
+          "type": "boolean"
+        },
+        "IsCollabMeetingNotesFluidEnabled": {
+          "type": "boolean"
+        },
+        "IsFluidEnabled": {
+          "type": "boolean"
+        },
+        "IsUnmanagedSyncClientForTenantRestricted": {
+          "type": "boolean"
+        },
+        "IsWBFluidEnabled": {
+          "type": "boolean"
+        },
+        "LabelMismatchEmailHelpLink": {
+          "type": "string"
+        },
+        "LegacyAuthProtocolsEnabled": {
+          "type": "boolean"
+        },
+        "LimitedAccessFileType": {
+          "enum": [
+            "OfficeOnlineFilesOnly",
+            "WebPreviewableFiles",
+            "OtherFiles"
+          ]
+        },
+        "MachineLearningCaptureEnabled": {
+          "type": "boolean"
+        },
+        "MarkNewFilesSensitiveByDefault": {
+          "enum": [
+            "AllowExternalSharing",
+            "BlockExternalSharing"
+          ]
+        },
+        "MediaTranscription": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
+        },
+        "MobileFriendlyUrlEnabledInTenant": {
+          "type": "boolean"
+        },
+        "NoAccessRedirectUrl": {
+          "type": "string"
+        },
+        "NotificationsInOneDriveForBusinessEnabled": {
+          "type": "boolean"
+        },
+        "NotificationsInSharePointEnabled": {
+          "type": "boolean"
+        },
+        "NotifyOwnersWhenInvitationsAccepted": {
+          "type": "boolean"
+        },
+        "NotifyOwnersWhenItemsReshared": {
+          "type": "boolean"
+        },
+        "ODBAccessRequests": {
+          "enum": [
+            "Unspecified",
+            "On",
+            "Off"
+          ]
+        },
+        "ODBMembersCanShare": {
+          "enum": [
+            "Unspecified",
+            "On",
+            "Off"
+          ]
+        },
+        "ODBSharingCapability": {
+          "enum": [
+            "Disabled",
+            "ExternalUserSharingOnly",
+            "ExternalUserAndGuestSharing",
+            "ExistingExternalUserSharingOnly"
+          ]
+        },
+        "OfficeClientADALDisabled": {
+          "type": "boolean"
+        },
+        "OneDriveForGuestsEnabled": {
+          "type": "boolean"
+        },
+        "OneDriveStorageQuota": {
+          "type": "integer"
+        },
+        "OrgNewsSiteUrl": {
+          "type": "string"
+        },
+        "OrphanedPersonalSitesRetentionPeriod": {
+          "type": "integer"
+        },
+        "OwnerAnonymousNotification": {
+          "type": "boolean"
+        },
+        "PreventExternalUsersFromResharing": {
+          "type": "boolean"
+        },
+        "ProvisionSharedWithEveryoneFolder": {
+          "type": "boolean"
+        },
+        "PublicCdnAllowedFileTypes": {
+          "type": "string"
+        },
+        "PublicCdnEnabled": {
+          "type": "boolean"
+        },
+        "RequireAcceptingAccountMatchInvitedAccount": {
+          "type": "boolean"
+        },
+        "RequireAnonymousLinksExpireInDays": {
+          "type": "integer"
+        },
+        "SearchResolveExactEmailOrUPN": {
+          "type": "boolean"
+        },
+        "SharingAllowedDomainList": {
+          "type": "string"
+        },
+        "SharingBlockedDomainList": {
+          "type": "string"
+        },
+        "SharingCapability": {
+          "enum": [
+            "Disabled",
+            "ExternalUserSharingOnly",
+            "ExternalUserAndGuestSharing",
+            "ExistingExternalUserSharingOnly"
+          ]
+        },
+        "SharingDomainRestrictionMode": {
+          "enum": [
+            "None",
+            "AllowList",
+            "BlockList"
+          ]
+        },
+        "ShowAllUsersClaim": {
+          "type": "boolean"
+        },
+        "ShowEveryoneClaim": {
+          "type": "boolean"
+        },
+        "ShowEveryoneExceptExternalUsersClaim": {
+          "type": "boolean"
+        },
+        "ShowPeoplePickerSuggestionsForGuestUsers": {
+          "type": "boolean"
+        },
+        "SignInAccelerationDomain": {
+          "type": "string"
+        },
+        "SocialBarOnSitePagesDisabled": {
+          "type": "boolean"
+        },
+        "SpecialCharactersStateInFileFolderNames": {
+          "enum": [
+            "NoPreference",
+            "Allowed",
+            "Disallowed"
+          ]
+        },
+        "StartASiteFormUrl": {
+          "type": "string"
+        },
+        "StopNew2010Workflows": {
+          "type": "boolean"
+        },
+        "StopNew2013Workflows": {
+          "type": "boolean"
+        },
+        "SyncAadB2BManagementPolicy": {
+          "type": "boolean"
+        },
+        "SyncPrivacyProfileProperties": {
+          "type": "boolean"
+        },
+        "UseFindPeopleInPeoplePicker": {
+          "type": "boolean"
+        },
+        "UserVoiceForFeedbackEnabled": {
+          "type": "boolean"
+        },
+        "ViewersCanCommentOnMediaDisabled": {
+          "type": "boolean"
+        },
+        "ViewInFileExplorerEnabled": {
+          "type": "boolean"
+        },
+        "WhoCanShareAllowListInTenant": {
+          "type": "string"
+        },
+        "WhoCanShareAllowListInTenantByPrincipalIdentity": {
+          "$ref": "#/$defs/iListOfString"
+        },
+        "Workflow2010Disabled": {
+          "type": "boolean"
+        }
+      },
+      "$defs": {
+        "guid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "iListOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "arrayOfGuid": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/guid"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/SharePoint:TenantProperties/Configuration"
+    }
+  }
+}
