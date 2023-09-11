@@ -69,6 +69,8 @@
     - Windows Autopilot deployment profiles
   - Diagnostic settings
   - Endpoint security
+    - Firewall
+      - Reusable Settings
   - Mobile Threat Defense
   - Policy Sets
   - Reports

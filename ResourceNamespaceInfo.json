@@ -360,6 +360,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:DeviceManagement:ReusablePolicySettings",
+    "description": "Intune > Endpoint Security > Firewall > Reusable Settings",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/~/firewall",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
     "description": "Intune > Devices > Windows Autopilot deployment profiles",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
