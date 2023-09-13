@@ -8,3 +8,4 @@
 - [Baseline](baseline.md)
 - [Reporting](reporting.md)
 - [Security](security.md)
+- [Credits](credits.md)
