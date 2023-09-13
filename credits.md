@@ -1,66 +1,197 @@
-Name | Author | Link
---- | --- | ---
-@azure/msal-browser | Microsoft nugetaad@microsoft.com https://www.microsoft.com | https://github.com/AzureAD/microsoft-authentication-library-for-js.git
-@isomorphic-git/lightning-fs | William Hilton <wmhilton@gmail.com> | https://github.com/isomorphic-git/lightning-fs.git
-@microsoft/applicationinsights-clickanalytics-js | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS.git
-@microsoft/applicationinsights-web | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS.git
-@quasar/extras | Razvan Stoenescu | https://github.com/quasarframework/quasar.git
-@vue/composition-api | liximomo liximomo@gmail.com | https://github.com/vuejs/composition-api.git
-async-mutex | Christian Speckner <cnspeckn@googlemail.com> (https://github.com/DirtyHairy/) | https://github.com/DirtyHairy/async-mutex.git
-Azure.Identity | Microsoft | https://github.com/Azure/azure-sdk-for-net
-Azure.Monitor.OpenTelemetry.Exporter | Microsoft | https://github.com/Azure/azure-sdk-for-net
-core-js | n/a | https://github.com/zloirock/core-js.git
-coverlet.collector | tonerdo | https://github.com/tonerdo/coverlet.git
-crypto-js | Evan Vosberg http://github.com/evanvosberg | 
-diff | n/a | https://github.com/kpdecker/jsdiff.git
-dompurify | Mario Heiderich <mario@cure53.de> (https://cure53.de/) | https://github.com/cure53/DOMPurify.git
-exceljs | Guyon Roche guyon@live.com | https://github.com/exceljs/exceljs.git
-idb | Jake Archibald | https://github.com/jakearchibald/idb.git
-IntuneAppBuilder | Simeon | https://github.com/simeoncloud/IntuneAppBuilder
-isomorphic-git | William Hilton <wmhilton@gmail.com> | https://github.com/isomorphic-git/isomorphic-git.git
-js-yaml | Vladimir Zapparov <dervus.grim@gmail.com> | https://github.com/nodeca/js-yaml.git
-jsonpath | david@fmail.co.uk | https://github.com/dchester/jsonpath.git
-jszip | Stuart Knightley <stuart@stuartk.com> | https://github.com/Stuk/jszip.git
-Karambolo.Extensions.Logging.File | Adam Simon | 
-libsodium | Ahmad Ben Mrad (@BatikhSouri) | https://github.com/jedisct1/libsodium.js.git
-libsodium-core | Trond Arne Bråthen | https://github.com/ektrah/libsodium-core
-libsodium-wrappers | Ahmad Ben Mrad (@BatikhSouri) | https://github.com/jedisct1/libsodium.js.git
-lodash | John-David Dalton <john.david.dalton@gmail.com> | https://github.com/lodash/lodash.git
-Mapster | chaowlert eric_swann andrerav | https://github.com/MapsterMapper/Mapster
-markdown-it | n/a | https://github.com/markdown-it/markdown-it.git
-Microsoft.AspNetCore.DataProtection.Extensions | Microsoft | https://github.com/dotnet/aspnetcore
-Microsoft.Azure.Management.ResourceManager | Microsoft | https://github.com/Azure/azure-sdk-for-net
-Microsoft.CSharp | Microsoft | 
-Microsoft.Extensions.Configuration.Binder | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.Configuration.EnvironmentVariables | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.Configuration.Json | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.DependencyInjection | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.Http | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.Logging | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.Logging.Console | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Extensions.Options.ConfigurationExtensions | Microsoft | https://github.com/dotnet/runtime
-Microsoft.Graph.Beta | Microsoft | https://github.com/microsoftgraph/msgraph-beta-sdk-dotnet
-Microsoft.Identity.Client | Microsoft | https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
-Microsoft.NET.Test.Sdk | Microsoft | 
-Microsoft.PowerShell.SDK | Microsoft | 
-MicrosoftPowerBIMgmt.Reports | Microsoft Corporation | https://learn.microsoft.com/en-us/powershell/module/microsoftpowerbimgmt.reports/?view=powerbi-ps
-MicrosoftPowerBIMgmt.Workspaces | Microsoft Corporation | https://learn.microsoft.com/en-us/powershell/module/microsoftpowerbimgmt.reports/?view=powerbi-ps
-moment | Iskren Ivov Chernev <iskren.chernev@gmail.com> (https://github.com/ichernev) | https://github.com/moment/moment.git
-navigator.locks | aermin | https://github.com/aermin/web-locks.git
-Newtonsoft.Json | James Newton-King | https://github.com/JamesNK/Newtonsoft.Json
-OpenTelemetry.Exporter.OpenTelemetryProtocol.Logs | OpenTelemetry Authors | https://github.com/open-telemetry/opentelemetry-dotnet
-OpenTelemetry.Instrumentation.Http | OpenTelemetry Authors | https://github.com/open-telemetry/opentelemetry-dotnet
-p-limit | Sindre Sorhus sindresorhus@gmail.com https://sindresorhus.com | https://github.com/sindresorhus/p-limit.git
-PnP.Core.Admin | PnP | https://github.com/pnp/pnpcore
-PnP.Core.Auth | PnP | https://github.com/pnp/pnpcore
-powerbi-client | Microsoft | https://github.com/Microsoft/PowerBI-JavaScript.git
-powershell-yaml | Gabriel Adrian Samfira,Alessandro Pilotti | https://github.com/cloudbase/powershell-yaml/tree/master
-quasar | Razvan Stoenescu razvan.stoenescu@gmail.com https://quasar.dev | https://github.com/quasarframework/quasar.git
-regenerator-runtime | n/a | https://github.com/facebook/regenerator.git
-System.CommandLine | Microsoft | https://github.com/dotnet/command-line-api
-System.Diagnostics.TraceSource | Microsoft | 
-WindowsAzure.Storage | Microsoft | https://github.com/Azure/azure-storage-net.git
-xunit | James Newkirk Brad Wilson | 
-Xunit.Extensions.AssemblyFixture | kzu  J.D. Cain | https://github.com/JDCain/Xunit.Extensions.AssemblyFixture
-Xunit.Extensions.Ordering | Tomáš Zeman | https://github.com/tomaszeman/Xunit.Extensions.Ordering
-xunit.runner.visualstudio | .NET Foundation and Contributors | https://github.com/xunit/visualstudio.xunit
+Name | Author | Link | License Link
+--- | --- | --- | ---
+@azure/msal-browser@2.16.1 | Microsoft | https://github.com/AzureAD/microsoft-authentication-library-for-js | [MIT](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/master/LICENSE)
+@azure/msal-common@4.5.1 | Microsoft | https://github.com/AzureAD/microsoft-authentication-library-for-js | [MIT](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/master/LICENSE)
+@fast-csv/format@4.3.5 | doug-martin | https://github.com/C2FO/fast-csv | [MIT](https://github.com/C2FO/fast-csv/blob/master/LICENSE)
+@fast-csv/parse@4.3.6 | doug-martin | https://github.com/C2FO/fast-csv | [MIT](https://github.com/C2FO/fast-csv/blob/master/LICENSE)
+@isomorphic-git/idb-keyval@3.3.2 |  | https://github.com/isomorphic-git/idb-keyval | [Apache-2.0](https://github.com/isomorphic-git/idb-keyval/blob/master/LICENCE)
+@isomorphic-git/lightning-fs@4.6.0 | William Hilton | https://github.com/isomorphic-git/lightning-fs | [MIT](https://github.com/isomorphic-git/lightning-fs/blob/master/LICENSE)
+@microsoft/applicationinsights-analytics-js@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-analytics-js | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-analytics-js/LICENSE)
+@microsoft/applicationinsights-channel-js@2.7.0 | Microsoft Application Insights Team | https://github.com/Microsoft/applicationinsights-js | [MIT](https://github.com/Microsoft/applicationinsights-js/blob/master/LICENSE)
+@microsoft/applicationinsights-clickanalytics-js@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js/README.md)
+@microsoft/applicationinsights-common@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCommon | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCommon/LICENSE)
+@microsoft/applicationinsights-core-js@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCore | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCore/LICENSE)
+@microsoft/applicationinsights-dependencies-js@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-dependencies-js | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-dependencies-js/LICENSE)
+@microsoft/applicationinsights-properties-js@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-properties-js | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-properties-js/LICENSE)
+@microsoft/applicationinsights-shims@2.0.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/shims | [MIT](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/shims/LICENSE)
+@microsoft/applicationinsights-web@2.7.0 | Microsoft Application Insights Team | https://github.com/microsoft/ApplicationInsights-JS | [MIT](https://github.com/microsoft/ApplicationInsights-JS/blob/master/LICENSE)
+@microsoft/dynamicproto-js@1.1.4 | Microsoft Application Insights Team | https://github.com/microsoft/DynamicProto-JS | [MIT](https://github.com/microsoft/DynamicProto-JS/blob/master/LICENSE)
+@quasar/extras@1.10.9 | Razvan Stoenescu | https://github.com/quasarframework/quasar | [MIT](https://github.com/quasarframework/quasar/blob/master/LICENSE)
+@types/node@10.17.60 |  | https://github.com/DefinitelyTyped/DefinitelyTyped | [MIT](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)
+@vue/composition-api@0.6.7 | liximomo | https://github.com/vuejs/composition-api | [MIT](https://github.com/vuejs/composition-api/blob/master/LICENSE)
+archiver-utils@2.1.0 | Chris Talkington | https://github.com/archiverjs/archiver-utils | [MIT](https://github.com/archiverjs/archiver-utils/blob/master/LICENSE)
+archiver@5.3.1 | Chris Talkington | https://github.com/archiverjs/node-archiver | [MIT](https://github.com/archiverjs/node-archiver/blob/master/LICENSE)
+argparse@2.0.1 |  | https://github.com/nodeca/argparse | [Python-2.0](https://github.com/nodeca/argparse/blob/master/LICENSE)
+async-lock@1.3.1 | Rogier Schouten | https://github.com/rogierschouten/async-lock | [MIT](https://github.com/rogierschouten/async-lock/blob/master/LICENSE)
+async-mutex@0.3.1 | Christian Speckner | https://github.com/DirtyHairy/async-mutex | [MIT](https://github.com/DirtyHairy/async-mutex/blob/master/LICENSE)
+async@3.2.3 | Caolan McMahon | https://github.com/caolan/async | [MIT](https://github.com/caolan/async/blob/master/LICENSE)
+Azure.Identity | Microsoft | https://github.com/Azure/azure-sdk-for-net | [MIT](https://licenses.nuget.org/MIT)
+Azure.Monitor.OpenTelemetry.Exporter | Microsoft | https://github.com/Azure/azure-sdk-for-net | [MIT](https://licenses.nuget.org/MIT)
+balanced-match@1.0.2 | Julian Gruber | https://github.com/juliangruber/balanced-match | [MIT](https://github.com/juliangruber/balanced-match/blob/master/LICENSE.md)
+base64-js@1.5.1 | T. Jameson Little | https://github.com/beatgammit/base64-js | [MIT](https://github.com/beatgammit/base64-js/blob/master/LICENSE)
+big-integer@1.6.48 | Peter Olson | https://github.com/peterolson/BigInteger.js | [Unlicense](https://github.com/peterolson/BigInteger.js/blob/master/LICENSE)
+binary@0.3.0 | James Halliday | https://github.com/substack/node-binary | [MIT](https://github.com/substack/node-binary/blob/master/README.markdown)
+bl@4.1.0 |  | https://github.com/rvagg/bl | [MIT](https://github.com/rvagg/bl/blob/master/LICENSE.md)
+bluebird@3.7.2 | Petka Antonov | https://github.com/petkaantonov/bluebird | [MIT](https://github.com/petkaantonov/bluebird/blob/master/LICENSE)
+brace-expansion@1.1.11 | Julian Gruber | https://github.com/juliangruber/brace-expansion | [MIT](https://github.com/juliangruber/brace-expansion/blob/master/LICENSE)
+buffer-crc32@0.2.13 | Brian J. Brennan | https://github.com/brianloveswords/buffer-crc32 | [MIT](https://github.com/brianloveswords/buffer-crc32/blob/master/LICENSE)
+buffer-indexof-polyfill@1.0.2 | https://github.com/sarosia | https://github.com/sarosia/buffer-indexof-polyfill | [MIT](https://github.com/sarosia/buffer-indexof-polyfill/blob/master/LICENSE)
+buffer@5.7.1 | Feross Aboukhadijeh | https://github.com/feross/buffer | [MIT](https://github.com/feross/buffer/blob/master/LICENSE)
+buffers@0.1.1 | James Halliday | https://github.com/substack/node-buffers | [Custom: http://github.com/substack/node-bufferlist](https://github.com/substack/node-buffers/blob/master/README.markdown)
+chainsaw@0.1.0 | James Halliday | https://github.com/substack/node-chainsaw | [MIT*](https://github.com/substack/node-chainsaw/blob/master/README.markdown)
+clean-git-ref@2.0.1 | Eli White | https://github.com/TheSavior/clean-git-ref | [Apache-2.0](https://github.com/TheSavior/clean-git-ref/blob/master/README.md)
+compress-commons@4.1.1 | Chris Talkington | https://github.com/archiverjs/node-compress-commons | [MIT](https://github.com/archiverjs/node-compress-commons/blob/master/LICENSE)
+concat-map@0.0.1 | James Halliday | https://github.com/substack/node-concat-map | [MIT](https://github.com/substack/node-concat-map/blob/master/LICENSE)
+core-js@3.16.0 |  | https://github.com/zloirock/core-js | [MIT](https://github.com/zloirock/core-js/blob/master/LICENSE)
+coverlet.collector | tonerdo | https://github.com/tonerdo/coverlet.git | [MIT](https://licenses.nuget.org/MIT)
+crc-32@1.2.0 | sheetjs | https://github.com/SheetJS/js-crc32 | [Apache-2.0](https://github.com/SheetJS/js-crc32/blob/master/LICENSE)
+crc32-stream@4.0.2 | Chris Talkington | https://github.com/archiverjs/node-crc32-stream | [MIT](https://github.com/archiverjs/node-crc32-stream/blob/master/LICENSE)
+crypto-js@4.1.1 | Evan Vosberg | https://github.com/brix/crypto-js | [MIT](https://github.com/brix/crypto-js/blob/master/LICENSE)
+dayjs@1.10.6 | iamkun | https://github.com/iamkun/dayjs | [MIT](https://github.com/iamkun/dayjs/blob/master/LICENSE)
+debug@4.3.2 | TJ Holowaychuk | https://github.com/visionmedia/debug | [MIT](https://github.com/visionmedia/debug/blob/master/LICENSE)
+decompress-response@3.3.0 |  | https://github.com/sindresorhus/decompress-response | [MIT](https://github.com/sindresorhus/decompress-response/blob/master/license)
+deep-is@0.1.3 | Thorsten Lorenz | https://github.com/thlorenz/deep-is | [MIT](https://github.com/thlorenz/deep-is/blob/master/LICENSE)
+diff3@0.0.3 | Tyler Wanek | https://github.com/axosoft/diff3 | [MIT](https://github.com/axosoft/diff3/blob/master/README.md)
+dompurify@2.3.10 | Mario Heiderich | https://github.com/cure53/DOMPurify | [(MPL-2.0 OR Apache-2.0)](https://github.com/cure53/DOMPurify/blob/master/LICENSE)
+duplexer2@0.1.4 | Conrad Pankoff | https://github.com/deoxxa/duplexer2 | [BSD-3-Clause](https://github.com/deoxxa/duplexer2/blob/master/LICENSE.md)
+end-of-stream@1.4.4 | Mathias Buus | https://github.com/mafintosh/end-of-stream | [MIT](https://github.com/mafintosh/end-of-stream/blob/master/LICENSE)
+entities@2.1.0 | Felix Boehm | https://github.com/fb55/entities | [BSD-2-Clause](https://github.com/fb55/entities/blob/master/LICENSE)
+es6-promise@3.3.1 | Yehuda Katz, Tom Dale, Stefan Penner and contributors | https://github.com/stefanpenner/es6-promise | [MIT](https://github.com/stefanpenner/es6-promise/blob/master/LICENSE)
+escodegen@1.14.3 |  | https://github.com/estools/escodegen | [BSD-2-Clause](https://github.com/estools/escodegen/blob/master/LICENSE.BSD)
+esprima@4.0.1 | Ariya Hidayat | https://github.com/jquery/esprima | [BSD-2-Clause](https://github.com/jquery/esprima/blob/master/LICENSE.BSD)
+estraverse@4.3.0 |  | https://github.com/estools/estraverse | [BSD-2-Clause](https://github.com/estools/estraverse/blob/master/LICENSE.BSD)
+esutils@2.0.3 |  | https://github.com/estools/esutils | [BSD-2-Clause](https://github.com/estools/esutils/blob/master/LICENSE.BSD)
+exceljs@4.2.1 | Guyon Roche | https://github.com/exceljs/exceljs | [MIT](https://github.com/exceljs/exceljs/blob/master/LICENSE)
+exit-on-epipe@1.0.1 | sheetjs | https://github.com/SheetJS/node-exit-on-epipe | [Apache-2.0](https://github.com/SheetJS/node-exit-on-epipe/blob/master/LICENSE)
+fast-csv@4.3.6 | Doug Martin | https://github.com/C2FO/fast-csv | [MIT](https://github.com/C2FO/fast-csv/blob/master/LICENSE)
+fast-levenshtein@2.0.6 | Ramesh Nair | https://github.com/hiddentao/fast-levenshtein | [MIT](https://github.com/hiddentao/fast-levenshtein/blob/master/LICENSE.md)
+fast-text-encoding@1.0.3 | Sam Thorogood | https://github.com/samthor/fast-text-encoding | [Apache-2.0](https://github.com/samthor/fast-text-encoding/blob/master/LICENSE)
+fs-constants@1.0.0 | Mathias Buus | https://github.com/mafintosh/fs-constants | [MIT](https://github.com/mafintosh/fs-constants/blob/master/LICENSE)
+fs.realpath@1.0.0 | Isaac Z. Schlueter | https://github.com/isaacs/fs.realpath | [ISC](https://github.com/isaacs/fs.realpath/blob/master/LICENSE)
+fstream@1.0.12 | Isaac Z. Schlueter | https://github.com/npm/fstream | [ISC](https://github.com/npm/fstream/blob/master/LICENSE)
+glob@7.1.7 | Isaac Z. Schlueter | https://github.com/isaacs/node-glob | [ISC](https://github.com/isaacs/node-glob/blob/master/LICENSE)
+graceful-fs@4.2.6 |  | https://github.com/isaacs/node-graceful-fs | [ISC](https://github.com/isaacs/node-graceful-fs/blob/master/LICENSE)
+http-post-message@0.2.3 | Microsoft Power BI | https://github.com/Microsoft/http-post-message | [MIT](https://github.com/Microsoft/http-post-message/blob/master/LICENSE)
+idb@7.0.0 | Jake Archibald | https://github.com/jakearchibald/idb | [ISC](https://github.com/jakearchibald/idb/blob/master/LICENSE)
+ieee754@1.2.1 | Feross Aboukhadijeh | https://github.com/feross/ieee754 | [BSD-3-Clause](https://github.com/feross/ieee754/blob/master/LICENSE)
+ignore@4.0.6 | kael | https://github.com/kaelzhang/node-ignore | [MIT](https://github.com/kaelzhang/node-ignore/blob/master/LICENSE-MIT)
+immediate@3.0.6 |  | https://github.com/calvinmetcalf/immediate | [MIT](https://github.com/calvinmetcalf/immediate/blob/master/LICENSE.txt)
+inflight@1.0.6 | Isaac Z. Schlueter | https://github.com/npm/inflight | [ISC](https://github.com/npm/inflight/blob/master/LICENSE)
+inherits@2.0.4 |  | https://github.com/isaacs/inherits | [ISC](https://github.com/isaacs/inherits/blob/master/LICENSE)
+IntuneAppBuilder | Simeon | https://github.com/simeoncloud/IntuneAppBuilder | []()
+isomorphic-git@1.17.0 | William Hilton | https://github.com/isomorphic-git/isomorphic-git | [MIT](https://github.com/isomorphic-git/isomorphic-git/blob/master/LICENSE.md)
+isomorphic-textencoder@1.0.1 | William Hilton | https://github.com/wmhilton/isomorphic-textencoder | [MIT](https://github.com/wmhilton/isomorphic-textencoder/blob/master/LICENSE)
+js-yaml@4.1.0 | Vladimir Zapparov | https://github.com/nodeca/js-yaml | [MIT](https://github.com/nodeca/js-yaml/blob/master/LICENSE)
+jsonpath@1.1.1 | david@fmail.co.uk | https://github.com/dchester/jsonpath | [MIT](https://github.com/dchester/jsonpath/blob/master/LICENSE)
+jszip@3.8.0 | Stuart Knightley | https://github.com/Stuk/jszip | [(MIT OR GPL-3.0-or-later)](https://github.com/Stuk/jszip/blob/master/LICENSE.markdown)
+just-debounce-it@1.1.0 | Eric Nolte and Angus Croll | https://github.com/angus-c/just | [MIT](https://github.com/angus-c/just/blob/master/LICENSE)
+just-once@1.1.0 | Angus Croll | https://github.com/angus-c/just | [MIT](https://github.com/angus-c/just/blob/master/LICENSE)
+Karambolo.Extensions.Logging.File | Adam Simon |  | [](https://github.com/adams85/filelogger/blob/master/LICENSE)
+lazystream@1.0.0 | Jonas Pommerening | https://github.com/jpommerening/node-lazystream | [MIT](https://github.com/jpommerening/node-lazystream/blob/master/LICENSE-MIT)
+levn@0.3.0 | George Zahariev | https://github.com/gkz/levn | [MIT](https://github.com/gkz/levn/blob/master/LICENSE)
+libsodium-core | Trond Arne Bråthen | https://github.com/ektrah/libsodium-core | [](https://github.com/ektrah/libsodium-core/blob/master/LICENSE)
+libsodium-wrappers@0.7.11 | Ahmad Ben Mrad | https://github.com/jedisct1/libsodium.js | [ISC](https://github.com/jedisct1/libsodium.js/blob/master/LICENSE)
+libsodium@0.7.11 | Ahmad Ben Mrad | https://github.com/jedisct1/libsodium.js | [ISC](https://github.com/jedisct1/libsodium.js/blob/master/LICENSE)
+lie@3.3.0 |  | https://github.com/calvinmetcalf/lie | [MIT](https://github.com/calvinmetcalf/lie/blob/master/license.md)
+linkify-it@3.0.2 |  | https://github.com/markdown-it/linkify-it | [MIT](https://github.com/markdown-it/linkify-it/blob/master/LICENSE)
+listenercount@1.0.1 | jden | https://github.com/jden/node-listenercount | [ISC](https://github.com/jden/node-listenercount/blob/master/LICENSE.md)
+lodash.defaults@4.2.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.difference@4.5.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.escaperegexp@4.1.2 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.flatten@4.4.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.groupby@4.6.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.isboolean@3.0.3 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.isequal@4.5.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.isfunction@3.0.9 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.isnil@4.0.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.isplainobject@4.0.6 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.isundefined@3.0.1 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE.txt)
+lodash.union@4.6.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash.uniq@4.5.0 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+lodash@4.17.21 | John-David Dalton | https://github.com/lodash/lodash | [MIT](https://github.com/lodash/lodash/blob/master/LICENSE)
+Mapster | chaowlert eric_swann andrerav | https://github.com/MapsterMapper/Mapster | [MIT](https://licenses.nuget.org/MIT)
+markdown-it@12.3.2 |  | https://github.com/markdown-it/markdown-it | [MIT](https://github.com/markdown-it/markdown-it/blob/master/LICENSE)
+mdurl@1.0.1 |  | https://github.com/markdown-it/mdurl | [MIT](https://github.com/markdown-it/mdurl/blob/master/LICENSE)
+Microsoft.AspNetCore.DataProtection.Extensions | Microsoft | https://github.com/dotnet/aspnetcore | [Apache-2.0](https://licenses.nuget.org/Apache-2.0)
+Microsoft.Azure.Management.ResourceManager | Microsoft | https://github.com/Azure/azure-sdk-for-net | [](https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE)
+Microsoft.CSharp | Microsoft |  | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Configuration.Binder | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Configuration.EnvironmentVariables | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Configuration.Json | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.DependencyInjection | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Http | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Logging | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Logging.Console | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Extensions.Options.ConfigurationExtensions | Microsoft | https://github.com/dotnet/runtime | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.Graph.Beta | Microsoft | https://github.com/microsoftgraph/msgraph-beta-sdk-dotnet | [LICENSE.txt](https://www.nuget.org/packages/Microsoft.Graph.Beta/5.39.0-preview/License)
+Microsoft.Identity.Client | Microsoft | https://github.com/AzureAD/microsoft-authentication-library-for-dotnet | [MIT](https://licenses.nuget.org/MIT)
+Microsoft.NET.Test.Sdk | Microsoft |  | [MS-EULA](http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm)
+Microsoft.PowerShell.SDK | Microsoft |  | [MIT](https://licenses.nuget.org/MIT)
+MicrosoftPowerBIMgmt.Reports | Microsoft Corporation | https://learn.microsoft.com/en-us/powershell/module/microsoftpowerbimgmt.reports/?view=powerbi-ps | [](http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm)
+MicrosoftPowerBIMgmt.Workspaces | Microsoft Corporation | https://learn.microsoft.com/en-us/powershell/module/microsoftpowerbimgmt.reports/?view=powerbi-ps | [](http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm)
+mimic-response@1.0.1 | Sindre Sorhus | https://github.com/sindresorhus/mimic-response | [MIT](https://github.com/sindresorhus/mimic-response/blob/master/license)
+minimatch@3.1.2 | Isaac Z. Schlueter | https://github.com/isaacs/minimatch | [ISC](https://github.com/isaacs/minimatch/blob/master/LICENSE)
+minimist@1.2.6 | James Halliday | https://github.com/substack/minimist | [MIT](https://github.com/substack/minimist/blob/master/LICENSE)
+minimisted@2.0.1 | Yoshiya Hinosawa | https://github.com/kt3k/minimisted | [MIT](https://github.com/kt3k/minimisted/blob/master/README.md)
+mkdirp@1.0.4 |  | https://github.com/isaacs/node-mkdirp | [MIT](https://github.com/isaacs/node-mkdirp/blob/master/LICENSE)
+moment@2.29.4 | Iskren Ivov Chernev | https://github.com/moment/moment | [MIT](https://github.com/moment/moment/blob/master/LICENSE)
+ms@2.1.2 |  | https://github.com/zeit/ms | [MIT](https://github.com/zeit/ms/blob/master/license.md)
+navigator.locks@0.8.5 | aermin | https://github.com/aermin/web-locks | [MIT](https://github.com/aermin/web-locks/blob/master/LICENSE)
+Newtonsoft.Json | James Newton-King | https://github.com/JamesNK/Newtonsoft.Json | [](https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md)
+normalize-path@3.0.0 | Jon Schlinkert | https://github.com/jonschlinkert/normalize-path | [MIT](https://github.com/jonschlinkert/normalize-path/blob/master/LICENSE)
+once@1.4.0 | Isaac Z. Schlueter | https://github.com/isaacs/once | [ISC](https://github.com/isaacs/once/blob/master/LICENSE)
+OpenTelemetry.Exporter.OpenTelemetryProtocol.Logs | OpenTelemetry Authors | https://github.com/open-telemetry/opentelemetry-dotnet | [Apache-2.0](https://licenses.nuget.org/Apache-2.0)
+OpenTelemetry.Instrumentation.Http | OpenTelemetry Authors | https://github.com/open-telemetry/opentelemetry-dotnet | [Apache-2.0](https://licenses.nuget.org/Apache-2.0)
+optionator@0.8.3 | George Zahariev | https://github.com/gkz/optionator | [MIT](https://github.com/gkz/optionator/blob/master/LICENSE)
+p-limit@3.1.0 | Sindre Sorhus | https://github.com/sindresorhus/p-limit | [MIT](https://github.com/sindresorhus/p-limit/blob/master/license)
+pako@1.0.11 |  | https://github.com/nodeca/pako | [(MIT AND Zlib)](https://github.com/nodeca/pako/blob/master/LICENSE)
+path-is-absolute@1.0.1 | Sindre Sorhus | https://github.com/sindresorhus/path-is-absolute | [MIT](https://github.com/sindresorhus/path-is-absolute/blob/master/license)
+pify@3.0.0 | Sindre Sorhus | https://github.com/sindresorhus/pify | [MIT](https://github.com/sindresorhus/pify/blob/master/license)
+PnP.Core.Admin | PnP | https://github.com/pnp/pnpcore | [MIT](https://licenses.nuget.org/MIT)
+PnP.Core.Auth | PnP | https://github.com/pnp/pnpcore | [MIT](https://licenses.nuget.org/MIT)
+powerbi-client@2.22.1 | Microsoft | https://github.com/Microsoft/PowerBI-JavaScript | [MIT](https://github.com/Microsoft/PowerBI-JavaScript/blob/master/LICENSE.txt)
+powerbi-models@1.12.3 | Microsoft PowerBI Team | https://github.com/Microsoft/powerbi-models | [MIT](https://github.com/Microsoft/powerbi-models/blob/master/LICENSE.txt)
+powerbi-router@0.1.5 | Microsoft Power BI Team | https://github.com/Microsoft/powerbi-router | [MIT](https://github.com/Microsoft/powerbi-router/blob/master/LICENSE)
+powershell-yaml | Gabriel Adrian Samfira,Alessandro Pilotti | https://github.com/cloudbase/powershell-yaml/tree/master | [](https://github.com/cloudbase/powershell-yaml/blob/master/LICENSE)
+prelude-ls@1.1.2 | George Zahariev | https://github.com/gkz/prelude-ls | [MIT](https://github.com/gkz/prelude-ls/blob/master/LICENSE)
+printj@1.1.2 | sheetjs | https://github.com/SheetJS/printj | [Apache-2.0](https://github.com/SheetJS/printj/blob/master/LICENSE)
+quasar@1.20.1 | Razvan Stoenescu | https://github.com/quasarframework/quasar | [MIT](https://github.com/quasarframework/quasar/blob/master/LICENSE)
+readable-stream@3.6.0 |  | https://github.com/nodejs/readable-stream | [MIT](https://github.com/nodejs/readable-stream/blob/master/LICENSE)
+readdir-glob@1.1.1 | Yann Armelin | https://github.com/Yqnn/node-readdir-glob | [Apache-2.0](https://github.com/Yqnn/node-readdir-glob/blob/master/LICENSE)
+regenerator-runtime@0.13.9 | Ben Newman | https://github.com/facebook/regenerator/tree/master/packages/runtime | [MIT](https://github.com/facebook/regenerator/tree/master/packages/runtime/LICENSE)
+rimraf@3.0.2 | Isaac Z. Schlueter | https://github.com/isaacs/rimraf | [ISC](https://github.com/isaacs/rimraf/blob/master/LICENSE)
+route-recognizer@0.1.11 | Yehuda Katz | https://github.com/tildeio/route-recognizer | [MIT](https://github.com/tildeio/route-recognizer/blob/master/LICENSE)
+safe-buffer@5.1.2 | Feross Aboukhadijeh | https://github.com/feross/safe-buffer | [MIT](https://github.com/feross/safe-buffer/blob/master/LICENSE)
+saxes@5.0.1 | Louis-Dominique Dubeau | https://github.com/lddubeau/saxes | [ISC](https://github.com/lddubeau/saxes/blob/master/README.md)
+set-immediate-shim@1.0.1 | Sindre Sorhus | https://github.com/sindresorhus/set-immediate-shim | [MIT](https://github.com/sindresorhus/set-immediate-shim/blob/master/readme.md)
+setimmediate@1.0.5 | YuzuJS | https://github.com/YuzuJS/setImmediate | [MIT](https://github.com/YuzuJS/setImmediate/blob/master/LICENSE.txt)
+sha.js@2.4.11 | Dominic Tarr | https://github.com/crypto-browserify/sha.js | [(MIT AND BSD-3-Clause)](https://github.com/crypto-browserify/sha.js/blob/master/LICENSE)
+simple-concat@1.0.1 | Feross Aboukhadijeh | https://github.com/feross/simple-concat | [MIT](https://github.com/feross/simple-concat/blob/master/LICENSE)
+simple-get@4.0.1 | Feross Aboukhadijeh | https://github.com/feross/simple-get | [MIT](https://github.com/feross/simple-get/blob/master/LICENSE)
+source-map@0.5.7 | Nick Fitzgerald | https://github.com/mozilla/source-map | [BSD-3-Clause](https://github.com/mozilla/source-map/blob/master/LICENSE)
+static-eval@2.0.2 | James Halliday | https://github.com/substack/static-eval | [MIT](https://github.com/substack/static-eval/blob/master/LICENSE)
+string_decoder@1.3.0 |  | https://github.com/nodejs/string_decoder | [MIT](https://github.com/nodejs/string_decoder/blob/master/LICENSE)
+System.CommandLine | Microsoft | https://github.com/dotnet/command-line-api | [MIT](https://licenses.nuget.org/MIT)
+System.Diagnostics.TraceSource | Microsoft |  | [MS-EULA](http://go.microsoft.com/fwlink/?LinkId=329770)
+tar-stream@2.2.0 | Mathias Buus | https://github.com/mafintosh/tar-stream | [MIT](https://github.com/mafintosh/tar-stream/blob/master/LICENSE)
+tmp@0.2.1 | KARASZI István | https://github.com/raszi/node-tmp | [MIT](https://github.com/raszi/node-tmp/blob/master/LICENSE)
+traverse@0.3.9 | James Halliday | https://github.com/substack/js-traverse | [MIT*](https://github.com/substack/js-traverse/blob/master/LICENSE)
+tslib@2.3.0 | Microsoft Corp. | https://github.com/Microsoft/tslib | [0BSD](https://github.com/Microsoft/tslib/blob/master/LICENSE.txt)
+type-check@0.3.2 | George Zahariev | https://github.com/gkz/type-check | [MIT](https://github.com/gkz/type-check/blob/master/LICENSE)
+uc.micro@1.0.6 |  | https://github.com/markdown-it/uc.micro | [MIT](https://github.com/markdown-it/uc.micro/blob/master/LICENSE.txt)
+underscore@1.12.1 | Jeremy Ashkenas | https://github.com/jashkenas/underscore | [MIT](https://github.com/jashkenas/underscore/blob/master/LICENSE)
+unzipper@0.10.11 | Evan Oxfeld | https://github.com/ZJONSSON/node-unzipper | [MIT](https://github.com/ZJONSSON/node-unzipper/blob/master/LICENSE)
+util-deprecate@1.0.2 | Nathan Rajlich | https://github.com/TooTallNate/util-deprecate | [MIT](https://github.com/TooTallNate/util-deprecate/blob/master/LICENSE)
+uuid@8.3.2 |  | https://github.com/uuidjs/uuid | [MIT](https://github.com/uuidjs/uuid/blob/master/LICENSE.md)
+vue@2.6.14 | Evan You | https://github.com/vuejs/vue | [MIT](https://github.com/vuejs/vue/blob/master/LICENSE)
+window-post-message-proxy@0.2.6 | Microsoft Power BI | https://github.com/Microsoft/window-post-message-proxy | [MIT](https://github.com/Microsoft/window-post-message-proxy/blob/master/LICENSE)
+WindowsAzure.Storage | Microsoft | https://github.com/Azure/azure-storage-net.git | [](https://github.com/Azure/azure-storage-net/blob/master/LICENSE.txt)
+word-wrap@1.2.3 | Jon Schlinkert | https://github.com/jonschlinkert/word-wrap | [MIT](https://github.com/jonschlinkert/word-wrap/blob/master/LICENSE)
+wrappy@1.0.2 | Isaac Z. Schlueter | https://github.com/npm/wrappy | [ISC](https://github.com/npm/wrappy/blob/master/LICENSE)
+xmlchars@2.2.0 | Louis-Dominique Dubeau | https://github.com/lddubeau/xmlchars | [MIT](https://github.com/lddubeau/xmlchars/blob/master/LICENSE)
+xunit | James Newkirk Brad Wilson |  | [](https://raw.githubusercontent.com/xunit/xunit/master/license.txt)
+Xunit.Extensions.AssemblyFixture | kzu  J.D. Cain | https://github.com/JDCain/Xunit.Extensions.AssemblyFixture | [MIT](https://licenses.nuget.org/MIT)
+Xunit.Extensions.Ordering | Tomáš Zeman | https://github.com/tomaszeman/Xunit.Extensions.Ordering | [Apache-2.0](https://licenses.nuget.org/Apache-2.0)
+xunit.runner.visualstudio | .NET Foundation and Contributors | https://github.com/xunit/visualstudio.xunit | [MIT](https://licenses.nuget.org/MIT)
+yocto-queue@0.1.0 | Sindre Sorhus | https://github.com/sindresorhus/yocto-queue | [MIT](https://github.com/sindresorhus/yocto-queue/blob/master/license)
+zip-stream@4.1.0 | Chris Talkington | https://github.com/archiverjs/node-zip-stream | [MIT](https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE)
