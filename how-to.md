@@ -241,7 +241,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     - In this example, since we are using the Mozilla and Firefox ADMX resources, we will be configuring the profile for the resource (this may not be required for all ADMX resources)
         - Under Configuration Settings, click Computer Configuration on the left tab then select Mozilla > Firefox > Cookies Select “Do not allow preferences to be changed" > on the right panel, select “Enabled" > OK
         - Finish the creation steps
-- Run a Sync to export the newly added ADMX resource and profile to Simeon
+- Run a Sync to export the newly added ADMX resource and profile to Simeon.
 
 ## Remove a tenant from Simeon
 
