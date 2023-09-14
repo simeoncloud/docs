@@ -21,7 +21,6 @@
     - User settings
   - External Collaboration Settings
     - Email
-  - External user directory settings
   - External user guest settings
   - Group settings
   - Groups
