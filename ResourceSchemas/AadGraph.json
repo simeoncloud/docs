@@ -1,7 +1,7 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/aadGraph:IdentityProtectionPolicies/IdentityProtectionPolicy"
+      "$ref": "#/$defs/AadGraph:IdentityProtectionPolicies/IdentityProtectionPolicy"
     }
   ],
   "$defs": {

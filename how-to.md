@@ -226,6 +226,23 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     ```
 * [Sync](https://app.simeoncloud.com/sync) the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
 
+## Upload a custom ADMX file to Simeon
+
+- Navigate to the [Intune Admin Center](https://endpoint.microsoft.com/#home), click on Devices > Configuration Policies
+- On the Import ADMX tab, click Import > upload an ADMX file and its associated ADML file > Next > Create
+- Wait for the state of the resource to become available.
+<br />
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/import_admx.png" width: 700; height: auto;/>
+- Navigate to the Profiles tab on the top-left > Create Profile
+    - Select Platform “Windows 10 and later”
+    - Select Profile Type “Templates”
+    - Select Template Name: “Imported Administrative templates (Preview)"
+    - Give the configuration a name
+    - In this example, since we are using the Mozilla and Firefox ADMX resources, we will be configuring the profile for the resource (this may not be required for all ADMX resources)
+        - Under Configuration Settings, click Computer Configuration on the left tab then select Mozilla > Firefox > Cookies Select “Do not allow preferences to be changed" > on the right panel, select “Enabled" > OK
+        - Finish the creation steps
+- Run a Sync to export the newly added ADMX resource and profile to Simeon
+
 ## Remove a tenant from Simeon
 
 * Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.

@@ -21,7 +21,6 @@
     - User settings
   - External Collaboration Settings
     - Email
-  - External user directory settings
   - External user guest settings
   - Group settings
   - Groups
@@ -69,6 +68,8 @@
     - Windows Autopilot deployment profiles
   - Diagnostic settings
   - Endpoint security
+    - Firewall
+      - Reusable Settings
   - Mobile Threat Defense
   - Policy Sets
   - Reports
