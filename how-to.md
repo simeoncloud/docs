@@ -248,7 +248,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * The exported ADMX and ADML files will have the following content: `TODO: Add adml file content here`
 * Click **Edit** on each .admx and .adml file and update the contents with the ADMX and ADML files that were initially uploaded to the Intune portal > Save
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > Sync the tenant > Click **Pending Approval**  > Approve to Deploy the updates
+* [Sync](https://app.simeoncloud.com/sync) the baseline tenant and **Approve** to deploy the configuration updates
 
 ## Remove a tenant from Simeon
 
