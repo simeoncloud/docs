@@ -231,7 +231,6 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 * Navigate to the [Intune Admin Center](https://endpoint.microsoft.com/#home), click on Devices > Configuration Policies
 * On the Import ADMX tab, click Import > upload an ADMX file and its associated ADML file > Next > Create
 * Wait for the state of the resource to become available.
-<br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/import_admx.png" width="800"/>
 
 * Navigate to the Profiles tab on the top-left > Create Profile
@@ -245,7 +244,6 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 * Run a Sync to export the newly added ADMX resource and profile to Simeon
 * On [Azure DevOps](https://dev.azure.com/) > Tenants > Repos > navigate to Source/Resources/Content/MSGraph/DeviceManagement/GroupPolicyUploadedDefinitionFiles
 * There will be 3 files per ADMX resource that was created. An ADML file, an ADMX file, and a JSON file
-<br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/admx_file" width="800"/>
 
 * The exported ADMX and ADML files will have the following content: `TODO: Add adml file content here`
