@@ -232,7 +232,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 - On the Import ADMX tab, click Import > upload an ADMX file and its associated ADML file > Next > Create
 - Wait for the state of the resource to become available.
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/import_admx.png" width: 700; height: auto;/>
+<img src="assets/images/import_admx.png" width: 700; height: auto;/>
 - Navigate to the Profiles tab on the top-left > Create Profile
     - Select Platform “Windows 10 and later”
     - Select Profile Type “Templates”
@@ -242,6 +242,14 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
         - Under Configuration Settings, click Computer Configuration on the left tab then select Mozilla > Firefox > Cookies Select “Do not allow preferences to be changed" > on the right panel, select “Enabled" > OK
         - Finish the creation steps
 - Run a Sync to export the newly added ADMX resource and profile to Simeon
+- On [Azure DevOps](https://dev.azure.com/) > Tenants > Repos > navigate to Source/Resources/Content/MSGraph/DeviceManagement/GroupPolicyUploadedDefinitionFiles
+- There will be 3 files per ADMX resource that was created. An ADML file, an ADMX file, and a JSON file
+<br />
+<img src="assets/images/admx_files.png" width: 300; height: auto;/>
+  - The exported ADMX and ADML files will have the following content: `TODO: Add adml file content here`
+- Click Edit on each .admx and .adml file and update the contents with the ADMX and ADML files that were initially uploaded to the intune portal > Save
+- Navigate to [Simeon](https://app.simeoncloud.com/install) > Sync the tenant > Approve to Deploy the updates
+- You can now successfully deploy the files to a downstream tenant
 
 ## Remove a tenant from Simeon
 
