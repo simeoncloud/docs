@@ -233,6 +233,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 * Wait for the state of the resource to become available.
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/import_admx.png" width="800"/>
+<br />
 * Navigate to the Profiles tab on the top-left > Create Profile
     * Select Platform “Windows 10 and later”
     * Select Profile Type “Templates”
@@ -245,10 +246,11 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 * On [Azure DevOps](https://dev.azure.com/) > Tenants > Repos > navigate to Source/Resources/Content/MSGraph/DeviceManagement/GroupPolicyUploadedDefinitionFiles
 * There will be 3 files per ADMX resource that was created. An ADML file, an ADMX file, and a JSON file
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/admx_files.png" width="800"/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/admx_file" width="800"/>
+<br />
     * The exported ADMX and ADML files will have the following content: `TODO: Add adml file content here`
-* Click Edit on each .admx and .adml file and update the contents with the ADMX and ADML files that were initially uploaded to the intune portal > Save
-* Navigate to [Simeon](https://app.simeoncloud.com/install) > Sync the tenant > Approve to Deploy the updates
+* Click **Edit** on each .admx and .adml file and update the contents with the ADMX and ADML files that were initially uploaded to the Intune portal > Save
+* Navigate to [Simeon](https://app.simeoncloud.com/install) > Sync the tenant > Click **Pending Approval**  > Approve to Deploy the updates
 
 ## Remove a tenant from Simeon
 
