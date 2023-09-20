@@ -18,6 +18,7 @@
   - Diagnostic settings
   - Directory settings
   - Enterprise applications
+    - Token lifetime policies
     - User settings
   - External Collaboration Settings
     - Email
