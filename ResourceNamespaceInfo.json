@@ -504,6 +504,30 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Default",
+    "description": "Azure AD > External Identities > Cross-tenant access settings > Default settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Partners",
+    "description": "Azure AD > External Identities > Cross-tenant access settings > Organizational settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:Policies:CrossTenantAccessPolicy",
+    "description": "Azure AD > External Identities > Cross-tenant access settings > Microsoft cloud settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Azure AD > Device settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/DeviceSettings/menuId/",
