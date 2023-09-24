@@ -389,7 +389,7 @@
           "type": "Role"
         }
       ],
-      "resourceAppId": "${urn:resource:MSGraph:ServicePrincipals/00000002-0000-0ff1-ce00-000000000000?$data.appId}"
+      "resourceAppId": "00000002-0000-0ff1-ce00-000000000000"
     }
   ]
 }
