@@ -1,0 +1,36 @@
+{
+  "addIns": [],
+  "appCapabilities": [],
+  "appRoles": [],
+  "info": {
+    "logoUrl": "https://aadcdn.msftauthimages.net/dbd5a2dd-5qjfqfrvgqhn1t9pggu84cehusuz2ndakbwxlldqedm/appbranding/tud6jpkuuw1jf0kuwkcxc5zz23pbzdpavir4qer7ndy/1033/bannerlogo?ts=638307226619056875",
+    "privacyStatementUrl": "https://www.simeoncloud.com/privacy",
+    "termsOfServiceUrl": "https://www.simeoncloud.com/terms"
+  },
+  "isAuthorizationServiceEnabled": false,
+  "isFallbackPublicClient": false,
+  "oauth2RequirePostResponse": false,
+  "orgRestrictions": [],
+  "parentalControlSettings": {
+    "countriesBlockedForMinors": [],
+    "legalAgeGroupRule": "Allow"
+  },
+  "publicClient": {
+    "redirectUris": []
+  },
+  "signInAudience": "AzureADMyOrg",
+  "spa": {
+    "redirectUris": []
+  },
+  "tags": [],
+  "verifiedPublisher": {},
+  "web": {
+    "homePageUrl": "https://app.simeoncloud.com/",
+    "implicitGrantSettings": {
+      "enableAccessTokenIssuance": false,
+      "enableIdTokenIssuance": false
+    },
+    "redirectUris": [],
+    "redirectUriSettings": []
+  }
+}
