@@ -1,0 +1,7 @@
+{
+  "directoryScopeId": "/",
+  "principalId": "${urn:resource:MSGraph:ServicePrincipals/Simeon Cloud Sync?$id}",
+  "principalOrganizationId": "${ResourceContext:TenantId}",
+  "resourceScope": "/",
+  "roleDefinitionId": "${urn:resource:MSGraph:RoleManagement:Directory:RoleDefinitions/Compliance Administrator?$id}"
+}

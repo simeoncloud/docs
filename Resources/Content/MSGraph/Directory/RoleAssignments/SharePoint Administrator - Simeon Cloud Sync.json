@@ -1,0 +1,8 @@
+{
+  "$name": "SharePoint Administrator - Simeon Cloud Sync",
+  "directoryScopeId": "/",
+  "principalId": "${urn:resource:MSGraph:ServicePrincipals/Simeon Cloud Sync?$id}",
+  "principalOrganizationId": "${ResourceContext:TenantId}",
+  "resourceScope": "/",
+  "roleDefinitionId": "f28a1f50-f6e7-4571-818b-6a12f2af6b6c"
+}
