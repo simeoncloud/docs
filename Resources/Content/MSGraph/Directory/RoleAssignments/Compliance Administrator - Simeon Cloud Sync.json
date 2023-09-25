@@ -3,5 +3,5 @@
   "principalId": "${urn:resource:MSGraph:ServicePrincipals/Simeon Cloud Sync?$id}",
   "principalOrganizationId": "${ResourceContext:TenantId}",
   "resourceScope": "/",
-  "roleDefinitionId": "${urn:resource:MSGraph:RoleManagement:Directory:RoleDefinitions/Compliance Administrator?$id}"
+  "roleDefinitionId": "17315797-102d-40b4-93e0-432062caca18"
 }
