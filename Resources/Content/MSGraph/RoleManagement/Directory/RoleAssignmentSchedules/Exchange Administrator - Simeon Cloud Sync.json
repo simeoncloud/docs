@@ -1,0 +1,10 @@
+{
+  "directoryScopeId": "/",
+  "principalId": "${urn:resource:MSGraph:ServicePrincipals/Simeon Cloud Sync?$id}",
+  "roleDefinitionId": "${urn:resource:MSGraph:RoleManagement:Directory:RoleDefinitions/Exchange Administrator?$id}",
+  "scheduleInfo": {
+    "expiration": {
+      "type": "noExpiration"
+    }
+  }
+}

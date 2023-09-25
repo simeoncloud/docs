@@ -1,0 +1,10 @@
+{
+  "directoryScopeId": "/",
+  "principalId": "${urn:resource:MSGraph:ServicePrincipals/Simeon Cloud Sync?$id}",
+  "roleDefinitionId": "3a2c62db-5318-420d-8d74-23affee5d9d5",
+  "scheduleInfo": {
+    "expiration": {
+      "type": "noExpiration"
+    }
+  }
+}
