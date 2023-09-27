@@ -18,6 +18,7 @@
   - Diagnostic settings
   - Directory settings
   - Enterprise applications
+    - Claims mapping policies
     - Token lifetime policies
     - User settings
   - External Collaboration Settings
