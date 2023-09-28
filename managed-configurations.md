@@ -18,7 +18,6 @@
   - Diagnostic settings
   - Directory settings
   - Enterprise applications
-    - Claims mapping policies
     - User settings
   - External Collaboration Settings
     - Email
