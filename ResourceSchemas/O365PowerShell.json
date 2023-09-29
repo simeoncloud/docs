@@ -61,9 +61,6 @@
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:BlockedSenderAddress/Configuration"
     },
     {
-      "$ref": "#/$defs/O365PowerShell:ExchangeOnline:CalendarNotification/Configuration"
-    },
-    {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:CalendarProcessing/Configuration"
     },
     {
@@ -847,6 +844,9 @@
       "$ref": "#/$defs/O365PowerShell:Teams:CsTeamsNetworkRoamingPolicy/Configuration"
     },
     {
+      "$ref": "#/$defs/O365PowerShell:Teams:CsTeamsSharedCallingRoutingPolicy/Configuration"
+    },
+    {
       "$ref": "#/$defs/O365PowerShell:Teams:CsTeamsShiftsConnection/Configuration"
     },
     {
@@ -857,6 +857,9 @@
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:CsTeamsShiftsPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/O365PowerShell:Teams:CsTeamsSipDevicesConfiguration/Configuration"
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:CsTeamsTranslationRule/Configuration"
@@ -1798,94 +1801,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:BlockedSenderAddress/Configuration"
-    },
-    "O365PowerShell:ExchangeOnline:CalendarNotification/Configuration": {
-      "type": "object",
-      "properties": {
-        "CalendarUpdateNotification": {
-          "type": "boolean"
-        },
-        "CalendarUpdateSendDuringWorkHour": {
-          "type": "boolean"
-        },
-        "DailyAgendaNotification": {
-          "type": "boolean"
-        },
-        "DailyAgendaNotificationSendTime": {
-          "type": "object",
-          "properties": {
-            "Ticks": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "Days": {
-              "$ref": "#/$defs/integer"
-            },
-            "Hours": {
-              "$ref": "#/$defs/integer"
-            },
-            "Milliseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Microseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Nanoseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Minutes": {
-              "$ref": "#/$defs/integer"
-            },
-            "Seconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "TotalDays": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalHours": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMilliseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMicroseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalNanoseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMinutes": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalSeconds": {
-              "$ref": "#/$defs/number"
-            }
-          }
-        },
-        "IgnoreDefaultScope": {
-          "type": "boolean"
-        },
-        "MeetingReminderNotification": {
-          "type": "boolean"
-        },
-        "MeetingReminderSendDuringWorkHour": {
-          "type": "boolean"
-        },
-        "NextDays": {
-          "type": "integer"
-        }
-      },
-      "$defs": {
-        "integer": {
-          "type": "integer",
-          "readOnly": true
-        },
-        "number": {
-          "type": "number",
-          "readOnly": true
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:CalendarNotification/Configuration"
     },
     "O365PowerShell:ExchangeOnline:CalendarProcessing/Configuration": {
       "type": "object",
@@ -12117,6 +12032,9 @@
         "AnyOfRecipientAddressMatchesPatterns": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "ApplyBrandingTemplate": {
+          "type": "string"
+        },
         "ApplyHtmlDisclaimer": {
           "type": "array"
         },
@@ -12188,6 +12106,9 @@
         },
         "EndpointDlpRestrictions": {
           "$ref": "#/$defs/arrayOfHashtable"
+        },
+        "EnforcePortalAccess": {
+          "type": "boolean"
         },
         "ExceptIfAccessScope": {
           "type": "string"
@@ -16493,8 +16414,20 @@
     "O365PowerShell:Teams:CsTeamsEventsPolicy/Configuration": {
       "type": "object",
       "properties": {
+        "AllowedQuestionTypesInRegistrationForm": {
+          "type": "string"
+        },
+        "AllowedTownhallTypesForRecordingPublish": {
+          "type": "string"
+        },
+        "AllowedWebinarTypesForRecordingPublish": {
+          "type": "string"
+        },
         "AllowEmailEditing": {
           "type": "string"
+        },
+        "AllowEventIntegrations": {
+          "type": "boolean"
         },
         "AllowTownhalls": {
           "type": "string"
@@ -16506,6 +16439,9 @@
           "type": "string"
         },
         "EventAccessType": {
+          "type": "string"
+        },
+        "TownhallChatExperience": {
           "type": "string"
         }
       },
@@ -16871,6 +16807,9 @@
         "ChannelRecordingDownload": {
           "type": "string"
         },
+        "CopyRestriction": {
+          "type": "boolean"
+        },
         "Description": {
           "type": "string"
         },
@@ -16878,6 +16817,9 @@
           "type": "string"
         },
         "EnrollUserOverride": {
+          "type": "string"
+        },
+        "ExternalMeetingJoin": {
           "type": "string"
         },
         "InMemory": {
@@ -17072,6 +17014,21 @@
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTeamsNetworkRoamingPolicy/Configuration"
     },
+    "O365PowerShell:Teams:CsTeamsSharedCallingRoutingPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Description": {
+          "type": "string"
+        },
+        "EmergencyNumbers": {
+          "type": "object"
+        },
+        "ResourceAccount": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTeamsSharedCallingRoutingPolicy/Configuration"
+    },
     "O365PowerShell:Teams:CsTeamsShiftsConnection/Configuration": {
       "type": "object",
       "properties": {
@@ -17255,6 +17212,15 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTeamsShiftsPolicy/Configuration"
+    },
+    "O365PowerShell:Teams:CsTeamsSipDevicesConfiguration/Configuration": {
+      "type": "object",
+      "properties": {
+        "BulkSignIn": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTeamsSipDevicesConfiguration/Configuration"
     },
     "O365PowerShell:Teams:CsTeamsTranslationRule/Configuration": {
       "type": "object",
@@ -17447,14 +17413,8 @@
         "Description": {
           "type": "string"
         },
-        "ExternalAccessPrefix": {
-          "type": "string"
-        },
         "NormalizationRules": {
           "type": "object"
-        },
-        "OptimizeDeviceDialing": {
-          "type": "boolean"
         },
         "SimpleName": {
           "type": "string"
@@ -17549,15 +17509,8 @@
         "Description": {
           "type": "string"
         },
-        "InMemory": {
-          "type": "boolean"
-        },
         "NetworkRegionID": {
           "type": "string"
-        },
-        "Tenant": {
-          "type": "string",
-          "format": "uuid"
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTenantNetworkRegion/Configuration"
@@ -17577,9 +17530,6 @@
         "EnableLocationBasedRouting": {
           "type": "boolean"
         },
-        "InMemory": {
-          "type": "boolean"
-        },
         "LocationPolicy": {
           "type": "string"
         },
@@ -17592,15 +17542,8 @@
         "NetworkSiteID": {
           "type": "string"
         },
-        "OnlineVoiceRoutingPolicy": {
-          "type": "string"
-        },
         "SiteAddress": {
           "type": "string"
-        },
-        "Tenant": {
-          "type": "string",
-          "format": "uuid"
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTenantNetworkSite/Configuration"
@@ -17611,9 +17554,6 @@
         "Description": {
           "type": "string"
         },
-        "InMemory": {
-          "type": "boolean"
-        },
         "MaskBits": {
           "type": "integer"
         },
@@ -17622,10 +17562,6 @@
         },
         "SubnetID": {
           "type": "string"
-        },
-        "Tenant": {
-          "type": "string",
-          "format": "uuid"
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsTenantNetworkSubnet/Configuration"
@@ -17871,6 +17807,9 @@
           "type": "boolean"
         },
         "AllowChannelMentions": {
+          "type": "boolean"
+        },
+        "AllowCreatePrivateChannels": {
           "type": "boolean"
         },
         "AllowCreateUpdateChannels": {
