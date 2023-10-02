@@ -13,7 +13,9 @@
         },
         "PolicyDetail": {
           "type": "array",
-          "items": true
+          "items": {
+            "type": "object"
+          }
         },
         "PolicyType": {
           "type": "integer"

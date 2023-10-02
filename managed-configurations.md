@@ -14,8 +14,6 @@
     - Identity Protection
   - User settings
   - Users
-- Azure Portal
-  - Subscriptions
 - Exchange
   - Distribution Groups
   - Dynamic Distribution Groups

@@ -17374,6 +17374,15 @@
         "CallQueueAgentMonitorNotificationMode": {
           "type": "object"
         },
+        "HistoricalAgentMetricsPermission": {
+          "type": "object"
+        },
+        "HistoricalAutoAttendantMetricsPermission": {
+          "type": "object"
+        },
+        "HistoricalCallQueueMetricsPermission": {
+          "type": "object"
+        },
         "RealTimeAgentMetricsPermission": {
           "type": "object"
         },

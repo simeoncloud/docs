@@ -64,135 +64,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Apis",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Apis:Operations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Apis:Operations:Policies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Apis:Policies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Apis:Schemas",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:AuthorizationServers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Backends",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Certificates",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:IdentityProviders",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Loggers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:OpenidConnectProviders",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Policies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Products",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Products:Policies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Properties",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Providers:ManagementGroups:Providers:Microsoft:PolicyInsights:Remediations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Aadiam:DiagnosticSettings",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -205,6 +77,14 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:ADHybridHealthService:Addsservices:Features:Userpreference",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -296,23 +176,15 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:BillingProfiles:Policies:Default",
+    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:BillingProfiles:InvoiceSections:Providers:Microsoft:Education:Labs:Default:Students",
     "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/billing/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:BillingProfiles:Providers:Microsoft:CostManagement:MarkupRules",
-    "description": null,
-    "url": "https://docs.microsoft.com/rest/api/cost-management/",
+    "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:BillingSubscriptionAliases",
+    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:BillingProfiles:Policies:Default",
     "description": null,
     "url": "https://docs.microsoft.com/en-us/rest/api/billing/",
     "isCreateSupportedFilter": ".*",
@@ -325,36 +197,12 @@
     "url": "https://docs.microsoft.com/en-us/rest/api/billing/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:Customers:Policies:Default",
     "description": null,
     "url": "https://docs.microsoft.com/en-us/rest/api/billing/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:Departments:BillingRoleAssignments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:EnrollmentAccounts:BillingRoleAssignments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:InvoiceSections",
-    "description": null,
-    "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -368,14 +216,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:Providers:Microsoft:Consumption:CostTags",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/consumption/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:Providers:Microsoft:CostManagement:CostAllocationRules",
     "description": null,
     "url": null,
@@ -384,26 +224,26 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:Providers:Microsoft:CostManagement:Reports",
+    "namespace": "AzureManagement:Providers:Microsoft:BillingBenefits:ReservationOrderAliases",
     "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:BillingAccounts:Providers:Microsoft:CostManagement:ShowbackRules",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
+    "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Billing:Promotions",
+    "namespace": "AzureManagement:Providers:Microsoft:BillingBenefits:SavingsPlanOrderAliases",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:BillingBenefits:SavingsPlanOrders:SavingsPlans",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
@@ -424,25 +264,9 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:CostManagement:CloudConnectors",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Providers:Microsoft:CostManagement:ScheduledActions",
     "description": null,
     "url": "https://docs.microsoft.com/rest/api/cost-management/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:CostManagement:Settings",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -464,14 +288,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:AlertsManagement:TenantActivityLogAlerts",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions",
     "description": null,
     "url": null,
@@ -480,7 +296,23 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions:Versions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -505,30 +337,6 @@
   },
   {
     "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables:Values",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Blueprint:Blueprints",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Blueprint:Blueprints:Artifacts",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Insights:DiagnosticSettings",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -592,12 +400,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Marketplace:Mysolutions",
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Subscriptions:Providers:Microsoft:Quota:GroupQuotas:QuotaAllocations",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Providers:Microsoft:Marketplace:PrivateStores",
@@ -632,28 +440,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Marketplace:PrivateStores:Offers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Providers:Microsoft:Marketplace:PrivateStores:RequestApprovals",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Providers:Microsoft:Network:ManagementGroups:NetworkManagerConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "AzureManagement:Providers:Microsoft:Portal:Consoles",
@@ -720,14 +512,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Providers:Microsoft:Subscription:SubscriptionDefinitions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Providers:Microsoft:Web:PublishingUsers:Web",
     "description": null,
     "url": null,
@@ -776,47 +560,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions",
-    "description": "Azure Portal \u003E Subscriptions",
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Advisor:Configurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:AccessReviewHistoryDefinitions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:AccessReviewScheduleDefinitions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:AccessReviewScheduleDefinitions:Instances",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:AccessReviewScheduleSettings:Default",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -832,7 +576,31 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions:Versions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -856,84 +624,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Billing:BillingAccounts:Default:LineOfCredit:Default",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Billing:BillingProperty:Default",
     "description": null,
     "url": "https://docs.microsoft.com/en-us/rest/api/billing/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Blueprint:BlueprintAssignments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Capacity:AutoQuotaIncrease",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Consumption:Budgets",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/consumption/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:CostManagement:Reportconfigs",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:CostManagement:Reports",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Deployment:Admin:Locations:Global:FileContainers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Deployment:Admin:Locations:Global:ProductPackages",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Gallery:Admin:GalleryItems",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:HybridNetwork:Vendors",
@@ -952,7 +648,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Insights:DiagnosticSettings",
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:HybridNetwork:Vendors:VendorSkus:PreviewSubscriptions",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -984,7 +680,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Marketplace:PrivateStores:Offers",
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:MarketplaceOrdering:OfferTypes:Publishers:Offers:Plans:Agreements:Current",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -1128,22 +824,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Subscriptions:Admin:Subscriptions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Subscriptions:Admin:Subscriptions:AcquiredPlans",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Support:SupportTickets",
     "description": null,
     "url": null,
@@ -1153,14 +833,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Support:SupportTickets:Communications",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Web:PublishingCredentials",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -1209,14 +881,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Aad:DomainServices:OuContainer",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Aadiam:AzureADMetrics",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -1297,14 +961,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AlertsManagement:PrometheusRuleGroups",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AlertsManagement:SmartDetectorAlertRules",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -1448,7 +1104,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:Apiversionsets",
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:ApiVersionSets",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -1720,30 +1376,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:Properties",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:Quotas",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-product-with-rules#a-namepolicies-ato-configure-call-rate-limit-and-quota-policies",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:Quotas:Periods",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-product-with-rules#a-namepolicies-ato-configure-call-rate-limit-and-quota-policies",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:Schemas",
     "description": null,
     "url": null,
@@ -1804,14 +1436,6 @@
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service:Tenant:Access",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
@@ -2368,22 +1992,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Automanage:Accounts",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Automanage:ConfigurationProfilePreferences",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Automanage:ConfigurationProfiles",
     "description": null,
     "url": null,
@@ -2832,22 +2440,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureBridge:Admin:Activations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureBridge:Admin:Activations:DownloadedProducts",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureData:SqlServerRegistrations",
     "description": null,
     "url": null,
@@ -2920,14 +2512,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStack:LinkedSubscriptions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStack:Registrations",
     "description": null,
     "url": null,
@@ -2993,86 +2577,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters:UpdateSummaries:Default",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:GalleryImages",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:MarketplaceGalleryImages",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:NetworkInterfaces",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:StorageContainers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualHardDisks",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualMachines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualMachines:Extensions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualMachines:GuestAgents",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualMachines:HybridIdentityMetadata",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualNetworks",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -3192,14 +2696,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:BotService:EnterpriseChannels",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Cache:Redis",
     "description": null,
     "url": null,
@@ -3241,14 +2737,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Cache:Redis:PatchSchedules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Cache:Redis:PatchSchedules:Default",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -3728,38 +3216,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ConnectedVMwarevSphere:VirtualMachines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ConnectedVMwarevSphere:VirtualMachines:Extensions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ConnectedVMwarevSphere:VirtualMachines:GuestAgents",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ConnectedVMwarevSphere:VirtualMachines:HybridIdentityMetadata",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ConnectedVMwarevSphere:Virtualmachines:Providers:Microsoft:GuestConfiguration:GuestConfigurationAssignments",
     "description": null,
     "url": null,
@@ -3784,14 +3240,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Consumption:Budgets",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/consumption/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerInstance:ContainerGroups",
     "description": null,
     "url": null,
@@ -3801,38 +3249,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:AgentPools",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:Builds",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:BuildTasks",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:BuildTasks:Steps",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -3880,6 +3296,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:Packages:Archives",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:PipelineRuns",
     "description": null,
     "url": null,
@@ -3904,31 +3328,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:Runs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:ScopeMaps",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:TaskRuns",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:Tasks",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -3945,110 +3345,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerRegistry:Registries:Webhooks",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:ContainerServices",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:Fleets",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:Fleets:Members",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:Fleets:UpdateRuns",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:Fleets:UpdateStrategies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:ManagedClusters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:ManagedClusters:AgentPools",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:ManagedClusters:MaintenanceConfigurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:ManagedClusters:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:ManagedClusters:TrustedAccessRoleBindings",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:Managedclustersnapshots",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:OpenShiftManagedClusters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerService:Snapshots",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -4075,30 +3371,6 @@
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ContainerStorage:Pools:Volumes",
     "description": null,
     "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CostManagement:Connectors",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CostManagement:Reportconfigs",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CostManagement:Reports",
-    "description": null,
-    "url": "https://docs.microsoft.com/en-us/rest/api/costmanagement/",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -4352,23 +3624,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Databricks:AccessConnectors",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Databricks:Workspaces",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Databricks:Workspaces:PrivateEndpointConnections",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -4510,14 +3766,6 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DataFactory:Factories:Pipelineruns",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DataFactory:Factories:Pipelines",
@@ -4824,63 +4072,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:Configurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:Databases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:FirewallRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:SecurityAlertPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMariaDB:Servers:VirtualNetworkRules",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -4907,7 +4099,7 @@
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:FlexibleServers:Configurations",
     "description": null,
     "url": null,
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
@@ -4928,87 +4120,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBForMySql:FlexibleServers:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:FlexibleServers:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:Administrators:ActiveDirectory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:Configurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:Databases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:FirewallRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:SecurityAlertPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:VirtualNetworkRules",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -5056,14 +4168,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBForPostgreSql:FlexibleServers:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:FlexibleServers:Migrations",
     "description": null,
     "url": null,
@@ -5072,20 +4176,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBForPostgreSql:ServerGroupsv2",
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:ServerGroupsv2",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBForPostgreSql:ServerGroupsv2:Configurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:ServerGroupsv2:CoordinatorConfigurations",
@@ -5128,71 +4224,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:Administrators:ActiveDirectory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:Configurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:Databases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:FirewallRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:SecurityAlertPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforPostgreSQL:Servers:VirtualNetworkRules",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -5480,6 +4512,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Devices:IotHubs:EventHubEndpoints:ConsumerGroups",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Devices:IotHubs:PrivateEndpointConnections",
     "description": null,
     "url": null,
@@ -5601,6 +4641,14 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DevTestLab:Labs:Notificationchannels",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DevTestLab:Labs:Policysets:Policies",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -5760,150 +4808,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Cassandra:Keyspaces",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Cassandra:Keyspaces:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Cassandra:Keyspaces:Tables",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Cassandra:Keyspaces:Tables:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Gremlin:Databases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Gremlin:Databases:Graphs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Gremlin:Databases:Graphs:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Gremlin:Databases:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Mongodb:Databases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Mongodb:Databases:Collections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Mongodb:Databases:Collections:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Mongodb:Databases:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Sql:Databases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Sql:Databases:Containers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Sql:Databases:Containers:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Sql:Databases:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Table:Tables",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Apis:Table:Tables:Settings:Throughput",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:CassandraKeyspaces",
     "description": null,
     "url": null,
@@ -5934,38 +4838,6 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:CassandraKeyspaces:Views",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:CassandraKeyspaces:Views:ThroughputSettings:Default",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:DataTransferJobs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:Graphs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:DatabaseAccounts:GremlinDatabases",
@@ -6168,22 +5040,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:MongoClusters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DocumentDB:MongoClusters:FirewallRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DomainRegistration:Domains",
     "description": null,
     "url": null,
@@ -6376,14 +5232,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:EventGrid:PartnerNamespaces:EventChannels",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:EventGrid:PartnerRegistrations",
     "description": null,
     "url": null,
@@ -6401,6 +5249,14 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:EventGrid:PartnerTopics:EventSubscriptions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:EventGrid:PrivateEndpointConnections",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -6488,14 +5344,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HanaOnAzure:HanaInstances",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HanaOnAzure:SapMonitors",
     "description": null,
     "url": null,
@@ -6529,22 +5377,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HardwareSecurityModules:DedicatedHSMs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HDInsight:Clusterpools",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HDInsight:Clusterpools:Clusters",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -6625,14 +5457,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HealthcareApis:Workspaces",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HealthcareApis:Workspaces:Analyticsconnectors",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -6753,14 +5577,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridCompute:PrivateLinkScopes:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridCompute:PrivateLinkScopes:ScopedResources",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -6952,14 +5768,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Insights:Components:PricingPlans:Current",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Insights:Components:ProactiveDetectionConfigs",
     "description": null,
     "url": null,
@@ -6985,14 +5793,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Insights:DataCollectionRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Insights:GuestDiagnosticSettings",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -7168,22 +5968,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:KubernetesConfiguration:PrivateLinkScopes",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:KubernetesConfiguration:PrivateLinkScopes:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Kusto:Clusters",
     "description": null,
     "url": null,
@@ -7209,14 +5993,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Kusto:Clusters:Databases:DataConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Kusto:Clusters:Databases:Eventhubconnections",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -7265,54 +6041,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Kusto:Clusters:SandboxCustomImages",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:LabServices:Labaccounts",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:LabServices:Labaccounts:Galleryimages",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:LabServices:Labaccounts:Labs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:LabServices:Labaccounts:Labs:Environmentsettings",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:LabServices:Labaccounts:Labs:Environmentsettings:Environments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:LabServices:Labaccounts:Labs:Users",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -7424,14 +6152,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logic:IntegrationAccounts:Rosettanetprocessconfigurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logic:IntegrationAccounts:Sessions",
     "description": null,
     "url": null,
@@ -7464,14 +6184,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logic:Workflows:AccessKeys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logz:Monitors",
     "description": null,
     "url": null,
@@ -7489,22 +6201,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logz:Monitors:Accounts:TagRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logz:Monitors:MetricsSource",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Logz:Monitors:MetricsSource:TagRules",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -7792,14 +6488,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Datasets",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Datastores",
     "description": null,
     "url": null,
@@ -7848,22 +6536,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:LinkedServices",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:LinkedWorkspaces",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Models",
     "description": null,
     "url": null,
@@ -7905,14 +6577,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Schedules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Services",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -8160,17 +6824,9 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Maps:Accounts:PrivateAtlases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Media:Mediaservices",
     "description": null,
-    "url": "https://aka.ms/media-manage",
+    "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -8225,14 +6881,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Media:Mediaservices:LiveEvents:LiveOutputs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Media:MediaServices:MediaGraphs",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -8368,28 +7016,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MixedReality:RemoteRenderingAccounts:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MixedReality:SpatialAnchorsAccounts",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MixedReality:SpatialAnchorsAccounts:Keys",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MobileNetwork:MobileNetworks",
@@ -8488,14 +7120,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MobileNetwork:Sims",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MobilePacketCore:NetworkFunctions",
     "description": null,
     "url": null,
@@ -8528,22 +7152,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetApp:NetAppAccounts:BackupVaults",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetApp:NetAppAccounts:BackupVaults:Backups",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetApp:NetAppAccounts:CapacityPools",
     "description": null,
     "url": null,
@@ -8553,14 +7161,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetApp:NetAppAccounts:CapacityPools:Volumes",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetApp:NetAppAccounts:CapacityPools:Volumes:Backups",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -8856,14 +7456,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:FirewallPolicies:RuleGroups",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:FirewallPolicies:SignatureOverrides:Default",
     "description": null,
     "url": null,
@@ -8889,14 +7481,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:FrontDoorWebApplicationFirewallPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:InterfaceEndpoints",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -9040,30 +7624,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkManagers:SecurityUserConfigurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkManagers:SecurityUserConfigurations:RuleCollections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkManagers:SecurityUserConfigurations:RuleCollections:Rules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkProfiles",
     "description": null,
     "url": null,
@@ -9081,30 +7641,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkSecurityGroups:SecurityRules",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkSecurityPerimeters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkSecurityPerimeters:Links",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:NetworkSecurityPerimeters:ResourceAssociations",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -9432,14 +7968,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:VirtualWans:P2sVpnServerConfigurations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:VpnGateways",
     "description": null,
     "url": null,
@@ -9560,22 +8088,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetworkCloud:DefaultCniNetworks",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetworkCloud:HybridAksClusters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetworkCloud:KubernetesClusters",
     "description": null,
     "url": null,
@@ -9665,150 +8177,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:NetworkFunction:AzureTrafficCollectors:CollectorPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:HypervSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:HypervSites:Clusters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:HypervSites:Machines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:ImportSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:PrivateEndpointConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:SqlSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:SqlSites:DiscoverySiteDataSources",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:SqlSites:SqlServers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:WebAppSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:WebAppSites:DiscoverySiteDataSources",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:WebAppSites:IisWebApplications",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:MasterSites:WebAppSites:TomcatWebApplications",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:ServerSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:ServerSites:Machines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:VmwareSites",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:VmwareSites:Machines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OffAzure:VmwareSites:Vcenters",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -10021,7 +8389,7 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:OperationalInsights:Workspaces:Providers:Microsoft:SecurityInsights:Incidents:Relations",
@@ -10424,6 +8792,30 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:RecoveryServices:Vaults:BackupFabrics:BackupProtectionIntent",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:RecoveryServices:Vaults:BackupFabrics:ProtectionContainers",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:RecoveryServices:Vaults:BackupFabrics:ProtectionContainers:ProtectedItems",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:RecoveryServices:Vaults:BackupPolicies",
     "description": null,
     "url": null,
@@ -10616,14 +9008,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ResourceGraph:Queries",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:Deployments",
     "description": null,
     "url": null,
@@ -10800,14 +9184,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Security:Assignments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Security:Automations",
     "description": null,
     "url": null,
@@ -10838,14 +9214,6 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Security:Pricings",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Security:SecurityConnectors",
@@ -10889,14 +9257,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Security:SecurityConnectors:Providers:Microsoft:Security:Applications",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Security:Standards",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -11304,22 +9664,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:ApplianceDefinitions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:Appliances",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:ApplicationDefinitions",
     "description": null,
     "url": null,
@@ -11464,6 +9808,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:ManagedInstances:Databases:VulnerabilityAssessments:Rules:Baselines",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:ManagedInstances:DistributedAvailabilityGroups",
     "description": null,
     "url": null,
@@ -11513,6 +9865,14 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:ManagedInstances:Providers:Microsoft:DataMigration:DatabaseMigrations",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:ManagedInstances:RestorableDroppedDatabases:BackupShortTermRetentionPolicies",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -11600,14 +9960,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:AuditingPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:AuditingSettings",
     "description": null,
     "url": null,
@@ -11625,14 +9977,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:AzureADOnlyAuthentications",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:CommunicationLinks",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -11680,14 +10024,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:Databases:AuditingPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:Databases:AuditingSettings",
     "description": null,
     "url": null,
@@ -11713,14 +10049,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:Databases:BackupShortTermRetentionPolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:Databases:ConnectionPolicies",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -11857,6 +10185,14 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:Databases:VulnerabilityAssessments",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Sql:Servers:Databases:VulnerabilityAssessments:Rules:Baselines",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -12584,38 +10920,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Subscriptions:Admin:DirectoryTenants",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Subscriptions:Admin:Offers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Subscriptions:Admin:Offers:OfferDelegations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Subscriptions:Admin:Plans",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Synapse:PrivateLinkHubs",
     "description": null,
     "url": null,
@@ -12800,14 +11104,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Synapse:Workspaces:SqlDatabases",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Synapse:Workspaces:SqlPools",
     "description": null,
     "url": null,
@@ -12913,6 +11209,14 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Synapse:Workspaces:SqlPools:VulnerabilityAssessments",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Synapse:Workspaces:SqlPools:VulnerabilityAssessments:Rules:Baselines",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -13104,14 +11408,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:VoiceServices:CommunicationsGateways:Contacts",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:VoiceServices:CommunicationsGateways:TestLines",
     "description": null,
     "url": null,
@@ -13128,39 +11424,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:ConnectionGateways",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:Connections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:ContainerApps",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:Csrs",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:CustomApis",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -13217,14 +11481,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:KubeEnvironments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:ManagedHostingEnvironments",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -13345,14 +11601,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:Sites:Hybridconnection",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:Sites:Instances:Deployments",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -13489,14 +11737,6 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:Sites:Slots:Hybridconnection",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Web:Sites:Slots:Instances:Deployments",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -13720,22 +11960,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Workloads:PhpWorkloads",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Workloads:PhpWorkloads:WordpressInstances:Default",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Workloads:SapVirtualInstances",
     "description": null,
     "url": null,
@@ -13856,22 +12080,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Tenant",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "AzureManagement:Users",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:Admin",
     "description": null,
     "url": null,
@@ -13936,66 +12144,10 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:Admin:People",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:People:ProfileCardProperties",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:People:Pronouns",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:Admin:ReportSettings",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:ServiceAnnouncement",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:ServiceAnnouncement:HealthOverviews",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:ServiceAnnouncement:HealthOverviews:Issues",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:ServiceAnnouncement:Issues",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
@@ -14022,78 +12174,6 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:Catalog",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:Catalog:Entries",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:DeploymentAudiences",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:Deployments",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:ResourceConnections",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:UpdatableAssets",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "MSGraph:Admin:Windows:Updates:UpdatePolicies",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Agreements",
@@ -14465,14 +12545,6 @@
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:ManagedAppRegistrations:Operations",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:ManagedAppStatuses",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -17113,382 +15185,6 @@
   },
   {
     "namespace": "MSGraph:DeviceManagement:TroubleshootingEvents",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAnomaly",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAnomalyCorrelationGroupOverview",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAnomalyDevice",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthApplicationPerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthDeviceModelPerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthDevicePerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthDevicePerformanceDetails",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthOSVersionPerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthOverview",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsAppHealthOverview:MetricValues",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBaselines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthAppImpact",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthCapacityDetails",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthDeviceAppImpact",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthDevicePerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthModelPerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthOsPerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsBatteryHealthRuntimeDetails",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsCategories",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsCategories:MetricValues",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceMetricHistory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDevicePerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceScope",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceScopes",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceScores",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceStartupHistory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceStartupProcesses",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceStartupProcessPerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDevicesWithoutCloudIdentity",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsDeviceTimelineEvent",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsImpactingProcess",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsMetricHistory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsModelScores",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsNotAutopilotReadyDevice",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsOverview",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsRemoteConnection",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsResourcePerformance",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsScoreHistory",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsWorkFromAnywhereMetrics",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsWorkFromAnywhereMetrics:MetricDevices",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:UserExperienceAnalyticsWorkFromAnywhereModelPerformance",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
