@@ -18,9 +18,16 @@
   - Diagnostic settings
   - Directory settings
   - Enterprise applications
+    - Claims mapping policies
+    - Token lifetime policies
     - User settings
   - External Collaboration Settings
     - Email
+  - External Identities
+    - Cross-tenant access settings
+      - Default settings
+      - Microsoft cloud settings
+      - Organizational settings
   - External user guest settings
   - Group settings
   - Groups
