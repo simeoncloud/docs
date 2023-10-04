@@ -1,0 +1,338 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "OrganizationSettings",
+    "properties": {
+        "EventHubAppId": {
+            "type": "string",
+            "description": "App ID for the app registration with access to the event hub.",
+            "defaultTextIfEmpty": "Event hub is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "EventHubAppSecret": {
+            "type": "string",
+            "description": "Client secret for the app registration with access to the event hub.",
+            "defaultTextIfEmpty": "Event hub is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": true,
+            "isUpdatable": true
+        },
+        "EventHubSkipUnchanged": {
+            "type": "string",
+            "description": "Option to only send changed data to event hub.",
+            "defaultTextIfEmpty": "Event hub is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "enum": [
+                "true",
+                "false"
+            ],
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "EventHubEndpointUrl": {
+            "type": "string",
+            "description": "Full URL for the event hub namespace including the queue.",
+            "defaultTextIfEmpty": "Event hub is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "EventHubTenant": {
+            "type": "string",
+            "description": "The tenant in which the event hub is installed.",
+            "defaultTextIfEmpty": "Event hub is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "LogAnalyticsAppId": {
+            "type": "string",
+            "description": "App ID for the app registration with access to the log analytics workspace.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "LogAnalyticsAppSecret": {
+            "type": "string",
+            "description": "Client secret for the app registration with access to the log analytics workspace.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": true,
+            "isUpdatable": true
+        },
+        "LogAnalyticsEndpointUrl": {
+            "type": "string",
+            "description": "URL to the log analytics workspace.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "LogAnalyticsSkipUnchanged": {
+            "type": "string",
+            "description": "Option to only send changed data to log analytics.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "enum": [
+                "true",
+                "false"
+            ],
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "LogAnalyticsTenant": {
+            "type": "string",
+            "description": "The tenant in which log analytics is installed.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SimeonSyncIntegrationAppId": {
+            "type": "string",
+            "description": "App registration that can be used for all Simeon Cloud Integrations.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SimeonSyncIntegrationAppSecret": {
+            "type": "string",
+            "description": "Client secret for shared integration app registration.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": true,
+            "isUpdatable": true
+        },
+        "SimeonSyncIntegrationTenant": {
+            "type": "string",
+            "description": "Tenant for shared app registration.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SqlAzureAppId": {
+            "type": "string",
+            "description": "App registration with access to the Azure SQL Server.",
+            "defaultTextIfEmpty": "Sql server is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SqlAzureAppSecret": {
+            "type": "string",
+            "description": "Client secret for the app registration with access to to the Azure SQL Server.",
+            "defaultTextIfEmpty": "Sql server is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": true,
+            "isUpdatable": true
+        },
+        "SqlAzureServerName": {
+            "type": "string",
+            "description": "Name of the Azure SQL Server.",
+            "defaultTextIfEmpty": "Sql server is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SqlAzureSkipUnchanged": {
+            "type": "string",
+            "description": "Option to only send changed data to SQL Azure.",
+            "defaultTextIfEmpty": "Sql server is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "enum": [
+                "true",
+                "false"
+            ],
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SqlAzureTenant": {
+            "type": "string",
+            "description": "The tenant in which the Azure SQL Server is installed.",
+            "defaultTextIfEmpty": "Sql server is not configured.",
+            "category": "Integrations",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "ErrorNotificationEmailAddresses": {
+            "type": "string",
+            "description": "The email addresses Sync error information will be sent to. These must be semicolon delineated with no spaces.",
+            "defaultTextIfEmpty": null,
+            "category": "Notifications",
+            "regexValidation": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
+            "isAdvanced": false,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "ExcludePipelinesFromEmail": {
+            "type": "string",
+            "description": "Pipelines that will be excluded from the summary email.",
+            "defaultTextIfEmpty": null,
+            "category": "Notifications",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "ExcludeUsersFromSummaryEmail": {
+            "type": "string",
+            "description": "Email addresses that will be excluded from the summary email. These must be semicolon delineated with no spaces.",
+            "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "category": "Notifications",
+            "regexValidation": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "FromEmailAddress": {
+            "type": "string",
+            "description": "The email address from which the summary email is sent.",
+            "defaultTextIfEmpty": null,
+            "category": "Notifications",
+            "regexValidation": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SendSummaryEmailToAddresses": {
+            "type": "string",
+            "description": "The email addresses that the summary email will be sent to. These must be semicolon delineated with no spaces.",
+            "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "category": "Notifications",
+            "regexValidation": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
+            "isAdvanced": false,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SmtpPort": {
+            "type": "string",
+            "description": "The SMTP port to send summary email, defaults to 587.",
+            "defaultTextIfEmpty": null,
+            "category": "Notifications",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SmtpServer": {
+            "type": "string",
+            "description": "The Smtp server to send summary emails, defaults to smtp.office365.com.",
+            "defaultTextIfEmpty": null,
+            "category": "Notifications",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "SmtpUser": {
+            "type": "string",
+            "description": "The user used to authenticate into the SMTP server to send the summary email.",
+            "defaultTextIfEmpty": null,
+            "category": "Notifications",
+            "regexValidation": null,
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "ToBccAddress": {
+            "type": "string",
+            "description": "The email addresses that the summary email will send to as BCC. These must be semicolon delineated with no spaces.",
+            "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "category": "Notifications",
+            "regexValidation": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "ToCCAddress": {
+            "type": "string",
+            "description": "The email addresses that the summary email will send to as CC. These must be semicolon delineated with no spaces.",
+            "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "category": "Notifications",
+            "regexValidation": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "BaselinePropagationMode": {
+            "type": "string",
+            "description": "Baseline propagation determines whether changes made to your baseline will automatically propagate to your downstream tenants with your approval. This setting determines the enablement of baseline propagation.",
+            "defaultTextIfEmpty": null,
+            "enum": [
+                "None",
+                "Manual",
+                "Automatic"
+            ],
+            "category": "Sync",
+            "regexValidation": "None, All, ManualSync",
+            "isAdvanced": false,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "DisableErrorReporting": {
+            "type": "string",
+            "description": "This disables automated alerts for when your Sync fails. You can disable this if you don't want your error data sent to Simeon Cloud's support ticketing system.",
+            "defaultTextIfEmpty": null,
+            "category": "Sync",
+            "regexValidation": null,
+            "enum": [
+                "true",
+                "false"
+            ],
+            "isAdvanced": false,
+            "isSecret": false,
+            "isUpdatable": true
+        },
+        "M365ManagementToolVersion": {
+            "type": "string",
+            "description": "The Sync version that your tenants are running on.",
+            "defaultTextIfEmpty": "Changing this may break your Sync pipeline.",
+            "category": "Sync",
+            "regexValidation": "^(\\d+(\\.\\d+|\\.\\*)*|\\*|\\*-preview)$",
+            "isAdvanced": true,
+            "isSecret": false,
+            "isUpdatable": true
+        }
+    }
+}
