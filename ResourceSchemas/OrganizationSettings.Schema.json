@@ -55,7 +55,7 @@
         "LogAnalyticsAppId": {
             "type": "string",
             "description": "App ID for the app registration with access to the log analytics workspace.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": false,
@@ -64,7 +64,7 @@
         "LogAnalyticsAppSecret": {
             "type": "string",
             "description": "Client secret for the app registration with access to the log analytics workspace.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": true,
@@ -73,7 +73,7 @@
         "LogAnalyticsEndpointUrl": {
             "type": "string",
             "description": "URL to the log analytics workspace.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": false,
@@ -82,7 +82,7 @@
         "LogAnalyticsSkipUnchanged": {
             "type": "string",
             "description": "Option to only send changed data to log analytics.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "enum": [
                 "true",
@@ -95,7 +95,7 @@
         "LogAnalyticsTenant": {
             "type": "string",
             "description": "The tenant in which log analytics is installed.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": false,
@@ -104,7 +104,7 @@
         "SimeonSyncIntegrationAppId": {
             "type": "string",
             "description": "App registration that can be used for all Simeon Cloud Integrations.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": false,
@@ -113,7 +113,7 @@
         "SimeonSyncIntegrationAppSecret": {
             "type": "string",
             "description": "Client secret for shared integration app registration.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": true,
@@ -122,7 +122,7 @@
         "SimeonSyncIntegrationTenant": {
             "type": "string",
             "description": "Tenant for shared app registration.",
-            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide (https://simeoncloud.github.io/docs/#/reporting) or complete these variables to install reporting.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow this guide <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a>  or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": false,
