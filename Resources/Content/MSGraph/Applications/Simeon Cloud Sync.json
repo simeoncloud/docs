@@ -14,22 +14,7 @@
     "countriesBlockedForMinors": [],
     "legalAgeGroupRule": "Allow"
   },
-  "publicClient": {
-    "redirectUris": []
-  },
   "signInAudience": "AzureADMyOrg",
-  "spa": {
-    "redirectUris": []
-  },
   "tags": [],
-  "verifiedPublisher": {},
-  "web": {
-    "homePageUrl": "https://app.simeoncloud.com/",
-    "implicitGrantSettings": {
-      "enableAccessTokenIssuance": false,
-      "enableIdTokenIssuance": false
-    },
-    "redirectUris": [],
-    "redirectUriSettings": []
-  }
+  "verifiedPublisher": {}
 }

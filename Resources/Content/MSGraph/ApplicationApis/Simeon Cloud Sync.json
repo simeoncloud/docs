@@ -27,6 +27,9 @@
   "identifierUris": [
     "https://simeoncloud.com"
   ],
+  "publicClient": {
+    "redirectUris": []
+  },
   "requiredResourceAccess": [
     {
       "resourceAccess": [
@@ -391,5 +394,17 @@
       ],
       "resourceAppId": "00000002-0000-0ff1-ce00-000000000000"
     }
-  ]
+  ],
+  "spa": {
+    "redirectUris": []
+  },
+  "web": {
+    "homePageUrl": "https://app.simeoncloud.com/",
+    "implicitGrantSettings": {
+      "enableAccessTokenIssuance": false,
+      "enableIdTokenIssuance": false
+    },
+    "redirectUris": [],
+    "redirectUriSettings": []
+  }
 }
