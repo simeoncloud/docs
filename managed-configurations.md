@@ -32,7 +32,7 @@
   - Groups
     - Expiration
   - Mobility (MDM and MAM)
-  - Organization
+  - Organization (Company Branding)
   - Password reset
   - Roles and Administrators
   - Security
