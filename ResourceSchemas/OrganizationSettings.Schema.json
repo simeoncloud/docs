@@ -9,9 +9,7 @@
             "description": "App ID for the app registration with access to the event hub.",
             "defaultTextIfEmpty": "Event hub is not configured.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "EventHubAppSecret": {
             "type": "string",
@@ -20,8 +18,7 @@
             "defaultTextIfEmpty": "Event hub is not configured.",
             "category": "Integrations",
             "isAdvanced": true,
-            "isSecret": true,
-            "readOnly": false
+            "isSecret": true
         },
         "EventHubSkipUnchanged": {
             "type": "string",
@@ -33,9 +30,7 @@
                 "true",
                 "false"
             ],
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "EventHubEndpointUrl": {
             "type": "string",
@@ -43,9 +38,7 @@
             "description": "Full URL for the event hub namespace including the queue.",
             "defaultTextIfEmpty": "Event hub is not configured.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "EventHubTenant": {
             "type": "string",
@@ -53,9 +46,7 @@
             "description": "The tenant in which the event hub is installed.",
             "defaultTextIfEmpty": "Event hub is not configured.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "LogAnalyticsAppId": {
             "type": "string",
@@ -63,9 +54,7 @@
             "description": "App ID for the app registration with access to the log analytics workspace.",
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "LogAnalyticsAppSecret": {
             "type": "string",
@@ -74,8 +63,7 @@
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
-            "isSecret": true,
-            "readOnly": false
+            "isSecret": true
         },
         "LogAnalyticsEndpointUrl": {
             "type": "string",
@@ -83,9 +71,7 @@
             "description": "URL to the log analytics workspace.",
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "LogAnalyticsSkipUnchanged": {
             "type": "string",
@@ -97,9 +83,7 @@
                 "true",
                 "false"
             ],
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "LogAnalyticsTenant": {
             "type": "string",
@@ -107,9 +91,7 @@
             "description": "The tenant in which log analytics is installed.",
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "LogAnalyticsResourceId": {
             "type": "string",
@@ -117,9 +99,7 @@
             "description": "The log analytics workspace id used during Power BI report installation.",
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SimeonSyncIntegrationAppId": {
             "type": "string",
@@ -127,9 +107,7 @@
             "description": "App registration that can be used for all Simeon Cloud Integrations.",
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SimeonSyncIntegrationAppSecret": {
             "type": "string",
@@ -138,8 +116,7 @@
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
-            "isSecret": true,
-            "readOnly": false
+            "isSecret": true
         },
         "SimeonSyncIntegrationTenant": {
             "type": "string",
@@ -147,9 +124,7 @@
             "description": "Tenant for shared app registration.",
             "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SqlAzureAppId": {
             "type": "string",
@@ -157,9 +132,7 @@
             "description": "App registration with access to the Azure SQL Server.",
             "defaultTextIfEmpty": "Sql server is not configured.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SqlAzureAppSecret": {
             "type": "string",
@@ -168,8 +141,7 @@
             "defaultTextIfEmpty": "Sql server is not configured.",
             "category": "Integrations",
             "isAdvanced": true,
-            "isSecret": true,
-            "readOnly": false
+            "isSecret": true
         },
         "SqlAzureServerName": {
             "type": "string",
@@ -177,9 +149,7 @@
             "description": "Name of the Azure SQL Server.",
             "defaultTextIfEmpty": "Sql server is not configured.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SqlAzureSkipUnchanged": {
             "type": "string",
@@ -191,9 +161,7 @@
                 "true",
                 "false"
             ],
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SqlAzureTenant": {
             "type": "string",
@@ -201,28 +169,21 @@
             "description": "The tenant in which the Azure SQL Server is installed.",
             "defaultTextIfEmpty": "Sql server is not configured.",
             "category": "Integrations",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "ErrorNotificationEmailAddresses": {
             "type": "string",
             "title": "Error Notification Email Addresses",
             "description": "The email addresses Sync error information will be sent to. These must be semicolon delineated with no spaces.",
             "category": "Notifications",
-            "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": false,
-            "isSecret": false,
-            "readOnly": false
+            "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
         "ExcludePipelinesFromEmail": {
             "type": "string",
             "title": "Exclude Pipelines From Email",
             "description": "Pipelines that will be excluded from the summary email.",
             "category": "Notifications",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "ExcludeUsersFromSummaryEmail": {
             "type": "string",
@@ -231,9 +192,7 @@
             "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "FromEmailAddress": {
             "type": "string",
@@ -241,9 +200,7 @@
             "description": "The email address from which the summary email is sent.",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SendSummaryEmailToAddresses": {
             "type": "string",
@@ -251,37 +208,28 @@
             "description": "The email addresses that the summary email will be sent to. These must be semicolon delineated with no spaces.",
             "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
-            "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": false,
-            "isSecret": false,
-            "readOnly": false
+            "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
         "SmtpPort": {
             "type": "string",
             "title": "Summary Email Smtp Port",
             "description": "The SMTP port to send summary email, defaults to 587.",
             "category": "Notifications",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SmtpServer": {
             "type": "string",
             "title": "Summary Email Smtp Server",
             "description": "The Smtp server to send summary emails, defaults to smtp.office365.com.",
             "category": "Notifications",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "SmtpUser": {
             "type": "string",
             "title": "Summary Email Smtp User",
             "description": "The user used to authenticate into the SMTP server to send the summary email.",
             "category": "Notifications",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "ToBccAddress": {
             "type": "string",
@@ -290,9 +238,7 @@
             "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "ToCCAddress": {
             "type": "string",
@@ -301,9 +247,7 @@
             "defaultTextIfEmpty": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         },
         "BaselinePropagationMode": {
             "type": "string",
@@ -314,10 +258,7 @@
                 "Manual",
                 "Automatic"
             ],
-            "category": "Sync",
-            "isAdvanced": false,
-            "isSecret": false,
-            "readOnly": false
+            "category": "Sync"
         },
         "DisableErrorReporting": {
             "type": "string",
@@ -327,10 +268,7 @@
             "enum": [
                 "true",
                 "false"
-            ],
-            "isAdvanced": false,
-            "isSecret": false,
-            "readOnly": false
+            ]
         },
         "M365ManagementToolVersion": {
             "type": "string",
@@ -339,9 +277,7 @@
             "defaultTextIfEmpty": "Changing this may break your Sync pipeline.",
             "category": "Sync",
             "pattern": "^(\\d+(\\.\\d+|\\.\\*)*|\\*|\\*-preview)$",
-            "isAdvanced": true,
-            "isSecret": false,
-            "readOnly": false
+            "isAdvanced": true
         }
     }
 }
