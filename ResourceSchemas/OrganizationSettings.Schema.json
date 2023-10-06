@@ -111,6 +111,16 @@
             "isSecret": false,
             "readOnly": false
         },
+        "LogAnalyticsResourceId": {
+            "type": "string",
+            "title": "Log Analytics Workspace Resource Id",
+            "description": "The log analytics workspace id used during Power BI report installation.",
+            "defaultTextIfEmpty": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\">this guide</a> or complete these variables to install reporting.",
+            "category": "Integrations",
+            "isAdvanced": true,
+            "isSecret": false,
+            "readOnly": false
+        },
         "SimeonSyncIntegrationAppId": {
             "type": "string",
             "title": "Simeon Sync Integration App Id",
