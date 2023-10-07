@@ -133,7 +133,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:Applications",
@@ -597,7 +597,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:Settings",
