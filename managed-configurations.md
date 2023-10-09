@@ -9,6 +9,7 @@
   - App registrations
     - API
   - Authorization policies
+  - Company branding
   - Conditional Access
     - Terms of use
   - Device settings
@@ -32,7 +33,6 @@
   - Groups
     - Expiration
   - Mobility (MDM and MAM)
-  - Organization (Company Branding)
   - Password reset
   - Roles and Administrators
   - Security
