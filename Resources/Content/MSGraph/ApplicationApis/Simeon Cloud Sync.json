@@ -25,7 +25,7 @@
   },
   "appId": "${urn:resource:MSGraph:Applications/Simeon Cloud Sync?$rawData.appId}",
   "identifierUris": [
-    "https://simeoncloud.com"
+    "api://${urn:resource:MSGraph:Applications/Simeon Cloud Sync?$rawData.appId}"
   ],
   "publicClient": {
     "redirectUris": []
