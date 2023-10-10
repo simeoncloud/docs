@@ -20,7 +20,6 @@
         ]
       }
     ],
-    "requestedAccessTokenVersion": 2,
     "tokenEncryptionSetting": {}
   },
   "appId": "${urn:resource:MSGraph:Applications/Simeon Cloud Sync?$rawData.appId}",
