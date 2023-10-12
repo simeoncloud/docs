@@ -8,14 +8,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AadIam:CompanyBrandings",
-    "description": "Azure AD > Company branding",
-    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AadIam:EnterpriseApplicationUserSettings",
     "description": "Azure AD > Enterprise applications > User settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/",
@@ -427,6 +419,14 @@
     "namespace": "MSGraph:IdentityProtection:Settings:Notifications",
     "description": "Azure AD > Security > Identity Protection > Users at risk detected alerts",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/UsersAtRiskAlerts",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Organization",
+    "description": "Azure AD > Organization (Company Branding)",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
