@@ -43,9 +43,9 @@
     "namespace": "AadIam:MdmApplications",
     "description": "Azure AD \u003E Mobility (MDM and MAM)",
     "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AadIam:PasswordResetPolicies",
@@ -512,6 +512,30 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "AzureManagement:Providers:Microsoft:Support:FileWorkspaces:Files",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Support:SupportTickets",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Support:SupportTickets:Communications",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "AzureManagement:Providers:Microsoft:Web:PublishingUsers:Web",
     "description": null,
     "url": null,
@@ -822,6 +846,14 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Support:FileWorkspaces:Files",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Support:SupportTickets",
@@ -2528,30 +2560,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters:ArcSettings",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters:ArcSettings:Extensions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHci:Clusters:Providers:Microsoft:Automanage:ConfigurationProfileAssignments",
     "description": null,
     "url": null,
@@ -2560,7 +2568,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters:Updates",
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:GalleryImages",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -2568,7 +2576,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters:Updates:UpdateRuns",
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:LogicalNetworks",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -2576,7 +2584,31 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:Clusters:UpdateSummaries:Default",
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:MarketplaceGalleryImages",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:NetworkInterfaces",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:StorageContainers",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureStackHCI:VirtualHardDisks",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -2832,7 +2864,39 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CognitiveServices:Accounts:EncryptionScopes",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CognitiveServices:Accounts:PrivateEndpointConnections",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CognitiveServices:Accounts:RaiBlocklists",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CognitiveServices:Accounts:RaiBlocklists:RaiBlocklistItems",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:CognitiveServices:Accounts:RaiPolicies",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -2881,6 +2945,22 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Communication:EmailServices:Domains:SenderUsernames",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Communication:EmailServices:Domains:SuppressionLists",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Communication:EmailServices:Domains:SuppressionLists:SuppressionListAddresses",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -6376,6 +6456,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:CapacityReserverationGroups",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Registries",
     "description": null,
     "url": null,
@@ -6520,6 +6608,30 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:InferencePools",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:InferencePools:Endpoints",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:InferencePools:Groups",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Jobs",
     "description": null,
     "url": null,
@@ -6577,6 +6689,14 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:Schedules",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:MachineLearningServices:Workspaces:ServerlessEndpoints",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -16304,6 +16424,30 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Templates",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Templates:MultiTenantOrganizationIdentitySynchronization",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Templates:MultiTenantOrganizationPartnerConfiguration",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:Policies:DefaultAppManagementPolicy",
     "description": null,
     "url": null,
@@ -17197,6 +17341,22 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:ServicePrincipals:RemoteDesktopSecurityConfiguration",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:ServicePrincipals:RemoteDesktopSecurityConfiguration:TargetDeviceGroups",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -18456,6 +18616,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "O365PowerShell:ExchangeOnline:ArcConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-arcconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "O365PowerShell:ExchangeOnline:ATPBuiltInProtectionRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-atpbuiltinprotectionrule",
@@ -19430,14 +19598,6 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:UserPhoto",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-userphoto",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "O365PowerShell:ExchangeOnline:VivaInsightsSettings",

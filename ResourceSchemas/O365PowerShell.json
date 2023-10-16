@@ -37,6 +37,9 @@
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:ApplicationAccessPolicy/Configuration"
     },
     {
+      "$ref": "#/$defs/O365PowerShell:ExchangeOnline:ArcConfig/Configuration"
+    },
+    {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:ATPBuiltInProtectionRule/Configuration"
     },
     {
@@ -401,9 +404,6 @@
     },
     {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:UserBriefingConfig/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:ExchangeOnline:UserPhoto/Configuration"
     },
     {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:VivaInsightsSettings/Configuration"
@@ -1592,6 +1592,18 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:ApplicationAccessPolicy/Configuration"
+    },
+    "O365PowerShell:ExchangeOnline:ArcConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "ArcTrustedSealers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:ArcConfig/Configuration"
     },
     "O365PowerShell:ExchangeOnline:ATPBuiltInProtectionRule/Configuration": {
       "type": "object",
@@ -6257,6 +6269,9 @@
         "RecipientAdministrativeUnitScope": {
           "type": "string"
         },
+        "RecipientGroupScope": {
+          "type": "string"
+        },
         "RecipientOrganizationalUnitScope": {
           "type": "string"
         },
@@ -10271,45 +10286,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:UserBriefingConfig/Configuration"
-    },
-    "O365PowerShell:ExchangeOnline:UserPhoto/Configuration": {
-      "type": "object",
-      "properties": {
-        "Cancel": {
-          "type": "boolean"
-        },
-        "ClearMailboxPhotoRecord": {
-          "type": "boolean"
-        },
-        "GroupMailbox": {
-          "type": "boolean"
-        },
-        "IgnoreDefaultScope": {
-          "type": "boolean"
-        },
-        "PhotoType": {
-          "type": "string"
-        },
-        "PictureData": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "PictureStream": {
-          "type": "object"
-        },
-        "Preview": {
-          "type": "boolean"
-        },
-        "Save": {
-          "type": "boolean"
-        },
-        "UseCustomRouting": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:UserPhoto/Configuration"
     },
     "O365PowerShell:ExchangeOnline:VivaInsightsSettings/Configuration": {
       "type": "object",
@@ -16801,10 +16777,16 @@
         "AutoAdmittedUsers": {
           "type": "string"
         },
+        "AutomaticallyStartCopilot": {
+          "type": "string"
+        },
         "BlockedAnonymousJoinClientTypes": {
           "type": "object"
         },
         "ChannelRecordingDownload": {
+          "type": "string"
+        },
+        "Copilot": {
           "type": "string"
         },
         "CopyRestriction": {
@@ -16878,6 +16860,9 @@
           "format": "uuid"
         },
         "VideoFiltersMode": {
+          "type": "string"
+        },
+        "VoiceIsolation": {
           "type": "string"
         },
         "WhoCanRegister": {
