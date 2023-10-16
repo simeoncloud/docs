@@ -24,7 +24,7 @@
   },
   "appId": "${urn:resource:MSGraph:Applications/Simeon Cloud Sync?$rawData.appId}",
   "identifierUris": [
-    "api:///simeoncloud/${ResourceContext:TenantId}"
+    "api://simeoncloud/${ResourceContext:TenantId}"
   ],
   "publicClient": {
     "redirectUris": []
