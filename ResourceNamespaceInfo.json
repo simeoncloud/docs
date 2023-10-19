@@ -18777,7 +18777,7 @@
   },
   {
     "namespace": "O365PowerShell:ExchangeOnline:DistributionGroup",
-    "description": "Exchange \u003E Distribution Groups",
+    "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-distributiongroup",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -18809,7 +18809,7 @@
   },
   {
     "namespace": "O365PowerShell:ExchangeOnline:DynamicDistributionGroup",
-    "description": "Exchange \u003E Dynamic Distribution Groups",
+    "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dynamicdistributiongroup",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -18920,14 +18920,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:ExchangeOnline:HybridMailflow",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hybridmailflow",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "O365PowerShell:ExchangeOnline:InboundConnector",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-inboundconnector",
@@ -18993,7 +18985,7 @@
   },
   {
     "namespace": "O365PowerShell:ExchangeOnline:Mailbox",
-    "description": "Exchange \u003E Mailboxes",
+    "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailbox",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -19462,14 +19454,6 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:RMSTemplate",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-rmstemplate",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "O365PowerShell:ExchangeOnline:RoleAssignmentPolicy",
@@ -20224,14 +20208,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:Teams:CsHuntGroup",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshuntgroup",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "O365PowerShell:Teams:CsHybridMediationServer",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridmediationserver",
@@ -20288,14 +20264,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:Teams:CsOnlineApplicationEndpoint",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineapplicationendpoint",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "O365PowerShell:Teams:CsOnlineApplicationInstance",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineapplicationinstance",
@@ -20315,7 +20283,7 @@
     "namespace": "O365PowerShell:Teams:CsOnlineAudioFile",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineaudiofile",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
@@ -20448,14 +20416,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:Teams:CsOnlineTelephoneNumber",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinetelephonenumber",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "O365PowerShell:Teams:CsOnlineTelephoneNumberOrder",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/teams/get-csonlinetelephonenumberorder",
@@ -20491,22 +20451,6 @@
     "namespace": "O365PowerShell:Teams:CsOnlineVoiceRoutingPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoiceroutingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineVoiceUser",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoiceuser",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOrganizationalAutoAttendant",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csorganizationalautoattendant",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -20841,7 +20785,7 @@
   },
   {
     "namespace": "O365PowerShell:Teams:CsTeamsVirtualAppointmentsPolicy",
-    "description": "Teams admin center \u003E Meetings \u003E Meeting policies \u003E Virtual appointments policies",
+    "description": null,
     "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsvirtualappointmentspolicy",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -20998,38 +20942,6 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamFunSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamfunsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamGuestSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamguestsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamMemberSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teammembersettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamMessagingSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teammessagingsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "O365PowerShell:Teams:TeamsApp",

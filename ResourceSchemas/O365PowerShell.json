@@ -151,9 +151,6 @@
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:HostedOutboundSpamFilterRule/Configuration"
     },
     {
-      "$ref": "#/$defs/O365PowerShell:ExchangeOnline:HybridMailflow/Configuration"
-    },
-    {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:InboundConnector/Configuration"
     },
     {
@@ -353,9 +350,6 @@
     },
     {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:RetentionPolicyTag/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:ExchangeOnline:RMSTemplate/Configuration"
     },
     {
       "$ref": "#/$defs/O365PowerShell:ExchangeOnline:RoleAssignmentPolicy/Configuration"
@@ -640,9 +634,6 @@
       "$ref": "#/$defs/O365PowerShell:Teams:CsGroupPolicyAssignment/Configuration"
     },
     {
-      "$ref": "#/$defs/O365PowerShell:Teams:CsHuntGroup/Configuration"
-    },
-    {
       "$ref": "#/$defs/O365PowerShell:Teams:CsHybridMediationServer/Configuration"
     },
     {
@@ -662,9 +653,6 @@
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:CsIPPhonePolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineApplicationEndpoint/Configuration"
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineApplicationInstance/Configuration"
@@ -724,9 +712,6 @@
       "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineSchedule/Configuration"
     },
     {
-      "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineTelephoneNumber/Configuration"
-    },
-    {
       "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineTelephoneNumberOrder/Configuration"
     },
     {
@@ -740,12 +725,6 @@
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineVoiceRoutingPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:CsOnlineVoiceUser/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:CsOrganizationalAutoAttendant/Configuration"
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:CsPhoneNumberAssignment/Configuration"
@@ -929,18 +908,6 @@
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:TeamChannelUser/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:TeamFunSettings/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:TeamGuestSettings/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:TeamMemberSettings/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365PowerShell:Teams:TeamMessagingSettings/Configuration"
     },
     {
       "$ref": "#/$defs/O365PowerShell:Teams:TeamsApp/Configuration"
@@ -3504,38 +3471,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:HostedOutboundSpamFilterRule/Configuration"
-    },
-    "O365PowerShell:ExchangeOnline:HybridMailflow/Configuration": {
-      "type": "object",
-      "properties": {
-        "CentralizedTransportEnabled": {
-          "type": "boolean"
-        },
-        "CertificateSubject": {
-          "type": "string"
-        },
-        "InboundIPs": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "OnPremisesFQDN": {
-          "type": "object"
-        },
-        "OutboundDomains": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "SecureMailEnabled": {
-          "type": "boolean"
-        }
-      },
-      "$defs": {
-        "arrayOfObject": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:HybridMailflow/Configuration"
     },
     "O365PowerShell:ExchangeOnline:InboundConnector/Configuration": {
       "type": "object",
@@ -7290,6 +7225,9 @@
         "AutoExpandingArchive": {
           "type": "boolean"
         },
+        "AutomaticForcedReadReceiptEnabled": {
+          "type": "boolean"
+        },
         "BlockMoveMessagesForGroupFolders": {
           "type": "boolean"
         },
@@ -7561,6 +7499,9 @@
           "type": "boolean"
         },
         "PerTenantSwitchToESTSEnabled": {
+          "type": "boolean"
+        },
+        "PostponeRoamingSignaturesUntilLater": {
           "type": "boolean"
         },
         "PreferredInternetCodePageForShiftJis": {
@@ -8966,15 +8907,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:RetentionPolicyTag/Configuration"
-    },
-    "O365PowerShell:ExchangeOnline:RMSTemplate/Configuration": {
-      "type": "object",
-      "properties": {
-        "Type": {
-          "type": "object"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:ExchangeOnline:RMSTemplate/Configuration"
     },
     "O365PowerShell:ExchangeOnline:RoleAssignmentPolicy/Configuration": {
       "type": "object",
@@ -14434,6 +14366,9 @@
         },
         "WelcomeMusicAudioFileId": {
           "$ref": "#/$defs/nullableOfGuid"
+        },
+        "WelcomeTextToSpeechPrompt": {
+          "type": "string"
         }
       },
       "$defs": {
@@ -14559,10 +14494,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsGroupPolicyAssignment/Configuration"
-    },
-    "O365PowerShell:Teams:CsHuntGroup/Configuration": {
-      "type": "object",
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsHuntGroup/Configuration"
     },
     "O365PowerShell:Teams:CsHybridMediationServer/Configuration": {
       "type": "object",
@@ -14723,54 +14654,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsIPPhonePolicy/Configuration"
-    },
-    "O365PowerShell:Teams:CsOnlineApplicationEndpoint/Configuration": {
-      "type": "object",
-      "properties": {
-        "ApplicationId": {
-          "$ref": "#/$defs/nullableOfGuid"
-        },
-        "Audience": {
-          "type": "string"
-        },
-        "CallbackUri": {
-          "type": "string"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "IsInternalRun": {
-          "type": "boolean"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "PhoneNumber": {
-          "type": "string"
-        },
-        "Region": {
-          "type": "string"
-        },
-        "Ring": {
-          "type": "string"
-        },
-        "RunFullProvisioningFlow": {
-          "type": "boolean"
-        },
-        "Tenant": {
-          "$ref": "#/$defs/nullableOfGuid"
-        },
-        "Uri": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "nullableOfGuid": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsOnlineApplicationEndpoint/Configuration"
     },
     "O365PowerShell:Teams:CsOnlineApplicationInstance/Configuration": {
       "type": "object",
@@ -15671,18 +15554,6 @@
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsOnlineSchedule/Configuration"
     },
-    "O365PowerShell:Teams:CsOnlineTelephoneNumber/Configuration": {
-      "type": "object",
-      "properties": {
-        "TelephoneNumber": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsOnlineTelephoneNumber/Configuration"
-    },
     "O365PowerShell:Teams:CsOnlineTelephoneNumberOrder/Configuration": {
       "type": "object",
       "properties": {
@@ -15829,34 +15700,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsOnlineVoiceRoutingPolicy/Configuration"
-    },
-    "O365PowerShell:Teams:CsOnlineVoiceUser/Configuration": {
-      "type": "object",
-      "properties": {
-        "DomainController": {
-          "type": "object"
-        },
-        "LocationID": {
-          "$ref": "#/$defs/nullableOfGuid"
-        },
-        "TelephoneNumber": {
-          "type": "string"
-        },
-        "Tenant": {
-          "$ref": "#/$defs/nullableOfGuid"
-        }
-      },
-      "$defs": {
-        "nullableOfGuid": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsOnlineVoiceUser/Configuration"
-    },
-    "O365PowerShell:Teams:CsOrganizationalAutoAttendant/Configuration": {
-      "type": "object",
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:CsOrganizationalAutoAttendant/Configuration"
     },
     "O365PowerShell:Teams:CsPhoneNumberAssignment/Configuration": {
       "type": "object",
@@ -17928,90 +17771,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365PowerShell:Teams:TeamChannelUser/Configuration"
-    },
-    "O365PowerShell:Teams:TeamFunSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AllowCustomMemes": {
-          "type": "string"
-        },
-        "AllowGiphy": {
-          "type": "string"
-        },
-        "AllowStickersAndMemes": {
-          "type": "string"
-        },
-        "GiphyContentRating": {
-          "type": "string"
-        },
-        "GroupId": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:TeamFunSettings/Configuration"
-    },
-    "O365PowerShell:Teams:TeamGuestSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AllowCreateUpdateChannels": {
-          "type": "string"
-        },
-        "AllowDeleteChannels": {
-          "type": "string"
-        },
-        "GroupId": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:TeamGuestSettings/Configuration"
-    },
-    "O365PowerShell:Teams:TeamMemberSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AllowAddRemoveApps": {
-          "type": "string"
-        },
-        "AllowCreateUpdateChannels": {
-          "type": "string"
-        },
-        "AllowCreateUpdateRemoveConnectors": {
-          "type": "string"
-        },
-        "AllowCreateUpdateRemoveTabs": {
-          "type": "string"
-        },
-        "AllowDeleteChannels": {
-          "type": "string"
-        },
-        "GroupId": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:TeamMemberSettings/Configuration"
-    },
-    "O365PowerShell:Teams:TeamMessagingSettings/Configuration": {
-      "type": "object",
-      "properties": {
-        "AllowChannelMentions": {
-          "type": "string"
-        },
-        "AllowOwnerDeleteMessages": {
-          "type": "string"
-        },
-        "AllowTeamMentions": {
-          "type": "string"
-        },
-        "AllowUserDeleteMessages": {
-          "type": "string"
-        },
-        "AllowUserEditMessages": {
-          "type": "string"
-        },
-        "GroupId": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365PowerShell:Teams:TeamMessagingSettings/Configuration"
     },
     "O365PowerShell:Teams:TeamsApp/Configuration": {
       "type": "object",

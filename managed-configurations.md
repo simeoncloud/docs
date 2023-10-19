@@ -14,10 +14,6 @@
     - Identity Protection
   - User settings
   - Users
-- Exchange
-  - Distribution Groups
-  - Dynamic Distribution Groups
-  - Mailboxes
 - Groups
   - Group Lifecycle Policies
 - M365 Admin Center
@@ -28,8 +24,4 @@
 - SharePoint Admin Center
   - Settings and Policies
   - Sites
-- Teams admin center
-  - Meetings
-    - Meeting policies
-      - Virtual appointments policies
 
