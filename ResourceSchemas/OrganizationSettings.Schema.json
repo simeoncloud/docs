@@ -174,7 +174,7 @@
         "ErrorNotificationEmailAddresses": {
             "type": "string",
             "title": "Error Notification Email Addresses",
-            "description": "The email addresses Sync error information will be sent to. These must be semicolon delineated with no spaces.",
+            "description": "The email addresses Sync error information will be sent to. These must be semicolon delimited with no spaces.",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
@@ -188,7 +188,7 @@
         "ExcludeUsersFromSummaryEmail": {
             "type": "string",
             "title": "Exclude Users From Summary Email",
-            "description": "Email addresses that will be excluded from the summary email. These must be semicolon delineated with no spaces.",
+            "description": "Email addresses that will be excluded from the summary email. These must be semicolon delimited with no spaces.",
             "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
@@ -205,7 +205,7 @@
         "SendSummaryEmailToAddresses": {
             "type": "string",
             "title": "Send Summary Email To Addresses",
-            "description": "The email addresses that the summary email will be sent to. These must be semicolon delineated with no spaces.",
+            "description": "The email addresses that the summary email will be sent to. These must be semicolon delimited with no spaces.",
             "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
@@ -234,7 +234,7 @@
         "ToBccAddress": {
             "type": "string",
             "title": "Summary Email To Bcc Address",
-            "description": "The email addresses that the summary email will send to as BCC. These must be semicolon delineated with no spaces.",
+            "description": "The email addresses that the summary email will send to as BCC. These must be semicolon delimited with no spaces.",
             "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
@@ -243,7 +243,7 @@
         "ToCCAddress": {
             "type": "string",
             "title": "Summary Email To CC Address",
-            "description": "The email addresses that the summary email will send to as CC. These must be semicolon delineated with no spaces.",
+            "description": "The email addresses that the summary email will send to as CC. These must be semicolon delimited with no spaces.",
             "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
