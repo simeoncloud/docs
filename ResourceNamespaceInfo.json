@@ -1016,6 +1016,62 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:MetadataSchemas",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:Workspaces",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:Workspaces:Apis",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:Workspaces:Apis:Deployments",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:Workspaces:Apis:Versions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:Workspaces:Apis:Versions:Definitions",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiCenter:Services:Workspaces:Environments",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ApiManagement:Service",
     "description": null,
     "url": null,
@@ -9216,38 +9272,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ScVmm:VirtualMachines",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ScVmm:VirtualMachines:Extensions",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ScVmm:VirtualMachines:GuestAgents",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ScVmm:VirtualMachines:HybridIdentityMetadata",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:ScVmm:VirtualMachineTemplates",
     "description": null,
     "url": null,
@@ -12197,6 +12221,1086 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AcceptedDomain",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-accepteddomain",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:AccessToCustomerDataRequest",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-accesstocustomerdatarequest",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:ActiveSyncDevice",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncdevice",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ActiveSyncDeviceAccessRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncdeviceaccessrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ActiveSyncMailboxPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncmailboxpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ActiveSyncOrganizationSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncorganizationsettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:AddressBookPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-addressbookpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AddressList",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-addresslist",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AntiPhishPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-antiphishpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AntiPhishRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-antiphishrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:App",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-app",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ApplicationAccessPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-applicationaccesspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ArcConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-arcconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:ATPBuiltInProtectionRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-atpbuiltinprotectionrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:AtpPolicyForO365",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-atppolicyforo365",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:ATPProtectionPolicyRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-atpprotectionpolicyrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AuthenticationPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-authenticationpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AvailabilityAddressSpace",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-availabilityaddressspace",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:AvailabilityConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-availabilityconfig",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:BlockedConnector",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-blockedconnector",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:BlockedSenderAddress",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-blockedsenderaddress",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:CalendarProcessing",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-calendarprocessing",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:CASMailbox",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-casmailbox",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:CASMailboxPlan",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-casmailboxplan",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:ClassificationRuleCollection",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-classificationrulecollection",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ClientAccessRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-clientaccessrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:Clutter",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-clutter",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:Contact",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-contact",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:DataClassification",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dataclassification",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:DataEncryptionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dataencryptionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:DefaultTenantBriefingConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-defaulttenantbriefingconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:DefaultTenantMyAnalyticsFeatureConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-defaulttenantmyanalyticsfeatureconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:DistributionGroup",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-distributiongroup",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:DistributionGroupMember",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-distributiongroupmember",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:DkimSigningConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dkimsigningconfig",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:DlpPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlppolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:DynamicDistributionGroup",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dynamicdistributiongroup",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:EmailAddressPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-emailaddresspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:EmailTenantSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-emailtenantsettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:EOPProtectionPolicyRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-eopprotectionpolicyrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:EventsFromEmailConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-eventsfromemailconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:ExternalInOutlook",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-externalinoutlook",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:FederatedOrganizationIdentifier",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-federatedorganizationidentifier",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:FocusedInbox",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-focusedinbox",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:GlobalAddressList",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-globaladdresslist",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:HostedConnectionFilterPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedconnectionfilterpolicy",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:HostedContentFilterPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedcontentfilterpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:HostedContentFilterRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedcontentfilterrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:HostedOutboundSpamFilterPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedoutboundspamfilterpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:HostedOutboundSpamFilterRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedoutboundspamfilterrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:InboundConnector",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-inboundconnector",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:InboxRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-inboxrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:IntraOrganizationConnector",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-intraorganizationconnector",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:IRMConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-irmconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:JournalRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-journalrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:LinkedUser",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-linkeduser",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:M365DataAtRestEncryptionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-m365dataatrestencryptionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:M365DataAtRestEncryptionPolicyAssignment",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-m365dataatrestencryptionpolicyassignment",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:Mailbox",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailbox",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxAuditBypassAssociation",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxauditbypassassociation",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxAutoReplyConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxautoreplyconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxCalendarConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxcalendarconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxCalendarFolder",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxcalendarfolder",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxFolder",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxfolder",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxFolderPermission",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxfolderpermission",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxImportRequest",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboximportrequest",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxIRMAccess",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxirmaccess",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxJunkEmailConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxjunkemailconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxMessageConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxmessageconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxPermission",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxpermission",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxPlan",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxplan",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxRegionalConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxregionalconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxRestoreRequest",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxrestorerequest",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxSearch",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxsearch",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxSpellingConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxspellingconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailboxUserConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxuserconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailContact",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailcontact",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MailPublicFolder",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailpublicfolder",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MailUser",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailuser",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MalwareFilterPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-malwarefilterpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MalwareFilterRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-malwarefilterrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ManagementRoleAssignment",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementroleassignment",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ManagementRoleEntry",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementroleentry",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ManagementScope",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementscope",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MessageClassification",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-messageclassification",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MigrationBatch",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationbatch",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MigrationConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:MigrationEndpoint",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationendpoint",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MigrationUser",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationuser",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MobileDevice",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mobiledevice",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MobileDeviceMailboxPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mobiledevicemailboxpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MoveRequest",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-moverequest",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:MyAnalyticsFeatureConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-myanalyticsfeatureconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:Notification",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-notification",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:OfflineAddressBook",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-offlineaddressbook",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:OMEConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-omeconfiguration",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:OnPremisesOrganization",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-onpremisesorganization",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:OrganizationConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-organizationconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:OrganizationRelationship",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-organizationrelationship",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:OutboundConnector",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-outboundconnector",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:OutlookProtectionRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-outlookprotectionrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:OwaMailboxPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-owamailboxpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:PartnerApplication",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-partnerapplication",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:PerimeterConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-perimeterconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:Place",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-place",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:PolicyTipConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-policytipconfig",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:PublicFolder",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-publicfolder",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:PublicFolderClientPermission",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-publicfolderclientpermission",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:PublicFolderMailboxMigrationRequest",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-publicfoldermailboxmigrationrequest",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:QuarantinePolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-quarantinepolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RecipientPermission",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-recipientpermission",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RemoteDomain",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-remotedomain",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ReportSubmissionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-reportsubmissionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ReportSubmissionRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-reportsubmissionrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:ResourceConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-resourceconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:RetentionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-retentionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RetentionPolicyTag",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-retentionpolicytag",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RoleAssignmentPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-roleassignmentpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:SafeAttachmentPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safeattachmentpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:SafeAttachmentRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safeattachmentrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:SafeLinksPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safelinkspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:SafeLinksRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safelinksrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:SharingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-sharingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:SmimeConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-smimeconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:SweepRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-sweeprule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:TeamsProtectionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-teamsprotectionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:TeamsProtectionPolicyRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-teamsprotectionpolicyrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:TextMessagingAccount",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-textmessagingaccount",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:TransportConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-transportconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:TransportRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-transportrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:UnifiedGroup",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-unifiedgroup",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:UnifiedGroupLinks",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-unifiedgrouplinks",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:UserBriefingConfig",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-userbriefingconfig",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:VivaInsightsSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-vivainsightssettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "ExchangeOnline:VivaModuleFeaturePolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-vivamodulefeaturepolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -18520,1087 +19624,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:ExchangeOnline:AcceptedDomain",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-accepteddomain",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AccessToCustomerDataRequest",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-accesstocustomerdatarequest",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ActiveSyncDevice",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncdevice",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ActiveSyncDeviceAccessRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncdeviceaccessrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ActiveSyncMailboxPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncmailboxpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ActiveSyncOrganizationSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-activesyncorganizationsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AddressBookPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-addressbookpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AddressList",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-addresslist",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AntiPhishPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-antiphishpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AntiPhishRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-antiphishrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:App",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-app",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ApplicationAccessPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-applicationaccesspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ArcConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-arcconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ATPBuiltInProtectionRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-atpbuiltinprotectionrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AtpPolicyForO365",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-atppolicyforo365",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ATPProtectionPolicyRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-atpprotectionpolicyrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AuthenticationPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-authenticationpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AvailabilityAddressSpace",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-availabilityaddressspace",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:AvailabilityConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-availabilityconfig",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:BlockedConnector",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-blockedconnector",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:BlockedSenderAddress",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-blockedsenderaddress",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:CalendarProcessing",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-calendarprocessing",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:CASMailbox",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-casmailbox",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:CASMailboxPlan",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-casmailboxplan",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ClassificationRuleCollection",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-classificationrulecollection",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ClientAccessRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-clientaccessrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:Clutter",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-clutter",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:Contact",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-contact",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DataClassification",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dataclassification",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DataEncryptionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dataencryptionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DefaultTenantBriefingConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-defaulttenantbriefingconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DefaultTenantMyAnalyticsFeatureConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-defaulttenantmyanalyticsfeatureconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DistributionGroup",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-distributiongroup",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DistributionGroupMember",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-distributiongroupmember",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DkimSigningConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dkimsigningconfig",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DlpPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlppolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:DynamicDistributionGroup",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-dynamicdistributiongroup",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:EmailAddressPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-emailaddresspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:EmailTenantSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-emailtenantsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:EOPProtectionPolicyRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-eopprotectionpolicyrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:EventsFromEmailConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-eventsfromemailconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ExternalInOutlook",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-externalinoutlook",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:FederatedOrganizationIdentifier",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-federatedorganizationidentifier",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:FocusedInbox",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-focusedinbox",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:GlobalAddressList",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-globaladdresslist",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:HostedConnectionFilterPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedconnectionfilterpolicy",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:HostedContentFilterPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedcontentfilterpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:HostedContentFilterRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedcontentfilterrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:HostedOutboundSpamFilterPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedoutboundspamfilterpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:HostedOutboundSpamFilterRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-hostedoutboundspamfilterrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:InboundConnector",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-inboundconnector",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:InboxRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-inboxrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:IntraOrganizationConnector",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-intraorganizationconnector",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:IRMConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-irmconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:JournalRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-journalrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:LinkedUser",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-linkeduser",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:M365DataAtRestEncryptionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-m365dataatrestencryptionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:M365DataAtRestEncryptionPolicyAssignment",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-m365dataatrestencryptionpolicyassignment",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:Mailbox",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailbox",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxAuditBypassAssociation",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxauditbypassassociation",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxAutoReplyConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxautoreplyconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxCalendarConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxcalendarconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxCalendarFolder",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxcalendarfolder",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxFolder",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxfolder",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxFolderPermission",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxfolderpermission",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxImportRequest",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboximportrequest",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxIRMAccess",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxirmaccess",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxJunkEmailConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxjunkemailconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxMessageConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxmessageconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxPermission",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxpermission",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxPlan",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxplan",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxRegionalConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxregionalconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxRestoreRequest",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxrestorerequest",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxSearch",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxsearch",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxSpellingConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxspellingconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailboxUserConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailboxuserconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailContact",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailcontact",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailPublicFolder",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailpublicfolder",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MailUser",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mailuser",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MalwareFilterPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-malwarefilterpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MalwareFilterRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-malwarefilterrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ManagementRoleAssignment",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementroleassignment",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ManagementRoleEntry",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementroleentry",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ManagementScope",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementscope",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MessageClassification",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-messageclassification",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MigrationBatch",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationbatch",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MigrationConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MigrationEndpoint",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationendpoint",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MigrationUser",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-migrationuser",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MobileDevice",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mobiledevice",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MobileDeviceMailboxPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-mobiledevicemailboxpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MoveRequest",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-moverequest",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:MyAnalyticsFeatureConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-myanalyticsfeatureconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:Notification",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-notification",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OfflineAddressBook",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-offlineaddressbook",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OMEConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-omeconfiguration",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OnPremisesOrganization",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-onpremisesorganization",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OrganizationConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-organizationconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OrganizationRelationship",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-organizationrelationship",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OutboundConnector",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-outboundconnector",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OutlookProtectionRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-outlookprotectionrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:OwaMailboxPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-owamailboxpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:PartnerApplication",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-partnerapplication",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:PerimeterConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-perimeterconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:Place",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-place",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:PolicyTipConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-policytipconfig",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:PublicFolder",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-publicfolder",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:PublicFolderClientPermission",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-publicfolderclientpermission",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:PublicFolderMailboxMigrationRequest",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-publicfoldermailboxmigrationrequest",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:QuarantinePolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-quarantinepolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:RecipientPermission",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-recipientpermission",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:RemoteDomain",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-remotedomain",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ReportSubmissionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-reportsubmissionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ReportSubmissionRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-reportsubmissionrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:ResourceConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-resourceconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:RetentionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-retentionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:RetentionPolicyTag",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-retentionpolicytag",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:RoleAssignmentPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-roleassignmentpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SafeAttachmentPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safeattachmentpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SafeAttachmentRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safeattachmentrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SafeLinksPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safelinkspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SafeLinksRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-safelinksrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SharingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-sharingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SmimeConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-smimeconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:SweepRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-sweeprule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:TeamsProtectionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-teamsprotectionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:TeamsProtectionPolicyRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-teamsprotectionpolicyrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:TextMessagingAccount",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-textmessagingaccount",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:TransportConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-transportconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:TransportRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-transportrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:UnifiedGroup",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-unifiedgroup",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:UnifiedGroupLinks",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-unifiedgrouplinks",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:UserBriefingConfig",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-userbriefingconfig",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:VivaInsightsSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-vivainsightssettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:ExchangeOnline:VivaModuleFeaturePolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/exchange/get-vivamodulefeaturepolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ActivityAlert",
+    "namespace": "SecurityAndCompliance:ActivityAlert",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-activityalert",
     "isCreateSupportedFilter": ".*",
@@ -19608,7 +19632,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AdaptiveScope",
+    "namespace": "SecurityAndCompliance:AdaptiveScope",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-adaptivescope",
     "isCreateSupportedFilter": ".*",
@@ -19616,7 +19640,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AdminAuditLogConfig",
+    "namespace": "SecurityAndCompliance:AdminAuditLogConfig",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-adminauditlogconfig",
     "isCreateSupportedFilter": "$^",
@@ -19624,7 +19648,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AppRetentionCompliancePolicy",
+    "namespace": "SecurityAndCompliance:AppRetentionCompliancePolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-appretentioncompliancepolicy",
     "isCreateSupportedFilter": ".*",
@@ -19632,7 +19656,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AppRetentionComplianceRule",
+    "namespace": "SecurityAndCompliance:AppRetentionComplianceRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-appretentioncompliancerule",
     "isCreateSupportedFilter": ".*",
@@ -19640,7 +19664,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AuditConfig",
+    "namespace": "SecurityAndCompliance:AuditConfig",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-auditconfig",
     "isCreateSupportedFilter": "$^",
@@ -19648,7 +19672,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AuditConfigurationPolicy",
+    "namespace": "SecurityAndCompliance:AuditConfigurationPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-auditconfigurationpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19656,7 +19680,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AuditConfigurationRule",
+    "namespace": "SecurityAndCompliance:AuditConfigurationRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-auditconfigurationrule",
     "isCreateSupportedFilter": ".*",
@@ -19664,7 +19688,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AutoSensitivityLabelPolicy",
+    "namespace": "SecurityAndCompliance:AutoSensitivityLabelPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-autosensitivitylabelpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19672,7 +19696,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:AutoSensitivityLabelRule",
+    "namespace": "SecurityAndCompliance:AutoSensitivityLabelRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-autosensitivitylabelrule",
     "isCreateSupportedFilter": ".*",
@@ -19680,7 +19704,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:CaseHoldPolicy",
+    "namespace": "SecurityAndCompliance:CaseHoldPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-caseholdpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19688,7 +19712,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:CaseHoldRule",
+    "namespace": "SecurityAndCompliance:CaseHoldRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-caseholdrule",
     "isCreateSupportedFilter": ".*",
@@ -19696,7 +19720,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceCase",
+    "namespace": "SecurityAndCompliance:ComplianceCase",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-compliancecase",
     "isCreateSupportedFilter": ".*",
@@ -19704,7 +19728,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceCaseMember",
+    "namespace": "SecurityAndCompliance:ComplianceCaseMember",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-compliancecasemember",
     "isCreateSupportedFilter": ".*",
@@ -19712,7 +19736,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceRetentionEvent",
+    "namespace": "SecurityAndCompliance:ComplianceRetentionEvent",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-complianceretentionevent",
     "isCreateSupportedFilter": ".*",
@@ -19720,7 +19744,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceRetentionEventType",
+    "namespace": "SecurityAndCompliance:ComplianceRetentionEventType",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-complianceretentioneventtype",
     "isCreateSupportedFilter": ".*",
@@ -19728,7 +19752,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceSearch",
+    "namespace": "SecurityAndCompliance:ComplianceSearch",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-compliancesearch",
     "isCreateSupportedFilter": ".*",
@@ -19736,7 +19760,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceSearchAction",
+    "namespace": "SecurityAndCompliance:ComplianceSearchAction",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-compliancesearchaction",
     "isCreateSupportedFilter": ".*",
@@ -19744,7 +19768,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceSecurityFilter",
+    "namespace": "SecurityAndCompliance:ComplianceSecurityFilter",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-compliancesecurityfilter",
     "isCreateSupportedFilter": ".*",
@@ -19752,7 +19776,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ComplianceTag",
+    "namespace": "SecurityAndCompliance:ComplianceTag",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-compliancetag",
     "isCreateSupportedFilter": ".*",
@@ -19760,7 +19784,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DeviceConditionalAccessPolicy",
+    "namespace": "SecurityAndCompliance:DeviceConditionalAccessPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-deviceconditionalaccesspolicy",
     "isCreateSupportedFilter": ".*",
@@ -19768,7 +19792,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DeviceConditionalAccessRule",
+    "namespace": "SecurityAndCompliance:DeviceConditionalAccessRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-deviceconditionalaccessrule",
     "isCreateSupportedFilter": ".*",
@@ -19776,7 +19800,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DeviceConfigurationPolicy",
+    "namespace": "SecurityAndCompliance:DeviceConfigurationPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-deviceconfigurationpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19784,7 +19808,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DeviceConfigurationRule",
+    "namespace": "SecurityAndCompliance:DeviceConfigurationRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-deviceconfigurationrule",
     "isCreateSupportedFilter": ".*",
@@ -19792,7 +19816,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DeviceTenantPolicy",
+    "namespace": "SecurityAndCompliance:DeviceTenantPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-devicetenantpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19800,7 +19824,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DeviceTenantRule",
+    "namespace": "SecurityAndCompliance:DeviceTenantRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-devicetenantrule",
     "isCreateSupportedFilter": ".*",
@@ -19808,7 +19832,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DlpCompliancePolicy",
+    "namespace": "SecurityAndCompliance:DlpCompliancePolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlpcompliancepolicy",
     "isCreateSupportedFilter": ".*",
@@ -19816,7 +19840,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DlpComplianceRule",
+    "namespace": "SecurityAndCompliance:DlpComplianceRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlpcompliancerule",
     "isCreateSupportedFilter": ".*",
@@ -19824,7 +19848,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DlpEdmSchema",
+    "namespace": "SecurityAndCompliance:DlpEdmSchema",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlpedmschema",
     "isCreateSupportedFilter": ".*",
@@ -19832,7 +19856,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DlpKeywordDictionary",
+    "namespace": "SecurityAndCompliance:DlpKeywordDictionary",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlpkeyworddictionary",
     "isCreateSupportedFilter": ".*",
@@ -19840,7 +19864,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DlpSensitiveInformationType",
+    "namespace": "SecurityAndCompliance:DlpSensitiveInformationType",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlpsensitiveinformationtype",
     "isCreateSupportedFilter": ".*",
@@ -19848,7 +19872,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:DlpSensitiveInformationTypeRulePackage",
+    "namespace": "SecurityAndCompliance:DlpSensitiveInformationTypeRulePackage",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-dlpsensitiveinformationtyperulepackage",
     "isCreateSupportedFilter": ".*",
@@ -19856,7 +19880,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:eDiscoveryCaseAdmin",
+    "namespace": "SecurityAndCompliance:eDiscoveryCaseAdmin",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-ediscoverycaseadmin",
     "isCreateSupportedFilter": ".*",
@@ -19864,7 +19888,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:FilePlanPropertyAuthority",
+    "namespace": "SecurityAndCompliance:FilePlanPropertyAuthority",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-fileplanpropertyauthority",
     "isCreateSupportedFilter": ".*",
@@ -19872,7 +19896,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:FilePlanPropertyCategory",
+    "namespace": "SecurityAndCompliance:FilePlanPropertyCategory",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
@@ -19880,7 +19904,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:FilePlanPropertyCitation",
+    "namespace": "SecurityAndCompliance:FilePlanPropertyCitation",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/set-fileplanpropertycitation",
     "isCreateSupportedFilter": ".*",
@@ -19888,7 +19912,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:FilePlanPropertyDepartment",
+    "namespace": "SecurityAndCompliance:FilePlanPropertyDepartment",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-fileplanpropertydepartment",
     "isCreateSupportedFilter": ".*",
@@ -19896,7 +19920,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:FilePlanPropertyReferenceId",
+    "namespace": "SecurityAndCompliance:FilePlanPropertyReferenceId",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-fileplanpropertyreferenceid",
     "isCreateSupportedFilter": ".*",
@@ -19904,7 +19928,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:FilePlanPropertySubCategory",
+    "namespace": "SecurityAndCompliance:FilePlanPropertySubCategory",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-fileplanpropertysubcategory",
     "isCreateSupportedFilter": ".*",
@@ -19912,7 +19936,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:Group",
+    "namespace": "SecurityAndCompliance:Group",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-group",
     "isCreateSupportedFilter": "$^",
@@ -19920,7 +19944,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:HoldCompliancePolicy",
+    "namespace": "SecurityAndCompliance:HoldCompliancePolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-holdcompliancepolicy",
     "isCreateSupportedFilter": ".*",
@@ -19928,7 +19952,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:HoldComplianceRule",
+    "namespace": "SecurityAndCompliance:HoldComplianceRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-holdcompliancerule",
     "isCreateSupportedFilter": ".*",
@@ -19936,7 +19960,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:InformationBarrierPolicy",
+    "namespace": "SecurityAndCompliance:InformationBarrierPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-informationbarrierpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19944,7 +19968,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:Label",
+    "namespace": "SecurityAndCompliance:Label",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-label",
     "isCreateSupportedFilter": ".*",
@@ -19952,7 +19976,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:LabelPolicy",
+    "namespace": "SecurityAndCompliance:LabelPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-labelpolicy",
     "isCreateSupportedFilter": ".*",
@@ -19960,7 +19984,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ManagementRole",
+    "namespace": "SecurityAndCompliance:ManagementRole",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-managementrole",
     "isCreateSupportedFilter": ".*",
@@ -19968,7 +19992,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:OrganizationSegment",
+    "namespace": "SecurityAndCompliance:OrganizationSegment",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-organizationsegment",
     "isCreateSupportedFilter": ".*",
@@ -19976,7 +20000,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:PhishSimOverridePolicy",
+    "namespace": "SecurityAndCompliance:PhishSimOverridePolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-phishsimoverridepolicy",
     "isCreateSupportedFilter": ".*",
@@ -19984,7 +20008,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:PhishSimOverrideRule",
+    "namespace": "SecurityAndCompliance:PhishSimOverrideRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-phishsimoverriderule",
     "isCreateSupportedFilter": ".*",
@@ -19992,7 +20016,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:PolicyConfig",
+    "namespace": "SecurityAndCompliance:PolicyConfig",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-policyconfig",
     "isCreateSupportedFilter": "$^",
@@ -20000,7 +20024,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ProtectionAlert",
+    "namespace": "SecurityAndCompliance:ProtectionAlert",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-protectionalert",
     "isCreateSupportedFilter": ".*",
@@ -20008,7 +20032,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:RecordReviewNotificationTemplateConfig",
+    "namespace": "SecurityAndCompliance:RecordReviewNotificationTemplateConfig",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-recordreviewnotificationtemplateconfig",
     "isCreateSupportedFilter": "$^",
@@ -20016,7 +20040,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:RegulatoryComplianceUI",
+    "namespace": "SecurityAndCompliance:RegulatoryComplianceUI",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-regulatorycomplianceui",
     "isCreateSupportedFilter": "$^",
@@ -20024,7 +20048,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:RetentionCompliancePolicy",
+    "namespace": "SecurityAndCompliance:RetentionCompliancePolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-retentioncompliancepolicy",
     "isCreateSupportedFilter": ".*",
@@ -20032,7 +20056,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:RetentionComplianceRule",
+    "namespace": "SecurityAndCompliance:RetentionComplianceRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-retentioncompliancerule",
     "isCreateSupportedFilter": ".*",
@@ -20040,7 +20064,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:RoleGroup",
+    "namespace": "SecurityAndCompliance:RoleGroup",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-rolegroup",
     "isCreateSupportedFilter": ".*",
@@ -20048,7 +20072,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:RoleGroupMember",
+    "namespace": "SecurityAndCompliance:RoleGroupMember",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-rolegroupmember",
     "isCreateSupportedFilter": ".*",
@@ -20056,7 +20080,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:SecOpsOverridePolicy",
+    "namespace": "SecurityAndCompliance:SecOpsOverridePolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-secopsoverridepolicy",
     "isCreateSupportedFilter": ".*",
@@ -20064,7 +20088,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:SecOpsOverrideRule",
+    "namespace": "SecurityAndCompliance:SecOpsOverrideRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-secopsoverriderule",
     "isCreateSupportedFilter": ".*",
@@ -20072,7 +20096,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:ServicePrincipal",
+    "namespace": "SecurityAndCompliance:ServicePrincipal",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-serviceprincipal",
     "isCreateSupportedFilter": ".*",
@@ -20080,7 +20104,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:SupervisoryReviewPolicyV2",
+    "namespace": "SecurityAndCompliance:SupervisoryReviewPolicyV2",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-supervisoryreviewpolicyv2",
     "isCreateSupportedFilter": ".*",
@@ -20088,7 +20112,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:SupervisoryReviewRule",
+    "namespace": "SecurityAndCompliance:SupervisoryReviewRule",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-supervisoryreviewrule",
     "isCreateSupportedFilter": ".*",
@@ -20096,7 +20120,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:TenantAllowBlockListItems",
+    "namespace": "SecurityAndCompliance:TenantAllowBlockListItems",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-tenantallowblocklistitems",
     "isCreateSupportedFilter": ".*",
@@ -20104,7 +20128,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:TenantAllowBlockListSpoofItems",
+    "namespace": "SecurityAndCompliance:TenantAllowBlockListSpoofItems",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-tenantallowblocklistspoofitems",
     "isCreateSupportedFilter": ".*",
@@ -20112,7 +20136,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:UnifiedAuditLogRetentionPolicy",
+    "namespace": "SecurityAndCompliance:UnifiedAuditLogRetentionPolicy",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-unifiedauditlogretentionpolicy",
     "isCreateSupportedFilter": ".*",
@@ -20120,844 +20144,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365PowerShell:SecurityAndCompliance:User",
+    "namespace": "SecurityAndCompliance:User",
     "description": null,
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-user",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsApplicationAccessPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csapplicationaccesspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsAutoAttendant",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csautoattendant",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsBatchPolicyAssignmentOperation",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csbatchpolicyassignmentoperation",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsBroadcastMeetingConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csbroadcastmeetingconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsCallingLineIdentity",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cscallinglineidentity",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsCallQueue",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cscallqueue",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsCloudCallDataConnection",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-cscloudcalldataconnection",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsExternalAccessPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csexternalaccesspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsExternalUserCommunicationPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csexternalusercommunicationpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsGroupPolicyAssignment",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csgrouppolicyassignment",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsHybridMediationServer",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridmediationserver",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsHybridPSTNAppliance",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridpstnappliance",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsHybridPSTNSite",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridpstnsite",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsHybridTelephoneNumber",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-cshybridtelephonenumber",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsInboundBlockedNumberPattern",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csinboundblockednumberpattern",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsInboundExemptNumberPattern",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csinboundexemptnumberpattern",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsIPPhonePolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csipphonepolicy",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineApplicationInstance",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineapplicationinstance",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineApplicationInstanceAssociation",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineapplicationinstanceassociation",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineAudioFile",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineaudiofile",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineDialInConferencingBridge",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencingbridge",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineDialInConferencingServiceNumber",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencingservicenumber",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineDialInConferencingTenantSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencingtenantsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineDialInConferencingUser",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencinguser",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineEnhancedEmergencyServiceDisclaimer",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineenhancedemergencyservicedisclaimer",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineLisCivicAddress",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineliscivicaddress",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineLisLocation",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelislocation",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineLisPort",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelisport",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineLisSubnet",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelissubnet",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineLisSwitch",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelisswitch",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineLisWirelessAccessPoint",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineliswirelessaccesspoint",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineNumberPortInOrder",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinenumberportinorder",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineNumberPortOutOrderPin",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinenumberportoutorderpin",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlinePSTNGateway",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinepstngateway",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlinePstnUsage",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinepstnusage",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineSchedule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineschedule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineTelephoneNumberOrder",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csonlinetelephonenumberorder",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineVoicemailPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoicemailpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineVoicemailUserSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoicemailusersettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineVoiceRoute",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoiceroute",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsOnlineVoiceRoutingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoiceroutingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsPhoneNumberAssignment",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csphonenumberassignment",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsAcsFederationConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsacsfederationconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsAppPermissionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsapppermissionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsAppSetupPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsappsetuppolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsAudioConferencingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsaudioconferencingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsCallHoldPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscallholdpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsCallingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscallingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsCallParkPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscallparkpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsChannelsPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamschannelspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsClientConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsclientconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsComplianceRecordingApplication",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscompliancerecordingapplication",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsComplianceRecordingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscompliancerecordingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsCortanaPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscortanapolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsEducationAssignmentsAppPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamseducationassignmentsapppolicy",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsEducationConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamseducationconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsEmergencyCallingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsemergencycallingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsEmergencyCallRoutingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsemergencycallroutingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsEnhancedEncryptionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsenhancedencryptionpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsEventsPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamseventspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsFeedbackPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsfeedbackpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsGuestMeetingConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsguestmeetingconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsGuestMessagingConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsguestmessagingconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsIPPhonePolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsipphonepolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMeetingBrandingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingbrandingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMeetingBroadcastConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingbroadcastconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMeetingBroadcastPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingbroadcastpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMeetingConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMeetingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMeetingTemplatePermissionPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/Get-CsTeamsMeetingTemplatePermissionPolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMessagingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmessagingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsMobilityPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmobilitypolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsNetworkRoamingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsnetworkroamingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsSharedCallingRoutingPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamssharedcallingroutingpolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsShiftsConnection",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsshiftsconnection",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsShiftsConnectionInstance",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsshiftsconnectioninstance",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsShiftsConnectionTeamMap",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsshiftsconnectionteammap",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsShiftsPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamsshiftspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsSipDevicesConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamssipdevicesconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsTranslationRule",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamstranslationrule",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsUnassignedNumberTreatment",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsunassignednumbertreatment",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsUpgradeConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsupgradeconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsVirtualAppointmentsPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsvirtualappointmentspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTeamsVoiceApplicationsPolicy",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsvoiceapplicationspolicy",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantBlockedCallingNumbers",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantDialPlan",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantdialplan",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantFederationConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantfederationconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantHybridConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenanthybridconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantMigrationConfiguration",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantmigrationconfiguration",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantNetworkRegion",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantnetworkregion",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantNetworkSite",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantnetworksite",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantNetworkSubnet",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantnetworksubnet",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantPublicProvider",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantpublicprovider",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantTrustedIPAddress",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenanttrustedipaddress",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsTenantUpdateTimeWindow",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantupdatetimewindow",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsUserCallingSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-csusercallingsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsUserPstnSettings",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csuserpstnsettings",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:CsVideoInteropServiceProvider",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/skype/get-csvideointeropserviceprovider",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:SharedWithTeam",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-sharedwithteam",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:Team",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-team",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamChannel",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamchannel",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamChannelUser",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamchanneluser",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamsApp",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamsapp",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "O365PowerShell:Teams:TeamsAppInstallation",
-    "description": null,
-    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamsappinstallation",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "SharePoint:Sites",
@@ -20974,5 +20166,837 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsApplicationAccessPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csapplicationaccesspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsAutoAttendant",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csautoattendant",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsBatchPolicyAssignmentOperation",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csbatchpolicyassignmentoperation",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsBroadcastMeetingConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csbroadcastmeetingconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsCallingLineIdentity",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cscallinglineidentity",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsCallQueue",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cscallqueue",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsCloudCallDataConnection",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-cscloudcalldataconnection",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsExternalAccessPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csexternalaccesspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsExternalUserCommunicationPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csexternalusercommunicationpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsGroupPolicyAssignment",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csgrouppolicyassignment",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsHybridMediationServer",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridmediationserver",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsHybridPSTNAppliance",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridpstnappliance",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsHybridPSTNSite",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cshybridpstnsite",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsHybridTelephoneNumber",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-cshybridtelephonenumber",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsInboundBlockedNumberPattern",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csinboundblockednumberpattern",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsInboundExemptNumberPattern",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csinboundexemptnumberpattern",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsIPPhonePolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csipphonepolicy",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineApplicationInstance",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineapplicationinstance",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineApplicationInstanceAssociation",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineapplicationinstanceassociation",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineAudioFile",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineaudiofile",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineDialInConferencingBridge",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencingbridge",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineDialInConferencingServiceNumber",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencingservicenumber",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineDialInConferencingTenantSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencingtenantsettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineDialInConferencingUser",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinedialinconferencinguser",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineEnhancedEmergencyServiceDisclaimer",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineenhancedemergencyservicedisclaimer",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineLisCivicAddress",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineliscivicaddress",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineLisLocation",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelislocation",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineLisPort",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelisport",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineLisSubnet",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelissubnet",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineLisSwitch",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinelisswitch",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineLisWirelessAccessPoint",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineliswirelessaccesspoint",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineNumberPortInOrder",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinenumberportinorder",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineNumberPortOutOrderPin",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinenumberportoutorderpin",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlinePSTNGateway",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinepstngateway",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlinePstnUsage",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinepstnusage",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineSchedule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlineschedule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineTelephoneNumberOrder",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csonlinetelephonenumberorder",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineVoicemailPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoicemailpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineVoicemailUserSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoicemailusersettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsOnlineVoiceRoute",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoiceroute",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsOnlineVoiceRoutingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csonlinevoiceroutingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsPhoneNumberAssignment",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csphonenumberassignment",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsAcsFederationConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsacsfederationconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsAppPermissionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsapppermissionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsAppSetupPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsappsetuppolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsAudioConferencingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsaudioconferencingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsCallHoldPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscallholdpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsCallingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscallingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsCallParkPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscallparkpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsChannelsPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamschannelspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsClientConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsclientconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsComplianceRecordingApplication",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscompliancerecordingapplication",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsComplianceRecordingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscompliancerecordingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsCortanaPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamscortanapolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsEducationAssignmentsAppPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamseducationassignmentsapppolicy",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsEducationConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamseducationconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsEmergencyCallingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsemergencycallingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsEmergencyCallRoutingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsemergencycallroutingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsEnhancedEncryptionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsenhancedencryptionpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsEventsPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamseventspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsFeedbackPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsfeedbackpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsGuestMeetingConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsguestmeetingconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsGuestMessagingConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsguestmessagingconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsIPPhonePolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsipphonepolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsMeetingBrandingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingbrandingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsMeetingBroadcastConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingbroadcastconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsMeetingBroadcastPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingbroadcastpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsMeetingConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsMeetingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmeetingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsMeetingTemplatePermissionPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/Get-CsTeamsMeetingTemplatePermissionPolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsMessagingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmessagingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsMobilityPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsmobilitypolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsNetworkRoamingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsnetworkroamingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsSharedCallingRoutingPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamssharedcallingroutingpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsShiftsConnection",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsshiftsconnection",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsShiftsConnectionInstance",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsshiftsconnectioninstance",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsShiftsConnectionTeamMap",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsshiftsconnectionteammap",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsShiftsPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamsshiftspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsSipDevicesConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamssipdevicesconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsTranslationRule",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamstranslationrule",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsUnassignedNumberTreatment",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csteamsunassignednumbertreatment",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsUpgradeConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsupgradeconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTeamsVirtualAppointmentsPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsvirtualappointmentspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTeamsVoiceApplicationsPolicy",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csteamsvoiceapplicationspolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTenantBlockedCallingNumbers",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTenantDialPlan",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantdialplan",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTenantFederationConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantfederationconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTenantHybridConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenanthybridconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTenantMigrationConfiguration",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantmigrationconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTenantNetworkRegion",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantnetworkregion",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTenantNetworkSite",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantnetworksite",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTenantNetworkSubnet",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantnetworksubnet",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTenantPublicProvider",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantpublicprovider",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsTenantTrustedIPAddress",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenanttrustedipaddress",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsTenantUpdateTimeWindow",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-cstenantupdatetimewindow",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:CsUserCallingSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-csusercallingsettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsUserPstnSettings",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csuserpstnsettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Teams:CsVideoInteropServiceProvider",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/skype/get-csvideointeropserviceprovider",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:SharedWithTeam",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-sharedwithteam",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:Team",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-team",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:TeamChannel",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamchannel",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:TeamChannelUser",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamchanneluser",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:TeamsApp",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamsapp",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Teams:TeamsAppInstallation",
+    "description": null,
+    "url": "https://learn.microsoft.com/powershell/module/teams/get-teamsappinstallation",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
   }
 ]
