@@ -1,4 +1,3 @@
-- 
 - Admin
   - Apps & services
   - Dynamics
@@ -1096,6 +1095,7 @@
   - Private link services
     - Private endpoint connections
   - Public IP prefixes
+  - Route filters
   - Virtual network gateways
   - Virtual networks
     - Virtual network peerings

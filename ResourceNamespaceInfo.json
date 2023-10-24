@@ -7961,7 +7961,7 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Network:RouteFilters",
-    "description": "",
+    "description": "Azure Network > Route filters",
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
