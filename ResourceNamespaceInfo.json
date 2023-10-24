@@ -800,14 +800,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Security:IngestionSettings",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Security:Pricings",
     "description": null,
     "url": null,
@@ -4625,6 +4617,22 @@
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DevHub:Workflows",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DeviceRegistry:AssetEndpointProfiles",
+    "description": null,
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DeviceRegistry:Assets",
     "description": null,
     "url": null,
     "isCreateSupportedFilter": ".*",
