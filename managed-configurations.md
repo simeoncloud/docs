@@ -1,27 +1,3016 @@
-- Azure AD
-  - Devices
-    - Enterprise State Roaming
+- 
+- Admin
+  - Apps & services
+  - Dynamics
+  - Forms
+  - To-Do
+- Advisor
+  - Configurations
+- Agreements
+  - File
+    - Localizations
+      - Versions
+  - Files
+    - Versions
+- API Management
+  - Services
+    - Metadata Schemas
+    - Workspaces
+      - APIs
+        - Deployments
+        - Versions
+          - Definitions
+      - Environments
+- App compliance automation
+  - Reports
+- App Service >
+- App Service
+  - App Service plans
+    - Virtual network connections
+      - Gateways
+      - Routes
+  - Certificates
+    - Public certificates
+  - Configuration
+    - General settings
+    - Slot configuration
+  - Container apps
+    - Source controls
+  - Custom domains
+    - Domain ownership identifiers
+  - Deployment Center
+    - Deployments
+  - Deployment credentials
+    - FTP/Local Git deployment credentials
+      - FTP
+      - Local Git
+  - Deployment options
+    - Source control
+  - Deployment slots
+    - Certificates
+      - Public certificates
+    - Configuration
+      - General settings
+    - Custom domains
+      - Domain ownership identifiers
+    - Deployment Center
+      - Deployments
+    - Deployment options
+      - Source control
+    - Extensions
+      - MSDeploy
+    - Functions
+    - Instances
+      - Extensions
+        - MSDeploy
+    - Monitoring
+      - Diagnostic logs
+    - Networking
+      - Hybrid connections
+      - Private endpoint connections
+        - Virtual networks
+      - Virtual network integration
+        - Gateways
+    - Premier add-ons
+  - Extensions
+    - MSDeploy
+  - Functions
+  - Hosting environments
+    - Configurations
+      - Custom DNS suffix
+      - Networking
+    - Multi-role pools
+      - Default
+    - Private endpoint connections
+    - Worker pools
+  - Instances
+    - Extensions
+      - MSDeploy
+  - Kube environments
+  - Monitoring
+    - Diagnostic logs
+  - Networking
+    - Hybrid connections
+    - Private endpoint connections
+      - Virtual networks
+    - Virtual network integration
+      - Gateways
+      - Slots
+  - Overview
+  - Premier add-ons
+- Applications
+  - App management policies
+  - Connector group
+  - Extension properties
+  - Federated identity credentials
+  - Synchronization
+    - Jobs
+      - Bulk upload
+      - Schema
+        - Directories
+    - Templates
+      - Schema
+        - Directories
+  - Token issuance policies
+  - Token lifetime policies
+- Azure
+  - Compute
+    - Disks
+      - Disk accesses
+        - Private endpoint connections
+    - Shared Image Galleries
+      - Applications
+        - Versions
+      - Images
+        - Versions
+  - Confidential Ledger
+    - Managed Confidential Consortium Frameworks
+  - Confluent Cloud
+  - Data migration
+    - Azure Data Share
+      - Data managers
+        - Data services
+          - Job definitions
+        - Data stores
+  - Deployment stacks
+  - Deployments
+  - Lab Services
+    - Labs
+      - Users
+  - Load balancers
+    - Backend address pools
+    - Inbound NAT rules
+  - Load Test Service
+    - Load Tests
+  - Logic Apps
+    - Integration Accounts
+      - Agreements
+      - Assemblies
+      - Batch Configurations
+      - Certificates
+      - Maps
+      - Partners
+      - Sessions
+    - Integration Service Environments
+      - Managed APIs
+    - Workflows
+  - Logz
+    - Monitors
+      - Accounts
+        - Tag Rules
+      - Single Sign-On Configurations
+      - Tag Rules
+  - Machine Learning Services
+    - Workspaces
+      - Components
+  - Management groups
+    - Authorization
+      - Private link associations
+      - Variables
+    - Resources
+      - Deployment stacks
+      - Deployments
+  - Marketplace
+    - Order history
+      - Current agreements
+    - Private stores
+      - Collections
+        - Offers
+  - Media services
+    - Account filters
+    - Assets
+      - Asset filters
+      - Tracks
+    - Content key policies
+    - Live events
+      - Live outputs
+    - Media services accounts
+    - Private endpoint connections
+    - Streaming endpoints
+    - Streaming locators
+    - Streaming policies
+    - Transforms
+      - Jobs
+  - Microsoft 365 Security and Compliance
+    - Private Link Services for EDM Upload
+      - Private Endpoint Connections
+    - Private Link Services for M365 Compliance Center
+      - Private Endpoint Connections
+    - Private Link Services for M365 Security Center
+      - Private Endpoint Connections
+    - Private Link Services for MIP Policy Sync
+      - Private Endpoint Connections
+    - Private Link Services for O365 Management Activity API
+      - Private Endpoint Connections
+  - NAT gateways
+  - Network
+    - Connectivity
+      - Network integrations
+        - Vendors
+          - Vendor SKUs
+            - Preview subscriptions
+    - Route filters
+      - Route filter rules
+    - Security partner providers
+    - Service endpoint policies
+    - Traffic Analytics
+      - Azure Traffic Analytics collectors
+        - Collector policies
+  - Network security groups
+    - IP groups
+    - Security rules
+  - Private Link
+    - Private endpoint connections
+  - Public IP addresses
+  - Qumulo
+    - Storage
+      - File Systems
+  - Resource groups
+    - Authorization
+      - Resource management private links
+    - Deployment scripts
+    - Deployment stacks
+    - Deployments
+    - EASM
+      - Workspaces
+        - Labels
+    - SaaS
+      - Resources
+    - Scheduler
+      - Job collections
+        - Jobs
+    - SCVMM
+      - Availability sets
+      - Clouds
+      - Virtual machine templates
+      - Virtual networks
+      - VMM servers
+        - Inventory items
+    - Solutions
+      - Application definitions
+      - Applications
+      - JIT requests
+    - Template specs
+      - Versions
+  - Resources
+    - Deployments
+  - Route tables
+    - Routes
+  - SaaS
+    - SaaS resources
+  - Virtual machines
+    - Image templates
+      - Triggers
+    - Network interfaces
+  - Virtual networks
+    - IP addresses
+      - IP address allocations
+    - Subnets
+  - VPN gateways
+    - Connections
+      - Shared key
+    - Local network gateways
+- Azure Active Directory
   - Enterprise applications
+    - All applications
+  - Groups
+  - Guest usage
+  - Private endpoint connections
+  - Private link for Azure AD
+  - Roles and administrators
+    - Role groups
+  - User assigned identities
+    - Federated identity credentials
+- Azure Active Directory B2C
+  - User flows
+- Azure AD
+  - Admin
+    - Edge
+      - Internet Explorer mode
+    - SharePoint
+  - App registrations
+    - [Application Name]
+      - Owners
+  - Azure AD Connect Health
+    - ADDS Services
+      - Service members
+      - User preferences
+    - Configuration
+    - Services
+      - IP address aggregate settings
+      - Service members
+  - Devices
+    - Cloud PCs
+    - Enterprise State Roaming
+  - Domains
+    - Federation configuration
+    - Shared email domain invitations
+  - Enterprise applications
+    - [Application Name]
+      - Owners
+    - App registrations
+      - API permissions
+        - App role assigned to
+        - App role assignments
+      - Endpoints
+    - Service principals
+      - Synchronization
+        - Jobs
+          - Bulk upload
     - User settings
   - External user guest settings
   - Group settings
   - Groups
     - Expiration
     - Owners
+  - Identity
+    - Authentication events flows
+  - Identity governance
+    - Access reviews
+      - Contacted reviewers
+      - Stages
+    - Agreements
+      - Acceptances
+    - Terms of use
+      - Agreements
+        - Acceptances
+  - Licenses
   - Mobility (MDM and MAM)
+  - Network access
+    - Settings
+      - Conditional access
+      - Cross-tenant access
+      - Enriched audit logs
+      - Forwarding options
+  - Organization
+    - Branding
+      - Localizations
+    - Certificate-based authentication configuration
+    - Extensions
+    - Partner information
+    - Settings
+      - Contact insights
+      - Item insights
+      - Microsoft application data access
+      - People insights
   - Password reset
+  - Policies
+    - Authentication flows policy
+    - Authentication methods policy
+      - Authentication method configurations
+    - Cross-tenant access policy
+      - Templates
+        - Multi-tenant organization identity synchronization
+        - Multi-tenant organization partner configuration
+    - Device registration policy
+    - Feature rollout policies
+      - Applies to
+        - Ref
+    - Federated token validation policy
+    - Mobile app management policies
+      - Included groups
+        - Ref
+    - Mobile device management policies
+      - Included groups
+        - Ref
+  - Role management
+    - Enterprise apps
+      - Resource namespaces
+        - Resource actions
+          - Resource scope
+      - Role assignment approvals
+        - Steps
+      - Role assignment schedule instances
+      - Role assignment schedule requests
+      - Role assignment schedules
+      - Role assignments
+        - App scope
+    - Enterprise apps >
+  - Roles
+    - Directory roles
+      - Transitive role assignments
+        - App scope
+    - Entitlement management
+      - Resource namespaces
+        - Resource actions
+          - Resource scope
+      - Role assignment schedule instances
+      - Role assignment schedule requests
+      - Role assignment schedules
+      - Role assignments
+        - App scope
+      - Role definitions
+      - Role eligibility schedule instances
+      - Role eligibility schedule requests
+      - Role eligibility schedules
+      - Transitive role assignments
+        - App scope
+  - Roles and administrators
+    - Device management
+      - Resource actions
+        - Resource scope
+      - Role assignments
+        - App scopes
+      - Role definitions
+    - Directory
+      - Resource namespaces
+        - Resource actions
+          - Resource scope
+      - Role assignment schedule instances
+      - Role assignment schedule requests
+      - Role assignment schedules
+      - Role assignments
+        - App scope
+      - Role definitions
+      - Role eligibility schedule instances
+      - Role eligibility schedule requests
+      - Role eligibility schedules
+      - Transitive role assignments
+    - Directory roles
+      - [Role Name]
+        - Members
+    - Role eligibility schedule instances
+    - Role eligibility schedule requests
+    - Role eligibility schedules
+    - Transitive role assignments
+      - App scope
   - Security
     - Identity Protection
+  - Service principals
+    - Remote Desktop Security Configuration
+      - Target Device Groups
   - User settings
   - Users
+    - Activities
+      - History items
+    - Analytics
+    - Authentication
+      - Email methods
+    - Authentication methods
+    - Manager
+    - Passwords
+    - Profile
+    - Scoped role membership
+    - Usage rights
+    - User details
+      - Virtual events
+    - User photo
+    - User profile
+    - User security
+      - Information protection
+        - Sensitivity labels
+          - Parent
+- Azure AD B2C
+  - User flows
+    - User flow (policy)
+      - Api connector configuration
+        - Post attribute collection
+          - Reference
+        - Post federation signup
+          - Reference
+        - Pre token issuance
+- Azure AD Domain Services
+  - Domain Services
+  - Organizational unit containers
+- Azure Advisor
+  - Recommendations
+    - Recommendations accounts
+      - Modeling
+      - Service endpoints
+- Azure Analysis Services
+  - Servers
+- Azure API for FHIR
+  - Services
+    - Private endpoint connections
+  - Workspaces
+    - DICOM services
+    - FHIR services
+    - IoT connectors
+      - FHIR destinations
+    - Private endpoint connections
+- Azure API Management
+  - API version sets
+  - APIs
+    - Diagnostics
+    - Issues
+      - Attachments
+      - Comments
+    - Operations
+      - Policies
+    - Policies
+    - Releases
+    - Resolvers
+      - Policies
+    - Schemas
+    - Tag descriptions
+    - Wikis
+      - Default
+  - Authorization providers
+    - Authorizations
+      - Access policies
+  - Authorization servers
+  - Backends
+  - Caches
+  - Certificates
+  - Content types
+    - Content items
+  - Diagnostics
+  - Documentations
+  - Gateways
+    - APIs
+    - Certificate authorities
+    - Hostname configurations
+  - Groups
+  - Identity providers
+  - Loggers
+  - Named values
+  - OpenID Connect providers
+  - Policies
+  - Policy fragments
+  - Portal configs
+  - Portal revisions
+  - Portal settings
+    - Delegation
+    - Signin
+    - Signup
+  - Private endpoint connections
+  - Products
+    - API links
+    - Group links
+    - Policies
+    - Wikis
+      - Default
+  - Schemas
+  - Services
+  - Subscriptions
+  - Tags
+    - API links
+    - Operation links
+    - Product links
+  - Templates
+  - Tenant
+  - Users
+  - Workspaces
+    - API version sets
+    - APIs
+      - Operations
+        - Policies
+      - Policies
+      - Releases
+      - Schemas
+    - Groups
+    - Named values
+    - Policies
+    - Policy fragments
+    - Products
+      - API links
+      - Group links
+      - Policies
+    - Schemas
+    - Subscriptions
+    - Tags
+      - API links
+      - Operation links
+      - Product links
+- Azure App Configuration
+  - Configuration stores
+    - Key values
+    - Private endpoint connections
+    - Replicas
+- Azure Application Gateway
+  - Private endpoint connections
+- Azure Arc
+  - Azure SQL Managed Instance
+    - Virtual clusters \
+  - Devices
+  - Network functions
+- Azure Arc enabled data controllers
+  - Active Directory connectors
+- Azure Arc enabled Kubernetes
+  - Provisioned clusters
+    - Agent pools
+    - Hybrid identity metadata
+  - Storage spaces
+  - Virtual networks
+- Azure Arc enabled PostgreSQL servers
+- Azure Arc enabled servers
+  - Cloud connections
+  - Cloud connectors
+  - Machines
+    - Extensions
+  - Private link scopes
+- Azure Arc enabled SQL Managed Instances
+  - Failover groups
+- Azure Arc enabled SQL Server registrations
+  - SQL Servers
+- Azure Arc enabled SQL Servers
+  - Databases
+- Azure Authorization
+  - Locks
+  - Policy definitions
+  - Policy set definitions
+  - Variables
+- Azure Automanage
+  - Accounts
+    - Data pools
+  - Azure Stack HCI
+    - Configuration profile assignments
+  - Configuration profile assignments
+  - Configuration profile versions
+  - Configuration profiles
+  - Hybrid compute
+    - Configuration profile assignments
+- Azure Automation
+  - Automation accounts
+    - Certificates
+    - Compilation jobs
+    - Configurations
+    - Connection types
+    - Connections
+    - Credentials
+    - Hybrid runbook worker groups
+      - Hybrid runbook workers
+    - Job schedules
+    - Jobs
+    - Modules
+    - Node configurations
+    - Nodes
+    - Private endpoint connections
+    - Python 2 packages
+    - Python 3 packages
+    - Runbooks
+      - Draft
+        - Test job
+    - Schedules
+    - Software update configurations
+    - Source controls
+      - Source control sync jobs
+    - Variables
+    - Watchers
+    - Webhooks
+- Azure Backup
+  - Backup infrastructure
+    - Backup vaults
+      - Backup configuration
+        - Vault configuration
+      - Backup encryption configuration
+        - Backup resource encryption configuration
+      - Backup fabrics
+        - Backup protection intent
+        - Protection containers
+          - Protected items
+      - Backup policies
+      - Backup resource guard proxies
+      - Backup storage configuration
+        - Vault storage configuration
+      - Private endpoint connections
+      - Vault extended information
+  - Backup vaults
+    - Backup instances
+    - Backup policies
+    - Backup resource guard proxies
+  - Resource guards
+- Azure Bastion
+- Azure Batch
+  - Batch accounts
+    - Applications
+    - Certificates
+    - Pools
+    - Private endpoint connections
+- Azure Cache for Redis
+  - AML filesystems
+  - Caches
+    - Storage targets
+  - Redis caches
+    - Access policies
+    - Access policy assignments
+    - Firewall rules
+    - Linked servers
+    - Patch schedules
+    - Private endpoint connections
+- Azure Cache for Redis Enterprise
+  - Redis Enterprise caches
+    - Databases
+    - Private endpoint connections
+- Azure Capacity
+  - Reservation orders
+    - Reservations
+- Azure Communication Services
+  - Communications gateways
+    - Test lines
+- Azure Cosmos DB
+  - Account
+    - Cassandra API
+      - Cluster
+        - Data Centers
+      - Clusters
+      - Keyspace
+        - Tables
+          - Throughput
+      - Keyspaces
+        - Throughput
+    - Gremlin API
+      - Database
+        - Graphs
+          - Throughput
+      - Databases
+        - Throughput
+    - MongoDB API
+      - Database
+        - Collection
+          - Throughput
+      - Role Definitions
+      - User Definitions
+    - Notebook Workspaces
+    - Private Endpoint Connections
+    - Services
+    - SQL API
+      - Database
+        - Client Encryption Keys
+      - Role Assignments
+      - Role Definitions
+    - Table API
+      - Tables
+        - Throughput
+  - Accounts
+  - MongoDB API
+    - Databases
+      - Throughput settings
+        - Default
+  - SQL API
+    - Databases
+      - Containers
+        - Stored procedures
+        - Throughput settings
+          - Default
+        - Triggers
+        - User-defined functions
+      - Throughput settings
+        - Default
+- Azure Cost Management
+  - Scheduled actions
+- Azure Custom Providers
+  - Resource providers
+- Azure Customer Insights
+  - Hubs
+    - Authorization policies
+    - Connectors
+      - Mappings
+    - Interactions
+    - KPI
+    - Links
+    - Predictions
+    - Relationship links
+    - Relationships
+    - Role assignments
+    - Views
+- Azure Dashboards
+  - Grafana
+    - Private endpoint connections
+- Azure Data Box
+  - Jobs
+  - Storage movers
+    - Agents
+    - Endpoints
+    - Projects
+      - Job definitions
+- Azure Data Box Edge
+  - Devices
+- Azure Data Explorer
+  - Attached database configurations
+  - Cluster principal assignments
+  - Clusters
+  - Data connections
+  - Database principal assignments
+  - Database scripts
+  - Databases
+  - Managed private endpoints
+  - Private endpoint connections
+- Azure Data Factory
+  - Credentials
+  - Data flow debug clusters
+  - Global parameters
+  - Private endpoint connections
+- Azure Data Lake Analytics
+  - Accounts
+  - Compute policies
+  - Data Lake Store accounts
+  - Firewall rules
+  - Storage accounts
+- Azure Data Lake Store
+  - Accounts
+  - Firewall rules
+  - Trusted identity providers
+  - Virtual network rules
+- Azure Data Share
+  - Accounts
+    - Share subscriptions
+      - Data set mappings
+    - Shares
+      - Data sets
+      - Invitations
+  - Share subscriptions
+    - Triggers
+  - Shares
+    - Synchronization settings
+- Azure Database for MariaDB
+  - Servers
+    - Keys
+- Azure Database for MySQL
+  - Flexible servers
+    - Administrators
+    - Configurations
+    - Databases
+    - Firewall rules
+  - Servers
+    - Keys
+- Azure Database for PostgreSQL
+  - Flexible servers
+    - Administrators
+    - Configurations
+    - Databases
+    - Firewall rules
+    - Migrations
+  - Servers
+    - Keys
+- Azure Database Migration Service
+  - Projects
+    - Files
+    - Tasks
+  - Service tasks
+  - Services
+- Azure DDoS Protection
+  - Custom policies
+  - Protection plans
+- Azure Defender for IoT
+  - Workspaces
+    - Firmwares
+- Azure Delegated Network
+  - Controller
+  - Delegated subnets
+  - Orchestrators
+- Azure Deployment Manager
+  - Artifact sources
+  - Rollouts
+  - Service topologies
+    - Services
+      - Service units
+  - Steps
+- Azure Dev Center
+  - Dev centers
+    - Attached networks
+    - Catalogs
+    - Dev box definitions
+    - Environment types
+    - Galleries
+  - Network connections
+  - Projects
+    - Environment types
+    - Pools
+      - Schedules
+- Azure Dev Hub
+  - Workflows
+- Azure Dev Spaces
+  - Controllers
+- Azure DevOps
+  - Pipelines
+- Azure DevTest Labs
+  - Labs
+    - Artifact sources
+    - Costs
+    - Custom images
+    - Formulas
+    - Notification channels
+    - Policy sets
+      - Policies
+    - Schedules
+    - Service runners
+    - Users
+      - Disks
+      - Environments
+      - Secrets
+      - Service fabrics
+    - Virtual machines
+      - Schedules
+    - Virtual networks
+  - Schedules
+- Azure Digital Twins
+  - Digital Twins instances
+  - Endpoints
+  - Private endpoint connections
+  - Time Series Insights
+- Azure DNS
+  - DNS forwarding rules
+  - DNS forwarding rulesets
+  - DNS resolvers
+  - DNS zones
+  - Inbound endpoints
+  - Outbound endpoints
+  - Virtual network links
+- Azure Edge Order
+  - Addresses
+  - Order items
+- Azure Education
+  - Labs
+  - Students
+- Azure Elastic
+  - Monitors
+  - Tag rules
+- Azure ElasticSAN
+  - ElasticSANs
+  - Volume groups
+  - Volumes
+- Azure Engagement Fabric
+  - Accounts
+  - Channels
+- Azure Enterprise Knowledge Graph
+  - Services
+- Azure Event Grid
+  - Domains
+    - Event subscriptions
+    - Topics
+      - Event subscriptions
+  - Event subscriptions
+  - Partner configurations
+  - Partner destinations
+  - Partner namespaces
+    - Channels
+  - Partner registrations
+  - Partner topics
+    - Event subscriptions
+  - Private endpoint connections
+  - System topics
+  - Topics
+    - Event subscriptions
+- Azure Event Hubs
+  - Clusters
+    - Quota configuration
+- Azure FarmBeats
+  - FarmBeats
+    - Extensions
+    - Private endpoint connections
+    - Solutions
+- Azure File Sync
+  - Private endpoint connections
+  - Registered servers
+  - Sync services
+    - Sync groups
+      - Cloud endpoints
+      - Server endpoints
+- Azure Firewall
+  - Application security groups
+  - Firewall policies
+    - Rule collection groups
+    - Signature overrides
+- Azure Front Door
+  - Front Door web application firewall policies
+  - Front Doors
+    - Rules engines
+- Azure Import/Export
+  - Jobs
+- Azure Information Protection
+  - Policies
+- Azure IoT Device Update
+  - Accounts
+    - Instances
+    - Private endpoint connection proxies
+    - Private endpoint connections
+- Azure IoT Hub Device Provisioning Service
+  - Asset endpoint profiles
+  - Assets
+  - Certificates
+  - Private endpoint connections
+- Azure Kubernetes Service
+  - Connected clusters
+  - Storage
+    - Storage pools
+      - Volumes
+- Azure Machine Learning
+  - Datasets
+  - Environments
+  - Feature sets
+  - Feature store entities
+  - Models
+  - Registries
+- Azure Management Groups
+  - Authorization
+    - Policy definitions
+    - Policy set definitions
+    - Variables
+- Azure Maps
+  - Accounts
+    - Creators
+- Azure Media Services
+  - Video Analyzer
+    - Access policies
+    - Edge modules
+    - Live pipelines
+    - Pipeline jobs
+    - Pipeline topologies
+    - Private endpoint connections
+    - Videos
+- Azure Mixed Reality
+  - Object Anchors accounts
+  - Remote Rendering accounts
+  - Spatial Anchors accounts
+- Azure Mobile Network
+  - Mobile Networks
+    - Data Networks
+  - Packet Core Control Planes
+    - Packet Core Data Planes
+      - Attached Data Networks
+- Azure Monitor
+  - Alerts
+    - Action groups
+    - Action rules
+    - Activity log alerts
+    - Alert rules
+    - Prometheus rule groups
+    - Tenant action groups
+  - Application Insights
+    - Components
+      - Annotations
+      - API keys
+      - Current billing features
+      - Export configuration
+      - Favorites
+      - Linked storage accounts
+      - Proactive detection configs
+      - Work item configs
+  - Autoscale
+  - Diagnostic settings
+    - Data collection endpoints
+    - Data collection rules
+  - Log Analytics
+    - Accounts
+  - Logs
+    - Log profiles
+    - Scheduled query rules
+  - Management configurations
+  - Metrics
+    - Metric alerts
+  - Private link scopes
+    - Private endpoint connections
+    - Scoped resources
+  - Service Map
+    - Machine groups
+  - Solutions
+  - Web tests
+  - Workbooks
+    - My workbooks
+    - Workbook templates
+  - Workloads
+    - Monitors
+      - Provider instances
+      - SAP Landscape Monitor
+    - SAP virtual instances
+      - Application instances
+      - Central instances
+      - Database instances
+- Azure NetApp Files
+  - Accounts
+  - Backup policies
+  - Capacity pools
+  - Snapshot policies
+  - Snapshots
+  - Subvolumes
+  - Volume groups
+  - Volume quota rules
+  - Volumes
+- Azure Network
+  - Mobile Network
+    - Mobile Networks
+      - Services
+      - Sim Policies
+      - Sites
+      - Slices
+    - Packet Core Control Planes
+      - Packet Core Data Planes
+    - Sim Groups
+      - Sims
+  - Network interfaces
+    - Tap configurations
+  - Network managers
+  - Private endpoints
+    - Private DNS zone groups
+  - Private link services
+    - Private endpoint connections
+  - Public IP prefixes
+  - Virtual network gateways
+  - Virtual networks
+    - Virtual network peerings
+- Azure Network Manager
+  - Connectivity configurations
+  - Network groups
+    - Static members
+  - Network manager connections
+  - Network profiles
+  - Network virtual appliances
+    - Virtual appliance sites
+  - Scope connections
+  - Security admin configurations
+    - Rule collections
+      - Rules
+- Azure Network Watcher
+  - Connection monitors
+  - Flow logs
+  - Managed networks
+    - Groups
+    - Peering policies
+  - Network fabric
+    - Access control lists
+    - IP communities
+    - IP extended communities
+    - IP prefixes
+    - L2 isolation domains
+    - L3 isolation domains
+      - External networks
+      - Internal networks
+    - Network devices
+      - Network interfaces
+    - Network fabric controllers
+    - Network fabrics
+      - Network-to-network interconnects
+    - Network racks
+    - Route policies
+  - Packet captures
+- Azure Policy
+  - Guest configuration
+    - Assignments
+      - Hybrid machines
+      - Virtual machine scale sets
+      - Virtual machines
+      - VMware virtual machines
+- Azure portal
+  - AgFoodPlatform
+    - FarmBeats
+      - Data connectors
+  - Application Gateway web application firewall policies
+  - Bare metal machines
+  - Cloud services networks
+  - Cluster managers
+  - Clusters
+    - Bare metal machine key sets
+    - BMC key sets
+    - Metrics configurations
+  - Dashboards
+  - Data Box Edge
+    - Devices
+      - [Device Name]
+        - Bandwidth schedules
+        - Diagnostic settings
+          - Proactive log collection
+          - Remote support
+        - Orders
+        - Roles
+          - [Role Name]
+            - Add-ons
+            - Monitoring configuration
+        - Shares
+        - Storage account credentials
+        - Storage accounts
+          - [Storage Account Name]
+            - Containers
+        - Triggers
+        - Users
+  - Data Catalog
+    - Catalogs
+  - Data Factory
+    - [Factory Name]
+      - Data flows
+      - Datasets
+      - Integration runtimes
+        - [Integration Runtime Name]
+          - Nodes
+      - Linked services
+      - Managed virtual networks
+        - [Managed Virtual Network Name]
+          - Managed private endpoints
+      - Pipelines
+      - Triggers
+  - Databricks
+    - [Workspace Name]
+      - Virtual network peering
+  - Datadog
+    - Monitors
+      - Single sign-on configurations
+      - Tag rules
+  - Flexible servers
+    - Server groups
+  - Hardware security modules
+    - CloudHSM clusters
+      - Private endpoint connections
+  - Kubernetes service
+    - Kubernetes clusters
+      - Agent pools
+  - L2 networks
+  - L3 networks
+  - Network virtual appliances
+    - Network virtual appliance connections
+  - P2S VPN gateways
+  - PostgreSQL server groups
+    - Coordinator configurations
+    - Firewall rules
+    - Node configurations
+    - Private endpoint connections
+    - Roles
+  - Power BI
+    - Private link services
+      - Private endpoint connections
+  - Power BI dedicated capacity
+    - Autoscale v-cores
+    - Capacities
+  - Power BI workspace collections
+  - Power Platform
+    - Accounts
+    - Enterprise policies
+      - Private endpoint connections
+  - Private DNS zones
+    - Virtual network links
+  - Professional services
+    - Resources
+  - Racks
+  - Resource group
+    - MachineLearning
+      - CommitmentPlans
+      - WebServices
+      - Workspaces
+    - MachineLearningCompute
+      - OperationalizationClusters
+    - MachineLearningExperimentation
+      - Accounts
+        - Workspaces
+          - Projects
+    - MachineLearningServices
+      - Workspaces
+        - BatchEndpoints
+          - Deployments
+        - Codes
+        - Computes
+        - Connections
+        - Data
+        - Datastores
+        - Environments
+        - Jobs
+        - LabelingJobs
+        - Models
+        - OnlineEndpoints
+          - Deployments
+        - OutboundRules
+        - PrivateEndpointConnections
+    - PrivateLinkServicesForSCCPowershell
+      - PrivateEndpointConnections
+  - Search services
+    - Private endpoint connections
+    - Shared private link resources
+  - Service Endpoint Policies
+    - Service Endpoint Policy Definitions
+  - Storage appliances
+  - Tenant configurations
+  - Trunked networks
+  - Virtual hubs
+    - BGP connections
+    - Hub route tables
+    - Hub virtual network connections
+    - IP configurations
+    - Route maps
+    - Route tables
+    - Routing intent
+  - Virtual machines
+    - Consoles
+  - Virtual network gateways
+    - NAT rules
+  - Virtual network taps
+  - Virtual routers
+    - Peerings
+  - Virtual WANs
+  - Volumes
+  - VPN gateways
+    - NAT rules
+    - VPN connections
+  - VPN server configurations
+    - Configuration policy groups
+  - VPN sites
+- Azure Purview
+  - Accounts
+    - Private endpoint connections
+- Azure Quantum
+  - Workspaces
+- Azure RBAC
+  - Role assignments
+    - Role assignment details
+      - Variables
+        - Values
+- Azure Resource Connector
+  - Appliances
+- Azure Resource Manager
+  - Custom locations
+    - Resource sync rules
+- Azure Security Center
+  - Alerts suppression rules
+- Azure Sentinel
+  - Analytics
+    - Content packages
+    - Content templates
+    - Entity queries
+    - Security machine learning
+  - Configuration
+    - Source control
+    - Workspace settings
+      - Workspace manager assignments
+      - Workspace manager configurations
+      - Workspace manager groups
+      - Workspace manager members
+  - Data connectors
+    - File import
+  - Hunting
+    - Comments
+    - Relations
+  - Incidents
+    - Comments
+    - Relations
+    - Tasks
+  - Metadata
+  - Onboarding
+  - Settings
+  - Threat management
+    - Indicators
+    - Watchlists
+      - Watchlist items
+- Azure Service Fabric
+  - Clusters
+  - Managed Clusters
+    - Application Types
+    - Applications
+      - Services
+    - Node Types
+- Azure Service Fabric Mesh
+  - Applications
+  - Gateways
+  - Networks
+  - Secrets
+    - Values
+  - Volumes
+- Azure Service Networking
+  - Traffic Controllers
+    - Associations
+    - Frontends
+- Azure SignalR Service
+  - SignalR
+    - Custom Certificates
+    - Custom Domains
+    - Private Endpoint Connections
+    - Replicas
+    - Shared Private Link Resources
+  - Web PubSub
+    - Custom certificates
+    - Custom domains
+    - Hubs
+    - Replicas
+    - Shared private link resources
+- Azure Site Recovery
+  - Replication
+    - Infrastructure
+      - Replication fabrics
+      - Vault settings
+    - Migration items
+    - Monitoring
+      - Alert settings
+    - Policies
+    - Protection container mappings
+    - Protection intents
+    - Replication infrastructure
+      - Replication fabrics
+        - Replication networks
+          - Replication network mappings
+        - Replication protection containers
+          - Replication protected items
+        - Replication storage classifications
+          - Replication storage classification mappings
+        - Replication vCenters
+      - Replication recovery plans
+- Azure Sphere
+  - Catalogs
+    - Images
+    - Products
+      - Device Groups
+        - Deployments
+        - Devices
+- Azure Spring Cloud
+  - API portals
+    - Domains
+  - APMs
+  - App
+    - Connected environments
+      - Certificates
+      - Dapr components
+      - Storages
+    - Container apps
+      - Auth configs
+    - Jobs
+    - Managed environments
+      - Certificates
+      - Dapr components
+      - Managed certificates
+  - Application accelerators
+    - Customized accelerators
+  - Application live views
+  - Apps
+    - Bindings
+    - Deployments
+    - Domains
+  - Build services
+    - Agent pools
+    - Builders
+      - Buildpack bindings
+    - Builds
+  - Certificates
+  - Config servers
+    - Default
+  - Configuration services
+  - Container registries
+  - Dev tool portals
+  - Eureka servers
+    - Default
+  - Gateways
+    - Domains
+    - Route configs
+  - Monitoring settings
+    - Default
+  - Storages
+- Azure SQL
+  - Backup and restore
+    - Geo-backup policies
+    - Long-term backup retention policies
+  - Elastic pools
+  - High availability
+    - Failover groups
+  - Maintenance
+    - Maintenance windows
+  - Managed Instances
+    - Databases
+      - Backup long-term retention policies
+      - Ledger digest uploads
+    - DNS aliases
+    - Dtc
+    - Encryption protector
+    - Keys
+    - Private endpoint connections
+    - Restorable dropped databases
+      - Backup short-term retention policies
+    - Security alert policies
+    - Server configuration options
+    - Vulnerability assessments
+  - Overview \
+  - Security
+    - Advanced Threat Protection \
+    - Auditing \
+    - Data masking policies
+      - Rules
+    - Encryption protector
+    - Firewall rules
+      - IPv6 firewall rules
+    - Ledger digest uploads
+    - TDE and encryption keys \
+    - Virtual network rules \
+    - Vulnerability assessment \
+    - Vulnerability assessment
+      - Baselines \
+      - Baselines
+        - Rules \
+    - Vulnerability assessments
+      - Baselines
+  - Servers
+    - Administrators
+    - Advanced threat protection settings
+    - Advisors
+    - Auditing settings
+    - Automatic tuning
+      - Current
+    - Azure AD-only authentications
+    - Connection policies
+    - Databases
+      - Advanced threat protection settings
+      - Advisors
+        - Recommended Actions
+      - Auditing Settings
+      - Automatic tuning
+        - Current
+      - Backup Short Term Retention Policies
+      - Current sensitivity labels
+      - Extended Auditing Settings
+      - Extensions
+      - Recommended sensitivity labels
+      - Restore points
+      - Security alert policies
+      - SQL vulnerability assessments
+        - Baselines
+          - Rules
+    - Extended Auditing Settings
+    - Private endpoint connections
+  - SQL Server Agent
+    - Job agents
+      - Credentials
+      - Jobs
+        - Steps
+      - Target groups
+  - Sync groups \
+  - Sync groups
+    - Sync members \
+  - Workload groups \
+- Azure SQL Managed Instance
+  - Automation
+    - Start/stop schedules \
+  - Backup and restore
+    - Short-term backup retention policies
+  - Database migrations
+  - Databases
+  - High availability
+    - Distributed availability groups
+  - Instance pools
+  - Security
+    - Administrators
+    - Advanced threat protection settings
+    - Azure AD-only authentications
+    - Security alert policies
+    - Server certificates \
+    - Transparent data encryption
+    - Vulnerability assessments
+      - Rules
+        - Baselines
+  - SQL Agent \
+- Azure SQL migration services
+- Azure SQL servers
+  - Database migrations
+- Azure SQL virtual machines
+  - Database migrations
+- Azure SQL VM
+  - High availability
+    - Availability group listeners \
+  - Overview \
+- Azure Stack
+  - Customer subscriptions
+  - Registrations
+- Azure Stack HCI
+  - Disk pools
+    - iSCSI targets
+  - Gallery images
+  - Logical networks
+  - Marketplace gallery images
+  - Network interfaces
+  - Storage containers
+  - Virtual hard disks
+- Azure Storage
+  - Blob storage \
+  - Blob storage
+    - Immutability policies \
+  - Encryption \
+  - File storage \
+  - File storage
+    - Active Directory \
+    - Shares \
+  - Inventory \
+  - Management policies \
+  - Object replication \
+  - Overview \
+  - Private endpoints \
+  - Queue storage \
+  - Queue storage
+    - Queues \
+  - Storage accounts
+    - Table services
+      - Tables
+  - Table storage
+- Azure StorSimple
+  - Devices
+    - Alert settings
+    - Backup policies
+      - Schedules
+    - Backup schedule groups
+    - Bandwidth settings
+    - CHAP settings
+    - Extended information
+      - Vault extended info
+    - File servers
+      - Shares
+    - iSCSI servers
+      - Disks
+    - Network settings
+    - Security settings
+    - Storage account credentials
+    - Storage domains
+    - Time settings
+    - Volume containers
+      - Volumes
+  - Managers
+    - Access control records
+- Azure Stream Analytics
+  - Clusters
+    - Private endpoints
+  - Streaming jobs
+    - Functions
+    - Inputs
+    - Outputs
+    - Stream Analytics clusters
+    - Transformations
+- Azure Subscriptions
+  - Aliases
+  - Policies
+    - Default
+- Azure Support
+  - Support tickets
+    - Communications
+- Azure Virtual Machines
+  - Disk encryption sets
+  - Disks
+  - Run commands
+  - Snapshots
+- Azure Virtual Network
+  - Custom IP prefixes
+  - DSCP configurations
+- Azure VMware Solution
+  - Datastores
+  - Private clouds
+    - Add-ons
+    - Authorizations
+    - Cloud links
+    - Clusters
+      - Datastores
+      - Placement policies
+    - Global reach connections
+    - HCX Enterprise sites
+    - Script executions
+    - Workload networks
+      - Default
+        - DHCP configurations
+        - DNS services
+        - DNS zones
+        - Port mirroring profiles
+        - Public IPs
+        - Segments
+        - VM groups
+  - Resource pools
+  - vCenter Servers
+    - Inventory items
+  - Virtual machine templates
+  - Virtual networks
+  - VMware clusters
+- Bare metal infrastructure
+  - Bare metal instances
+  - Bare metal storage instances
+- Batch
+  - Batch accounts
+- Billing
+  - Billing accounts
+    - Billing profiles
+      - Instructions
+      - Invoice sections
+      - Policies
+        - Default
+    - Billing subscriptions
+    - Customers
+      - Policies
+        - Default
+    - Products
+  - Billing property
+    - Default
+- Billing benefits
+  - Reservation order aliases
+  - Savings plan order aliases
+  - Savings plan orders
+    - Savings plans
+- Blockchain
+  - Blockchain members
+    - Transaction nodes
+- Bot service
+  - Bot services
+    - Channels
+    - Connections
+    - Private endpoint connections
+- CDN
+  - CDN web application firewall policies
+- Certificate registration
+  - Certificate orders
+    - Certificates
+- Chaos
+  - Experiments
+- Cloud services
+  - Slots
+- Cognitive services
+  - Accounts
+    - Commitment plans
+    - Deployments
+    - Encryption scopes
+    - Private endpoint connections
+    - Rai blocklists
+      - Rai blocklist items
+    - Rai policies
+  - Commitment plans
+    - Account associations
+- Communication
+  - Communication services
+  - Email services
+    - Domains
+      - Sender usernames
+- Communication Services
+  - Email Services
+    - Domains
+      - Suppression Lists
+        - Suppression List Addresses
+- Compliance
+  - Audit
+    - Audit configuration
+  - Audit log search
+    - Audit configuration policies
+    - Audit log search
+  - Content search
+  - Data governance
+    - Case holds
+    - Holds
+    - Information barriers
+    - Policy configurations
+    - Retention
+      - App-specific retention
+      - Retention events
+      - Retention labels
+      - Retention rules
+    - Security filters
+  - Data lifecycle management
+    - Microsoft 365
+      - Retention policies
+        - App policies
+  - Data loss prevention
+    - DLP compliance rules
+    - Policy tips
+      - Sensitive information types
+    - Sensitive information types
+  - Device management
+    - Conditional access
+    - Device configuration
+    - Device tenant policy
+  - eDiscovery
+    - eDiscovery cases
+      - Case members
+  - Information protection
+    - Regulatory compliance
+    - Sensitivity labels
+    - Tenant allow/block list
+  - Insider risk management
+    - Security policy overrides
+  - Records management
+    - File plan
+      - File plan properties
+        - File plan property subcategories
+  - Threat management
+    - Threat policies
+      - Anti-phishing
+- Compute
+  - Availability sets
+  - Capacity reservation groups
+    - Capacity reservations
+  - Cloud services
+    - Update domains
+  - Host groups
+  - Images
+  - Proximity placement groups
+  - Restore point collections
+    - Restore points
+  - SSH public keys
+  - Virtual machine scale sets
+    - Extensions
+    - Virtual machines
+      - Extensions
+  - Virtual machines
+    - Extensions
+    - Run commands
+- Container Instances
+  - Container groups
+- Container Registry
+  - Registries
+    - Cache rules
+    - Connected registries
+    - Credential sets
+    - Export pipelines
+    - Import pipelines
+    - Pipeline runs
+    - Private endpoint connections
+    - Replications
+    - Scope maps
+    - Tokens
+    - Webhooks
+- Cost Management + Billing
+  - Cost allocation rules
+  - Views
+- Dedicated HSMs
+- Device app management
+  - Android managed app protections
+    - Apps
+    - Assignments
+    - Deployment summary
+  - Default managed app protections
+    - Apps
+    - Deployment summary
+  - Device app management tasks
+  - Enterprise code signing certificates
+  - iOS LOB app provisioning configurations
+    - Assignments
+    - Device statuses
+    - Group assignments
+    - User statuses
+  - iOS managed app protections
+    - Apps
+    - Assignments
+    - Deployment summary
+  - Managed app policies
+  - Managed app registrations
+    - Applied policies
+    - Intended policies
+    - Operations
+  - Managed eBook categories
+  - Managed eBooks
+    - Assignments
+    - Device states
+    - Install summary
+    - User state summary
+      - Device states
+  - MDM Windows information protection policies
+  - Mobile app categories
+  - Mobile app configurations
+    - Assignments
+    - Device status summary
+    - Device statuses
+    - User status summary
+    - User statuses
+  - Mobile apps
+    - Assignments
+    - Relationships
+  - Targeted managed app configurations
+    - Settings
+  - Windows Information Protection policies
+    - Assignments
+    - Exempt AppLocker files
+    - Protected AppLocker files
+- Device management
+  - Intents
+    - Categories
+      - Setting definitions
+  - Template insights
+  - Templates
+    - Categories
+      - Setting definitions
+  - Virtual endpoint
+    - Bulk actions
+    - Frontline service plans
+    - Provisioning policies
+      - Assignments
+        - Assigned users
+          - Mailbox settings
+- Directory roles
+  - Scoped members
+- Domain registration
+  - Domains
+    - Domain ownership identifiers
+- Domains
+  - Service configuration records
+  - Verification DNS records
+- Dynamics 365 Fraud Protection
+  - Instances
+- Dynatrace
+  - Monitors
+  - Single sign-on configurations
+  - Tag rules
+- Edge
+  - Internet Explorer mode
+    - Site lists
+      - Shared cookies
+- Exchange
+  - Compliance management
+    - Auditing
+      - Mailbox audit logging
+    - Data loss prevention
+      - Encryption
+    - In-place eDiscovery & hold
+    - Insider risk management
+      - User risk policies
+    - Journal rules
+    - Retention policies
+  - Hybrid
+    - Setup
+  - Information Rights Management
+  - Mail flow
+    - Accepted domains
+    - Connectors
+      - Blocked connectors
+      - Inbound connectors
+    - Message delivery
+      - Delivery management
+      - Email message policies
+      - Outlook on the web
+      - Transport rules
+    - Message trace
+    - Notifications
+    - Remote domains
+    - Resources
+    - Rules
+      - Application access
+      - Client access rules
+      - Events from email
+      - Inbox rules
+      - Message classifications
+      - Policy tips
+      - Sweep rules
+  - Mobile
+    - Mobile device access rules
+    - Mobile device mailbox policies
+    - Mobile devices
+  - Organization
+    - Add-ins
+    - Address book policies
+    - Federation
+    - General
+    - Hybrid
+      - Exchange on-premises organization configuration
+    - Organization overview
+      - Activity alerts
+    - Sharing
+    - Teams
+      - Teams policies
+        - Teams protection policies
+          - Rules
+  - Organization configuration
+    - Offline address books
+  - Permissions
+    - Custom app scopes
+    - Roles
+    - User roles
+      - Compliance management
+  - Protection
+    - Anti-phishing
+    - Anti-spam policies
+    - Authentication policies
+    - Connection filter
+    - DKIM
+    - Malware filter
+      - Malware filter policies
+      - Safe attachments
+      - Safe links
+    - Office 365 message encryption
+    - Outbound spam filter
+    - Outlook protection rules
+    - Quarantine
+    - S/MIME
+    - Spam filter
+      - Anti-spam policies
+      - Blocked senders
+      - Hosted content filter
+      - Outbound spam filter
+  - Public folders
+    - Permissions
+  - Recipients
+    - Address lists
+    - Contacts
+    - Email address policies
+    - Groups
+      - [Group Name]
+        - Members
+        - Message approval
+          - Accepted senders
+          - Rejected senders
+      - Dynamic distribution groups
+      - Office 365 groups
+    - Mail users
+    - Mailboxes
+      - Automatic replies
+      - Calendar
+      - Calendar processing
+      - Mailbox features
+      - Mailbox folders
+      - Mailbox permissions
+      - Mailbox settings
+        - Calendar
+      - Permissions
+      - Regional settings
+      - Restore requests
+    - Migration
+      - Migration endpoints
+      - Migration users
+    - Permissions
+    - Public folders
+      - Public folder mailboxes
+    - Resources
+  - Roles
+    - Resource namespaces
+      - Resource actions
+        - Resource scope
+    - Role assignments
+      - App scope
+    - Role definitions
+    - Transitive role assignments
+      - App scope
+  - Sharing
+  - Unified messaging
+    - Text messaging
+- ExpressRoute
+  - Authorizations
+  - Connections
+  - Cross connections
+    - Peerings
+  - Gateways
+    - Connections
+  - Peerings
+  - Ports
+- Fluid Relay
+  - Fluid relay servers
 - Groups
+  - App role assignments
+  - Endpoints
+  - Extensions
   - Group Lifecycle Policies
+  - Permission grants
+  - Photo
+  - Settings
+- HDInsight
+  - Clusters
+    - Applications
+    - Extensions
+      - Azure Monitor
+      - Cluster monitoring
+    - Private endpoint connections
+- Health Bot Service
+  - Health bots
+- Hybrid
+  - Federation
+  - Hybrid configuration
+  - Migration
+  - PSTN
+- Identity
+  - ApiConnectors
+  - AuthenticationEventListeners
+  - B2C user flows
+    - Identity providers
+    - Languages
+      - Default pages
+      - Overrides pages
+  - B2cUserFlows
+    - Languages
+    - UserAttributeAssignments
+  - B2x user flows
+    - Languages
+      - Default pages
+      - Overrides pages
+    - User flow identity providers
+  - B2xUserFlows
+    - Languages
+    - UserAttributeAssignments
+  - Conditional access
+  - ConditionalAccess
+    - AuthenticationContextClassReferences
+    - AuthenticationStrength
+      - AuthenticationMethodModes
+      - Policies
+        - CombinationConfigurations
+    - NamedLocations
+    - Policies
+  - ContinuousAccessEvaluationPolicy
+  - CustomAuthenticationExtensions
+  - Identity providers
+  - UserFlowAttributes
+  - UserFlows
+- IdentityGovernance
+  - EntitlementManagement
+    - Settings
+  - LifecycleWorkflows
+    - Settings
+  - TermsOfUse
+    - Agreements
+      - File
+        - Localizations
+          - Versions
+      - Files
+        - Versions
+- Intune
+  - App protection policies
+    - Apps
+    - Assignments
+    - Deployment summary
+  - Apple volume purchase program tokens
+  - Apps
+    - Android for Work
+      - Assignments
+      - Relationships
+    - Android LOB
+      - Assignments
+      - Content Versions
+        - Contained Apps
+        - Files
+      - Relationships
+    - Android Managed Store
+      - Assignments
+      - Relationships
+    - Android Store
+      - Assignments
+      - Relationships
+    - iOS LOB
+      - Assignments
+      - Content Versions
+        - Contained Apps
+        - Files
+      - Relationships
+    - iOS Store
+      - Assignments
+      - Relationships
+    - iOS VPP
+      - Assigned Licenses
+      - Assignments
+      - Relationships
+    - macOS DMG
+      - Assignments
+      - Content Versions
+        - Contained Apps
+        - Files
+      - Relationships
+    - macOS LOB
+      - Assignments
+      - Content Versions
+        - Contained Apps
+        - Files
+      - Relationships
+    - macOS PKG
+      - Assignments
+      - Content Versions
+        - Contained Apps
+        - Files
+      - Relationships
+    - Managed Android LOB
+      - Assignments
+      - Content Versions
+        - Contained Apps
+        - Files
+      - Relationships
+    - Managed iOS LOB
+      - Assignments
+      - Content Versions
+    - Mobile app management
+  - Cloud PC
+    - Role assignments
+      - App scopes
+    - Role definitions
+  - Device compliance
+    - Terms and conditions
+      - Acceptance statuses
+      - Assignments
+      - Group assignments
+  - Device configuration
+    - Templates
+      - Categories
+        - Recommended settings
+      - Settings
+      - Template settings
+        - Setting definitions
+    - User PFX certificates
+  - Device enrollment
+    - Assignments
+    - Device management partners
+    - Domain join connectors
+    - Exchange connectors
+    - Intune branding profiles
+      - Assignments
+  - Device management
+    - Group policy configurations
+      - Definition values
+        - Presentation values
+    - Monitoring
+    - Reports
+    - Tenant attach RBAC
+    - Virtual endpoint
+      - Gallery images
+      - Reports
+  - Device tunnel
+    - Health thresholds
+    - Server log collection responses
+    - Sites
+      - Configuration
+      - Servers
+  - Devices
+    - Advanced threat protection
+      - Onboarding state summary
+        - Onboarding device setting states
+    - Android device owner enrollment profiles
+    - Android for Work app configuration schemas
+    - Android for Work enrollment profiles
+    - Android for Work settings
+    - Android managed store account enterprise settings
+    - Android managed store app configuration schemas
+    - Apple push notification certificate
+    - Apple user-initiated enrollment profiles
+      - Assignments
+    - Assignment filters
+    - Audit events
+    - Autopilot events
+      - Policy status details
+    - Cart to class associations
+    - Categories
+      - Setting definitions
+    - Certificate connector details
+    - Chrome OS onboarding settings
+    - Cloud PC connectivity issues
+    - Co-management eligible devices
+    - Compliance categories
+    - Compliance management partners
+    - Compliance policies
+      - Assignments
+      - Device state summary
+      - Scheduled actions for rule
+        - Scheduled action configurations
+      - Setting state summaries
+        - Setting states
+      - Settings
+      - User status overview
+    - Compliance scripts
+      - Assignments
+      - Device run states
+      - Run summary
+    - Compliance settings
+    - Conditional access settings
+    - Config manager collections
+    - Configuration categories
+    - Configuration policies
+      - All managed device certificate states
+      - Assignments
+      - Conflict summary
+      - Device setting state summaries
+      - Device state summaries
+      - Device status overview
+      - Device statuses
+      - Group assignments
+      - Restricted apps violations
+      - Settings
+      - User state summaries
+      - User status overview
+      - User statuses
+    - Configuration policy templates
+      - Setting templates
+        - Setting definitions
+    - Configuration settings
+    - Custom attribute shell scripts
+      - Assignments
+      - Device run states
+      - Group assignments
+      - User run states
+        - Device run states
+    - Data sharing consents
+    - DEP onboarding settings
+      - Enrollment profiles
+      - Imported Apple device identities
+    - Derived credentials
+    - Detected apps
+    - Device categories
+    - Device compliance policies
+      - Assignments
+      - Device setting state summaries
+      - Device status overview
+      - Device statuses
+      - Scheduled actions for rule
+        - Scheduled action configurations
+      - User statuses
+    - Device Health
+      - Device Health scripts
+        - Assignments
+        - Device run states
+        - Group assignments
+        - Run summary
+        - User run states
+          - Device run states
+      - Device shell scripts
+        - Assignments
+        - Device run states
+        - Group assignments
+        - User run states
+          - Device run states
+    - Embedded SIM activation code pools
+      - Assignments
+      - Device states
+    - Enrollment configurations
+      - Assignments
+    - Health scripts
+      - Assignments
+      - Device run states
+    - Imported device identities
+    - Imported Windows Autopilot device identities
+    - Intents
+      - Assignments
+      - Categories
+        - Settings
+      - Device setting state summaries
+      - Device state summary
+      - Device states
+      - Settings
+      - User state summary
+      - User states
+    - iOS update statuses
+    - macOS software update account summaries
+      - Category summaries
+        - Update state summaries
+    - Managed device encryption states
+    - Microsoft Tunnel configurations
+    - Troubleshooting
+      - App log collection
+  - Exchange on-premises policies
+    - Conditional access settings
+  - Exchange on-premises policy
+    - Conditional access settings
+  - Mobile threat defense connectors
+  - Monitoring
+    - Alert records
+    - Alert rules
+  - NDES connectors
+  - Notification message templates
+    - Localized notification messages
+  - Policy sets
+    - Assignments
+    - Items
+  - Privilege management
+    - Elevations
+  - Remote actions
+    - Audits
+  - Remote assistance
+    - Partners
+    - Settings
+  - Reports
+    - Cached report configurations
+    - Export jobs
+  - Resource access profiles
+    - Assignments
+  - Resource operations
+  - Reusable policy settings
+    - Referencing configuration policies
+      - Assignments
+      - Settings
+  - Reusable settings
+  - Role assignments
+  - Role definitions
+    - Role assignments
+  - Role scope tags
+    - Assignments
+  - Role-based access control
+    - Resource namespaces
+  - ServiceNow connections
+  - Setting definitions
+  - Symantec code signing certificate
+  - Telecom expense management partners
+  - Troubleshooting
+    - Events
+    - Mobile app events
+      - App log collection requests
+  - Virtual endpoint
+    - Provisioning policies
+      - Assignments
+    - Reports
+      - Export jobs
+    - Service plans
+    - Shared use service plans
+    - Snapshots
+    - Supported regions
+    - User settings
+      - Assignments
+  - Virtual endpoints
+    - Audit events
+    - Cloud PCs
+    - Cross-cloud government organization mapping
+    - Device images
+    - External partner settings
+    - On-premises connections
+    - Organization settings
+    - Provisioning policies
+  - Windows
+    - Group policy
+      - Categories
+      - Configurations
+        - Assignments
+        - Definition values
+      - Definition files
+      - Definitions
+        - Next version definition
+          - Presentations
+          - Previous version definition
+            - Presentations
+        - Presentations
+        - Previous version definition
+          - Next version definition
+            - Presentations
+          - Presentations
+      - Migration reports
+        - Group policy setting mappings
+        - Unsupported group policy extensions
+      - Object files
+      - Uploaded definition files
+        - Group policy operations
+  - Windows app protection policies
+    - Apps
+    - Assignments
+  - Windows Autopilot
+    - Deployment profiles
+      - Assigned devices
+      - Assignments
+    - Device identities
+    - Settings
+  - Windows Defender Application Control supplemental policies
+    - Assignments
+    - Deployment summary
+    - Device statuses
+  - Windows driver update profiles
+    - Assignments
+    - Driver inventories
+  - Windows feature update profiles
+    - Assignments
+  - Windows information protection
+    - App learning summaries
+    - Network learning summaries
+  - Windows Information Protection device registrations
+  - Windows Information Protection policies
+  - Windows Information Protection wipe actions
+  - Windows malware information
+    - Device malware states
+  - Windows quality update profiles
+    - Assignments
+  - Windows update catalog items
+- IoT Central
+  - Applications
+    - Private endpoint connections
+- IoT Hub
+  - Endpoints
+    - Event Hub
+      - Consumer groups
+  - IoT hubs
+  - Private endpoint connections
+  - Security
+    - Certificates
+- Key Vault
+  - Keys
+  - Managed HSMs
+    - Keys
+    - Private endpoint connections
+  - Secrets
+  - Vaults
+    - Private endpoint connections
+- Lab Services
+  - Lab plans
+    - Images
+  - Labs
+    - Schedules
+- Log Analytics
+  - Clusters
+  - Query packs
+    - Queries
+  - Workspaces
+    - Data exports
+    - Data sources
+    - Linked services
+    - Linked storage accounts
+    - Saved searches
+    - Storage insight configs
+    - Tables
 - M365 Admin Center
   - Settings
     - Org Settings
       - Briefing Email from Microsoft Viva
       - Microsoft Viva Insights (formerly MyAnalytics)
+- Machine Learning
+  - Registries
+    - Codes
+    - Components
+  - Workspaces
+    - Schedules
+- Machine Learning Services
+  - Capacity reservation groups
+  - Workspaces
+    - Inference pools
+      - Endpoints
+      - Groups
+    - Serverless endpoints
+- Maintenance
+  - Maintenance configurations
+- Management groups
+  - Default settings
+- Maps
+  - Accounts
+- Marketplace
+  - Private stores
+    - Admin request approvals
+    - Collections
+    - Request approvals
+- Microsoft
+- MyAnalytics
+- New Relic
+  - Monitors
+    - Tag rules
+- NGINX
+  - Certificates
+  - Configurations
+  - Deployments
+- Open Energy
+  - Energy services
+- Orbital
+  - Contact profiles
+  - Spacecrafts
+    - Contacts
+- Outlook
+  - Calendar groups
+  - Calendar permissions
+  - Calendars
+  - Categories
+  - Focused Inbox
+  - Notifications
+  - People
+  - Settings
+    - Item insights
+    - People
+    - Regional and language
+  - Task attachments
+  - Task folder
+  - Task folders
+  - Task groups
+  - Tasks
+- Palo Alto Networks
+  - Firewalls
+  - Global rule stacks
+    - Certificates
+    - FQDN lists
+    - Prefix lists
+  - Local rule stacks
+    - Certificates
+    - FQDN lists
+    - Prefix lists
+- Peering
+  - Peer ASNs
+  - Peering services
+    - Connection monitor tests
+    - Prefixes
+  - Peerings
+    - Registered ASNs
+    - Registered prefixes
+- Permissions
+  - Management scopes
+  - Roles
+- Policies
+  - AccessReviewPolicy
+  - ActivityBasedTimeoutPolicies
+  - AdminConsentRequestPolicy
+  - AppManagementPolicies
+  - AuthenticationMethodsPolicy
+  - AuthenticationStrengthPolicies
+    - CombinationConfigurations
+  - AuthorizationPolicy
+    - DefaultUserRoleOverrides
+  - B2cAuthenticationMethodsPolicy
+  - ClaimsMappingPolicies
+  - ConditionalAccessPolicies
+  - CrossTenantAccessPolicy
+    - Default
+    - Partners
+      - IdentitySynchronization
+  - DefaultAppManagementPolicy
+  - DirectoryRoleAccessReviewPolicy
+  - ExternalIdentitiesPolicy
+  - HomeRealmDiscoveryPolicies
+  - IdentitySecurityDefaultsEnforcementPolicy
+  - PermissionGrantPolicies
+    - Excludes
+    - Includes
+  - RoleManagementPolicies
+    - EffectiveRules
+    - Rules
+  - RoleManagementPolicyAssignments
+  - ServicePrincipalCreationPolicies
+    - Excludes
+    - Includes
+  - TokenIssuancePolicies
+  - TokenLifetimePolicies
+- Policy
+  - Attestations
+  - Remediations
+- Portal
+  - Consoles
+  - User settings
+- Red Hat OpenShift
+  - Clusters
+    - Machine pools
+    - Secrets
+    - Sync identity providers
+    - Sync sets
+- Reports
+  - Report settings
+- Role management
+  - Cloud PC
+  - Device management
+  - Directory
+    - Role assignment approvals
+      - Steps
+  - Entitlement management
+    - Role assignment approvals
+      - Steps
+  - Exchange
+- RoleManagement
+  - CloudPC
+    - ResourceNamespaces
+      - ResourceActions
+        - ResourceScope
+    - RoleAssignments
+- SAP HANA on Azure
+  - SAP monitors
+    - Provider instances
+- Security & Compliance Center
+  - Data management
+    - Private link services
+      - Private link services for EDM upload
+        - Private endpoint connections
+      - Private link services for Microsoft 365 compliance center
+        - Private endpoint connections
+      - Private link services for Microsoft 365 security center
+        - Private endpoint connections
+      - Private link services for MIP policy sync
+        - Private endpoint connections
+      - Private link services for Office 365 Management Activity API
+        - Private endpoint connections
+      - Private link services for SCC PowerShell
+      - SCC PowerShell
+        - Private endpoint connections
+- Security
+  - Alerts
+  - Anti-spam
+  - Audit log search
+    - Audit log configuration
+    - Record review
+    - Retention policies
+    - Supervision
+  - Conditional access
+    - Policies
+  - Data classification
+  - Data loss prevention
+    - Policy
+  - eDiscovery
+  - Threat management
+    - Policy
+- Security Center
+  - Auto provisioning
+  - Automations
+  - Connectors
+    - Security connectors
+  - Contacts
+    - Security contacts
+  - Data protection
+    - Sensitivity labels
+  - IoT Security
+    - IoT Security solutions
+  - Policy & compliance
+    - Settings
+  - Pricing & settings
+    - Pricing
+  - Security policy
+    - Regulatory compliance
+      - Custom assessments
+      - Custom entity stores
+  - Security solutions
+    - Applications
+    - DevOps Kit
+      - Azure DevOps connectors
+        - Organizations
+          - Projects
+            - Repositories
+      - GitHub connectors
+        - Owners
+          - Repositories
+    - Security connectors
+      - Applications
+  - Settings
+    - Workspace settings
+  - Vulnerability management
+    - Server assessments
+- Sentinel
+  - Analytics
+    - Alert rules
+      - Actions
+    - Automation rules
+    - Bookmarks
+- Service Fabric
+  - Application types
+  - Applications
+  - Services
+- Service principals
+  - Claims mapping policies
+  - Delegated permission classifications
+  - Federated identity credentials
+  - Home realm discovery policies
+  - License details
+  - Synchronization
+    - Jobs
+      - Schema
+        - Directories
+    - Templates
+      - Schema
+        - Directories
+- Settings
+- SharePoint
+  - Settings
+  - Term store
+    - Groups
+      - Sets
 - SharePoint Admin Center
   - Settings and Policies
   - Sites
+- Shifts
+  - Preferences
+- Static Web Apps
+  - Authentication / Authorization
+    - Basic authentication
+  - Builds
+    - Database connections
+    - Linked backends
+  - Custom domains
+  - Database connections
+  - Linked backends
+  - Private endpoint connections
+  - User-provided function apps
+- Support
+  - File workspaces
+    - Files
+  - Support tickets
+    - Communications
+- Synapse
+  - PrivateLinkHubs
+  - Workspace
+    - AuditingSettings
+    - ExtendedAuditingSettings
+    - KustoPools
+      - AttachedDatabaseConfigurations
+      - Databases
+        - DataConnections
+        - PrincipalAssignments
+      - PrincipalAssignments
+    - PrivateEndpointConnections
+    - SecurityAlertPolicies
+    - SqlPools
+      - AuditingSettings
+      - CurrentSensitivityLabels
+      - DataMaskingPolicies
+        - Rules
+      - ExtendedAuditingSettings
+      - GeoBackupPolicies
+      - Maintenancewindows
+        - Current
+      - MetadataSync
+        - Config
+      - RecommendedSensitivityLabels
+      - RestorePoints
+      - SecurityAlertPolicies
+      - TransparentDataEncryption
+      - VulnerabilityAssessments
+        - Rules
+          - Baselines
+      - WorkloadGroups
+        - WorkloadClassifiers
+- Synapse workspace
+  - Administrators
+    - Active Directory
+  - Azure AD only authentication
+  - Big data pools
+  - Dedicated SQL minimal TLS settings
+  - Encryption protector
+  - Firewall rules
+  - Integration runtimes
+    - Nodes
+  - Keys
+  - Kusto pools
+    - Databases
+  - Managed identity SQL control settings
+    - Default
+  - SQL administrators
+    - Active Directory
+  - Vulnerability assessments
+- Syntex
+  - Document processors
+- Teams
+  - Apps
+  - Education
+  - Emergency calling
+    - Civic addresses
+    - Subnets
+  - External access
+  - Hybrid
+    - Hybrid configuration
+  - Meetings
+    - Broadcast settings
+    - Meeting policies
+      - Compliance recording
+      - Events policies
+      - Guest access
+      - Meeting template permission policies
+      - Scheduling policies
+  - Messaging policies
+  - Network
+    - Network sites
+    - Network subnets
+  - Presence
+  - Security
+    - Trusted IPs
+  - Shifts
+    - Settings
+      - Shifts connections
+  - Teams
+  - Teams and channels
+  - Teams app setup policies
+  - Teams apps
+    - App installations
+    - App permission policies
+    - Permission policies
+  - Teams policies
+    - Batch policy assignment operations
+    - Channels
+    - Client
+    - Cortana
+    - Feedback policies
+    - Guest messaging
+    - Meeting broadcast
+    - Mobility
+    - Shifts
+    - Translation
+    - Update time window
+  - Upgrade
+  - Voice
+    - ACS
+    - Call hold
+    - Calling
+    - Calling policies
+      - User calling settings
+    - Dial plans
+    - Hybrid voice
+      - Hybrid PSTN sites
+    - IP phone
+    - Network configuration
+      - Network regions
+      - Network roaming
+    - Phone numbers
+      - Audio conferencing
+      - Audio files
+      - Blocked numbers
+      - Dial-in conferencing bridges
+      - Dial-in conferencing service numbers
+      - Dial-in conferencing users
+      - Location information server (LIS)
+      - Location information server (LIS) switches
+      - Number porting
+      - PSTN usage
+      - Public switched telephone network (PSTN) providers
+      - Unassigned number treatment
+      - User PSTN settings
+      - Voice routes
+      - Voicemail
+    - Voice applications
+    - Voice routing
+    - Voicemail
+- Teams admin center
+  - Analytics & reports
+    - Meeting attendance report
+      - Attendance records
+    - Meeting transcripts
+  - Meetings
+    - Meeting policies
+      - Virtual appointments policies
+    - Meeting registration
+      - Custom questions
+  - Teams apps
+    - Manage apps
+  - Voice
+    - Calling policies
+      - Shared calling routing policies
+    - SBCs & gateways
+      - SIP devices configuration
+- Test Base
+  - Test Base accounts
+    - Customer events
+    - Packages
+      - Favorite processes
+- Time Series Insights
+  - Environments
+    - Access policies
+    - Event sources
+    - Private endpoint connections
+    - Reference data sets
+- To Do
+  - Lists
+  - Task attachment sessions
+  - Task attachments
+  - Task checklist items
+  - Task linked resources
+  - Tasks
+- To-Do admin center
+  - Lists
+    - List extensions
+    - List tasks
+      - Task extensions
+- TODO: Enter description
+- Trust framework
+  - Policies
+- Users
+  - Active users
+  - Analytics
+    - Activity statistics
+  - App consent requests for approval
+    - User consent requests
+      - Approval
+        - Steps
+  - App role assignments
+  - Approvals
+    - Steps
+  - Authentication
+    - Methods
+    - Operations
+  - Contacts
+    - Extensions
+    - Photo
+  - Devices
+    - Commands
+    - Extensions
+    - Registered owners
+    - Registered users
+    - Usage rights
+  - Employee Experience
+  - Extensions
+  - Inference classification
+  - Information protection
+    - Data loss prevention policies
+    - Policy
+      - Labels
+    - Sensitivity labels
+      - Sublabels
+    - Threat assessment requests
+      - Results
+  - Insights
+    - Shared
+    - Trending
+    - Used
+  - Mailbox Settings
+  - Online meetings
+    - Attendance reports
+      - Attendance records
+    - Recordings
+    - Registration
+      - Registrants
+  - Permission Grants
+- Video Indexer
+  - Accounts
+- Visual Studio
+  - Account
+    - Extension
+    - Project
+- Viva Connections
+- Viva Insights
+- VMware CloudSimple
+  - Dedicated cloud nodes
+  - Dedicated cloud services
+  - Virtual machines
+- Voice
+  - Auto attendants
+  - Call park
+  - Call queues
+  - Calling policies
+  - Cloud Connector Edition
+  - Dial-in conferencing
+  - Emergency calling
+  - IP phone
+  - Location-based routing
+  - Phone numbers
+    - PSTN gateways
+  - Video interoperability
+  - Voice routing
+- Web Apps
+  - Configuration
+    - Authentication / Authorization
+  - Deployment slots
+    - Basic publishing credentials policies
+      - FTP
+      - SCM
+    - Configuration
+      - Authentication / Authorization
+    - Private endpoint connections
+- Web PubSub Service
+  - Web PubSub
+    - Private endpoint connections
+- Windows 10 Enterprise
+  - Windows ESU
+    - Multiple activation keys
+- Windows 10 IoT
+  - Device services
+- Windows Virtual Desktop
+  - Application groups
+    - Applications
+    - Desktops
+  - Host pools
+    - MSIX packages
+    - Private endpoint connections
+    - Session hosts
+  - Scaling plans
+    - Pooled schedules
+  - Workspaces
+    - Private endpoint connections
 
