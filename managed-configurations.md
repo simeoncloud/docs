@@ -31,6 +31,8 @@
   - Group settings
   - Groups
     - Expiration
+  - Identity Governance
+    - Connected Organizations
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset
@@ -90,11 +92,8 @@
   - Password expiration policy
   - Settings
     - Org Settings
-      - Security & Privacy
-        - Idle Session Timeout
-      - Services
-        - Briefing Email from Microsoft Viva
-        - Microsoft Viva Insights (formerly MyAnalitics)
+      - Briefing Email from Microsoft Viva
+      - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
     - AddressBookPolicy
