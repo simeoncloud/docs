@@ -53,6 +53,8 @@
       - Users at risk detected alerts
   - User settings
   - Users
+    - User Settings
+      - External Users
 - Intune
   - Apps
     - App configuration policies
