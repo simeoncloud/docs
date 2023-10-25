@@ -203,11 +203,6 @@
       - Private Endpoint Connections
   - NAT gateways
   - Network
-    - Connectivity
-      - Network integrations
-        - Vendors
-          - Vendor SKUs
-            - Preview subscriptions
     - Route filters
       - Route filter rules
     - Security partner providers
@@ -581,7 +576,6 @@
 - Azure Arc
   - Azure SQL Managed Instance
     - Virtual clusters \
-  - Devices
   - Network functions
 - Azure Arc enabled data controllers
   - Active Directory connectors
@@ -984,6 +978,8 @@
   - Storage
     - Storage pools
       - Volumes
+- Azure Large Instances
+- Azure Large Storage Instances
 - Azure Machine Learning
   - Datasets
   - Environments
@@ -2043,6 +2039,19 @@
   - Hybrid configuration
   - Migration
   - PSTN
+- Hybrid Network
+  - Configuration Group Values
+  - Publishers
+    - Artifact Stores
+      - Artifact Manifests
+      - Artifact Versions
+    - Configuration Group Schemas
+    - Network Function Definition Groups
+      - Network Function Definition Versions
+    - Network Service Design Groups
+      - Network Service Design Versions
+  - Site Network Services
+  - Sites
 - Identity
   - ApiConnectors
   - AuthenticationEventListeners
@@ -2088,6 +2097,11 @@
           - Versions
       - Files
         - Versions
+- Integration Spaces
+  - Applications
+    - Business Processes
+    - Resources
+  - Infrastructure Resources
 - Intune
   - App protection policies
     - Apps

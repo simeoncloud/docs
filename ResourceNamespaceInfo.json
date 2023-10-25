@@ -656,30 +656,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:HybridNetwork:Vendors",
-    "description": "Azure > Network > Connectivity > Network integrations > Vendors",
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:HybridNetwork:Vendors:VendorSkus",
-    "description": "Azure > Network > Connectivity > Network integrations > Vendors > Vendor SKUs",
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:HybridNetwork:Vendors:VendorSkus:PreviewSubscriptions",
-    "description": "Azure > Network > Connectivity > Network integrations > Vendors > Vendor SKUs > Preview subscriptions",
-    "url": null,
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Insights:Logprofiles",
     "description": "Azure Monitor > Logs > Log profiles",
     "url": null,
@@ -2534,6 +2510,22 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureLargeInstance:AzureLargeInstances",
+    "description": "Azure Large Instances",
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzureLargeInstance:AzureLargeStorageInstances",
+    "description": "Azure Large Storage Instances",
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:AzurePlaywrightService:Accounts",
@@ -5792,8 +5784,8 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Devices",
-    "description": "Azure Arc > Devices",
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:ConfigurationGroupValues",
+    "description": "Hybrid Network > Configuration Group Values",
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -5802,6 +5794,94 @@
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:NetworkFunctions",
     "description": "Azure Arc > Network functions",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers",
+    "description": "Hybrid Network > Publishers",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:ArtifactStores",
+    "description": "Hybrid Network > Publishers > Artifact Stores",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:ArtifactStores:ArtifactManifests",
+    "description": "Hybrid Network > Publishers > Artifact Stores > Artifact Manifests",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:ArtifactStores:ArtifactVersions",
+    "description": "Hybrid Network > Publishers > Artifact Stores > Artifact Versions",
+    "url": null,
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:ConfigurationGroupSchemas",
+    "description": "Hybrid Network > Publishers > Configuration Group Schemas",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:NetworkFunctionDefinitionGroups",
+    "description": "Hybrid Network > Publishers > Network Function Definition Groups",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:NetworkFunctionDefinitionGroups:NetworkFunctionDefinitionVersions",
+    "description": "Hybrid Network > Publishers > Network Function Definition Groups > Network Function Definition Versions",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:NetworkServiceDesignGroups",
+    "description": "Hybrid Network > Publishers > Network Service Design Groups",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Publishers:NetworkServiceDesignGroups:NetworkServiceDesignVersions",
+    "description": "Hybrid Network > Publishers > Network Service Design Groups > Network Service Design Versions",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:SiteNetworkServices",
+    "description": "Hybrid Network > Site Network Services",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:HybridNetwork:Sites",
+    "description": "Hybrid Network > Sites",
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -6010,6 +6090,46 @@
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Insights:Workbooktemplates",
     "description": "Azure Monitor > Workbooks > Workbook templates",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:IntegrationSpaces:Spaces",
+    "description": "Integration Spaces",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:IntegrationSpaces:Spaces:Applications",
+    "description": "Integration Spaces > Applications",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:IntegrationSpaces:Spaces:Applications:BusinessProcesses",
+    "description": "Integration Spaces > Applications > Business Processes",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:IntegrationSpaces:Spaces:Applications:Resources",
+    "description": "Integration Spaces > Applications > Resources",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:IntegrationSpaces:Spaces:InfrastructureResources",
+    "description": "Integration Spaces > Infrastructure Resources",
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -17154,7 +17274,7 @@
   {
     "namespace": "MSGraph:Identity:CustomAuthenticationExtensions",
     "description": "Identity > CustomAuthenticationExtensions",
-    "url": "https://learn.microsoft.com/graph/api/customauthenticationextension-get?view=graph-rest-1.0",
+    "url": "https://learn.microsoft.com/graph/api/authenticationeventlistener-get?view=graph-rest-1.0",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -17202,7 +17322,7 @@
   {
     "namespace": "MSGraph:IdentityGovernance:TermsOfUse:Agreements",
     "description": "IdentityGovernance > TermsOfUse > Agreements",
-    "url": "https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0",
+    "url": "https://learn.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -19098,7 +19218,7 @@
   {
     "namespace": "MSGraph:Users:OnlineMeetings:Registration",
     "description": "Teams admin center > Meetings > Meeting registration",
-    "url": "https://learn.microsoft.com/graph/api/meetingregistration-get?view=graph-rest-1.0",
+    "url": "https://learn.microsoft.com/graph/api/externalmeetingregistration-get?view=graph-rest-1.0",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -19250,7 +19370,7 @@
   {
     "namespace": "MSGraph:Users:Presence",
     "description": "Teams > Presence",
-    "url": "https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-1.0",
+    "url": "https://learn.microsoft.com/graph/api/presence-setstatusmessage?view=graph-rest-1.0",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
