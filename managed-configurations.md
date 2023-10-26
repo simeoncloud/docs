@@ -53,6 +53,8 @@
       - Users at risk detected alerts
   - User settings
   - Users
+    - User Settings
+      - External Users
 - Intune
   - Apps
     - App configuration policies
@@ -90,8 +92,11 @@
   - Password expiration policy
   - Settings
     - Org Settings
-      - Briefing Email from Microsoft Viva
-      - Microsoft Viva Insights (formerly MyAnalitics)
+      - Security & Privacy
+        - Idle Session Timeout
+      - Services
+        - Briefing Email from Microsoft Viva
+        - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
     - AddressBookPolicy
