@@ -11,6 +11,7 @@
   - Authorization policies
   - Conditional Access
     - Terms of use
+  - Custom Security Attributes
   - Device settings
   - Devices
     - Enterprise State Roaming
@@ -53,8 +54,6 @@
       - Users at risk detected alerts
   - User settings
   - Users
-    - User Settings
-      - External Users
 - Intune
   - Apps
     - App configuration policies
@@ -92,11 +91,8 @@
   - Password expiration policy
   - Settings
     - Org Settings
-      - Security & Privacy
-        - Idle Session Timeout
-      - Services
-        - Briefing Email from Microsoft Viva
-        - Microsoft Viva Insights (formerly MyAnalitics)
+      - Briefing Email from Microsoft Viva
+      - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
     - AddressBookPolicy
