@@ -89,6 +89,7 @@
     - Roles
       - Scope Tags
 - M365 Admin Center
+  - Domains
   - Password expiration policy
   - Settings
     - Org Settings
