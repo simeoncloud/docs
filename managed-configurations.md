@@ -34,7 +34,6 @@
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset
-    - On-Premises integration
   - Roles and Administrators
   - Security
     - Authentication methods
