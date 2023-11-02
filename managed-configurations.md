@@ -34,6 +34,7 @@
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset
+    - On-Premises integration
   - Roles and Administrators
   - Security
     - Authentication methods
@@ -89,6 +90,7 @@
     - Roles
       - Scope Tags
 - M365 Admin Center
+  - Domains
   - Password expiration policy
   - Settings
     - Org Settings
