@@ -178,10 +178,8 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Change which users receive the daily Summary Email
 
-* Navigate to [DevOps](https://dev.azure.com/)
-  * **Tenants** > **Pipelines** > select the **SummaryEmail** pipeline > click **Edit** in the top right > click **Variables** in the top right.
-  * To add or change users: Edit **SendSummaryEmailToAddresses** > enter the desired emails separated by a semicolon ';' (no spaces between the email addresses).
-  * To exclude users: Edit **ExcludeUsersFromSummaryEmail** > enter the desired emails separated by a semicolon ';' (no spaces between the email addresses).
+* From the [Simeon portal](https://app.simeoncloud.com/)
+  * **User Icon** > **Settings** > select the setting **SendSummaryEmailToAddresses** > Enter the desired emails separated by a semicolon ';' (no spaces between the email addresses)
 
 ## Change user used for delegated authentication
 
