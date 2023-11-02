@@ -392,12 +392,28 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Directory:OnPremisesSynchronization",
+    "description": "Azure AD > Password reset > On-Premises integration",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/~/OnPremisesIntegration/fromNav/",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:DirectoryRoles",
     "description": "Azure AD > Roles and Administrators",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Domains",
+    "description": "M365 Admin Center > Domains",
+    "url": "https://admin.microsoft.com/#/Domains",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:GroupLifecyclePolicies",
@@ -443,6 +459,14 @@
     "namespace": "MSGraph:PasswordExpirationPolicies",
     "description": "M365 Admin Center > Password expiration policy",
     "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/SecurityPrivacy/:/Settings/L1/PasswordPolicy",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationFlowsPolicy",
+    "description": "Azure AD > Users > User Settings > External Users",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
