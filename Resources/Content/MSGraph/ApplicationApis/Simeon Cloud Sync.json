@@ -28,7 +28,9 @@
     "api://simeoncloud/${ResourceContext:TenantId}"
   ],
   "publicClient": {
-    "redirectUris": []
+    "redirectUris": [
+      "https://app.simeoncloud.com"
+    ]
   },
   "requiredResourceAccess": [
     {
