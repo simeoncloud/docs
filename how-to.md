@@ -179,7 +179,7 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 ## Change which users receive the daily Summary Email
 
 * From the [Simeon portal](https://app.simeoncloud.com/)
-  * **User Icon** > **Settings** > select the setting **SendSummaryEmailToAddresses** > Enter the desired emails separated by a semicolon ';' (no spaces between the email addresses)
+  * **User Icon** > **Settings** > select the setting **SummaryEmailToAddresses** > Enter the desired emails separated by a semicolon ';' (no spaces between the email addresses)
 
 ## Change user used for delegated authentication
 

@@ -178,14 +178,14 @@
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
-        "ExcludePipelinesFromSummaryEmail": {
+        "SummaryEmailExcludePipelines": {
             "type": "string",
             "title": "Exclude Pipelines from Summary Email",
             "description": "Pipelines that will be excluded from the summary email.",
             "category": "Notifications",
             "isAdvanced": true
         },
-        "ExcludeUsersFromSummaryEmail": {
+        "SummaryEmailExcludeRecipients": {
             "type": "string",
             "title": "Exclude Users from Summary Email",
             "description": "Email addresses that will be excluded from the summary email. These must be semicolon delimited with no spaces.",
@@ -194,7 +194,7 @@
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
             "isAdvanced": true
         },
-        "SendSummaryEmailFromAddress": {
+        "SummaryEmailFromAddress": {
             "type": "string",
             "title": "Summary Email from Address",
             "description": "The email address from which the summary email is sent.",
@@ -202,7 +202,7 @@
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
             "isAdvanced": true
         },
-        "SendSummaryEmailToAddresses": {
+        "SummaryEmailToAddresses": {
             "type": "string",
             "title": "Send Summary Email To Addresses",
             "description": "The email addresses that the summary email will be sent to. These must be semicolon delimited with no spaces.",
@@ -210,28 +210,28 @@
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
-        "SummaryEmailSmtpPort": {
+        "SmtpPort": {
             "type": "string",
             "title": "Summary Email Smtp Port",
             "description": "The SMTP port to send summary email, defaults to 587.",
             "category": "Notifications",
             "isAdvanced": true
         },
-        "SummaryEmailSmtpServer": {
+        "SmtpServer": {
             "type": "string",
             "title": "Summary Email Smtp Server",
             "description": "The Smtp server to send summary emails, defaults to smtp.office365.com.",
             "category": "Notifications",
             "isAdvanced": true
         },
-        "SummaryEmailSmtpUser": {
+        "SmtpUser": {
             "type": "string",
             "title": "Summary Email Smtp User",
             "description": "The user used to authenticate into the SMTP server to send the summary email.",
             "category": "Notifications",
             "isAdvanced": true
         },
-        "SummaryEmailSmtpUserPassword": {
+        "SmtpUserPassword": {
             "type": "string",
             "title": "Summary Email Smtp User Password",
             "description": "The user password used to authenticate into the SMTP server to send the summary email.",
@@ -239,7 +239,7 @@
             "isAdvanced": true,
             "isSecret": true
         },
-        "SendSummaryEmailToBccAddress": {
+        "SummaryEmailBCCAddresseses": {
             "type": "string",
             "title": "Summary Email To Bcc Address",
             "description": "The email addresses that the summary email will send to as BCC. These must be semicolon delimited with no spaces.",
@@ -248,7 +248,7 @@
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
             "isAdvanced": true
         },
-        "SendSummaryEmailToCCAddress": {
+        "SummaryEmailCCAddresses": {
             "type": "string",
             "title": "Summary Email To CC Address",
             "description": "The email addresses that the summary email will send to as CC. These must be semicolon delimited with no spaces.",
