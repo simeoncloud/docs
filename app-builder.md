@@ -12,53 +12,44 @@ From the Simeon Portal, navigate to the App Builder > select the tenant you want
 
 - If you selected Win32, you will need to download the empty placeholder file (empty.intunewin) for the app install files that will be required in the next step
 	- When install files are uploaded to the Endpoint portal, they become encrypted and it is difficult for Simeon to decrypt these files. Therefore, the *empty.intunewin* file acts as a placeholder in the portal so you can proceed with configuring the app. You can then upload the install files in Simeon which are saved to the tenant's repository.
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/2.png" width: 338; height: auto;/>
 <br />
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/3.png" width: 338; height: auto;/>
 <br />
 
 - Click **LAUNCH THE ENDPOINT PORTAL**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/4.png" width: 338; height: auto;/>
 <br />
 
 - Log in to the tenant that you are creating the application package in
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/5.png" width: 700; height: auto;/>
 <br />
 
 - Click **Select app package file**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/6.png" width: 700; height: auto;/>
 <br />
 
 - Upload the *empty.intunewin* file > **OK** > fill in the necessary information for your app > **NEXT**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/7.png" width: 700; height: auto;/>
 <br />
 
 - Fill in Program details > **NEXT**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/8.png" width: 700; height: auto;/>
 <br />
 
 - Fill in Requirements details > **NEXT**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/9.png" width: 700; height: auto;/>
 <br />
 
 - Fill in Detection rules > **NEXT**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/10.png" width: 700; height: auto;/>
 <br />
@@ -66,18 +57,17 @@ From the Simeon Portal, navigate to the App Builder > select the tenant you want
 - Add any Dependencies and/or Supersedence > **NEXT**
 
 - Add any Assignments (all apps in the Simeon Baseline are assigned to the group *Baseline - Corporate Devices*) > **NEXT**
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/11.png" width: 700; height: auto;/>
 <br />
 
 - Create. You are now done configuring your app. Go back to the **New Application Wizard** in the Simeon app > **CONTINUE** > **SYNC NOW** and wait for the Sync to finish.
 	- The Sync will export the configured app into the tenant’s repository in your Simeon environment (Azure DevOps organization)
+<br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/12.png" width: 338; height: auto;/>
 <br />
 
 - **DONE** > the App Builder will now load the app you just created in the tenant
-
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/13.png" width: 338; height: auto;/>
 <br />
