@@ -138,4 +138,4 @@ From the Simeon Portal, navigate to the **[App builder](https://app.simeoncloud.
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/20.png" width: 700; height: auto;/>
 - **SYNC NOW** > once the status changes to pending approval, Approve the Sync to deploy the package to the tenant with the newly uploaded install files. This will repackage the application with the install files you uploaded to Simeon.
 
-### If you would like to use Variables in your apps, you can follow this guide: [Add variables to configurations and Intune Apps](https://simeoncloud.github.io/docs/#/how-to?id=add-variables-to-configurations-and-intune-apps)
+### If you would like to use Variables in your apps, you can follow this guide:  [Add variables to configurations and Intune Apps](https://simeoncloud.github.io/docs/#/how-to?id=add-variables-to-configurations-and-intune-apps)
