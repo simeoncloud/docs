@@ -11,12 +11,12 @@ From the Simeon Portal, navigate to the App Builder > select the tenant you want
 	- When install files are uploaded to the Endpoint portal, they become encrypted and it is difficult for Simeon to decrypt these files. Therefore, the *empty.intunewin* file acts as a placeholder in the portal so you can proceed with configuring the app. You can then upload the install files in Simeon which are saved to the tenant's repository.
 
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/2.png" width: 250; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/2.png" width: 338;/>
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/3.png" width: 250; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/3.png" width: 275;/>
 - Click **LAUNCH THE ENDPOINT PORTAL**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/4.png" width: 250; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/4.png" width: 338;/>
 - Log in to the tenant that you are creating the application package in
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/5.png" width: 700; height: auto;/>
@@ -42,10 +42,10 @@ From the Simeon Portal, navigate to the App Builder > select the tenant you want
 - Create. You are now done configuring your app. Go back to the **New Application Wizard** in the Simeon app > **CONTINUE** > **SYNC NOW** and wait for the Sync to finish.
 	- The Sync will export the configured app into the tenant’s repository in your Simeon environment (Azure DevOps organization)
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/12.png" width: 250; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/12.png" width: 338;/>
 - **DONE** > the App Builder will now load the app you just created in the tenant
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/13.png" width: 250; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/13.png" width: 338;/>
 - From the App Builder, select the new app you just created in the tenant
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/application-packaging/14.png" width: 700; height: auto;/>
