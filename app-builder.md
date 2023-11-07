@@ -2,66 +2,79 @@ Simeon makes managing Windows Intune applications easy. Using the App Builder, y
 
 ## Package a new application using the New Application Wizard
 
-From the Simeon Portal, navigate to the App Builder > select the tenant you want to create the application package in > click on **+ NEW APPLICATION** > Select **Win32** or **MSI** from the **Application Type** dropdown > **CONTINUE**
-
+- From the Simeon Portal, navigate to the App Builder > select the tenant you want to create the application package in > click on **+ NEW APPLICATION** > Select **Win32** or **MSI** from the **Application Type** dropdown > **CONTINUE**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/1.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/1.png"/>
 
 - If you selected Win32, you will need to download the empty placeholder file (empty.intunewin) for the app install files that will be required in the next step
 	- When install files are uploaded to the Endpoint portal, they become encrypted and it is difficult for Simeon to decrypt these files. Therefore, the *empty.intunewin* file acts as a placeholder in the portal so you can proceed with configuring the app. You can then upload the install files in Simeon which are saved to the tenant's repository.
 
-<br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/2.png" width: 338;/>
-<br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/3.png" width: 275;/>
+	<br />
+	<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/2.png" width='338'/>
+	<br />
+	<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/3.png" width='275'/>
+
 - Click **LAUNCH THE ENDPOINT PORTAL**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/4.png" width: 338;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/4.png" width='338'/>
+
 - Log in to the tenant that you are creating the application package in
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/5.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/5.png"/>
+
 - Click **Select app package file**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/6.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/6.png"/>
+
 - Upload the *empty.intunewin* file > **OK** > fill in the necessary information for your app > **NEXT**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/7.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/7.png"/>
+
 - Fill in Program details > **NEXT**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/8.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/8.png"/>
+
 - Fill in Requirements details > **NEXT**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/9.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/9.png"/>
+
 - Fill in Detection rules > **NEXT**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/10.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/10.png"/>
+
 - Add any Dependencies and/or Supersedence > **NEXT**
 - Add any Assignments (all apps in the Simeon Baseline are assigned to the group *Baseline - Corporate Devices*) > **NEXT**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/11.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/11.png"/>
+
 - Create. You are now done configuring your app. Go back to the **New Application Wizard** in the Simeon app > **CONTINUE** > **SYNC NOW** and wait for the Sync to finish.
 	- The Sync will export the configured app into the tenant’s repository in your Simeon environment (Azure DevOps organization)
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/12.png" width: 338;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/12.png" width='338'/>
+
 - **DONE** > the App Builder will now load the app you just created in the tenant
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/13.png" width: 338;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/13.png" width='338'/>
+
 - From the App Builder, select the new app you just created in the tenant
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/14.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/14.png"/>
 - We can now upload the install files by clicking **+ ADD FILE**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/15.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/15.png"/>
+
 - Add the required install files. The different install file options are described below.
+
 | **Install file type** | **Details** |
 | :-- | :-- |
 | Static File: | For single files less than 20 MB (repository limit) |
 | Standard URL: | For single files larger than 20 MB, you can use a public install URL or create a public blob storage (must be downloadable without sign-in) per the instructions below <ul><li>On https://portal.azure.com/  > **Storage accounts** > **+ Create** > select a subscriptions > **Create new resource group** > name the storage account > **Standard performance** > **GRS** > **Review and create** </li><li> Once created, navigate to **Containers** > **Create** > upload the file > click the '...' > **Generate SAS** > change the **Expiry** to years out (once the expiry date lapses, then the install URL will be invalidated and must be regenerated) > **Generate SAS token and URL** > copy the **Blob SAS URL** > add the URL in the Simeon App Builder as a standard URL. You can test the URL by pasting it into a window and the installer should automatically download</li></ul> |
 | Zipped URL: | A URL for multiple install files in a zip archive |
 | Azure File Share Path: | Files that have this format \\anexampleaccountname.file.core.windows.net\file-share-name . See [Microsoft’s documentation](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows) |
+
 - Select any of the Options you want as described below
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/16.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/16.png"/>
 <table>
 <tr>
 <th> Option </th> <th> Details </th>
@@ -120,22 +133,24 @@ If the application is running as System, the logs will be found in <b>C:\windows
 
 - **SAVE APPLICATION** > **SYNC NOW**
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/17.png" width: 700; height: auto;/>
+	<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/17.png"/>
+
 - Approve the Sync that is pending approval to deploy the install files to the tenant
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/18.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/18.png"/>
+
 ## Package existing apps for use with Simeon
 
 Intune apps previously created using the Endpoint portal have encrypted install files that cannot be read/decrypted by Simeon. To manage these apps using Simeon, you must first package the existing app using the App Builder. Apps packaged with the **[App builder](https://app.simeoncloud.com/appbuilder)** can be updated by changing the install files.
 
-From the Simeon Portal, navigate to the **[App builder](https://app.simeoncloud.com/appbuilder)** > select your tenant > from the **Existing Application** dropdown, select the app > add install files and select any desired options as described above.
+- From the Simeon Portal, navigate to the **[App builder](https://app.simeoncloud.com/appbuilder)** > select your tenant > from the **Existing Application** dropdown, select the app > add install files and select any desired options as described above.
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/19.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/19.png"/>
 
 - **SAVE APPLICATION**
-
 <br />
-<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/20.png" width: 700; height: auto;/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/20.png"/>
+
 - **SYNC NOW** > once the status changes to pending approval, Approve the Sync to deploy the package to the tenant with the newly uploaded install files. This will repackage the application with the install files you uploaded to Simeon.
 
-### If you would like to use Variables in your apps, you can follow this guide:  [Add variables to configurations and Intune Apps](https://simeoncloud.github.io/docs/#/how-to?id=add-variables-to-configurations-and-intune-apps)
+### If you would like to use Variables in your apps, you can follow this guide: [ Add variables to configurations and Intune Apps](https://simeoncloud.github.io/docs/#/how-to?id=add-variables-to-configurations-and-intune-apps)
