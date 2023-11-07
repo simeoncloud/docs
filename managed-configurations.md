@@ -11,6 +11,7 @@
   - Authorization policies
   - Conditional Access
     - Terms of use
+  - Custom Security Attributes
   - Device settings
   - Devices
     - Enterprise State Roaming
