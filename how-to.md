@@ -1,6 +1,6 @@
 ## Getting access to Simeon
 
-If you don't yet have a Simeon instance and you want to start a Simeon trial, please go to [Simeoncloud.com](https://www.simeoncloud.com/) to request a demo. If you decide to do a trial after the demo or if you purchased a subscription with us, you will be able to book an onboarding meeting with one of our engineers who will create your Simeon instance for you (no need to create a DevOps org yourself, unless you want to provide your own Azure DevOps organization). You will be given access to your Simeon instance during your onboarding meeting.
+If you don't yet have a Simeon instance and you want to start a Simeon trial, please go to [Simeoncloud.com](https://www.simeoncloud.com/) to request a demo. If you decide to do a trial after the demo or if you purchased a subscription with us, you will be able to book an onboarding meeting with one of our engineers who will create your Simeon instance for you (no need to create an Azure DevOps organization yourself unless you want to provide your own). You will be given access to your Simeon instance during your onboarding meeting.
 
 Please follow these instructions before your onboarding:
 - Ensure a user with admin access is available to grant admin consent to the Simeon Cloud Web Admin service principal. This is necessary to sign into the Simeon app.
