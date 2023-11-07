@@ -89,7 +89,7 @@
   },
   {
     "namespace": "MicrosoftOffice365Portal:Services:Apps:BriefingEmail",
-    "description": "M365 Admin Center > Settings > Org Settings > Briefing Email from Microsoft Viva",
+    "description": "M365 Admin Center > Settings > Org Settings > Services > Briefing Email from Microsoft Viva",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/BriefingEmail",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -97,8 +97,16 @@
   },
   {
     "namespace": "MicrosoftOffice365Portal:Services:Apps:VivaInsights",
-    "description": "M365 Admin Center > Settings > Org Settings > Microsoft Viva Insights (formerly MyAnalitics)",
+    "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (formerly MyAnalitics)",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MicrosoftOffice365Portal:Settings:Security:ActivityBasedTimeout",
+    "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
+    "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -400,12 +408,28 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:Directory:OnPremisesSynchronization",
+    "description": "Azure AD > Password reset > On-Premises integration",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/~/OnPremisesIntegration/fromNav/",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:DirectoryRoles",
     "description": "Azure AD > Roles and Administrators",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Domains",
+    "description": "M365 Admin Center > Domains",
+    "url": "https://admin.microsoft.com/#/Domains",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:GroupLifecyclePolicies",
@@ -451,6 +475,14 @@
     "namespace": "MSGraph:PasswordExpirationPolicies",
     "description": "M365 Admin Center > Password expiration policy",
     "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/SecurityPrivacy/:/Settings/L1/PasswordPolicy",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationFlowsPolicy",
+    "description": "Azure AD > Users > User Settings > External Users",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"

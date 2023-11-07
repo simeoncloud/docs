@@ -35,6 +35,7 @@
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset
+    - On-Premises integration
   - Roles and Administrators
   - Security
     - Authentication methods
@@ -54,6 +55,8 @@
       - Users at risk detected alerts
   - User settings
   - Users
+    - User Settings
+      - External Users
 - Intune
   - Apps
     - App configuration policies
@@ -88,11 +91,15 @@
     - Roles
       - Scope Tags
 - M365 Admin Center
+  - Domains
   - Password expiration policy
   - Settings
     - Org Settings
-      - Briefing Email from Microsoft Viva
-      - Microsoft Viva Insights (formerly MyAnalitics)
+      - Security & Privacy
+        - Idle Session Timeout
+      - Services
+        - Briefing Email from Microsoft Viva
+        - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
     - AddressBookPolicy
