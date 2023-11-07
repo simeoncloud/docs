@@ -14,6 +14,7 @@ From the Simeon Portal, navigate to the App Builder > select the tenant you want
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/2.png" width: 338;/>
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/3.png" width: 275;/>
+
 - Click **LAUNCH THE ENDPOINT PORTAL**
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/4.png" width: 338;/>
