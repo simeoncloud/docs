@@ -31,6 +31,8 @@
   - Group settings
   - Groups
     - Expiration
+  - Identity Governance
+    - Connected Organizations
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset

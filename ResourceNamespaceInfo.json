@@ -440,6 +440,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:IdentityGovernance:EntitlementManagement:ConnectedOrganizations",
+    "description": "Azure AD > Identity Governance > Connected Organizations",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:IdentityProtection:Settings:Notifications",
     "description": "Azure AD > Security > Identity Protection > Users at risk detected alerts",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/UsersAtRiskAlerts",
