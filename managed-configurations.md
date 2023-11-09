@@ -11,6 +11,7 @@
   - Authorization policies
   - Conditional Access
     - Terms of use
+  - Custom Security Attributes
   - Device settings
   - Devices
     - Enterprise State Roaming
@@ -31,6 +32,8 @@
   - Group settings
   - Groups
     - Expiration
+  - Identity Governance
+    - Connected Organizations
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset
