@@ -205,7 +205,7 @@
             "description": "The Sync version that your tenants are running on.",
             "default": "Changing this may break your Sync pipeline.",
             "category": "Sync",
-            "pattern": "^(\\d+(\\.\\d+|\\.\\*)*|\\*|\\*-preview)$",
+            "pattern": "^(\\d+(\\.\\d+|\\.\\*)*|\\*|\\*-preview(\\*)?)$",
             "isAdvanced": true
         }
     }
