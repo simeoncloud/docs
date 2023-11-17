@@ -83,6 +83,7 @@ Simeon makes managing Windows Intune applications easy. Using the App Builder, y
 <td> Use Simeon Standard Install.bat: </td>
 <td>
 When checked, Simeon’s Install.bat adds a standard batch file to assist in the app installation process. The install file orchestrates the installation of any file named <b>Setup.exe/msi</b> or <b>Setup-x64.exe/msi</b> located in the same directory as the <b>install.bat</b>.
+
 ```
 rem generic setup script for installing microsoft.graph.win32LobApp (intunewin) packaged applications that have both x86 and x64 installers
 SETLOCAL EnableDelayedExpansion
@@ -117,15 +118,18 @@ When checked, Simeon will automatically include a detection rule so that the app
 <td> Enable Application Install Logging: </td>
 <td>
 An important aspect of application install/uninstall troubleshooting is valid and consistent logs on the end-user’s device. When Enable Application Install Logging is checked, Simeon includes the property <b>enableInstallLogging</b> in the application configuration .json file to assist with the logging process. All logs captured during application installation will be written to the %temp% directory in a file named: <b>MobileApp.{name of application}.{version}.install.log</b>. This setting allows the <b>installCommandLine</b> in the application configuration .json file to be:
+
 ```
 "enableInstallLogging": true,
 ...
 "installCommandLine": "Install.bat /S",
 ```
 When uploaded to Intune, Simeon changes the install command line to:
+
 ```
 cmd /s /v /c "(Install.bat /S) >> "!temp!\MobileApp.7-Zip.012.install.log" 2>&1"
 ```
+
 If the application is running as System, the logs will be found in <b>C:\windows\temp</b>. Or if the application is running in the user’s context, the logs will be in the user’s temp directory.
 </td>
 </tr>
@@ -133,7 +137,7 @@ If the application is running as System, the logs will be found in <b>C:\windows
 
 - **SAVE APPLICATION** > **SYNC NOW**
 <br />
-	<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/17.png"/>
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/app-builder/17.png"/>
 
 - Approve the Sync that is pending approval to deploy the install files to the tenant
 <br />
