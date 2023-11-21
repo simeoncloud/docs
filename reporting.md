@@ -43,7 +43,7 @@ During installation, you will be prompted to log in with a user account. The acc
 - When prompted, select an Azure location
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi_location.png" width: 337; height: auto;/>
-- Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
+- Once the installation is complete, click **Run Backfill Now**. **This will first populate the report with demo data**. After a few hours, it will backfill your Power BI report with the past 72 hours of Sync data.
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi_install_complete.png" width: auto; height: auto;/>
 
