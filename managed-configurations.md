@@ -9,24 +9,35 @@
   - App registrations
     - API
   - Authorization policies
-  - Company branding
   - Conditional Access
     - Terms of use
+  - Custom Security Attributes
   - Device settings
   - Devices
     - Enterprise State Roaming
   - Diagnostic settings
   - Directory settings
   - Enterprise applications
+    - Claims mapping policies
+    - Token lifetime policies
     - User settings
   - External Collaboration Settings
     - Email
+  - External Identities
+    - Cross-tenant access settings
+      - Default settings
+      - Microsoft cloud settings
+      - Organizational settings
   - External user guest settings
   - Group settings
   - Groups
     - Expiration
+  - Identity Governance
+    - Connected Organizations
   - Mobility (MDM and MAM)
+  - Organization (Company Branding)
   - Password reset
+    - On-Premises integration
   - Roles and Administrators
   - Security
     - Authentication methods
@@ -46,6 +57,8 @@
       - Users at risk detected alerts
   - User settings
   - Users
+    - User Settings
+      - External Users
 - Intune
   - Apps
     - App configuration policies
@@ -80,11 +93,15 @@
     - Roles
       - Scope Tags
 - M365 Admin Center
+  - Domains
   - Password expiration policy
   - Settings
     - Org Settings
-      - Briefing Email from Microsoft Viva
-      - Microsoft Viva Insights (formerly MyAnalitics)
+      - Security & Privacy
+        - Idle Session Timeout
+      - Services
+        - Briefing Email from Microsoft Viva
+        - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
     - AddressBookPolicy

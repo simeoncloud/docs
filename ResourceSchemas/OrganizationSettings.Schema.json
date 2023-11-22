@@ -3,6 +3,36 @@
     "type": "object",
     "title": "OrganizationSettings",
     "properties": {
+        "BaselinePropagationMode": {
+            "type": "string",
+            "title": "Baseline Propagation Mode",
+            "description": "Baseline propagation determines whether changes made to your baseline will automatically propagate to your downstream tenants with your approval. This setting determines the enablement of baseline propagation.",
+            "enum": [
+                "None",
+                "Manual",
+                "Automatic"
+            ],
+            "category": "Sync"
+        },
+        "DisableErrorReporting": {
+            "type": "string",
+            "title": "Disable Error Reporting",
+            "description": "This disables automated alerts for when your Sync fails. You can disable this if you don't want your error data sent to Simeon Cloud's support ticketing system.",
+            "category": "Sync",
+            "enum": [
+                "true",
+                "false"
+            ]
+        },
+        "M365ManagementToolVersion": {
+            "type": "string",
+            "title": "Sync Version",
+            "description": "The Sync version that your tenants are running on.",
+            "default": "Changing this may break your Sync pipeline.",
+            "category": "Sync",
+            "pattern": "^(\\d+(\\.\\d+|\\.\\*)*|\\*|\\*-preview(\\*)?)$",
+            "isAdvanced": true
+        },
         "EventHubAppId": {
             "type": "string",
             "title": "Event Hub App Id",
@@ -255,36 +285,6 @@
             "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
-            "isAdvanced": true
-        },
-        "BaselinePropagationMode": {
-            "type": "string",
-            "title": "Baseline Propagation Mode",
-            "description": "Baseline propagation determines whether changes made to your baseline will automatically propagate to your downstream tenants with your approval. This setting determines the enablement of baseline propagation.",
-            "enum": [
-                "None",
-                "Manual",
-                "Automatic"
-            ],
-            "category": "Sync"
-        },
-        "DisableErrorReporting": {
-            "type": "string",
-            "title": "Disable Error Reporting",
-            "description": "This disables automated alerts for when your Sync fails. You can disable this if you don't want your error data sent to Simeon Cloud's support ticketing system.",
-            "category": "Sync",
-            "enum": [
-                "true",
-                "false"
-            ]
-        },
-        "M365ManagementToolVersion": {
-            "type": "string",
-            "title": "Sync Version",
-            "description": "The Sync version that your tenants are running on.",
-            "default": "Changing this may break your Sync pipeline.",
-            "category": "Sync",
-            "pattern": "^(\\d+(\\.\\d+|\\.\\*)*|\\*|\\*-preview)$",
             "isAdvanced": true
         }
     }
