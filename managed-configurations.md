@@ -1,249 +1,192 @@
-- Agreements
-- Applications
 - Azure
+  - Privileged Identity Management
+    - Azure AD roles
+      - Access reviews
+      - Assignments
+    - Policies and Rules
   - Resource groups
 - Azure AD
-  - Applications
-    - Token lifetime policies
-      - Reference
+  - App registrations
+    - API
+  - Authorization policies
+  - Conditional Access
+    - Terms of use
+  - Custom Security Attributes
+  - Device settings
   - Devices
     - Enterprise State Roaming
-  - Domains
+  - Diagnostic settings
+  - Directory settings
   - Enterprise applications
+    - Claims mapping policies
+    - Token lifetime policies
     - User settings
+  - External Collaboration Settings
+    - Email
+  - External Identities
+    - Cross-tenant access settings
+      - Default settings
+      - Microsoft cloud settings
+      - Organizational settings
   - External user guest settings
   - Group settings
   - Groups
     - Expiration
-    - Owners
+  - Identity Governance
+    - Connected Organizations
   - Mobility (MDM and MAM)
-  - Organization
+  - Organization (Company Branding)
   - Password reset
-  - Policies
-    - Authentication flows policy
-    - Authentication methods policy
-      - Authentication method configurations
-    - Device registration policy
-  - Roles and administrators
-    - Directory
-      - Role assignment schedule requests
-      - Role assignment schedules
-      - Role assignments
-      - Role definitions
-      - Role eligibility schedule requests
-      - Role eligibility schedules
-    - Directory roles
-      - [Role Name]
-        - Members
+    - On-Premises integration
+  - Roles and Administrators
   - Security
+    - Authentication methods
+      - Policies
+        - Certificate-based authentication
+        - Fido 2 Security Key
+        - Microsoft Authenticator
+        - Temporary Access Pass
+        - Text Message
+        - Third-party software OATH tokens
+    - Conditional Access
+      - Authentication Contexts
+      - Authentication Strengths
+      - Named locations
+      - Policies
     - Identity Protection
+      - Users at risk detected alerts
   - User settings
   - Users
-- Compliance
-  - Audit log search
-    - Audit configuration policies
-  - Data governance
-    - Case holds
-    - Retention
-      - App-specific retention
-      - Retention events
-      - Retention labels
-      - Retention rules
-  - Data lifecycle management
-    - Microsoft 365
-      - Retention policies
-        - App policies
-  - Data loss prevention
-    - DLP compliance rules
-    - Policy tips
-      - Sensitive information types
-  - Records management
-    - File plan
-      - File plan properties
-        - File plan property subcategories
-- Device app management
-  - Android managed app protections
-    - Assignments
-  - Default managed app protections
-    - Apps
-  - iOS managed app protections
-    - Apps
-    - Assignments
-  - MDM Windows information protection policies
-  - Mobile app configurations
-    - Assignments
-  - Mobile apps
-    - Assignments
-  - Windows Information Protection policies
-    - Assignments
-    - Exempt AppLocker files
-- Exchange
-  - Compliance management
-    - Journal rules
-  - Hybrid
-    - Setup
-  - Mail flow
-    - Accepted domains
-    - Connectors
-      - Inbound connectors
-    - Message delivery
-      - Delivery management
-      - Outlook on the web
-      - Transport rules
-    - Remote domains
-    - Rules
-      - Client access rules
-      - Policy tips
-  - Mobile
-    - Mobile device access rules
-    - Mobile device mailbox policies
-  - Organization
-    - Address book policies
-    - Federation
-    - General
-    - Sharing
-  - Organization configuration
-    - Offline address books
-  - Permissions
-    - User roles
-  - Protection
-    - Anti-phishing
-    - Authentication policies
-    - Connection filter
-    - DKIM
-    - Malware filter
-      - Malware filter policies
-      - Safe attachments
-      - Safe links
-    - Outbound spam filter
-    - Quarantine
-    - Spam filter
-      - Hosted content filter
-      - Outbound spam filter
-  - Recipients
-    - Address lists
-    - Email address policies
-    - Groups
-      - [Group Name]
-        - Members
-      - Dynamic distribution groups
-    - Mailboxes
-      - Permissions
-    - Migration
-      - Migration endpoints
-  - Sharing
-- Groups
-  - Group Lifecycle Policies
-- Hybrid
-  - Federation
-- Identity
-  - ConditionalAccess
-    - AuthenticationContextClassReferences
-    - AuthenticationStrength
-      - Policies
-    - NamedLocations
-    - Policies
-- Identity Governance
-  - Entitlement Management
-    - Connected Organizations
-      - External Sponsors
-      - Internal Sponsors
+    - User Settings
+      - External Users
 - Intune
-  - App protection policies
-    - Apps
-    - Assignments
-  - Device app management
-    - MDM Windows Information Protection policies
-      - Protected AppLocker files
-    - Mobile apps
-      - Relationships
+  - Apps
+    - App configuration policies
+    - App protection policies (Platform = Android)
+    - App protection policies (Platform = iOS/iPadOS)
+    - App protection policies (Platform = Windows 10)
   - Devices
-    - Assignment filters
-    - Configuration policies
-      - Assignments
-      - Group assignments
-    - Device compliance policies
-      - Assignments
-    - Device Health
-      - Device Health scripts
-        - Assignments
-        - Group assignments
-      - Device shell scripts
-        - Assignments
-    - Enrollment configurations
-      - Assignments
-    - Health scripts
-      - Assignments
-    - Intents
-      - Assignments
-      - Settings
-  - Mobile threat defense connectors
-  - Notification message templates
-    - Localized notification messages
-  - Policy sets
-    - Assignments
-  - Reusable policy settings
-  - Role scope tags
-    - Assignments
-  - Windows
-    - Group policy
-      - Configurations
-        - Assignments
-        - Definition values
-      - Uploaded definition files
-  - Windows Autopilot
-    - Deployment profiles
-      - Assignments
-  - Windows feature update profiles
-    - Assignments
-  - Windows quality update profiles
-    - Assignments
+    - Compliance policies
+      - Compliance policy settings
+      - Notifications
+    - Configuration profiles
+    - Configuration profiles (Import ADMX)
+    - Configuration profiles (Profile Type = Administrative Templates)
+    - Configuration profiles (Settings Catalog)
+    - Device clean-up rules
+    - Enrollment restrictions
+    - Feature updates for Windows 10 and later
+    - Quality updates for Windows 10 and later
+    - Scripts
+    - Windows Autopilot deployment profiles
+  - Diagnostic settings
+  - Endpoint security
+    - Firewall
+      - Reusable Settings
+  - Mobile Threat Defense
+  - Policy Sets
+  - Reports
+    - Endpoint analytics
+      - Proactive Remediations
+  - Tenant administration
+    - Filters
+    - Roles
+      - Scope Tags
 - M365 Admin Center
+  - Domains
+  - Password expiration policy
   - Settings
     - Org Settings
       - Security & Privacy
         - Idle Session Timeout
       - Services
         - Briefing Email from Microsoft Viva
-        - Microsoft Viva Insights (formerly MyAnalytics)
+        - Microsoft Viva Insights (formerly MyAnalitics)
 - Office 365
   - Exchange
+    - AddressBookPolicy
+    - AddressList
     - AdminAuditLogConfig
+    - Availability address spaces
+    - Availability config
+    - CAS mailbox plan
+    - Client access rules
+    - Distribution Groups
+    - DomainKeys identified mail signing config
+    - Dynamic Distribution Groups
+    - Email address policies
+    - GlobalAddressList
+    - Inbound connectors
+    - IntraOrganizationConnectors
+    - Journal Rules
+    - Mail flow
+      - Accepted Domains
+      - Remote Domains
+    - Mailboxes
+    - MailboxPlans
+    - MalwareFilterPolicies
+    - Mobile device access
+      - Device Access Rules
+    - MobileDeviceMailboxPolicies
+    - Modern authentication
+    - OfflineAddressBook
+    - On-Premises Organizations
+    - Organization Relationship
+    - OrganizationConfig
+    - Outbound connectors
+    - Outlook Web App policies
+    - Partner Applications
+    - PolicyTipConfig
+    - Role Assignment Policies
     - Role Groups
-- Policies
-  - AuthorizationPolicy
-  - ClaimsMappingPolicies
-  - CrossTenantAccessPolicy
-    - Default
-    - Partners
-      - IdentitySynchronization
-  - RoleManagementPolicies
-    - Rules
-  - RoleManagementPolicyAssignments
-  - TokenLifetimePolicies
-- Security
-  - Alerts
-  - Data classification
-  - eDiscovery
-  - Threat management
-    - Policy
-- Service principals
-- Settings
+    - SharingPolicies
+    - Transport Config
+    - TransportRules
+  - Security & Compliance
+    - Audit configuration policy
+    - Case hold policies
+    - Compliance cases
+    - ComplianceTags
+    - DLP compliance policies
+    - DLP sensitive information types
+    - File plan property authorities
+    - File plan property categories
+    - File plan property citations
+    - File plan property departments
+    - File plan property reference ids
+    - File plan property reference sub categories
+    - Hosted connection filter policies
+    - Hosted content filter policies
+    - Hosted outbound spam filter policies
+    - Information governance
+      - Compliance Retention Event Types
+      - Retention
+    - Label Policy
+    - Labels
+    - ProtectionAlerts
+    - Threat management
+      - Policy
+        - ATP Anti-Phishing
+        - ATP Safe Attachments
+        - ATP Safe Links
+        - Global Settings
+        - Quarantine Policies
+  - Teams
+    - Apps
+      - Permission policies
+    - Meetings
+      - Live event policies
+      - Meeting policies
+      - Meeting settings
+    - Messaging policies
+    - Org-wide settings
+      - Teams settings
+    - Users
+      - External access
+    - Voice
+      - Calling policies
 - SharePoint
   - Settings
 - SharePoint Admin Center
   - Settings and Policies
   - Sites
-- Teams
-  - Meetings
-    - Meeting policies
-  - Messaging policies
-  - Teams apps
-    - App permission policies
-  - Teams policies
-    - Client
-    - Meeting broadcast
-  - Voice
-    - Calling
-- TODO: Enter value
-
