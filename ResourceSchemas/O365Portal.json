@@ -5,6 +5,9 @@
     },
     {
       "$ref": "#/$defs/O365Portal:Services:Apps:VivaInsights/Configuration"
+    },
+    {
+      "$ref": "#/$defs/O365Portal:Settings:Security:ActivityBasedTimeout/Configuration"
     }
   ],
   "$defs": {
@@ -43,6 +46,15 @@
         }
       },
       "$id": "https://simeoncloud.com/O365Portal:Services:Apps:VivaInsights/Configuration"
+    },
+    "O365Portal:Settings:Security:ActivityBasedTimeout/Configuration": {
+      "type": "object",
+      "properties": {
+        "TimeoutValue": {
+          "type": "integer"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365Portal:Settings:Security:ActivityBasedTimeout/Configuration"
     }
   }
 }

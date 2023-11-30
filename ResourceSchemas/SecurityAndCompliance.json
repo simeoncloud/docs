@@ -1,12 +1,6 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ActivityAlert/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:AdaptiveScope/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:AdminAuditLogConfig/Configuration"
     },
     {
@@ -16,19 +10,7 @@
       "$ref": "#/$defs/SecurityAndCompliance:AppRetentionComplianceRule/Configuration"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AuditConfig/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:AuditConfigurationPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:AuditConfigurationRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:AutoSensitivityLabelPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:AutoSensitivityLabelRule/Configuration"
     },
     {
       "$ref": "#/$defs/SecurityAndCompliance:CaseHoldPolicy/Configuration"
@@ -40,43 +22,10 @@
       "$ref": "#/$defs/SecurityAndCompliance:ComplianceCase/Configuration"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceCaseMember/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceRetentionEvent/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:ComplianceRetentionEventType/Configuration"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceSearch/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceSearchAction/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceSecurityFilter/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:ComplianceTag/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DeviceConditionalAccessPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DeviceConditionalAccessRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DeviceConfigurationPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DeviceConfigurationRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DeviceTenantPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DeviceTenantRule/Configuration"
     },
     {
       "$ref": "#/$defs/SecurityAndCompliance:DlpCompliancePolicy/Configuration"
@@ -85,19 +34,7 @@
       "$ref": "#/$defs/SecurityAndCompliance:DlpComplianceRule/Configuration"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:DlpEdmSchema/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DlpKeywordDictionary/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:DlpSensitiveInformationType/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:DlpSensitiveInformationTypeRulePackage/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:eDiscoveryCaseAdmin/Configuration"
     },
     {
       "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyAuthority/Configuration"
@@ -118,46 +55,13 @@
       "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertySubCategory/Configuration"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:Group/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:HoldCompliancePolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:HoldComplianceRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:InformationBarrierPolicy/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:Label/Configuration"
     },
     {
       "$ref": "#/$defs/SecurityAndCompliance:LabelPolicy/Configuration"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ManagementRole/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:OrganizationSegment/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:PhishSimOverridePolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:PhishSimOverrideRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:PolicyConfig/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:ProtectionAlert/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:RecordReviewNotificationTemplateConfig/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:RegulatoryComplianceUI/Configuration"
     },
     {
       "$ref": "#/$defs/SecurityAndCompliance:RetentionCompliancePolicy/Configuration"
@@ -167,126 +71,9 @@
     },
     {
       "$ref": "#/$defs/SecurityAndCompliance:RoleGroup/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:RoleGroupMember/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:SecOpsOverridePolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:SecOpsOverrideRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:ServicePrincipal/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:SupervisoryReviewPolicyV2/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:SupervisoryReviewRule/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:TenantAllowBlockListItems/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:TenantAllowBlockListSpoofItems/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:UnifiedAuditLogRetentionPolicy/Configuration"
-    },
-    {
-      "$ref": "#/$defs/SecurityAndCompliance:User/Configuration"
     }
   ],
   "$defs": {
-    "SecurityAndCompliance:ActivityAlert/Configuration": {
-      "type": "object",
-      "properties": {
-        "Category": {
-          "type": "string"
-        },
-        "Condition": {
-          "type": "string"
-        },
-        "Description": {
-          "type": "string"
-        },
-        "Disabled": {
-          "type": "boolean"
-        },
-        "EmailCulture": {
-          "type": "object"
-        },
-        "Multiplier": {
-          "type": "number"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "NotifyUser": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Operation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "RecordType": {
-          "type": "object"
-        },
-        "ScopeLevel": {
-          "type": "string"
-        },
-        "Severity": {
-          "type": "string"
-        },
-        "Threshold": {
-          "type": "integer"
-        },
-        "TimeWindow": {
-          "type": "integer"
-        },
-        "Type": {
-          "type": "string"
-        },
-        "UserId": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ActivityAlert/Configuration"
-    },
-    "SecurityAndCompliance:AdaptiveScope/Configuration": {
-      "type": "object",
-      "properties": {
-        "AdministrativeUnit": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "Comment": {
-          "type": "string"
-        },
-        "FilterConditions": {
-          "type": "array"
-        },
-        "LocationType": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "RawQuery": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AdaptiveScope/Configuration"
-    },
     "SecurityAndCompliance:AdminAuditLogConfig/Configuration": {
       "type": "object",
       "properties": {
@@ -359,10 +146,10 @@
           }
         },
         "ContentDateFrom": {
-          "$ref": "#/$defs/nullableOfDateTime"
+          "type": "object"
         },
         "ContentDateTo": {
-          "$ref": "#/$defs/nullableOfDateTime"
+          "type": "object"
         },
         "ContentMatchQuery": {
           "type": "string"
@@ -393,10 +180,6 @@
         }
       },
       "$defs": {
-        "nullableOfDateTime": {
-          "type": "string",
-          "format": "date-time"
-        },
         "arrayOfString": {
           "type": "array",
           "items": {
@@ -406,412 +189,14 @@
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionComplianceRule/Configuration"
     },
-    "SecurityAndCompliance:AuditConfig/Configuration": {
-      "type": "object",
-      "properties": {
-        "DomainController": {
-          "type": "object"
-        },
-        "Organization": {
-          "type": "string"
-        },
-        "Workload": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfig/Configuration"
-    },
     "SecurityAndCompliance:AuditConfigurationPolicy/Configuration": {
       "type": "object",
       "properties": {
-        "DomainController": {
-          "type": "object"
-        },
         "Workload": {
           "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfigurationPolicy/Configuration"
-    },
-    "SecurityAndCompliance:AuditConfigurationRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "AuditOperation": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "Workload": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfigurationRule/Configuration"
-    },
-    "SecurityAndCompliance:AutoSensitivityLabelPolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "ApplySensitivityLabel": {
-          "type": "string"
-        },
-        "AutoEnableAfter": {
-          "type": "object",
-          "properties": {
-            "Ticks": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "Days": {
-              "$ref": "#/$defs/integer"
-            },
-            "Hours": {
-              "$ref": "#/$defs/integer"
-            },
-            "Milliseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Microseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Nanoseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Minutes": {
-              "$ref": "#/$defs/integer"
-            },
-            "Seconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "TotalDays": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalHours": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMilliseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMicroseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalNanoseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMinutes": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalSeconds": {
-              "$ref": "#/$defs/number"
-            }
-          }
-        },
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "ExceptIfOneDriveSharedBy": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExchangeLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExchangeSender": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "ExchangeSenderException": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "ExchangeSenderMemberOf": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "ExchangeSenderMemberOfException": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "ExternalMailRightsManagementOwner": {
-          "type": "object"
-        },
-        "Mode": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "OneDriveLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "OneDriveLocationException": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "OneDriveSharedBy": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "OverwriteLabel": {
-          "type": "boolean"
-        },
-        "PolicyRBACScopes": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "PolicyTemplateInfo": {
-          "type": "array"
-        },
-        "Priority": {
-          "type": "integer"
-        },
-        "RetryDistribution": {
-          "type": "boolean"
-        },
-        "SharePointLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SharePointLocationException": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SpoAipIntegrationEnabled": {
-          "type": "boolean"
-        },
-        "StartSimulation": {
-          "type": "boolean"
-        },
-        "SystemOperation": {
-          "type": "boolean"
-        },
-        "UnifiedAuditLogEnabled": {
-          "type": "boolean"
-        }
-      },
-      "$defs": {
-        "integer": {
-          "type": "integer",
-          "readOnly": true
-        },
-        "number": {
-          "type": "number",
-          "readOnly": true
-        },
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "arrayOfObject": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AutoSensitivityLabelPolicy/Configuration"
-    },
-    "SecurityAndCompliance:AutoSensitivityLabelRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "AccessScope": {
-          "type": "string"
-        },
-        "ActivationDate": {
-          "$ref": "#/$defs/nullableOfDateTime"
-        },
-        "AnyOfRecipientAddressContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "AnyOfRecipientAddressMatchesPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Comment": {
-          "type": "string"
-        },
-        "ContentContainsSensitiveInformation": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "ContentExtensionMatchesWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ContentPropertyContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Disabled": {
-          "type": "boolean"
-        },
-        "DocumentCreatedBy": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "DocumentIsPasswordProtected": {
-          "type": "boolean"
-        },
-        "DocumentIsUnsupported": {
-          "type": "boolean"
-        },
-        "DocumentNameMatchesWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "DocumentSizeOver": {
-          "type": "object"
-        },
-        "ExceptIfAccessScope": {
-          "type": "string"
-        },
-        "ExceptIfAnyOfRecipientAddressContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfAnyOfRecipientAddressMatchesPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfContentContainsSensitiveInformation": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "ExceptIfContentExtensionMatchesWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfContentPropertyContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfDocumentCreatedBy": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfDocumentIsPasswordProtected": {
-          "type": "boolean"
-        },
-        "ExceptIfDocumentIsUnsupported": {
-          "type": "boolean"
-        },
-        "ExceptIfDocumentNameMatchesWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfDocumentSizeOver": {
-          "type": "object"
-        },
-        "ExceptIfFrom": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfFromAddressContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfFromAddressMatchesPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfFromMemberOf": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "ExceptIfHeaderMatchesPatterns": {
-          "type": "array"
-        },
-        "ExceptIfProcessingLimitExceeded": {
-          "type": "boolean"
-        },
-        "ExceptIfRecipientDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSenderDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSenderIPRanges": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSentTo": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSentToMemberOf": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSubjectMatchesPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExpiryDate": {
-          "$ref": "#/$defs/nullableOfDateTime"
-        },
-        "From": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "FromAddressContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "FromAddressMatchesPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "FromMemberOf": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "HeaderMatchesPatterns": {
-          "type": "array"
-        },
-        "ImmutableId": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Policy": {
-          "type": "string"
-        },
-        "Priority": {
-          "type": "integer"
-        },
-        "ProcessingLimitExceeded": {
-          "type": "boolean"
-        },
-        "RecipientDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ReportSeverityLevel": {
-          "type": "string"
-        },
-        "RuleErrorAction": {
-          "type": "string"
-        },
-        "SenderDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SenderIPRanges": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SentTo": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SentToMemberOf": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SubjectMatchesPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Workload": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "nullableOfDateTime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "arrayOfHashtable": {
-          "type": "array",
-          "items": {
-            "type": "array"
-          }
-        },
-        "arrayOfObject": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AutoSensitivityLabelRule/Configuration"
     },
     "SecurityAndCompliance:CaseHoldPolicy/Configuration": {
       "type": "object",
@@ -884,9 +269,6 @@
         "Description": {
           "type": "string"
         },
-        "DomainController": {
-          "type": "object"
-        },
         "ExternalId": {
           "type": "string"
         },
@@ -895,67 +277,9 @@
         },
         "Reopen": {
           "type": "boolean"
-        },
-        "SecondaryCaseType": {
-          "type": "string"
-        },
-        "SourceCaseType": {
-          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceCase/Configuration"
-    },
-    "SecurityAndCompliance:ComplianceCaseMember/Configuration": {
-      "type": "object",
-      "properties": {
-        "Case": {
-          "type": "string"
-        },
-        "Member": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceCaseMember/Configuration"
-    },
-    "SecurityAndCompliance:ComplianceRetentionEvent/Configuration": {
-      "type": "object",
-      "properties": {
-        "AssetId": {
-          "type": "string"
-        },
-        "Comment": {
-          "type": "string"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "EventDateTime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "EventTags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "EventType": {
-          "type": "string"
-        },
-        "ExchangeAssetIdQuery": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "PreviewOnly": {
-          "type": "boolean"
-        },
-        "SharePointAssetIdQuery": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceRetentionEvent/Configuration"
     },
     "SecurityAndCompliance:ComplianceRetentionEventType/Configuration": {
       "type": "object",
@@ -968,201 +292,6 @@
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceRetentionEventType/Configuration"
-    },
-    "SecurityAndCompliance:ComplianceSearch/Configuration": {
-      "type": "object",
-      "properties": {
-        "AllowNotFoundExchangeLocationsEnabled": {
-          "type": "boolean"
-        },
-        "Case": {
-          "type": "string"
-        },
-        "ContentMatchQuery": {
-          "type": "string"
-        },
-        "Description": {
-          "type": "string"
-        },
-        "ExchangeLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExchangeLocationExclusion": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "HoldNames": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "IncludeOrgContent": {
-          "type": "boolean"
-        },
-        "IncludeUserAppContent": {
-          "type": "boolean"
-        },
-        "Language": {
-          "type": "object"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "PublicFolderLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "RefinerNames": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "RemovePublicFolderLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SharePointLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SharePointLocationExclusion": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceSearch/Configuration"
-    },
-    "SecurityAndCompliance:ComplianceSearchAction/Configuration": {
-      "type": "object",
-      "properties": {
-        "ActionName": {
-          "type": "string"
-        },
-        "ArchiveFormat": {
-          "type": "object"
-        },
-        "ChangeExportKey": {
-          "type": "boolean"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "EnableDedupe": {
-          "type": "boolean"
-        },
-        "ExchangeArchiveFormat": {
-          "type": "string"
-        },
-        "Export": {
-          "type": "boolean"
-        },
-        "FileTypeExclusionsForUnindexedItems": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Format": {
-          "type": "string"
-        },
-        "IncludeCredential": {
-          "type": "boolean"
-        },
-        "IncludeSharePointDocumentVersions": {
-          "type": "boolean"
-        },
-        "JobOptions": {
-          "type": "integer"
-        },
-        "NotifyEmail": {
-          "type": "string"
-        },
-        "NotifyEmailCC": {
-          "type": "string"
-        },
-        "Preview": {
-          "type": "boolean"
-        },
-        "Purge": {
-          "type": "boolean"
-        },
-        "PurgeType": {
-          "type": "string"
-        },
-        "ReferenceActionName": {
-          "type": "string"
-        },
-        "Region": {
-          "type": "string"
-        },
-        "Report": {
-          "type": "boolean"
-        },
-        "RetentionReport": {
-          "type": "boolean"
-        },
-        "RetryOnError": {
-          "type": "boolean"
-        },
-        "Scenario": {
-          "type": "string"
-        },
-        "Scope": {
-          "type": "string"
-        },
-        "SearchName": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SearchNames": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SharePointArchiveFormat": {
-          "type": "string"
-        },
-        "ShareRootPath": {
-          "type": "string"
-        },
-        "Version": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceSearchAction/Configuration"
-    },
-    "SecurityAndCompliance:ComplianceSecurityFilter/Configuration": {
-      "type": "object",
-      "properties": {
-        "Action": {
-          "type": "string"
-        },
-        "Description": {
-          "type": "string"
-        },
-        "FilterName": {
-          "type": "string"
-        },
-        "Filters": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Region": {
-          "type": "string"
-        },
-        "Users": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceSecurityFilter/Configuration"
     },
     "SecurityAndCompliance:ComplianceTag/Configuration": {
       "type": "object",
@@ -1183,8 +312,7 @@
           "type": "string"
         },
         "FlowId": {
-          "type": "string",
-          "format": "uuid"
+          "type": "object"
         },
         "IsRecordLabel": {
           "type": "boolean"
@@ -1218,533 +346,21 @@
           "items": {
             "type": "object"
           }
-        },
-        "WebHookUrl": {
-          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceTag/Configuration"
-    },
-    "SecurityAndCompliance:DeviceConditionalAccessPolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "RetryDistribution": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DeviceConditionalAccessPolicy/Configuration"
-    },
-    "SecurityAndCompliance:DeviceConditionalAccessRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "AccountName": {
-          "type": "string"
-        },
-        "AccountUserName": {
-          "type": "string"
-        },
-        "AllowAppStore": {
-          "type": "boolean"
-        },
-        "AllowAssistantWhileLocked": {
-          "type": "boolean"
-        },
-        "AllowConvenienceLogon": {
-          "type": "boolean"
-        },
-        "AllowDiagnosticSubmission": {
-          "type": "boolean"
-        },
-        "AllowiCloudBackup": {
-          "type": "boolean"
-        },
-        "AllowiCloudDocSync": {
-          "type": "boolean"
-        },
-        "AllowiCloudPhotoSync": {
-          "type": "boolean"
-        },
-        "AllowJailbroken": {
-          "type": "boolean"
-        },
-        "AllowPassbookWhileLocked": {
-          "type": "boolean"
-        },
-        "AllowScreenshot": {
-          "type": "boolean"
-        },
-        "AllowSimplePassword": {
-          "type": "boolean"
-        },
-        "AllowVideoConferencing": {
-          "type": "boolean"
-        },
-        "AllowVoiceAssistant": {
-          "type": "boolean"
-        },
-        "AllowVoiceDialing": {
-          "type": "boolean"
-        },
-        "AntiVirusSignatureStatus": {
-          "type": "integer"
-        },
-        "AntiVirusStatus": {
-          "type": "integer"
-        },
-        "AppsRating": {
-          "type": "object"
-        },
-        "AutoUpdateStatus": {
-          "type": "object"
-        },
-        "BluetoothEnabled": {
-          "type": "boolean"
-        },
-        "CameraEnabled": {
-          "type": "boolean"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "EmailAddress": {
-          "type": "string"
-        },
-        "EnableRemovableStorage": {
-          "type": "boolean"
-        },
-        "ExchangeActiveSyncHost": {
-          "type": "string"
-        },
-        "FirewallStatus": {
-          "type": "object"
-        },
-        "ForceAppStorePassword": {
-          "type": "boolean"
-        },
-        "ForceEncryptedBackup": {
-          "type": "boolean"
-        },
-        "MaxPasswordAttemptsBeforeWipe": {
-          "type": "integer"
-        },
-        "MaxPasswordGracePeriod": {
-          "$ref": "#/$defs/nullableOfTimeSpan"
-        },
-        "MoviesRating": {
-          "type": "object"
-        },
-        "PasswordComplexity": {
-          "type": "integer"
-        },
-        "PasswordExpirationDays": {
-          "type": "integer"
-        },
-        "PasswordHistoryCount": {
-          "type": "integer"
-        },
-        "PasswordMinComplexChars": {
-          "type": "integer"
-        },
-        "PasswordMinimumLength": {
-          "type": "integer"
-        },
-        "PasswordQuality": {
-          "type": "integer"
-        },
-        "PasswordRequired": {
-          "type": "boolean"
-        },
-        "PasswordTimeout": {
-          "$ref": "#/$defs/nullableOfTimeSpan"
-        },
-        "PhoneMemoryEncrypted": {
-          "type": "boolean"
-        },
-        "Policy": {
-          "type": "string"
-        },
-        "RegionRatings": {
-          "type": "object"
-        },
-        "RequireEmailProfile": {
-          "type": "boolean"
-        },
-        "SmartScreenEnabled": {
-          "type": "boolean"
-        },
-        "SystemSecurityTLS": {
-          "type": "boolean"
-        },
-        "TargetGroups": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "TVShowsRating": {
-          "type": "object"
-        },
-        "UserAccountControlStatus": {
-          "type": "object"
-        },
-        "WLANEnabled": {
-          "type": "boolean"
-        },
-        "WorkFoldersSyncUrl": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "nullableOfTimeSpan": {
-          "type": "object",
-          "properties": {
-            "Ticks": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "Days": {
-              "$ref": "#/$defs/integer"
-            },
-            "Hours": {
-              "$ref": "#/$defs/integer"
-            },
-            "Milliseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Microseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Nanoseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Minutes": {
-              "$ref": "#/$defs/integer"
-            },
-            "Seconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "TotalDays": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalHours": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMilliseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMicroseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalNanoseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMinutes": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalSeconds": {
-              "$ref": "#/$defs/number"
-            }
-          }
-        },
-        "integer": {
-          "type": "integer",
-          "readOnly": true
-        },
-        "number": {
-          "type": "number",
-          "readOnly": true
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DeviceConditionalAccessRule/Configuration"
-    },
-    "SecurityAndCompliance:DeviceConfigurationPolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "RetryDistribution": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DeviceConfigurationPolicy/Configuration"
-    },
-    "SecurityAndCompliance:DeviceConfigurationRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "AccountName": {
-          "type": "string"
-        },
-        "AccountUserName": {
-          "type": "string"
-        },
-        "AllowAppStore": {
-          "type": "boolean"
-        },
-        "AllowAssistantWhileLocked": {
-          "type": "boolean"
-        },
-        "AllowConvenienceLogon": {
-          "type": "boolean"
-        },
-        "AllowDiagnosticSubmission": {
-          "type": "boolean"
-        },
-        "AllowiCloudBackup": {
-          "type": "boolean"
-        },
-        "AllowiCloudDocSync": {
-          "type": "boolean"
-        },
-        "AllowiCloudPhotoSync": {
-          "type": "boolean"
-        },
-        "AllowPassbookWhileLocked": {
-          "type": "boolean"
-        },
-        "AllowScreenshot": {
-          "type": "boolean"
-        },
-        "AllowSimplePassword": {
-          "type": "boolean"
-        },
-        "AllowVideoConferencing": {
-          "type": "boolean"
-        },
-        "AllowVoiceAssistant": {
-          "type": "boolean"
-        },
-        "AllowVoiceDialing": {
-          "type": "boolean"
-        },
-        "AntiVirusSignatureStatus": {
-          "type": "integer"
-        },
-        "AntiVirusStatus": {
-          "type": "integer"
-        },
-        "AppsRating": {
-          "type": "object"
-        },
-        "AutoUpdateStatus": {
-          "type": "object"
-        },
-        "BluetoothEnabled": {
-          "type": "boolean"
-        },
-        "CameraEnabled": {
-          "type": "boolean"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "EmailAddress": {
-          "type": "string"
-        },
-        "EnableRemovableStorage": {
-          "type": "boolean"
-        },
-        "ExchangeActiveSyncHost": {
-          "type": "string"
-        },
-        "FirewallStatus": {
-          "type": "object"
-        },
-        "ForceAppStorePassword": {
-          "type": "boolean"
-        },
-        "ForceEncryptedBackup": {
-          "type": "boolean"
-        },
-        "MaxPasswordAttemptsBeforeWipe": {
-          "type": "integer"
-        },
-        "MaxPasswordGracePeriod": {
-          "$ref": "#/$defs/nullableOfTimeSpan"
-        },
-        "MoviesRating": {
-          "type": "object"
-        },
-        "PasswordComplexity": {
-          "type": "integer"
-        },
-        "PasswordExpirationDays": {
-          "type": "integer"
-        },
-        "PasswordHistoryCount": {
-          "type": "integer"
-        },
-        "PasswordMinComplexChars": {
-          "type": "integer"
-        },
-        "PasswordMinimumLength": {
-          "type": "integer"
-        },
-        "PasswordQuality": {
-          "type": "integer"
-        },
-        "PasswordRequired": {
-          "type": "boolean"
-        },
-        "PasswordTimeout": {
-          "$ref": "#/$defs/nullableOfTimeSpan"
-        },
-        "PhoneMemoryEncrypted": {
-          "type": "boolean"
-        },
-        "Policy": {
-          "type": "string"
-        },
-        "RegionRatings": {
-          "type": "object"
-        },
-        "RequireEmailProfile": {
-          "type": "boolean"
-        },
-        "SmartScreenEnabled": {
-          "type": "boolean"
-        },
-        "SystemSecurityTLS": {
-          "type": "boolean"
-        },
-        "TargetGroups": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "TVShowsRating": {
-          "type": "object"
-        },
-        "UserAccountControlStatus": {
-          "type": "object"
-        },
-        "WLANEnabled": {
-          "type": "boolean"
-        },
-        "WorkFoldersSyncUrl": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "nullableOfTimeSpan": {
-          "type": "object",
-          "properties": {
-            "Ticks": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "Days": {
-              "$ref": "#/$defs/integer"
-            },
-            "Hours": {
-              "$ref": "#/$defs/integer"
-            },
-            "Milliseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Microseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Nanoseconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "Minutes": {
-              "$ref": "#/$defs/integer"
-            },
-            "Seconds": {
-              "$ref": "#/$defs/integer"
-            },
-            "TotalDays": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalHours": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMilliseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMicroseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalNanoseconds": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalMinutes": {
-              "$ref": "#/$defs/number"
-            },
-            "TotalSeconds": {
-              "$ref": "#/$defs/number"
-            }
-          }
-        },
-        "integer": {
-          "type": "integer",
-          "readOnly": true
-        },
-        "number": {
-          "type": "number",
-          "readOnly": true
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DeviceConfigurationRule/Configuration"
-    },
-    "SecurityAndCompliance:DeviceTenantPolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "RetryDistribution": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DeviceTenantPolicy/Configuration"
-    },
-    "SecurityAndCompliance:DeviceTenantRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "ApplyPolicyTo": {
-          "type": "object"
-        },
-        "BlockUnsupportedDevices": {
-          "type": "boolean"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "ExclusionList": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DeviceTenantRule/Configuration"
     },
     "SecurityAndCompliance:DlpCompliancePolicy/Configuration": {
       "type": "object",
       "properties": {
         "Comment": {
           "type": "string"
+        },
+        "EndpointDlpAdaptiveScopes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "EndpointDlpAdaptiveScopesException": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "EndpointDlpLocation": {
           "$ref": "#/$defs/arrayOfString"
@@ -1756,6 +372,12 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "ExceptIfOneDriveSharedByMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExchangeAdaptiveScopes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExchangeAdaptiveScopesException": {
           "$ref": "#/$defs/arrayOfString"
         },
         "ExchangeLocation": {
@@ -1772,6 +394,12 @@
         },
         "Name": {
           "type": "string"
+        },
+        "OneDriveAdaptiveScopes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "OneDriveAdaptiveScopesException": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "OneDriveLocation": {
           "$ref": "#/$defs/arrayOfString"
@@ -1809,10 +437,22 @@
         "RetryDistribution": {
           "type": "boolean"
         },
+        "SharePointAdaptiveScopes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SharePointAdaptiveScopesException": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "SharePointLocation": {
           "$ref": "#/$defs/arrayOfString"
         },
         "SharePointLocationException": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TeamsAdaptiveScopes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TeamsAdaptiveScopesException": {
           "$ref": "#/$defs/arrayOfString"
         },
         "TeamsLocation": {
@@ -1843,9 +483,6 @@
       "properties": {
         "AccessScope": {
           "type": "string"
-        },
-        "ActivationDate": {
-          "$ref": "#/$defs/nullableOfDateTime"
         },
         "AddRecipients": {
           "type": "array"
@@ -2072,9 +709,6 @@
         "ExceptIfWithImportance": {
           "type": "string"
         },
-        "ExpiryDate": {
-          "$ref": "#/$defs/nullableOfDateTime"
-        },
         "From": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -2105,10 +739,6 @@
         "HeaderMatchesPatterns": {
           "type": "array"
         },
-        "ImmutableId": {
-          "type": "string",
-          "format": "uuid"
-        },
         "IncidentReportContent": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -2133,11 +763,17 @@
         "NotifyAllowOverride": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "NotifyEmailCustomSenderDisplayName": {
+          "type": "string"
+        },
         "NotifyEmailCustomSubject": {
           "type": "string"
         },
         "NotifyEmailCustomText": {
           "type": "string"
+        },
+        "NotifyEmailExchangeIncludeAttachment": {
+          "type": "boolean"
         },
         "NotifyEndpointUser": {
           "type": "array"
@@ -2173,7 +809,7 @@
           "type": "string"
         },
         "Priority": {
-          "type": "integer"
+          "type": "object"
         },
         "ProcessingLimitExceeded": {
           "type": "boolean"
@@ -2261,10 +897,6 @@
         }
       },
       "$defs": {
-        "nullableOfDateTime": {
-          "type": "string",
-          "format": "date-time"
-        },
         "arrayOfString": {
           "type": "array",
           "items": {
@@ -2285,39 +917,6 @@
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpComplianceRule/Configuration"
-    },
-    "SecurityAndCompliance:DlpEdmSchema/Configuration": {
-      "type": "object",
-      "properties": {
-        "FileData": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpEdmSchema/Configuration"
-    },
-    "SecurityAndCompliance:DlpKeywordDictionary/Configuration": {
-      "type": "object",
-      "properties": {
-        "Description": {
-          "type": "string"
-        },
-        "FileData": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Organization": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpKeywordDictionary/Configuration"
     },
     "SecurityAndCompliance:DlpSensitiveInformationType/Configuration": {
       "type": "object",
@@ -2354,30 +953,6 @@
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpSensitiveInformationType/Configuration"
-    },
-    "SecurityAndCompliance:DlpSensitiveInformationTypeRulePackage/Configuration": {
-      "type": "object",
-      "properties": {
-        "FileData": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        "MigrationId": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpSensitiveInformationTypeRulePackage/Configuration"
-    },
-    "SecurityAndCompliance:eDiscoveryCaseAdmin/Configuration": {
-      "type": "object",
-      "properties": {
-        "User": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:eDiscoveryCaseAdmin/Configuration"
     },
     "SecurityAndCompliance:FilePlanPropertyAuthority/Configuration": {
       "type": "object",
@@ -2460,165 +1035,6 @@
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertySubCategory/Configuration"
     },
-    "SecurityAndCompliance:Group/Configuration": {
-      "type": "object",
-      "properties": {
-        "BypassSecurityGroupManagerCheck": {
-          "type": "boolean"
-        },
-        "Description": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "DisplayName": {
-          "type": "string"
-        },
-        "IsHierarchicalGroup": {
-          "type": "boolean"
-        },
-        "ManagedBy": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Notes": {
-          "type": "string"
-        },
-        "PhoneticDisplayName": {
-          "type": "string"
-        },
-        "SeniorityIndex": {
-          "type": "integer"
-        },
-        "SimpleDisplayName": {
-          "type": "string"
-        },
-        "Universal": {
-          "type": "boolean"
-        },
-        "WindowsEmailAddress": {
-          "type": "object"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:Group/Configuration"
-    },
-    "SecurityAndCompliance:HoldCompliancePolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "ExchangeLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "PublicFolderLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "RetryDistribution": {
-          "type": "boolean"
-        },
-        "SharePointLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:HoldCompliancePolicy/Configuration"
-    },
-    "SecurityAndCompliance:HoldComplianceRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "ContentDateFrom": {
-          "$ref": "#/$defs/nullableOfDateTime"
-        },
-        "ContentDateTo": {
-          "$ref": "#/$defs/nullableOfDateTime"
-        },
-        "ContentMatchQuery": {
-          "type": "string"
-        },
-        "Disabled": {
-          "type": "boolean"
-        },
-        "HoldContent": {
-          "type": "string"
-        },
-        "HoldDurationDisplayHint": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Policy": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "nullableOfDateTime": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:HoldComplianceRule/Configuration"
-    },
-    "SecurityAndCompliance:InformationBarrierPolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "AssignedSegment": {
-          "type": "string"
-        },
-        "Comment": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "SegmentAllowedFilter": {
-          "type": "string"
-        },
-        "SegmentsAllowed": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SegmentsBlocked": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "State": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:InformationBarrierPolicy/Configuration"
-    },
     "SecurityAndCompliance:Label/Configuration": {
       "type": "object",
       "properties": {
@@ -2629,7 +1045,7 @@
           "type": "string"
         },
         "ApplyContentMarkingFooterEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "ApplyContentMarkingFooterFontColor": {
           "type": "string"
@@ -2638,10 +1054,10 @@
           "type": "string"
         },
         "ApplyContentMarkingFooterFontSize": {
-          "type": "integer"
+          "type": "object"
         },
         "ApplyContentMarkingFooterMargin": {
-          "type": "integer"
+          "type": "object"
         },
         "ApplyContentMarkingFooterText": {
           "type": "string"
@@ -2650,7 +1066,7 @@
           "type": "string"
         },
         "ApplyContentMarkingHeaderEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "ApplyContentMarkingHeaderFontColor": {
           "type": "string"
@@ -2659,16 +1075,16 @@
           "type": "string"
         },
         "ApplyContentMarkingHeaderFontSize": {
-          "type": "integer"
+          "type": "object"
         },
         "ApplyContentMarkingHeaderMargin": {
-          "type": "integer"
+          "type": "object"
         },
         "ApplyContentMarkingHeaderText": {
           "type": "string"
         },
         "ApplyWaterMarkingEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "ApplyWaterMarkingFontColor": {
           "type": "string"
@@ -2677,7 +1093,7 @@
           "type": "string"
         },
         "ApplyWaterMarkingFontSize": {
-          "type": "integer"
+          "type": "object"
         },
         "ApplyWaterMarkingLayout": {
           "type": "string"
@@ -2685,14 +1101,8 @@
         "ApplyWaterMarkingText": {
           "type": "string"
         },
-        "ColumnAssetCondition": {
-          "type": "string"
-        },
         "Comment": {
           "type": "string"
-        },
-        "Conditions": {
-          "type": "object"
         },
         "ContentType": {
           "type": "string"
@@ -2710,25 +1120,22 @@
           "type": "string"
         },
         "EncryptionDoNotForward": {
-          "type": "boolean"
+          "type": "string"
         },
         "EncryptionDoubleKeyEncryptionUrl": {
           "type": "string"
         },
         "EncryptionEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "EncryptionEncryptOnly": {
-          "type": "boolean"
-        },
-        "EncryptionLinkedTemplateId": {
           "type": "string"
         },
         "EncryptionOfflineAccessDays": {
-          "type": "integer"
+          "type": "object"
         },
         "EncryptionPromptUser": {
-          "type": "boolean"
+          "type": "string"
         },
         "EncryptionProtectionType": {
           "type": "string"
@@ -2742,59 +1149,38 @@
         "EncryptionTemplateId": {
           "type": "string"
         },
-        "LabelActions": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "LocaleSettings": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "MigrationId": {
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "Name": {
-          "type": "string"
-        },
-        "NextLabel": {
           "type": "string"
         },
         "ParentId": {
           "type": "string"
         },
-        "PreviousLabel": {
-          "type": "string"
-        },
         "Priority": {
-          "type": "integer"
-        },
-        "SchematizedDataCondition": {
-          "type": "string"
-        },
-        "Setting": {
-          "type": "array"
-        },
-        "Settings": {
-          "type": "array"
+          "type": "object"
         },
         "SiteAndGroupProtectionAllowAccessToGuestUsers": {
-          "type": "boolean"
+          "type": "string"
         },
         "SiteAndGroupProtectionAllowEmailFromGuestUsers": {
-          "type": "boolean"
+          "type": "string"
         },
         "SiteAndGroupProtectionAllowFullAccess": {
-          "type": "boolean"
+          "type": "string"
         },
         "SiteAndGroupProtectionAllowLimitedAccess": {
-          "type": "boolean"
+          "type": "string"
         },
         "SiteAndGroupProtectionBlockAccess": {
-          "type": "boolean"
+          "type": "string"
         },
         "SiteAndGroupProtectionEnabled": {
-          "type": "boolean"
-        },
-        "SiteAndGroupProtectionLevel": {
-          "type": "object"
+          "type": "string"
         },
         "SiteAndGroupProtectionPrivacy": {
           "type": "string"
@@ -2808,44 +1194,29 @@
         "TeamsAllowMeetingChat": {
           "type": "string"
         },
-        "TeamsAllowPrivateTeamsToBeDiscoverableUsingSearch": {
-          "type": "boolean"
-        },
         "TeamsBypassLobbyForDialInUsers": {
-          "type": "boolean"
-        },
-        "TeamsChannelProtectionEnabled": {
-          "type": "boolean"
-        },
-        "TeamsChannelSharedWithExternalTenants": {
-          "type": "boolean"
-        },
-        "TeamsChannelSharedWithPrivateTeamsOnly": {
-          "type": "boolean"
-        },
-        "TeamsChannelSharedWithSameLabelOnly": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsCopyRestrictionEnforced": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsEndToEndEncryptionEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsLobbyBypassScope": {
           "type": "string"
         },
         "TeamsLobbyRestrictionEnforced": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsPresentersRestrictionEnforced": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsProtectionEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsRecordAutomatically": {
-          "type": "boolean"
+          "type": "string"
         },
         "TeamsVideoWatermark": {
           "type": "string"
@@ -2855,14 +1226,6 @@
         },
         "Tooltip": {
           "type": "string"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:Label/Configuration"
@@ -2885,13 +1248,7 @@
         "Labels": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "MigrationId": {
-          "type": "string"
-        },
         "ModernGroupLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ModernGroupLocationException": {
           "$ref": "#/$defs/arrayOfString"
         },
         "Name": {
@@ -2900,41 +1257,14 @@
         "NextLabelPolicy": {
           "type": "string"
         },
-        "OneDriveLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "OneDriveLocationException": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "PolicyRBACScopes": {
           "$ref": "#/$defs/arrayOfString"
         },
         "PreviousLabelPolicy": {
           "type": "string"
         },
-        "PublicFolderLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "RetryDistribution": {
           "type": "boolean"
-        },
-        "Setting": {
-          "type": "array"
-        },
-        "Settings": {
-          "type": "array"
-        },
-        "SharePointLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SharePointLocationException": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SkypeLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SkypeLocationException": {
-          "$ref": "#/$defs/arrayOfString"
         }
       },
       "$defs": {
@@ -2947,181 +1277,6 @@
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:LabelPolicy/Configuration"
     },
-    "SecurityAndCompliance:ManagementRole/Configuration": {
-      "type": "object",
-      "properties": {
-        "Description": {
-          "type": "string"
-        },
-        "EnabledCmdlets": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Parent": {
-          "type": "string"
-        },
-        "Recurse": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ManagementRole/Configuration"
-    },
-    "SecurityAndCompliance:OrganizationSegment/Configuration": {
-      "type": "object",
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "UserGroupFilter": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:OrganizationSegment/Configuration"
-    },
-    "SecurityAndCompliance:PhishSimOverridePolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "Name": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:PhishSimOverridePolicy/Configuration"
-    },
-    "SecurityAndCompliance:PhishSimOverrideRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Domains": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Policy": {
-          "type": "string"
-        },
-        "SenderDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SenderIpRanges": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:PhishSimOverrideRule/Configuration"
-    },
-    "SecurityAndCompliance:PolicyConfig/Configuration": {
-      "type": "object",
-      "properties": {
-        "CaseHoldPolicyLimit": {
-          "type": "integer"
-        },
-        "ClassificationScheme": {
-          "type": "object"
-        },
-        "ComplianceUrl": {
-          "type": "string"
-        },
-        "DlpAppGroups": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "DlpAppGroupsPsws": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "DlpNetworkShareGroups": {
-          "type": "array"
-        },
-        "DlpPrinterGroups": {
-          "type": "array"
-        },
-        "DlpRemovableMediaGroups": {
-          "type": "array"
-        },
-        "DocumentIsUnsupportedSeverity": {
-          "type": "object"
-        },
-        "EnableAdvancedRuleBuilder": {
-          "type": "boolean"
-        },
-        "EnableLabelCoauth": {
-          "type": "boolean"
-        },
-        "EnableSpoAipMigration": {
-          "type": "boolean"
-        },
-        "EndpointDlpGlobalSettings": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "EndpointDlpGlobalSettingsPsws": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "ExtendTeamsDlpPoliciesToSharePointOneDrive": {
-          "type": "boolean"
-        },
-        "InformationBarrierMode": {
-          "type": "string"
-        },
-        "InformationBarrierPeopleSearchRestriction": {
-          "type": "object"
-        },
-        "OnPremisesWorkload": {
-          "type": "object"
-        },
-        "ProcessingLimitExceededSeverity": {
-          "type": "object"
-        },
-        "PurviewLabelConsent": {
-          "type": "boolean"
-        },
-        "ReservedForFutureUse": {
-          "type": "boolean"
-        },
-        "RetentionForwardCrawl": {
-          "type": "boolean"
-        },
-        "RuleErrorAction": {
-          "type": "string"
-        },
-        "SenderAddressLocation": {
-          "type": "string"
-        },
-        "SiteGroups": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        },
-        "SiteGroupsPsws": {
-          "$ref": "#/$defs/arrayOfHashtable"
-        }
-      },
-      "$defs": {
-        "arrayOfHashtable": {
-          "type": "array",
-          "items": {
-            "type": "array"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:PolicyConfig/Configuration"
-    },
     "SecurityAndCompliance:ProtectionAlert/Configuration": {
       "type": "object",
       "properties": {
@@ -3131,9 +1286,6 @@
         "AlertBy": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "AlertFor": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "Category": {
           "type": "string"
         },
@@ -3141,8 +1293,7 @@
           "type": "string"
         },
         "CorrelationPolicyId": {
-          "type": "string",
-          "format": "uuid"
+          "type": "object"
         },
         "CustomProperties": {
           "type": "array"
@@ -3194,7 +1345,7 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "PrivacyManagementScopedSensitiveInformationTypesThreshold": {
-          "type": "integer"
+          "type": "object"
         },
         "Severity": {
           "type": "string"
@@ -3209,10 +1360,10 @@
           "type": "integer"
         },
         "UseCreatedDateTime": {
-          "type": "boolean"
+          "type": "object"
         },
         "VolumeThreshold": {
-          "type": "integer"
+          "type": "object"
         }
       },
       "$defs": {
@@ -3224,33 +1375,6 @@
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:ProtectionAlert/Configuration"
-    },
-    "SecurityAndCompliance:RecordReviewNotificationTemplateConfig/Configuration": {
-      "type": "object",
-      "properties": {
-        "CustomizedNotificationDataString": {
-          "type": "string"
-        },
-        "CustomizedReminderDataString": {
-          "type": "string"
-        },
-        "IsCustomizedNotificationTemplate": {
-          "type": "boolean"
-        },
-        "IsCustomizedReminderTemplate": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:RecordReviewNotificationTemplateConfig/Configuration"
-    },
-    "SecurityAndCompliance:RegulatoryComplianceUI/Configuration": {
-      "type": "object",
-      "properties": {
-        "Enabled": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:RegulatoryComplianceUI/Configuration"
     },
     "SecurityAndCompliance:RetentionCompliancePolicy/Configuration": {
       "type": "object",
@@ -3297,9 +1421,6 @@
         "PolicyRBACScopes": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "PolicyTemplateInfo": {
-          "type": "array"
-        },
         "PublicFolderLocation": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -3319,9 +1440,6 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "SkypeLocation": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "SkypeLocationException": {
           "$ref": "#/$defs/arrayOfString"
         },
         "StartSimulation": {
@@ -3375,13 +1493,13 @@
           "type": "string"
         },
         "ExcludedItemClasses": {
-          "$ref": "#/$defs/arrayOfString"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "ExpirationDateOption": {
           "type": "string"
-        },
-        "MachineLearningModelIDs": {
-          "$ref": "#/$defs/arrayOfString"
         },
         "Name": {
           "type": "string"
@@ -3406,12 +1524,6 @@
         "nullableOfDateTime": {
           "type": "string",
           "format": "date-time"
-        },
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:RetentionComplianceRule/Configuration"
@@ -3456,453 +1568,6 @@
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:RoleGroup/Configuration"
-    },
-    "SecurityAndCompliance:RoleGroupMember/Configuration": {
-      "type": "object",
-      "properties": {
-        "BypassSecurityGroupManagerCheck": {
-          "type": "boolean"
-        },
-        "Member": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:RoleGroupMember/Configuration"
-    },
-    "SecurityAndCompliance:SecOpsOverridePolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "SentTo": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:SecOpsOverridePolicy/Configuration"
-    },
-    "SecurityAndCompliance:SecOpsOverrideRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Policy": {
-          "type": "string"
-        },
-        "SentTo": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:SecOpsOverrideRule/Configuration"
-    },
-    "SecurityAndCompliance:ServicePrincipal/Configuration": {
-      "type": "object",
-      "properties": {
-        "AppId": {
-          "type": "string"
-        },
-        "DisplayName": {
-          "type": "string"
-        },
-        "ObjectId": {
-          "type": "string"
-        },
-        "ServiceId": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ServicePrincipal/Configuration"
-    },
-    "SecurityAndCompliance:SupervisoryReviewPolicyV2/Configuration": {
-      "type": "object",
-      "properties": {
-        "Comment": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "RetentionPeriodInDays": {
-          "type": "integer"
-        },
-        "Reviewers": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "UserReportingWorkloads": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:SupervisoryReviewPolicyV2/Configuration"
-    },
-    "SecurityAndCompliance:SupervisoryReviewRule/Configuration": {
-      "type": "object",
-      "properties": {
-        "CcsiDataModelOperator": {
-          "type": "string"
-        },
-        "Condition": {
-          "type": "string"
-        },
-        "ContentContainsSensitiveInformation": {
-          "type": "array",
-          "items": {
-            "type": "array"
-          }
-        },
-        "ContentMatchesDataModel": {
-          "type": "string"
-        },
-        "ContentSources": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "DayXInsights": {
-          "type": "boolean"
-        },
-        "ExceptIfFrom": {
-          "type": "string"
-        },
-        "ExceptIfRecipientDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfRevieweeIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSenderDomainIs": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptIfSentTo": {
-          "type": "string"
-        },
-        "ExceptIfSubjectOrBodyContainsWords": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "From": {
-          "type": "string"
-        },
-        "IncludeAdaptiveScopes": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "InPurviewFilter": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Ocr": {
-          "type": "boolean"
-        },
-        "Policy": {
-          "type": "string"
-        },
-        "SamplingRate": {
-          "type": "integer"
-        },
-        "SentTo": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:SupervisoryReviewRule/Configuration"
-    },
-    "SecurityAndCompliance:TenantAllowBlockListItems/Configuration": {
-      "type": "object",
-      "properties": {
-        "Allow": {
-          "type": "boolean"
-        },
-        "Block": {
-          "type": "boolean"
-        },
-        "Entries": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExpirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "Ids": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ListSubType": {
-          "type": "string"
-        },
-        "ListType": {
-          "type": "string"
-        },
-        "LogExtraDetails": {
-          "type": "boolean"
-        },
-        "NoExpiration": {
-          "type": "boolean"
-        },
-        "Notes": {
-          "type": "string"
-        },
-        "OutputJson": {
-          "type": "boolean"
-        },
-        "SubmissionID": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:TenantAllowBlockListItems/Configuration"
-    },
-    "SecurityAndCompliance:TenantAllowBlockListSpoofItems/Configuration": {
-      "type": "object",
-      "properties": {
-        "Action": {
-          "type": "string"
-        },
-        "Ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "SendingInfrastructure": {
-          "type": "string"
-        },
-        "SpoofedUser": {
-          "type": "string"
-        },
-        "SpoofType": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:TenantAllowBlockListSpoofItems/Configuration"
-    },
-    "SecurityAndCompliance:UnifiedAuditLogRetentionPolicy/Configuration": {
-      "type": "object",
-      "properties": {
-        "Description": {
-          "type": "string"
-        },
-        "DomainController": {
-          "type": "object"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Operations": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Priority": {
-          "type": "integer"
-        },
-        "RecordTypes": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "RetentionDuration": {
-          "type": "string"
-        },
-        "UserIds": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:UnifiedAuditLogRetentionPolicy/Configuration"
-    },
-    "SecurityAndCompliance:User/Configuration": {
-      "type": "object",
-      "properties": {
-        "AssistantName": {
-          "type": "string"
-        },
-        "AuthenticationPolicy": {
-          "type": "string"
-        },
-        "BlockCloudCache": {
-          "type": "boolean"
-        },
-        "CanHaveCloudCache": {
-          "type": "boolean"
-        },
-        "City": {
-          "type": "string"
-        },
-        "ClearDataEncryptionPolicy": {
-          "type": "boolean"
-        },
-        "Company": {
-          "type": "string"
-        },
-        "CountryOrRegion": {
-          "type": "object"
-        },
-        "Department": {
-          "type": "string"
-        },
-        "DesiredWorkloads": {
-          "type": "object"
-        },
-        "DisplayName": {
-          "type": "string"
-        },
-        "Fax": {
-          "type": "string"
-        },
-        "FirstName": {
-          "type": "string"
-        },
-        "GeoCoordinates": {
-          "type": "object"
-        },
-        "HomePhone": {
-          "type": "string"
-        },
-        "Initials": {
-          "type": "string"
-        },
-        "LastName": {
-          "type": "string"
-        },
-        "MailboxRegion": {
-          "type": "string"
-        },
-        "MailboxRegionSuffix": {
-          "type": "object"
-        },
-        "Manager": {
-          "type": "string"
-        },
-        "MobilePhone": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Notes": {
-          "type": "string"
-        },
-        "Office": {
-          "type": "string"
-        },
-        "OtherFax": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "OtherHomePhone": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "OtherTelephone": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Pager": {
-          "type": "string"
-        },
-        "PermanentlyClearPreviousMailboxInfo": {
-          "type": "boolean"
-        },
-        "Phone": {
-          "type": "string"
-        },
-        "PhoneticDisplayName": {
-          "type": "string"
-        },
-        "PostalCode": {
-          "type": "string"
-        },
-        "PostOfficeBox": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "PublicFolder": {
-          "type": "boolean"
-        },
-        "RemotePowerShellEnabled": {
-          "type": "boolean"
-        },
-        "RemoveMailboxProvisioningConstraint": {
-          "type": "boolean"
-        },
-        "ResetPasswordOnNextLogon": {
-          "type": "boolean"
-        },
-        "SeniorityIndex": {
-          "type": "integer"
-        },
-        "SimpleDisplayName": {
-          "type": "string"
-        },
-        "StateOrProvince": {
-          "type": "string"
-        },
-        "StreetAddress": {
-          "type": "string"
-        },
-        "StsRefreshTokensValidFrom": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "Title": {
-          "type": "string"
-        },
-        "VIP": {
-          "type": "boolean"
-        },
-        "WebPage": {
-          "type": "string"
-        },
-        "WindowsEmailAddress": {
-          "type": "object"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:User/Configuration"
     }
   }
 }
