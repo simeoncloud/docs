@@ -1,0 +1,4324 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/ExchangeOnline:AcceptedDomain/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:ActiveSyncDeviceAccessRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AddressBookPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AddressList/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AntiPhishPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AntiPhishRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AtpPolicyForO365/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AuthenticationPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AvailabilityAddressSpace/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:AvailabilityConfig/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:CASMailboxPlan/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:ClientAccessRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:DistributionGroup/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:DistributionGroupMember/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:DkimSigningConfig/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:DynamicDistributionGroup/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:GlobalAddressList/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:HostedConnectionFilterPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:HostedContentFilterPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:HostedContentFilterRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:HostedOutboundSpamFilterPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:HostedOutboundSpamFilterRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:InboundConnector/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:IntraOrganizationConnector/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:JournalRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:Mailbox/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:MailboxPermission/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:MailboxPlan/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:MalwareFilterPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:MalwareFilterRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:MobileDeviceMailboxPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OfflineAddressBook/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OnPremisesOrganization/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OrganizationConfig/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OrganizationRelationship/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OutboundConnector/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OwaMailboxPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:PartnerApplication/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:PolicyTipConfig/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:QuarantinePolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:RemoteDomain/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:RoleAssignmentPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:SafeAttachmentPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:SafeAttachmentRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:SafeLinksPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:SafeLinksRule/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:SharingPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:TransportConfig/Configuration"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:TransportRule/Configuration"
+    }
+  ],
+  "$defs": {
+    "ExchangeOnline:AcceptedDomain/Configuration": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "CanHaveCloudCache": {
+          "type": "boolean"
+        },
+        "DomainType": {
+          "type": "string"
+        },
+        "MatchSubDomains": {
+          "type": "boolean"
+        },
+        "OutboundOnly": {
+          "type": "boolean"
+        },
+        "SendingFromDomainDisabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AcceptedDomain/Configuration"
+    },
+    "ExchangeOnline:ActiveSyncDeviceAccessRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "AccessLevel": {
+          "type": "object"
+        },
+        "Characteristic": {
+          "type": "object"
+        },
+        "QueryString": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:ActiveSyncDeviceAccessRule/Configuration"
+    },
+    "ExchangeOnline:AddressBookPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AddressLists": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "GlobalAddressList": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OfflineAddressBook": {
+          "type": "string"
+        },
+        "RoomList": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AddressBookPolicy/Configuration"
+    },
+    "ExchangeOnline:AddressList/Configuration": {
+      "type": "object",
+      "properties": {
+        "Container": {
+          "type": "string"
+        },
+        "RecipientFilter": {
+          "type": "string"
+        },
+        "ConditionalCompany": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute10": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute11": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute12": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute13": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute14": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute15": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute3": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute4": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute5": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute6": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute7": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute8": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute9": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalDepartment": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalStateOrProvince": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "IncludedRecipients": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Recursive": {
+          "type": "boolean"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AddressList/Configuration"
+    },
+    "ExchangeOnline:AntiPhishPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "AuthenticationFailAction": {
+          "type": "string"
+        },
+        "DmarcQuarantineAction": {
+          "type": "string"
+        },
+        "DmarcRejectAction": {
+          "type": "string"
+        },
+        "EnableFirstContactSafetyTips": {
+          "type": "boolean"
+        },
+        "EnableMailboxIntelligence": {
+          "type": "boolean"
+        },
+        "EnableMailboxIntelligenceProtection": {
+          "type": "boolean"
+        },
+        "EnableOrganizationDomainsProtection": {
+          "type": "boolean"
+        },
+        "EnableSimilarDomainsSafetyTips": {
+          "type": "boolean"
+        },
+        "EnableSimilarUsersSafetyTips": {
+          "type": "boolean"
+        },
+        "EnableSpoofIntelligence": {
+          "type": "boolean"
+        },
+        "EnableTargetedDomainsProtection": {
+          "type": "boolean"
+        },
+        "EnableTargetedUserProtection": {
+          "type": "boolean"
+        },
+        "EnableUnauthenticatedSender": {
+          "type": "boolean"
+        },
+        "EnableUnusualCharactersSafetyTips": {
+          "type": "boolean"
+        },
+        "EnableViaTag": {
+          "type": "boolean"
+        },
+        "ExcludedDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExcludedSenders": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "HonorDmarcPolicy": {
+          "type": "boolean"
+        },
+        "ImpersonationProtectionState": {
+          "type": "string"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "MailboxIntelligenceProtectionAction": {
+          "type": "string"
+        },
+        "MailboxIntelligenceProtectionActionRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MailboxIntelligenceQuarantineTag": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PhishThresholdLevel": {
+          "type": "integer"
+        },
+        "SpoofQuarantineTag": {
+          "type": "string"
+        },
+        "TargetedDomainActionRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TargetedDomainProtectionAction": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TargetedDomainQuarantineTag": {
+          "type": "string"
+        },
+        "TargetedDomainsToProtect": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TargetedUserActionRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TargetedUserProtectionAction": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TargetedUserQuarantineTag": {
+          "type": "string"
+        },
+        "TargetedUsersToProtect": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishPolicy/Configuration"
+    },
+    "ExchangeOnline:AntiPhishRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "AntiPhishPolicy": {
+          "type": "string"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishRule/Configuration"
+    },
+    "ExchangeOnline:AtpPolicyForO365/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowSafeDocsOpen": {
+          "type": "boolean"
+        },
+        "EnableATPForSPOTeamsODB": {
+          "type": "boolean"
+        },
+        "EnableSafeDocs": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AtpPolicyForO365/Configuration"
+    },
+    "ExchangeOnline:AuthenticationPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowBasicAuthActiveSync": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthAutodiscover": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthImap": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthMapi": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthOfflineAddressBook": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthOutlookService": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthPop": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthPowershell": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthReportingWebServices": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthRpc": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthSmtp": {
+          "type": "boolean"
+        },
+        "AllowBasicAuthWebServices": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AuthenticationPolicy/Configuration"
+    },
+    "ExchangeOnline:AvailabilityAddressSpace/Configuration": {
+      "type": "object",
+      "properties": {
+        "AvailabilityConfig": {
+          "type": "string",
+          "readOnly": true
+        },
+        "AccessMethod": {
+          "type": "string"
+        },
+        "ForestName": {
+          "type": "string"
+        },
+        "TargetAutodiscoverEpr": {
+          "type": "object"
+        },
+        "TargetServiceEpr": {
+          "type": "string"
+        },
+        "TargetTenantId": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityAddressSpace/Configuration"
+    },
+    "ExchangeOnline:AvailabilityConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowedTenantIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "OrgWideAccount": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityConfig/Configuration"
+    },
+    "ExchangeOnline:CASMailboxPlan/Configuration": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "type": "string"
+        },
+        "ActiveSyncEnabled": {
+          "type": "boolean"
+        },
+        "ImapEnabled": {
+          "type": "boolean"
+        },
+        "OwaMailboxPolicy": {
+          "type": "string"
+        },
+        "PopEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:CASMailboxPlan/Configuration"
+    },
+    "ExchangeOnline:ClientAccessRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Action": {
+          "type": "object"
+        },
+        "AnyOfAuthenticationTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfClientIPAddressesOrRanges": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfProtocols": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptAnyOfAuthenticationTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptAnyOfClientIPAddressesOrRanges": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptAnyOfProtocols": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptUsernameMatchesAnyOfPatterns": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "Scope": {
+          "type": "string"
+        },
+        "UsernameMatchesAnyOfPatterns": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "UserRecipientFilter": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:ClientAccessRule/Configuration"
+    },
+    "ExchangeOnline:DistributionGroup/Configuration": {
+      "type": "object",
+      "properties": {
+        "AcceptMessagesOnlyFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AcceptMessagesOnlyFromDLMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AcceptMessagesOnlyFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Alias": {
+          "type": "string"
+        },
+        "BccBlocked": {
+          "type": "boolean"
+        },
+        "BypassModerationFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BypassNestedModerationEnabled": {
+          "type": "boolean"
+        },
+        "BypassSecurityGroupManagerCheck": {
+          "type": "boolean"
+        },
+        "CopyOwnerToMember": {
+          "type": "boolean"
+        },
+        "CustomAttribute1": {
+          "type": "string"
+        },
+        "CustomAttribute10": {
+          "type": "string"
+        },
+        "CustomAttribute11": {
+          "type": "string"
+        },
+        "CustomAttribute12": {
+          "type": "string"
+        },
+        "CustomAttribute13": {
+          "type": "string"
+        },
+        "CustomAttribute14": {
+          "type": "string"
+        },
+        "CustomAttribute15": {
+          "type": "string"
+        },
+        "CustomAttribute2": {
+          "type": "string"
+        },
+        "CustomAttribute3": {
+          "type": "string"
+        },
+        "CustomAttribute4": {
+          "type": "string"
+        },
+        "CustomAttribute5": {
+          "type": "string"
+        },
+        "CustomAttribute6": {
+          "type": "string"
+        },
+        "CustomAttribute7": {
+          "type": "string"
+        },
+        "CustomAttribute8": {
+          "type": "string"
+        },
+        "CustomAttribute9": {
+          "type": "string"
+        },
+        "Description": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "EmailAddresses": {
+          "type": "object"
+        },
+        "ExtensionCustomAttribute1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute3": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute4": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute5": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ForceUpgrade": {
+          "type": "boolean"
+        },
+        "GrantSendOnBehalfTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "HiddenFromAddressListsEnabled": {
+          "type": "boolean"
+        },
+        "HiddenGroupMembershipEnabled": {
+          "type": "boolean"
+        },
+        "IgnoreNamingPolicy": {
+          "type": "boolean"
+        },
+        "MailTip": {
+          "type": "string"
+        },
+        "MailTipTranslations": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ManagedBy": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MemberDepartRestriction": {
+          "type": "string"
+        },
+        "MemberJoinRestriction": {
+          "type": "string"
+        },
+        "Members": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ModeratedBy": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ModerationEnabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "OrganizationalUnit": {
+          "type": "string"
+        },
+        "PrimarySmtpAddress": {
+          "type": "object"
+        },
+        "RejectMessagesFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessagesFromDLMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessagesFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ReportToManagerEnabled": {
+          "type": "boolean"
+        },
+        "ReportToOriginatorEnabled": {
+          "type": "boolean"
+        },
+        "RequireSenderAuthenticationEnabled": {
+          "type": "boolean"
+        },
+        "ResetMigrationToUnifiedGroup": {
+          "type": "boolean"
+        },
+        "RoomList": {
+          "type": "boolean"
+        },
+        "SendModerationNotifications": {
+          "type": "string"
+        },
+        "SendOofMessageToOriginatorEnabled": {
+          "type": "boolean"
+        },
+        "SimpleDisplayName": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "WindowsEmailAddress": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroup/Configuration"
+    },
+    "ExchangeOnline:DistributionGroupMember/Configuration": {
+      "type": "object",
+      "properties": {
+        "BypassSecurityGroupManagerCheck": {
+          "type": "boolean"
+        },
+        "Member": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroupMember/Configuration"
+    },
+    "ExchangeOnline:DkimSigningConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "BodyCanonicalization": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "HeaderCanonicalization": {
+          "type": "string"
+        },
+        "KeySize": {
+          "type": "integer"
+        },
+        "PublishTxtRecords": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:DkimSigningConfig/Configuration"
+    },
+    "ExchangeOnline:DynamicDistributionGroup/Configuration": {
+      "type": "object",
+      "properties": {
+        "AcceptMessagesOnlyFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AcceptMessagesOnlyFromDLMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AcceptMessagesOnlyFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Alias": {
+          "type": "string"
+        },
+        "BypassModerationFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCompany": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute10": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute11": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute12": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute13": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute14": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute15": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute3": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute4": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute5": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute6": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute7": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute8": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute9": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalDepartment": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalStateOrProvince": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "CustomAttribute1": {
+          "type": "string"
+        },
+        "CustomAttribute10": {
+          "type": "string"
+        },
+        "CustomAttribute11": {
+          "type": "string"
+        },
+        "CustomAttribute12": {
+          "type": "string"
+        },
+        "CustomAttribute13": {
+          "type": "string"
+        },
+        "CustomAttribute14": {
+          "type": "string"
+        },
+        "CustomAttribute15": {
+          "type": "string"
+        },
+        "CustomAttribute2": {
+          "type": "string"
+        },
+        "CustomAttribute3": {
+          "type": "string"
+        },
+        "CustomAttribute4": {
+          "type": "string"
+        },
+        "CustomAttribute5": {
+          "type": "string"
+        },
+        "CustomAttribute6": {
+          "type": "string"
+        },
+        "CustomAttribute7": {
+          "type": "string"
+        },
+        "CustomAttribute8": {
+          "type": "string"
+        },
+        "CustomAttribute9": {
+          "type": "string"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "EmailAddresses": {
+          "type": "object"
+        },
+        "ExtensionCustomAttribute1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute3": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute4": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute5": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ForceMembershipRefresh": {
+          "type": "boolean"
+        },
+        "ForceUpgrade": {
+          "type": "boolean"
+        },
+        "GrantSendOnBehalfTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "HiddenFromAddressListsEnabled": {
+          "type": "boolean"
+        },
+        "IncludedRecipients": {
+          "type": "string"
+        },
+        "MailTip": {
+          "type": "string"
+        },
+        "MailTipTranslations": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ManagedBy": {
+          "type": "string"
+        },
+        "ModeratedBy": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ModerationEnabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "OrganizationalUnit": {
+          "type": "string"
+        },
+        "PhoneticDisplayName": {
+          "type": "string"
+        },
+        "PrimarySmtpAddress": {
+          "type": "object"
+        },
+        "RecipientContainer": {
+          "type": "string"
+        },
+        "RecipientFilter": {
+          "type": "string"
+        },
+        "RejectMessagesFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessagesFromDLMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessagesFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ReportToManagerEnabled": {
+          "type": "boolean"
+        },
+        "ReportToOriginatorEnabled": {
+          "type": "boolean"
+        },
+        "RequireSenderAuthenticationEnabled": {
+          "type": "boolean"
+        },
+        "SendModerationNotifications": {
+          "type": "string"
+        },
+        "SendOofMessageToOriginatorEnabled": {
+          "type": "boolean"
+        },
+        "SimpleDisplayName": {
+          "type": "string"
+        },
+        "WindowsEmailAddress": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:DynamicDistributionGroup/Configuration"
+    },
+    "ExchangeOnline:EmailAddressPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "EnabledPrimarySMTPAddressTemplate": {
+          "type": "string"
+        },
+        "IncludeUnifiedGroupRecipients": {
+          "type": "boolean"
+        },
+        "EnabledEmailAddressTemplates": {
+          "type": "object"
+        },
+        "ForceUpgrade": {
+          "type": "boolean"
+        },
+        "ManagedByFilter": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "object"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/Configuration"
+    },
+    "ExchangeOnline:GlobalAddressList/Configuration": {
+      "type": "object",
+      "properties": {
+        "RecipientFilter": {
+          "type": "string"
+        },
+        "ConditionalCompany": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute10": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute11": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute12": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute13": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute14": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute15": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute3": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute4": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute5": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute6": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute7": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute8": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalCustomAttribute9": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalDepartment": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ConditionalStateOrProvince": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "IncludedRecipients": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:GlobalAddressList/Configuration"
+    },
+    "ExchangeOnline:HostedConnectionFilterPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "EnableSafeList": {
+          "type": "boolean"
+        },
+        "IPAllowList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "IPBlockList": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedConnectionFilterPolicy/Configuration"
+    },
+    "ExchangeOnline:HostedContentFilterPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AddXHeaderValue": {
+          "type": "string"
+        },
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "AllowedSenderDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AllowedSenders": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BlockedSenderDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BlockedSenders": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BulkQuarantineTag": {
+          "type": "string"
+        },
+        "BulkSpamAction": {
+          "type": "string"
+        },
+        "BulkThreshold": {
+          "type": "integer"
+        },
+        "EnableLanguageBlockList": {
+          "type": "boolean"
+        },
+        "EnableRegionBlockList": {
+          "type": "boolean"
+        },
+        "HighConfidencePhishAction": {
+          "type": "string"
+        },
+        "HighConfidencePhishQuarantineTag": {
+          "type": "string"
+        },
+        "HighConfidenceSpamAction": {
+          "type": "string"
+        },
+        "HighConfidenceSpamQuarantineTag": {
+          "type": "string"
+        },
+        "IncreaseScoreWithBizOrInfoUrls": {
+          "type": "string"
+        },
+        "IncreaseScoreWithImageLinks": {
+          "type": "string"
+        },
+        "IncreaseScoreWithNumericIps": {
+          "type": "string"
+        },
+        "IncreaseScoreWithRedirectToOtherPort": {
+          "type": "string"
+        },
+        "InlineSafetyTipsEnabled": {
+          "type": "boolean"
+        },
+        "IntraOrgFilterState": {
+          "type": "string"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "LanguageBlockList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MarkAsSpamBulkMail": {
+          "type": "string"
+        },
+        "MarkAsSpamEmbedTagsInHtml": {
+          "type": "string"
+        },
+        "MarkAsSpamEmptyMessages": {
+          "type": "string"
+        },
+        "MarkAsSpamFormTagsInHtml": {
+          "type": "string"
+        },
+        "MarkAsSpamFramesInHtml": {
+          "type": "string"
+        },
+        "MarkAsSpamFromAddressAuthFail": {
+          "type": "string"
+        },
+        "MarkAsSpamJavaScriptInHtml": {
+          "type": "string"
+        },
+        "MarkAsSpamNdrBackscatter": {
+          "type": "string"
+        },
+        "MarkAsSpamObjectTagsInHtml": {
+          "type": "string"
+        },
+        "MarkAsSpamSensitiveWordList": {
+          "type": "string"
+        },
+        "MarkAsSpamSpfRecordHardFail": {
+          "type": "string"
+        },
+        "MarkAsSpamWebBugsInHtml": {
+          "type": "string"
+        },
+        "ModifySubjectValue": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PhishQuarantineTag": {
+          "type": "string"
+        },
+        "PhishSpamAction": {
+          "type": "string"
+        },
+        "PhishZapEnabled": {
+          "type": "boolean"
+        },
+        "QuarantineRetentionPeriod": {
+          "type": "integer"
+        },
+        "RedirectToRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RegionBlockList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SpamAction": {
+          "type": "string"
+        },
+        "SpamQuarantineTag": {
+          "type": "string"
+        },
+        "SpamZapEnabled": {
+          "type": "boolean"
+        },
+        "TestModeAction": {
+          "type": "string"
+        },
+        "TestModeBccToRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedContentFilterPolicy/Configuration"
+    },
+    "ExchangeOnline:HostedContentFilterRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "HostedContentFilterPolicy": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedContentFilterRule/Configuration"
+    },
+    "ExchangeOnline:HostedOutboundSpamFilterPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "ActionWhenThresholdReached": {
+          "type": "string"
+        },
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "AutoForwardingMode": {
+          "type": "string"
+        },
+        "BccSuspiciousOutboundAdditionalRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BccSuspiciousOutboundMail": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "NotifyOutboundSpam": {
+          "type": "boolean"
+        },
+        "NotifyOutboundSpamRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RecipientLimitExternalPerHour": {
+          "type": "integer"
+        },
+        "RecipientLimitInternalPerHour": {
+          "type": "integer"
+        },
+        "RecipientLimitPerDay": {
+          "type": "integer"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedOutboundSpamFilterPolicy/Configuration"
+    },
+    "ExchangeOnline:HostedOutboundSpamFilterRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfFromMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSenderDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "From": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "FromMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "HostedOutboundSpamFilterPolicy": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "SenderDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedOutboundSpamFilterRule/Configuration"
+    },
+    "ExchangeOnline:InboundConnector/Configuration": {
+      "type": "object",
+      "properties": {
+        "AssociatedAcceptedDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "CloudServicesMailEnabled": {
+          "type": "boolean"
+        },
+        "Comment": {
+          "type": "string"
+        },
+        "ConnectorSource": {
+          "type": "object"
+        },
+        "ConnectorType": {
+          "type": "string"
+        },
+        "EFSkipIPs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "EFSkipLastIP": {
+          "type": "boolean"
+        },
+        "EFUsers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "RequireTls": {
+          "type": "boolean"
+        },
+        "RestrictDomainsToCertificate": {
+          "type": "boolean"
+        },
+        "RestrictDomainsToIPAddresses": {
+          "type": "boolean"
+        },
+        "SenderDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SenderIPAddresses": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TlsSenderCertificateName": {
+          "type": "object"
+        },
+        "TreatMessagesAsInternal": {
+          "type": "boolean"
+        },
+        "TrustedOrganizations": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:InboundConnector/Configuration"
+    },
+    "ExchangeOnline:IntraOrganizationConnector/Configuration": {
+      "type": "object",
+      "properties": {
+        "DiscoveryEndpoint": {
+          "type": "object"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "TargetAddressDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "TargetSharingEpr": {
+          "type": "object"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:IntraOrganizationConnector/Configuration"
+    },
+    "ExchangeOnline:JournalRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Enabled": {
+          "type": "boolean"
+        },
+        "JournalEmailAddress": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Recipient": {
+          "type": "object"
+        },
+        "Scope": {
+          "type": "object"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:JournalRule/Configuration"
+    },
+    "ExchangeOnline:Mailbox/Configuration": {
+      "type": "object",
+      "properties": {
+        "AcceptMessagesOnlyFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AcceptMessagesOnlyFromDLMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AcceptMessagesOnlyFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AccountDisabled": {
+          "type": "boolean"
+        },
+        "ActiveSyncMailboxPolicy": {
+          "type": "string"
+        },
+        "AddressBookPolicy": {
+          "type": "string"
+        },
+        "Alias": {
+          "type": "string"
+        },
+        "ApplyMandatoryProperties": {
+          "type": "boolean"
+        },
+        "Archive": {
+          "type": "boolean"
+        },
+        "ArchiveName": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AuditAdmin": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AuditDelegate": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AuditEnabled": {
+          "type": "boolean"
+        },
+        "AuditLogAgeLimit": {
+          "type": "object"
+        },
+        "AuditOwner": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BypassModerationFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "CalendarRepairDisabled": {
+          "type": "boolean"
+        },
+        "CalendarVersionStoreDisabled": {
+          "type": "boolean"
+        },
+        "ClearThrottlingPolicyAssignment": {
+          "type": "boolean"
+        },
+        "CustomAttribute1": {
+          "type": "string"
+        },
+        "CustomAttribute10": {
+          "type": "string"
+        },
+        "CustomAttribute11": {
+          "type": "string"
+        },
+        "CustomAttribute12": {
+          "type": "string"
+        },
+        "CustomAttribute13": {
+          "type": "string"
+        },
+        "CustomAttribute14": {
+          "type": "string"
+        },
+        "CustomAttribute15": {
+          "type": "string"
+        },
+        "CustomAttribute2": {
+          "type": "string"
+        },
+        "CustomAttribute3": {
+          "type": "string"
+        },
+        "CustomAttribute4": {
+          "type": "string"
+        },
+        "CustomAttribute5": {
+          "type": "string"
+        },
+        "CustomAttribute6": {
+          "type": "string"
+        },
+        "CustomAttribute7": {
+          "type": "string"
+        },
+        "CustomAttribute8": {
+          "type": "string"
+        },
+        "CustomAttribute9": {
+          "type": "string"
+        },
+        "DataEncryptionPolicy": {
+          "type": "string"
+        },
+        "DefaultAuditSet": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "DefaultPublicFolderMailbox": {
+          "type": "string"
+        },
+        "DeliverToMailboxAndForward": {
+          "type": "boolean"
+        },
+        "Discovery": {
+          "type": "boolean"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "ElcProcessingDisabled": {
+          "type": "boolean"
+        },
+        "EmailAddressDisplayNames": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "EmailAddresses": {
+          "type": "object"
+        },
+        "EndDateForRetentionHold": {
+          "$ref": "#/$defs/nullableOfDateTime"
+        },
+        "EnforcedTimestamps": {
+          "type": "string"
+        },
+        "Equipment": {
+          "type": "boolean"
+        },
+        "ExcludeFromAllOrgHolds": {
+          "type": "boolean"
+        },
+        "ExcludeFromOrgHolds": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute3": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute4": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExtensionCustomAttribute5": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExternalOofOptions": {
+          "type": "string"
+        },
+        "FederatedIdentity": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "ForwardingAddress": {
+          "type": "string"
+        },
+        "ForwardingSmtpAddress": {
+          "type": "object"
+        },
+        "GrantSendOnBehalfTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "GroupMailbox": {
+          "type": "string"
+        },
+        "HiddenFromAddressListsEnabled": {
+          "type": "boolean"
+        },
+        "HoldForMigration": {
+          "type": "boolean"
+        },
+        "ImmutableId": {
+          "type": "string"
+        },
+        "InactiveMailbox": {
+          "type": "string"
+        },
+        "Initials": {
+          "type": "string"
+        },
+        "IsExcludedFromServingHierarchy": {
+          "type": "boolean"
+        },
+        "IssueWarningQuota": {
+          "type": "object"
+        },
+        "Languages": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "LitigationHoldDate": {
+          "$ref": "#/$defs/nullableOfDateTime"
+        },
+        "LitigationHoldDuration": {
+          "type": "object"
+        },
+        "LitigationHoldEnabled": {
+          "type": "boolean"
+        },
+        "LitigationHoldOwner": {
+          "type": "string"
+        },
+        "MailboxPlan": {
+          "type": "string"
+        },
+        "MailboxRegion": {
+          "type": "string"
+        },
+        "MailTip": {
+          "type": "string"
+        },
+        "MailTipTranslations": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MaxReceiveSize": {
+          "type": "object"
+        },
+        "MaxSendSize": {
+          "type": "object"
+        },
+        "MessageCopyForSendOnBehalfEnabled": {
+          "type": "boolean"
+        },
+        "MessageCopyForSentAsEnabled": {
+          "type": "boolean"
+        },
+        "MessageCopyForSMTPClientSubmissionEnabled": {
+          "type": "boolean"
+        },
+        "MessageTrackingReadStatusEnabled": {
+          "type": "boolean"
+        },
+        "MicrosoftOnlineServicesID": {
+          "type": "object"
+        },
+        "Migration": {
+          "type": "boolean"
+        },
+        "ModeratedBy": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ModerationEnabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "NonCompliantDevices": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Office": {
+          "type": "string"
+        },
+        "OrganizationalUnit": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "object"
+        },
+        "PermanentlyDelete": {
+          "type": "boolean"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "PrimarySmtpAddress": {
+          "type": "object"
+        },
+        "ProhibitSendQuota": {
+          "type": "object"
+        },
+        "ProhibitSendReceiveQuota": {
+          "type": "object"
+        },
+        "PublicFolder": {
+          "type": "boolean"
+        },
+        "RecalculateInactiveMailbox": {
+          "type": "boolean"
+        },
+        "RecipientLimits": {
+          "type": "object"
+        },
+        "RejectMessagesFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessagesFromDLMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessagesFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RemotePowerShellEnabled": {
+          "type": "boolean"
+        },
+        "RemoveCNFPublicFolderMailboxPermanently": {
+          "type": "boolean"
+        },
+        "RemoveDelayHoldApplied": {
+          "type": "boolean"
+        },
+        "RemoveDelayReleaseHoldApplied": {
+          "type": "boolean"
+        },
+        "RemoveDisabledArchive": {
+          "type": "boolean"
+        },
+        "RemoveMailboxProvisioningConstraint": {
+          "type": "boolean"
+        },
+        "RemoveOrphanedHolds": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RequireSenderAuthenticationEnabled": {
+          "type": "boolean"
+        },
+        "ResetPasswordOnNextLogon": {
+          "type": "boolean"
+        },
+        "ResourceCapacity": {
+          "type": "integer"
+        },
+        "ResourceCustom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RetainDeletedItemsFor": {
+          "type": "object"
+        },
+        "RetentionComment": {
+          "type": "string"
+        },
+        "RetentionHoldEnabled": {
+          "type": "boolean"
+        },
+        "RetentionPolicy": {
+          "type": "string"
+        },
+        "RetentionUrl": {
+          "type": "string"
+        },
+        "RoleAssignmentPolicy": {
+          "type": "string"
+        },
+        "Room": {
+          "type": "boolean"
+        },
+        "RulesQuota": {
+          "type": "object"
+        },
+        "SchedulerAssistant": {
+          "type": "boolean"
+        },
+        "SendModerationNotifications": {
+          "type": "string"
+        },
+        "Shared": {
+          "type": "boolean"
+        },
+        "SharingPolicy": {
+          "type": "string"
+        },
+        "SimpleDisplayName": {
+          "type": "string"
+        },
+        "SingleItemRecoveryEnabled": {
+          "type": "boolean"
+        },
+        "StartDateForRetentionHold": {
+          "$ref": "#/$defs/nullableOfDateTime"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "UpdateEnforcedTimestamp": {
+          "type": "boolean"
+        },
+        "UseDatabaseQuotaDefaults": {
+          "type": "boolean"
+        },
+        "UserCertificate": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "UserSMimeCertificate": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "WindowsEmailAddress": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nullableOfDateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:Mailbox/Configuration"
+    },
+    "ExchangeOnline:MailboxPermission/Configuration": {
+      "type": "object",
+      "properties": {
+        "AccessRights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AutoMapping": {
+          "type": "boolean"
+        },
+        "BypassMasterAccountSid": {
+          "type": "boolean"
+        },
+        "ClearAutoMapping": {
+          "type": "boolean"
+        },
+        "Deny": {
+          "type": "boolean"
+        },
+        "GroupMailbox": {
+          "type": "boolean"
+        },
+        "IgnoreDefaultScope": {
+          "type": "boolean"
+        },
+        "InheritanceType": {
+          "type": "string"
+        },
+        "Owner": {
+          "type": "string"
+        },
+        "ResetDefault": {
+          "type": "boolean"
+        },
+        "SoftDeletedMailbox": {
+          "type": "boolean"
+        },
+        "User": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPermission/Configuration"
+    },
+    "ExchangeOnline:MailboxPlan/Configuration": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "type": "string"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "IssueWarningQuota": {
+          "type": "object"
+        },
+        "MaxReceiveSize": {
+          "type": "object"
+        },
+        "MaxSendSize": {
+          "type": "object"
+        },
+        "ProhibitSendQuota": {
+          "type": "object"
+        },
+        "ProhibitSendReceiveQuota": {
+          "type": "object"
+        },
+        "RetainDeletedItemsFor": {
+          "type": "object"
+        },
+        "RetentionPolicy": {
+          "type": "string"
+        },
+        "RoleAssignmentPolicy": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPlan/Configuration"
+    },
+    "ExchangeOnline:MalwareFilterPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "CustomExternalBody": {
+          "type": "string"
+        },
+        "CustomExternalSubject": {
+          "type": "string"
+        },
+        "CustomFromAddress": {
+          "type": "object"
+        },
+        "CustomFromName": {
+          "type": "string"
+        },
+        "CustomInternalBody": {
+          "type": "string"
+        },
+        "CustomInternalSubject": {
+          "type": "string"
+        },
+        "CustomNotifications": {
+          "type": "boolean"
+        },
+        "EnableExternalSenderAdminNotifications": {
+          "type": "boolean"
+        },
+        "EnableFileFilter": {
+          "type": "boolean"
+        },
+        "EnableInternalSenderAdminNotifications": {
+          "type": "boolean"
+        },
+        "ExternalSenderAdminAddress": {
+          "type": "object"
+        },
+        "FileTypeAction": {
+          "type": "string"
+        },
+        "FileTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "InternalSenderAdminAddress": {
+          "type": "object"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "QuarantineTag": {
+          "type": "string"
+        },
+        "ZapEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:MalwareFilterPolicy/Configuration"
+    },
+    "ExchangeOnline:MalwareFilterRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MalwareFilterPolicy": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:MalwareFilterRule/Configuration"
+    },
+    "ExchangeOnline:MobileDeviceMailboxPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowApplePushNotifications": {
+          "type": "boolean"
+        },
+        "AllowBluetooth": {
+          "type": "string"
+        },
+        "AllowBrowser": {
+          "type": "boolean"
+        },
+        "AllowCamera": {
+          "type": "boolean"
+        },
+        "AllowConsumerEmail": {
+          "type": "boolean"
+        },
+        "AllowDesktopSync": {
+          "type": "boolean"
+        },
+        "AllowExternalDeviceManagement": {
+          "type": "boolean"
+        },
+        "AllowGooglePushNotifications": {
+          "type": "boolean"
+        },
+        "AllowHTMLEmail": {
+          "type": "boolean"
+        },
+        "AllowInternetSharing": {
+          "type": "boolean"
+        },
+        "AllowIrDA": {
+          "type": "boolean"
+        },
+        "AllowMicrosoftPushNotifications": {
+          "type": "boolean"
+        },
+        "AllowMobileOTAUpdate": {
+          "type": "boolean"
+        },
+        "AllowNonProvisionableDevices": {
+          "type": "boolean"
+        },
+        "AllowPOPIMAPEmail": {
+          "type": "boolean"
+        },
+        "AllowRemoteDesktop": {
+          "type": "boolean"
+        },
+        "AllowSimplePassword": {
+          "type": "boolean"
+        },
+        "AllowSMIMEEncryptionAlgorithmNegotiation": {
+          "type": "object"
+        },
+        "AllowSMIMESoftCerts": {
+          "type": "boolean"
+        },
+        "AllowStorageCard": {
+          "type": "boolean"
+        },
+        "AllowTextMessaging": {
+          "type": "boolean"
+        },
+        "AllowUnsignedApplications": {
+          "type": "boolean"
+        },
+        "AllowUnsignedInstallationPackages": {
+          "type": "boolean"
+        },
+        "AllowWiFi": {
+          "type": "boolean"
+        },
+        "AlphanumericPasswordRequired": {
+          "type": "boolean"
+        },
+        "ApprovedApplicationList": {
+          "type": "object"
+        },
+        "AttachmentsEnabled": {
+          "type": "boolean"
+        },
+        "DeviceEncryptionEnabled": {
+          "type": "boolean"
+        },
+        "DevicePolicyRefreshInterval": {
+          "type": "object"
+        },
+        "IrmEnabled": {
+          "type": "boolean"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "MaxAttachmentSize": {
+          "type": "object"
+        },
+        "MaxCalendarAgeFilter": {
+          "type": "object"
+        },
+        "MaxEmailAgeFilter": {
+          "type": "object"
+        },
+        "MaxEmailBodyTruncationSize": {
+          "type": "object"
+        },
+        "MaxEmailHTMLBodyTruncationSize": {
+          "type": "object"
+        },
+        "MaxInactivityTimeLock": {
+          "type": "string"
+        },
+        "MaxPasswordFailedAttempts": {
+          "type": "object"
+        },
+        "MinPasswordComplexCharacters": {
+          "type": "integer"
+        },
+        "MinPasswordLength": {
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PasswordEnabled": {
+          "type": "boolean"
+        },
+        "PasswordExpiration": {
+          "type": "string"
+        },
+        "PasswordHistory": {
+          "type": "integer"
+        },
+        "PasswordRecoveryEnabled": {
+          "type": "boolean"
+        },
+        "RequireDeviceEncryption": {
+          "type": "boolean"
+        },
+        "RequireEncryptedSMIMEMessages": {
+          "type": "boolean"
+        },
+        "RequireEncryptionSMIMEAlgorithm": {
+          "type": "object"
+        },
+        "RequireManualSyncWhenRoaming": {
+          "type": "boolean"
+        },
+        "RequireSignedSMIMEAlgorithm": {
+          "type": "object"
+        },
+        "RequireSignedSMIMEMessages": {
+          "type": "boolean"
+        },
+        "RequireStorageCardEncryption": {
+          "type": "boolean"
+        },
+        "UnapprovedInROMApplicationList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "UNCAccessEnabled": {
+          "type": "boolean"
+        },
+        "WSSAccessEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:MobileDeviceMailboxPolicy/Configuration"
+    },
+    "ExchangeOnline:OfflineAddressBook/Configuration": {
+      "type": "object",
+      "properties": {
+        "AddressLists": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ApplyMandatoryProperties": {
+          "type": "boolean"
+        },
+        "ConfiguredAttributes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "DiffRetentionPeriod": {
+          "type": "object"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "UseDefaultAttributes": {
+          "type": "boolean"
+        },
+        "Versions": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ZipOabFilesBeforeUploading": {
+          "type": "boolean"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OfflineAddressBook/Configuration"
+    },
+    "ExchangeOnline:OnPremisesOrganization/Configuration": {
+      "type": "object",
+      "properties": {
+        "Comment": {
+          "type": "string"
+        },
+        "HybridDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "InboundConnector": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OrganizationGuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "OrganizationName": {
+          "type": "string"
+        },
+        "OrganizationRelationship": {
+          "type": "string"
+        },
+        "OutboundConnector": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OnPremisesOrganization/Configuration"
+    },
+    "ExchangeOnline:OrganizationConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "ActivityBasedAuthenticationTimeoutEnabled": {
+          "type": "boolean"
+        },
+        "ActivityBasedAuthenticationTimeoutInterval": {
+          "type": "object"
+        },
+        "ActivityBasedAuthenticationTimeoutWithSingleSignOnEnabled": {
+          "type": "boolean"
+        },
+        "AppsForOfficeEnabled": {
+          "type": "boolean"
+        },
+        "AsyncSendEnabled": {
+          "type": "boolean"
+        },
+        "AuditDisabled": {
+          "type": "boolean"
+        },
+        "AutodiscoverPartialDirSync": {
+          "type": "boolean"
+        },
+        "AutoExpandingArchive": {
+          "type": "boolean"
+        },
+        "AutomaticForcedReadReceiptEnabled": {
+          "type": "boolean"
+        },
+        "BlockMoveMessagesForGroupFolders": {
+          "type": "boolean"
+        },
+        "BookingsAddressEntryRestricted": {
+          "type": "boolean"
+        },
+        "BookingsAuthEnabled": {
+          "type": "boolean"
+        },
+        "BookingsBlockedWordsEnabled": {
+          "type": "boolean"
+        },
+        "BookingsCreationOfCustomQuestionsRestricted": {
+          "type": "boolean"
+        },
+        "BookingsEnabled": {
+          "type": "boolean"
+        },
+        "BookingsExposureOfStaffDetailsRestricted": {
+          "type": "boolean"
+        },
+        "BookingsMembershipApprovalRequired": {
+          "type": "boolean"
+        },
+        "BookingsNamingPolicyEnabled": {
+          "type": "boolean"
+        },
+        "BookingsNamingPolicyPrefix": {
+          "type": "string"
+        },
+        "BookingsNamingPolicyPrefixEnabled": {
+          "type": "boolean"
+        },
+        "BookingsNamingPolicySuffix": {
+          "type": "string"
+        },
+        "BookingsNamingPolicySuffixEnabled": {
+          "type": "boolean"
+        },
+        "BookingsNotesEntryRestricted": {
+          "type": "boolean"
+        },
+        "BookingsPaymentsEnabled": {
+          "type": "boolean"
+        },
+        "BookingsPhoneNumberEntryRestricted": {
+          "type": "boolean"
+        },
+        "BookingsSearchEngineIndexDisabled": {
+          "type": "boolean"
+        },
+        "BookingsSmsMicrosoftEnabled": {
+          "type": "boolean"
+        },
+        "BookingsSocialSharingRestricted": {
+          "type": "boolean"
+        },
+        "ByteEncoderTypeFor7BitCharsets": {
+          "type": "integer"
+        },
+        "ComplianceMLBgdCrawlEnabled": {
+          "type": "boolean"
+        },
+        "ConnectorsActionableMessagesEnabled": {
+          "type": "boolean"
+        },
+        "ConnectorsEnabled": {
+          "type": "boolean"
+        },
+        "ConnectorsEnabledForOutlook": {
+          "type": "boolean"
+        },
+        "ConnectorsEnabledForSharepoint": {
+          "type": "boolean"
+        },
+        "ConnectorsEnabledForTeams": {
+          "type": "boolean"
+        },
+        "ConnectorsEnabledForYammer": {
+          "type": "boolean"
+        },
+        "DefaultAuthenticationPolicy": {
+          "type": "string"
+        },
+        "DefaultGroupAccessType": {
+          "type": "string"
+        },
+        "DefaultMinutesToReduceLongEventsBy": {
+          "type": "integer"
+        },
+        "DefaultMinutesToReduceShortEventsBy": {
+          "type": "integer"
+        },
+        "DefaultPublicFolderAgeLimit": {
+          "type": "object"
+        },
+        "DefaultPublicFolderDeletedItemRetention": {
+          "type": "object"
+        },
+        "DefaultPublicFolderIssueWarningQuota": {
+          "type": "object"
+        },
+        "DefaultPublicFolderMaxItemSize": {
+          "type": "object"
+        },
+        "DefaultPublicFolderMovedItemRetention": {
+          "type": "object"
+        },
+        "DefaultPublicFolderProhibitPostQuota": {
+          "type": "object"
+        },
+        "DirectReportsGroupAutoCreationEnabled": {
+          "type": "boolean"
+        },
+        "DisablePlusAddressInRecipients": {
+          "type": "boolean"
+        },
+        "DistributionGroupDefaultOU": {
+          "type": "string"
+        },
+        "DistributionGroupNameBlockedWordsList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "DistributionGroupNamingPolicy": {
+          "type": "object"
+        },
+        "ElcProcessingDisabled": {
+          "type": "boolean"
+        },
+        "EnableOutlookEvents": {
+          "type": "boolean"
+        },
+        "EndUserDLUpgradeFlowsDisabled": {
+          "type": "boolean"
+        },
+        "EwsAllowEntourage": {
+          "type": "boolean"
+        },
+        "EwsAllowList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "EwsAllowMacOutlook": {
+          "type": "boolean"
+        },
+        "EwsAllowOutlook": {
+          "type": "boolean"
+        },
+        "EwsApplicationAccessPolicy": {
+          "type": "string"
+        },
+        "EwsBlockList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "EwsEnabled": {
+          "type": "boolean"
+        },
+        "ExchangeNotificationEnabled": {
+          "type": "boolean"
+        },
+        "ExchangeNotificationRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "FindTimeAttendeeAuthenticationEnabled": {
+          "type": "boolean"
+        },
+        "FindTimeAutoScheduleDisabled": {
+          "type": "boolean"
+        },
+        "FindTimeLockPollForAttendeesEnabled": {
+          "type": "boolean"
+        },
+        "FindTimeOnlineMeetingOptionDisabled": {
+          "type": "boolean"
+        },
+        "FocusedInboxOn": {
+          "type": "boolean"
+        },
+        "HierarchicalAddressBookRoot": {
+          "type": "string"
+        },
+        "HybridRSVPEnabled": {
+          "type": "boolean"
+        },
+        "IPListBlocked": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "IsGroupFoldersAndRulesEnabled": {
+          "type": "boolean"
+        },
+        "IsGroupMemberAllowedToEditContent": {
+          "type": "boolean"
+        },
+        "LeanPopoutEnabled": {
+          "type": "boolean"
+        },
+        "LinkPreviewEnabled": {
+          "type": "boolean"
+        },
+        "MailTipsAllTipsEnabled": {
+          "type": "boolean"
+        },
+        "MailTipsExternalRecipientsTipsEnabled": {
+          "type": "boolean"
+        },
+        "MailTipsGroupMetricsEnabled": {
+          "type": "boolean"
+        },
+        "MailTipsLargeAudienceThreshold": {
+          "type": "integer"
+        },
+        "MailTipsMailboxSourcedTipsEnabled": {
+          "type": "boolean"
+        },
+        "MaskClientIpInReceivedHeadersEnabled": {
+          "type": "boolean"
+        },
+        "MatchSenderOrganizerProperties": {
+          "type": "boolean"
+        },
+        "MessageHighlightsEnabled": {
+          "type": "boolean"
+        },
+        "MessageRecallEnabled": {
+          "type": "object"
+        },
+        "MessageRemindersEnabled": {
+          "type": "boolean"
+        },
+        "MobileAppEducationEnabled": {
+          "type": "boolean"
+        },
+        "OAuth2ClientProfileEnabled": {
+          "type": "boolean"
+        },
+        "OnlineMeetingsByDefaultEnabled": {
+          "type": "boolean"
+        },
+        "OutlookGifPickerDisabled": {
+          "type": "boolean"
+        },
+        "OutlookMobileGCCRestrictionsEnabled": {
+          "type": "boolean"
+        },
+        "OutlookPayEnabled": {
+          "type": "boolean"
+        },
+        "OutlookTextPredictionDisabled": {
+          "type": "boolean"
+        },
+        "PostponeRoamingSignaturesUntilLater": {
+          "type": "boolean"
+        },
+        "PublicComputersDetectionEnabled": {
+          "type": "boolean"
+        },
+        "PublicFoldersEnabled": {
+          "type": "string"
+        },
+        "PublicFolderShowClientControl": {
+          "type": "boolean"
+        },
+        "ReadTrackingEnabled": {
+          "type": "boolean"
+        },
+        "RecallReadMessagesEnabled": {
+          "type": "object"
+        },
+        "RemotePublicFolderMailboxes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SendFromAliasEnabled": {
+          "type": "boolean"
+        },
+        "SharedDomainEmailAddressFlowEnabled": {
+          "type": "boolean"
+        },
+        "ShortenEventScopeDefault": {
+          "type": "string"
+        },
+        "SiteMailboxCreationURL": {
+          "type": "object"
+        },
+        "SmtpActionableMessagesEnabled": {
+          "type": "boolean"
+        },
+        "VisibleMeetingUpdateProperties": {
+          "type": "string"
+        },
+        "WebPushNotificationsDisabled": {
+          "type": "boolean"
+        },
+        "WebSuggestedRepliesDisabled": {
+          "type": "boolean"
+        },
+        "WorkspaceTenantEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OrganizationConfig/Configuration"
+    },
+    "ExchangeOnline:OrganizationRelationship/Configuration": {
+      "type": "object",
+      "properties": {
+        "ArchiveAccessEnabled": {
+          "type": "boolean"
+        },
+        "DeliveryReportEnabled": {
+          "type": "boolean"
+        },
+        "DomainNames": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "FreeBusyAccessEnabled": {
+          "type": "boolean"
+        },
+        "FreeBusyAccessLevel": {
+          "type": "string"
+        },
+        "FreeBusyAccessScope": {
+          "type": "string"
+        },
+        "MailboxMoveCapability": {
+          "type": "string"
+        },
+        "MailboxMoveEnabled": {
+          "type": "boolean"
+        },
+        "MailboxMovePublishedScopes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MailTipsAccessEnabled": {
+          "type": "boolean"
+        },
+        "MailTipsAccessLevel": {
+          "type": "object"
+        },
+        "MailTipsAccessScope": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OAuthApplicationId": {
+          "type": "string"
+        },
+        "OrganizationContact": {
+          "type": "object"
+        },
+        "PhotosEnabled": {
+          "type": "boolean"
+        },
+        "TargetApplicationUri": {
+          "type": "object"
+        },
+        "TargetAutodiscoverEpr": {
+          "type": "object"
+        },
+        "TargetOwaURL": {
+          "type": "object"
+        },
+        "TargetSharingEpr": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OrganizationRelationship/Configuration"
+    },
+    "ExchangeOnline:OutboundConnector/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllAcceptedDomains": {
+          "type": "boolean"
+        },
+        "CloudServicesMailEnabled": {
+          "type": "boolean"
+        },
+        "Comment": {
+          "type": "string"
+        },
+        "ConnectorSource": {
+          "type": "string"
+        },
+        "ConnectorType": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "IsTransportRuleScoped": {
+          "type": "boolean"
+        },
+        "IsValidated": {
+          "type": "boolean"
+        },
+        "LastValidationTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "RecipientDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RouteAllMessagesViaOnPremises": {
+          "type": "boolean"
+        },
+        "SenderRewritingEnabled": {
+          "type": "boolean"
+        },
+        "SmartHosts": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "TestMode": {
+          "type": "boolean"
+        },
+        "TlsDomain": {
+          "type": "object"
+        },
+        "TlsSettings": {
+          "type": "string"
+        },
+        "UseMXRecord": {
+          "type": "boolean"
+        },
+        "ValidationRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OutboundConnector/Configuration"
+    },
+    "ExchangeOnline:OwaMailboxPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "ActionForUnknownFileAndMIMETypes": {
+          "type": "string"
+        },
+        "ActiveSyncIntegrationEnabled": {
+          "type": "boolean"
+        },
+        "AdditionalAccountsEnabled": {
+          "type": "object"
+        },
+        "AdditionalStorageProvidersAvailable": {
+          "type": "boolean"
+        },
+        "AllAddressListsEnabled": {
+          "type": "boolean"
+        },
+        "AllowCopyContactsToDeviceAddressBook": {
+          "type": "boolean"
+        },
+        "AllowedFileTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AllowedMimeTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AllowedOrganizationAccountDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BizBarEnabled": {
+          "type": "boolean"
+        },
+        "BlockedFileTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BlockedMimeTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BookingsMailboxCreationEnabled": {
+          "type": "boolean"
+        },
+        "BookingsMailboxDomain": {
+          "type": "string"
+        },
+        "ChangeSettingsAccountEnabled": {
+          "type": "object"
+        },
+        "ClassicAttachmentsEnabled": {
+          "type": "boolean"
+        },
+        "ConditionalAccessPolicy": {
+          "type": "string"
+        },
+        "DefaultTheme": {
+          "type": "string"
+        },
+        "DirectFileAccessOnPrivateComputersEnabled": {
+          "type": "boolean"
+        },
+        "DirectFileAccessOnPublicComputersEnabled": {
+          "type": "boolean"
+        },
+        "DisableFacebook": {
+          "type": "boolean"
+        },
+        "DisplayPhotosEnabled": {
+          "type": "boolean"
+        },
+        "EmptyStateEnabled": {
+          "type": "boolean"
+        },
+        "ExternalImageProxyEnabled": {
+          "type": "boolean"
+        },
+        "ExternalSPMySiteHostURL": {
+          "type": "string"
+        },
+        "FeedbackEnabled": {
+          "type": "boolean"
+        },
+        "ForceSaveAttachmentFilteringEnabled": {
+          "type": "boolean"
+        },
+        "ForceSaveFileTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ForceSaveMimeTypes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ForceWacViewingFirstOnPrivateComputers": {
+          "type": "boolean"
+        },
+        "ForceWacViewingFirstOnPublicComputers": {
+          "type": "boolean"
+        },
+        "GlobalAddressListEnabled": {
+          "type": "boolean"
+        },
+        "GroupCreationEnabled": {
+          "type": "boolean"
+        },
+        "InstantMessagingEnabled": {
+          "type": "boolean"
+        },
+        "InstantMessagingType": {
+          "type": "string"
+        },
+        "InterestingCalendarsEnabled": {
+          "type": "boolean"
+        },
+        "InternalSPMySiteHostURL": {
+          "type": "string"
+        },
+        "IRMEnabled": {
+          "type": "boolean"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "ItemsToOtherAccountsEnabled": {
+          "type": "object"
+        },
+        "JournalEnabled": {
+          "type": "boolean"
+        },
+        "LinkedInEnabled": {
+          "type": "boolean"
+        },
+        "LocalEventsEnabled": {
+          "type": "boolean"
+        },
+        "LogonAndErrorLanguage": {
+          "type": "integer"
+        },
+        "MessagePreviewsDisabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "NotesEnabled": {
+          "type": "boolean"
+        },
+        "NpsSurveysEnabled": {
+          "type": "boolean"
+        },
+        "OfflineEnabledWeb": {
+          "type": "boolean"
+        },
+        "OfflineEnabledWin": {
+          "type": "boolean"
+        },
+        "OneWinNativeOutlookEnabled": {
+          "type": "string"
+        },
+        "OnSendAddinsEnabled": {
+          "type": "boolean"
+        },
+        "OrganizationEnabled": {
+          "type": "boolean"
+        },
+        "OutboundCharset": {
+          "type": "string"
+        },
+        "OutlookBetaToggleEnabled": {
+          "type": "boolean"
+        },
+        "OWALightEnabled": {
+          "type": "boolean"
+        },
+        "PersonalAccountCalendarsEnabled": {
+          "type": "boolean"
+        },
+        "PersonalAccountsEnabled": {
+          "type": "string"
+        },
+        "PhoneticSupportEnabled": {
+          "type": "boolean"
+        },
+        "PlacesEnabled": {
+          "type": "boolean"
+        },
+        "PremiumClientEnabled": {
+          "type": "boolean"
+        },
+        "PrintWithoutDownloadEnabled": {
+          "type": "boolean"
+        },
+        "ProjectMocaEnabled": {
+          "type": "boolean"
+        },
+        "ReferenceAttachmentsEnabled": {
+          "type": "boolean"
+        },
+        "RemindersAndNotificationsEnabled": {
+          "type": "boolean"
+        },
+        "ReportJunkEmailEnabled": {
+          "type": "boolean"
+        },
+        "RulesEnabled": {
+          "type": "boolean"
+        },
+        "SatisfactionEnabled": {
+          "type": "boolean"
+        },
+        "SaveAttachmentsToCloudEnabled": {
+          "type": "boolean"
+        },
+        "SearchFoldersEnabled": {
+          "type": "boolean"
+        },
+        "SetPhotoEnabled": {
+          "type": "boolean"
+        },
+        "SetPhotoURL": {
+          "type": "string"
+        },
+        "ShowOnlineArchiveEnabled": {
+          "type": "boolean"
+        },
+        "SignaturesEnabled": {
+          "type": "boolean"
+        },
+        "SkipCreateUnifiedGroupCustomSharepointClassification": {
+          "type": "boolean"
+        },
+        "SMimeSuppressNameChecksEnabled": {
+          "type": "boolean"
+        },
+        "TeamSnapCalendarsEnabled": {
+          "type": "boolean"
+        },
+        "TextMessagingEnabled": {
+          "type": "boolean"
+        },
+        "ThemeSelectionEnabled": {
+          "type": "boolean"
+        },
+        "UMIntegrationEnabled": {
+          "type": "boolean"
+        },
+        "UseGB18030": {
+          "type": "boolean"
+        },
+        "UseISO885915": {
+          "type": "boolean"
+        },
+        "UserVoiceEnabled": {
+          "type": "boolean"
+        },
+        "WacEditingEnabled": {
+          "type": "boolean"
+        },
+        "WacExternalServicesEnabled": {
+          "type": "boolean"
+        },
+        "WacOMEXEnabled": {
+          "type": "boolean"
+        },
+        "WacViewingOnPrivateComputersEnabled": {
+          "type": "boolean"
+        },
+        "WacViewingOnPublicComputersEnabled": {
+          "type": "boolean"
+        },
+        "WeatherEnabled": {
+          "type": "boolean"
+        },
+        "WebPartsFrameOptionsType": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OwaMailboxPolicy/Configuration"
+    },
+    "ExchangeOnline:PartnerApplication/Configuration": {
+      "type": "object",
+      "properties": {
+        "AcceptSecurityIdentifierInformation": {
+          "type": "boolean"
+        },
+        "AccountType": {
+          "type": "string"
+        },
+        "ActAsPermissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ApplicationIdentifier": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "LinkedAccount": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:PartnerApplication/Configuration"
+    },
+    "ExchangeOnline:PolicyTipConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:PolicyTipConfig/Configuration"
+    },
+    "ExchangeOnline:QuarantinePolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "EndUserQuarantinePermissionsValue": {
+          "type": "integer"
+        },
+        "EndUserSpamNotificationCustomFromAddress": {
+          "type": "string"
+        },
+        "EndUserSpamNotificationFrequency": {
+          "type": "object",
+          "properties": {
+            "Ticks": {
+              "type": "integer",
+              "readOnly": true
+            },
+            "Days": {
+              "$ref": "#/$defs/integer"
+            },
+            "Hours": {
+              "$ref": "#/$defs/integer"
+            },
+            "Milliseconds": {
+              "$ref": "#/$defs/integer"
+            },
+            "Microseconds": {
+              "$ref": "#/$defs/integer"
+            },
+            "Nanoseconds": {
+              "$ref": "#/$defs/integer"
+            },
+            "Minutes": {
+              "$ref": "#/$defs/integer"
+            },
+            "Seconds": {
+              "$ref": "#/$defs/integer"
+            },
+            "TotalDays": {
+              "$ref": "#/$defs/number"
+            },
+            "TotalHours": {
+              "$ref": "#/$defs/number"
+            },
+            "TotalMilliseconds": {
+              "$ref": "#/$defs/number"
+            },
+            "TotalMicroseconds": {
+              "$ref": "#/$defs/number"
+            },
+            "TotalNanoseconds": {
+              "$ref": "#/$defs/number"
+            },
+            "TotalMinutes": {
+              "$ref": "#/$defs/number"
+            },
+            "TotalSeconds": {
+              "$ref": "#/$defs/number"
+            }
+          }
+        },
+        "EsnCustomSubject": {
+          "type": "string"
+        },
+        "ESNEnabled": {
+          "type": "boolean"
+        },
+        "MultiLanguageCustomDisclaimer": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MultiLanguageSenderName": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "MultiLanguageSetting": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OrganizationBrandingEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$defs": {
+        "integer": {
+          "type": "integer",
+          "readOnly": true
+        },
+        "number": {
+          "type": "number",
+          "readOnly": true
+        },
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:QuarantinePolicy/Configuration"
+    },
+    "ExchangeOnline:RemoteDomain/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowedOOFType": {
+          "type": "string"
+        },
+        "AutoForwardEnabled": {
+          "type": "boolean"
+        },
+        "AutoReplyEnabled": {
+          "type": "boolean"
+        },
+        "ByteEncoderTypeFor7BitCharsets": {
+          "type": "string"
+        },
+        "CharacterSet": {
+          "type": "string"
+        },
+        "ContentType": {
+          "type": "string"
+        },
+        "DeliveryReportEnabled": {
+          "type": "boolean"
+        },
+        "DisplaySenderName": {
+          "type": "boolean"
+        },
+        "DomainName": {
+          "type": "object"
+        },
+        "IsInternal": {
+          "type": "boolean"
+        },
+        "LineWrapSize": {
+          "type": "object"
+        },
+        "MeetingForwardNotificationEnabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "NDREnabled": {
+          "type": "boolean"
+        },
+        "NonMimeCharacterSet": {
+          "type": "string"
+        },
+        "PreferredInternetCodePageForShiftJis": {
+          "type": "string"
+        },
+        "RequiredCharsetCoverage": {
+          "type": "integer"
+        },
+        "SmtpDaneMandatoryModeEnabled": {
+          "type": "boolean"
+        },
+        "TargetDeliveryDomain": {
+          "type": "boolean"
+        },
+        "TNEFEnabled": {
+          "type": "boolean"
+        },
+        "TrustedMailInboundEnabled": {
+          "type": "boolean"
+        },
+        "TrustedMailOutboundEnabled": {
+          "type": "boolean"
+        },
+        "UseSimpleDisplayName": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:RemoteDomain/Configuration"
+    },
+    "ExchangeOnline:RoleAssignmentPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Description": {
+          "type": "string"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:RoleAssignmentPolicy/Configuration"
+    },
+    "ExchangeOnline:SafeAttachmentPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Action": {
+          "type": "string"
+        },
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "Enable": {
+          "type": "boolean"
+        },
+        "MakeBuiltInProtection": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "QuarantineTag": {
+          "type": "string"
+        },
+        "Redirect": {
+          "type": "boolean"
+        },
+        "RedirectAddress": {
+          "type": "object"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentPolicy/Configuration"
+    },
+    "ExchangeOnline:SafeAttachmentRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SafeAttachmentPolicy": {
+          "type": "string"
+        },
+        "SentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentRule/Configuration"
+    },
+    "ExchangeOnline:SafeLinksPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AdminDisplayName": {
+          "type": "string"
+        },
+        "AllowClickThrough": {
+          "type": "boolean"
+        },
+        "CustomNotificationText": {
+          "type": "string"
+        },
+        "DeliverMessageAfterScan": {
+          "type": "boolean"
+        },
+        "DisableUrlRewrite": {
+          "type": "boolean"
+        },
+        "DoNotRewriteUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "EnableForInternalSenders": {
+          "type": "boolean"
+        },
+        "EnableOrganizationBranding": {
+          "type": "boolean"
+        },
+        "EnableSafeLinksForEmail": {
+          "type": "boolean"
+        },
+        "EnableSafeLinksForOffice": {
+          "type": "boolean"
+        },
+        "EnableSafeLinksForTeams": {
+          "type": "boolean"
+        },
+        "MakeBuiltInProtection": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ScanUrls": {
+          "type": "boolean"
+        },
+        "TrackClicks": {
+          "type": "boolean"
+        },
+        "UseTranslatedNotificationText": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeLinksPolicy/Configuration"
+    },
+    "ExchangeOnline:SafeLinksRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SafeLinksPolicy": {
+          "type": "string"
+        },
+        "SentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeLinksRule/Configuration"
+    },
+    "ExchangeOnline:SharingPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Default": {
+          "type": "boolean"
+        },
+        "Domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:SharingPolicy/Configuration"
+    },
+    "ExchangeOnline:TransportConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "AddressBookPolicyRoutingEnabled": {
+          "type": "boolean"
+        },
+        "AllowLegacyTLSClients": {
+          "type": "object"
+        },
+        "ClearCategories": {
+          "type": "boolean"
+        },
+        "ConvertDisclaimerWrapperToEml": {
+          "type": "boolean"
+        },
+        "DSNConversionMode": {
+          "type": "string"
+        },
+        "ExternalDelayDsnEnabled": {
+          "type": "boolean"
+        },
+        "ExternalDsnDefaultLanguage": {
+          "type": "object"
+        },
+        "ExternalDsnLanguageDetectionEnabled": {
+          "type": "boolean"
+        },
+        "ExternalDsnReportingAuthority": {
+          "type": "object"
+        },
+        "ExternalDsnSendHtml": {
+          "type": "boolean"
+        },
+        "ExternalPostmasterAddress": {
+          "type": "object"
+        },
+        "HeaderPromotionModeSetting": {
+          "type": "string"
+        },
+        "InternalDelayDsnEnabled": {
+          "type": "boolean"
+        },
+        "InternalDsnDefaultLanguage": {
+          "type": "object"
+        },
+        "InternalDsnLanguageDetectionEnabled": {
+          "type": "boolean"
+        },
+        "InternalDsnReportingAuthority": {
+          "type": "object"
+        },
+        "InternalDsnSendHtml": {
+          "type": "boolean"
+        },
+        "JournalingReportNdrTo": {
+          "type": "object"
+        },
+        "JournalMessageExpirationDays": {
+          "type": "integer"
+        },
+        "MaxRecipientEnvelopeLimit": {
+          "type": "object"
+        },
+        "MessageExpiration": {
+          "type": "object"
+        },
+        "ReplyAllStormBlockDurationHours": {
+          "type": "integer"
+        },
+        "ReplyAllStormDetectionMinimumRecipients": {
+          "type": "integer"
+        },
+        "ReplyAllStormDetectionMinimumReplies": {
+          "type": "integer"
+        },
+        "ReplyAllStormProtectionEnabled": {
+          "type": "boolean"
+        },
+        "Rfc2231EncodingEnabled": {
+          "type": "boolean"
+        },
+        "SmtpClientAuthenticationDisabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:TransportConfig/Configuration"
+    },
+    "ExchangeOnline:TransportRule/Configuration": {
+      "type": "object",
+      "properties": {
+        "ActivationDate": {
+          "$ref": "#/$defs/nullableOfDateTime"
+        },
+        "ADComparisonAttribute": {
+          "type": "object"
+        },
+        "ADComparisonOperator": {
+          "type": "string"
+        },
+        "AddManagerAsRecipientType": {
+          "type": "string"
+        },
+        "AddToRecipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfCcHeader": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfCcHeaderMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfRecipientAddressContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfRecipientAddressMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "AnyOfToCcHeader": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfToCcHeaderMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfToHeader": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AnyOfToHeaderMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ApplyClassification": {
+          "type": "string"
+        },
+        "ApplyHtmlDisclaimerFallbackAction": {
+          "type": "string"
+        },
+        "ApplyHtmlDisclaimerLocation": {
+          "type": "string"
+        },
+        "ApplyHtmlDisclaimerText": {
+          "type": "string"
+        },
+        "ApplyOME": {
+          "type": "boolean"
+        },
+        "ApplyRightsProtectionCustomizationTemplate": {
+          "type": "string"
+        },
+        "ApplyRightsProtectionTemplate": {
+          "type": "string"
+        },
+        "AttachmentContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AttachmentExtensionMatchesWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AttachmentHasExecutableContent": {
+          "type": "boolean"
+        },
+        "AttachmentIsPasswordProtected": {
+          "type": "boolean"
+        },
+        "AttachmentIsUnsupported": {
+          "type": "boolean"
+        },
+        "AttachmentMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "AttachmentNameMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "AttachmentProcessingLimitExceeded": {
+          "type": "boolean"
+        },
+        "AttachmentPropertyContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AttachmentSizeOver": {
+          "type": "object"
+        },
+        "BetweenMemberOf1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BetweenMemberOf2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "BlindCopyTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "ContentCharacterSetContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "CopyTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "DeleteMessage": {
+          "type": "boolean"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ExceptIfADComparisonAttribute": {
+          "type": "object"
+        },
+        "ExceptIfADComparisonOperator": {
+          "type": "string"
+        },
+        "ExceptIfAnyOfCcHeader": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAnyOfCcHeaderMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAnyOfRecipientAddressContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAnyOfRecipientAddressMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfAnyOfToCcHeader": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAnyOfToCcHeaderMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAnyOfToHeader": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAnyOfToHeaderMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAttachmentContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAttachmentExtensionMatchesWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAttachmentHasExecutableContent": {
+          "type": "boolean"
+        },
+        "ExceptIfAttachmentIsPasswordProtected": {
+          "type": "boolean"
+        },
+        "ExceptIfAttachmentIsUnsupported": {
+          "type": "boolean"
+        },
+        "ExceptIfAttachmentMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfAttachmentNameMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfAttachmentProcessingLimitExceeded": {
+          "type": "boolean"
+        },
+        "ExceptIfAttachmentPropertyContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfAttachmentSizeOver": {
+          "type": "object"
+        },
+        "ExceptIfBetweenMemberOf1": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfBetweenMemberOf2": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfContentCharacterSetContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfFrom": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfFromAddressContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfFromAddressMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfFromMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfFromScope": {
+          "type": "string"
+        },
+        "ExceptIfHasClassification": {
+          "type": "string"
+        },
+        "ExceptIfHasNoClassification": {
+          "type": "boolean"
+        },
+        "ExceptIfHeaderContainsMessageHeader": {
+          "type": "object"
+        },
+        "ExceptIfHeaderContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfHeaderMatchesMessageHeader": {
+          "type": "object"
+        },
+        "ExceptIfHeaderMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfManagerAddresses": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfManagerForEvaluatedUser": {
+          "type": "string"
+        },
+        "ExceptIfMessageSizeOver": {
+          "type": "object"
+        },
+        "ExceptIfMessageTypeMatches": {
+          "type": "string"
+        },
+        "ExceptIfRecipientADAttributeContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfRecipientADAttributeMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfRecipientAddressContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfRecipientAddressMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSenderADAttributeContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSenderADAttributeMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfSenderDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSenderIpRanges": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSenderManagementRelationship": {
+          "type": "string"
+        },
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToScope": {
+          "type": "string"
+        },
+        "ExceptIfSubjectContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSubjectMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfSubjectOrBodyContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSubjectOrBodyMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "ExceptIfWithImportance": {
+          "type": "string"
+        },
+        "ExpiryDate": {
+          "$ref": "#/$defs/nullableOfDateTime"
+        },
+        "From": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "FromAddressContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "FromAddressMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "FromMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "FromScope": {
+          "type": "string"
+        },
+        "GenerateIncidentReport": {
+          "type": "string"
+        },
+        "GenerateNotification": {
+          "type": "string"
+        },
+        "HasClassification": {
+          "type": "string"
+        },
+        "HasNoClassification": {
+          "type": "boolean"
+        },
+        "HeaderContainsMessageHeader": {
+          "type": "object"
+        },
+        "HeaderContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "HeaderMatchesMessageHeader": {
+          "type": "object"
+        },
+        "HeaderMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "IncidentReportContent": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ManagerAddresses": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ManagerForEvaluatedUser": {
+          "type": "string"
+        },
+        "MessageSizeOver": {
+          "type": "object"
+        },
+        "MessageTypeMatches": {
+          "type": "string"
+        },
+        "Mode": {
+          "type": "string"
+        },
+        "ModerateMessageByManager": {
+          "type": "boolean"
+        },
+        "ModerateMessageByUser": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PrependSubject": {
+          "type": "object"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "Quarantine": {
+          "type": "boolean"
+        },
+        "RecipientADAttributeContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RecipientADAttributeMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "RecipientAddressContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RecipientAddressMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "RecipientAddressType": {
+          "type": "string"
+        },
+        "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RedirectMessageTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RejectMessageEnhancedStatusCode": {
+          "type": "object"
+        },
+        "RejectMessageReasonText": {
+          "type": "string"
+        },
+        "RemoveHeader": {
+          "type": "object"
+        },
+        "RemoveOME": {
+          "type": "boolean"
+        },
+        "RemoveOMEv2": {
+          "type": "boolean"
+        },
+        "RemoveRMSAttachmentEncryption": {
+          "type": "boolean"
+        },
+        "RouteMessageOutboundConnector": {
+          "type": "string"
+        },
+        "RouteMessageOutboundRequireTls": {
+          "type": "boolean"
+        },
+        "RuleErrorAction": {
+          "type": "string"
+        },
+        "RuleSubType": {
+          "type": "string"
+        },
+        "SenderADAttributeContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SenderADAttributeMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "SenderAddressLocation": {
+          "type": "string"
+        },
+        "SenderDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SenderIpRanges": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SenderManagementRelationship": {
+          "type": "string"
+        },
+        "SentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SentToScope": {
+          "type": "string"
+        },
+        "SetAuditSeverity": {
+          "type": "string"
+        },
+        "SetHeaderName": {
+          "type": "object"
+        },
+        "SetHeaderValue": {
+          "type": "object"
+        },
+        "SetSCL": {
+          "type": "string"
+        },
+        "StopRuleProcessing": {
+          "type": "boolean"
+        },
+        "SubjectContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SubjectMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "SubjectOrBodyContainsWords": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "SubjectOrBodyMatchesPatterns": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "UseLegacyRegex": {
+          "type": "boolean"
+        },
+        "WithImportance": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "nullableOfDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "arrayOfObject": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:TransportRule/Configuration"
+    }
+  }
+}

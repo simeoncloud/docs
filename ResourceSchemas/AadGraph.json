@@ -8,17 +8,19 @@
     "AadGraph:IdentityProtectionPolicies/IdentityProtectionPolicy": {
       "type": "object",
       "properties": {
-        "DisplayName": {
+        "displayName": {
           "type": "string"
         },
-        "PolicyDetail": {
+        "policyDetail": {
           "type": "array",
-          "items": true
+          "items": {
+            "type": "object"
+          }
         },
-        "PolicyType": {
+        "policyType": {
           "type": "integer"
         },
-        "TenantDefaultPolicy": {
+        "tenantDefaultPolicy": {
           "type": "integer"
         }
       },

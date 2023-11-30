@@ -1,0 +1,595 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/Teams:CsTeamsAppPermissionPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsCallingPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsClientConfiguration/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsMeetingBroadcastPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsMeetingConfiguration/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsMeetingPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsMessagingPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTenantFederationConfiguration/Configuration"
+    }
+  ],
+  "$defs": {
+    "Teams:CsTeamsAppPermissionPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "DefaultCatalogApps": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "DefaultCatalogAppsType": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "GlobalCatalogApps": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "GlobalCatalogAppsType": {
+          "type": "string"
+        },
+        "PrivateCatalogApps": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
+        "PrivateCatalogAppsType": {
+          "type": "string"
+        },
+        "Tenant": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfObject": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsAppPermissionPolicy/Configuration"
+    },
+    "Teams:CsTeamsCallingPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowCallForwardingToPhone": {
+          "type": "boolean"
+        },
+        "AllowCallForwardingToUser": {
+          "type": "boolean"
+        },
+        "AllowCallGroups": {
+          "type": "boolean"
+        },
+        "AllowCallRedirect": {
+          "type": "string"
+        },
+        "AllowCloudRecordingForCalls": {
+          "type": "boolean"
+        },
+        "AllowDelegation": {
+          "type": "boolean"
+        },
+        "AllowPrivateCalling": {
+          "type": "boolean"
+        },
+        "AllowSIPDevicesCalling": {
+          "type": "boolean"
+        },
+        "AllowTranscriptionForCalling": {
+          "type": "boolean"
+        },
+        "AllowVoicemail": {
+          "type": "string"
+        },
+        "AllowWebPSTNCalling": {
+          "type": "object"
+        },
+        "AutoAnswerEnabledType": {
+          "type": "string"
+        },
+        "BusyOnBusyEnabledType": {
+          "type": "string"
+        },
+        "CallRecordingExpirationDays": {
+          "type": "object"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "InboundFederatedCallRoutingTreatment": {
+          "type": "string"
+        },
+        "InboundPstnCallRoutingTreatment": {
+          "type": "string"
+        },
+        "LiveCaptionsEnabledTypeForCalling": {
+          "type": "string"
+        },
+        "MusicOnHoldEnabledType": {
+          "type": "string"
+        },
+        "PopoutAppPathForIncomingPstnCalls": {
+          "type": "string"
+        },
+        "PopoutForIncomingPstnCalls": {
+          "type": "string"
+        },
+        "PreventTollBypass": {
+          "type": "boolean"
+        },
+        "SpamFilteringEnabledType": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsCallingPolicy/Configuration"
+    },
+    "Teams:CsTeamsClientConfiguration/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowBox": {
+          "type": "boolean"
+        },
+        "AllowDropBox": {
+          "type": "boolean"
+        },
+        "AllowEgnyte": {
+          "type": "boolean"
+        },
+        "AllowEmailIntoChannel": {
+          "type": "boolean"
+        },
+        "AllowGoogleDrive": {
+          "type": "boolean"
+        },
+        "AllowGuestUser": {
+          "type": "boolean"
+        },
+        "AllowOrganizationTab": {
+          "type": "boolean"
+        },
+        "AllowResourceAccountSendMessage": {
+          "type": "boolean"
+        },
+        "AllowRoleBasedChatPermissions": {
+          "type": "boolean"
+        },
+        "AllowScopedPeopleSearchandAccess": {
+          "type": "boolean"
+        },
+        "AllowShareFile": {
+          "type": "boolean"
+        },
+        "AllowSkypeBusinessInterop": {
+          "type": "boolean"
+        },
+        "AllowTBotProactiveMessaging": {
+          "type": "boolean"
+        },
+        "ContentPin": {
+          "type": "string"
+        },
+        "ResourceAccountContentAccess": {
+          "type": "string"
+        },
+        "RestrictedSenderList": {
+          "type": "string"
+        },
+        "Tenant": {
+          "type": "object"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsClientConfiguration/Configuration"
+    },
+    "Teams:CsTeamsMeetingBroadcastPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowBroadcastScheduling": {
+          "type": "boolean"
+        },
+        "AllowBroadcastTranscription": {
+          "type": "boolean"
+        },
+        "BroadcastAttendeeVisibilityMode": {
+          "type": "string"
+        },
+        "BroadcastRecordingMode": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "InMemory": {
+          "type": "boolean"
+        },
+        "Tenant": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingBroadcastPolicy/Configuration"
+    },
+    "Teams:CsTeamsMeetingConfiguration/Configuration": {
+      "type": "object",
+      "properties": {
+        "ClientAppSharingPort": {
+          "type": "integer"
+        },
+        "ClientAppSharingPortRange": {
+          "type": "integer"
+        },
+        "ClientAudioPort": {
+          "type": "integer"
+        },
+        "ClientAudioPortRange": {
+          "type": "integer"
+        },
+        "ClientMediaPortRangeEnabled": {
+          "type": "boolean"
+        },
+        "ClientVideoPort": {
+          "type": "integer"
+        },
+        "ClientVideoPortRange": {
+          "type": "integer"
+        },
+        "CustomFooterText": {
+          "type": "string"
+        },
+        "DisableAnonymousJoin": {
+          "type": "boolean"
+        },
+        "DisableAppInteractionForAnonymousUsers": {
+          "type": "boolean"
+        },
+        "EnableQoS": {
+          "type": "boolean"
+        },
+        "HelpURL": {
+          "type": "string"
+        },
+        "LegalURL": {
+          "type": "string"
+        },
+        "LogoURL": {
+          "type": "string"
+        },
+        "Tenant": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingConfiguration/Configuration"
+    },
+    "Teams:CsTeamsMeetingPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowAnonymousUsersToDialOut": {
+          "type": "boolean"
+        },
+        "AllowAnonymousUsersToJoinMeeting": {
+          "type": "boolean"
+        },
+        "AllowAnonymousUsersToStartMeeting": {
+          "type": "boolean"
+        },
+        "AllowBreakoutRooms": {
+          "type": "boolean"
+        },
+        "AllowCartCaptionsScheduling": {
+          "type": "string"
+        },
+        "AllowChannelMeetingScheduling": {
+          "type": "boolean"
+        },
+        "AllowCloudRecording": {
+          "type": "boolean"
+        },
+        "AllowedStreamingMediaInput": {
+          "type": "string"
+        },
+        "AllowEngagementReport": {
+          "type": "string"
+        },
+        "AllowExternalParticipantGiveRequestControl": {
+          "type": "boolean"
+        },
+        "AllowIPAudio": {
+          "type": "boolean"
+        },
+        "AllowIPVideo": {
+          "type": "boolean"
+        },
+        "AllowMeetingReactions": {
+          "type": "boolean"
+        },
+        "AllowMeetingRegistration": {
+          "type": "boolean"
+        },
+        "AllowMeetNow": {
+          "type": "boolean"
+        },
+        "AllowNDIStreaming": {
+          "type": "boolean"
+        },
+        "AllowNetworkConfigurationSettingsLookup": {
+          "type": "boolean"
+        },
+        "AllowOrganizersToOverrideLobbySettings": {
+          "type": "boolean"
+        },
+        "AllowOutlookAddIn": {
+          "type": "boolean"
+        },
+        "AllowParticipantGiveRequestControl": {
+          "type": "boolean"
+        },
+        "AllowPowerPointSharing": {
+          "type": "boolean"
+        },
+        "AllowPrivateMeetingScheduling": {
+          "type": "boolean"
+        },
+        "AllowPrivateMeetNow": {
+          "type": "boolean"
+        },
+        "AllowPSTNUsersToBypassLobby": {
+          "type": "boolean"
+        },
+        "AllowRecordingStorageOutsideRegion": {
+          "type": "boolean"
+        },
+        "AllowSharedNotes": {
+          "type": "boolean"
+        },
+        "AllowTranscription": {
+          "type": "boolean"
+        },
+        "AllowUserToJoinExternalMeeting": {
+          "type": "string"
+        },
+        "AllowWatermarkForCameraVideo": {
+          "type": "boolean"
+        },
+        "AllowWatermarkForScreenSharing": {
+          "type": "boolean"
+        },
+        "AllowWhiteboard": {
+          "type": "boolean"
+        },
+        "AutoAdmittedUsers": {
+          "type": "string"
+        },
+        "AutomaticallyStartCopilot": {
+          "type": "string"
+        },
+        "BlockedAnonymousJoinClientTypes": {
+          "type": "object"
+        },
+        "ChannelRecordingDownload": {
+          "type": "string"
+        },
+        "ContentSharingInExternalMeetings": {
+          "type": "string"
+        },
+        "Copilot": {
+          "type": "string"
+        },
+        "CopyRestriction": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "DesignatedPresenterRoleMode": {
+          "type": "string"
+        },
+        "EnrollUserOverride": {
+          "type": "string"
+        },
+        "ExternalMeetingJoin": {
+          "type": "string"
+        },
+        "InMemory": {
+          "type": "boolean"
+        },
+        "IPAudioMode": {
+          "type": "string"
+        },
+        "IPVideoMode": {
+          "type": "string"
+        },
+        "LiveCaptionsEnabledType": {
+          "type": "string"
+        },
+        "LiveInterpretationEnabledType": {
+          "type": "string"
+        },
+        "LiveStreamingMode": {
+          "type": "string"
+        },
+        "MediaBitRateKb": {
+          "type": "integer"
+        },
+        "MeetingChatEnabledType": {
+          "type": "string"
+        },
+        "MeetingInviteLanguages": {
+          "type": "string"
+        },
+        "NewMeetingRecordingExpirationDays": {
+          "type": "integer"
+        },
+        "PreferredMeetingProviderForIslandsMode": {
+          "type": "string"
+        },
+        "RecordingStorageMode": {
+          "type": "string"
+        },
+        "RoomAttributeUserOverride": {
+          "type": "string"
+        },
+        "ScreenSharingMode": {
+          "type": "string"
+        },
+        "SpeakerAttributionMode": {
+          "type": "string"
+        },
+        "StreamingAttendeeMode": {
+          "type": "string"
+        },
+        "TeamsCameraFarEndPTZMode": {
+          "type": "string"
+        },
+        "Tenant": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "VideoFiltersMode": {
+          "type": "string"
+        },
+        "VoiceIsolation": {
+          "type": "string"
+        },
+        "WhoCanRegister": {
+          "type": "object"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingPolicy/Configuration"
+    },
+    "Teams:CsTeamsMessagingPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowGiphy": {
+          "type": "boolean"
+        },
+        "AllowImmersiveReader": {
+          "type": "boolean"
+        },
+        "AllowMemes": {
+          "type": "boolean"
+        },
+        "AllowOwnerDeleteMessage": {
+          "type": "boolean"
+        },
+        "AllowPriorityMessages": {
+          "type": "boolean"
+        },
+        "AllowRemoveUser": {
+          "type": "boolean"
+        },
+        "AllowSmartCompose": {
+          "type": "boolean"
+        },
+        "AllowSmartReply": {
+          "type": "boolean"
+        },
+        "AllowStickers": {
+          "type": "boolean"
+        },
+        "AllowUrlPreviews": {
+          "type": "boolean"
+        },
+        "AllowUserChat": {
+          "type": "boolean"
+        },
+        "AllowUserDeleteChat": {
+          "type": "boolean"
+        },
+        "AllowUserDeleteMessage": {
+          "type": "boolean"
+        },
+        "AllowUserEditMessage": {
+          "type": "boolean"
+        },
+        "AllowUserTranslation": {
+          "type": "boolean"
+        },
+        "AudioMessageEnabledType": {
+          "type": "object"
+        },
+        "ChannelsInChatListEnabledType": {
+          "type": "object"
+        },
+        "ChatPermissionRole": {
+          "type": "string"
+        },
+        "CreateCustomEmojis": {
+          "type": "boolean"
+        },
+        "DeleteCustomEmojis": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "GiphyRatingType": {
+          "type": "string"
+        },
+        "InMemory": {
+          "type": "boolean"
+        },
+        "ReadReceiptsEnabledType": {
+          "type": "string"
+        },
+        "Tenant": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMessagingPolicy/Configuration"
+    },
+    "Teams:CsTenantFederationConfiguration/Configuration": {
+      "type": "object",
+      "properties": {
+        "AllowedDomains": {
+          "type": "boolean"
+        },
+        "AllowedDomainsAsAList": {
+          "type": "object"
+        },
+        "AllowFederatedUsers": {
+          "type": "boolean"
+        },
+        "AllowPublicUsers": {
+          "type": "boolean"
+        },
+        "AllowTeamsConsumer": {
+          "type": "boolean"
+        },
+        "AllowTeamsConsumerInbound": {
+          "type": "boolean"
+        },
+        "BlockedDomains": {
+          "type": "object"
+        },
+        "SharedSipAddressSpace": {
+          "type": "boolean"
+        },
+        "Tenant": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "TreatDiscoveredPartnersAsUnverified": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTenantFederationConfiguration/Configuration"
+    }
+  }
+}

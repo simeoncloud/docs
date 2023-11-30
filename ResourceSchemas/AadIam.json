@@ -26,10 +26,10 @@
     "AadIam:EnterpriseApplicationUserSettings/Configuration": {
       "type": "object",
       "properties": {
-        "HideOffice365Apps": {
+        "hideOffice365Apps": {
           "type": "boolean"
         },
-        "UsersCanAddGalleryApps": {
+        "usersCanAddGalleryApps": {
           "type": "boolean"
         }
       },
@@ -38,24 +38,24 @@
     "AadIam:EnterpriseStateRoaming/Configuration": {
       "type": "object",
       "properties": {
-        "IsAdminConfigurable": {
+        "isAdminConfigurable": {
           "type": "boolean"
         },
-        "SyncSelectedUsers": {
+        "syncSelectedUsers": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "Id": {
+              "id": {
                 "type": "string"
               },
-              "Type": {
+              "type": {
                 "type": "integer"
               }
             }
           }
         },
-        "SyncSetting": {
+        "syncSetting": {
           "type": "integer"
         }
       },
@@ -64,19 +64,19 @@
     "AadIam:ExternalUserGuestSettings/Configuration": {
       "type": "object",
       "properties": {
-        "AdminConsentedForUsersIntoTenantIds": {
+        "adminConsentedForUsersIntoTenantIds": {
           "$ref": "#/$defs/iListOfString"
         },
-        "HasListEntries": {
+        "hasListEntries": {
           "type": "boolean"
         },
-        "IsAllowlist": {
+        "isAllowlist": {
           "type": "boolean"
         },
-        "NoAADConsentForUsersFromTenantsIds": {
+        "noAadConsentForUsersFromTenantsIds": {
           "$ref": "#/$defs/iListOfString"
         },
-        "TargetedDomains": {
+        "targetedDomains": {
           "$ref": "#/$defs/iListOfString"
         }
       },
@@ -93,25 +93,25 @@
     "AadIam:GroupSettings/Configuration": {
       "type": "object",
       "properties": {
-        "AllUsersGroupEnabled": {
+        "allUsersGroupEnabled": {
           "type": "boolean"
         },
-        "GroupsInAccessPanelEnabled": {
+        "groupsInAccessPanelEnabled": {
           "type": "boolean"
         },
-        "Office365GroupsEnabled": {
+        "office365GroupsEnabled": {
           "type": "boolean"
         },
-        "ScopingGroupIdForManagingOfficeGroups": {
+        "scopingGroupIdForManagingOfficeGroups": {
           "type": "string"
         },
-        "ScopingGroupIdForManagingSecurityGroups": {
+        "scopingGroupIdForManagingSecurityGroups": {
           "type": "string"
         },
-        "SecurityGroupsEnabled": {
+        "securityGroupsEnabled": {
           "type": "boolean"
         },
-        "SelfServiceGroupManagementEnabled": {
+        "selfServiceGroupManagementEnabled": {
           "type": "boolean"
         },
         "UsersCanManageOfficeGroups": {
@@ -134,51 +134,51 @@
     "AadIam:MdmApplications/MdmApplication": {
       "type": "object",
       "properties": {
-        "AppData": {
+        "appData": {
           "type": "object",
           "properties": {
-            "ComplianceUrl": {
+            "complianceUrl": {
               "type": "string"
             },
-            "EnrollmentUrl": {
+            "enrollmentUrl": {
               "type": "string"
             },
-            "MamComplianceUrl": {
+            "mamComplianceUrl": {
               "type": "string"
             },
-            "MamEnrollmentUrl": {
+            "mamEnrollmentUrl": {
               "type": "string"
             },
-            "MamTermsOfUseUrl": {
+            "mamTermsOfUseUrl": {
               "type": "string"
             },
-            "TermsOfUseUrl": {
+            "termsOfUseUrl": {
               "type": "string"
             }
           }
         },
-        "AppDisplayName": {
+        "appDisplayName": {
           "type": "string"
         },
-        "AppId": {
+        "appId": {
           "type": "string"
         },
-        "IsOnPrem": {
+        "isOnPrem": {
           "type": "boolean"
         },
-        "LogoUrl": {
+        "logoUrl": {
           "type": "string"
         },
-        "MamAppliesTo": {
+        "mamAppliesTo": {
           "type": "integer"
         },
-        "MamAppliesToGroups": {
+        "mamAppliesToGroups": {
           "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
         },
-        "MdmAppliesTo": {
+        "mdmAppliesTo": {
           "type": "integer"
         },
-        "MdmAppliesToGroups": {
+        "mdmAppliesToGroups": {
           "$ref": "#/$defs/iListOfAppliesToGroupInMdmApplication"
         }
       },
@@ -188,7 +188,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "ObjectId": {
+              "objectId": {
                 "type": "string"
               }
             }
@@ -200,73 +200,73 @@
     "AadIam:PasswordResetPolicies/Configuration": {
       "type": "object",
       "properties": {
-        "CustomHelpdeskEmailOrUrl": {
+        "customHelpdeskEmailOrUrl": {
           "type": "string"
         },
-        "CustomizeHelpdeskLink": {
+        "customizeHelpdeskLink": {
           "type": "boolean"
         },
-        "EmailOptionEnabled": {
+        "emailOptionEnabled": {
           "type": "boolean"
         },
-        "EnablementType": {
+        "enablementType": {
           "type": "integer"
         },
-        "MobileAppCodeEnabled": {
+        "mobileAppCodeEnabled": {
           "type": "boolean"
         },
-        "MobileAppNotificationEnabled": {
+        "mobileAppNotificationEnabled": {
           "type": "boolean"
         },
-        "MobilePhoneOptionEnabled": {
+        "mobilePhoneOptionEnabled": {
           "type": "boolean"
         },
-        "NotifyOnAdminPasswordReset": {
+        "notifyOnAdminPasswordReset": {
           "type": "boolean"
         },
-        "NotifyUsersOnPasswordReset": {
+        "notifyUsersOnPasswordReset": {
           "type": "boolean"
         },
-        "NumberOfAuthenticationMethodsRequired": {
+        "numberOfAuthenticationMethodsRequired": {
           "type": "integer"
         },
-        "NumberOfQuestionsToRegister": {
+        "numberOfQuestionsToRegister": {
           "type": "integer"
         },
-        "NumberOfQuestionsToReset": {
+        "numberOfQuestionsToReset": {
           "type": "integer"
         },
-        "OfficePhoneOptionEnabled": {
+        "officePhoneOptionEnabled": {
           "type": "boolean"
         },
-        "PasswordResetEnabledGroupIds": {
+        "passwordResetEnabledGroupIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "PasswordResetEnabledGroupName": {
+        "passwordResetEnabledGroupName": {
           "type": "string"
         },
-        "RegistrationReconfirmIntevalInDays": {
+        "registrationReconfirmIntervalInDays": {
           "type": "integer"
         },
-        "RegistrationRequiredOnSignIn": {
+        "registrationRequiredOnSignIn": {
           "type": "boolean"
         },
-        "SecurityQuestions": {
+        "securityQuestions": {
           "type": "array",
           "items": {
             "type": "object"
           }
         },
-        "SecurityQuestionsOptionEnabled": {
+        "securityQuestionsOptionEnabled": {
           "type": "boolean"
         },
-        "SkipRegistrationAllowed": {
+        "skipRegistrationAllowed": {
           "type": "boolean"
         },
-        "SkipRegistrationMaxAllowedDays": {
+        "skipRegistrationMaxAllowedDays": {
           "type": "integer"
         }
       },
@@ -275,13 +275,13 @@
     "AadIam:UserSettings/Configuration": {
       "type": "object",
       "properties": {
-        "EnableLinkedInAppFamily": {
+        "enableLinkedInAppFamily": {
           "type": "integer"
         },
-        "LinkedInSelectedGroupObjectId": {
+        "linkedInSelectedGroupObjectId": {
           "type": "string"
         },
-        "RestrictNonAdminUsers": {
+        "restrictNonAdminUsers": {
           "type": "boolean"
         }
       },
