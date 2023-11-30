@@ -1,0 +1,10 @@
+{
+  "accountEnabled": true,
+  "alternativeNames": [],
+  "appId": "${urn:resource:MSGraph:Applications/Simeon Cloud Sync?$rawData.appId}",
+  "appRoleAssignmentRequired": false,
+  "notificationEmailAddresses": [],
+  "resourceSpecificApplicationPermissions": [],
+  "servicePrincipalType": "Application",
+  "tags": []
+}

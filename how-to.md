@@ -226,6 +226,30 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
     ```
 * [Sync](https://app.simeoncloud.com/sync) the downstream tenant and **Approve** to deploy the configuration. The configuration should deploy to the tenant and replace the variable with the value as defined in the tenant's config.tenant.json file.
 
+## Upload a custom ADMX file to Simeon
+
+* Navigate to the [Intune Admin Center](https://endpoint.microsoft.com/#home), click on Devices > Configuration Policies
+* On the Import ADMX tab, click Import > upload an ADMX file and its associated ADML file > Next > Create
+* Wait for the state of the resource to become available.
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/import_admx.png" width="800"/>
+
+* Navigate to the Profiles tab on the top-left > Create Profile
+    * Select Platform “Windows 10 and later”
+    * Select Profile Type “Templates”
+    * Select Template Name: “Imported Administrative templates (Preview)"
+    * Give the configuration a name
+    * In this example, since we are using the Mozilla and Firefox ADMX resources, we will be configuring the profile for the resource (this may not be required for all ADMX resources)
+        * Under Configuration Settings, click Computer Configuration on the left tab then select Mozilla > Firefox > Cookies Select “Do not allow preferences to be changed" > on the right panel, select “Enabled" > OK
+        * Finish the creation steps
+* Run a Sync to export the newly added ADMX resource and profile to Simeon
+* On [Azure DevOps](https://dev.azure.com/) > Tenants > Repos > navigate to Source/Resources/Content/MSGraph/DeviceManagement/GroupPolicyUploadedDefinitionFiles
+* There will be 3 files per ADMX resource that was created. An ADML file, an ADMX file, and a JSON file
+<img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/admx_file.png" width="250"/>
+
+* The exported ADMX and ADML files will have the following content: `TODO: Add adml file content here`
+* Click **Edit** on each .admx and .adml file and update the contents with the ADMX and ADML files that were initially uploaded to the Intune portal > Save
+* [Sync](https://app.simeoncloud.com/sync) the baseline tenant and **Approve** to deploy the configuration updates
+
 ## Remove a tenant from Simeon
 
 * Navigate to [Simeon](https://app.simeoncloud.com/install) > toggle off **New Tenant** > select the tenant under **Display name** > **REMOVE** > follow the steps on the screen.
