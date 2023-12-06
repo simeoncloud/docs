@@ -1,9 +1,6 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AdminAuditLogConfig/Configuration"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:AppRetentionCompliancePolicy/Configuration"
     },
     {
@@ -74,15 +71,6 @@
     }
   ],
   "$defs": {
-    "SecurityAndCompliance:AdminAuditLogConfig/Configuration": {
-      "type": "object",
-      "properties": {
-        "UnifiedAuditLogIngestionEnabled": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AdminAuditLogConfig/Configuration"
-    },
     "SecurityAndCompliance:AppRetentionCompliancePolicy/Configuration": {
       "type": "object",
       "properties": {

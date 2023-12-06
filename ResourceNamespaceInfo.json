@@ -104,6 +104,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "ExchangeOnline:AdminAuditLogConfig",
+    "description": "Office 365 > Exchange > AdminAuditLogConfig",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-adminauditlogconfig?view=exchange-ps",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "ExchangeOnline:AntiPhishPolicy",
     "description": "Security > Threat management > Policy",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
@@ -724,7 +732,7 @@
     "description": "Intune > Devices > Configuration policies > Assignments",
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -1347,14 +1355,6 @@
     "namespace": "O365Portal:Settings:Security:ActivityBasedTimeout",
     "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "SecurityAndCompliance:AdminAuditLogConfig",
-    "description": "Office 365 > Exchange > AdminAuditLogConfig",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-adminauditlogconfig?view=exchange-ps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"

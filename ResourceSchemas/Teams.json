@@ -558,10 +558,10 @@
       "type": "object",
       "properties": {
         "AllowedDomains": {
-          "type": "boolean"
+          "$ref": "#/$defs/arrayOfString"
         },
-        "AllowedDomainsAsAList": {
-          "type": "object"
+        "BlockedDomains": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "AllowFederatedUsers": {
           "type": "boolean"
@@ -575,9 +575,6 @@
         "AllowTeamsConsumerInbound": {
           "type": "boolean"
         },
-        "BlockedDomains": {
-          "type": "object"
-        },
         "SharedSipAddressSpace": {
           "type": "boolean"
         },
@@ -587,6 +584,14 @@
         },
         "TreatDiscoveredPartnersAsUnverified": {
           "type": "boolean"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTenantFederationConfiguration/Configuration"

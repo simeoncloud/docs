@@ -13,6 +13,9 @@
       "$ref": "#/$defs/ExchangeOnline:AddressList/Configuration"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:AdminAuditLogConfig/Configuration"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:AntiPhishPolicy/Configuration"
     },
     {
@@ -218,12 +221,6 @@
     "ExchangeOnline:AddressList/Configuration": {
       "type": "object",
       "properties": {
-        "Container": {
-          "type": "string"
-        },
-        "RecipientFilter": {
-          "type": "string"
-        },
         "ConditionalCompany": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -278,6 +275,12 @@
         "ConditionalStateOrProvince": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "Container": {
+          "type": "string"
+        },
+        "RecipientFilter": {
+          "type": "string"
+        },
         "DisplayName": {
           "type": "string"
         },
@@ -300,6 +303,15 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:AddressList/Configuration"
+    },
+    "ExchangeOnline:AdminAuditLogConfig/Configuration": {
+      "type": "object",
+      "properties": {
+        "UnifiedAuditLogIngestionEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:AdminAuditLogConfig/Configuration"
     },
     "ExchangeOnline:AntiPhishPolicy/Configuration": {
       "type": "object",
@@ -647,6 +659,9 @@
     "ExchangeOnline:DistributionGroup/Configuration": {
       "type": "object",
       "properties": {
+        "PrimarySmtpAddress": {
+          "type": "object"
+        },
         "AcceptMessagesOnlyFrom": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -788,12 +803,6 @@
         "Notes": {
           "type": "string"
         },
-        "OrganizationalUnit": {
-          "type": "string"
-        },
-        "PrimarySmtpAddress": {
-          "type": "object"
-        },
         "RejectMessagesFrom": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -847,11 +856,14 @@
     "ExchangeOnline:DistributionGroupMember/Configuration": {
       "type": "object",
       "properties": {
+        "DistributionGroup": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
         "BypassSecurityGroupManagerCheck": {
           "type": "boolean"
-        },
-        "Member": {
-          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroupMember/Configuration"
@@ -886,13 +898,22 @@
     "ExchangeOnline:DynamicDistributionGroup/Configuration": {
       "type": "object",
       "properties": {
+        "AcceptMessagesOnlyFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "PrimarySmtpAddress": {
+          "type": "object"
+        },
+        "RecipientFilter": {
+          "type": "string"
+        },
+        "RejectMessagesFromSendersOrMembers": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "AcceptMessagesOnlyFrom": {
           "$ref": "#/$defs/arrayOfString"
         },
         "AcceptMessagesOnlyFromDLMembers": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "AcceptMessagesOnlyFromSendersOrMembers": {
           "$ref": "#/$defs/arrayOfString"
         },
         "Alias": {
@@ -1057,28 +1078,16 @@
         "Notes": {
           "type": "string"
         },
-        "OrganizationalUnit": {
-          "type": "string"
-        },
         "PhoneticDisplayName": {
           "type": "string"
         },
-        "PrimarySmtpAddress": {
-          "type": "object"
-        },
         "RecipientContainer": {
-          "type": "string"
-        },
-        "RecipientFilter": {
           "type": "string"
         },
         "RejectMessagesFrom": {
           "$ref": "#/$defs/arrayOfString"
         },
         "RejectMessagesFromDLMembers": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "RejectMessagesFromSendersOrMembers": {
           "$ref": "#/$defs/arrayOfString"
         },
         "ReportToManagerEnabled": {
@@ -1143,9 +1152,6 @@
     "ExchangeOnline:GlobalAddressList/Configuration": {
       "type": "object",
       "properties": {
-        "RecipientFilter": {
-          "type": "string"
-        },
         "ConditionalCompany": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1200,6 +1206,9 @@
         "ConditionalStateOrProvince": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "RecipientFilter": {
+          "type": "string"
+        },
         "IncludedRecipients": {
           "type": "string"
         },
@@ -1249,12 +1258,6 @@
     "ExchangeOnline:HostedContentFilterPolicy/Configuration": {
       "type": "object",
       "properties": {
-        "AddXHeaderValue": {
-          "type": "string"
-        },
-        "AdminDisplayName": {
-          "type": "string"
-        },
         "AllowedSenderDomains": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1266,6 +1269,12 @@
         },
         "BlockedSenders": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "AddXHeaderValue": {
+          "type": "string"
+        },
+        "AdminDisplayName": {
+          "type": "string"
         },
         "BulkQuarantineTag": {
           "type": "string"
@@ -1661,6 +1670,40 @@
     "ExchangeOnline:Mailbox/Configuration": {
       "type": "object",
       "properties": {
+        "ExternalDirectoryObjectId": {
+          "type": "string"
+        },
+        "IsExcludedFromServingHierarchy": {
+          "type": "boolean"
+        },
+        "IssueWarningQuota": {
+          "type": "object"
+        },
+        "MailboxPlan": {
+          "type": "string"
+        },
+        "MaxReceiveSize": {
+          "type": "object"
+        },
+        "MaxSendSize": {
+          "type": "object"
+        },
+        "MicrosoftOnlineServicesID": {
+          "type": "object"
+        },
+        "ProhibitSendQuota": {
+          "type": "object"
+        },
+        "ProhibitSendReceiveQuota": {
+          "type": "object"
+        },
+        "RulesQuota": {
+          "type": "object"
+        },
+        "TransportConfig": {
+          "type": "string",
+          "readOnly": true
+        },
         "AcceptMessagesOnlyFrom": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1766,9 +1809,6 @@
         "DataEncryptionPolicy": {
           "type": "string"
         },
-        "DefaultAuditSet": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "DefaultPublicFolderMailbox": {
           "type": "string"
         },
@@ -1856,11 +1896,8 @@
         "Initials": {
           "type": "string"
         },
-        "IsExcludedFromServingHierarchy": {
+        "IsShared": {
           "type": "boolean"
-        },
-        "IssueWarningQuota": {
-          "type": "object"
         },
         "Languages": {
           "$ref": "#/$defs/arrayOfString"
@@ -1880,9 +1917,6 @@
         "LitigationHoldOwner": {
           "type": "string"
         },
-        "MailboxPlan": {
-          "type": "string"
-        },
         "MailboxRegion": {
           "type": "string"
         },
@@ -1891,12 +1925,6 @@
         },
         "MailTipTranslations": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "MaxReceiveSize": {
-          "type": "object"
-        },
-        "MaxSendSize": {
-          "type": "object"
         },
         "MessageCopyForSendOnBehalfEnabled": {
           "type": "boolean"
@@ -1909,9 +1937,6 @@
         },
         "MessageTrackingReadStatusEnabled": {
           "type": "boolean"
-        },
-        "MicrosoftOnlineServicesID": {
-          "type": "object"
         },
         "Migration": {
           "type": "boolean"
@@ -1931,9 +1956,6 @@
         "Office": {
           "type": "string"
         },
-        "OrganizationalUnit": {
-          "type": "string"
-        },
         "Password": {
           "type": "object"
         },
@@ -1944,12 +1966,6 @@
           "type": "string"
         },
         "PrimarySmtpAddress": {
-          "type": "object"
-        },
-        "ProhibitSendQuota": {
-          "type": "object"
-        },
-        "ProhibitSendReceiveQuota": {
           "type": "object"
         },
         "PublicFolder": {
@@ -2024,17 +2040,11 @@
         "Room": {
           "type": "boolean"
         },
-        "RulesQuota": {
-          "type": "object"
-        },
         "SchedulerAssistant": {
           "type": "boolean"
         },
         "SendModerationNotifications": {
           "type": "string"
-        },
-        "Shared": {
-          "type": "boolean"
         },
         "SharingPolicy": {
           "type": "string"
@@ -2090,6 +2100,18 @@
             "type": "string"
           }
         },
+        "Deny": {
+          "type": "boolean"
+        },
+        "Identity": {
+          "type": "string"
+        },
+        "Owner": {
+          "type": "string"
+        },
+        "DistributionGroup": {
+          "type": "string"
+        },
         "AutoMapping": {
           "type": "boolean"
         },
@@ -2097,9 +2119,6 @@
           "type": "boolean"
         },
         "ClearAutoMapping": {
-          "type": "boolean"
-        },
-        "Deny": {
           "type": "boolean"
         },
         "GroupMailbox": {
@@ -2111,17 +2130,11 @@
         "InheritanceType": {
           "type": "string"
         },
-        "Owner": {
-          "type": "string"
-        },
         "ResetDefault": {
           "type": "boolean"
         },
         "SoftDeletedMailbox": {
           "type": "boolean"
-        },
-        "User": {
-          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPermission/Configuration"
@@ -2131,9 +2144,6 @@
       "properties": {
         "DisplayName": {
           "type": "string"
-        },
-        "IsDefault": {
-          "type": "boolean"
         },
         "IssueWarningQuota": {
           "type": "object"
@@ -2149,6 +2159,9 @@
         },
         "ProhibitSendReceiveQuota": {
           "type": "object"
+        },
+        "IsDefault": {
+          "type": "boolean"
         },
         "RetainDeletedItemsFor": {
           "type": "object"
