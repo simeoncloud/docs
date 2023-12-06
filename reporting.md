@@ -129,7 +129,7 @@ The fields available in the dataset are as follows:
 - Property_Name: The name of the property being reported on
 - Property_Value: The value of the property at the time of the sync
 - Old_Property_Value: Captures the previous value of the property before the Sync changes are applied
-- Change_Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**
+- Change_Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**, **Failed**
 - Error_Message: If the configuration fails for any reason, the full error message is captured in this column
 
 ## Uninstall Power BI Reporting
