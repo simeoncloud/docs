@@ -32,7 +32,7 @@ Please follow these instructions before your onboarding:
 
 ## Make sure a tenant meets the prerequisites to use Simeon
 
-- You must be operating on global Azure cloud (not [Government Community Cloud](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)). The Azure Government cloud is not currently supported
+- You must be operating on global Azure cloud (not [Government Community Cloud High](https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)). The Azure Government cloud is not currently supported
 - Make sure the tenant has a valid Microsoft 365 license - all licensed SKUs are supported
 
 You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
