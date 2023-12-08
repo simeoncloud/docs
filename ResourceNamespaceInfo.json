@@ -179,9 +179,9 @@
     "namespace": "MSGraph:ConditionalAccess:Policies",
     "description": "Azure AD > Security > Conditional Access > Policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "^(?:(?!^Microsoft-managed).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Microsoft-managed).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:AndroidManagedAppProtections",
