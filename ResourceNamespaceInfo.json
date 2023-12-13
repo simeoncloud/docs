@@ -144,6 +144,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:ApplicationSecrets",
+    "description": "Azure AD > App registrations > Secrets",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:ConditionalAccess:AuthenticationContextClassReferences",
     "description": "Azure AD > Security > Conditional Access > Authentication Contexts",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthenticationContext",

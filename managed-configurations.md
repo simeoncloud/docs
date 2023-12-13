@@ -8,6 +8,7 @@
 - Azure AD
   - App registrations
     - API
+    - Secrets
   - Authorization policies
   - Conditional Access
     - Terms of use
