@@ -18,6 +18,8 @@
     - Owners
   - Mobility (MDM and MAM)
   - Organization
+    - Branding
+      - Localizations
   - Password reset
   - Policies
     - Authentication flows policy
@@ -33,8 +35,6 @@
       - Role eligibility schedule requests
       - Role eligibility schedules
     - Directory roles
-      - [Role Name]
-        - Members
   - Security
     - Identity Protection
   - User settings
@@ -150,13 +150,10 @@
       - Internal Sponsors
 - Intune
   - App protection policies
-    - Apps
     - Assignments
   - Device app management
     - MDM Windows Information Protection policies
       - Protected AppLocker files
-    - Mobile apps
-      - Relationships
   - Devices
     - Assignment filters
     - Configuration policies
@@ -181,7 +178,6 @@
   - Notification message templates
     - Localized notification messages
   - Policy sets
-    - Assignments
   - Reusable policy settings
   - Role scope tags
     - Assignments
@@ -195,9 +191,7 @@
     - Deployment profiles
       - Assignments
   - Windows feature update profiles
-    - Assignments
   - Windows quality update profiles
-    - Assignments
 - M365 Admin Center
   - Settings
     - Org Settings
@@ -219,7 +213,6 @@
       - IdentitySynchronization
   - RoleManagementPolicies
     - Rules
-  - RoleManagementPolicyAssignments
   - TokenLifetimePolicies
 - Security
   - Alerts

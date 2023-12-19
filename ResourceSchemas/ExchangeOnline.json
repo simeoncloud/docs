@@ -2540,6 +2540,12 @@
     "ExchangeOnline:OrganizationConfig/Configuration": {
       "type": "object",
       "properties": {
+        "DefaultPublicFolderIssueWarningQuota": {
+          "type": "object"
+        },
+        "DefaultPublicFolderProhibitPostQuota": {
+          "type": "object"
+        },
         "ActivityBasedAuthenticationTimeoutEnabled": {
           "type": "boolean"
         },
@@ -2666,16 +2672,10 @@
         "DefaultPublicFolderDeletedItemRetention": {
           "type": "object"
         },
-        "DefaultPublicFolderIssueWarningQuota": {
-          "type": "object"
-        },
         "DefaultPublicFolderMaxItemSize": {
           "type": "object"
         },
         "DefaultPublicFolderMovedItemRetention": {
-          "type": "object"
-        },
-        "DefaultPublicFolderProhibitPostQuota": {
           "type": "object"
         },
         "DirectReportsGroupAutoCreationEnabled": {
@@ -4084,6 +4084,9 @@
         "ExceptIfRecipientDomainIs": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "ExceptIfSCLOver": {
+          "type": "string"
+        },
         "ExceptIfSenderADAttributeContainsWords": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -4250,6 +4253,9 @@
           "type": "string"
         },
         "RuleSubType": {
+          "type": "string"
+        },
+        "SCLOver": {
           "type": "string"
         },
         "SenderADAttributeContainsWords": {

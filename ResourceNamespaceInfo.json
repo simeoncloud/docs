@@ -485,7 +485,7 @@
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Agreements",
@@ -620,15 +620,7 @@
     "description": "Device app management > Mobile apps > Assignments",
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:MobileApps:Relationships",
-    "description": "Intune > Device app management > Mobile apps > Relationships",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -640,25 +632,9 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceAppManagement:PolicySets:Assignments",
-    "description": "Intune > Policy sets > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
     "description": "Intune > App protection policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations:Apps",
-    "description": "Intune > App protection policies > Apps",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -924,7 +900,7 @@
     "description": "Intune > Role scope tags > Assignments",
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -940,21 +916,13 @@
     "description": "Intune > Windows Autopilot > Deployment profiles > Assignments",
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles",
     "description": "Intune > Windows feature update profiles",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles:Assignments",
-    "description": "Intune > Windows feature update profiles > Assignments",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -968,20 +936,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:WindowsQualityUpdateProfiles:Assignments",
-    "description": "Intune > Windows quality update profiles > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:Directory:AttributeSets",
     "description": "TODO: Enter value",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Directory:CustomSecurityAttributeDefinitions",
@@ -989,7 +949,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Directory:CustomSecurityAttributeDefinitions:AllowedValues",
@@ -997,31 +957,23 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Directory:OnPremisesSynchronization",
     "description": "TODO: Enter value",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:DirectoryRoles",
     "description": "Azure AD > Roles and administrators > Directory roles",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DirectoryRoles:Members:Ref",
-    "description": "Azure AD > Roles and administrators > Directory roles > [Role Name] > Members",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Domains",
@@ -1155,6 +1107,14 @@
     "namespace": "MSGraph:Organization",
     "description": "Azure AD > Organization",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Organization:Branding:Localizations",
+    "description": "Azure AD > Organization > Branding > Localizations",
+    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -1165,7 +1125,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
@@ -1179,9 +1139,9 @@
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
     "description": "Policies > AuthorizationPolicy",
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:ClaimsMappingPolicies",
@@ -1197,7 +1157,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Default",
@@ -1205,7 +1165,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Partners",
@@ -1227,7 +1187,7 @@
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Azure AD > Policies > Device registration policy",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/DeviceSettings/menuId/",
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
@@ -1235,25 +1195,17 @@
     "namespace": "MSGraph:Policies:RoleManagementPolicies",
     "description": "Policies > RoleManagementPolicies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:RoleManagementPolicies:Rules",
     "description": "Policies > RoleManagementPolicies > Rules",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/RoleManagementPolicies/rules",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:Policies:RoleManagementPolicyAssignments",
-    "description": "Policies > RoleManagementPolicyAssignments",
-    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/RoleManagementPolicyAssignments",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:TokenLifetimePolicies",
