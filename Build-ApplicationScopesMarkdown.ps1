@@ -1,3 +1,5 @@
+# usage .\Build-ApplicationScopesMarkdown.ps1 -TenantId "your-tenant-id" -Username "your-username" -Password "your-password" -ClientId "your-client-id" -ClientSecret "your-client-secret"
+# The credentials are used to acquire an access token to query the Microsoft Graph API for the application scopes names
 param (
     $OutputPath = "application-scopes.md",
     [string]$TenantId,
