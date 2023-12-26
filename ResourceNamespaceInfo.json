@@ -520,41 +520,9 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceAppManagement:AndroidManagedAppProtections:Assignments",
-    "description": "Device app management > Android managed app protections > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:DefaultManagedAppProtections:Apps",
-    "description": "Device app management > Default managed app protections > Apps",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections",
     "description": "Device app management > iOS managed app protections",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections:Apps",
-    "description": "Device app management > iOS managed app protections > Apps",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections:Assignments",
-    "description": "Device app management > iOS managed app protections > Assignments",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -568,41 +536,9 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceAppManagement:MdmWindowsInformationProtectionPolicies:Assignments",
-    "description": "Device app management > Windows Information Protection policies > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:MdmWindowsInformationProtectionPolicies:ExemptAppLockerFiles",
-    "description": "Device app management > Windows Information Protection policies > Exempt AppLocker files",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:MdmWindowsInformationProtectionPolicies:ProtectedAppLockerFiles",
-    "description": "Intune > Device app management > MDM Windows Information Protection policies > Protected AppLocker files",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceAppManagement:MobileAppConfigurations",
     "description": "Device app management > Mobile app configurations",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:MobileAppConfigurations:Assignments",
-    "description": "Device app management > Mobile app configurations > Assignments",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -635,14 +571,6 @@
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
     "description": "Intune > App protection policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations:Assignments",
-    "description": "Intune > App protection policies > Assignments",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -854,14 +782,6 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:MobileThreatDefenseConnectors",
-    "description": "Intune > Mobile threat defense connectors",
-    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/mobileThreatDefense",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates",

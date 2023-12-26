@@ -189,7 +189,7 @@
     "SecurityAndCompliance:CaseHoldPolicy/Configuration": {
       "type": "object",
       "properties": {
-        "Case": {
+        "CaseId": {
           "type": "string"
         },
         "Comment": {
