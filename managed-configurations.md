@@ -159,7 +159,6 @@
     - Health scripts
       - Assignments
     - Intents
-      - Assignments
       - Settings
   - Notification message templates
     - Localized notification messages

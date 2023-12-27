@@ -760,14 +760,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:Intents:Assignments",
-    "description": "Intune > Devices > Intents > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceManagement:Intents:Settings",
     "description": "Intune > Devices > Intents > Settings",
     "url": "TODO: Enter value",
