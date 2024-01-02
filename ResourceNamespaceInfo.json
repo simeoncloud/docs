@@ -763,9 +763,9 @@
     "namespace": "MSGraph:DeviceManagement:Intents:Settings",
     "description": "Intune > Devices > Intents > Settings",
     "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:DeviceManagement:ManagedDeviceCleanupSettings",
