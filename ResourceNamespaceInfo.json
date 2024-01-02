@@ -768,14 +768,6 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:ManagedDeviceCleanupSettings",
-    "description": null,
-    "url": null,
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates",
     "description": "Intune > Notification message templates",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications",
