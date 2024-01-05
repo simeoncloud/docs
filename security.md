@@ -10,7 +10,7 @@ Access to the Web Admin is protected via Azure AD authentication using OIDC with
 
 ### Authenticating with the tenant
 
- By default, Simeon uses a service principal to authenticate into in the tenant and manage supported configurations. A user account, either delegated authentication or a service account, is still required for Simeon to connect to certain Azure AD and Teams APIs that do not support service principal authentication.
+ By default, Simeon uses a service principal to authenticate into in the tenant and manage supported configurations. A user account, authenticating with device code or password authentication, is still required for Simeon to connect to certain Azure AD and Teams APIs that do not support service principal authentication.
 
 When using delegated authentication, Simeon will securely store an encrypted refresh token in your Azure DevOps environment and the software will run as the account used to install the tenant. This works in the same way as Microsoft Flow does when authenticating with connectors.
 
