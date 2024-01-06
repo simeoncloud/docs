@@ -145,7 +145,6 @@
     - Assignment filters
     - Configuration policies
       - Assignments
-      - Group assignments
     - Device compliance policies
       - Assignments
     - Device Health

@@ -600,14 +600,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:ConfigurationPolicies:Assignments",
-    "description": "Intune > Devices > Configuration policies > Assignments",
-    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationPolicies",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
     "description": "Intune > Devices > Device compliance policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
@@ -637,14 +629,6 @@
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:DeviceConfigurations:GroupAssignments",
-    "description": "Intune > Devices > Configuration policies > Group assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -732,7 +716,7 @@
     "description": "Intune > Windows > Group policy > Configurations > Assignments",
     "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -1124,7 +1108,7 @@
     "description": "Azure AD > Roles and administrators > Directory > Role assignments",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {

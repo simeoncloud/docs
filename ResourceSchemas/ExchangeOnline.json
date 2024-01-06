@@ -572,9 +572,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "OrgWideAccount": {
-          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityConfig/Configuration"
