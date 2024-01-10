@@ -656,14 +656,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:DeviceHealthScripts:Assignments",
-    "description": "Intune > Devices > Health scripts > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceManagement:DeviceManagementScripts",
     "description": "Intune > Devices > Device Health > Device Health scripts",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell",
@@ -672,33 +664,9 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:DeviceManagementScripts:Assignments",
-    "description": "Intune > Devices > Device Health > Device Health scripts > Assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:DeviceManagementScripts:GroupAssignments",
-    "description": "Intune > Devices > Device Health > Device Health scripts > Group assignments",
-    "url": "TODO: Enter value",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceManagement:DeviceShellScripts",
     "description": "Intune > Devices > Device Health > Device shell scripts",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:DeviceShellScripts:Assignments",
-    "description": "Intune > Devices > Device Health > Device shell scripts > Assignments",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"

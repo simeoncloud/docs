@@ -3411,7 +3411,7 @@
           }
         },
         "EsnCustomSubject": {
-          "type": "string"
+          "$ref": "#/$defs/arrayOfString"
         },
         "ESNEnabled": {
           "type": "boolean"
