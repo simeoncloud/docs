@@ -23,7 +23,7 @@ When using delegated authentication or service account authentication, Simeon us
 
 ### Approvals
 
-Before making any changes to your tenant, Azure DevOps will wait for you to explicitly approve the changes to be made. Specific users or groups can be granted access to approve changes to ensure control over this process.
+Before making any changes to your tenant, Azure DevOps will wait for you to explicitly approve the changes to be made. Specific users or groups can be granted access to approve changes.
 
 ### Support
 
