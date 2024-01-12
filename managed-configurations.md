@@ -6,6 +6,7 @@
     - Policies and Rules
   - Resource groups
 - Azure AD
+  - Administrative Units
   - App registrations
     - API
     - Secrets
