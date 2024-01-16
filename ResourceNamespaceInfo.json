@@ -608,14 +608,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies:Assignments",
-    "description": "Intune > Devices > Device compliance policies > Assignments",
-    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/deviceCompliancePolicies",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:DeviceManagement:DeviceConfigurations",
     "description": "Intune > Devices > Configuration policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -635,14 +627,6 @@
     "namespace": "MSGraph:DeviceManagement:DeviceEnrollmentConfigurations",
     "description": "Intune > Devices > Enrollment configurations",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesEnrollmentMenu/enrollmentRestrictions",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "MSGraph:DeviceManagement:DeviceEnrollmentConfigurations:Assignments",
-    "description": "Intune > Devices > Enrollment configurations > Assignments",
-    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
