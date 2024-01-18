@@ -2,7 +2,7 @@
   {
     "namespace": "AadGraph:IdentityProtectionPolicies",
     "description": "Azure AD > Security > Identity Protection",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/Overview",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/Overview",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -10,7 +10,7 @@
   {
     "namespace": "AadIam:EnterpriseApplicationUserSettings",
     "description": "Azure AD > Enterprise applications > User settings",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -18,7 +18,7 @@
   {
     "namespace": "AadIam:EnterpriseStateRoaming",
     "description": "Azure AD > Devices > Enterprise State Roaming",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/RoamingSettings/menuId/",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/RoamingSettings/menuId/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -26,7 +26,7 @@
   {
     "namespace": "AadIam:ExternalUserGuestSettings",
     "description": "Azure AD > External user guest settings",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/Settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/Settings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -34,7 +34,7 @@
   {
     "namespace": "AadIam:GroupSettings",
     "description": "Azure AD > Group settings",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -42,7 +42,7 @@
   {
     "namespace": "AadIam:MdmApplications",
     "description": "Azure AD > Mobility (MDM and MAM)",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -50,7 +50,7 @@
   {
     "namespace": "AadIam:PasswordResetPolicies",
     "description": "Azure AD > Password reset",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/Properties",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/Properties",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -58,7 +58,7 @@
   {
     "namespace": "AadIam:UserSettings",
     "description": "Azure AD > User settings",
-    "url": "https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/UserSettings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/UserSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
