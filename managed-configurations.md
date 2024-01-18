@@ -47,8 +47,6 @@
   - Users
     - User Settings
       - External Users
-- https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps
-- https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps
 - Intune
   - Apps
     - App configuration policies
@@ -135,6 +133,8 @@
     - ComplianceTags
     - DLP compliance policies
     - DLP sensitive information types
+    - File plan property authorities
+    - File plan property categories
     - File plan property citations
     - File plan property departments
     - File plan property reference ids
