@@ -31,4 +31,4 @@ Simeon support can be granted read-only or contributor access to your Azure DevO
 
 ### Code Signing
 
-We digitally sign our software and the processes that run in Azure DevOps confirm the integrity of the software before interacting with your tenant.
+We digitally sign our software, and the processes that run in Azure DevOps confirm the integrity of the software before interacting with your tenant.
