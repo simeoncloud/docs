@@ -55,6 +55,10 @@
           "type": "Scope"
         },
         {
+          "id": "7b8a2d34-6b3f-4542-a343-54651608ad81",
+          "type": "Scope"
+        },
+        {
           "id": "9e4862a5-b68f-479e-848a-4e07e25c9916",
           "type": "Scope"
         },
@@ -204,6 +208,10 @@
         },
         {
           "id": "ef5f7d5c-338f-44b0-86c3-351f46c8bb5f",
+          "type": "Role"
+        },
+        {
+          "id": "5eb59dd3-1da2-4329-8733-9dabdc435916",
           "type": "Role"
         },
         {
