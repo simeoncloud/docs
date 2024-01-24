@@ -6,8 +6,7 @@
     - Policies and Rules
   - Resource groups
 - Azure AD
-  - Administrative units
-    - Members
+  - Administrative Units
   - App registrations
   - Authorization policies
   - Conditional Access
@@ -45,6 +44,7 @@
       - Named locations
       - Policies
     - Identity Protection
+      - Users at risk detected alerts
   - User settings
   - Users
     - User Settings
@@ -129,11 +129,13 @@
     - Transport Config
     - TransportRules
   - Security & Compliance
-    - Adaptive scopes
     - Audit configuration policy
     - Case hold policies
     - Compliance cases
     - ComplianceTags
+    - Data loss prevention
+      - Policy
+        - Adaptive scopes
     - DLP compliance policies
     - DLP sensitive information types
     - File plan property authorities

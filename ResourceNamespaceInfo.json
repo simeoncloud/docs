@@ -505,16 +505,16 @@
   },
   {
     "namespace": "MSGraph:AdministrativeUnits",
-    "description": "Azure AD > Administrative units",
-    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
+    "description": "Azure AD > Administrative Units",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:AdministrativeUnits:Members:Ref",
-    "description": "Azure AD > Administrative units > Members",
-    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
+    "description": "Azure AD > Administrative Units",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
@@ -961,8 +961,8 @@
   },
   {
     "namespace": "MSGraph:IdentityProtection:Settings:Notifications",
-    "description": null,
-    "url": null,
+    "description": "Azure AD > Security > Identity Protection > Users at risk detected alerts",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/UsersAtRiskAlerts",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -1169,8 +1169,8 @@
   },
   {
     "namespace": "SecurityAndCompliance:AdaptiveScope",
-    "description": "Office 365 > Security & Compliance > Adaptive scopes",
-    "url": "https://compliance.microsoft.com/informationprotection?viewid=adaptivescopes",
+    "description": "Office 365 > Security & Compliance > Data loss prevention > Policy > Adaptive scopes",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-adaptivescope?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
