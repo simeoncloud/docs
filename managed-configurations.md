@@ -6,6 +6,8 @@
     - Policies and Rules
   - Resource groups
 - Azure AD
+  - Administrative units
+    - Members
   - App registrations
   - Authorization policies
   - Conditional Access
@@ -127,6 +129,7 @@
     - Transport Config
     - TransportRules
   - Security & Compliance
+    - Adaptive scopes
     - Audit configuration policy
     - Case hold policies
     - Compliance cases

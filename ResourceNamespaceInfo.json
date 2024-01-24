@@ -424,6 +424,22 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default Role Assignment Policy$).)+$"
   },
   {
+    "namespace": "ExchangeOnline:RoleGroup",
+    "description": "Office 365 > Exchange > Role Groups",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-rolegroup?view=exchange-ps",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RoleGroupMember",
+    "description": "Office 365 > Exchange > Role Groups",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-rolegroup?view=exchange-ps",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "ExchangeOnline:SafeAttachmentPolicy",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
@@ -486,6 +502,22 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:AdministrativeUnits",
+    "description": "Azure AD > Administrative units",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:AdministrativeUnits:Members:Ref",
+    "description": "Azure AD > Administrative units > Members",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "MSGraph:Agreements",
@@ -971,9 +1003,9 @@
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
     "description": "Azure AD > External Collaboration Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
@@ -1136,6 +1168,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "SecurityAndCompliance:AdaptiveScope",
+    "description": "Office 365 > Security & Compliance > Adaptive scopes",
+    "url": "https://compliance.microsoft.com/informationprotection?viewid=adaptivescopes",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "SecurityAndCompliance:AppRetentionCompliancePolicy",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
@@ -1219,9 +1259,9 @@
     "namespace": "SecurityAndCompliance:DlpSensitiveInformationType",
     "description": "Office 365 > Security & Compliance > DLP sensitive information types",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "SecurityAndCompliance:FilePlanPropertyAuthority",
@@ -1307,14 +1347,6 @@
     "namespace": "SecurityAndCompliance:RetentionComplianceRule",
     "description": "Office 365 > Security & Compliance > Information governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "SecurityAndCompliance:RoleGroup",
-    "description": "Office 365 > Exchange > Role Groups",
-    "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles/addRoleGroup",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
