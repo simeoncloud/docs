@@ -1177,7 +1177,7 @@
   },
   {
     "namespace": "SecurityAndCompliance:AdaptiveScope",
-    "description": "Office 365 > Security & Compliance > Information protection > Data loss prevention > Policies > Adaptive scopes",
+    "description": "Office 365 > Security & Compliance > Information governance > Adaptive Scopes",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-adaptivescope?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",

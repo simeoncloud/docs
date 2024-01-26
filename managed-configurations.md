@@ -145,12 +145,9 @@
     - Hosted content filter policies
     - Hosted outbound spam filter policies
     - Information governance
+      - Adaptive Scopes
       - Compliance Retention Event Types
       - Retention
-    - Information protection
-      - Data loss prevention
-        - Policies
-          - Adaptive scopes
     - Label Policy
     - Labels
     - ProtectionAlerts
