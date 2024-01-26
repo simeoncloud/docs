@@ -133,9 +133,6 @@
     - Case hold policies
     - Compliance cases
     - ComplianceTags
-    - Data loss prevention
-      - Policy
-        - Adaptive scopes
     - DLP compliance policies
     - DLP sensitive information types
     - File plan property authorities
@@ -150,6 +147,10 @@
     - Information governance
       - Compliance Retention Event Types
       - Retention
+    - Information protection
+      - Data loss prevention
+        - Policies
+          - Adaptive scopes
     - Label Policy
     - Labels
     - ProtectionAlerts

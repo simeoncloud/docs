@@ -712,12 +712,20 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:DeviceManagement:GroupPolicyDefinitions",
+    "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:DeviceManagement:GroupPolicyUploadedDefinitionFiles",
     "description": "Intune > Devices > Configuration profiles (Import ADMX)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:DeviceManagement:Intents",
@@ -1169,7 +1177,7 @@
   },
   {
     "namespace": "SecurityAndCompliance:AdaptiveScope",
-    "description": "Office 365 > Security & Compliance > Data loss prevention > Policy > Adaptive scopes",
+    "description": "Office 365 > Security & Compliance > Information protection > Data loss prevention > Policies > Adaptive scopes",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-adaptivescope?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
