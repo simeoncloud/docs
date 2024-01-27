@@ -1177,7 +1177,7 @@
   },
   {
     "namespace": "SecurityAndCompliance:AdaptiveScope",
-    "description": "Office 365 > Security & Compliance > Information governance > Adaptive Scopes",
+    "description": "Office 365 > Security & Compliance > Information governance > Adaptive scopes",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-adaptivescope?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -1381,7 +1381,7 @@
     "url": "https://admin.teams.microsoft.com/policies/app-permission?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
     "namespace": "Teams:CsTeamsCallingPolicy",
@@ -1389,7 +1389,7 @@
     "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
     "namespace": "Teams:CsTeamsClientConfiguration",
@@ -1405,7 +1405,7 @@
     "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
     "namespace": "Teams:CsTeamsMeetingConfiguration",
@@ -1421,7 +1421,7 @@
     "url": "https://admin.teams.microsoft.com/policies/meetings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^AllOn|^Default|^RestrictedAnonymousAccess|^AllOff|^RestrictedAnonymousNoRecording|^Kiosk).)+$"
   },
   {
     "namespace": "Teams:CsTeamsMessagingPolicy",
@@ -1429,7 +1429,7 @@
     "url": "https://admin.teams.microsoft.com/policies/messaging?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
     "namespace": "Teams:CsTenantFederationConfiguration",

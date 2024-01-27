@@ -52,6 +52,9 @@
         },
         "Tenant": {
           "type": "object"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$defs": {
@@ -135,6 +138,9 @@
         },
         "SpamFilteringEnabledType": {
           "type": "string"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsCallingPolicy/Configuration"
@@ -192,6 +198,9 @@
         },
         "Tenant": {
           "type": "object"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsClientConfiguration/Configuration"
@@ -220,6 +229,9 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingBroadcastPolicy/Configuration"
@@ -272,6 +284,9 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingConfiguration/Configuration"
@@ -360,9 +375,6 @@
         "AllowTranscription": {
           "type": "boolean"
         },
-        "AllowUserToJoinExternalMeeting": {
-          "type": "string"
-        },
         "AllowWatermarkForCameraVideo": {
           "type": "boolean"
         },
@@ -384,17 +396,11 @@
         "ChannelRecordingDownload": {
           "type": "string"
         },
-        "ContentSharingInExternalMeetings": {
-          "type": "string"
-        },
         "Copilot": {
           "type": "string"
         },
         "CopyRestriction": {
           "type": "boolean"
-        },
-        "Description": {
-          "type": "string"
         },
         "DesignatedPresenterRoleMode": {
           "type": "string"
@@ -404,9 +410,6 @@
         },
         "ExternalMeetingJoin": {
           "type": "string"
-        },
-        "InMemory": {
-          "type": "boolean"
         },
         "IPAudioMode": {
           "type": "string"
@@ -468,6 +471,9 @@
         },
         "WhoCanRegister": {
           "type": "object"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingPolicy/Configuration"
@@ -550,6 +556,9 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMessagingPolicy/Configuration"
@@ -584,6 +593,9 @@
         },
         "TreatDiscoveredPartnersAsUnverified": {
           "type": "boolean"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
       "$defs": {
