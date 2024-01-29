@@ -402,6 +402,9 @@
         "CopyRestriction": {
           "type": "boolean"
         },
+        "Description": {
+          "type": "string"
+        },
         "DesignatedPresenterRoleMode": {
           "type": "string"
         },
