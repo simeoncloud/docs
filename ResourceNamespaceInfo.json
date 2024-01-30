@@ -227,9 +227,9 @@
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp - |^windowsUniversalAppX - |^androidLobApp - |^iosVppApp - |^macOsVppApp - |^managedAndroidLobApp - |^macOSPkgApp - |^iosiPadOSWebClip -).)+$",
+    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp - |^windowsUniversalAppX - |^androidLobApp - |^iosVppApp - |^macOsVppApp - |^managedAndroidLobApp - |^macOSPkgApp -).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp - |^windowsUniversalAppX - |^androidLobApp - |^iosVppApp - |^macOsVppApp - |^managedAndroidLobApp - |^macOSPkgApp - |^iosiPadOSWebClip -).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp - |^windowsUniversalAppX - |^androidLobApp - |^iosVppApp - |^macOsVppApp - |^managedAndroidLobApp - |^macOSPkgApp -).)+$"
   },
   {
     "namespace": "MSGraph:DeviceAppManagement:PolicySets",
