@@ -129,6 +129,7 @@
     - Transport Config
     - TransportRules
   - Security & Compliance
+    - Adaptive scopes
     - Audit configuration policy
     - Case hold policies
     - Compliance cases
@@ -145,7 +146,6 @@
     - Hosted content filter policies
     - Hosted outbound spam filter policies
     - Information governance
-      - Adaptive Scopes
       - Compliance Retention Event Types
       - Retention
     - Label Policy

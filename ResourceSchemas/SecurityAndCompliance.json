@@ -480,11 +480,17 @@
     "SecurityAndCompliance:DlpComplianceRule/Configuration": {
       "type": "object",
       "properties": {
+        "ContentContainsSensitiveInformation": {
+          "$ref": "#/$defs/arrayOfHashtable"
+        },
         "IncidentReportContent": {
           "$ref": "#/$defs/arrayOfString"
         },
         "NotifyAllowOverride": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "RestrictBrowserAccess": {
+          "type": "boolean"
         },
         "AccessScope": {
           "type": "string"
@@ -521,9 +527,6 @@
         },
         "ContentCharacterSetContainsWords": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "ContentContainsSensitiveInformation": {
-          "$ref": "#/$defs/arrayOfHashtable"
         },
         "ContentExtensionMatchesWords": {
           "$ref": "#/$defs/arrayOfString"
@@ -837,9 +840,6 @@
         "ReportSeverityLevel": {
           "type": "string"
         },
-        "RestrictBrowserAccess": {
-          "type": "boolean"
-        },
         "RuleErrorAction": {
           "type": "string"
         },
@@ -896,16 +896,16 @@
         }
       },
       "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "arrayOfHashtable": {
           "type": "array",
           "items": {
             "type": "array"
+          }
+        },
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         },
         "arrayOfObject": {
