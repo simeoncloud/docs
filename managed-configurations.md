@@ -8,6 +8,7 @@
 - Azure AD
   - Administrative Units
   - App registrations
+    - Secrets
   - Authorization policies
   - Conditional Access
     - Terms of use

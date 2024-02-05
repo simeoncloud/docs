@@ -536,6 +536,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Applications:PasswordCredentials",
+    "description": "Azure AD > App registrations > Secrets",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "MSGraph:Applications:TokenLifetimePolicies:Ref",
     "description": "Azure AD > Enterprise applications > Token lifetime policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
@@ -1363,9 +1371,9 @@
     "namespace": "SharePoint:Sites",
     "description": "SharePoint Admin Center > Sites",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
-    "isCreateSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*",
+    "isCreateSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "([a-z]+):\\/\\/([^:/]+)\\/([\\w]+)\\/.*"
+    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*"
   },
   {
     "namespace": "SharePoint:TenantProperties",

@@ -1273,6 +1273,9 @@
     "SecurityAndCompliance:ProtectionAlert/Configuration": {
       "type": "object",
       "properties": {
+        "Name": {
+          "type": "string"
+        },
         "AggregationType": {
           "type": "string"
         },
@@ -1301,9 +1304,6 @@
           "type": "string"
         },
         "LogicalOperationName": {
-          "type": "string"
-        },
-        "Name": {
           "type": "string"
         },
         "NotificationCulture": {
