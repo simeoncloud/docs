@@ -272,6 +272,9 @@
         "EnableQoS": {
           "type": "boolean"
         },
+        "FeedbackSurveyForAnonymousUsers": {
+          "type": "string"
+        },
         "HelpURL": {
           "type": "string"
         },

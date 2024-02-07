@@ -14,7 +14,7 @@
         "policyDetail": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "string"
           }
         },
         "policyType": {
