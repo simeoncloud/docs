@@ -1,10 +1,2244 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions:Versions/PolicyDefinitionVersion"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions/PolicyDefinition"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions/PolicySetDefinitionVersion"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions/PolicySetDefinition"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PrivateLinkAssociations/PrivateLinkAssociationObject"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables:Values/VariableValue"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables/Variable"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:Deployments/ScopedDeployment"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:Resources:Deployments/ScopedDeployment"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Locks/ManagementLockObject"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions:Versions/PolicyDefinitionVersion"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions/PolicyDefinition"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions/PolicySetDefinitionVersion"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions/PolicySetDefinition"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables:Values/VariableValue"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables/Variable"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Resources:Deployments/Deployment"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:Locks/ManagementLockObject"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:ResourceManagementPrivateLinks/ResourceManagementPrivateLinkLocation"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:Deployments/Deployment"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentScripts/DeploymentScript"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs:Versions/TemplateSpecVersion"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs/TemplateSpec"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:ApplicationDefinitions/ApplicationDefinition"
+    },
+    {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:Applications/Application"
+    },
+    {
       "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups/ResourceGroup"
     }
   ],
   "$defs": {
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions:Versions/PolicyDefinitionVersion": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "policyRule": {
+              "type": "object"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "managementGroupName": {
+          "type": "string"
+        },
+        "policyDefinitionName": {
+          "type": "string"
+        },
+        "policyDefinitionVersion": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions:Versions/PolicyDefinitionVersion"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions/PolicyDefinition": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "policyRule": {
+              "type": "object"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "version": {
+              "type": "string"
+            },
+            "versions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "managementGroupId": {
+          "type": "string"
+        },
+        "policyDefinitionName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions/PolicyDefinition"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions/PolicySetDefinitionVersion": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "policyDefinitions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "policyDefinitionId": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object"
+                  },
+                  "policyDefinitionReferenceId": {
+                    "type": "string"
+                  },
+                  "groupNames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "policyDefinitionGroups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "additionalMetadataId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "managementGroupName": {
+          "type": "string"
+        },
+        "policySetDefinitionName": {
+          "type": "string"
+        },
+        "policyDefinitionVersion": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions/PolicySetDefinitionVersion"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions/PolicySetDefinition": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "policyDefinitions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "policyDefinitionId": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object"
+                  },
+                  "policyDefinitionReferenceId": {
+                    "type": "string"
+                  },
+                  "groupNames": {
+                    "$ref": "#/$defs/arrayOfString"
+                  }
+                }
+              }
+            },
+            "policyDefinitionGroups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "additionalMetadataId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "version": {
+              "type": "string"
+            },
+            "versions": {
+              "$ref": "#/$defs/arrayOfString"
+            }
+          }
+        },
+        "managementGroupId": {
+          "type": "string"
+        },
+        "policySetDefinitionName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions/PolicySetDefinition"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PrivateLinkAssociations/PrivateLinkAssociationObject": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "privateLink": {
+              "type": "string"
+            },
+            "publicNetworkAccess": {
+              "type": "string"
+            }
+          }
+        },
+        "groupId": {
+          "type": "string"
+        },
+        "plaId": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PrivateLinkAssociations/PrivateLinkAssociationObject"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables:Values/VariableValue": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "columnName": {
+                    "type": "string"
+                  },
+                  "columnValue": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "managementGroupId": {
+          "type": "string"
+        },
+        "variableName": {
+          "type": "string"
+        },
+        "variableValueName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables:Values/VariableValue"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables/Variable": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "columnName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "managementGroupId": {
+          "type": "string"
+        },
+        "variableName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables/Variable"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:Deployments/ScopedDeployment": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "mode": {
+              "type": "string"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "onErrorDeployment": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "deploymentName": {
+                  "type": "string"
+                }
+              }
+            },
+            "expressionEvaluationOptions": {
+              "type": "object",
+              "properties": {
+                "scope": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "groupId": {
+          "type": "string"
+        },
+        "deploymentName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:Deployments/ScopedDeployment"
+    },
+    "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object"
+                }
+              }
+            },
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "actionOnUnmanage": {
+              "type": "object"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "deploymentScope": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "denySettings": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "string"
+                },
+                "excludedPrincipals": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "excludedActions": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "applyToChildScopes": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "managementGroupId": {
+          "type": "string"
+        },
+        "deploymentStackName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack"
+    },
+    "AzureManagement:Providers:Microsoft:Resources:Deployments/ScopedDeployment": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "mode": {
+              "type": "string"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "onErrorDeployment": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "deploymentName": {
+                  "type": "string"
+                }
+              }
+            },
+            "expressionEvaluationOptions": {
+              "type": "object",
+              "properties": {
+                "scope": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "deploymentName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:Resources:Deployments/ScopedDeployment"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Locks/ManagementLockObject": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "owners": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "applicationId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "lockName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Locks/ManagementLockObject"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions:Versions/PolicyDefinitionVersion": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "policyRule": {
+              "type": "object"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "policyDefinitionName": {
+          "type": "string"
+        },
+        "policyDefinitionVersion": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions:Versions/PolicyDefinitionVersion"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions/PolicyDefinition": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "policyRule": {
+              "type": "object"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "version": {
+              "type": "string"
+            },
+            "versions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "policyDefinitionName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions/PolicyDefinition"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions/PolicySetDefinitionVersion": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "policyDefinitions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "policyDefinitionId": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object"
+                  },
+                  "policyDefinitionReferenceId": {
+                    "type": "string"
+                  },
+                  "groupNames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "policyDefinitionGroups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "additionalMetadataId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "policySetDefinitionName": {
+          "type": "string"
+        },
+        "policyDefinitionVersion": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions/PolicySetDefinitionVersion"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions/PolicySetDefinition": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "policyType": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "policyDefinitions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "policyDefinitionId": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object"
+                  },
+                  "policyDefinitionReferenceId": {
+                    "type": "string"
+                  },
+                  "groupNames": {
+                    "$ref": "#/$defs/arrayOfString"
+                  }
+                }
+              }
+            },
+            "policyDefinitionGroups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "additionalMetadataId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "version": {
+              "type": "string"
+            },
+            "versions": {
+              "$ref": "#/$defs/arrayOfString"
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "policySetDefinitionName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions/PolicySetDefinition"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables:Values/VariableValue": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "columnName": {
+                    "type": "string"
+                  },
+                  "columnValue": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "variableName": {
+          "type": "string"
+        },
+        "variableValueName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables:Values/VariableValue"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables/Variable": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "columnName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "variableName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables/Variable"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Resources:Deployments/Deployment": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "mode": {
+              "type": "string"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "onErrorDeployment": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "deploymentName": {
+                  "type": "string"
+                }
+              }
+            },
+            "expressionEvaluationOptions": {
+              "type": "object",
+              "properties": {
+                "scope": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "deploymentName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Resources:Deployments/Deployment"
+    },
+    "AzureManagement:Subscriptions:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object"
+                }
+              }
+            },
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "actionOnUnmanage": {
+              "type": "object"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "deploymentScope": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "denySettings": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "string"
+                },
+                "excludedPrincipals": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "excludedActions": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "applyToChildScopes": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "deploymentStackName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:Locks/ManagementLockObject": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "owners": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "applicationId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "lockName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:Locks/ManagementLockObject"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:ResourceManagementPrivateLinks/ResourceManagementPrivateLinkLocation": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "rmplName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:ResourceManagementPrivateLinks/ResourceManagementPrivateLinkLocation"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:Deployments/Deployment": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "mode": {
+              "type": "string"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "onErrorDeployment": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "deploymentName": {
+                  "type": "string"
+                }
+              }
+            },
+            "expressionEvaluationOptions": {
+              "type": "object",
+              "properties": {
+                "scope": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "deploymentName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:Deployments/Deployment"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentScripts/DeploymentScript": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "userAssignedIdentities": {
+              "type": "object"
+            }
+          }
+        },
+        "location": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "scriptName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "azureCliScript": {
+          "type": "object",
+          "properties": {
+            "identity": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "userAssignedIdentities": {
+                  "type": "object"
+                }
+              }
+            },
+            "location": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "object"
+            },
+            "subscriptionId": {
+              "type": "string"
+            },
+            "resourceGroupName": {
+              "type": "string"
+            },
+            "scriptName": {
+              "type": "string"
+            },
+            "api-version": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "containerSettings": {
+                  "type": "object",
+                  "properties": {
+                    "containerGroupName": {
+                      "type": "string"
+                    },
+                    "subnetIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "storageAccountSettings": {
+                  "type": "object",
+                  "properties": {
+                    "storageAccountName": {
+                      "type": "string"
+                    },
+                    "storageAccountKey": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "cleanupPreference": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "azCliVersion": {
+                  "type": "string"
+                },
+                "primaryScriptUri": {
+                  "type": "string"
+                },
+                "supportingScriptUris": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "scriptContent": {
+                  "type": "string"
+                },
+                "arguments": {
+                  "type": "string"
+                },
+                "environmentVariables": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      },
+                      "secureValue": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "forceUpdateTag": {
+                  "type": "string"
+                },
+                "retentionInterval": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentScripts/AzureCliScript"
+        },
+        "azurePowerShellScript": {
+          "type": "object",
+          "properties": {
+            "identity": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "userAssignedIdentities": {
+                  "type": "object"
+                }
+              }
+            },
+            "location": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "object"
+            },
+            "subscriptionId": {
+              "type": "string"
+            },
+            "resourceGroupName": {
+              "type": "string"
+            },
+            "scriptName": {
+              "type": "string"
+            },
+            "api-version": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "containerSettings": {
+                  "type": "object",
+                  "properties": {
+                    "containerGroupName": {
+                      "type": "string"
+                    },
+                    "subnetIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "storageAccountSettings": {
+                  "type": "object",
+                  "properties": {
+                    "storageAccountName": {
+                      "type": "string"
+                    },
+                    "storageAccountKey": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "cleanupPreference": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "azPowerShellVersion": {
+                  "type": "string"
+                },
+                "primaryScriptUri": {
+                  "type": "string"
+                },
+                "supportingScriptUris": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "scriptContent": {
+                  "type": "string"
+                },
+                "arguments": {
+                  "type": "string"
+                },
+                "environmentVariables": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      },
+                      "secureValue": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "forceUpdateTag": {
+                  "type": "string"
+                },
+                "retentionInterval": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentScripts/AzurePowerShellScript"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "AzurePowerShell"
+            }
+          },
+          "$ref": "#/$defs/azurePowerShellScript"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "AzureCLI"
+            }
+          },
+          "$ref": "#/$defs/azureCliScript"
+        }
+      ],
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentScripts/DeploymentScript"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object"
+                }
+              }
+            },
+            "template": {
+              "type": "object"
+            },
+            "templateLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "relativePath": {
+                  "type": "string"
+                },
+                "queryString": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "parametersLink": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "contentVersion": {
+                  "type": "string"
+                }
+              }
+            },
+            "actionOnUnmanage": {
+              "type": "object"
+            },
+            "debugSetting": {
+              "type": "object",
+              "properties": {
+                "detailLevel": {
+                  "type": "string"
+                }
+              }
+            },
+            "deploymentScope": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "denySettings": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "string"
+                },
+                "excludedPrincipals": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "excludedActions": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "applyToChildScopes": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "deploymentStackName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentStacks/DeploymentStack"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs:Versions/TemplateSpecVersion": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "linkedTemplates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "template": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "metadata": {
+              "type": "object"
+            },
+            "mainTemplate": {
+              "type": "object"
+            },
+            "uiFormDefinition": {
+              "type": "object"
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "templateSpecName": {
+          "type": "string"
+        },
+        "templateSpecVersion": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs:Versions/TemplateSpecVersion"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs/TemplateSpec": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "object"
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "templateSpecName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs/TemplateSpec"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:ApplicationDefinitions/ApplicationDefinition": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "managedBy": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "tier": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            },
+            "family": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "capacity": {
+              "type": "integer"
+            }
+          }
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "lockLevel": {
+              "enum": [
+                "CanNotDelete",
+                "ReadOnly",
+                "None"
+              ]
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "isEnabled": {
+              "type": "string"
+            },
+            "authorizations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "principalId": {
+                    "type": "string"
+                  },
+                  "roleDefinitionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "uri": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "Template",
+                      "Custom"
+                    ]
+                  }
+                }
+              }
+            },
+            "description": {
+              "type": "string"
+            },
+            "packageFileUri": {
+              "type": "string"
+            },
+            "mainTemplate": {
+              "type": "object"
+            },
+            "createUiDefinition": {
+              "type": "object"
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "applicationDefinitionName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:ApplicationDefinitions/ApplicationDefinition"
+    },
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:Applications/Application": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object"
+        },
+        "managedBy": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "tier": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            },
+            "family": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "capacity": {
+              "type": "integer"
+            }
+          }
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "managedResourceGroupId": {
+              "type": "string"
+            },
+            "applicationDefinitionId": {
+              "type": "string"
+            },
+            "parameters": {
+              "type": "object"
+            }
+          }
+        },
+        "plan": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "product": {
+              "type": "string"
+            },
+            "promotionCode": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "kind": {
+          "type": "string"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "applicationName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:Applications/Application"
+    },
     "AzureManagement:Subscriptions:ResourceGroups/ResourceGroup": {
       "type": "object",
       "properties": {

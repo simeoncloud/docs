@@ -64,9 +64,233 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicyDefinitions:Versions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:PrivateLinkAssociations",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Authorization:Variables:Values",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:Deployments",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Management:ManagementGroups:Providers:Microsoft:Resources:DeploymentStacks",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Providers:Microsoft:Resources:Deployments",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Locks",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicyDefinitions:Versions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:PolicySetDefinitions:Versions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Authorization:Variables:Values",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Resources:Deployments",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:Providers:Microsoft:Resources:DeploymentStacks",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups",
     "description": "Azure > Resource groups",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/HubsExtension/BrowseResourceGroups",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:Locks",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Authorization:ResourceManagementPrivateLinks",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:Deployments",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentScripts",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:DeploymentStacks",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Resources:TemplateSpecs:Versions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:ApplicationDefinitions",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Solutions:Applications",
+    "description": "TODO: Enter value",
+    "url": "TODO: Enter value",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
