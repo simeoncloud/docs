@@ -889,8 +889,8 @@
   },
   {
     "namespace": "MSGraph:Groups:GroupLifecyclePolicies",
-    "description": null,
-    "url": null,
+    "description": "Azure AD > Groups > Expiration",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Lifecycle",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
@@ -985,8 +985,8 @@
   },
   {
     "namespace": "MSGraph:Licenses:Assignments",
-    "description": null,
-    "url": null,
+    "description": "Azure AD > Licenses > All products",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Products",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"

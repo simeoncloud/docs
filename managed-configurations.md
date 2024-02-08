@@ -33,6 +33,8 @@
     - Expiration
   - Identity Governance
     - Connected Organizations
+  - Licenses
+    - All products
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
   - Password reset
