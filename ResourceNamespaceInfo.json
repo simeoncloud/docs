@@ -1160,14 +1160,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365Portal:Services:Apps:BriefingEmail",
-    "description": "M365 Admin Center > Settings > Org Settings > Services > Briefing Email from Microsoft Viva",
-    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/BriefingEmail",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "O365Portal:Services:Apps:VivaInsights",
     "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (formerly MyAnalytics)",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",

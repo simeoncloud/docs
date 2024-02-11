@@ -89,7 +89,6 @@
       - Security & Privacy
         - Idle Session Timeout
       - Services
-        - Briefing Email from Microsoft Viva
         - Microsoft Viva Insights (formerly MyAnalytics)
 - Office 365
   - Exchange
