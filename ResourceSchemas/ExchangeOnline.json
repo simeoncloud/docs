@@ -2570,9 +2570,6 @@
         "AutodiscoverPartialDirSync": {
           "type": "boolean"
         },
-        "AutoExpandingArchive": {
-          "type": "boolean"
-        },
         "AutomaticForcedReadReceiptEnabled": {
           "type": "boolean"
         },
@@ -2865,6 +2862,9 @@
           "type": "boolean"
         },
         "WorkspaceTenantEnabled": {
+          "type": "boolean"
+        },
+        "AutoExpandingArchiveEnabled": {
           "type": "boolean"
         }
       },
