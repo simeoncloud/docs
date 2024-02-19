@@ -480,6 +480,9 @@
     "SecurityAndCompliance:DlpComplianceRule/Configuration": {
       "type": "object",
       "properties": {
+        "AdvancedRule": {
+          "type": "string"
+        },
         "ContentContainsSensitiveInformation": {
           "$ref": "#/$defs/arrayOfHashtable"
         },
@@ -497,9 +500,6 @@
         },
         "AddRecipients": {
           "type": "array"
-        },
-        "AdvancedRule": {
-          "type": "string"
         },
         "AlertProperties": {
           "type": "array"
