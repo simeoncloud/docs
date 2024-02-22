@@ -1792,6 +1792,22 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:App:ManagedEnvironments:DotNetComponents",
+    "description": "Azure > App > ManagedEnvironments > DotNetComponents",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:App:ManagedEnvironments:JavaComponents",
+    "description": "Azure > App > ManagedEnvironments > JavaComponents",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:App:ManagedEnvironments:ManagedCertificates",
     "description": "Azure > App > ManagedEnvironments > ManagedCertificates",
     "url": "TODO: Enter value",

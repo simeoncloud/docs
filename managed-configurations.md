@@ -129,6 +129,8 @@
       - DaprComponents
         - ResiliencyPolicies
       - DaprSubscriptions
+      - DotNetComponents
+      - JavaComponents
       - ManagedCertificates
       - Storages
   - AppConfiguration
