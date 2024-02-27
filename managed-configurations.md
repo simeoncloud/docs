@@ -529,9 +529,11 @@
     - FlexibleServers
       - Administrators
       - AdvancedThreatProtectionSettings
+      - BackupsV2
       - Configurations
       - Databases
       - FirewallRules
+      - Maintenances
     - Servers
       - Keys
   - DBforPostgreSQL

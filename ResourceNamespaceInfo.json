@@ -4363,7 +4363,15 @@
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:FlexibleServers:AdvancedThreatProtectionSettings",
     "description": "Azure > DBforMySQL > FlexibleServers > AdvancedThreatProtectionSettings",
     "url": "TODO: Enter value",
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:FlexibleServers:BackupsV2",
+    "description": "Azure > DBforMySQL > FlexibleServers > BackupsV2",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
   },
@@ -4390,6 +4398,14 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:FlexibleServers:Maintenances",
+    "description": "Azure > DBforMySQL > FlexibleServers > Maintenances",
+    "url": "TODO: Enter value",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:DBforMySQL:Servers:Keys",
