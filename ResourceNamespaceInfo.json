@@ -429,7 +429,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-rolegroup?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Address Lists Management$|^Organization Management$|^Recipient Management$|^View-Only Organization Management|^Help Desk|^Records Management$|^Discovery Management$|^Hygiene Management|^Compliance Management|^Security Reader$|^Security Administrator|^Security Operator$|^RIM-MailboxAdmins|^ComplianceAdmins|^CLBAccessApprovers|^HelpdeskAdmins|^GlobalReaders|^ExchangeServiceAdmins|^SecurityReaders|^SecurityAdmins|^TenantAdmins).)+$"
   },
   {
     "namespace": "ExchangeOnline:RoleGroupMember",
