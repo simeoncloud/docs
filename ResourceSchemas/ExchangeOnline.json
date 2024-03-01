@@ -3555,6 +3555,9 @@
     "ExchangeOnline:RoleGroup/Configuration": {
       "type": "object",
       "properties": {
+        "Name": {
+          "type": "string"
+        },
         "Roles": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -3572,9 +3575,6 @@
         },
         "ManagedBy": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "Name": {
-          "type": "string"
         },
         "WellKnownObject": {
           "type": "string"
