@@ -1429,7 +1429,7 @@
     "url": "https://admin.teams.microsoft.com/policies/messaging?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$"
   },
   {
     "namespace": "Teams:CsTenantFederationConfiguration",
