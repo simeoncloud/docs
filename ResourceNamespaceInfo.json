@@ -429,7 +429,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-rolegroup?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Address Lists Management$|^Organization Management$|^Recipient Management$|^View-Only Organization Management|^Help Desk|^Records Management$|^Discovery Management$|^Hygiene Management|^Compliance Management|^Security Reader$|^Security Administrator|^Security Operator$|^RIM-MailboxAdmins|^ComplianceAdmins|^CLBAccessApprovers|^HelpdeskAdmins|^GlobalReaders|^ExchangeServiceAdmins|^SecurityReaders|^SecurityAdmins|^TenantAdmins).)+$"
   },
   {
     "namespace": "ExchangeOnline:RoleGroupMember",
@@ -1080,6 +1080,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "MSGraph:Policies:FeatureRolloutPolicies",
+    "description": "Azure AD > Feature Rollout",
+    "url": "https://learn.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-1.0",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:Policies:RoleManagementPolicies",
     "description": "Azure > Privileged Identity Management > Policies and Rules",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
@@ -1429,7 +1437,7 @@
     "url": "https://admin.teams.microsoft.com/policies/messaging?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$"
   },
   {
     "namespace": "Teams:CsTenantFederationConfiguration",
