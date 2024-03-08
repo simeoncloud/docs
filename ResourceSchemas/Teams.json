@@ -22,6 +22,9 @@
       "$ref": "#/$defs/Teams:CsTeamsMessagingPolicy/Configuration"
     },
     {
+      "$ref": "#/$defs/Teams:CsTeamsUpdateManagementPolicy/Configuration"
+    },
+    {
       "$ref": "#/$defs/Teams:CsTenantFederationConfiguration/Configuration"
     }
   ],
@@ -568,6 +571,33 @@
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMessagingPolicy/Configuration"
+    },
+    "Teams:CsTeamsUpdateManagementPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Identity": {
+          "type": "string"
+        },
+        "UseNewTeamsClient": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "AllowManagedUpdates": {
+          "type": "boolean"
+        },
+        "AllowPreview": {
+          "type": "boolean"
+        },
+        "AllowPublicPreview": {
+          "type": "string"
+        },
+        "BlockLegacyAuthorization": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsUpdateManagementPolicy/Configuration"
     },
     "Teams:CsTenantFederationConfiguration/Configuration": {
       "type": "object",

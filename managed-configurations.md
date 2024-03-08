@@ -170,6 +170,7 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
+    - Update Management policies
     - Users
       - External access
     - Voice
