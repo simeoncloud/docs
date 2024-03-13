@@ -1,167 +1,167 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/ExchangeOnline:AcceptedDomain/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AcceptedDomain/AcceptedDomain"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:ActiveSyncDeviceAccessRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:ActiveSyncDeviceAccessRule/ActiveSyncDeviceAccessRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AddressBookPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AddressBookPolicy/AddressBookPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AddressList/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AddressList/AddressList"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AdminAuditLogConfig/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AdminAuditLogConfig/AdminAuditLogConfig"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AntiPhishPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AntiPhishPolicy/AntiPhishPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AntiPhishRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AntiPhishRule/AntiPhishRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AtpPolicyForO365/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AtpPolicyForO365/AtpPolicyForO365"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AuthenticationPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AuthenticationPolicy/AuthenticationPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AvailabilityAddressSpace/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AvailabilityAddressSpace/AvailabilityAddressSpace"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:AvailabilityConfig/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:AvailabilityConfig/AvailabilityConfig"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:CASMailboxPlan/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:CASMailboxPlan/CASMailboxPlan"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:ClientAccessRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:ClientAccessRule/ClientAccessRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:DistributionGroup/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:DistributionGroup/DistributionGroup"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:DistributionGroupMember/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:DistributionGroupMember/DistributionGroupMember"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:DkimSigningConfig/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:DkimSigningConfig/DkimSigningConfig"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:DynamicDistributionGroup/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:DynamicDistributionGroup/DynamicDistributionGroup"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:GlobalAddressList/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:GlobalAddressList/GlobalAddressList"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:HostedConnectionFilterPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:HostedConnectionFilterPolicy/HostedConnectionFilterPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:HostedContentFilterPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:HostedContentFilterPolicy/HostedContentFilterPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:HostedContentFilterRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:HostedContentFilterRule/HostedContentFilterRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:HostedOutboundSpamFilterPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:HostedOutboundSpamFilterPolicy/HostedOutboundSpamFilterPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:HostedOutboundSpamFilterRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:InboundConnector/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:InboundConnector/InboundConnector"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:IntraOrganizationConnector/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:IntraOrganizationConnector/IntraOrganizationConnector"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:JournalRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:JournalRule/JournalRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:Mailbox/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:Mailbox/Mailbox"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:MailboxPermission/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:MailboxPermission/MailboxPermission"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:MailboxPlan/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:MailboxPlan/MailboxPlan"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:MalwareFilterPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:MalwareFilterPolicy/MalwareFilterPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:MalwareFilterRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:MalwareFilterRule/MalwareFilterRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:MobileDeviceMailboxPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:MobileDeviceMailboxPolicy/MobileDeviceMailboxPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:OfflineAddressBook/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:OfflineAddressBook/OfflineAddressBook"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:OnPremisesOrganization/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:OrganizationConfig/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:OrganizationConfig/OrganizationConfig"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:OrganizationRelationship/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:OrganizationRelationship/OrganizationRelationship"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:OutboundConnector/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:OutboundConnector/OutboundConnector"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:OwaMailboxPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:OwaMailboxPolicy/OwaMailboxPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:PartnerApplication/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:PartnerApplication/PartnerApplication"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:PolicyTipConfig/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:PolicyTipConfig/PolicyTipConfig"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:QuarantinePolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:QuarantinePolicy/QuarantinePolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:RemoteDomain/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:RemoteDomain/RemoteDomain"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:RoleAssignmentPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:RoleGroup/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:RoleGroup/RoleGroup"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:RoleGroupMember/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:RoleGroupMember/RoleGroupMember"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:SafeAttachmentPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:SafeAttachmentRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:SafeAttachmentRule/SafeAttachmentRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:SafeLinksPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:SafeLinksPolicy/SafeLinksPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:SafeLinksRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:SafeLinksRule/SafeLinksRule"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:SharingPolicy/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:SharingPolicy/SharingPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:TransportConfig/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:TransportConfig/TransportConfig"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:TransportRule/Configuration"
+      "$ref": "#/$defs/ExchangeOnline:TransportRule/TransportRule"
     }
   ],
   "$defs": {
-    "ExchangeOnline:AcceptedDomain/Configuration": {
+    "ExchangeOnline:AcceptedDomain/AcceptedDomain": {
       "type": "object",
       "properties": {
         "Name": {
@@ -183,9 +183,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AcceptedDomain/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AcceptedDomain/AcceptedDomain"
     },
-    "ExchangeOnline:ActiveSyncDeviceAccessRule/Configuration": {
+    "ExchangeOnline:ActiveSyncDeviceAccessRule/ActiveSyncDeviceAccessRule": {
       "type": "object",
       "properties": {
         "AccessLevel": {
@@ -198,9 +198,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:ActiveSyncDeviceAccessRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:ActiveSyncDeviceAccessRule/ActiveSyncDeviceAccessRule"
     },
-    "ExchangeOnline:AddressBookPolicy/Configuration": {
+    "ExchangeOnline:AddressBookPolicy/AddressBookPolicy": {
       "type": "object",
       "properties": {
         "AddressLists": {
@@ -222,9 +222,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AddressBookPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AddressBookPolicy/AddressBookPolicy"
     },
-    "ExchangeOnline:AddressList/Configuration": {
+    "ExchangeOnline:AddressList/AddressList": {
       "type": "object",
       "properties": {
         "ConditionalCompany": {
@@ -308,18 +308,18 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AddressList/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AddressList/AddressList"
     },
-    "ExchangeOnline:AdminAuditLogConfig/Configuration": {
+    "ExchangeOnline:AdminAuditLogConfig/AdminAuditLogConfig": {
       "type": "object",
       "properties": {
         "UnifiedAuditLogIngestionEnabled": {
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AdminAuditLogConfig/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AdminAuditLogConfig/AdminAuditLogConfig"
     },
-    "ExchangeOnline:AntiPhishPolicy/Configuration": {
+    "ExchangeOnline:AntiPhishPolicy/AntiPhishPolicy": {
       "type": "object",
       "properties": {
         "AdminDisplayName": {
@@ -436,9 +436,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishPolicy/AntiPhishPolicy"
     },
-    "ExchangeOnline:AntiPhishRule/Configuration": {
+    "ExchangeOnline:AntiPhishRule/AntiPhishRule": {
       "type": "object",
       "properties": {
         "AntiPhishPolicy": {
@@ -483,9 +483,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishRule/AntiPhishRule"
     },
-    "ExchangeOnline:AtpPolicyForO365/Configuration": {
+    "ExchangeOnline:AtpPolicyForO365/AtpPolicyForO365": {
       "type": "object",
       "properties": {
         "AllowSafeDocsOpen": {
@@ -498,9 +498,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AtpPolicyForO365/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AtpPolicyForO365/AtpPolicyForO365"
     },
-    "ExchangeOnline:AuthenticationPolicy/Configuration": {
+    "ExchangeOnline:AuthenticationPolicy/AuthenticationPolicy": {
       "type": "object",
       "properties": {
         "AllowBasicAuthActiveSync": {
@@ -543,9 +543,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AuthenticationPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AuthenticationPolicy/AuthenticationPolicy"
     },
-    "ExchangeOnline:AvailabilityAddressSpace/Configuration": {
+    "ExchangeOnline:AvailabilityAddressSpace/AvailabilityAddressSpace": {
       "type": "object",
       "properties": {
         "AvailabilityConfig": {
@@ -568,9 +568,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityAddressSpace/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityAddressSpace/AvailabilityAddressSpace"
     },
-    "ExchangeOnline:AvailabilityConfig/Configuration": {
+    "ExchangeOnline:AvailabilityConfig/AvailabilityConfig": {
       "type": "object",
       "properties": {
         "AllowedTenantIds": {
@@ -580,9 +580,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityConfig/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:AvailabilityConfig/AvailabilityConfig"
     },
-    "ExchangeOnline:CASMailboxPlan/Configuration": {
+    "ExchangeOnline:CASMailboxPlan/CASMailboxPlan": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -601,9 +601,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:CASMailboxPlan/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:CASMailboxPlan/CASMailboxPlan"
     },
-    "ExchangeOnline:ClientAccessRule/Configuration": {
+    "ExchangeOnline:ClientAccessRule/ClientAccessRule": {
       "type": "object",
       "properties": {
         "Action": {
@@ -657,9 +657,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:ClientAccessRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:ClientAccessRule/ClientAccessRule"
     },
-    "ExchangeOnline:DistributionGroup/Configuration": {
+    "ExchangeOnline:DistributionGroup/DistributionGroup": {
       "type": "object",
       "properties": {
         "PrimarySmtpAddress": {
@@ -854,9 +854,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroup/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroup/DistributionGroup"
     },
-    "ExchangeOnline:DistributionGroupMember/Configuration": {
+    "ExchangeOnline:DistributionGroupMember/DistributionGroupMember": {
       "type": "object",
       "properties": {
         "DistributionGroup": {
@@ -869,9 +869,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroupMember/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:DistributionGroupMember/DistributionGroupMember"
     },
-    "ExchangeOnline:DkimSigningConfig/Configuration": {
+    "ExchangeOnline:DkimSigningConfig/DkimSigningConfig": {
       "type": "object",
       "properties": {
         "Name": {
@@ -896,9 +896,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:DkimSigningConfig/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:DkimSigningConfig/DkimSigningConfig"
     },
-    "ExchangeOnline:DynamicDistributionGroup/Configuration": {
+    "ExchangeOnline:DynamicDistributionGroup/DynamicDistributionGroup": {
       "type": "object",
       "properties": {
         "AcceptMessagesOnlyFromSendersOrMembers": {
@@ -1123,9 +1123,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:DynamicDistributionGroup/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:DynamicDistributionGroup/DynamicDistributionGroup"
     },
-    "ExchangeOnline:EmailAddressPolicy/Configuration": {
+    "ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy": {
       "type": "object",
       "properties": {
         "EnabledPrimarySMTPAddressTemplate": {
@@ -1150,9 +1150,9 @@
           "type": "object"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
-    "ExchangeOnline:GlobalAddressList/Configuration": {
+    "ExchangeOnline:GlobalAddressList/GlobalAddressList": {
       "type": "object",
       "properties": {
         "ConditionalCompany": {
@@ -1227,9 +1227,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:GlobalAddressList/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:GlobalAddressList/GlobalAddressList"
     },
-    "ExchangeOnline:HostedConnectionFilterPolicy/Configuration": {
+    "ExchangeOnline:HostedConnectionFilterPolicy/HostedConnectionFilterPolicy": {
       "type": "object",
       "properties": {
         "Name": {
@@ -1256,9 +1256,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:HostedConnectionFilterPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedConnectionFilterPolicy/HostedConnectionFilterPolicy"
     },
-    "ExchangeOnline:HostedContentFilterPolicy/Configuration": {
+    "ExchangeOnline:HostedContentFilterPolicy/HostedContentFilterPolicy": {
       "type": "object",
       "properties": {
         "AllowedSenderDomains": {
@@ -1414,9 +1414,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:HostedContentFilterPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedContentFilterPolicy/HostedContentFilterPolicy"
     },
-    "ExchangeOnline:HostedContentFilterRule/Configuration": {
+    "ExchangeOnline:HostedContentFilterRule/HostedContentFilterRule": {
       "type": "object",
       "properties": {
         "Comments": {
@@ -1461,9 +1461,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:HostedContentFilterRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedContentFilterRule/HostedContentFilterRule"
     },
-    "ExchangeOnline:HostedOutboundSpamFilterPolicy/Configuration": {
+    "ExchangeOnline:HostedOutboundSpamFilterPolicy/HostedOutboundSpamFilterPolicy": {
       "type": "object",
       "properties": {
         "ActionWhenThresholdReached": {
@@ -1508,9 +1508,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:HostedOutboundSpamFilterPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedOutboundSpamFilterPolicy/HostedOutboundSpamFilterPolicy"
     },
-    "ExchangeOnline:HostedOutboundSpamFilterRule/Configuration": {
+    "ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule": {
       "type": "object",
       "properties": {
         "Comments": {
@@ -1555,9 +1555,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:HostedOutboundSpamFilterRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule"
     },
-    "ExchangeOnline:InboundConnector/Configuration": {
+    "ExchangeOnline:InboundConnector/InboundConnector": {
       "type": "object",
       "properties": {
         "AssociatedAcceptedDomains": {
@@ -1623,9 +1623,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:InboundConnector/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:InboundConnector/InboundConnector"
     },
-    "ExchangeOnline:IntraOrganizationConnector/Configuration": {
+    "ExchangeOnline:IntraOrganizationConnector/IntraOrganizationConnector": {
       "type": "object",
       "properties": {
         "DiscoveryEndpoint": {
@@ -1647,9 +1647,9 @@
           "type": "object"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:IntraOrganizationConnector/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:IntraOrganizationConnector/IntraOrganizationConnector"
     },
-    "ExchangeOnline:JournalRule/Configuration": {
+    "ExchangeOnline:JournalRule/JournalRule": {
       "type": "object",
       "properties": {
         "Enabled": {
@@ -1668,9 +1668,9 @@
           "type": "object"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:JournalRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:JournalRule/JournalRule"
     },
-    "ExchangeOnline:Mailbox/Configuration": {
+    "ExchangeOnline:Mailbox/Mailbox": {
       "type": "object",
       "properties": {
         "ExternalDirectoryObjectId": {
@@ -2092,9 +2092,9 @@
           "format": "date-time"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:Mailbox/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:Mailbox/Mailbox"
     },
-    "ExchangeOnline:MailboxPermission/Configuration": {
+    "ExchangeOnline:MailboxPermission/MailboxPermission": {
       "type": "object",
       "properties": {
         "AccessRights": {
@@ -2140,9 +2140,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPermission/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPermission/MailboxPermission"
     },
-    "ExchangeOnline:MailboxPlan/Configuration": {
+    "ExchangeOnline:MailboxPlan/MailboxPlan": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -2176,9 +2176,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPlan/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:MailboxPlan/MailboxPlan"
     },
-    "ExchangeOnline:MalwareFilterPolicy/Configuration": {
+    "ExchangeOnline:MalwareFilterPolicy/MalwareFilterPolicy": {
       "type": "object",
       "properties": {
         "AdminDisplayName": {
@@ -2242,9 +2242,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:MalwareFilterPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:MalwareFilterPolicy/MalwareFilterPolicy"
     },
-    "ExchangeOnline:MalwareFilterRule/Configuration": {
+    "ExchangeOnline:MalwareFilterRule/MalwareFilterRule": {
       "type": "object",
       "properties": {
         "Comments": {
@@ -2289,9 +2289,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:MalwareFilterRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:MalwareFilterRule/MalwareFilterRule"
     },
-    "ExchangeOnline:MobileDeviceMailboxPolicy/Configuration": {
+    "ExchangeOnline:MobileDeviceMailboxPolicy/MobileDeviceMailboxPolicy": {
       "type": "object",
       "properties": {
         "AllowApplePushNotifications": {
@@ -2463,9 +2463,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:MobileDeviceMailboxPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:MobileDeviceMailboxPolicy/MobileDeviceMailboxPolicy"
     },
-    "ExchangeOnline:OfflineAddressBook/Configuration": {
+    "ExchangeOnline:OfflineAddressBook/OfflineAddressBook": {
       "type": "object",
       "properties": {
         "AddressLists": {
@@ -2504,9 +2504,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:OfflineAddressBook/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:OfflineAddressBook/OfflineAddressBook"
     },
-    "ExchangeOnline:OnPremisesOrganization/Configuration": {
+    "ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization": {
       "type": "object",
       "properties": {
         "Comment": {
@@ -2538,9 +2538,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:OnPremisesOrganization/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization"
     },
-    "ExchangeOnline:OrganizationConfig/Configuration": {
+    "ExchangeOnline:OrganizationConfig/OrganizationConfig": {
       "type": "object",
       "properties": {
         "DefaultPublicFolderIssueWarningQuota": {
@@ -2876,9 +2876,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:OrganizationConfig/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:OrganizationConfig/OrganizationConfig"
     },
-    "ExchangeOnline:OrganizationRelationship/Configuration": {
+    "ExchangeOnline:OrganizationRelationship/OrganizationRelationship": {
       "type": "object",
       "properties": {
         "ArchiveAccessEnabled": {
@@ -2953,9 +2953,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:OrganizationRelationship/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:OrganizationRelationship/OrganizationRelationship"
     },
-    "ExchangeOnline:OutboundConnector/Configuration": {
+    "ExchangeOnline:OutboundConnector/OutboundConnector": {
       "type": "object",
       "properties": {
         "AllAcceptedDomains": {
@@ -3025,9 +3025,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:OutboundConnector/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:OutboundConnector/OutboundConnector"
     },
-    "ExchangeOnline:OwaMailboxPolicy/Configuration": {
+    "ExchangeOnline:OwaMailboxPolicy/OwaMailboxPolicy": {
       "type": "object",
       "properties": {
         "ActionForUnknownFileAndMIMETypes": {
@@ -3309,9 +3309,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:OwaMailboxPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:OwaMailboxPolicy/OwaMailboxPolicy"
     },
-    "ExchangeOnline:PartnerApplication/Configuration": {
+    "ExchangeOnline:PartnerApplication/PartnerApplication": {
       "type": "object",
       "properties": {
         "AcceptSecurityIdentifierInformation": {
@@ -3339,9 +3339,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:PartnerApplication/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:PartnerApplication/PartnerApplication"
     },
-    "ExchangeOnline:PolicyTipConfig/Configuration": {
+    "ExchangeOnline:PolicyTipConfig/PolicyTipConfig": {
       "type": "object",
       "properties": {
         "Name": {
@@ -3351,9 +3351,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:PolicyTipConfig/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:PolicyTipConfig/PolicyTipConfig"
     },
-    "ExchangeOnline:QuarantinePolicy/Configuration": {
+    "ExchangeOnline:QuarantinePolicy/QuarantinePolicy": {
       "type": "object",
       "properties": {
         "AdminDisplayName": {
@@ -3454,9 +3454,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:QuarantinePolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:QuarantinePolicy/QuarantinePolicy"
     },
-    "ExchangeOnline:RemoteDomain/Configuration": {
+    "ExchangeOnline:RemoteDomain/RemoteDomain": {
       "type": "object",
       "properties": {
         "AllowedOOFType": {
@@ -3529,9 +3529,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:RemoteDomain/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:RemoteDomain/RemoteDomain"
     },
-    "ExchangeOnline:RoleAssignmentPolicy/Configuration": {
+    "ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy": {
       "type": "object",
       "properties": {
         "Description": {
@@ -3550,9 +3550,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:RoleAssignmentPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy"
     },
-    "ExchangeOnline:RoleGroup/Configuration": {
+    "ExchangeOnline:RoleGroup/RoleGroup": {
       "type": "object",
       "properties": {
         "Name": {
@@ -3588,9 +3588,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:RoleGroup/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:RoleGroup/RoleGroup"
     },
-    "ExchangeOnline:RoleGroupMember/Configuration": {
+    "ExchangeOnline:RoleGroupMember/RoleGroupMember": {
       "type": "object",
       "properties": {
         "Name": {
@@ -3603,9 +3603,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:RoleGroupMember/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:RoleGroupMember/RoleGroupMember"
     },
-    "ExchangeOnline:SafeAttachmentPolicy/Configuration": {
+    "ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy": {
       "type": "object",
       "properties": {
         "Action": {
@@ -3633,9 +3633,9 @@
           "type": "object"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy"
     },
-    "ExchangeOnline:SafeAttachmentRule/Configuration": {
+    "ExchangeOnline:SafeAttachmentRule/SafeAttachmentRule": {
       "type": "object",
       "properties": {
         "Comments": {
@@ -3680,9 +3680,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentRule/SafeAttachmentRule"
     },
-    "ExchangeOnline:SafeLinksPolicy/Configuration": {
+    "ExchangeOnline:SafeLinksPolicy/SafeLinksPolicy": {
       "type": "object",
       "properties": {
         "AdminDisplayName": {
@@ -3737,9 +3737,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:SafeLinksPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeLinksPolicy/SafeLinksPolicy"
     },
-    "ExchangeOnline:SafeLinksRule/Configuration": {
+    "ExchangeOnline:SafeLinksRule/SafeLinksRule": {
       "type": "object",
       "properties": {
         "Comments": {
@@ -3784,9 +3784,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:SafeLinksRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:SafeLinksRule/SafeLinksRule"
     },
-    "ExchangeOnline:SharingPolicy/Configuration": {
+    "ExchangeOnline:SharingPolicy/SharingPolicy": {
       "type": "object",
       "properties": {
         "Default": {
@@ -3805,9 +3805,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:SharingPolicy/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:SharingPolicy/SharingPolicy"
     },
-    "ExchangeOnline:TransportConfig/Configuration": {
+    "ExchangeOnline:TransportConfig/TransportConfig": {
       "type": "object",
       "properties": {
         "AddressBookPolicyRoutingEnabled": {
@@ -3892,9 +3892,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:TransportConfig/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:TransportConfig/TransportConfig"
     },
-    "ExchangeOnline:TransportRule/Configuration": {
+    "ExchangeOnline:TransportRule/TransportRule": {
       "type": "object",
       "properties": {
         "ActivationDate": {
@@ -4393,7 +4393,7 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/ExchangeOnline:TransportRule/Configuration"
+      "$id": "https://simeoncloud.com/ExchangeOnline:TransportRule/TransportRule"
     }
   }
 }
