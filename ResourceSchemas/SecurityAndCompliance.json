@@ -495,9 +495,6 @@
         "RestrictBrowserAccess": {
           "type": "boolean"
         },
-        "AccessScope": {
-          "type": "string"
-        },
         "AddRecipients": {
           "type": "array"
         },
