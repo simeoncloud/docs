@@ -136,7 +136,7 @@
         "OverrideTenantExternalUserExpirationPolicy": {
           "type": "boolean"
         },
-        "SiteCollectionOwner": {
+        "Owner": {
           "type": "string"
         },
         "Owners": {

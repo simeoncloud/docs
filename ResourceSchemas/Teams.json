@@ -590,6 +590,9 @@
         "AllowTeamsConsumerInbound": {
           "type": "boolean"
         },
+        "BlockAllSubdomains": {
+          "type": "boolean"
+        },
         "SharedSipAddressSpace": {
           "type": "boolean"
         },
