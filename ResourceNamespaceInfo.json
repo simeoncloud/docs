@@ -148,7 +148,7 @@
     "description": "Office 365 > Exchange > Availability address spaces",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {
@@ -790,6 +790,14 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:DeviceManagement:Templates",
+    "description": "Intune > Endpoint security > Security baselines",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DeviceConfigurationMenuBlade/templates",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
