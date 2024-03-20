@@ -148,7 +148,7 @@
     "description": "Office 365 > Exchange > Availability address spaces",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
   },
   {

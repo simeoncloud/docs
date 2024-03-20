@@ -1,77 +1,77 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AdaptiveScope/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:AdaptiveScope/AdaptiveScope"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AppRetentionCompliancePolicy/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:AppRetentionCompliancePolicy/AppRetentionCompliancePolicy"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AppRetentionComplianceRule/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AuditConfigurationPolicy/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:CaseHoldPolicy/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:CaseHoldRule/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:CaseHoldRule/CaseHoldRule"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceCase/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:ComplianceCase/ComplianceCase"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceRetentionEventType/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:ComplianceRetentionEventType/ComplianceRetentionEventType"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ComplianceTag/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:ComplianceTag/ComplianceTag"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:DlpCompliancePolicy/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:DlpCompliancePolicy/DlpCompliancePolicy"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:DlpComplianceRule/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:DlpComplianceRule/DlpComplianceRule"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:DlpSensitiveInformationType/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:DlpSensitiveInformationType/DlpSensitiveInformationType"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyAuthority/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyAuthority/FilePlanPropertyAuthority"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyCategory/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyCategory/FilePlanPropertyCategory"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyCitation/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyCitation/FilePlanPropertyCitation"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyDepartment/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyDepartment/FilePlanPropertyDepartment"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyReferenceId/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertyReferenceId/FilePlanPropertyReferenceId"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertySubCategory/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:FilePlanPropertySubCategory/FilePlanPropertySubCategory"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:Label/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:Label/Label"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:LabelPolicy/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:LabelPolicy/LabelPolicy"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:ProtectionAlert/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:ProtectionAlert/ProtectionAlert"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:RetentionCompliancePolicy/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:RetentionCompliancePolicy/RetentionCompliancePolicy"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:RetentionComplianceRule/Configuration"
+      "$ref": "#/$defs/SecurityAndCompliance:RetentionComplianceRule/RetentionComplianceRule"
     }
   ],
   "$defs": {
-    "SecurityAndCompliance:AdaptiveScope/Configuration": {
+    "SecurityAndCompliance:AdaptiveScope/AdaptiveScope": {
       "type": "object",
       "properties": {
         "FilterConditions": {
@@ -94,9 +94,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AdaptiveScope/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:AdaptiveScope/AdaptiveScope"
     },
-    "SecurityAndCompliance:AppRetentionCompliancePolicy/Configuration": {
+    "SecurityAndCompliance:AppRetentionCompliancePolicy/AppRetentionCompliancePolicy": {
       "type": "object",
       "properties": {
         "AdaptiveScopeLocation": {
@@ -141,9 +141,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionCompliancePolicy/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionCompliancePolicy/AppRetentionCompliancePolicy"
     },
-    "SecurityAndCompliance:AppRetentionComplianceRule/Configuration": {
+    "SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule": {
       "type": "object",
       "properties": {
         "Comment": {
@@ -189,18 +189,18 @@
           "type": "object"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionComplianceRule/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
     },
-    "SecurityAndCompliance:AuditConfigurationPolicy/Configuration": {
+    "SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy": {
       "type": "object",
       "properties": {
         "Workload": {
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfigurationPolicy/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy"
     },
-    "SecurityAndCompliance:CaseHoldPolicy/Configuration": {
+    "SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy": {
       "type": "object",
       "properties": {
         "CaseId": {
@@ -236,9 +236,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:CaseHoldPolicy/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy"
     },
-    "SecurityAndCompliance:CaseHoldRule/Configuration": {
+    "SecurityAndCompliance:CaseHoldRule/CaseHoldRule": {
       "type": "object",
       "properties": {
         "Comment": {
@@ -257,9 +257,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:CaseHoldRule/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:CaseHoldRule/CaseHoldRule"
     },
-    "SecurityAndCompliance:ComplianceCase/Configuration": {
+    "SecurityAndCompliance:ComplianceCase/ComplianceCase": {
       "type": "object",
       "properties": {
         "CaseType": {
@@ -281,9 +281,9 @@
           "type": "boolean"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceCase/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceCase/ComplianceCase"
     },
-    "SecurityAndCompliance:ComplianceRetentionEventType/Configuration": {
+    "SecurityAndCompliance:ComplianceRetentionEventType/ComplianceRetentionEventType": {
       "type": "object",
       "properties": {
         "Comment": {
@@ -293,9 +293,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceRetentionEventType/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceRetentionEventType/ComplianceRetentionEventType"
     },
-    "SecurityAndCompliance:ComplianceTag/Configuration": {
+    "SecurityAndCompliance:ComplianceTag/ComplianceTag": {
       "type": "object",
       "properties": {
         "AutoApprovalPeriod": {
@@ -350,9 +350,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceTag/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:ComplianceTag/ComplianceTag"
     },
-    "SecurityAndCompliance:DlpCompliancePolicy/Configuration": {
+    "SecurityAndCompliance:DlpCompliancePolicy/DlpCompliancePolicy": {
       "type": "object",
       "properties": {
         "ExceptIfOneDriveSharedByMemberOf": {
@@ -475,9 +475,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpCompliancePolicy/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpCompliancePolicy/DlpCompliancePolicy"
     },
-    "SecurityAndCompliance:DlpComplianceRule/Configuration": {
+    "SecurityAndCompliance:DlpComplianceRule/DlpComplianceRule": {
       "type": "object",
       "properties": {
         "AdvancedRule": {
@@ -915,9 +915,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpComplianceRule/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpComplianceRule/DlpComplianceRule"
     },
-    "SecurityAndCompliance:DlpSensitiveInformationType/Configuration": {
+    "SecurityAndCompliance:DlpSensitiveInformationType/DlpSensitiveInformationType": {
       "type": "object",
       "properties": {
         "Description": {
@@ -951,9 +951,9 @@
           "type": "array"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpSensitiveInformationType/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:DlpSensitiveInformationType/DlpSensitiveInformationType"
     },
-    "SecurityAndCompliance:FilePlanPropertyAuthority/Configuration": {
+    "SecurityAndCompliance:FilePlanPropertyAuthority/FilePlanPropertyAuthority": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -963,9 +963,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyAuthority/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyAuthority/FilePlanPropertyAuthority"
     },
-    "SecurityAndCompliance:FilePlanPropertyCategory/Configuration": {
+    "SecurityAndCompliance:FilePlanPropertyCategory/FilePlanPropertyCategory": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -975,9 +975,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyCategory/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyCategory/FilePlanPropertyCategory"
     },
-    "SecurityAndCompliance:FilePlanPropertyCitation/Configuration": {
+    "SecurityAndCompliance:FilePlanPropertyCitation/FilePlanPropertyCitation": {
       "type": "object",
       "properties": {
         "CitationJurisdiction": {
@@ -993,9 +993,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyCitation/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyCitation/FilePlanPropertyCitation"
     },
-    "SecurityAndCompliance:FilePlanPropertyDepartment/Configuration": {
+    "SecurityAndCompliance:FilePlanPropertyDepartment/FilePlanPropertyDepartment": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -1005,9 +1005,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyDepartment/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyDepartment/FilePlanPropertyDepartment"
     },
-    "SecurityAndCompliance:FilePlanPropertyReferenceId/Configuration": {
+    "SecurityAndCompliance:FilePlanPropertyReferenceId/FilePlanPropertyReferenceId": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -1017,9 +1017,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyReferenceId/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertyReferenceId/FilePlanPropertyReferenceId"
     },
-    "SecurityAndCompliance:FilePlanPropertySubCategory/Configuration": {
+    "SecurityAndCompliance:FilePlanPropertySubCategory/FilePlanPropertySubCategory": {
       "type": "object",
       "properties": {
         "DisplayName": {
@@ -1032,9 +1032,9 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertySubCategory/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:FilePlanPropertySubCategory/FilePlanPropertySubCategory"
     },
-    "SecurityAndCompliance:Label/Configuration": {
+    "SecurityAndCompliance:Label/Label": {
       "type": "object",
       "properties": {
         "AdvancedSettings": {
@@ -1103,6 +1103,9 @@
         "Comment": {
           "type": "string"
         },
+        "Conditions": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "ContentType": {
           "type": "string"
         },
@@ -1149,10 +1152,7 @@
           "type": "string"
         },
         "LocaleSettings": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "#/$defs/arrayOfString"
         },
         "Name": {
           "type": "string"
@@ -1224,9 +1224,17 @@
           "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:Label/Configuration"
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:Label/Label"
     },
-    "SecurityAndCompliance:LabelPolicy/Configuration": {
+    "SecurityAndCompliance:LabelPolicy/LabelPolicy": {
       "type": "object",
       "properties": {
         "Settings": {
@@ -1268,9 +1276,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:LabelPolicy/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:LabelPolicy/LabelPolicy"
     },
-    "SecurityAndCompliance:ProtectionAlert/Configuration": {
+    "SecurityAndCompliance:ProtectionAlert/ProtectionAlert": {
       "type": "object",
       "properties": {
         "Name": {
@@ -1367,9 +1375,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:ProtectionAlert/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:ProtectionAlert/ProtectionAlert"
     },
-    "SecurityAndCompliance:RetentionCompliancePolicy/Configuration": {
+    "SecurityAndCompliance:RetentionCompliancePolicy/RetentionCompliancePolicy": {
       "type": "object",
       "properties": {
         "AdaptiveScopeLocation": {
@@ -1456,9 +1464,9 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:RetentionCompliancePolicy/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:RetentionCompliancePolicy/RetentionCompliancePolicy"
     },
-    "SecurityAndCompliance:RetentionComplianceRule/Configuration": {
+    "SecurityAndCompliance:RetentionComplianceRule/RetentionComplianceRule": {
       "type": "object",
       "properties": {
         "MachineLearningModelIDs": {
@@ -1522,7 +1530,7 @@
           "format": "date-time"
         }
       },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:RetentionComplianceRule/Configuration"
+      "$id": "https://simeoncloud.com/SecurityAndCompliance:RetentionComplianceRule/RetentionComplianceRule"
     }
   }
 }
