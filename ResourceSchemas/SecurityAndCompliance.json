@@ -1103,6 +1103,9 @@
         "Comment": {
           "type": "string"
         },
+        "Conditions": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "ContentType": {
           "type": "string"
         },
@@ -1149,10 +1152,7 @@
           "type": "string"
         },
         "LocaleSettings": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "#/$defs/arrayOfString"
         },
         "Name": {
           "type": "string"
@@ -1222,6 +1222,14 @@
         },
         "Tooltip": {
           "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:Label/Label"
