@@ -74,6 +74,7 @@
   - Endpoint security
     - Firewall
       - Reusable Settings
+    - Security baselines
   - Policy Sets
   - Reports
     - Endpoint analytics
