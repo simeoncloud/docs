@@ -183,7 +183,6 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
-    - Teams update policies
     - Users
       - External access
     - Voice
