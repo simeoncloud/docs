@@ -1256,14 +1256,6 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
-    "namespace": "TeamsApi:TeamsUpdateManagementPolicies",
-    "description": "Office 365 > Teams > Teams update policies",
-    "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global$|^Default$).)+$"
-  },
-  {
     "namespace": "TeamsApi:TenantFederationSettings",
     "description": "Office 365 > Teams > Users > External access",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
