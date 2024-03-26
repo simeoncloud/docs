@@ -1440,6 +1440,14 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$"
   },
   {
+    "namespace": "Teams:CsTeamsUpdateManagementPolicy",
+    "description": "Office 365 > Teams > Update Management policies",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$"
+  },
+  {
     "namespace": "Teams:CsTenantFederationConfiguration",
     "description": "Office 365 > Teams > Users > External access",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
