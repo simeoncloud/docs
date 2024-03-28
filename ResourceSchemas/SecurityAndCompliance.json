@@ -1302,9 +1302,6 @@
         "CustomProperties": {
           "type": "array"
         },
-        "Description": {
-          "type": "string"
-        },
         "Disabled": {
           "type": "boolean"
         },
