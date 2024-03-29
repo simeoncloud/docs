@@ -28,6 +28,7 @@
       - Microsoft cloud settings
       - Organizational settings
   - External user guest settings
+  - Feature Rollout
   - Group settings
   - Groups
     - Expiration
@@ -74,6 +75,7 @@
   - Endpoint security
     - Firewall
       - Reusable Settings
+    - Security baselines
   - Policy Sets
   - Reports
     - Endpoint analytics
@@ -170,6 +172,7 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
+    - Update Management policies
     - Users
       - External access
     - Voice
