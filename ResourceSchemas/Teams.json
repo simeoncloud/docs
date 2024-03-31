@@ -54,7 +54,8 @@
           "type": "string"
         },
         "Tenant": {
-          "type": "object"
+          "type": "string",
+          "format": "uuid"
         },
         "Identity": {
           "type": "string"
@@ -200,7 +201,8 @@
           "type": "string"
         },
         "Tenant": {
-          "type": "object"
+          "type": "string",
+          "format": "uuid"
         },
         "Identity": {
           "type": "string"

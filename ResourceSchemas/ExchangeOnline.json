@@ -2790,7 +2790,7 @@
           "type": "boolean"
         },
         "MessageRecallEnabled": {
-          "type": "object"
+          "type": "boolean"
         },
         "MessageRemindersEnabled": {
           "type": "boolean"
@@ -2832,7 +2832,7 @@
           "type": "boolean"
         },
         "RecallReadMessagesEnabled": {
-          "type": "object"
+          "type": "boolean"
         },
         "RemotePublicFolderMailboxes": {
           "$ref": "#/$defs/arrayOfString"
@@ -3037,7 +3037,7 @@
           "type": "boolean"
         },
         "AdditionalAccountsEnabled": {
-          "type": "object"
+          "type": "boolean"
         },
         "AdditionalStorageProvidersAvailable": {
           "type": "boolean"
@@ -3073,7 +3073,7 @@
           "type": "string"
         },
         "ChangeSettingsAccountEnabled": {
-          "type": "object"
+          "type": "boolean"
         },
         "ClassicAttachmentsEnabled": {
           "type": "boolean"
@@ -3148,7 +3148,7 @@
           "type": "boolean"
         },
         "ItemsToOtherAccountsEnabled": {
-          "type": "object"
+          "type": "boolean"
         },
         "JournalEnabled": {
           "type": "boolean"
@@ -3181,7 +3181,7 @@
           "type": "boolean"
         },
         "OneWinNativeOutlookEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "OnSendAddinsEnabled": {
           "type": "boolean"
@@ -3202,7 +3202,7 @@
           "type": "boolean"
         },
         "PersonalAccountsEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "PhoneticSupportEnabled": {
           "type": "boolean"
@@ -3814,7 +3814,7 @@
           "type": "boolean"
         },
         "AllowLegacyTLSClients": {
-          "type": "object"
+          "type": "boolean"
         },
         "ClearCategories": {
           "type": "boolean"

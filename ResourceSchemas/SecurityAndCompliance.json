@@ -156,10 +156,10 @@
           }
         },
         "ContentDateFrom": {
-          "type": "object"
+          "$ref": "#/$defs/nullableOfDateTime"
         },
         "ContentDateTo": {
-          "type": "object"
+          "$ref": "#/$defs/nullableOfDateTime"
         },
         "ContentMatchQuery": {
           "type": "string"
@@ -187,6 +187,12 @@
         },
         "RetentionDurationDisplayHint": {
           "type": "object"
+        }
+      },
+      "$defs": {
+        "nullableOfDateTime": {
+          "type": "string",
+          "format": "date-time"
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
@@ -299,7 +305,7 @@
       "type": "object",
       "properties": {
         "AutoApprovalPeriod": {
-          "type": "object"
+          "type": "integer"
         },
         "Comment": {
           "type": "string"
@@ -314,7 +320,8 @@
           "type": "string"
         },
         "FlowId": {
-          "type": "object"
+          "type": "string",
+          "format": "uuid"
         },
         "IsRecordLabel": {
           "type": "boolean"
@@ -811,7 +818,7 @@
           "type": "string"
         },
         "Priority": {
-          "type": "object"
+          "type": "integer"
         },
         "ProcessingLimitExceeded": {
           "type": "boolean"
@@ -1044,7 +1051,7 @@
           "type": "string"
         },
         "ApplyContentMarkingFooterEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "ApplyContentMarkingFooterFontColor": {
           "type": "string"
@@ -1053,10 +1060,10 @@
           "type": "string"
         },
         "ApplyContentMarkingFooterFontSize": {
-          "type": "object"
+          "type": "integer"
         },
         "ApplyContentMarkingFooterMargin": {
-          "type": "object"
+          "type": "integer"
         },
         "ApplyContentMarkingFooterText": {
           "type": "string"
@@ -1065,7 +1072,7 @@
           "type": "string"
         },
         "ApplyContentMarkingHeaderEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "ApplyContentMarkingHeaderFontColor": {
           "type": "string"
@@ -1074,16 +1081,16 @@
           "type": "string"
         },
         "ApplyContentMarkingHeaderFontSize": {
-          "type": "object"
+          "type": "integer"
         },
         "ApplyContentMarkingHeaderMargin": {
-          "type": "object"
+          "type": "integer"
         },
         "ApplyContentMarkingHeaderText": {
           "type": "string"
         },
         "ApplyWaterMarkingEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "ApplyWaterMarkingFontColor": {
           "type": "string"
@@ -1092,7 +1099,7 @@
           "type": "string"
         },
         "ApplyWaterMarkingFontSize": {
-          "type": "object"
+          "type": "integer"
         },
         "ApplyWaterMarkingLayout": {
           "type": "string"
@@ -1122,22 +1129,22 @@
           "type": "string"
         },
         "EncryptionDoNotForward": {
-          "type": "string"
+          "type": "boolean"
         },
         "EncryptionDoubleKeyEncryptionUrl": {
           "type": "string"
         },
         "EncryptionEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "EncryptionEncryptOnly": {
-          "type": "string"
+          "type": "boolean"
         },
         "EncryptionOfflineAccessDays": {
-          "type": "object"
+          "type": "integer"
         },
         "EncryptionPromptUser": {
-          "type": "string"
+          "type": "boolean"
         },
         "EncryptionProtectionType": {
           "type": "string"
@@ -1161,22 +1168,22 @@
           "type": "string"
         },
         "SiteAndGroupProtectionAllowAccessToGuestUsers": {
-          "type": "string"
+          "type": "boolean"
         },
         "SiteAndGroupProtectionAllowEmailFromGuestUsers": {
-          "type": "string"
+          "type": "boolean"
         },
         "SiteAndGroupProtectionAllowFullAccess": {
-          "type": "string"
+          "type": "boolean"
         },
         "SiteAndGroupProtectionAllowLimitedAccess": {
-          "type": "string"
+          "type": "boolean"
         },
         "SiteAndGroupProtectionBlockAccess": {
-          "type": "string"
+          "type": "boolean"
         },
         "SiteAndGroupProtectionEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "SiteAndGroupProtectionPrivacy": {
           "type": "string"
@@ -1191,28 +1198,28 @@
           "type": "string"
         },
         "TeamsBypassLobbyForDialInUsers": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsCopyRestrictionEnforced": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsEndToEndEncryptionEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsLobbyBypassScope": {
           "type": "string"
         },
         "TeamsLobbyRestrictionEnforced": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsPresentersRestrictionEnforced": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsProtectionEnabled": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsRecordAutomatically": {
-          "type": "string"
+          "type": "boolean"
         },
         "TeamsVideoWatermark": {
           "type": "string"
@@ -1297,13 +1304,11 @@
           "type": "string"
         },
         "CorrelationPolicyId": {
-          "type": "object"
+          "type": "string",
+          "format": "uuid"
         },
         "CustomProperties": {
           "type": "array"
-        },
-        "Description": {
-          "type": "string"
         },
         "Disabled": {
           "type": "boolean"
@@ -1346,7 +1351,7 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "PrivacyManagementScopedSensitiveInformationTypesThreshold": {
-          "type": "object"
+          "type": "integer"
         },
         "Severity": {
           "type": "string"
@@ -1361,10 +1366,10 @@
           "type": "integer"
         },
         "UseCreatedDateTime": {
-          "type": "object"
+          "type": "boolean"
         },
         "VolumeThreshold": {
-          "type": "object"
+          "type": "integer"
         }
       },
       "$defs": {

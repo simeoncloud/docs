@@ -28,6 +28,7 @@
       - Microsoft cloud settings
       - Organizational settings
   - External user guest settings
+  - Feature Rollout
   - Group settings
   - Groups
     - Expiration
