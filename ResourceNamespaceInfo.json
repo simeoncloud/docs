@@ -723,7 +723,7 @@
     "namespace": "MSGraph:DeviceManagement:GroupPolicyDefinitions",
     "description": "Intune > Devices > Configuration profiles (Profile Type = Administrative Templates)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^"
   },
@@ -1291,7 +1291,7 @@
     "namespace": "SecurityAndCompliance:DlpSensitiveInformationType",
     "description": "Office 365 > Security & Compliance > DLP sensitive information types",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps",
-    "isCreateSupportedFilter": "$^",
+    "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^"
   },
