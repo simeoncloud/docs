@@ -2790,7 +2790,7 @@
           "type": "boolean"
         },
         "MessageRecallEnabled": {
-          "type": "boolean"
+          "type": "object"
         },
         "MessageRemindersEnabled": {
           "type": "boolean"
@@ -2832,7 +2832,7 @@
           "type": "boolean"
         },
         "RecallReadMessagesEnabled": {
-          "type": "boolean"
+          "type": "object"
         },
         "RemotePublicFolderMailboxes": {
           "$ref": "#/$defs/arrayOfString"
@@ -3037,7 +3037,7 @@
           "type": "boolean"
         },
         "AdditionalAccountsEnabled": {
-          "type": "boolean"
+          "type": "object"
         },
         "AdditionalStorageProvidersAvailable": {
           "type": "boolean"
@@ -3073,7 +3073,7 @@
           "type": "string"
         },
         "ChangeSettingsAccountEnabled": {
-          "type": "boolean"
+          "type": "object"
         },
         "ClassicAttachmentsEnabled": {
           "type": "boolean"
@@ -3148,7 +3148,7 @@
           "type": "boolean"
         },
         "ItemsToOtherAccountsEnabled": {
-          "type": "boolean"
+          "type": "object"
         },
         "JournalEnabled": {
           "type": "boolean"
@@ -3181,7 +3181,7 @@
           "type": "boolean"
         },
         "OneWinNativeOutlookEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "OnSendAddinsEnabled": {
           "type": "boolean"
@@ -3195,9 +3195,6 @@
         "OutlookBetaToggleEnabled": {
           "type": "boolean"
         },
-        "OutlookNewslettersAccessLevel": {
-          "type": "object"
-        },
         "OWALightEnabled": {
           "type": "boolean"
         },
@@ -3205,7 +3202,7 @@
           "type": "boolean"
         },
         "PersonalAccountsEnabled": {
-          "type": "boolean"
+          "type": "string"
         },
         "PhoneticSupportEnabled": {
           "type": "boolean"
@@ -3817,7 +3814,7 @@
           "type": "boolean"
         },
         "AllowLegacyTLSClients": {
-          "type": "boolean"
+          "type": "object"
         },
         "ClearCategories": {
           "type": "boolean"
