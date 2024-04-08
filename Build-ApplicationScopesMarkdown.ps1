@@ -2,7 +2,7 @@
 # The credentials are used to acquire an access token to query the Microsoft Graph API for the application scopes names
 # The credentials should be from a tenant that has the Simeon Cloud Sync app installed.
 param (
-    $OutputPath = "application-scopes.md",
+    $OutputPath = "application-scopes",
     [string]$TenantId,
     [string]$Username,
     [string]$Password,
@@ -76,6 +76,7 @@ foreach ($requiredResource in $requiredResources)
     foreach ($resource in $requiredResource.resourceAccess)
     {
         $resourceDescription = @{
+            id = $resource.id
             application = $servicePrincipal.displayName
             type = $resource.type
             value = ""
@@ -98,6 +99,7 @@ foreach ($requiredResource in $requiredResources)
 }
 
 $applications = $resourceDescriptions.application | Select -Unique | Sort-Object
+$applicationDescriptions = @{}
 $sb = [System.Text.StringBuilder]::new()
 $script:indent = 0
 foreach ($application in $applications)
@@ -111,14 +113,19 @@ foreach ($application in $applications)
         $sb.Append("".PadLeft($script:indent) + "- ") | Out-Null
         $sb.AppendLine("$( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))") | Out-Null
         $script:indent -= 2
+
+        $applicationDescriptions[$applicationRespourceDescription.id] = "$( $application ) - $( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))"
     }
 }
 $stringContent = $sb.ToString()
+$jsonContent = $applicationDescriptions | ConvertTo-Json
 
 if ($OutputPath)
 {
-    Write-Host "Saving markdown file to $OutputPath"
-    $stringContent | Out-File $OutputPath
+    Write-Host "Saving markdown file to $($OutputPath).md"
+    Write-Host "Saving JSON file to $($OutputPath).json"
+    $stringContent | Out-File "$($OutputPath).md"
+    $jsonContent | Out-File "$($OutputPath).json"
 }
 else
 {
