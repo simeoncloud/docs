@@ -114,7 +114,10 @@ foreach ($application in $applications)
         $sb.AppendLine("$( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))") | Out-Null
         $script:indent -= 2
 
-        $applicationDescriptions[$applicationRespourceDescription.id] = "$( $application ) - $( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))"
+        if ($applicationRespourceDescription.type -eq "Scope")
+        {
+            $applicationDescriptions[$applicationRespourceDescription.id] = "$( $application ) - $( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))"
+        }
     }
 }
 $stringContent = $sb.ToString()
