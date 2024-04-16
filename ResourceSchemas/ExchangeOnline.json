@@ -1836,9 +1836,6 @@
         "EndDateForRetentionHold": {
           "$ref": "#/$defs/nullableOfDateTime"
         },
-        "EnforcedTimestamps": {
-          "type": "string"
-        },
         "Equipment": {
           "type": "boolean"
         },
