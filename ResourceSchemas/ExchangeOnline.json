@@ -1917,6 +1917,12 @@
         "LitigationHoldOwner": {
           "type": "string"
         },
+        "MailboxMessagesPerFolderCountReceiveQuota": {
+          "type": "integer"
+        },
+        "MailboxMessagesPerFolderCountWarningQuota": {
+          "type": "integer"
+        },
         "MailboxRegion": {
           "type": "string"
         },
