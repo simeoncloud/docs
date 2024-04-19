@@ -4,15 +4,19 @@
       - Access reviews
       - Assignments
     - Policies and Rules
+      - Rules
   - Resource groups
 - Azure AD
   - Administrative Units
+    - Members
   - App registrations
     - Secrets
+    - Token lifetime policies
   - Authorization policies
   - Conditional Access
     - Terms of use
   - Custom Security Attributes
+    - Allowed Values
   - Device settings
   - Devices
     - Enterprise State Roaming
@@ -27,17 +31,25 @@
       - Default settings
       - Microsoft cloud settings
       - Organizational settings
+        - Identity Synchronization
   - External user guest settings
   - Feature Rollout
+    - Applies to
   - Group settings
   - Groups
     - Expiration
+    - Members
+    - Owners
   - Identity Governance
     - Connected Organizations
+      - External Sponsors
+      - Internal Sponsors
   - Licenses
     - All products
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
+    - Branding
+      - Localizations
   - Password reset
     - On-Premises integration
   - Roles and Administrators
@@ -63,19 +75,25 @@
     - Compliance policies
       - Compliance policy settings
       - Notifications
+        - Localized Notification Messages
     - Configuration profiles
+      - Assignments
     - Configuration profiles (Import ADMX)
     - Configuration profiles (Profile Type = Administrative Templates)
+      - Assignments
+      - Definition Values
     - Configuration profiles (Settings Catalog)
     - Enrollment restrictions
     - Feature updates for Windows 10 and later
     - Quality updates for Windows 10 and later
     - Scripts
     - Windows Autopilot deployment profiles
+      - Assignments
   - Endpoint security
     - Firewall
       - Reusable Settings
     - Security baselines
+    - Settings
   - Policy Sets
   - Reports
     - Endpoint analytics
@@ -84,6 +102,7 @@
     - Filters
     - Roles
       - Scope Tags
+        - Assignments
 - M365 Admin Center
   - Domains
   - Settings
@@ -102,6 +121,7 @@
     - CAS mailbox plan
     - Client access rules
     - Distribution Groups
+      - Members
     - DomainKeys identified mail signing config
     - Dynamic Distribution Groups
     - Email address policies
@@ -113,8 +133,10 @@
       - Accepted Domains
       - Remote Domains
     - Mailboxes
+      - Permissions
     - MailboxPlans
     - MalwareFilterPolicies
+      - Rules
     - Mobile device access
       - Device Access Rules
     - MobileDeviceMailboxPolicies
@@ -129,6 +151,7 @@
     - PolicyTipConfig
     - Role Assignment Policies
     - Role Groups
+      - Members
     - SharingPolicies
     - Transport Config
     - TransportRules
@@ -136,9 +159,11 @@
     - Adaptive scopes
     - Audit configuration policy
     - Case hold policies
+      - Rules
     - Compliance cases
     - ComplianceTags
     - DLP compliance policies
+      - Rules
     - DLP sensitive information types
     - File plan property authorities
     - File plan property categories
@@ -148,18 +173,24 @@
     - File plan property reference sub categories
     - Hosted connection filter policies
     - Hosted content filter policies
+      - Rules
     - Hosted outbound spam filter policies
+      - Rules
     - Information governance
       - Compliance Retention Event Types
       - Retention
+        - Rules
     - Label Policy
     - Labels
     - ProtectionAlerts
     - Threat management
       - Policy
         - ATP Anti-Phishing
+          - Rules
         - ATP Safe Attachments
+          - Rules
         - ATP Safe Links
+          - Rules
         - Global Settings
         - Quarantine Policies
   - Teams
