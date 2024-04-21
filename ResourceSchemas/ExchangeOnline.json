@@ -2073,6 +2073,12 @@
         "UseDatabaseQuotaDefaults": {
           "type": "boolean"
         },
+        "UserCertificate": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "UserSMimeCertificate": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "WindowsEmailAddress": {
           "type": "object"
         }
