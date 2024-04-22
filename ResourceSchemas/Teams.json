@@ -404,6 +404,9 @@
         "ChannelRecordingDownload": {
           "type": "string"
         },
+        "ConnectToMeetingControls": {
+          "type": "string"
+        },
         "Copilot": {
           "type": "string"
         },
