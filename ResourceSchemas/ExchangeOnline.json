@@ -133,12 +133,6 @@
       "$ref": "#/$defs/ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:RoleGroup/RoleGroup"
-    },
-    {
-      "$ref": "#/$defs/ExchangeOnline:RoleGroupMember/RoleGroupMember"
-    },
-    {
       "$ref": "#/$defs/ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy"
     },
     {
@@ -3551,59 +3545,6 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy"
-    },
-    "ExchangeOnline:RoleGroup/RoleGroup": {
-      "type": "object",
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "Roles": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "BypassSecurityGroupManagerCheck": {
-          "type": "boolean"
-        },
-        "CustomRecipientWriteScope": {
-          "type": "string"
-        },
-        "Description": {
-          "type": "string"
-        },
-        "DisplayName": {
-          "type": "string"
-        },
-        "ManagedBy": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "WellKnownObject": {
-          "type": "string"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/ExchangeOnline:RoleGroup/RoleGroup"
-    },
-    "ExchangeOnline:RoleGroupMember/RoleGroupMember": {
-      "type": "object",
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "RoleGroup": {
-          "type": "string"
-        },
-        "BypassSecurityGroupManagerCheck": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/ExchangeOnline:RoleGroupMember/RoleGroupMember"
     },
     "ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy": {
       "type": "object",

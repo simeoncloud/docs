@@ -424,22 +424,6 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default Role Assignment Policy$).)+$"
   },
   {
-    "namespace": "ExchangeOnline:RoleGroup",
-    "description": "Office 365 > Exchange > Role Groups",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-rolegroup?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Address Lists Management$|^Organization Management$|^Recipient Management$|^View-Only Organization Management|^Help Desk|^Records Management$|^Discovery Management$|^Hygiene Management|^Compliance Management|^Security Reader$|^Security Administrator|^Security Operator$|^RIM-MailboxAdmins|^ComplianceAdmins|^CLBAccessApprovers|^HelpdeskAdmins|^GlobalReaders|^ExchangeServiceAdmins|^SecurityReaders|^SecurityAdmins|^TenantAdmins).)+$"
-  },
-  {
-    "namespace": "ExchangeOnline:RoleGroupMember",
-    "description": "Office 365 > Exchange > Role Groups > Members",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-rolegroup?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "ExchangeOnline:SafeAttachmentPolicy",
     "description": "Office 365 > Security & Compliance > Threat management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
