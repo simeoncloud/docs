@@ -1,3 +1,13 @@
+## Getting access to Simeon
+
+If you don't yet have a Simeon instance and you want to start a Simeon trial, please go to [Simeoncloud.com](https://www.simeoncloud.com/) to request a demo. If you decide to do a trial after the demo or if you purchased a subscription with us, you will be able to book an onboarding meeting with one of our engineers who will create your Simeon instance for you (no need to create an Azure DevOps organization yourself unless you want to provide your own). You will be given access to your Simeon instance during your onboarding meeting.
+
+Please follow these instructions before your onboarding:
+- Ensure a user with admin access is available to grant admin consent to the Simeon Cloud Web Admin service principal. This is necessary to sign into the Simeon app.
+- Prepare an Azure AD tenant to be used to manage your **baseline**, or you can create a new, empty Azure AD tenant. Please follow the instructions here. We recommend purchasing at least a **Microsoft 365 F3** and **Azure Entra ID P2 licenses** (not trial licenses as trial licenses can result in errors with the software).
+  - These licenses are needed if you want to deploy and test the Simeon Baseline configurations in your baseline tenant. Generally, Simeon will work with any license SKU.
+- Come prepared with any **additional test/dev** or other tenants to install in association with the baseline tenant.
+
 ## Create a new tenant to manage your baseline
 
 - [Create a new, empty Azure AD from the Azure Admin Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)
@@ -178,10 +188,8 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 ## Change which users receive the daily Summary Email
 
-* Navigate to [DevOps](https://dev.azure.com/)
-  * **Tenants** > **Pipelines** > select the **SummaryEmail** pipeline > click **Edit** in the top right > click **Variables** in the top right.
-  * To add or change users: Edit **SendSummaryEmailToAddresses** > enter the desired emails separated by a semicolon ';' (no spaces between the email addresses).
-  * To exclude users: Edit **ExcludeUsersFromSummaryEmail** > enter the desired emails separated by a semicolon ';' (no spaces between the email addresses).
+* From the [Simeon portal](https://app.simeoncloud.com/)
+  * **User Icon** > **Settings** > select the setting **SummaryEmailToAddresses** > Enter the desired emails separated by a semicolon ';' (no spaces between the email addresses)
 
 ## Change user used for delegated authentication
 
