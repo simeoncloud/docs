@@ -419,6 +419,9 @@
         "DesignatedPresenterRoleMode": {
           "type": "string"
         },
+        "EnableAnonymousUserCaptcha": {
+          "type": "boolean"
+        },
         "EnrollUserOverride": {
           "type": "string"
         },
@@ -462,6 +465,9 @@
           "type": "string"
         },
         "ScreenSharingMode": {
+          "type": "string"
+        },
+        "SmsNotifications": {
           "type": "string"
         },
         "SpeakerAttributionMode": {
