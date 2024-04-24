@@ -155,8 +155,6 @@
     - Partner Applications
     - PolicyTipConfig
     - Role Assignment Policies
-    - Role Groups
-      - Members
     - SharingPolicies
     - Transport Config
     - TransportRules
