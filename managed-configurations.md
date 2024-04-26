@@ -1,165 +1,165 @@
 - Azure
-  - Privileged Identity Management
+  - Privileged identity management
     - Azure AD roles
       - Access reviews
       - Assignments
-    - Policies and Rules
+    - Policies and rules
       - Rules
   - Resource groups
 - Azure AD
-  - Administrative Units
+  - Administrative units
     - Members
   - App registrations
     - Secrets
     - Token lifetime policies
   - Authorization policies
-  - Conditional Access
+  - Conditional access
     - Terms of use
-  - Custom Security Attributes
-    - Allowed Values
+  - Custom security attributes
+    - Allowed values
   - Device settings
   - Devices
-    - Enterprise State Roaming
+    - Enterprise state roaming
   - Directory settings
   - Enterprise applications
     - Claims mapping policies
     - Token lifetime policies
     - User settings
-  - External Collaboration Settings
-  - External Identities
+  - External collaboration settings
+  - External identities
     - Cross-tenant access settings
       - Default settings
       - Microsoft cloud settings
       - Organizational settings
-        - Identity Synchronization
+        - Identity synchronization
   - External user guest settings
-  - Feature Rollout
+  - Feature rollout
     - Applies to
   - Group settings
   - Groups
     - Expiration
     - Members
     - Owners
-  - Identity Governance
-    - Connected Organizations
-      - External Sponsors
-      - Internal Sponsors
+  - Identity governance
+    - Connected organizations
+      - External sponsors
+      - Internal sponsors
   - Licenses
     - All products
   - Mobility (MDM and MAM)
-  - Organization (Company Branding)
+  - Organization (company branding)
     - Branding
       - Localizations
   - Password reset
-    - On-Premises integration
-  - Roles and Administrators
+    - On-premises integration
+  - Roles and administrators
   - Security
-    - Conditional Access
-      - Authentication Contexts
-      - Authentication Strengths
+    - Conditional access
+      - Authentication contexts
+      - Authentication strengths
       - Named locations
       - Policies
-    - Identity Protection
+    - Identity protection
       - Users at risk detected alerts
   - User settings
   - Users
-    - User Settings
-      - External Users
+    - User settings
+      - External users
 - Intune
   - Apps
     - App configuration policies
-    - App protection policies (Platform = Android)
-    - App protection policies (Platform = iOS/iPadOS)
-    - App protection policies (Platform = Windows 10)
+    - App protection policies (platform = android)
+    - App protection policies (platform = iOS/iPadOS)
+    - App protection policies (platform = windows 10)
   - Devices
     - Compliance policies
       - Compliance policy settings
       - Notifications
-        - Localized Notification Messages
+        - Localized notification messages
     - Configuration profiles
       - Assignments
-    - Configuration profiles (Import ADMX)
-    - Configuration profiles (Profile Type = Administrative Templates)
+    - Configuration profiles (import ADMX)
+    - Configuration profiles (profile type = administrative templates)
       - Assignments
-      - Definition Values
-    - Configuration profiles (Settings Catalog)
+      - Definition values
+    - Configuration profiles (settings catalog)
     - Enrollment restrictions
-    - Feature updates for Windows 10 and later
-    - Quality updates for Windows 10 and later
+    - Feature updates for windows 10 and later
+    - Quality updates for windows 10 and later
     - Scripts
-    - Windows Autopilot deployment profiles
+    - Windows autopilot deployment profiles
       - Assignments
   - Endpoint security
     - Firewall
-      - Reusable Settings
+      - Reusable settings
     - Security baselines
     - Settings
-  - Policy Sets
+  - Policy sets
   - Reports
     - Endpoint analytics
-      - Proactive Remediations
+      - Proactive remediations
   - Tenant administration
     - Filters
     - Roles
-      - Scope Tags
+      - Scope tags
         - Assignments
-- M365 Admin Center
+- M365 admin center
   - Domains
   - Settings
-    - Org Settings
-      - Security & Privacy
-        - Idle Session Timeout
+    - Org settings
+      - Security & privacy
+        - Idle session timeout
       - Services
-        - Microsoft Viva Insights (formerly MyAnalytics)
+        - Microsoft viva insights (formerly MyAnalytics)
 - Office 365
   - Exchange
-    - AddressBookPolicy
-    - AddressList
-    - AdminAuditLogConfig
+    - Address book policy
+    - Address list
+    - Admin audit log config
     - Availability address spaces
     - Availability config
     - CAS mailbox plan
     - Client access rules
-    - Distribution Groups
+    - Distribution groups
       - Members
     - DomainKeys identified mail signing config
-    - Dynamic Distribution Groups
+    - Dynamic distribution groups
     - Email address policies
-    - GlobalAddressList
+    - Global address list
     - Inbound connectors
-    - IntraOrganizationConnectors
-    - Journal Rules
+    - Intra organization connectors
+    - Journal rules
     - Mail flow
-      - Accepted Domains
-      - Remote Domains
+      - Accepted domains
+      - Remote domains
     - Mailboxes
       - Permissions
     - MailboxPlans
-    - MalwareFilterPolicies
+    - Malware filter policies
       - Rules
     - Mobile device access
-      - Device Access Rules
-    - MobileDeviceMailboxPolicies
+      - Device access rules
+    - Mobile device mailbox policies
     - Modern authentication
-    - OfflineAddressBook
-    - On-Premises Organizations
-    - Organization Relationship
-    - OrganizationConfig
+    - Offline address book
+    - On-premises organizations
+    - Organization config
+    - Organization relationship
     - Outbound connectors
-    - Outlook Web App policies
-    - Partner Applications
-    - PolicyTipConfig
-    - Role Assignment Policies
-    - SharingPolicies
-    - Transport Config
-    - TransportRules
-  - Security & Compliance
+    - Outlook web app policies
+    - Partner applications
+    - Policy tip config
+    - Role assignment policies
+    - Sharing policies
+    - Transpor rules
+    - Transport config
+  - Security & compliance
     - Adaptive scopes
     - Audit configuration policy
     - Case hold policies
       - Rules
     - Compliance cases
-    - ComplianceTags
+    - Compliance tags
     - DLP compliance policies
       - Rules
     - DLP sensitive information types
@@ -175,22 +175,22 @@
     - Hosted outbound spam filter policies
       - Rules
     - Information governance
-      - Compliance Retention Event Types
+      - Compliance retention event types
       - Retention
         - Rules
-    - Label Policy
+    - Label policy
     - Labels
-    - ProtectionAlerts
+    - Protection alerts
     - Threat management
       - Policy
-        - ATP Anti-Phishing
+        - ATP anti-phishing
           - Rules
-        - ATP Safe Attachments
+        - ATP safe attachments
           - Rules
-        - ATP Safe Links
+        - ATP safe links
           - Rules
-        - Global Settings
-        - Quarantine Policies
+        - Global settings
+        - Quarantine policies
   - Teams
     - Apps
       - Permission policies
@@ -201,14 +201,14 @@
     - Messaging policies
     - Org-wide settings
       - Teams settings
-    - Update Management policies
+    - Update management policies
     - Users
       - External access
     - Voice
       - Calling policies
 - SharePoint
   - Settings
-- SharePoint Admin Center
-  - Settings and Policies
+- SharePoint admin center
+  - Settings and policies
   - Sites
 
