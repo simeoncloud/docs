@@ -2097,7 +2097,7 @@
         "Deny": {
           "type": "boolean"
         },
-        "Identity": {
+        "Mailbox": {
           "type": "string"
         },
         "Owner": {
