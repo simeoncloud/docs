@@ -1,0 +1,18 @@
+{
+  "anyOf": [
+    {
+      "$ref": "#/$defs/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
+    }
+  ],
+  "$defs": {
+    "Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting": {
+      "type": "object",
+      "properties": {
+        "IsOptIn": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
+    }
+  }
+}

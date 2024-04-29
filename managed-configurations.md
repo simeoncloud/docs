@@ -65,6 +65,11 @@
   - Users
     - User Settings
       - External Users
+- Defender
+  - Settings
+    - Microsoft Defender XDR
+      - Account
+        - Preview Features
 - Intune
   - Apps
     - App configuration policies
