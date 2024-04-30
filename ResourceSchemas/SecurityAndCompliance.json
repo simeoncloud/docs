@@ -1415,9 +1415,6 @@
         "Comment": {
           "type": "string"
         },
-        "DeletedResources": {
-          "type": "string"
-        },
         "Enabled": {
           "type": "boolean"
         },
