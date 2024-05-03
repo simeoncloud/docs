@@ -26,6 +26,7 @@
     - Token Lifetime Policies
     - User Settings
   - External Collaboration Settings
+    - Authentication Method Configurations
   - External Identities
     - Cross-tenant Access Settings
       - Default Settings
