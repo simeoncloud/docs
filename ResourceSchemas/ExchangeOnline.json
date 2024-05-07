@@ -2097,7 +2097,7 @@
         "Deny": {
           "type": "boolean"
         },
-        "Identity": {
+        "Mailbox": {
           "type": "string"
         },
         "Owner": {
@@ -3062,6 +3062,9 @@
         },
         "BookingsMailboxDomain": {
           "type": "string"
+        },
+        "CalendarEnabled": {
+          "type": "boolean"
         },
         "ChangeSettingsAccountEnabled": {
           "type": "boolean"

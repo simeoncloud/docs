@@ -1,41 +1,41 @@
 - Azure
   - Privileged Identity Management
-    - Azure AD roles
-      - Access reviews
+    - Azure AD Roles
+      - Access Reviews
       - Assignments
     - Policies and Rules
       - Rules
-  - Resource groups
+  - Resource Groups
 - Azure AD
   - Administrative Units
     - Members
-  - App registrations
+  - App Registrations
     - Secrets
-    - Token lifetime policies
-  - Authorization policies
+    - Token Lifetime Policies
+  - Authorization Policies
   - Conditional Access
-    - Terms of use
+    - Terms of Use
   - Custom Security Attributes
     - Allowed Values
-  - Device settings
+  - Device Settings
   - Devices
     - Enterprise State Roaming
-  - Directory settings
-  - Enterprise applications
-    - Claims mapping policies
-    - Token lifetime policies
-    - User settings
+  - Directory Settings
+  - Enterprise Applications
+    - Claims Mapping Policies
+    - Token Lifetime Policies
+    - User Settings
   - External Collaboration Settings
   - External Identities
-    - Cross-tenant access settings
-      - Default settings
-      - Microsoft cloud settings
-      - Organizational settings
+    - Cross-tenant Access Settings
+      - Default Settings
+      - Microsoft Cloud Settings
+      - Organizational Settings
         - Identity Synchronization
-  - External user guest settings
+  - External User Guest Settings
   - Feature Rollout
     - Applies to
-  - Group settings
+  - Group Settings
   - Groups
     - Expiration
     - Members
@@ -45,60 +45,65 @@
       - External Sponsors
       - Internal Sponsors
   - Licenses
-    - All products
+    - All Products
   - Mobility (MDM and MAM)
   - Organization (Company Branding)
     - Branding
       - Localizations
-  - Password reset
-    - On-Premises integration
+  - Password Reset
+    - On-premises Integration
   - Roles and Administrators
   - Security
     - Conditional Access
       - Authentication Contexts
       - Authentication Strengths
-      - Named locations
+      - Named Locations
       - Policies
     - Identity Protection
-      - Users at risk detected alerts
-  - User settings
+      - Users at Risk Detected Alerts
+  - User Settings
   - Users
     - User Settings
       - External Users
+- Defender
+  - Settings
+    - Microsoft Defender XDR
+      - Account
+        - Preview Features
 - Intune
   - Apps
-    - App configuration policies
-    - App protection policies (Platform = Android)
-    - App protection policies (Platform = iOS/iPadOS)
-    - App protection policies (Platform = Windows 10)
+    - App Configuration Policies
+    - App Protection Policies (Platform = Android)
+    - App Protection Policies (Platform = iOS/iPadOS)
+    - App Protection Policies (Platform = Windows 10)
   - Devices
-    - Compliance policies
-      - Compliance policy settings
+    - Compliance Policies
+      - Compliance Policy Settings
       - Notifications
         - Localized Notification Messages
-    - Configuration profiles
+    - Configuration Profiles
       - Assignments
-    - Configuration profiles (Import ADMX)
-    - Configuration profiles (Profile Type = Administrative Templates)
+    - Configuration Profiles (Import ADMX)
+    - Configuration Profiles (Profile Type = Administrative Templates)
       - Assignments
       - Definition Values
-    - Configuration profiles (Settings Catalog)
-    - Enrollment restrictions
-    - Feature updates for Windows 10 and later
-    - Quality updates for Windows 10 and later
+    - Configuration Profiles (Settings Catalog)
+    - Enrollment Restrictions
+    - Feature Updates for Windows 10 and Later
+    - Quality Updates for Windows 10 and Later
     - Scripts
-    - Windows Autopilot deployment profiles
+    - Windows Autopilot Deployment Profiles
       - Assignments
-  - Endpoint security
+  - Endpoint Security
     - Firewall
       - Reusable Settings
-    - Security baselines
+    - Security Baselines
     - Settings
   - Policy Sets
   - Reports
-    - Endpoint analytics
+    - Endpoint Analytics
       - Proactive Remediations
-  - Tenant administration
+  - Tenant Administration
     - Filters
     - Roles
       - Scope Tags
@@ -110,80 +115,80 @@
       - Security & Privacy
         - Idle Session Timeout
       - Services
-        - Microsoft Viva Insights (formerly MyAnalytics)
+        - Microsoft Viva Insights (Formerly MyAnalytics)
 - Office 365
   - Exchange
-    - AddressBookPolicy
-    - AddressList
-    - AdminAuditLogConfig
-    - Availability address spaces
-    - Availability config
-    - CAS mailbox plan
-    - Client access rules
+    - Address Book Policy
+    - Address List
+    - Admin Audit Log Config
+    - Availability Address Spaces
+    - Availability Config
+    - CAS Mailbox Plan
+    - Client Access Rules
     - Distribution Groups
       - Members
-    - DomainKeys identified mail signing config
+    - DomainKeys Identified Mail Signing Config
     - Dynamic Distribution Groups
-    - Email address policies
-    - GlobalAddressList
-    - Inbound connectors
-    - IntraOrganizationConnectors
+    - Email Address Policies
+    - Global Address List
+    - Inbound Connectors
+    - Intra Organization Connectors
     - Journal Rules
-    - Mail flow
+    - Mail Flow
       - Accepted Domains
       - Remote Domains
+    - Mailbox Plans
     - Mailboxes
       - Permissions
-    - MailboxPlans
-    - MalwareFilterPolicies
+    - Malware Filter Policies
       - Rules
-    - Mobile device access
+    - Mobile Device Access
       - Device Access Rules
-    - MobileDeviceMailboxPolicies
-    - Modern authentication
-    - OfflineAddressBook
-    - On-Premises Organizations
+    - Mobile Device Mailbox Policies
+    - Modern Authentication
+    - Offline Address Book
+    - On-premises Organizations
+    - Organization Config
     - Organization Relationship
-    - OrganizationConfig
-    - Outbound connectors
-    - Outlook Web App policies
+    - Outbound Connectors
+    - Outlook Web App Policies
     - Partner Applications
-    - PolicyTipConfig
+    - Policy Tip Config
     - Role Assignment Policies
-    - SharingPolicies
+    - Sharing Policies
     - Transport Config
-    - TransportRules
+    - Transport Rules
   - Security & Compliance
-    - Adaptive scopes
-    - Audit configuration policy
-    - Case hold policies
+    - Adaptive Scopes
+    - Audit Configuration Policy
+    - Case Hold Policies
       - Rules
-    - Compliance cases
-    - ComplianceTags
-    - DLP compliance policies
+    - Compliance Cases
+    - Compliance Tags
+    - DLP Compliance Policies
       - Rules
-    - DLP sensitive information types
-    - File plan property authorities
-    - File plan property categories
-    - File plan property citations
-    - File plan property departments
-    - File plan property reference ids
-    - File plan property reference sub categories
-    - Hosted connection filter policies
-    - Hosted content filter policies
+    - DLP Sensitive Information Types
+    - File Plan Property Authorities
+    - File Plan Property Categories
+    - File Plan Property Citations
+    - File Plan Property Departments
+    - File Plan Property Reference Ids
+    - File Plan Property Reference Sub Categories
+    - Hosted Connection Filter Policies
+    - Hosted Content Filter Policies
       - Rules
-    - Hosted outbound spam filter policies
+    - Hosted Outbound Spam Filter Policies
       - Rules
-    - Information governance
+    - Information Governance
       - Compliance Retention Event Types
       - Retention
         - Rules
     - Label Policy
     - Labels
-    - ProtectionAlerts
-    - Threat management
+    - Protection Alerts
+    - Threat Management
       - Policy
-        - ATP Anti-Phishing
+        - ATP Anti-phishing
           - Rules
         - ATP Safe Attachments
           - Rules
@@ -193,19 +198,19 @@
         - Quarantine Policies
   - Teams
     - Apps
-      - Permission policies
+      - Permission Policies
     - Meetings
-      - Live event policies
-      - Meeting policies
-      - Meeting settings
-    - Messaging policies
-    - Org-wide settings
-      - Teams settings
-    - Update Management policies
+      - Live Event Policies
+      - Meeting Policies
+      - Meeting Settings
+    - Messaging Policies
+    - Org-wide Settings
+      - Teams Settings
+    - Update Management Policies
     - Users
-      - External access
+      - External Access
     - Voice
-      - Calling policies
+      - Calling Policies
 - SharePoint
   - Settings
 - SharePoint Admin Center
