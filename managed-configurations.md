@@ -68,6 +68,10 @@
     - User Settings
       - External Users
 - Defender
+  - Hunting
+    - Advanced Hunting
+      - Queries
+        - Shared Queries
   - Settings
     - Microsoft Defender XDR
       - Account
