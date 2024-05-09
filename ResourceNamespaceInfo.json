@@ -72,6 +72,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "Defender:HuntingService:Queries",
+    "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
+    "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "Defender:Settings:PreviewExperienceSetting",
     "description": "Defender > Settings > Microsoft Defender XDR > Account > Preview Features",
     "url": "https://security.microsoft.com/securitysettings/defender/mtp_consent?tid=${ResourceContext:TenantId}",
@@ -1003,6 +1011,14 @@
     "namespace": "MSGraph:Organization:Branding:Localizations",
     "description": "Azure AD > Organization (Company Branding) > Branding > Localizations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:Organization:CertificateBasedAuthConfiguration",
+    "description": "Azure AD > Organization > Certificate-based Authentication",
+    "url": "https://entra.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/SecurityMenuBlade/~/CertificateAuthorities/menuId/SecurityCenter/fromNav/Identity",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"

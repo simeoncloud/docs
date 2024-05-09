@@ -1,10 +1,28 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/Defender:HuntingService:Queries/Query"
+    },
+    {
       "$ref": "#/$defs/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
     }
   ],
   "$defs": {
+    "Defender:HuntingService:Queries/Query": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "QueryText": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:HuntingService:Queries/Query"
+    },
     "Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting": {
       "type": "object",
       "properties": {

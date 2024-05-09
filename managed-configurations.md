@@ -52,6 +52,8 @@
   - Organization (Company Branding)
     - Branding
       - Localizations
+  - Organization
+    - Certificate-based Authentication
   - Password Reset
     - On-premises Integration
   - Roles and Administrators
@@ -68,6 +70,10 @@
     - User Settings
       - External Users
 - Defender
+  - Hunting
+    - Advanced Hunting
+      - Queries
+        - Shared Queries
   - Settings
     - Microsoft Defender XDR
       - Account
