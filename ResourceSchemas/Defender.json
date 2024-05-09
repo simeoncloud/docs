@@ -1,6 +1,9 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/Defender:HuntingService:Queries/Query"
+    },
+    {
       "$ref": "#/$defs/Defender:Settings:ActionNotificationSettings/ActionNotificationSetting"
     },
     {
@@ -14,6 +17,21 @@
     }
   ],
   "$defs": {
+    "Defender:HuntingService:Queries/Query": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "QueryText": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:HuntingService:Queries/Query"
+    },
     "Defender:Settings:ActionNotificationSettings/ActionNotificationSetting": {
       "type": "object",
       "properties": {

@@ -23,6 +23,7 @@
   - Directory Settings
   - Enterprise Applications
     - Claims Mapping Policies
+    - Home Realm Discovery Policies
     - Token Lifetime Policies
     - User Settings
   - External Collaboration Settings
@@ -40,6 +41,7 @@
     - Expiration
     - Members
     - Owners
+  - Home Realm Discovery Policies
   - Identity Governance
     - Connected Organizations
       - External Sponsors
@@ -66,6 +68,10 @@
     - User Settings
       - External Users
 - Defender
+  - Hunting
+    - Advanced Hunting
+      - Queries
+        - Shared Queries
   - Settings
     - Microsoft Defender XDR
       - Account
