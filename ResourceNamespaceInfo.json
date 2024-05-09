@@ -72,14 +72,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "Defender:HuntingService:Queries",
-    "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
-    "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "Defender:Settings:PreviewExperienceSetting",
     "description": "Defender > Settings > Microsoft Defender XDR > Account > Preview Features",
     "url": "https://security.microsoft.com/securitysettings/defender/mtp_consent?tid=${ResourceContext:TenantId}",
