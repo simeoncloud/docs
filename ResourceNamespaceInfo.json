@@ -1056,8 +1056,16 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy",
     "description": "Azure AD > External Collaboration Settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
+    "description": "Azure AD > External Collaboration Settings > Authentication Method Configurations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
