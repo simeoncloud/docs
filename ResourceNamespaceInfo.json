@@ -1016,14 +1016,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "MSGraph:Organization:CertificateBasedAuthConfiguration",
-    "description": "Azure AD > Organization > Certificate-based Authentication",
-    "url": "https://entra.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/SecurityMenuBlade/~/CertificateAuthorities/menuId/SecurityCenter/fromNav/Identity",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
     "namespace": "MSGraph:Policies:AuthenticationFlowsPolicy",
     "description": "Azure AD > Users > User Settings > External Users",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
