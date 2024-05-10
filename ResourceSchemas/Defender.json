@@ -1,10 +1,135 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/Defender:HuntingService:Queries/Query"
+    },
+    {
+      "$ref": "#/$defs/Defender:Settings:ActionNotificationSettings/ActionNotificationSetting"
+    },
+    {
+      "$ref": "#/$defs/Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting"
+    },
+    {
       "$ref": "#/$defs/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
+    },
+    {
+      "$ref": "#/$defs/Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting"
     }
   ],
   "$defs": {
+    "Defender:HuntingService:Queries/Query": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "QueryText": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:HuntingService:Queries/Query"
+    },
+    "Defender:Settings:ActionNotificationSettings/ActionNotificationSetting": {
+      "type": "object",
+      "properties": {
+        "ActionAutomationType": {
+          "$ref": "#/$defs/arrayOfInteger"
+        },
+        "ActionStatus": {
+          "$ref": "#/$defs/arrayOfInteger"
+        },
+        "ActionType": {
+          "$ref": "#/$defs/arrayOfInteger"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Recipients": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$defs": {
+        "arrayOfInteger": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:Settings:ActionNotificationSettings/ActionNotificationSetting"
+    },
+    "Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting": {
+      "type": "object",
+      "properties": {
+        "AlertSeverities": {
+          "type": "integer"
+        },
+        "AllRbacGroups": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "FormatOptions": {
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Recipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "integer"
+              },
+              "RuleServiceSources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "AllDetectionSources": {
+                      "type": "boolean"
+                    },
+                    "DetectionSources": {
+                      "$ref": "#/$defs/arrayOfString"
+                    },
+                    "ServiceSource": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "SendOncePerIncident": {
+          "type": "boolean"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting"
+    },
     "Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting": {
       "type": "object",
       "properties": {
@@ -13,6 +138,38 @@
         }
       },
       "$id": "https://simeoncloud.com/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
+    },
+    "Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "recipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "reportType": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "threatTags": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting"
     }
   }
 }

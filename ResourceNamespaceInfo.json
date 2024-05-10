@@ -72,12 +72,44 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "Defender:HuntingService:Queries",
+    "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
+    "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Defender:Settings:ActionNotificationSettings",
+    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions",
+    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=actions",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Defender:Settings:IncidentNotificationSettings",
+    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents",
+    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=incidents",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "Defender:Settings:PreviewExperienceSetting",
     "description": "Defender > Settings > Microsoft Defender XDR > Account > Preview Features",
     "url": "https://security.microsoft.com/securitysettings/defender/mtp_consent?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Defender:Settings:ThreatAnalyticsNotificationSettings",
+    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Threat Analytics",
+    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=threat_analytics",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "ExchangeOnline:AcceptedDomain",
@@ -1008,6 +1040,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Organization:CertificateBasedAuthConfiguration",
+    "description": "Azure AD > Organization > Certificate-based Authentication",
+    "url": "https://entra.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/SecurityMenuBlade/~/CertificateAuthorities/menuId/SecurityCenter/fromNav/Identity",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:Policies:AuthenticationFlowsPolicy",
     "description": "Azure AD > Users > User Settings > External Users",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
@@ -1104,6 +1144,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "MSGraph:Policies:HomeRealmDiscoveryPolicies",
+    "description": "Azure AD > Home Realm Discovery Policies",
+    "url": "https://docs.microsoft.com/en-us/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "MSGraph:Policies:RoleManagementPolicies",
     "description": "Azure > Privileged Identity Management > Policies and Rules",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
@@ -1165,6 +1213,14 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:ServicePrincipals:HomeRealmDiscoveryPolicies:Ref",
+    "description": "Azure AD > Enterprise Applications > Home Realm Discovery Policies",
+    "url": "https://docs.microsoft.com/en-us/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*"
   },
   {

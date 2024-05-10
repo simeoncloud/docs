@@ -23,6 +23,7 @@
   - Directory Settings
   - Enterprise Applications
     - Claims Mapping Policies
+    - Home Realm Discovery Policies
     - Token Lifetime Policies
     - User Settings
   - External Collaboration Settings
@@ -41,6 +42,7 @@
     - Expiration
     - Members
     - Owners
+  - Home Realm Discovery Policies
   - Identity Governance
     - Connected Organizations
       - External Sponsors
@@ -51,6 +53,8 @@
   - Organization (Company Branding)
     - Branding
       - Localizations
+  - Organization
+    - Certificate-based Authentication
   - Password Reset
     - On-premises Integration
   - Roles and Administrators
@@ -67,10 +71,18 @@
     - User Settings
       - External Users
 - Defender
+  - Hunting
+    - Advanced Hunting
+      - Queries
+        - Shared Queries
   - Settings
     - Microsoft Defender XDR
       - Account
         - Preview Features
+      - Email Notifications
+        - Actions
+        - Incidents
+        - Threat Analytics
 - Intune
   - Apps
     - App Configuration Policies
