@@ -52,6 +52,8 @@
   - Organization (Company Branding)
     - Branding
       - Localizations
+  - Organization
+    - Certificate-based Authentication
   - Password Reset
     - On-premises Integration
   - Roles and Administrators
