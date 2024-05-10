@@ -78,6 +78,10 @@
     - Microsoft Defender XDR
       - Account
         - Preview Features
+      - Email Notifications
+        - Actions
+        - Incidents
+        - Threat Analytics
 - Intune
   - Apps
     - App Configuration Policies
