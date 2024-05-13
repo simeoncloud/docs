@@ -324,10 +324,7 @@
           "type": "boolean"
         },
         "AllowedDomainListForSyncClient": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/guid"
-          }
+          "$ref": "#/$defs/iListOfString"
         },
         "AllowEditing": {
           "type": "boolean"
@@ -820,10 +817,6 @@
         }
       },
       "$defs": {
-        "guid": {
-          "type": "string",
-          "format": "uuid"
-        },
         "iListOfString": {
           "type": "array",
           "items": {
@@ -833,7 +826,8 @@
         "arrayOfGuid": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/guid"
+            "type": "string",
+            "format": "uuid"
           }
         }
       },
