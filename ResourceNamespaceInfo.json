@@ -80,12 +80,36 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "Defender:Settings:ActionNotificationSettings",
+    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions",
+    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=actions",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "Defender:Settings:IncidentNotificationSettings",
+    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents",
+    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=incidents",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "Defender:Settings:PreviewExperienceSetting",
     "description": "Defender > Settings > Microsoft Defender XDR > Account > Preview Features",
     "url": "https://security.microsoft.com/securitysettings/defender/mtp_consent?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "Defender:Settings:ThreatAnalyticsNotificationSettings",
+    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Threat Analytics",
+    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=threat_analytics",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "namespace": "ExchangeOnline:AcceptedDomain",
@@ -1032,8 +1056,16 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy",
     "description": "Azure AD > External Collaboration Settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
+    "description": "Azure AD > External Collaboration Settings > Authentication Method Configurations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",

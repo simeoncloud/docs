@@ -27,6 +27,7 @@
     - Token Lifetime Policies
     - User Settings
   - External Collaboration Settings
+    - Authentication Method Configurations
   - External Identities
     - Cross-tenant Access Settings
       - Default Settings
@@ -78,6 +79,10 @@
     - Microsoft Defender XDR
       - Account
         - Preview Features
+      - Email Notifications
+        - Actions
+        - Incidents
+        - Threat Analytics
 - Intune
   - Apps
     - App Configuration Policies
