@@ -146,7 +146,6 @@
     - Global Address List
     - Inbound Connectors
     - Intra Organization Connectors
-    - IRM Configuration
     - Journal Rules
     - Mail Flow
       - Accepted Domains

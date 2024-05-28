@@ -797,6 +797,9 @@
         "UseFindPeopleInPeoplePicker": {
           "type": "boolean"
         },
+        "UserVoiceForFeedbackEnabled": {
+          "type": "boolean"
+        },
         "ViewersCanCommentOnMediaDisabled": {
           "type": "boolean"
         },
