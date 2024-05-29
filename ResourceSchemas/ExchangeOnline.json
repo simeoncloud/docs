@@ -3485,6 +3485,9 @@
         "ESNEnabled": {
           "type": "boolean"
         },
+        "IncludeMessagesFromBlockedSenderAddress": {
+          "type": "boolean"
+        },
         "MultiLanguageCustomDisclaimer": {
           "$ref": "#/$defs/arrayOfString"
         },

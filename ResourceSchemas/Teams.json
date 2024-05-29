@@ -564,6 +564,9 @@
         "Description": {
           "type": "string"
         },
+        "DesignerForBackgroundsAndImages": {
+          "type": "object"
+        },
         "GiphyRatingType": {
           "type": "string"
         },
