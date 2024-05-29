@@ -79,6 +79,9 @@
       "$ref": "#/$defs/ExchangeOnline:IntraOrganizationConnector/IntraOrganizationConnector"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:IRMConfiguration/IRMConfiguration"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:JournalRule/JournalRule"
     },
     {
@@ -1642,6 +1645,69 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:IntraOrganizationConnector/IntraOrganizationConnector"
+    },
+    "ExchangeOnline:IRMConfiguration/IRMConfiguration": {
+      "type": "object",
+      "properties": {
+        "ExternalLicensingEnabled": {
+          "type": "boolean"
+        },
+        "ClientAccessServerEnabled": {
+          "type": "boolean"
+        },
+        "AutomaticServiceUpdateEnabled": {
+          "type": "boolean"
+        },
+        "AzureRMSLicensingEnabled": {
+          "type": "boolean"
+        },
+        "DecryptAttachmentForEncryptOnly": {
+          "type": "boolean"
+        },
+        "EDiscoverySuperUserEnabled": {
+          "type": "boolean"
+        },
+        "EnablePdfEncryption": {
+          "type": "boolean"
+        },
+        "EnablePortalTrackingLogs": {
+          "type": "boolean"
+        },
+        "InternalLicensingEnabled": {
+          "type": "boolean"
+        },
+        "JournalReportDecryptionEnabled": {
+          "type": "boolean"
+        },
+        "LicensingLocation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RejectIfRecipientHasNoRights": {
+          "type": "boolean"
+        },
+        "RMSOnlineKeySharingLocation": {
+          "type": "object"
+        },
+        "SearchEnabled": {
+          "type": "boolean"
+        },
+        "SimplifiedClientAccessDoNotForwardDisabled": {
+          "type": "boolean"
+        },
+        "SimplifiedClientAccessEnabled": {
+          "type": "boolean"
+        },
+        "SimplifiedClientAccessEncryptOnlyDisabled": {
+          "type": "boolean"
+        },
+        "TransportDecryptionSetting": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:IRMConfiguration/IRMConfiguration"
     },
     "ExchangeOnline:JournalRule/JournalRule": {
       "type": "object",
@@ -3417,6 +3483,9 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "ESNEnabled": {
+          "type": "boolean"
+        },
+        "IncludeMessagesFromBlockedSenderAddress": {
           "type": "boolean"
         },
         "MultiLanguageCustomDisclaimer": {

@@ -320,6 +320,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "ExchangeOnline:IRMConfiguration",
+    "description": "Office 365 > Exchange > IRM Configuration",
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-irmconfiguration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "ExchangeOnline:JournalRule",
     "description": "Office 365 > Exchange > Journal Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps",
