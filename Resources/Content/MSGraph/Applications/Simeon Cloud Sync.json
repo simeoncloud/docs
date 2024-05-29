@@ -22,7 +22,11 @@
       }
     ],
     "requestedAccessTokenVersion": 1,
-    "tokenEncryptionSetting": {}
+    "tokenEncryptionSetting": {
+      "automatedTokenVersion": {
+        "available": []
+      }
+    }
   },
   "appCapabilities": [],
   "appRoles": [],
