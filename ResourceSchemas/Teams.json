@@ -33,13 +33,7 @@
       "type": "object",
       "properties": {
         "DefaultCatalogApps": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "GlobalCatalogApps": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "PrivateCatalogApps": {
-          "$ref": "#/$defs/arrayOfString"
+          "$ref": "#/$defs/arrayOfObject"
         },
         "DefaultCatalogAppsType": {
           "type": "string"
@@ -47,8 +41,14 @@
         "Description": {
           "type": "string"
         },
+        "GlobalCatalogApps": {
+          "$ref": "#/$defs/arrayOfObject"
+        },
         "GlobalCatalogAppsType": {
           "type": "string"
+        },
+        "PrivateCatalogApps": {
+          "$ref": "#/$defs/arrayOfObject"
         },
         "PrivateCatalogAppsType": {
           "type": "string"
@@ -62,10 +62,10 @@
         }
       },
       "$defs": {
-        "arrayOfString": {
+        "arrayOfObject": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object"
           }
         }
       },
