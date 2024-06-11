@@ -133,6 +133,12 @@
       "$ref": "#/$defs/ExchangeOnline:RemoteDomain/RemoteDomain"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:RetentionPolicy/RetentionPolicy"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:RetentionPolicyTag/RetentionPolicyTag"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy"
     },
     {
@@ -3596,6 +3602,83 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:RemoteDomain/RemoteDomain"
+    },
+    "ExchangeOnline:RetentionPolicy/RetentionPolicy": {
+      "type": "object",
+      "properties": {
+        "IsDefaultArbitrationMailbox": {
+          "type": "boolean"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "RetentionPolicyTagLinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:RetentionPolicy/RetentionPolicy"
+    },
+    "ExchangeOnline:RetentionPolicyTag/RetentionPolicyTag": {
+      "type": "object",
+      "properties": {
+        "AgeLimitForRetention": {
+          "type": "object"
+        },
+        "Comment": {
+          "type": "string"
+        },
+        "LegacyManagedFolder": {
+          "type": "string"
+        },
+        "LocalizedComment": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "LocalizedRetentionPolicyTagName": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Mailbox": {
+          "type": "string"
+        },
+        "MessageClass": {
+          "type": "string"
+        },
+        "MustDisplayCommentEnabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OptionalInMailbox": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RetentionAction": {
+          "type": "string"
+        },
+        "RetentionEnabled": {
+          "type": "boolean"
+        },
+        "SystemTag": {
+          "type": "boolean"
+        },
+        "Type": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:RetentionPolicyTag/RetentionPolicyTag"
     },
     "ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy": {
       "type": "object",

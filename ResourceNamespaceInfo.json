@@ -464,6 +464,22 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
+    "namespace": "ExchangeOnline:RetentionPolicy",
+    "description": "Office 365 > Exchange > Retention Policy",
+    "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicy&tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RetentionPolicyTag",
+    "description": "Office 365 > Exchange > Retention Policy Tag",
+    "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicyTag&tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "ExchangeOnline:RoleAssignmentPolicy",
     "description": "Office 365 > Exchange > Role Assignment Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles",

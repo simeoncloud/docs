@@ -168,6 +168,8 @@
     - Outlook Web App Policies
     - Partner Applications
     - Policy Tip Config
+    - Retention Policy
+    - Retention Policy Tag
     - Role Assignment Policies
     - Sharing Policies
     - Transport Config
