@@ -71,6 +71,8 @@
     - User Settings
       - External Users
 - Defender
+  - Configuration Management
+    - Device Configuration
   - Hunting
     - Advanced Hunting
       - Queries

@@ -72,6 +72,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "Defender:DevicePolicies",
+    "description": "Defender > Configuration Management > Device Configuration",
+    "url": "https://security.microsoft.com/policy-management?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "Defender:HuntingService:Queries",
     "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
     "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
