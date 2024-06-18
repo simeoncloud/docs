@@ -1050,8 +1050,14 @@
     "SecurityAndCompliance:Label/Label": {
       "type": "object",
       "properties": {
-        "AdvancedSettings": {
+        "Settings": {
           "type": "array"
+        },
+        "Conditions": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "LocaleSettings": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "ApplyContentMarkingFooterAlignment": {
           "type": "string"
@@ -1116,9 +1122,6 @@
         "Comment": {
           "type": "string"
         },
-        "Conditions": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "ContentType": {
           "type": "string"
         },
@@ -1163,9 +1166,6 @@
         },
         "EncryptionTemplateId": {
           "type": "string"
-        },
-        "LocaleSettings": {
-          "$ref": "#/$defs/arrayOfString"
         },
         "Name": {
           "type": "string"
