@@ -536,6 +536,9 @@
         "AllowBasicAuthWebServices": {
           "type": "boolean"
         },
+        "AllowLegacyExchangeTokens": {
+          "type": "boolean"
+        },
         "Name": {
           "type": "string"
         }

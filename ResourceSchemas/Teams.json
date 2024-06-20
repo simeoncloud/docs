@@ -631,6 +631,9 @@
         "BlockAllSubdomains": {
           "type": "boolean"
         },
+        "ExternalAccessWithTrialTenants": {
+          "type": "object"
+        },
         "SharedSipAddressSpace": {
           "type": "boolean"
         },
