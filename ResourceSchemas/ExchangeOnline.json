@@ -536,6 +536,9 @@
         "AllowBasicAuthWebServices": {
           "type": "boolean"
         },
+        "AllowLegacyExchangeTokens": {
+          "type": "boolean"
+        },
         "Name": {
           "type": "string"
         }
@@ -3091,9 +3094,6 @@
           "type": "string"
         },
         "ActiveSyncIntegrationEnabled": {
-          "type": "boolean"
-        },
-        "AdditionalAccountsEnabled": {
           "type": "boolean"
         },
         "AdditionalStorageProvidersAvailable": {
