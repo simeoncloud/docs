@@ -38,9 +38,6 @@
         "GlobalCatalogApps": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "PrivateCatalogApps": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "DefaultCatalogAppsType": {
           "type": "string"
         },
@@ -48,9 +45,6 @@
           "type": "string"
         },
         "GlobalCatalogAppsType": {
-          "type": "string"
-        },
-        "PrivateCatalogAppsType": {
           "type": "string"
         },
         "Tenant": {
@@ -636,6 +630,9 @@
         },
         "BlockAllSubdomains": {
           "type": "boolean"
+        },
+        "ExternalAccessWithTrialTenants": {
+          "type": "object"
         },
         "SharedSipAddressSpace": {
           "type": "boolean"
