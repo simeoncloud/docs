@@ -125,10 +125,12 @@
   - Domains
   - Settings
     - Org Settings
+      - Calendar
       - Security & Privacy
         - Idle Session Timeout
-      - Services
-        - Microsoft Viva Insights (Formerly MyAnalytics)
+    - Viva
+      - Viva Insights
+        - Manage Settings for Viva Insights
 - Office 365
   - Exchange
     - Address Book Policy
