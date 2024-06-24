@@ -666,9 +666,6 @@
         "NotificationsInSharePointEnabled": {
           "type": "boolean"
         },
-        "NotifyOwnersWhenInvitationsAccepted": {
-          "type": "boolean"
-        },
         "NotifyOwnersWhenItemsReshared": {
           "type": "boolean"
         },
