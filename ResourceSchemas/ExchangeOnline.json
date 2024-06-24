@@ -3096,9 +3096,6 @@
         "ActiveSyncIntegrationEnabled": {
           "type": "boolean"
         },
-        "AdditionalAccountsEnabled": {
-          "type": "boolean"
-        },
         "AdditionalStorageProvidersAvailable": {
           "type": "boolean"
         },
