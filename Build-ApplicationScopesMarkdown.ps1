@@ -79,6 +79,7 @@ foreach ($requiredResource in $requiredResources)
             id = $resource.id
             application = $servicePrincipal.displayName
             type = $resource.type
+            target = ""
             value = ""
             description = ""
         }
@@ -87,12 +88,14 @@ foreach ($requiredResource in $requiredResources)
             $query = $servicePrincipal.appRoles | where { $_.id -eq $resource.id }
             $resourceDescription.description = $query[0].displayName
             $resourceDescription.value = $query[0].value
+            $resourceDescription.target = "Application scope"
         }
         else
         {
             $query = $servicePrincipal.publishedPermissionScopes | where { $_.id -eq $resource.id }
             $resourceDescription.description = $query[0].userConsentDisplayName
             $resourceDescription.value = $query[0].value
+            $resourceDescription.target = "Delegated scope"
         }
         $resourceDescriptions += $resourceDescription
     }
@@ -111,7 +114,7 @@ foreach ($application in $applications)
     {
         $script:indent += 2
         $sb.Append("".PadLeft($script:indent) + "- ") | Out-Null
-        $sb.AppendLine("$( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))") | Out-Null
+        $sb.AppendLine("$($applicationRespourceDescription.target) - $( $applicationRespourceDescription.value ) ($( $applicationRespourceDescription.description ))") | Out-Null
         $script:indent -= 2
 
         if ($applicationRespourceDescription.type -eq "Scope")
