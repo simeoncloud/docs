@@ -88,17 +88,9 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "Defender:Settings:IncidentNotificationSettings",
-    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents",
-    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=incidents",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "Defender:Settings:PreviewExperienceSetting",
-    "description": "Defender > Settings > Microsoft Defender XDR > Account > Preview Features",
-    "url": "https://security.microsoft.com/securitysettings/defender/mtp_consent?tid=${ResourceContext:TenantId}",
+    "namespace": "MicrosoftOffice365Portal:Services:Apps:VivaInsights",
+    "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (formerly MyAnalitics)",
+    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"
@@ -120,9 +112,17 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
-    "namespace": "ExchangeOnline:ActiveSyncDeviceAccessRule",
-    "description": "Office 365 > Exchange > Mobile Device Access > Device Access Rules",
-    "url": null,
+    "namespace": "MSGraph:AdministrativeUnits",
+    "description": "Azure AD > Administrative Units",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "MSGraph:Agreements",
+    "description": "Azure AD > Conditional Access > Terms of use",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/~/TermsOfUse",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -248,20 +248,12 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "ExchangeOnline:EmailAddressPolicy",
-    "description": "Office 365 > Exchange > Email Address Policies",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "^(?:(?!^Default Policy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Policy$).)+$"
-  },
-  {
-    "namespace": "ExchangeOnline:GlobalAddressList",
-    "description": "Office 365 > Exchange > Global Address List",
-    "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list",
-    "isCreateSupportedFilter": ".*",
+    "namespace": "MSGraph:DeviceAppManagement:MobileApps",
+    "description": "Intune > Apps",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
+    "isCreateSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp - |^windowsUniversalAppX - |^androidLobApp - |^iosVppApp - |^macOsVppApp - |^managedAndroidLobApp - |^macOSPkgApp - |^iosiPadOSWebClip - |^managedIOSStoreApp - ).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Global Address List$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^androidManagedStoreApp - |^androidStoreApp - |^iosStoreApp - |^microsoftStoreForBusinessApp - |^managedAndroidStoreApp - |^windowsUniversalAppX - |^androidLobApp - |^iosVppApp - |^macOsVppApp - |^managedAndroidLobApp - |^macOSPkgApp - |^iosiPadOSWebClip - |^managedIOSStoreApp - ).)+$"
   },
   {
     "namespace": "ExchangeOnline:HostedConnectionFilterPolicy",
@@ -1520,16 +1512,16 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$"
   },
   {
-    "namespace": "Teams:CsTeamsUpdateManagementPolicy",
-    "description": "Office 365 > Teams > Update Management Policies",
-    "url": null,
+    "namespace": "TeamsApi:TeamsUpdateManagementPolicies",
+    "description": "Office 365 > Teams > Teams update policies",
+    "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$"
+    "isDeleteSupportedFilter": "^(?:(?!^Global$|^Default$).)+$"
   },
   {
-    "namespace": "Teams:CsTenantFederationConfiguration",
-    "description": "Office 365 > Teams > Users > External Access",
+    "namespace": "TeamsApi:TenantFederationSettings",
+    "description": "Office 365 > Teams > Users > External access",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
