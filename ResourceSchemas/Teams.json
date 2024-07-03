@@ -413,6 +413,9 @@
         "DesignatedPresenterRoleMode": {
           "type": "string"
         },
+        "EnableAnonymousUserCaptcha": {
+          "type": "boolean"
+        },
         "EnrollUserOverride": {
           "type": "string"
         },

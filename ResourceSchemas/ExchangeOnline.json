@@ -319,9 +319,6 @@
     "ExchangeOnline:AntiPhishPolicy/AntiPhishPolicy": {
       "type": "object",
       "properties": {
-        "TargetedDomainsToProtect": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "AdminDisplayName": {
           "type": "string"
         },
@@ -411,6 +408,9 @@
         },
         "TargetedDomainQuarantineTag": {
           "type": "string"
+        },
+        "TargetedDomainsToProtect": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "TargetedUserActionRecipients": {
           "$ref": "#/$defs/arrayOfString"

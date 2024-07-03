@@ -598,9 +598,6 @@
         "EnforcePortalAccess": {
           "type": "boolean"
         },
-        "EvaluateRulePerComponent": {
-          "type": "boolean"
-        },
         "ExceptIfAccessScope": {
           "type": "string"
         },
