@@ -320,9 +320,6 @@
         "AllowCommentsTextOnEmailEnabled": {
           "type": "boolean"
         },
-        "AllowDownloadingNonWebViewableFiles": {
-          "type": "boolean"
-        },
         "AllowedDomainListForSyncClient": {
           "$ref": "#/$defs/iListOfString"
         },
@@ -631,13 +628,6 @@
         },
         "LegacyAuthProtocolsEnabled": {
           "type": "boolean"
-        },
-        "LimitedAccessFileType": {
-          "enum": [
-            "OfficeOnlineFilesOnly",
-            "WebPreviewableFiles",
-            "OtherFiles"
-          ]
         },
         "MachineLearningCaptureEnabled": {
           "type": "boolean"
