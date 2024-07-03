@@ -8,8 +8,8 @@
   - Resource Groups
 - Azure AD
   - Administrative Units
-  - App registrations
-    - API
+    - Members
+  - App Registrations
     - Secrets
     - Token Lifetime Policies
   - Authorization Policies
@@ -128,7 +128,7 @@
       - Security & Privacy
         - Idle Session Timeout
       - Services
-        - Microsoft Viva Insights (formerly MyAnalitics)
+        - Microsoft Viva Insights (Formerly MyAnalytics)
 - Office 365
   - Exchange
     - Address Book Policy
@@ -214,13 +214,13 @@
     - Apps
       - Permission Policies
     - Meetings
-      - Live event policies
-      - Meeting policies
-      - Meeting settings
-    - Messaging policies
-    - Org-wide settings
-      - Teams settings
-    - Teams update policies
+      - Live Event Policies
+      - Meeting Policies
+      - Meeting Settings
+    - Messaging Policies
+    - Org-wide Settings
+      - Teams Settings
+    - Update Management Policies
     - Users
       - External Access
     - Voice
