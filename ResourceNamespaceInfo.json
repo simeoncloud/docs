@@ -985,7 +985,7 @@
   },
   {
     "namespace": "MSGraph:IdentityGovernance:AccessReviews:Definitions",
-    "description": "Entra ID > Privileged Identity Management > Azure AD Roles > Access Reviews",
+    "description": "Entra ID > Privileged Identity Management > Entra Roles > Access Reviews",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/AccessReviews/resourceId//resourceType/tenant/provider/aadroles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -1193,7 +1193,7 @@
   },
   {
     "namespace": "MSGraph:RoleManagement:Directory:RoleAssignmentSchedules",
-    "description": "Entra ID > Privileged Identity Management > Azure AD Roles > Assignments",
+    "description": "Entra ID > Privileged Identity Management > Entra Roles > Assignments",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/members/resourceId//resourceType/tenant/provider/aadroles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",

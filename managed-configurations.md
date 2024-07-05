@@ -65,7 +65,7 @@
   - Password Reset
     - On-premises Integration
   - Privileged Identity Management
-    - Azure AD Roles
+    - Entra Roles
       - Access Reviews
       - Assignments
     - Policies and Rules
