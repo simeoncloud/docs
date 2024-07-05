@@ -124,6 +124,7 @@
 - M365 Admin Center
   - Domains
   - Settings
+    - Microsoft Forms
     - Org Settings
       - Security & Privacy
         - Idle Session Timeout

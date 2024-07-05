@@ -1256,6 +1256,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "O365Portal:Settings:Apps:OfficeForms",
+    "description": "M365 Admin Center > Settings > Microsoft Forms",
+    "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/Services/:/Settings/L1/OfficeForms",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "O365Portal:Settings:Security:ActivityBasedTimeout",
     "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
