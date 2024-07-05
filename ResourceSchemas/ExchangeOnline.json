@@ -549,8 +549,7 @@
       "type": "object",
       "properties": {
         "AvailabilityConfig": {
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "AccessMethod": {
           "type": "string"
@@ -1767,8 +1766,7 @@
           "type": "object"
         },
         "TransportConfig": {
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "AcceptMessagesOnlyFrom": {
           "$ref": "#/$defs/arrayOfString"
