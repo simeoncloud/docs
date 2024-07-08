@@ -778,9 +778,6 @@
         "SyncAadB2BManagementPolicy": {
           "type": "boolean"
         },
-        "SyncPrivacyProfileProperties": {
-          "type": "boolean"
-        },
         "UseFindPeopleInPeoplePicker": {
           "type": "boolean"
         },
