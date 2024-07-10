@@ -213,7 +213,6 @@
   - Teams
     - Apps
       - Permission Policies
-      - Setup Policies
     - Meetings
       - Live Event Policies
       - Meeting Policies
