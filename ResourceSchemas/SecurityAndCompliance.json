@@ -1101,9 +1101,6 @@
         "ApplyContentMarkingHeaderText": {
           "type": "string"
         },
-        "ApplyDynamicWatermarkingEnabled": {
-          "type": "boolean"
-        },
         "ApplyWaterMarkingEnabled": {
           "type": "boolean"
         },
@@ -1132,9 +1129,6 @@
           "type": "string"
         },
         "DisplayName": {
-          "type": "string"
-        },
-        "DynamicWatermarkDisplay": {
           "type": "string"
         },
         "EncryptionAipTemplateScopes": {
