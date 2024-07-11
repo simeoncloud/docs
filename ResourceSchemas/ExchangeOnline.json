@@ -1419,6 +1419,9 @@
     "ExchangeOnline:HostedContentFilterRule/HostedContentFilterRule": {
       "type": "object",
       "properties": {
+        "State": {
+          "type": "string"
+        },
         "Comments": {
           "type": "string"
         },
@@ -1513,6 +1516,9 @@
     "ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule": {
       "type": "object",
       "properties": {
+        "State": {
+          "type": "string"
+        },
         "Comments": {
           "type": "string"
         },

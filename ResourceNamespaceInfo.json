@@ -1480,6 +1480,14 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
+    "namespace": "Teams:CsTeamsAppSetupPolicy",
+    "description": "Office 365 > Teams > Apps > Setup Policies",
+    "url": "https://admin.teams.microsoft.com/policies/app-setup?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
+  },
+  {
     "namespace": "Teams:CsTeamsCallingPolicy",
     "description": "Office 365 > Teams > Voice > Calling Policies",
     "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
