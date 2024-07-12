@@ -1,36 +1,45 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/Teams:CsTeamsAppPermissionPolicy/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsAppPermissionPolicy/CsTeamsAppPermissionPolicy"
     },
     {
-      "$ref": "#/$defs/Teams:CsTeamsCallingPolicy/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy"
     },
     {
-      "$ref": "#/$defs/Teams:CsTeamsClientConfiguration/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsCallingPolicy/CsTeamsCallingPolicy"
     },
     {
-      "$ref": "#/$defs/Teams:CsTeamsMeetingBroadcastPolicy/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsClientConfiguration/CsTeamsClientConfiguration"
     },
     {
-      "$ref": "#/$defs/Teams:CsTeamsMeetingConfiguration/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsMeetingBroadcastPolicy/CsTeamsMeetingBroadcastPolicy"
     },
     {
-      "$ref": "#/$defs/Teams:CsTeamsMeetingPolicy/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsMeetingConfiguration/CsTeamsMeetingConfiguration"
     },
     {
-      "$ref": "#/$defs/Teams:CsTeamsMessagingPolicy/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsMeetingPolicy/CsTeamsMeetingPolicy"
     },
     {
-      "$ref": "#/$defs/Teams:CsTenantFederationConfiguration/Configuration"
+      "$ref": "#/$defs/Teams:CsTeamsMessagingPolicy/CsTeamsMessagingPolicy"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTeamsUpdateManagementPolicy/Configuration"
+    },
+    {
+      "$ref": "#/$defs/Teams:CsTenantFederationConfiguration/CsTenantFederationConfiguration"
     }
   ],
   "$defs": {
-    "Teams:CsTeamsAppPermissionPolicy/Configuration": {
+    "Teams:CsTeamsAppPermissionPolicy/CsTeamsAppPermissionPolicy": {
       "type": "object",
       "properties": {
         "DefaultCatalogApps": {
-          "$ref": "#/$defs/arrayOfObject"
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "GlobalCatalogApps": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "DefaultCatalogAppsType": {
           "type": "string"
@@ -38,33 +47,56 @@
         "Description": {
           "type": "string"
         },
-        "GlobalCatalogApps": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
         "GlobalCatalogAppsType": {
           "type": "string"
         },
-        "PrivateCatalogApps": {
-          "$ref": "#/$defs/arrayOfObject"
-        },
-        "PrivateCatalogAppsType": {
+        "Identity": {
           "type": "string"
-        },
-        "Tenant": {
-          "type": "object"
         }
       },
       "$defs": {
-        "arrayOfObject": {
+        "arrayOfString": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "string"
           }
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsAppPermissionPolicy/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsAppPermissionPolicy/CsTeamsAppPermissionPolicy"
     },
-    "Teams:CsTeamsCallingPolicy/Configuration": {
+    "Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy": {
+      "type": "object",
+      "properties": {
+        "AppPresetList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "PinnedAppBarApps": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AllowSideLoading": {
+          "type": "boolean"
+        },
+        "AllowUserPinning": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Identity": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy"
+    },
+    "Teams:CsTeamsCallingPolicy/CsTeamsCallingPolicy": {
       "type": "object",
       "properties": {
         "AllowCallForwardingToPhone": {
@@ -135,11 +167,14 @@
         },
         "SpamFilteringEnabledType": {
           "type": "string"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsCallingPolicy/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsCallingPolicy/CsTeamsCallingPolicy"
     },
-    "Teams:CsTeamsClientConfiguration/Configuration": {
+    "Teams:CsTeamsClientConfiguration/CsTeamsClientConfiguration": {
       "type": "object",
       "properties": {
         "AllowBox": {
@@ -190,13 +225,13 @@
         "RestrictedSenderList": {
           "type": "string"
         },
-        "Tenant": {
-          "type": "object"
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsClientConfiguration/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsClientConfiguration/CsTeamsClientConfiguration"
     },
-    "Teams:CsTeamsMeetingBroadcastPolicy/Configuration": {
+    "Teams:CsTeamsMeetingBroadcastPolicy/CsTeamsMeetingBroadcastPolicy": {
       "type": "object",
       "properties": {
         "AllowBroadcastScheduling": {
@@ -220,11 +255,14 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingBroadcastPolicy/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingBroadcastPolicy/CsTeamsMeetingBroadcastPolicy"
     },
-    "Teams:CsTeamsMeetingConfiguration/Configuration": {
+    "Teams:CsTeamsMeetingConfiguration/CsTeamsMeetingConfiguration": {
       "type": "object",
       "properties": {
         "ClientAppSharingPort": {
@@ -260,6 +298,9 @@
         "EnableQoS": {
           "type": "boolean"
         },
+        "FeedbackSurveyForAnonymousUsers": {
+          "type": "string"
+        },
         "HelpURL": {
           "type": "string"
         },
@@ -272,11 +313,14 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingConfiguration/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingConfiguration/CsTeamsMeetingConfiguration"
     },
-    "Teams:CsTeamsMeetingPolicy/Configuration": {
+    "Teams:CsTeamsMeetingPolicy/CsTeamsMeetingPolicy": {
       "type": "object",
       "properties": {
         "AllowAnonymousUsersToDialOut": {
@@ -360,9 +404,6 @@
         "AllowTranscription": {
           "type": "boolean"
         },
-        "AllowUserToJoinExternalMeeting": {
-          "type": "string"
-        },
         "AllowWatermarkForCameraVideo": {
           "type": "boolean"
         },
@@ -384,7 +425,7 @@
         "ChannelRecordingDownload": {
           "type": "string"
         },
-        "ContentSharingInExternalMeetings": {
+        "ConnectToMeetingControls": {
           "type": "string"
         },
         "Copilot": {
@@ -404,9 +445,6 @@
         },
         "ExternalMeetingJoin": {
           "type": "string"
-        },
-        "InMemory": {
-          "type": "boolean"
         },
         "IPAudioMode": {
           "type": "string"
@@ -447,6 +485,9 @@
         "ScreenSharingMode": {
           "type": "string"
         },
+        "SmsNotifications": {
+          "type": "string"
+        },
         "SpeakerAttributionMode": {
           "type": "string"
         },
@@ -468,11 +509,14 @@
         },
         "WhoCanRegister": {
           "type": "object"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingPolicy/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingPolicy/CsTeamsMeetingPolicy"
     },
-    "Teams:CsTeamsMessagingPolicy/Configuration": {
+    "Teams:CsTeamsMessagingPolicy/CsTeamsMessagingPolicy": {
       "type": "object",
       "properties": {
         "AllowGiphy": {
@@ -538,6 +582,9 @@
         "Description": {
           "type": "string"
         },
+        "DesignerForBackgroundsAndImages": {
+          "type": "object"
+        },
         "GiphyRatingType": {
           "type": "string"
         },
@@ -550,18 +597,48 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsMessagingPolicy/Configuration"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsMessagingPolicy/CsTeamsMessagingPolicy"
     },
-    "Teams:CsTenantFederationConfiguration/Configuration": {
+    "Teams:CsTeamsUpdateManagementPolicy/Configuration": {
+      "type": "object",
+      "properties": {
+        "Identity": {
+          "type": "string"
+        },
+        "UseNewTeamsClient": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "AllowManagedUpdates": {
+          "type": "boolean"
+        },
+        "AllowPreview": {
+          "type": "boolean"
+        },
+        "AllowPublicPreview": {
+          "type": "string"
+        },
+        "BlockLegacyAuthorization": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsUpdateManagementPolicy/Configuration"
+    },
+    "Teams:CsTenantFederationConfiguration/CsTenantFederationConfiguration": {
       "type": "object",
       "properties": {
         "AllowedDomains": {
-          "type": "boolean"
+          "$ref": "#/$defs/arrayOfString"
         },
-        "AllowedDomainsAsAList": {
-          "type": "object"
+        "BlockedDomains": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "AllowFederatedUsers": {
           "type": "boolean"
@@ -575,7 +652,10 @@
         "AllowTeamsConsumerInbound": {
           "type": "boolean"
         },
-        "BlockedDomains": {
+        "BlockAllSubdomains": {
+          "type": "boolean"
+        },
+        "ExternalAccessWithTrialTenants": {
           "type": "object"
         },
         "SharedSipAddressSpace": {
@@ -587,9 +667,20 @@
         },
         "TreatDiscoveredPartnersAsUnverified": {
           "type": "boolean"
+        },
+        "Identity": {
+          "type": "string"
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTenantFederationConfiguration/Configuration"
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTenantFederationConfiguration/CsTenantFederationConfiguration"
     }
   }
 }
