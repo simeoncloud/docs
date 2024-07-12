@@ -197,7 +197,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Microsoft-managed).)+$"
   },
   {
     "namespace": "ExchangeOnline:DistributionGroup",
