@@ -8,6 +8,12 @@
     },
     {
       "$ref": "#/$defs/Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting"
+    },
+    {
+      "$ref": "#/$defs/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
+    },
+    {
+      "$ref": "#/$defs/Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting"
     }
   ],
   "$defs": {
@@ -123,6 +129,47 @@
         }
       },
       "$id": "https://simeoncloud.com/Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting"
+    },
+    "Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting": {
+      "type": "object",
+      "properties": {
+        "IsOptIn": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
+    },
+    "Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "recipients": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "reportType": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "threatTags": {
+          "$ref": "#/$defs/arrayOfString"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting"
     }
   }
 }
