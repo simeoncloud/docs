@@ -74,11 +74,12 @@
     "SecurityAndCompliance:AdaptiveScope/AdaptiveScope": {
       "type": "object",
       "properties": {
-        "AdministrativeUnit": {
-          "type": "string"
-        },
         "FilterConditions": {
           "type": "string"
+        },
+        "AdministrativeUnit": {
+          "type": "string",
+          "format": "uuid"
         },
         "Comment": {
           "type": "string"
