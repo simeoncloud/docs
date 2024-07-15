@@ -906,9 +906,6 @@
         "PrimarySmtpAddress": {
           "type": "object"
         },
-        "RecipientFilter": {
-          "type": "string"
-        },
         "RejectMessagesFromSendersOrMembers": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1084,6 +1081,9 @@
           "type": "string"
         },
         "RecipientContainer": {
+          "type": "string"
+        },
+        "RecipientFilter": {
           "type": "string"
         },
         "RejectMessagesFrom": {
