@@ -1,6 +1,9 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/Defender:DevicePolicies/DevicePolicy"
+    },
+    {
       "$ref": "#/$defs/Defender:HuntingService:Queries/Query"
     },
     {
@@ -8,15 +11,210 @@
     },
     {
       "$ref": "#/$defs/Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting"
-    },
-    {
-      "$ref": "#/$defs/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
-    },
-    {
-      "$ref": "#/$defs/Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting"
     }
   ],
   "$defs": {
+    "Defender:DevicePolicies/DevicePolicy": {
+      "type": "object",
+      "properties": {
+        "assignedGroupIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer"
+        }
+      },
+      "$defs": {
+        "antivirusDevicePolicy": {
+          "type": "object",
+          "properties": {
+            "assignedGroupIds": {
+              "$ref": "#/$defs/arrayOfString"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "integer"
+            },
+            "securitySettings": {
+              "type": "object",
+              "properties": {
+                "AvExclusionsExcludedExtensions": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "AvExclusionsExcludedPaths": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "AvExclusionsExcludedProcesses": {
+                  "$ref": "#/$defs/arrayOfString"
+                },
+                "AvRemediationUnwantedApps": {
+                  "type": "string"
+                },
+                "AvRTPBlockAtFirstSite": {
+                  "type": "boolean"
+                },
+                "AvRTPNetwork": {
+                  "type": "string"
+                },
+                "AvRTPRealtimeMonitor": {
+                  "type": "boolean"
+                },
+                "AvScanScheduleDay": {
+                  "type": "string"
+                },
+                "AvScanScheduleTime": {
+                  "type": "string"
+                },
+                "AvScanScheduleType": {
+                  "type": "string"
+                },
+                "AvScanUseLowPerformance": {
+                  "type": "boolean"
+                },
+                "AvUxAllowUserUIAccess": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "$defs": {
+            "arrayOfString": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "$id": "https://simeoncloud.com/Defender:DevicePolicies/AntivirusDevicePolicy"
+        },
+        "firewallDevicePolicy": {
+          "type": "object",
+          "properties": {
+            "assignedGroupIds": {
+              "$ref": "#/$defs/arrayOfString"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "integer"
+            },
+            "securitySettings": {
+              "type": "object",
+              "properties": {
+                "InboundDomainNetwork": {
+                  "type": "string"
+                },
+                "InboundPrivateNetwork": {
+                  "type": "string"
+                },
+                "InboundPublicNetwork": {
+                  "type": "string"
+                },
+                "Rules": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "direction": {
+                        "type": "string"
+                      },
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "networks": {
+                        "$ref": "#/$defs/arrayOfString"
+                      },
+                      "ports": {
+                        "$ref": "#/$defs/arrayOfString"
+                      },
+                      "protocol": {
+                        "type": "string"
+                      },
+                      "remoteAddressType": {
+                        "type": "string"
+                      },
+                      "values": {
+                        "$ref": "#/$defs/arrayOfString"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "$defs": {
+            "arrayOfString": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "$id": "https://simeoncloud.com/Defender:DevicePolicies/FirewallDevicePolicy"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "category": {
+              "const": "Antivirus"
+            }
+          },
+          "$ref": "#/$defs/antivirusDevicePolicy"
+        },
+        {
+          "properties": {
+            "category": {
+              "const": "Firewall"
+            }
+          },
+          "$ref": "#/$defs/firewallDevicePolicy"
+        }
+      ],
+      "$id": "https://simeoncloud.com/Defender:DevicePolicies/DevicePolicy"
+    },
     "Defender:HuntingService:Queries/Query": {
       "type": "object",
       "properties": {
@@ -129,47 +327,6 @@
         }
       },
       "$id": "https://simeoncloud.com/Defender:Settings:IncidentNotificationSettings/IncidentNotificationSetting"
-    },
-    "Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting": {
-      "type": "object",
-      "properties": {
-        "IsOptIn": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/Defender:Settings:PreviewExperienceSetting/PreviewExperienceSetting"
-    },
-    "Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "isActive": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        },
-        "recipients": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "reportType": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "threatTags": {
-          "$ref": "#/$defs/arrayOfString"
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/Defender:Settings:ThreatAnalyticsNotificationSettings/ThreatAnalyticsNotificationSetting"
     }
   }
 }

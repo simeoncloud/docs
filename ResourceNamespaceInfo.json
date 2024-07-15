@@ -72,6 +72,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "Defender:DevicePolicies",
+    "description": "Defender > Configuration Management > Device Configuration",
+    "url": "https://security.microsoft.com/policy-management?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "Defender:HuntingService:Queries",
     "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
     "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
@@ -91,22 +99,6 @@
     "namespace": "Defender:Settings:IncidentNotificationSettings",
     "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents",
     "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=incidents",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
-  },
-  {
-    "namespace": "Defender:Settings:PreviewExperienceSetting",
-    "description": "Defender > Settings > Microsoft Defender XDR > Account > Preview Features",
-    "url": "https://security.microsoft.com/securitysettings/defender/mtp_consent?tid=${ResourceContext:TenantId}",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
-    "namespace": "Defender:Settings:ThreatAnalyticsNotificationSettings",
-    "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Threat Analytics",
-    "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=threat_analytics",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
@@ -1475,6 +1467,14 @@
     "namespace": "Teams:CsTeamsAppPermissionPolicy",
     "description": "Office 365 > Teams > Apps > Permission Policies",
     "url": "https://admin.teams.microsoft.com/policies/app-permission?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
+  },
+  {
+    "namespace": "Teams:CsTeamsAppSetupPolicy",
+    "description": "Office 365 > Teams > Apps > Setup Policies",
+    "url": "https://admin.teams.microsoft.com/policies/app-setup?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"

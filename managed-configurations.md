@@ -71,18 +71,17 @@
     - User Settings
       - External Users
 - Defender
+  - Configuration Management
+    - Device Configuration
   - Hunting
     - Advanced Hunting
       - Queries
         - Shared Queries
   - Settings
     - Microsoft Defender XDR
-      - Account
-        - Preview Features
       - Email Notifications
         - Actions
         - Incidents
-        - Threat Analytics
 - Intune
   - Apps
     - App Configuration Policies
@@ -214,6 +213,7 @@
   - Teams
     - Apps
       - Permission Policies
+      - Setup Policies
     - Meetings
       - Live Event Policies
       - Meeting Policies
