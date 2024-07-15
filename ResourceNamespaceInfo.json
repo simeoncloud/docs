@@ -1240,14 +1240,6 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
-    "namespace": "O365Portal:Reports:ProductivityScoreCustomerOption",
-    "description": "M365 Admin Center > Settings > Org Settings > Adoption Score",
-    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/AdoptionScore",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^"
-  },
-  {
     "namespace": "O365Portal:Services:Apps:VivaInsights",
     "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",

@@ -1,9 +1,6 @@
 {
   "anyOf": [
     {
-      "$ref": "#/$defs/O365Portal:Reports:ProductivityScoreCustomerOption/Configuration"
-    },
-    {
       "$ref": "#/$defs/O365Portal:Services:Apps:VivaInsights/Configuration"
     },
     {
@@ -11,30 +8,6 @@
     }
   ],
   "$defs": {
-    "O365Portal:Reports:ProductivityScoreCustomerOption/Configuration": {
-      "type": "object",
-      "properties": {
-        "ActionFlowOptedIn": {
-          "type": "boolean"
-        },
-        "CohortInsightOptedIn": {
-          "type": "boolean"
-        },
-        "ProductivityScoreOptedIn": {
-          "type": "boolean"
-        },
-        "PSGroupsOptedOut": {
-          "type": "boolean"
-        },
-        "PSOptedOutGroupIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/O365Portal:Reports:ProductivityScoreCustomerOption/Configuration"
-    },
     "O365Portal:Services:Apps:VivaInsights/Configuration": {
       "type": "object",
       "properties": {
