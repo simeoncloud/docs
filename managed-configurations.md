@@ -124,6 +124,7 @@
   - Domains
   - Settings
     - Org Settings
+      - Adoption Score
       - Security & Privacy
         - Idle Session Timeout
       - Services
