@@ -7,12 +7,9 @@
         - Shared Queries
   - Settings
     - Microsoft Defender XDR
-      - Account
-        - Preview Features
       - Email Notifications
         - Actions
         - Incidents
-        - Threat Analytics
 - Entra ID
   - Administrative Units
     - Members
@@ -213,6 +210,7 @@
   - Teams
     - Apps
       - Permission Policies
+      - Setup Policies
     - Meetings
       - Live Event Policies
       - Meeting Policies

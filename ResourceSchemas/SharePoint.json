@@ -320,9 +320,6 @@
         "AllowCommentsTextOnEmailEnabled": {
           "type": "boolean"
         },
-        "AllowDownloadingNonWebViewableFiles": {
-          "type": "boolean"
-        },
         "AllowedDomainListForSyncClient": {
           "$ref": "#/$defs/iListOfString"
         },
@@ -632,13 +629,6 @@
         "LegacyAuthProtocolsEnabled": {
           "type": "boolean"
         },
-        "LimitedAccessFileType": {
-          "enum": [
-            "OfficeOnlineFilesOnly",
-            "WebPreviewableFiles",
-            "OtherFiles"
-          ]
-        },
         "MachineLearningCaptureEnabled": {
           "type": "boolean"
         },
@@ -786,9 +776,6 @@
           "type": "boolean"
         },
         "SyncAadB2BManagementPolicy": {
-          "type": "boolean"
-        },
-        "SyncPrivacyProfileProperties": {
           "type": "boolean"
         },
         "UseFindPeopleInPeoplePicker": {
