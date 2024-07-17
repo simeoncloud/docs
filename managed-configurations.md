@@ -71,18 +71,17 @@
     - User Settings
       - External Users
 - Defender
+  - Configuration Management
+    - Device Configuration
   - Hunting
     - Advanced Hunting
       - Queries
         - Shared Queries
   - Settings
     - Microsoft Defender XDR
-      - Account
-        - Preview Features
       - Email Notifications
         - Actions
         - Incidents
-        - Threat Analytics
 - Intune
   - Apps
     - App Configuration Policies
@@ -124,8 +123,9 @@
 - M365 Admin Center
   - Domains
   - Settings
-    - Microsoft Forms
     - Org Settings
+      - Adoption Score
+      - Microsoft Forms
       - Security & Privacy
         - Idle Session Timeout
       - Services
@@ -214,6 +214,7 @@
   - Teams
     - Apps
       - Permission Policies
+      - Setup Policies
     - Meetings
       - Live Event Policies
       - Meeting Policies
