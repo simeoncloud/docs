@@ -1,6 +1,8 @@
 - Azure
   - Resource Groups
 - Defender
+  - Configuration Management
+    - Device Configuration
   - Hunting
     - Advanced Hunting
       - Queries
@@ -122,6 +124,7 @@
   - Domains
   - Settings
     - Org Settings
+      - Adoption Score
       - Security & Privacy
         - Idle Session Timeout
       - Services

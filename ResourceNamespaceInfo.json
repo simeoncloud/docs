@@ -72,6 +72,14 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "namespace": "Defender:DevicePolicies",
+    "description": "Defender > Configuration Management > Device Configuration",
+    "url": "https://security.microsoft.com/policy-management?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "Defender:HuntingService:Queries",
     "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
     "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
@@ -1230,6 +1238,14 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "O365Portal:Reports:ProductivityScoreCustomerOption",
+    "description": "M365 Admin Center > Settings > Org Settings > Adoption Score",
+    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/AdoptionScore",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "namespace": "O365Portal:Services:Apps:VivaInsights",
