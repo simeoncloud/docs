@@ -50,6 +50,9 @@
         "GlobalCatalogAppsType": {
           "type": "string"
         },
+        "Tenant": {
+          "type": "string",
+          "format": "uuid"
         "Identity": {
           "type": "string"
         }
