@@ -456,6 +456,22 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
+    "namespace": "ExchangeOnline:RetentionPolicy",
+    "description": "Office 365 > Exchange > Retention Policy",
+    "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicy&tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RetentionPolicyTag",
+    "description": "Office 365 > Exchange > Retention Policy Tag",
+    "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicyTag&tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "ExchangeOnline:RoleAssignmentPolicy",
     "description": "Microsoft 365 > Exchange > Role Assignment Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles",
@@ -1249,8 +1265,16 @@
   },
   {
     "namespace": "O365Portal:Services:Apps:VivaInsights",
-    "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)",
-    "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",
+    "description": "M365 Admin Center > Settings > Viva > Viva Insights > Manage Settings for Viva Insights",
+    "url": "https://admin.microsoft.com/adminportal/home#/viva/insights/:/Settings/L1/VivaInsights",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "namespace": "O365Portal:Settings:Apps:CalendarSharing",
+    "description": "M365 Admin Center > Settings > Org Settings > Calendar",
+    "url": "https://admin.microsoft.com/adminportal/home#/Settings/Services/:/Settings/L1/Calendar",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^"

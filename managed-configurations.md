@@ -124,6 +124,12 @@
   - Domains
   - Settings
     - Org Settings
+      - Calendar
+      - Security & Privacy
+        - Idle Session Timeout
+    - Viva
+      - Viva Insights
+        - Manage Settings for Viva Insights
       - Adoption Score
       - Security & Privacy
         - Idle Session Timeout
@@ -168,6 +174,8 @@
     - Outlook Web App Policies
     - Partner Applications
     - Policy Tip Config
+    - Retention Policy
+    - Retention Policy Tag
     - Role Assignment Policies
     - Sharing Policies
     - Transport Config
