@@ -136,7 +136,7 @@
         "OverrideTenantExternalUserExpirationPolicy": {
           "type": "boolean"
         },
-        "SiteCollectionOwner": {
+        "Owner": {
           "type": "string"
         },
         "Owners": {
@@ -320,14 +320,8 @@
         "AllowCommentsTextOnEmailEnabled": {
           "type": "boolean"
         },
-        "AllowDownloadingNonWebViewableFiles": {
-          "type": "boolean"
-        },
         "AllowedDomainListForSyncClient": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/guid"
-          }
+          "$ref": "#/$defs/iListOfString"
         },
         "AllowEditing": {
           "type": "boolean"
@@ -635,13 +629,6 @@
         "LegacyAuthProtocolsEnabled": {
           "type": "boolean"
         },
-        "LimitedAccessFileType": {
-          "enum": [
-            "OfficeOnlineFilesOnly",
-            "WebPreviewableFiles",
-            "OtherFiles"
-          ]
-        },
         "MachineLearningCaptureEnabled": {
           "type": "boolean"
         },
@@ -667,9 +654,6 @@
           "type": "boolean"
         },
         "NotificationsInSharePointEnabled": {
-          "type": "boolean"
-        },
-        "NotifyOwnersWhenInvitationsAccepted": {
           "type": "boolean"
         },
         "NotifyOwnersWhenItemsReshared": {
@@ -794,13 +778,7 @@
         "SyncAadB2BManagementPolicy": {
           "type": "boolean"
         },
-        "SyncPrivacyProfileProperties": {
-          "type": "boolean"
-        },
         "UseFindPeopleInPeoplePicker": {
-          "type": "boolean"
-        },
-        "UserVoiceForFeedbackEnabled": {
           "type": "boolean"
         },
         "ViewersCanCommentOnMediaDisabled": {
@@ -820,10 +798,6 @@
         }
       },
       "$defs": {
-        "guid": {
-          "type": "string",
-          "format": "uuid"
-        },
         "iListOfString": {
           "type": "array",
           "items": {
@@ -833,7 +807,8 @@
         "arrayOfGuid": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/guid"
+            "type": "string",
+            "format": "uuid"
           }
         }
       },
