@@ -50,6 +50,38 @@
         "GlobalCatalogAppsType": {
           "type": "string"
         },
+        "Identity": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsAppPermissionPolicy/CsTeamsAppPermissionPolicy"
+    },
+    "Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy": {
+      "type": "object",
+      "properties": {
+        "AppPresetList": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "PinnedAppBarApps": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "AllowSideLoading": {
+          "type": "boolean"
+        },
+        "AllowUserPinning": {
+          "type": "boolean"
+        },
+        "Description": {
+          "type": "string"
+        },
         "Tenant": {
           "type": "string",
           "format": "uuid"
@@ -65,7 +97,7 @@
           }
         }
       },
-      "$id": "https://simeoncloud.com/Teams:CsTeamsAppPermissionPolicy/CsTeamsAppPermissionPolicy"
+      "$id": "https://simeoncloud.com/Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy"
     },
     "Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy": {
       "type": "object",

@@ -7,6 +7,9 @@
       "$ref": "#/$defs/O365Portal:Services:Apps:VivaInsights/Configuration"
     },
     {
+      "$ref": "#/$defs/O365Portal:Settings:Apps:CalendarSharing/Configuration"
+    },
+    {
       "$ref": "#/$defs/O365Portal:Settings:Security:ActivityBasedTimeout/Configuration"
     }
   ],
@@ -55,6 +58,21 @@
         }
       },
       "$id": "https://simeoncloud.com/O365Portal:Services:Apps:VivaInsights/Configuration"
+    },
+    "O365Portal:Settings:Apps:CalendarSharing/Configuration": {
+      "type": "object",
+      "properties": {
+        "EnableAnonymousCalendarSharing": {
+          "type": "boolean"
+        },
+        "EnableCalendarSharing": {
+          "type": "boolean"
+        },
+        "SharingOption": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365Portal:Settings:Apps:CalendarSharing/Configuration"
     },
     "O365Portal:Settings:Security:ActivityBasedTimeout/Configuration": {
       "type": "object",
