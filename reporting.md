@@ -43,9 +43,12 @@ During installation, you will be prompted to log in with a user account. The acc
 - When prompted, select an Azure location
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi_location.png" width: 337; height: auto;/>
-- Once the installation is complete, click **Run Backfill Now**. This will backfill your Power BI report with the past 72 hours of Sync data.
+- Once the installation is complete, click **Run Backfill Now**. **This will first populate the report with demo data**. After a few hours, it will backfill your Power BI report with the past 72 hours of Sync data. 
 <br />
 <img src="https://raw.githubusercontent.com/simeoncloud/docs/master/assets/images/power_bi_install_complete.png" width: auto; height: auto;/>
+- You can refresh the report manually when viewing in Power BI. To do so:
+    - Go to [Power BI](https://app.powerbi.com) > **Workspaces** > **Simeon Cloud**
+    - Hover your mouse over the **Baseline Compliance Report** dataset > Click on the **refresh** icon
 
 ### Setup the Power BI Datasets
 - Go to [Power BI](https://app.powerbi.com) > Workspaces > Simeon Cloud > click the three dots next to **Baseline Compliance Report** Dataset > Settings > **Take Over** > **Take Over**
@@ -129,7 +132,7 @@ The fields available in the dataset are as follows:
 - Property_Name: The name of the property being reported on
 - Property_Value: The value of the property at the time of the sync
 - Old_Property_Value: Captures the previous value of the property before the Sync changes are applied
-- Change_Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**
+- Change_Type: The action the Sync performed - **Removed**, **Added**, **Changed**, **Unchanged**, **Skipped**, **Failed**
 - Error_Message: If the configuration fails for any reason, the full error message is captured in this column
 
 ## Uninstall Power BI Reporting

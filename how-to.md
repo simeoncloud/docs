@@ -22,12 +22,18 @@
 
 ## Make sure a tenant meets the prerequisites to use Simeon
 
-- You must be operating on global Azure cloud (not [Government Community Cloud](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)). The Azure Government cloud is not currently supported
-- Make sure the tenant has a valid Microsoft 365 license - all licensed SKUs are supported
+* Your tenant must be operating on global Azure or the [Government Community Cloud (GCC)](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome)
+  * Simeon does not support [GCC High and DoD](https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod) environments
+* Make sure the tenant has a valid Microsoft 365 license - all licensed SKUs are supported
 
 You can verify the licenses in your tenant [in the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Licenses) under **All products**
 
 ## Tenant install options
+
+* **Service Principal Authentication**: By default, Simeon creates a service principal in the tenant you are installing. This service principal is used to authenticate into the tenant and to Sync supported configurations. A user account is required in addition to the service principal.
+  * Microsoft does not support Syncing all configurations with a service principal. Where possible, Simeon will use the service principal to Sync configurations.
+  * When Syncing a configuration that is unsupported by the service principal, Simeon will use the user account selected at install time - delegated authentication or service account authentication.
+  * The service principal increases security for supported configurations, as no user is involved.
 
 * **Delegated Authentication**: With this option, Simeon will authenticate into the tenant with a user of your choosing (typically a pre-existing Global Administrator in the tenant or a user with the minimum [required permissions](https://simeoncloud.github.io/docs/#/permissions)). Simeon recommends using delegated authentication for all production tenants.
   * Simeon will create a refresh token for the user you authenticate with. This refresh token will cache the sign-in information for Simeon to use.
@@ -37,11 +43,6 @@ You can verify the licenses in your tenant [in the Azure Portal](https://portal.
 
 * **Service Account Authentication**: This option creates an Azure AD user named simeon@tenantdomainname with the Global Administrator role to authenticate into the tenant. Simeon randomly generates a 128-character password and stores it along with the username in an encrypted pipeline variable.
   * You must exclude the service account from Conditional Access policies that restrict Simeon's access to the tenant.
-
-* **Service Principal Authentication**: This option creates a service principal in the tenant to authenticate into the tenant. You must select either delegated authentication or service account when using service principal authentication
-  * Microsoft does not support Syncing all configurations with a service principal. Where possible, Simeon will use the service principal to Sync configurations.
-  * When Syncing a configuration that is unsupported by the service principal, Simeon will use the other option selected at install time - delegated authentication or the service account authentication.
-  * The service principal increases security for supported configurations, as no user is involved.
 
 ## Install a baseline
 
