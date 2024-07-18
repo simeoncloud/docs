@@ -1,12 +1,18 @@
 - Azure
-  - Privileged Identity Management
-    - Azure AD Roles
-      - Access Reviews
-      - Assignments
-    - Policies and Rules
-      - Rules
   - Resource Groups
-- Azure AD
+- Defender
+  - Configuration Management
+    - Device Configuration
+  - Hunting
+    - Advanced Hunting
+      - Queries
+        - Shared Queries
+  - Settings
+    - Microsoft Defender XDR
+      - Email Notifications
+        - Actions
+        - Incidents
+- Entra ID
   - Administrative Units
     - Members
   - App Registrations
@@ -57,6 +63,12 @@
     - Certificate-based Authentication
   - Password Reset
     - On-premises Integration
+  - Privileged Identity Management
+    - Entra Roles
+      - Access Reviews
+      - Assignments
+    - Policies and Rules
+      - Rules
   - Roles and Administrators
   - Security
     - Conditional Access
@@ -70,19 +82,6 @@
   - Users
     - User Settings
       - External Users
-- Defender
-  - Hunting
-    - Advanced Hunting
-      - Queries
-        - Shared Queries
-  - Settings
-    - Microsoft Defender XDR
-      - Account
-        - Preview Features
-      - Email Notifications
-        - Actions
-        - Incidents
-        - Threat Analytics
 - Intune
   - Apps
     - App Configuration Policies
@@ -125,11 +124,12 @@
   - Domains
   - Settings
     - Org Settings
+      - Adoption Score
       - Security & Privacy
         - Idle Session Timeout
       - Services
         - Microsoft Viva Insights (Formerly MyAnalytics)
-- Office 365
+- Microsoft 365
   - Exchange
     - Address Book Policy
     - Address List
@@ -215,6 +215,7 @@
   - Teams
     - Apps
       - Permission Policies
+      - Setup Policies
     - Meetings
       - Live Event Policies
       - Meeting Policies

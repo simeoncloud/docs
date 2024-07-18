@@ -555,8 +555,7 @@
       "type": "object",
       "properties": {
         "AvailabilityConfig": {
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "AccessMethod": {
           "type": "string"
@@ -1425,6 +1424,9 @@
     "ExchangeOnline:HostedContentFilterRule/HostedContentFilterRule": {
       "type": "object",
       "properties": {
+        "State": {
+          "type": "string"
+        },
         "Comments": {
           "type": "string"
         },
@@ -1519,6 +1521,9 @@
     "ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule": {
       "type": "object",
       "properties": {
+        "State": {
+          "type": "string"
+        },
         "Comments": {
           "type": "string"
         },
@@ -1773,8 +1778,7 @@
           "type": "object"
         },
         "TransportConfig": {
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "AcceptMessagesOnlyFrom": {
           "$ref": "#/$defs/arrayOfString"
