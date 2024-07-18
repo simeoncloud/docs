@@ -233,6 +233,7 @@
     - Users
       - External Access
     - Voice
+      - Call Hold Policies
       - Calling Policies
 - SharePoint
   - Settings

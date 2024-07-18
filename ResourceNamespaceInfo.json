@@ -1504,6 +1504,14 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
+    "namespace": "Teams:CsTeamsCallHoldPolicy",
+    "description": "Microsoft 365 > Teams > Voice > Call Hold Policies",
+    "url": "https://admin.teams.microsoft.com/policies/callholdpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
+  },
+  {
     "namespace": "Teams:CsTeamsCallingPolicy",
     "description": "Microsoft 365 > Teams > Voice > Calling Policies",
     "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1554,7 +1562,7 @@
   {
     "namespace": "Teams:CsTeamsUpdateManagementPolicy",
     "description": "Microsoft 365 > Teams > Update Management Policies",
-    "url": null,
+    "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$"
