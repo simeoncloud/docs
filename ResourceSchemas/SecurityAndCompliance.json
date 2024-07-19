@@ -74,12 +74,11 @@
     "SecurityAndCompliance:AdaptiveScope/AdaptiveScope": {
       "type": "object",
       "properties": {
-        "FilterConditions": {
+        "AdministrativeUnit": {
           "type": "string"
         },
-        "AdministrativeUnit": {
-          "type": "string",
-          "format": "uuid"
+        "FilterConditions": {
+          "type": "string"
         },
         "Comment": {
           "type": "string"
@@ -1101,6 +1100,9 @@
         "ApplyContentMarkingHeaderText": {
           "type": "string"
         },
+        "ApplyDynamicWatermarkingEnabled": {
+          "type": "boolean"
+        },
         "ApplyWaterMarkingEnabled": {
           "type": "boolean"
         },
@@ -1129,6 +1131,9 @@
           "type": "string"
         },
         "DisplayName": {
+          "type": "string"
+        },
+        "DynamicWatermarkDisplay": {
           "type": "string"
         },
         "EncryptionAipTemplateScopes": {
