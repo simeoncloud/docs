@@ -124,13 +124,8 @@
   - Domains
   - Settings
     - Org Settings
-      - Calendar
-      - Security & Privacy
-        - Idle Session Timeout
-    - Viva
-      - Viva Insights
-        - Manage Settings for Viva Insights
       - Adoption Score
+      - Microsoft Forms
       - Security & Privacy
         - Idle Session Timeout
       - Services
