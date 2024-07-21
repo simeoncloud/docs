@@ -545,7 +545,13 @@
         "AllowLegacyExchangeTokens": {
           "type": "boolean"
         },
+        "BlockLegacyExchangeTokens": {
+          "type": "boolean"
+        },
         "Name": {
+          "type": "string"
+        },
+        "TenantId": {
           "type": "string"
         }
       },
@@ -912,9 +918,6 @@
         "PrimarySmtpAddress": {
           "type": "object"
         },
-        "RecipientFilter": {
-          "type": "string"
-        },
         "RejectMessagesFromSendersOrMembers": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1090,6 +1093,9 @@
           "type": "string"
         },
         "RecipientContainer": {
+          "type": "string"
+        },
+        "RecipientFilter": {
           "type": "string"
         },
         "RejectMessagesFrom": {
@@ -1572,6 +1578,9 @@
       "type": "object",
       "properties": {
         "AssociatedAcceptedDomains": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ClientHostNames": {
           "$ref": "#/$defs/arrayOfString"
         },
         "CloudServicesMailEnabled": {
@@ -2859,8 +2868,17 @@
         "MessageHighlightsEnabled": {
           "type": "boolean"
         },
+        "MessageRecallAlertRecipientsEnabled": {
+          "type": "boolean"
+        },
+        "MessageRecallAlertRecipientsReadMessagesOnlyEnabled": {
+          "type": "boolean"
+        },
         "MessageRecallEnabled": {
           "type": "boolean"
+        },
+        "MessageRecallMaxRecallableAge": {
+          "type": "object"
         },
         "MessageRemindersEnabled": {
           "type": "boolean"
@@ -2902,6 +2920,9 @@
           "type": "boolean"
         },
         "RecallReadMessagesEnabled": {
+          "type": "boolean"
+        },
+        "RejectDirectSend": {
           "type": "boolean"
         },
         "RemotePublicFolderMailboxes": {
@@ -3199,6 +3220,9 @@
         "GroupCreationEnabled": {
           "type": "boolean"
         },
+        "HideClassicOutlookToggleOut": {
+          "type": "boolean"
+        },
         "InstantMessagingEnabled": {
           "type": "boolean"
         },
@@ -3266,6 +3290,12 @@
           "type": "boolean"
         },
         "OutlookNewslettersAccessLevel": {
+          "type": "object"
+        },
+        "OutlookNewslettersReactions": {
+          "type": "object"
+        },
+        "OutlookNewslettersShowMore": {
           "type": "object"
         },
         "OWALightEnabled": {
