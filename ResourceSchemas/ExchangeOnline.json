@@ -133,6 +133,12 @@
       "$ref": "#/$defs/ExchangeOnline:RemoteDomain/RemoteDomain"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:RetentionPolicy/RetentionPolicy"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:RetentionPolicyTag/RetentionPolicyTag"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy"
     },
     {
@@ -539,7 +545,13 @@
         "AllowLegacyExchangeTokens": {
           "type": "boolean"
         },
+        "BlockLegacyExchangeTokens": {
+          "type": "boolean"
+        },
         "Name": {
+          "type": "string"
+        },
+        "TenantId": {
           "type": "string"
         }
       },
@@ -549,8 +561,7 @@
       "type": "object",
       "properties": {
         "AvailabilityConfig": {
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "AccessMethod": {
           "type": "string"
@@ -907,9 +918,6 @@
         "PrimarySmtpAddress": {
           "type": "object"
         },
-        "RecipientFilter": {
-          "type": "string"
-        },
         "RejectMessagesFromSendersOrMembers": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1085,6 +1093,9 @@
           "type": "string"
         },
         "RecipientContainer": {
+          "type": "string"
+        },
+        "RecipientFilter": {
           "type": "string"
         },
         "RejectMessagesFrom": {
@@ -1569,6 +1580,9 @@
         "AssociatedAcceptedDomains": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "ClientHostNames": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "CloudServicesMailEnabled": {
           "type": "boolean"
         },
@@ -1773,8 +1787,7 @@
           "type": "object"
         },
         "TransportConfig": {
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "AcceptMessagesOnlyFrom": {
           "$ref": "#/$defs/arrayOfString"
@@ -2855,8 +2868,17 @@
         "MessageHighlightsEnabled": {
           "type": "boolean"
         },
+        "MessageRecallAlertRecipientsEnabled": {
+          "type": "boolean"
+        },
+        "MessageRecallAlertRecipientsReadMessagesOnlyEnabled": {
+          "type": "boolean"
+        },
         "MessageRecallEnabled": {
           "type": "boolean"
+        },
+        "MessageRecallMaxRecallableAge": {
+          "type": "object"
         },
         "MessageRemindersEnabled": {
           "type": "boolean"
@@ -2898,6 +2920,9 @@
           "type": "boolean"
         },
         "RecallReadMessagesEnabled": {
+          "type": "boolean"
+        },
+        "RejectDirectSend": {
           "type": "boolean"
         },
         "RemotePublicFolderMailboxes": {
@@ -3195,6 +3220,9 @@
         "GroupCreationEnabled": {
           "type": "boolean"
         },
+        "HideClassicOutlookToggleOut": {
+          "type": "boolean"
+        },
         "InstantMessagingEnabled": {
           "type": "boolean"
         },
@@ -3262,6 +3290,12 @@
           "type": "boolean"
         },
         "OutlookNewslettersAccessLevel": {
+          "type": "object"
+        },
+        "OutlookNewslettersReactions": {
+          "type": "object"
+        },
+        "OutlookNewslettersShowMore": {
           "type": "object"
         },
         "OWALightEnabled": {
@@ -3602,6 +3636,83 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:RemoteDomain/RemoteDomain"
+    },
+    "ExchangeOnline:RetentionPolicy/RetentionPolicy": {
+      "type": "object",
+      "properties": {
+        "IsDefaultArbitrationMailbox": {
+          "type": "boolean"
+        },
+        "IsDefault": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "RetentionPolicyTagLinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:RetentionPolicy/RetentionPolicy"
+    },
+    "ExchangeOnline:RetentionPolicyTag/RetentionPolicyTag": {
+      "type": "object",
+      "properties": {
+        "AgeLimitForRetention": {
+          "type": "object"
+        },
+        "Comment": {
+          "type": "string"
+        },
+        "LegacyManagedFolder": {
+          "type": "string"
+        },
+        "LocalizedComment": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "LocalizedRetentionPolicyTagName": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Mailbox": {
+          "type": "string"
+        },
+        "MessageClass": {
+          "type": "string"
+        },
+        "MustDisplayCommentEnabled": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OptionalInMailbox": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RetentionAction": {
+          "type": "string"
+        },
+        "RetentionEnabled": {
+          "type": "boolean"
+        },
+        "SystemTag": {
+          "type": "boolean"
+        },
+        "Type": {
+          "type": "object"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:RetentionPolicyTag/RetentionPolicyTag"
     },
     "ExchangeOnline:RoleAssignmentPolicy/RoleAssignmentPolicy": {
       "type": "object",
