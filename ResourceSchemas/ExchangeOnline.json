@@ -4027,6 +4027,9 @@
     "ExchangeOnline:TransportRule/TransportRule": {
       "type": "object",
       "properties": {
+        "RedirectMessageTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "ActivationDate": {
           "$ref": "#/$defs/nullableOfDateTime"
         },
@@ -4408,9 +4411,6 @@
         "RecipientDomainIs": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "RedirectMessageTo": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "RejectMessageEnhancedStatusCode": {
           "type": "object"
         },
@@ -4506,15 +4506,15 @@
         }
       },
       "$defs": {
-        "nullableOfDateTime": {
-          "type": "string",
-          "format": "date-time"
-        },
         "arrayOfString": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "nullableOfDateTime": {
+          "type": "string",
+          "format": "date-time"
         },
         "arrayOfObject": {
           "type": "array",
