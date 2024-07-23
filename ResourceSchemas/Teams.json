@@ -7,6 +7,9 @@
       "$ref": "#/$defs/Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy"
     },
     {
+      "$ref": "#/$defs/Teams:CsTeamsCallHoldPolicy/CsTeamsCallHoldPolicy"
+    },
+    {
       "$ref": "#/$defs/Teams:CsTeamsCallingPolicy/CsTeamsCallingPolicy"
     },
     {
@@ -95,6 +98,24 @@
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsAppSetupPolicy/CsTeamsAppSetupPolicy"
+    },
+    "Teams:CsTeamsCallHoldPolicy/CsTeamsCallHoldPolicy": {
+      "type": "object",
+      "properties": {
+        "FileContent": {
+          "type": "string"
+        },
+        "FileName": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Identity": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsCallHoldPolicy/CsTeamsCallHoldPolicy"
     },
     "Teams:CsTeamsCallingPolicy/CsTeamsCallingPolicy": {
       "type": "object",
