@@ -125,6 +125,7 @@
   - Settings
     - Org Settings
       - Adoption Score
+      - Microsoft Forms
       - Security & Privacy
         - Idle Session Timeout
       - Services
@@ -168,6 +169,8 @@
     - Outlook Web App Policies
     - Partner Applications
     - Policy Tip Config
+    - Retention Policy
+    - Retention Policy Tag
     - Role Assignment Policies
     - Sharing Policies
     - Transport Config
@@ -225,6 +228,7 @@
     - Users
       - External Access
     - Voice
+      - Call Hold Policies
       - Calling Policies
 - SharePoint
   - Settings

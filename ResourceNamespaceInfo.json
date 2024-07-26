@@ -456,6 +456,22 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
+    "namespace": "ExchangeOnline:RetentionPolicy",
+    "description": "Microsoft 365 > Exchange > Retention Policy",
+    "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicy&tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
+    "namespace": "ExchangeOnline:RetentionPolicyTag",
+    "description": "Microsoft 365 > Exchange > Retention Policy Tag",
+    "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicyTag&tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*"
+  },
+  {
     "namespace": "ExchangeOnline:RoleAssignmentPolicy",
     "description": "Microsoft 365 > Exchange > Role Assignment Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles",
@@ -1256,6 +1272,14 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "namespace": "O365Portal:Settings:Apps:OfficeForms",
+    "description": "M365 Admin Center > Settings > Org Settings > Microsoft Forms",
+    "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/Services/:/Settings/L1/OfficeForms",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
     "namespace": "O365Portal:Settings:Security:ActivityBasedTimeout",
     "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
@@ -1480,6 +1504,14 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
+    "namespace": "Teams:CsTeamsCallHoldPolicy",
+    "description": "Microsoft 365 > Teams > Voice > Call Hold Policies",
+    "url": "https://admin.teams.microsoft.com/policies/callholdpolicy",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
+  },
+  {
     "namespace": "Teams:CsTeamsCallingPolicy",
     "description": "Microsoft 365 > Teams > Voice > Calling Policies",
     "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1530,7 +1562,7 @@
   {
     "namespace": "Teams:CsTeamsUpdateManagementPolicy",
     "description": "Microsoft 365 > Teams > Update Management Policies",
-    "url": null,
+    "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$"
