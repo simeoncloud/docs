@@ -1,4 +1,5 @@
 {
+  "$friendlyName": "Simeon Cloud Sync",
   "accountEnabled": true,
   "alternativeNames": [],
   "appId": "${urn:resource:MSGraph:Applications/Simeon Cloud Sync?$rawData.appId}",
