@@ -1,5 +1,6 @@
 [
   {
+    "category": "Entra ID",
     "namespace": "AadGraph:IdentityProtectionPolicies",
     "description": "Entra ID > Security > Identity Protection",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/Overview",
@@ -8,6 +9,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:EnterpriseApplicationUserSettings",
     "description": "Entra ID > Enterprise Applications > User Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/",
@@ -16,6 +18,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:EnterpriseStateRoaming",
     "description": "Entra ID > Devices > Enterprise State Roaming",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/RoamingSettings/menuId/",
@@ -24,6 +27,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:ExternalUserGuestSettings",
     "description": "Entra ID > External User Guest Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/Settings",
@@ -32,6 +36,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:GroupSettings",
     "description": "Entra ID > Group Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General",
@@ -40,6 +45,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:MdmApplications",
     "description": "Entra ID > Mobility (MDM and MAM)",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility",
@@ -48,6 +54,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:PasswordResetPolicies",
     "description": "Entra ID > Password Reset",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/Properties",
@@ -56,6 +63,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "AadIam:UserSettings",
     "description": "Entra ID > User Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/UserSettings",
@@ -64,6 +72,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Azure",
     "namespace": "AzureManagement:Subscriptions:ResourceGroups",
     "description": "Azure > Resource Groups",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/HubsExtension/BrowseResourceGroups",
@@ -72,6 +81,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Defender",
     "namespace": "Defender:DevicePolicies",
     "description": "Defender > Configuration Management > Device Configuration",
     "url": "https://security.microsoft.com/policy-management?tid=${ResourceContext:TenantId}",
@@ -80,6 +90,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Defender",
     "namespace": "Defender:HuntingService:Queries",
     "description": "Defender > Hunting > Advanced Hunting > Queries > Shared Queries",
     "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
@@ -88,6 +99,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Defender",
     "namespace": "Defender:Settings:ActionNotificationSettings",
     "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions",
     "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=actions",
@@ -96,6 +108,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Defender",
     "namespace": "Defender:Settings:IncidentNotificationSettings",
     "description": "Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents",
     "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=incidents",
@@ -104,6 +117,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AcceptedDomain",
     "description": "Microsoft 365 > Exchange > Mail Flow > Accepted Domains",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/accepteddomains",
@@ -112,6 +126,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:ActiveSyncDeviceAccessRule",
     "description": "Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules",
     "url": null,
@@ -120,6 +135,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AddressBookPolicy",
     "description": "Microsoft 365 > Exchange > Address Book Policy",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/create-an-address-book-policy",
@@ -128,6 +144,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AddressList",
     "description": "Microsoft 365 > Exchange > Address List",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists",
@@ -136,6 +153,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AdminAuditLogConfig",
     "description": "Microsoft 365 > Exchange > Admin Audit Log Config",
     "url": null,
@@ -144,6 +162,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:AntiPhishPolicy",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
@@ -152,6 +171,7 @@
     "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:AntiPhishRule",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
@@ -160,6 +180,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:AtpPolicyForO365",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
@@ -168,6 +189,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AuthenticationPolicy",
     "description": "Microsoft 365 > Exchange > Modern Authentication",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-authenticationpolicy?view=exchange-ps",
@@ -176,6 +198,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AvailabilityAddressSpace",
     "description": "Microsoft 365 > Exchange > Availability Address Spaces",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps",
@@ -184,6 +207,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:AvailabilityConfig",
     "description": "Microsoft 365 > Exchange > Availability Config",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-availabilityconfig?view=exchange-ps",
@@ -192,6 +216,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:CASMailboxPlan",
     "description": "Microsoft 365 > Exchange > CAS Mailbox Plan",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-casmailboxplan?view=exchange-ps",
@@ -200,6 +225,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:ClientAccessRule",
     "description": "Microsoft 365 > Exchange > Client Access Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps",
@@ -208,6 +234,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:DistributionGroup",
     "description": "Microsoft 365 > Exchange > Distribution Groups",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
@@ -216,6 +243,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:DistributionGroupMember",
     "description": "Microsoft 365 > Exchange > Distribution Groups > Members",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
@@ -224,6 +252,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:DkimSigningConfig",
     "description": "Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config",
     "url": "https://security.microsoft.com/dkimv2?tid=${ResourceContext:TenantId}",
@@ -232,6 +261,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:DynamicDistributionGroup",
     "description": "Microsoft 365 > Exchange > Dynamic Distribution Groups",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
@@ -240,6 +270,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:EmailAddressPolicy",
     "description": "Microsoft 365 > Exchange > Email Address Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
@@ -248,6 +279,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default Policy$).)+$"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:GlobalAddressList",
     "description": "Microsoft 365 > Exchange > Global Address List",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list",
@@ -256,6 +288,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default Global Address List$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:HostedConnectionFilterPolicy",
     "description": "Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
@@ -264,6 +297,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:HostedContentFilterPolicy",
     "description": "Microsoft 365 > Security & Compliance > Hosted Content Filter Policies",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
@@ -272,6 +306,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:HostedContentFilterRule",
     "description": "Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
@@ -280,6 +315,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:HostedOutboundSpamFilterPolicy",
     "description": "Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
@@ -288,6 +324,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:HostedOutboundSpamFilterRule",
     "description": "Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
@@ -296,6 +333,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:InboundConnector",
     "description": "Microsoft 365 > Exchange > Inbound Connectors",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors",
@@ -304,6 +342,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:IntraOrganizationConnector",
     "description": "Microsoft 365 > Exchange > Intra Organization Connectors",
     "url": null,
@@ -312,6 +351,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:IRMConfiguration",
     "description": "Microsoft 365 > Exchange > IRM Configuration",
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-irmconfiguration",
@@ -320,6 +360,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:JournalRule",
     "description": "Microsoft 365 > Exchange > Journal Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps",
@@ -328,6 +369,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:Mailbox",
     "description": "Microsoft 365 > Exchange > Mailboxes",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
@@ -336,6 +378,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:MailboxPermission",
     "description": "Microsoft 365 > Exchange > Mailboxes > Permissions",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
@@ -344,6 +387,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:MailboxPlan",
     "description": "Microsoft 365 > Exchange > Mailbox Plans",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
@@ -352,6 +396,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:MalwareFilterPolicy",
     "description": "Microsoft 365 > Exchange > Malware Filter Policies",
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
@@ -360,6 +405,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy).)+$"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:MalwareFilterRule",
     "description": "Microsoft 365 > Exchange > Malware Filter Policies > Rules",
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
@@ -368,6 +414,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:MobileDeviceMailboxPolicy",
     "description": "Microsoft 365 > Exchange > Mobile Device Mailbox Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mobiledevicemailboxpolicy?view=exchange-ps",
@@ -376,6 +423,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OfflineAddressBook",
     "description": "Microsoft 365 > Exchange > Offline Address Book",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-offlineaddressbook?view=exchange-ps",
@@ -384,6 +432,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OnPremisesOrganization",
     "description": "Microsoft 365 > Exchange > On-premises Organizations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-onpremisesorganization?view=exchange-ps",
@@ -392,6 +441,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OrganizationConfig",
     "description": "Microsoft 365 > Exchange > Organization Config",
     "url": null,
@@ -400,6 +450,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OrganizationRelationship",
     "description": "Microsoft 365 > Exchange > Organization Relationship",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-organizationrelationship?view=exchange-ps",
@@ -408,6 +459,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OutboundConnector",
     "description": "Microsoft 365 > Exchange > Outbound Connectors",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors",
@@ -416,6 +468,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OwaMailboxPolicy",
     "description": "Microsoft 365 > Exchange > Outlook Web App Policies",
     "url": null,
@@ -424,6 +477,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^OwaMailboxPolicy-Default$).)+$"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:PartnerApplication",
     "description": "Microsoft 365 > Exchange > Partner Applications",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps",
@@ -432,6 +486,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:PolicyTipConfig",
     "description": "Microsoft 365 > Exchange > Policy Tip Config",
     "url": "https://docs.microsoft.com/en-us/exchange/security-and-compliance/data-loss-prevention/manage-policy-tips",
@@ -440,6 +495,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:QuarantinePolicy",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies",
     "url": "https://security.microsoft.com/quarantinePolicies?tid=${ResourceContext:TenantId}",
@@ -448,6 +504,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:RemoteDomain",
     "description": "Microsoft 365 > Exchange > Mail Flow > Remote Domains",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/remotedomains",
@@ -456,6 +513,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:RetentionPolicy",
     "description": "Microsoft 365 > Exchange > Retention Policy",
     "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicy&tid=${ResourceContext:TenantId}",
@@ -464,6 +522,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:RetentionPolicyTag",
     "description": "Microsoft 365 > Exchange > Retention Policy Tag",
     "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicyTag&tid=${ResourceContext:TenantId}",
@@ -472,6 +531,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:RoleAssignmentPolicy",
     "description": "Microsoft 365 > Exchange > Role Assignment Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles",
@@ -480,6 +540,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default Role Assignment Policy$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:SafeAttachmentPolicy",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
@@ -488,6 +549,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:SafeAttachmentRule",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules",
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
@@ -496,6 +558,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:SafeLinksPolicy",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
@@ -504,6 +567,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:SafeLinksRule",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
@@ -512,6 +576,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:SharingPolicy",
     "description": "Microsoft 365 > Exchange > Sharing Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/sharing",
@@ -520,6 +585,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:TransportConfig",
     "description": "Microsoft 365 > Exchange > Transport Config",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
@@ -528,6 +594,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:TransportRule",
     "description": "Microsoft 365 > Exchange > Transport Rules",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/transportrules",
@@ -536,6 +603,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "SharePoint",
     "namespace": "MSGraph:Admin:Sharepoint:Settings",
     "description": "SharePoint > Settings",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/settings",
@@ -544,6 +612,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:AdministrativeUnits",
     "description": "Entra ID > Administrative Units",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
@@ -552,6 +621,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:AdministrativeUnits:Members:Ref",
     "description": "Entra ID > Administrative Units > Members",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
@@ -560,6 +630,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Agreements",
     "description": "Entra ID > Conditional Access > Terms of Use",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/~/TermsOfUse",
@@ -568,6 +639,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Applications",
     "description": "Entra ID > App Registrations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
@@ -576,6 +648,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Applications:PasswordCredentials",
     "description": "Entra ID > App Registrations > Secrets",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
@@ -584,6 +657,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Applications:TokenLifetimePolicies:Ref",
     "description": "Entra ID > App Registrations > Token Lifetime Policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
@@ -592,6 +666,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:AndroidManagedAppProtections",
     "description": "Intune > Apps > App Protection Policies (Platform = Android)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection",
@@ -600,6 +675,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:IosManagedAppProtections",
     "description": "Intune > Apps > App Protection Policies (Platform = iOS/iPadOS)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection",
@@ -608,6 +684,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:MdmWindowsInformationProtectionPolicies",
     "description": "Intune > Apps > App Protection Policies (Platform = Windows 10)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/~/appProtection",
@@ -616,6 +693,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:MobileAppConfigurations",
     "description": "Intune > Apps > App Configuration Policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
@@ -624,6 +702,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
@@ -632,6 +711,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^#microsoft.graph.androidManagedStoreApp--|^#microsoft.graph.androidStoreApp--|^#microsoft.graph.iosStoreApp--|^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:MobileApps:Assignments",
     "description": "Intune > Apps",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
@@ -640,6 +720,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:PolicySets",
     "description": "Intune > Policy Sets",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/PolicySetMenuBlade/overview",
@@ -648,6 +729,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceAppManagement:TargetedManagedAppConfigurations",
     "description": "Intune > Apps > App Configuration Policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
@@ -656,6 +738,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement",
     "description": "Intune > Devices > Compliance Policies > Compliance Policy Settings",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policySettings",
@@ -664,6 +747,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:AssignmentFilters",
     "description": "Intune > Tenant Administration > Filters",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/TenantAdminMenu/assignmentFilters",
@@ -672,6 +756,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:ConfigurationPolicies",
     "description": "Intune > Devices > Configuration Profiles (Settings Catalog)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -680,6 +765,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
     "description": "Intune > Devices > Compliance Policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
@@ -688,6 +774,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceConfigurations",
     "description": "Intune > Devices > Configuration Profiles",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -696,6 +783,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceConfigurations:Assignments",
     "description": "Intune > Devices > Configuration Profiles > Assignments",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -704,6 +792,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceEnrollmentConfigurations",
     "description": "Intune > Devices > Enrollment Restrictions",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesEnrollmentMenu/enrollmentRestrictions",
@@ -712,6 +801,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceHealthScripts",
     "description": "Intune > Reports > Endpoint Analytics > Proactive Remediations",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/proactiveRemediations",
@@ -720,6 +810,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceManagementScripts",
     "description": "Intune > Devices > Scripts",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell",
@@ -728,6 +819,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceShellScripts",
     "description": "Intune > Devices > Scripts",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell",
@@ -736,6 +828,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations",
     "description": "Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -744,6 +837,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations:Assignments",
     "description": "Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Assignments",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -752,6 +846,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:GroupPolicyConfigurations:DefinitionValues",
     "description": "Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Definition Values",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -760,6 +855,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:GroupPolicyDefinitions",
     "description": "Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -768,6 +864,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:GroupPolicyUploadedDefinitionFiles",
     "description": "Intune > Devices > Configuration Profiles (Import ADMX)",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
@@ -776,6 +873,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:Intents",
     "description": "Intune > Endpoint Security",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/overview",
@@ -784,6 +882,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:Intents:Settings",
     "description": "Intune > Endpoint Security > Settings",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/overview",
@@ -792,6 +891,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates",
     "description": "Intune > Devices > Compliance Policies > Notifications",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications",
@@ -800,6 +900,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:NotificationMessageTemplates:LocalizedNotificationMessages",
     "description": "Intune > Devices > Compliance Policies > Notifications > Localized Notification Messages",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications",
@@ -808,6 +909,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:ReusablePolicySettings",
     "description": "Intune > Endpoint Security > Firewall > Reusable Settings",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/~/firewall",
@@ -816,6 +918,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:RoleScopeTags",
     "description": "Intune > Tenant Administration > Roles > Scope Tags",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade/~/scopeTags",
@@ -824,6 +927,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:RoleScopeTags:Assignments",
     "description": "Intune > Tenant Administration > Roles > Scope Tags > Assignments",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade/~/scopeTags",
@@ -832,6 +936,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:Templates",
     "description": "Intune > Endpoint Security > Security Baselines",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DeviceConfigurationMenuBlade/templates",
@@ -840,6 +945,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles",
     "description": "Intune > Devices > Windows Autopilot Deployment Profiles",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
@@ -848,6 +954,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:WindowsAutopilotDeploymentProfiles:Assignments",
     "description": "Intune > Devices > Windows Autopilot Deployment Profiles > Assignments",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
@@ -856,6 +963,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles",
     "description": "Intune > Devices > Feature Updates for Windows 10 and Later",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
@@ -864,6 +972,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:WindowsQualityUpdateProfiles",
     "description": "Intune > Devices > Quality Updates for Windows 10 and Later",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/windows10QualityUpdate",
@@ -872,6 +981,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Directory:AttributeSets",
     "description": "Entra ID > Custom Security Attributes",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/CustomAttributesCatalog",
@@ -880,6 +990,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Directory:CustomSecurityAttributeDefinitions",
     "description": "Entra ID > Custom Security Attributes",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/CustomAttributesCatalog",
@@ -888,6 +999,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Directory:CustomSecurityAttributeDefinitions:AllowedValues",
     "description": "Entra ID > Custom Security Attributes > Allowed Values",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/CustomAttributesCatalog",
@@ -896,6 +1008,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Directory:OnPremisesSynchronization",
     "description": "Entra ID > Password Reset > On-premises Integration",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/~/OnPremisesIntegration/fromNav/",
@@ -904,6 +1017,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:DirectoryRoles",
     "description": "Entra ID > Roles and Administrators",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
@@ -912,6 +1026,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "M365 Admin Center",
     "namespace": "MSGraph:Domains",
     "description": "M365 Admin Center > Domains",
     "url": "https://admin.microsoft.com/#/Domains",
@@ -920,6 +1035,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:GroupLifecyclePolicies",
     "description": "Entra ID > Groups > Expiration",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Lifecycle",
@@ -928,6 +1044,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Groups",
     "description": "Entra ID > Groups",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
@@ -936,6 +1053,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Groups:GroupLifecyclePolicies",
     "description": "Entra ID > Groups > Expiration",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Lifecycle",
@@ -944,6 +1062,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Groups:Members:Ref",
     "description": "Entra ID > Groups > Members",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
@@ -952,6 +1071,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Groups:Owners:Ref",
     "description": "Entra ID > Groups > Owners",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
@@ -960,6 +1080,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Identity:ConditionalAccess:AuthenticationContextClassReferences",
     "description": "Entra ID > Security > Conditional Access > Authentication Contexts",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthenticationContext",
@@ -968,6 +1089,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Identity:ConditionalAccess:AuthenticationStrength:Policies",
     "description": "Entra ID > Security > Conditional Access > Authentication Strengths",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthStrengths",
@@ -976,6 +1098,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Identity:ConditionalAccess:NamedLocations",
     "description": "Entra ID > Security > Conditional Access > Named Locations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/NamedLocations",
@@ -984,6 +1107,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Identity:ConditionalAccess:Policies",
     "description": "Entra ID > Security > Conditional Access > Policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies",
@@ -992,6 +1116,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:IdentityGovernance:AccessReviews:Definitions",
     "description": "Entra ID > Privileged Identity Management > Entra Roles > Access Reviews",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/AccessReviews/resourceId//resourceType/tenant/provider/aadroles",
@@ -1000,6 +1125,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:IdentityGovernance:EntitlementManagement:ConnectedOrganizations",
     "description": "Entra ID > Identity Governance > Connected Organizations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
@@ -1008,6 +1134,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:IdentityGovernance:EntitlementManagement:ConnectedOrganizations:ExternalSponsors:Ref",
     "description": "Entra ID > Identity Governance > Connected Organizations > External Sponsors",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
@@ -1016,6 +1143,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:IdentityGovernance:EntitlementManagement:ConnectedOrganizations:InternalSponsors:Ref",
     "description": "Entra ID > Identity Governance > Connected Organizations > Internal Sponsors",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
@@ -1024,6 +1152,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:IdentityProtection:Settings:Notifications",
     "description": "Entra ID > Security > Identity Protection > Users at Risk Detected Alerts",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/UsersAtRiskAlerts",
@@ -1032,6 +1161,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Licenses:Assignments",
     "description": "Entra ID > Licenses > All Products",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Products",
@@ -1040,6 +1170,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Organization",
     "description": "Entra ID > Organization (Company Branding)",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
@@ -1048,6 +1179,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Organization:Branding:Localizations",
     "description": "Entra ID > Organization (Company Branding) > Branding > Localizations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
@@ -1056,6 +1188,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Organization:CertificateBasedAuthConfiguration",
     "description": "Entra ID > Organization > Certificate-based Authentication",
     "url": "https://entra.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/SecurityMenuBlade/~/CertificateAuthorities/menuId/SecurityCenter/fromNav/Identity",
@@ -1064,6 +1197,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:AuthenticationFlowsPolicy",
     "description": "Entra ID > Users > User Settings > External Users",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
@@ -1072,6 +1206,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy",
     "description": "Entra ID > External Collaboration Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
@@ -1080,6 +1215,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:AuthenticationMethodsPolicy:AuthenticationMethodConfigurations",
     "description": "Entra ID > External Collaboration Settings > Authentication Method Configurations",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
@@ -1088,6 +1224,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:AuthorizationPolicy",
     "description": "Entra ID > Authorization Policies",
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0",
@@ -1096,6 +1233,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:ClaimsMappingPolicies",
     "description": "Entra ID > Enterprise Applications > Claims Mapping Policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
@@ -1104,6 +1242,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:CrossTenantAccessPolicy",
     "description": "Entra ID > External Identities > Cross-tenant Access Settings > Microsoft Cloud Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
@@ -1112,6 +1251,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Default",
     "description": "Entra ID > External Identities > Cross-tenant Access Settings > Default Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
@@ -1120,6 +1260,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Partners",
     "description": "Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
@@ -1128,6 +1269,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:CrossTenantAccessPolicy:Partners:IdentitySynchronization",
     "description": "Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings > Identity Synchronization",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
@@ -1136,6 +1278,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Entra ID > Device Settings",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/DeviceSettings/menuId/",
@@ -1144,6 +1287,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:FeatureRolloutPolicies",
     "description": "Entra ID > Feature Rollout",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2",
@@ -1152,6 +1296,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:FeatureRolloutPolicies:AppliesTo:Ref",
     "description": "Entra ID > Feature Rollout > Applies to",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2",
@@ -1160,6 +1305,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:HomeRealmDiscoveryPolicies",
     "description": "Entra ID > Home Realm Discovery Policies",
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0",
@@ -1168,6 +1314,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:RoleManagementPolicies",
     "description": "Entra ID > Privileged Identity Management > Policies and Rules",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
@@ -1176,6 +1323,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:RoleManagementPolicies:Rules",
     "description": "Entra ID > Privileged Identity Management > Policies and Rules > Rules",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
@@ -1184,6 +1332,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:TokenLifetimePolicies",
     "description": "Entra ID > Enterprise Applications > Token Lifetime Policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
@@ -1192,6 +1341,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:RoleManagement:Directory:RoleAssignments",
     "description": "Entra ID > Roles and Administrators",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
@@ -1200,6 +1350,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:RoleManagement:Directory:RoleAssignmentSchedules",
     "description": "Entra ID > Privileged Identity Management > Entra Roles > Assignments",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/members/resourceId//resourceType/tenant/provider/aadroles",
@@ -1208,6 +1359,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:RoleManagement:Directory:RoleDefinitions",
     "description": "Entra ID > Roles and Administrators",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
@@ -1216,6 +1368,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:RoleManagement:Directory:RoleEligibilitySchedules",
     "description": "Entra ID > Privileged Identity Management > Policies and Rules",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
@@ -1224,6 +1377,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:ServicePrincipals",
     "description": "Entra ID > Enterprise Applications",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
@@ -1232,6 +1386,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:ServicePrincipals:HomeRealmDiscoveryPolicies:Ref",
     "description": "Entra ID > Enterprise Applications > Home Realm Discovery Policies",
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0",
@@ -1240,6 +1395,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Settings",
     "description": "Entra ID > Directory Settings",
     "url": null,
@@ -1248,6 +1404,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Entra ID",
     "namespace": "MSGraph:Users",
     "description": "Entra ID > Users",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers",
@@ -1256,6 +1413,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "M365 Admin Center",
     "namespace": "O365Portal:Reports:ProductivityScoreCustomerOption",
     "description": "M365 Admin Center > Settings > Org Settings > Adoption Score",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/AdoptionScore",
@@ -1264,6 +1422,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "M365 Admin Center",
     "namespace": "O365Portal:Services:Apps:VivaInsights",
     "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",
@@ -1272,6 +1431,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "M365 Admin Center",
     "namespace": "O365Portal:Settings:Apps:OfficeForms",
     "description": "M365 Admin Center > Settings > Org Settings > Microsoft Forms",
     "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/Services/:/Settings/L1/OfficeForms",
@@ -1280,6 +1440,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "M365 Admin Center",
     "namespace": "O365Portal:Settings:Security:ActivityBasedTimeout",
     "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
@@ -1288,6 +1449,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:AdaptiveScope",
     "description": "Microsoft 365 > Security & Compliance > Adaptive Scopes",
     "url": "https://compliance.microsoft.com/adaptivescope",
@@ -1296,6 +1458,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:AppRetentionCompliancePolicy",
     "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
@@ -1304,6 +1467,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:AppRetentionComplianceRule",
     "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
@@ -1312,6 +1476,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:AuditConfigurationPolicy",
     "description": "Microsoft 365 > Security & Compliance > Audit Configuration Policy",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps",
@@ -1320,6 +1485,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:CaseHoldPolicy",
     "description": "Microsoft 365 > Security & Compliance > Case Hold Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
@@ -1328,6 +1494,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:CaseHoldRule",
     "description": "Microsoft 365 > Security & Compliance > Case Hold Policies > Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
@@ -1336,6 +1503,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:ComplianceCase",
     "description": "Microsoft 365 > Security & Compliance > Compliance Cases",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancecase?view=exchange-ps",
@@ -1344,6 +1512,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:ComplianceRetentionEventType",
     "description": "Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/get-complianceretentioneventtype?view=exchange-ps",
@@ -1352,6 +1521,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:ComplianceTag",
     "description": "Microsoft 365 > Security & Compliance > Compliance Tags",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancetag?view=exchange-ps",
@@ -1360,6 +1530,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:DlpCompliancePolicy",
     "description": "Microsoft 365 > Security & Compliance > DLP Compliance Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps",
@@ -1368,6 +1539,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:DlpComplianceRule",
     "description": "Microsoft 365 > Security & Compliance > DLP Compliance Policies > Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps",
@@ -1376,6 +1548,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:DlpSensitiveInformationType",
     "description": "Microsoft 365 > Security & Compliance > DLP Sensitive Information Types",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps",
@@ -1384,6 +1557,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:FilePlanPropertyAuthority",
     "description": "Microsoft 365 > Security & Compliance > File Plan Property Authorities",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps",
@@ -1392,6 +1566,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:FilePlanPropertyCategory",
     "description": "Microsoft 365 > Security & Compliance > File Plan Property Categories",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps",
@@ -1400,6 +1575,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:FilePlanPropertyCitation",
     "description": "Microsoft 365 > Security & Compliance > File Plan Property Citations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycitation?view=exchange-ps",
@@ -1408,6 +1584,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:FilePlanPropertyDepartment",
     "description": "Microsoft 365 > Security & Compliance > File Plan Property Departments",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertydepartment?view=exchange-ps",
@@ -1416,6 +1593,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:FilePlanPropertyReferenceId",
     "description": "Microsoft 365 > Security & Compliance > File Plan Property Reference Ids",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyreferenceid?view=exchange-ps",
@@ -1424,6 +1602,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:FilePlanPropertySubCategory",
     "description": "Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertysubcategory?view=exchange-ps",
@@ -1432,6 +1611,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:Label",
     "description": "Microsoft 365 > Security & Compliance > Labels",
     "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabels",
@@ -1440,6 +1620,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:LabelPolicy",
     "description": "Microsoft 365 > Security & Compliance > Label Policy",
     "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabelpolicies",
@@ -1448,6 +1629,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:ProtectionAlert",
     "description": "Microsoft 365 > Security & Compliance > Protection Alerts",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-protectionalert?view=exchange-ps",
@@ -1456,6 +1638,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:RetentionCompliancePolicy",
     "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
@@ -1464,6 +1647,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:RetentionComplianceRule",
     "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules",
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
@@ -1472,6 +1656,7 @@
     "isDeleteSupportedFilter": ".*"
   },
   {
+    "category": "SharePoint",
     "namespace": "SharePoint:Sites",
     "description": "SharePoint Admin Center > Sites",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
@@ -1480,6 +1665,7 @@
     "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*"
   },
   {
+    "category": "SharePoint",
     "namespace": "SharePoint:TenantProperties",
     "description": "SharePoint Admin Center > Settings and Policies",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx",
@@ -1488,6 +1674,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsAppPermissionPolicy",
     "description": "Microsoft 365 > Teams > Apps > Permission Policies",
     "url": "https://admin.teams.microsoft.com/policies/app-permission?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1496,6 +1683,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsAppSetupPolicy",
     "description": "Microsoft 365 > Teams > Apps > Setup Policies",
     "url": "https://admin.teams.microsoft.com/policies/app-setup?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1504,6 +1692,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsCallHoldPolicy",
     "description": "Microsoft 365 > Teams > Voice > Call Hold Policies",
     "url": "https://admin.teams.microsoft.com/policies/callholdpolicy",
@@ -1512,6 +1701,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsCallingPolicy",
     "description": "Microsoft 365 > Teams > Voice > Calling Policies",
     "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1520,6 +1710,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsClientConfiguration",
     "description": "Microsoft 365 > Teams > Org-wide Settings > Teams Settings",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1528,6 +1719,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsMeetingBroadcastPolicy",
     "description": "Microsoft 365 > Teams > Meetings > Live Event Policies",
     "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1536,6 +1728,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsMeetingConfiguration",
     "description": "Microsoft 365 > Teams > Meetings > Meeting Settings",
     "url": "https://admin.teams.microsoft.com/meetings/settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1544,6 +1737,7 @@
     "isDeleteSupportedFilter": "$^"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsMeetingPolicy",
     "description": "Microsoft 365 > Teams > Meetings > Meeting Policies",
     "url": "https://admin.teams.microsoft.com/policies/meetings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1552,6 +1746,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^AllOn|^Default|^RestrictedAnonymousAccess|^AllOff|^RestrictedAnonymousNoRecording|^Kiosk).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsMessagingPolicy",
     "description": "Microsoft 365 > Teams > Messaging Policies",
     "url": "https://admin.teams.microsoft.com/policies/messaging?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1560,6 +1755,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsUpdateManagementPolicy",
     "description": "Microsoft 365 > Teams > Update Management Policies",
     "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
@@ -1568,6 +1764,7 @@
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$"
   },
   {
+    "category": "Teams",
     "namespace": "Teams:CsTenantFederationConfiguration",
     "description": "Microsoft 365 > Teams > Users > External Access",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
