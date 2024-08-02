@@ -1430,9 +1430,6 @@
     "ExchangeOnline:HostedContentFilterRule/HostedContentFilterRule": {
       "type": "object",
       "properties": {
-        "State": {
-          "type": "string"
-        },
         "Comments": {
           "type": "string"
         },
@@ -1465,6 +1462,12 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
@@ -3800,6 +3803,12 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
