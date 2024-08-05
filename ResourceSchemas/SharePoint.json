@@ -320,9 +320,6 @@
         "AllowCommentsTextOnEmailEnabled": {
           "type": "boolean"
         },
-        "AllowedDomainListForSyncClient": {
-          "$ref": "#/$defs/iListOfString"
-        },
         "AllowEditing": {
           "type": "boolean"
         },
