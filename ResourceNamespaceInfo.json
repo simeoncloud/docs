@@ -1111,9 +1111,9 @@
     "namespace": "MSGraph:Identity:ConditionalAccess:Policies",
     "description": "Entra ID > Security > Conditional Access > Policies",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "^(?:(?!^Microsoft-managed).)+",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*"
+    "isDeleteSupportedFilter": "^(?:(?!^Microsoft-managed).)+"
   },
   {
     "category": "Entra ID",
