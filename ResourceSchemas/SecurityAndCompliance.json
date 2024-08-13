@@ -382,6 +382,9 @@
         "EndpointDlpAdaptiveScopesException": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "EndpointDlpExtendedLocations": {
+          "type": "string"
+        },
         "EndpointDlpLocation": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -527,6 +530,9 @@
         },
         "ApplyHtmlDisclaimer": {
           "type": "array"
+        },
+        "AttachmentIsNotLabeled": {
+          "type": "boolean"
         },
         "BlockAccess": {
           "type": "boolean"
@@ -762,11 +768,17 @@
         "HeaderMatchesPatterns": {
           "type": "array"
         },
+        "MessageIsNotLabeled": {
+          "type": "boolean"
+        },
         "MessageSizeOver": {
           "type": "object"
         },
         "MessageTypeMatches": {
           "type": "string"
+        },
+        "MipRestrictAccess": {
+          "$ref": "#/$defs/arrayOfHashtable"
         },
         "Moderate": {
           "type": "array"
@@ -797,6 +809,9 @@
         },
         "NotifyOverrideRequirements": {
           "type": "object"
+        },
+        "NotifyPolicyTipCustomDialog": {
+          "type": "string"
         },
         "NotifyPolicyTipCustomText": {
           "type": "string"
@@ -881,6 +896,9 @@
         },
         "SetHeader": {
           "type": "array"
+        },
+        "SharedByIRMUserRisk": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "StopPolicyProcessing": {
           "type": "boolean"
