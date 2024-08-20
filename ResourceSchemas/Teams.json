@@ -443,6 +443,9 @@
         "BlockedAnonymousJoinClientTypes": {
           "type": "object"
         },
+        "CaptchaVerificationForMeetingJoin": {
+          "type": "string"
+        },
         "ChannelRecordingDownload": {
           "type": "string"
         },
@@ -504,9 +507,6 @@
           "type": "string"
         },
         "ScreenSharingMode": {
-          "type": "string"
-        },
-        "SmsNotifications": {
           "type": "string"
         },
         "SpeakerAttributionMode": {
