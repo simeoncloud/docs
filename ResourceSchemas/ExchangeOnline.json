@@ -3619,9 +3619,6 @@
         "RequiredCharsetCoverage": {
           "type": "integer"
         },
-        "SmtpDaneMandatoryModeEnabled": {
-          "type": "boolean"
-        },
         "TargetDeliveryDomain": {
           "type": "boolean"
         },
