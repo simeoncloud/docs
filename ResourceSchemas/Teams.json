@@ -443,6 +443,9 @@
         "BlockedAnonymousJoinClientTypes": {
           "type": "object"
         },
+        "CaptchaVerificationForMeetingJoin": {
+          "type": "string"
+        },
         "ChannelRecordingDownload": {
           "type": "string"
         },
