@@ -542,12 +542,6 @@
         "AllowBasicAuthWebServices": {
           "type": "boolean"
         },
-        "AllowLegacyExchangeTokens": {
-          "type": "boolean"
-        },
-        "BlockLegacyExchangeTokens": {
-          "type": "boolean"
-        },
         "Name": {
           "type": "string"
         },
