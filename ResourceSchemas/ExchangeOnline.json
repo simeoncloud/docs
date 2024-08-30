@@ -1669,10 +1669,10 @@
     "ExchangeOnline:IRMConfiguration/IRMConfiguration": {
       "type": "object",
       "properties": {
-        "ExternalLicensingEnabled": {
+        "ClientAccessServerEnabled": {
           "type": "boolean"
         },
-        "ClientAccessServerEnabled": {
+        "ExternalLicensingEnabled": {
           "type": "boolean"
         },
         "AutomaticServiceUpdateEnabled": {
