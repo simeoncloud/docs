@@ -506,9 +506,6 @@
         "ScreenSharingMode": {
           "type": "string"
         },
-        "SmsNotifications": {
-          "type": "string"
-        },
         "SpeakerAttributionMode": {
           "type": "string"
         },

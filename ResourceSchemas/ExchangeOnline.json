@@ -542,12 +542,6 @@
         "AllowBasicAuthWebServices": {
           "type": "boolean"
         },
-        "AllowLegacyExchangeTokens": {
-          "type": "boolean"
-        },
-        "BlockLegacyExchangeTokens": {
-          "type": "boolean"
-        },
         "Name": {
           "type": "string"
         },
@@ -3618,9 +3612,6 @@
         },
         "RequiredCharsetCoverage": {
           "type": "integer"
-        },
-        "SmtpDaneMandatoryModeEnabled": {
-          "type": "boolean"
         },
         "TargetDeliveryDomain": {
           "type": "boolean"
