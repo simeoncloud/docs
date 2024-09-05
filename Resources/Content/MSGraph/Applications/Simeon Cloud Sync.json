@@ -16,7 +16,9 @@
     "preAuthorizedApplications": [
       {
         "appId": "1950a258-227b-4e31-a9cf-717495945fc2",
-        "permissionIds": ["8a95b595-9933-4f75-902a-de21224bd125"]
+        "permissionIds": [
+          "8a95b595-9933-4f75-902a-de21224bd125"
+        ]
       }
     ],
     "requestedAccessTokenVersion": 1,
@@ -28,7 +30,9 @@
   },
   "appCapabilities": [],
   "appRoles": [],
-  "identifierUris": ["api://simeoncloud/${ResourceContext:TenantId}"],
+  "identifierUris": [
+    "api://simeoncloud/${ResourceContext:TenantId}"
+  ],
   "info": {
     "privacyStatementUrl": "https://www.simeoncloud.com/privacy",
     "termsOfServiceUrl": "https://www.simeoncloud.com/terms"
@@ -42,7 +46,9 @@
     "legalAgeGroupRule": "Allow"
   },
   "publicClient": {
-    "redirectUris": ["https://app.simeoncloud.com"]
+    "redirectUris": [
+      "https://app.simeoncloud.com"
+    ]
   },
   "requiredResourceAccess": [
     {
