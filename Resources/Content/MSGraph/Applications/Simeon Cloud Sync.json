@@ -16,9 +16,7 @@
     "preAuthorizedApplications": [
       {
         "appId": "1950a258-227b-4e31-a9cf-717495945fc2",
-        "permissionIds": [
-          "8a95b595-9933-4f75-902a-de21224bd125"
-        ]
+        "permissionIds": ["8a95b595-9933-4f75-902a-de21224bd125"]
       }
     ],
     "requestedAccessTokenVersion": 1,
@@ -30,9 +28,7 @@
   },
   "appCapabilities": [],
   "appRoles": [],
-  "identifierUris": [
-    "api://simeoncloud/${ResourceContext:TenantId}"
-  ],
+  "identifierUris": ["api://simeoncloud/${ResourceContext:TenantId}"],
   "info": {
     "privacyStatementUrl": "https://www.simeoncloud.com/privacy",
     "termsOfServiceUrl": "https://www.simeoncloud.com/terms"
@@ -46,9 +42,7 @@
     "legalAgeGroupRule": "Allow"
   },
   "publicClient": {
-    "redirectUris": [
-      "https://app.simeoncloud.com"
-    ]
+    "redirectUris": ["https://app.simeoncloud.com"]
   },
   "requiredResourceAccess": [
     {
@@ -56,18 +50,6 @@
       "resourceAccess": [
         {
           "id": "e4aa47b9-9a69-4109-82ed-36ec70d85ff1",
-          "type": "Scope"
-        },
-        {
-          "id": "7b8a2d34-6b3f-4542-a343-54651608ad81",
-          "type": "Scope"
-        },
-        {
-          "id": "9e4862a5-b68f-479e-848a-4e07e25c9916",
-          "type": "Scope"
-        },
-        {
-          "id": "40b534c3-9552-4550-901b-23879c90bcf9",
           "type": "Scope"
         },
         {
@@ -175,7 +157,15 @@
           "type": "Scope"
         },
         {
+          "id": "40b534c3-9552-4550-901b-23879c90bcf9",
+          "type": "Scope"
+        },
+        {
           "id": "92a38652-f13b-4875-bc77-6e1dbb63e1b2",
+          "type": "Scope"
+        },
+        {
+          "id": "7256e131-3efb-4323-9854-cf41c6021770",
           "type": "Scope"
         },
         {
@@ -212,14 +202,6 @@
         },
         {
           "id": "ef5f7d5c-338f-44b0-86c3-351f46c8bb5f",
-          "type": "Role"
-        },
-        {
-          "id": "5eb59dd3-1da2-4329-8733-9dabdc435916",
-          "type": "Role"
-        },
-        {
-          "id": "db06fb33-1953-4b7b-a2ac-f1e2c854f7ae",
           "type": "Role"
         },
         {
@@ -331,6 +313,10 @@
           "type": "Role"
         },
         {
+          "id": "2dcf8603-09eb-4078-b1ec-d30a1a76b873",
+          "type": "Role"
+        },
+        {
           "id": "a402ca1c-2696-4531-972d-6e5ee4aa11ea",
           "type": "Role"
         },
@@ -365,14 +351,70 @@
       ]
     },
     {
-      "resourceAppId": "00000002-0000-0ff1-ce00-000000000000",
+      "resourceAppId": "48ac35b8-9aa8-4d74-927d-1f4a14a0b239",
       "resourceAccess": [
         {
-          "id": "ab4f2b77-0b06-4fc1-a9de-02113fc2ab7c",
+          "id": "15391dcf-e272-4693-b514-06792e967d66",
+          "type": "Role"
+        },
+        {
+          "id": "e60370c1-e451-437e-aa6e-d76df38e5f15",
+          "type": "Scope"
+        }
+      ]
+    },
+    {
+      "resourceAppId": "00000009-0000-0000-c000-000000000000",
+      "resourceAccess": [
+        {
+          "id": "28379fa9-8596-4fd9-869e-cb60a93b5d84",
+          "type": "Role"
+        },
+        {
+          "id": "d594897b-76e7-4b2b-984b-b4adff35e109",
+          "type": "Scope"
+        }
+      ]
+    },
+    {
+      "resourceAppId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+      "resourceAccess": [
+        {
+          "id": "41094075-9dad-400e-a0bd-54e686782033",
+          "type": "Scope"
+        }
+      ]
+    },
+    {
+      "resourceAppId": "00000003-0000-0ff1-ce00-000000000000",
+      "resourceAccess": [
+        {
+          "id": "56680e0d-d2a3-4ae1-80d8-3c4f2100e3d0",
           "type": "Scope"
         },
         {
-          "id": "dc50a0fb-09a3-484d-be87-e023b12c6440",
+          "id": "59a198b5-0420-45a8-ae59-6da1cb640505",
+          "type": "Scope"
+        },
+        {
+          "id": "678536fe-1083-478a-9c59-b99265e6b0d3",
+          "type": "Role"
+        },
+        {
+          "id": "c8e3537c-ec53-43b9-bed3-b2bd3617ae97",
+          "type": "Role"
+        }
+      ]
+    },
+    {
+      "resourceAppId": "45a330b1-b1ec-4cc1-9161-9f03992aa49f",
+      "resourceAccess": [
+        {
+          "id": "56cee9a4-2b49-4d48-a5c1-b26a2e48aada",
+          "type": "Scope"
+        },
+        {
+          "id": "f75b6470-490d-4b7b-a084-15d2f79fcd26",
           "type": "Role"
         }
       ]
@@ -399,71 +441,15 @@
       ]
     },
     {
-      "resourceAppId": "45a330b1-b1ec-4cc1-9161-9f03992aa49f",
+      "resourceAppId": "00000002-0000-0ff1-ce00-000000000000",
       "resourceAccess": [
         {
-          "id": "56cee9a4-2b49-4d48-a5c1-b26a2e48aada",
+          "id": "ab4f2b77-0b06-4fc1-a9de-02113fc2ab7c",
           "type": "Scope"
         },
         {
-          "id": "f75b6470-490d-4b7b-a084-15d2f79fcd26",
+          "id": "dc50a0fb-09a3-484d-be87-e023b12c6440",
           "type": "Role"
-        }
-      ]
-    },
-    {
-      "resourceAppId": "00000003-0000-0ff1-ce00-000000000000",
-      "resourceAccess": [
-        {
-          "id": "56680e0d-d2a3-4ae1-80d8-3c4f2100e3d0",
-          "type": "Scope"
-        },
-        {
-          "id": "59a198b5-0420-45a8-ae59-6da1cb640505",
-          "type": "Scope"
-        },
-        {
-          "id": "678536fe-1083-478a-9c59-b99265e6b0d3",
-          "type": "Role"
-        },
-        {
-          "id": "c8e3537c-ec53-43b9-bed3-b2bd3617ae97",
-          "type": "Role"
-        }
-      ]
-    },
-    {
-      "resourceAppId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
-      "resourceAccess": [
-        {
-          "id": "41094075-9dad-400e-a0bd-54e686782033",
-          "type": "Scope"
-        }
-      ]
-    },
-    {
-      "resourceAppId": "00000009-0000-0000-c000-000000000000",
-      "resourceAccess": [
-        {
-          "id": "28379fa9-8596-4fd9-869e-cb60a93b5d84",
-          "type": "Role"
-        },
-        {
-          "id": "d594897b-76e7-4b2b-984b-b4adff35e109",
-          "type": "Scope"
-        }
-      ]
-    },
-    {
-      "resourceAppId": "48ac35b8-9aa8-4d74-927d-1f4a14a0b239",
-      "resourceAccess": [
-        {
-          "id": "15391dcf-e272-4693-b514-06792e967d66",
-          "type": "Role"
-        },
-        {
-          "id": "e60370c1-e451-437e-aa6e-d76df38e5f15",
-          "type": "Scope"
         }
       ]
     }

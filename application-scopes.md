@@ -1,6 +1,5 @@
 - Microsoft Graph
   - Delegated scope - AccessReview.ReadWrite.All (Manage access reviews that you can access)
-  - Delegated scope - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)
   - Delegated scope - Agreement.ReadWrite.All (Read and write all terms of use agreements)
   - Delegated scope - Application.ReadWrite.All (Read and write applications)
   - Delegated scope - AppRoleAssignment.ReadWrite.All (Manage app permission grants and app role assignments)
@@ -27,7 +26,9 @@
   - Delegated scope - Policy.ReadWrite.ConditionalAccess (Read and write your organization's conditional access policies)
   - Delegated scope - Policy.ReadWrite.ConsentRequest (Read and write consent request policy)
   - Delegated scope - Policy.ReadWrite.CrossTenantAccess (Read and write your organization's cross tenant access policies)
+  - Delegated scope - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)
   - Delegated scope - Policy.ReadWrite.FeatureRollout (Read and write your organization's feature rollout policies)
+  - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
   - Delegated scope - Policy.ReadWrite.PermissionGrant (Manage consent and permission grant policies)
   - Delegated scope - Policy.ReadWrite.TrustFramework (Read and write trust framework policies)
   - Delegated scope - RoleManagement.ReadWrite.Directory (Read and write directory RBAC settings)
@@ -64,6 +65,7 @@
   - Application scope - Policy.ReadWrite.ConsentRequest (Read and write your organization's consent request policy)
   - Application scope - Policy.ReadWrite.CrossTenantAccess (Read and write your organization's cross tenant access policies)
   - Application scope - Policy.ReadWrite.FeatureRollout (Read and write feature rollout policies)
+  - Application scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy )
   - Application scope - Policy.ReadWrite.PermissionGrant (Manage consent and permission grant policies)
   - Application scope - Policy.ReadWrite.TrustFramework (Read and write your organization's trust framework policies)
   - Application scope - RoleManagement.ReadWrite.Directory (Read and write all directory RBAC settings)
@@ -92,7 +94,7 @@
   - Application scope - application_access (application_access)
   - Delegated scope - user_impersonation (Access Microsoft Teams and Skype for Business data as the signed in user)
 - Windows Azure Service Management API
-  - Delegated scope - user_impersonation (Access Azure Service Management as you)
+  - Delegated scope - user_impersonation (Access Azure Resource Manager as you)
 - Windows Store for Business
   - Delegated scope - user_impersonation (Access Windows Store for Business)
   - Application scope - bspadmin (Administrator)
