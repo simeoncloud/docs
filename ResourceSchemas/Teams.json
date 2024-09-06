@@ -503,10 +503,10 @@
         "RoomAttributeUserOverride": {
           "type": "string"
         },
-        "ScreenSharingMode": {
+        "RoomPeopleNameUserOverride": {
           "type": "string"
         },
-        "SmsNotifications": {
+        "ScreenSharingMode": {
           "type": "string"
         },
         "SpeakerAttributionMode": {
