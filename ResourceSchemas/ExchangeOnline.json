@@ -3157,9 +3157,6 @@
         "BookingsMailboxDomain": {
           "type": "string"
         },
-        "CalendarEnabled": {
-          "type": "boolean"
-        },
         "ChangeSettingsAccountEnabled": {
           "type": "boolean"
         },
