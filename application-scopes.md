@@ -72,6 +72,10 @@
   - Application scope - TeamworkDevice.ReadWrite.All (Read and write Teams devices)
   - Application scope - ThreatSubmissionPolicy.ReadWrite.All (Read and write all of the organization's threat submission policies)
   - Application scope - User.ReadWrite.All (Read and write all users' full profiles)
+  - Application scope - IdentityRiskEvent.ReadWrite.All (Read and write all risk detection information)
+  - Delegated scope - IdentityRiskEvent.ReadWrite.All (Read and write risk event information)
+  - Application scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy )
+  - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
 - Office 365 Exchange Online
   - Delegated scope - Exchange.Manage (Manage Exchange configuration)
   - Application scope - Exchange.ManageAsApp (Manage Exchange As Application)
@@ -92,7 +96,7 @@
   - Application scope - application_access (application_access)
   - Delegated scope - user_impersonation (Access Microsoft Teams and Skype for Business data as the signed in user)
 - Windows Azure Service Management API
-  - Delegated scope - user_impersonation (Access Azure Service Management as you)
+  - Delegated scope - user_impersonation (Access Azure Resource Manager as you)
 - Windows Store for Business
   - Delegated scope - user_impersonation (Access Windows Store for Business)
   - Application scope - bspadmin (Administrator)
