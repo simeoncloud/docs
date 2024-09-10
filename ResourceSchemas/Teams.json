@@ -503,6 +503,9 @@
         "RoomAttributeUserOverride": {
           "type": "string"
         },
+        "RoomPeopleNameUserOverride": {
+          "type": "string"
+        },
         "ScreenSharingMode": {
           "type": "string"
         },
