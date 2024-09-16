@@ -1,373 +1,190 @@
-- Entra ID > Security > Identity Protection
-  - *Service Principal Auth: False*
-- Entra ID > Identity Governance > Connected Organizations
-  - *Service Principal Auth: True*
-- Entra ID > Identity Governance > Connected Organizations > External Sponsors
-  - *Service Principal Auth: True*
-- Entra ID > Identity Governance > Connected Organizations > Internal Sponsors
-  - *Service Principal Auth: True*
-- Entra ID > Security > Identity Protection > Users at Risk Detected Alerts
-  - *Service Principal Auth: True*
-- Entra ID > Licenses > All Products
-  - *Service Principal Auth: True*
-- Entra ID > Organization (Company Branding)
-  - *Service Principal Auth: True*
-- Entra ID > Organization (Company Branding) > Branding > Localizations
-  - *Service Principal Auth: True*
-- Entra ID > Organization > Certificate-based Authentication
-  - *Service Principal Auth: True*
-- Entra ID > Users > User Settings > External Users
-  - *Service Principal Auth: True*
-- Entra ID > Privileged Identity Management > Entra Roles > Access Reviews
-  - *Service Principal Auth: True*
-- Entra ID > External Collaboration Settings
-  - *Service Principal Auth: True*
-- Entra ID > Authorization Policies
-  - *Service Principal Auth: True*
-- Entra ID > Enterprise Applications > Claims Mapping Policies
-  - *Service Principal Auth: True*
-- Entra ID > External Identities > Cross-tenant Access Settings > Microsoft Cloud Settings
-  - *Service Principal Auth: True*
-- Entra ID > External Identities > Cross-tenant Access Settings > Default Settings
-  - *Service Principal Auth: True*
-- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings
-  - *Service Principal Auth: True*
-- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings > Identity Synchronization
-  - *Service Principal Auth: True*
-- Entra ID > Device Settings
-  - *Service Principal Auth: False*
-- Entra ID > Feature Rollout
-  - *Service Principal Auth: True*
-- Entra ID > Feature Rollout > Applies to
-  - *Service Principal Auth: True*
-- Entra ID > External Collaboration Settings > Authentication Method Configurations
-  - *Service Principal Auth: True*
-- Entra ID > Security > Conditional Access > Policies
-  - *Service Principal Auth: True*
-- Entra ID > Security > Conditional Access > Named Locations
-  - *Service Principal Auth: True*
-- Entra ID > Security > Conditional Access > Authentication Strengths
-  - *Service Principal Auth: True*
-- Intune > Devices > Compliance Policies > Notifications > Localized Notification Messages
-  - *Service Principal Auth: True*
-- Intune > Endpoint Security > Firewall > Reusable Settings
-  - *Service Principal Auth: True*
-- Intune > Tenant Administration > Roles > Scope Tags
-  - *Service Principal Auth: True*
-- Intune > Tenant Administration > Roles > Scope Tags > Assignments
-  - *Service Principal Auth: True*
-- Intune > Endpoint Security > Security Baselines
-  - *Service Principal Auth: True*
-- Intune > Devices > Windows Autopilot Deployment Profiles
-  - *Service Principal Auth: True*
-- Intune > Devices > Windows Autopilot Deployment Profiles > Assignments
-  - *Service Principal Auth: True*
-- Intune > Devices > Feature Updates for Windows 10 and Later
-  - *Service Principal Auth: True*
-- Intune > Devices > Quality Updates for Windows 10 and Later
-  - *Service Principal Auth: True*
-- Entra ID > Custom Security Attributes
-  - *Service Principal Auth: True*
-- Entra ID > Custom Security Attributes > Allowed Values
-  - *Service Principal Auth: True*
-- Entra ID > Password Reset > On-premises Integration
-  - *Service Principal Auth: False*
-- Entra ID > Roles and Administrators
-  - *Service Principal Auth: True*
-- M365 Admin Center > Domains
-  - *Service Principal Auth: True*
-- Entra ID > Groups > Expiration
-  - *Service Principal Auth: True*
-- Entra ID > Groups
-  - *Service Principal Auth: True*
-- Entra ID > Groups > Members
-  - *Service Principal Auth: True*
-- Entra ID > Groups > Owners
-  - *Service Principal Auth: True*
-- Entra ID > Security > Conditional Access > Authentication Contexts
-  - *Service Principal Auth: True*
-- Entra ID > Home Realm Discovery Policies
-  - *Service Principal Auth: True*
-- Entra ID > Privileged Identity Management > Policies and Rules
-  - *Service Principal Auth: True*
-- Entra ID > Privileged Identity Management > Policies and Rules > Rules
-  - *Service Principal Auth: True*
-- Entra ID > Enterprise Applications > Token Lifetime Policies
-  - *Service Principal Auth: True*
-- Microsoft 365 > Security & Compliance > File Plan Property Categories
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > File Plan Property Citations
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > File Plan Property Departments
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > File Plan Property Reference Ids
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Labels
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Label Policy
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Protection Alerts
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Information Governance > Retention
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules
-  - *Service Principal Auth: False*
-- SharePoint Admin Center > Sites
-  - *Service Principal Auth: False*
-- SharePoint Admin Center > Settings and Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Apps > Permission Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Apps > Setup Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Voice > Call Hold Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Voice > Calling Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Meetings > Live Event Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Meetings > Meeting Settings
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Meetings > Meeting Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Messaging Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > File Plan Property Authorities
-  - *Service Principal Auth: False*
-- Intune > Devices > Compliance Policies > Notifications
-  - *Service Principal Auth: True*
-- Microsoft 365 > Security & Compliance > DLP Sensitive Information Types
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > DLP Compliance Policies
-  - *Service Principal Auth: False*
-- Entra ID > Privileged Identity Management > Entra Roles > Assignments
-  - *Service Principal Auth: True*
-- Entra ID > Enterprise Applications
-  - *Service Principal Auth: True*
-- Entra ID > Enterprise Applications > Home Realm Discovery Policies
-  - *Service Principal Auth: True*
-- Entra ID > Directory Settings
-  - *Service Principal Auth: True*
-- Entra ID > Users
-  - *Service Principal Auth: True*
-- M365 Admin Center > Settings > Org Settings > Adoption Score
-  - *Service Principal Auth: True*
-- M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)
-  - *Service Principal Auth: True*
-- M365 Admin Center > Settings > Org Settings > Microsoft Forms
-  - *Service Principal Auth: True*
-- M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout
-  - *Service Principal Auth: True*
-- Microsoft 365 > Security & Compliance > Adaptive Scopes
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Audit Configuration Policy
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Case Hold Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Case Hold Policies > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Compliance Cases
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Compliance Tags
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > DLP Compliance Policies > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Teams > Update Management Policies
-  - *Service Principal Auth: True*
-- Intune > Endpoint Security > Settings
-  - *Service Principal Auth: True*
-- Intune > Devices > Configuration Profiles (Import ADMX)
-  - *Service Principal Auth: True*
-- Microsoft 365 > Exchange > Distribution Groups
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Distribution Groups > Members
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Dynamic Distribution Groups
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Email Address Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Global Address List
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Client Access Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Inbound Connectors
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Intra Organization Connectors
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > IRM Configuration
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Journal Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mailboxes
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mailboxes > Permissions
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mailbox Plans
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Malware Filter Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Malware Filter Policies > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > CAS Mailbox Plan
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Availability Config
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Availability Address Spaces
-  - *Service Principal Auth: False*
-- Entra ID > Enterprise Applications > User Settings
-  - *Service Principal Auth: False*
-- Entra ID > Devices > Enterprise State Roaming
-  - *Service Principal Auth: False*
-- Entra ID > External User Guest Settings
-  - *Service Principal Auth: False*
-- Entra ID > Group Settings
-  - *Service Principal Auth: False*
-- Entra ID > Mobility (MDM and MAM)
-  - *Service Principal Auth: False*
-- Entra ID > Password Reset
-  - *Service Principal Auth: False*
-- Entra ID > User Settings
-  - *Service Principal Auth: False*
-- Azure > Resource Groups
-  - *Service Principal Auth: False*
-- Defender > Configuration Management > Device Configuration
-  - *Service Principal Auth: False*
-- Defender > Hunting > Advanced Hunting > Queries > Shared Queries
-  - *Service Principal Auth: False*
-- Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions
-  - *Service Principal Auth: False*
-- Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mail Flow > Accepted Domains
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Address Book Policy
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Address List
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Admin Audit Log Config
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Modern Authentication
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mobile Device Mailbox Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Offline Address Book
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > On-premises Organizations
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Organization Config
-  - *Service Principal Auth: False*
-- Intune > Apps > App Protection Policies (Platform = iOS/iPadOS)
-  - *Service Principal Auth: True*
-- Intune > Apps > App Protection Policies (Platform = Windows 10)
-  - *Service Principal Auth: True*
-- Intune > Apps > App Configuration Policies
-  - *Service Principal Auth: False*
-- Intune > Apps
-  - *Service Principal Auth: True*
-- Intune > Policy Sets
-  - *Service Principal Auth: True*
-- Intune > Devices > Compliance Policies > Compliance Policy Settings
-  - *Service Principal Auth: True*
-- Intune > Tenant Administration > Filters
-  - *Service Principal Auth: True*
-- Intune > Devices > Configuration Profiles (Settings Catalog)
-  - *Service Principal Auth: True*
-- Intune > Devices > Compliance Policies
-  - *Service Principal Auth: False*
-- Intune > Devices > Configuration Profiles
-  - *Service Principal Auth: True*
-- Intune > Devices > Configuration Profiles > Assignments
-  - *Service Principal Auth: True*
-- Intune > Devices > Enrollment Restrictions
-  - *Service Principal Auth: False*
-- Intune > Reports > Endpoint Analytics > Proactive Remediations
-  - *Service Principal Auth: False*
-- Intune > Devices > Scripts
-  - *Service Principal Auth: True*
-- Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates)
-  - *Service Principal Auth: True*
-- Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Assignments
-  - *Service Principal Auth: True*
-- Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Definition Values
-  - *Service Principal Auth: True*
-- Intune > Apps > App Protection Policies (Platform = Android)
-  - *Service Principal Auth: True*
-- Intune > Endpoint Security
-  - *Service Principal Auth: True*
-- Entra ID > App Registrations > Token Lifetime Policies
-  - *Service Principal Auth: True*
-- Entra ID > App Registrations
-  - *Service Principal Auth: True*
-- Microsoft 365 > Exchange > Organization Relationship
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Outbound Connectors
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Outlook Web App Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Partner Applications
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Policy Tip Config
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Mail Flow > Remote Domains
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Retention Policy
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Retention Policy Tag
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Role Assignment Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links
-  - *Service Principal Auth: False*
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Sharing Policies
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Transport Config
-  - *Service Principal Auth: False*
-- Microsoft 365 > Exchange > Transport Rules
-  - *Service Principal Auth: False*
+## Configurations managed with a service principal
 - SharePoint > Settings
-  - *Service Principal Auth: True*
-- Entra ID > Administrative Units
-  - *Service Principal Auth: True*
-- Entra ID > Administrative Units > Members
-  - *Service Principal Auth: True*
-- Entra ID > Conditional Access > Terms of Use
-  - *Service Principal Auth: True*
+- Entra ID > External Collaboration Settings > Authentication Method Configurations
+- Entra ID > External Collaboration Settings
+- Entra ID > Users > User Settings > External Users
+- Entra ID > Organization > Certificate-based Authentication
+- Entra ID > Organization (Company Branding) > Branding > Localizations
+- Entra ID > Organization (Company Branding)
+- Entra ID > Licenses > All Products
+- Entra ID > Security > Identity Protection > Users at Risk Detected Alerts
+- Entra ID > Authorization Policies
+- Entra ID > Identity Governance > Connected Organizations > Internal Sponsors
+- Entra ID > Identity Governance > Connected Organizations
+- Entra ID > Privileged Identity Management > Entra Roles > Access Reviews
+- Entra ID > Security > Conditional Access > Policies
+- Entra ID > Security > Conditional Access > Named Locations
+- Entra ID > Security > Conditional Access > Authentication Strengths
+- Entra ID > Security > Conditional Access > Authentication Contexts
+- Entra ID > Groups > Owners
+- Entra ID > Groups > Members
+- Entra ID > Identity Governance > Connected Organizations > External Sponsors
+- Entra ID > Enterprise Applications > Claims Mapping Policies
+- Entra ID > External Identities > Cross-tenant Access Settings > Microsoft Cloud Settings
+- Entra ID > External Identities > Cross-tenant Access Settings > Default Settings
+- M365 Admin Center > Settings > Org Settings > Microsoft Forms
+- M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)
+- M365 Admin Center > Settings > Org Settings > Adoption Score
+- Entra ID > Users
+- Entra ID > Directory Settings
+- Entra ID > Enterprise Applications > Home Realm Discovery Policies
+- Entra ID > Enterprise Applications
+- Entra ID > Privileged Identity Management > Policies and Rules
+- Entra ID > Roles and Administrators
+- Entra ID > Privileged Identity Management > Entra Roles > Assignments
+- Entra ID > Enterprise Applications > Token Lifetime Policies
+- Entra ID > Privileged Identity Management > Policies and Rules > Rules
+- Entra ID > Home Realm Discovery Policies
+- Entra ID > Feature Rollout > Applies to
+- Entra ID > Feature Rollout
+- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings > Identity Synchronization
+- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings
+- Entra ID > Groups > Expiration
+- M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout
+- Entra ID > Groups
+- M365 Admin Center > Domains
+- Intune > Devices > Configuration Profiles > Assignments
+- Intune > Devices > Configuration Profiles
+- Intune > Devices > Configuration Profiles (Settings Catalog)
+- Intune > Tenant Administration > Filters
+- Intune > Devices > Compliance Policies > Compliance Policy Settings
+- Intune > Policy Sets
+- Intune > Apps
+- Intune > Devices > Scripts
+- Intune > Apps > App Configuration Policies
+- Intune > Apps > App Protection Policies (Platform = iOS/iPadOS)
+- Intune > Apps > App Protection Policies (Platform = Android)
+- Entra ID > App Registrations > Token Lifetime Policies
 - Entra ID > App Registrations > Secrets
-  - *Service Principal Auth: True*
+- Entra ID > App Registrations
+- Entra ID > Conditional Access > Terms of Use
+- Entra ID > Administrative Units > Members
+- Entra ID > Administrative Units
+- Intune > Apps > App Protection Policies (Platform = Windows 10)
+- Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates)
+- Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Assignments
+- Entra ID > Custom Security Attributes > Allowed Values
+- Entra ID > Custom Security Attributes
+- Intune > Devices > Quality Updates for Windows 10 and Later
+- Intune > Devices > Feature Updates for Windows 10 and Later
+- Intune > Devices > Windows Autopilot Deployment Profiles > Assignments
+- Intune > Devices > Windows Autopilot Deployment Profiles
+- Intune > Endpoint Security > Security Baselines
+- Intune > Tenant Administration > Roles > Scope Tags > Assignments
+- Intune > Tenant Administration > Roles > Scope Tags
+- Intune > Endpoint Security > Firewall > Reusable Settings
+- Intune > Devices > Compliance Policies > Notifications > Localized Notification Messages
+- Intune > Devices > Compliance Policies > Notifications
+- Intune > Endpoint Security > Settings
+- Intune > Endpoint Security
+- Intune > Devices > Configuration Profiles (Import ADMX)
+- Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Definition Values
+- Microsoft 365 > Teams > Update Management Policies
+## Configurations managed with a user
+- Entra ID > Security > Identity Protection
+- Microsoft 365 > Security & Compliance > Case Hold Policies > Rules
+- Microsoft 365 > Security & Compliance > Case Hold Policies
+- Microsoft 365 > Security & Compliance > Audit Configuration Policy
+- Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules
+- Microsoft 365 > Security & Compliance > Information Governance > Retention
+- Microsoft 365 > Security & Compliance > Adaptive Scopes
+- Entra ID > Device Settings
+- Entra ID > Password Reset > On-premises Integration
+- Intune > Reports > Endpoint Analytics > Proactive Remediations
+- Intune > Devices > Enrollment Restrictions
+- Intune > Devices > Compliance Policies
+- Intune > Apps > App Configuration Policies
+- Microsoft 365 > Exchange > Transport Rules
+- Microsoft 365 > Exchange > Transport Config
+- Microsoft 365 > Exchange > Sharing Policies
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments
+- Microsoft 365 > Exchange > Role Assignment Policies
+- Microsoft 365 > Exchange > Retention Policy Tag
+- Microsoft 365 > Exchange > Retention Policy
+- Microsoft 365 > Exchange > Mail Flow > Remote Domains
+- Microsoft 365 > Security & Compliance > Compliance Cases
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
+- Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types
+- Microsoft 365 > Security & Compliance > DLP Compliance Policies
+- Microsoft 365 > Teams > Meetings > Meeting Policies
+- Microsoft 365 > Teams > Meetings > Meeting Settings
+- Microsoft 365 > Teams > Meetings > Live Event Policies
+- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
+- Microsoft 365 > Teams > Voice > Calling Policies
+- Microsoft 365 > Teams > Voice > Call Hold Policies
+- Microsoft 365 > Teams > Apps > Setup Policies
+- Microsoft 365 > Teams > Apps > Permission Policies
+- SharePoint Admin Center > Settings and Policies
+- SharePoint Admin Center > Sites
+- Microsoft 365 > Security & Compliance > Protection Alerts
+- Microsoft 365 > Security & Compliance > Label Policy
+- Microsoft 365 > Security & Compliance > Labels
+- Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories
+- Microsoft 365 > Security & Compliance > File Plan Property Reference Ids
+- Microsoft 365 > Security & Compliance > File Plan Property Departments
+- Microsoft 365 > Security & Compliance > File Plan Property Citations
+- Microsoft 365 > Security & Compliance > File Plan Property Categories
+- Microsoft 365 > Security & Compliance > File Plan Property Authorities
+- Microsoft 365 > Security & Compliance > DLP Sensitive Information Types
+- Microsoft 365 > Security & Compliance > DLP Compliance Policies > Rules
+- Microsoft 365 > Security & Compliance > Compliance Tags
+- Microsoft 365 > Exchange > Policy Tip Config
+- Microsoft 365 > Exchange > Partner Applications
+- Microsoft 365 > Exchange > Outlook Web App Policies
+- Microsoft 365 > Exchange > Availability Config
+- Microsoft 365 > Exchange > Availability Address Spaces
+- Microsoft 365 > Exchange > Modern Authentication
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing
+- Microsoft 365 > Exchange > Admin Audit Log Config
+- Microsoft 365 > Exchange > Address List
+- Microsoft 365 > Exchange > Address Book Policy
+- Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules
+- Microsoft 365 > Exchange > Mail Flow > Accepted Domains
+- Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents
+- Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions
+- Defender > Hunting > Advanced Hunting > Queries > Shared Queries
+- Defender > Configuration Management > Device Configuration
+- Azure > Resource Groups
+- Entra ID > User Settings
+- Entra ID > Password Reset
+- Entra ID > Mobility (MDM and MAM)
+- Entra ID > Group Settings
+- Entra ID > External User Guest Settings
+- Entra ID > Devices > Enterprise State Roaming
+- Entra ID > Enterprise Applications > User Settings
+- Microsoft 365 > Exchange > CAS Mailbox Plan
+- Microsoft 365 > Exchange > Client Access Rules
+- Microsoft 365 > Exchange > Distribution Groups
+- Microsoft 365 > Exchange > Distribution Groups > Members
+- Microsoft 365 > Exchange > Outbound Connectors
+- Microsoft 365 > Exchange > Organization Relationship
+- Microsoft 365 > Exchange > Organization Config
+- Microsoft 365 > Exchange > On-premises Organizations
+- Microsoft 365 > Exchange > Offline Address Book
+- Microsoft 365 > Exchange > Mobile Device Mailbox Policies
+- Microsoft 365 > Exchange > Malware Filter Policies > Rules
+- Microsoft 365 > Exchange > Malware Filter Policies
+- Microsoft 365 > Exchange > Mailbox Plans
+- Microsoft 365 > Exchange > Mailboxes > Permissions
+- Microsoft 365 > Exchange > Mailboxes
+- Microsoft 365 > Teams > Messaging Policies
+- Microsoft 365 > Exchange > Journal Rules
+- Microsoft 365 > Exchange > Intra Organization Connectors
+- Microsoft 365 > Exchange > Inbound Connectors
+- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules
+- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules
+- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies
+- Microsoft 365 > Exchange > Global Address List
+- Microsoft 365 > Exchange > Email Address Policies
+- Microsoft 365 > Exchange > Dynamic Distribution Groups
+- Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config
+- Microsoft 365 > Exchange > IRM Configuration
 - Microsoft 365 > Teams > Users > External Access
-  - *Service Principal Auth: False*
 
