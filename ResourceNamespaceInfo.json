@@ -766,6 +766,24 @@
   },
   {
     "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:ConfigurationPolicyTemplates",
+    "description": "Intune > Endpoint Security > Security Baselines",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/~/securityBaselines",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:ConfigurationPolicyTemplates:ConfigurationSettingInstanceTemplates",
+    "description": "Intune > Endpoint Security > Security Baselines > Configuration Settings",
+    "url": null,
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": "$^"
+  },
+  {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
     "description": "Intune > Devices > Compliance Policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
