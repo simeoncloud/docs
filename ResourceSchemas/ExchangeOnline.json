@@ -199,12 +199,6 @@
         },
         "QueryString": {
           "type": "string"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:ActiveSyncDeviceAccessRule/ActiveSyncDeviceAccessRule"
@@ -482,12 +476,6 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
@@ -664,12 +652,6 @@
         },
         "UserRecipientFilter": {
           "type": "string"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
@@ -1542,6 +1524,9 @@
     "ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule": {
       "type": "object",
       "properties": {
+        "State": {
+          "type": "string"
+        },
         "Comments": {
           "type": "string"
         },
@@ -1574,12 +1559,6 @@
         },
         "SenderDomainIs": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
@@ -1767,12 +1746,6 @@
         },
         "Scope": {
           "type": "object"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:JournalRule/JournalRule"
@@ -2382,12 +2355,6 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
@@ -3934,12 +3901,6 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
@@ -4539,12 +4500,6 @@
         },
         "WithImportance": {
           "type": "string"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
