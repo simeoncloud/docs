@@ -1,190 +1,190 @@
 ## Configurations managed with a service principal
-- SharePoint > Settings
-- Entra ID > External Collaboration Settings > Authentication Method Configurations
-- Entra ID > External Collaboration Settings
-- Entra ID > Users > User Settings > External Users
-- Entra ID > Organization > Certificate-based Authentication
-- Entra ID > Organization (Company Branding) > Branding > Localizations
-- Entra ID > Organization (Company Branding)
-- Entra ID > Licenses > All Products
-- Entra ID > Security > Identity Protection > Users at Risk Detected Alerts
-- Entra ID > Authorization Policies
-- Entra ID > Identity Governance > Connected Organizations > Internal Sponsors
-- Entra ID > Identity Governance > Connected Organizations
-- Entra ID > Privileged Identity Management > Entra Roles > Access Reviews
-- Entra ID > Security > Conditional Access > Policies
-- Entra ID > Security > Conditional Access > Named Locations
-- Entra ID > Security > Conditional Access > Authentication Strengths
-- Entra ID > Security > Conditional Access > Authentication Contexts
-- Entra ID > Groups > Owners
-- Entra ID > Groups > Members
-- Entra ID > Identity Governance > Connected Organizations > External Sponsors
-- Entra ID > Enterprise Applications > Claims Mapping Policies
-- Entra ID > External Identities > Cross-tenant Access Settings > Microsoft Cloud Settings
-- Entra ID > External Identities > Cross-tenant Access Settings > Default Settings
-- M365 Admin Center > Settings > Org Settings > Microsoft Forms
-- M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)
-- M365 Admin Center > Settings > Org Settings > Adoption Score
-- Entra ID > Users
-- Entra ID > Directory Settings
-- Entra ID > Enterprise Applications > Home Realm Discovery Policies
-- Entra ID > Enterprise Applications
-- Entra ID > Privileged Identity Management > Policies and Rules
-- Entra ID > Roles and Administrators
-- Entra ID > Privileged Identity Management > Entra Roles > Assignments
-- Entra ID > Enterprise Applications > Token Lifetime Policies
-- Entra ID > Privileged Identity Management > Policies and Rules > Rules
-- Entra ID > Home Realm Discovery Policies
-- Entra ID > Feature Rollout > Applies to
-- Entra ID > Feature Rollout
-- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings > Identity Synchronization
-- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings
-- Entra ID > Groups > Expiration
-- M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout
-- Entra ID > Groups
-- M365 Admin Center > Domains
-- Intune > Devices > Configuration Profiles > Assignments
-- Intune > Devices > Configuration Profiles
-- Intune > Devices > Configuration Profiles (Settings Catalog)
-- Intune > Tenant Administration > Filters
-- Intune > Devices > Compliance Policies > Compliance Policy Settings
-- Intune > Policy Sets
-- Intune > Apps
-- Intune > Devices > Scripts
-- Intune > Apps > App Configuration Policies
-- Intune > Apps > App Protection Policies (Platform = iOS/iPadOS)
-- Intune > Apps > App Protection Policies (Platform = Android)
-- Entra ID > App Registrations > Token Lifetime Policies
-- Entra ID > App Registrations > Secrets
-- Entra ID > App Registrations
-- Entra ID > Conditional Access > Terms of Use
-- Entra ID > Administrative Units > Members
 - Entra ID > Administrative Units
+- Entra ID > Administrative Units > Members
+- Entra ID > App Registrations
+- Entra ID > App Registrations > Secrets
+- Entra ID > App Registrations > Token Lifetime Policies
+- Entra ID > Authorization Policies
+- Entra ID > Conditional Access > Terms of Use
+- Entra ID > Custom Security Attributes
+- Entra ID > Custom Security Attributes > Allowed Values
+- Entra ID > Directory Settings
+- Entra ID > Enterprise Applications
+- Entra ID > Enterprise Applications > Claims Mapping Policies
+- Entra ID > Enterprise Applications > Home Realm Discovery Policies
+- Entra ID > Enterprise Applications > Token Lifetime Policies
+- Entra ID > External Collaboration Settings
+- Entra ID > External Collaboration Settings > Authentication Method Configurations
+- Entra ID > External Identities > Cross-tenant Access Settings > Default Settings
+- Entra ID > External Identities > Cross-tenant Access Settings > Microsoft Cloud Settings
+- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings
+- Entra ID > External Identities > Cross-tenant Access Settings > Organizational Settings > Identity Synchronization
+- Entra ID > Feature Rollout
+- Entra ID > Feature Rollout > Applies to
+- Entra ID > Groups
+- Entra ID > Groups > Expiration
+- Entra ID > Groups > Members
+- Entra ID > Groups > Owners
+- Entra ID > Home Realm Discovery Policies
+- Entra ID > Identity Governance > Connected Organizations
+- Entra ID > Identity Governance > Connected Organizations > External Sponsors
+- Entra ID > Identity Governance > Connected Organizations > Internal Sponsors
+- Entra ID > Licenses > All Products
+- Entra ID > Organization (Company Branding)
+- Entra ID > Organization (Company Branding) > Branding > Localizations
+- Entra ID > Organization > Certificate-based Authentication
+- Entra ID > Privileged Identity Management > Entra Roles > Access Reviews
+- Entra ID > Privileged Identity Management > Entra Roles > Assignments
+- Entra ID > Privileged Identity Management > Policies and Rules
+- Entra ID > Privileged Identity Management > Policies and Rules > Rules
+- Entra ID > Roles and Administrators
+- Entra ID > Security > Conditional Access > Authentication Contexts
+- Entra ID > Security > Conditional Access > Authentication Strengths
+- Entra ID > Security > Conditional Access > Named Locations
+- Entra ID > Security > Conditional Access > Policies
+- Entra ID > Security > Identity Protection > Users at Risk Detected Alerts
+- Entra ID > Users
+- Entra ID > Users > User Settings > External Users
+- Intune > Apps
+- Intune > Apps > App Configuration Policies
+- Intune > Apps > App Protection Policies (Platform = Android)
+- Intune > Apps > App Protection Policies (Platform = iOS/iPadOS)
 - Intune > Apps > App Protection Policies (Platform = Windows 10)
+- Intune > Devices > Compliance Policies > Compliance Policy Settings
+- Intune > Devices > Compliance Policies > Notifications
+- Intune > Devices > Compliance Policies > Notifications > Localized Notification Messages
+- Intune > Devices > Configuration Profiles
+- Intune > Devices > Configuration Profiles (Import ADMX)
 - Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates)
 - Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Assignments
-- Entra ID > Custom Security Attributes > Allowed Values
-- Entra ID > Custom Security Attributes
-- Intune > Devices > Quality Updates for Windows 10 and Later
-- Intune > Devices > Feature Updates for Windows 10 and Later
-- Intune > Devices > Windows Autopilot Deployment Profiles > Assignments
-- Intune > Devices > Windows Autopilot Deployment Profiles
-- Intune > Endpoint Security > Security Baselines
-- Intune > Tenant Administration > Roles > Scope Tags > Assignments
-- Intune > Tenant Administration > Roles > Scope Tags
-- Intune > Endpoint Security > Firewall > Reusable Settings
-- Intune > Devices > Compliance Policies > Notifications > Localized Notification Messages
-- Intune > Devices > Compliance Policies > Notifications
-- Intune > Endpoint Security > Settings
-- Intune > Endpoint Security
-- Intune > Devices > Configuration Profiles (Import ADMX)
 - Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates) > Definition Values
+- Intune > Devices > Configuration Profiles (Settings Catalog)
+- Intune > Devices > Configuration Profiles > Assignments
+- Intune > Devices > Feature Updates for Windows 10 and Later
+- Intune > Devices > Quality Updates for Windows 10 and Later
+- Intune > Devices > Scripts
+- Intune > Devices > Windows Autopilot Deployment Profiles
+- Intune > Devices > Windows Autopilot Deployment Profiles > Assignments
+- Intune > Endpoint Security
+- Intune > Endpoint Security > Firewall > Reusable Settings
+- Intune > Endpoint Security > Security Baselines
+- Intune > Endpoint Security > Settings
+- Intune > Policy Sets
+- Intune > Tenant Administration > Filters
+- Intune > Tenant Administration > Roles > Scope Tags
+- Intune > Tenant Administration > Roles > Scope Tags > Assignments
+- M365 Admin Center > Domains
 - Microsoft 365 > Teams > Update Management Policies
-## Configurations managed with a user
-- Entra ID > Security > Identity Protection
-- Microsoft 365 > Security & Compliance > Case Hold Policies > Rules
-- Microsoft 365 > Security & Compliance > Case Hold Policies
-- Microsoft 365 > Security & Compliance > Audit Configuration Policy
-- Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules
-- Microsoft 365 > Security & Compliance > Information Governance > Retention
-- Microsoft 365 > Security & Compliance > Adaptive Scopes
-- Entra ID > Device Settings
-- Entra ID > Password Reset > On-premises Integration
-- Intune > Reports > Endpoint Analytics > Proactive Remediations
-- Intune > Devices > Enrollment Restrictions
-- Intune > Devices > Compliance Policies
-- Intune > Apps > App Configuration Policies
-- Microsoft 365 > Exchange > Transport Rules
-- Microsoft 365 > Exchange > Transport Config
-- Microsoft 365 > Exchange > Sharing Policies
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments
-- Microsoft 365 > Exchange > Role Assignment Policies
-- Microsoft 365 > Exchange > Retention Policy Tag
-- Microsoft 365 > Exchange > Retention Policy
-- Microsoft 365 > Exchange > Mail Flow > Remote Domains
-- Microsoft 365 > Security & Compliance > Compliance Cases
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
-- Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types
-- Microsoft 365 > Security & Compliance > DLP Compliance Policies
-- Microsoft 365 > Teams > Meetings > Meeting Policies
-- Microsoft 365 > Teams > Meetings > Meeting Settings
-- Microsoft 365 > Teams > Meetings > Live Event Policies
-- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
-- Microsoft 365 > Teams > Voice > Calling Policies
-- Microsoft 365 > Teams > Voice > Call Hold Policies
-- Microsoft 365 > Teams > Apps > Setup Policies
-- Microsoft 365 > Teams > Apps > Permission Policies
-- SharePoint Admin Center > Settings and Policies
-- SharePoint Admin Center > Sites
-- Microsoft 365 > Security & Compliance > Protection Alerts
-- Microsoft 365 > Security & Compliance > Label Policy
-- Microsoft 365 > Security & Compliance > Labels
-- Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories
-- Microsoft 365 > Security & Compliance > File Plan Property Reference Ids
-- Microsoft 365 > Security & Compliance > File Plan Property Departments
-- Microsoft 365 > Security & Compliance > File Plan Property Citations
-- Microsoft 365 > Security & Compliance > File Plan Property Categories
-- Microsoft 365 > Security & Compliance > File Plan Property Authorities
-- Microsoft 365 > Security & Compliance > DLP Sensitive Information Types
-- Microsoft 365 > Security & Compliance > DLP Compliance Policies > Rules
-- Microsoft 365 > Security & Compliance > Compliance Tags
-- Microsoft 365 > Exchange > Policy Tip Config
-- Microsoft 365 > Exchange > Partner Applications
-- Microsoft 365 > Exchange > Outlook Web App Policies
-- Microsoft 365 > Exchange > Availability Config
-- Microsoft 365 > Exchange > Availability Address Spaces
-- Microsoft 365 > Exchange > Modern Authentication
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing
-- Microsoft 365 > Exchange > Admin Audit Log Config
-- Microsoft 365 > Exchange > Address List
-- Microsoft 365 > Exchange > Address Book Policy
-- Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules
-- Microsoft 365 > Exchange > Mail Flow > Accepted Domains
-- Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents
-- Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions
-- Defender > Hunting > Advanced Hunting > Queries > Shared Queries
-- Defender > Configuration Management > Device Configuration
+- SharePoint > Settings
+## Configurations managed with a user account
 - Azure > Resource Groups
-- Entra ID > User Settings
-- Entra ID > Password Reset
-- Entra ID > Mobility (MDM and MAM)
-- Entra ID > Group Settings
-- Entra ID > External User Guest Settings
+- Defender > Configuration Management > Device Configuration
+- Defender > Hunting > Advanced Hunting > Queries > Shared Queries
+- Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions
+- Defender > Settings > Microsoft Defender XDR > Email Notifications > Incidents
+- Entra ID > Device Settings
 - Entra ID > Devices > Enterprise State Roaming
 - Entra ID > Enterprise Applications > User Settings
+- Entra ID > External User Guest Settings
+- Entra ID > Group Settings
+- Entra ID > Mobility (MDM and MAM)
+- Entra ID > Password Reset
+- Entra ID > Password Reset > On-premises Integration
+- Entra ID > Security > Identity Protection
+- Entra ID > User Settings
+- Intune > Apps > App Configuration Policies
+- Intune > Devices > Compliance Policies
+- Intune > Devices > Enrollment Restrictions
+- Intune > Reports > Endpoint Analytics > Proactive Remediations
+- M365 Admin Center > Settings > Org Settings > Adoption Score
+- M365 Admin Center > Settings > Org Settings > Microsoft Forms
+- M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout
+- M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)
+- Microsoft 365 > Exchange > Address Book Policy
+- Microsoft 365 > Exchange > Address List
+- Microsoft 365 > Exchange > Admin Audit Log Config
+- Microsoft 365 > Exchange > Availability Address Spaces
+- Microsoft 365 > Exchange > Availability Config
 - Microsoft 365 > Exchange > CAS Mailbox Plan
 - Microsoft 365 > Exchange > Client Access Rules
 - Microsoft 365 > Exchange > Distribution Groups
 - Microsoft 365 > Exchange > Distribution Groups > Members
-- Microsoft 365 > Exchange > Outbound Connectors
-- Microsoft 365 > Exchange > Organization Relationship
-- Microsoft 365 > Exchange > Organization Config
-- Microsoft 365 > Exchange > On-premises Organizations
-- Microsoft 365 > Exchange > Offline Address Book
-- Microsoft 365 > Exchange > Mobile Device Mailbox Policies
-- Microsoft 365 > Exchange > Malware Filter Policies > Rules
-- Microsoft 365 > Exchange > Malware Filter Policies
-- Microsoft 365 > Exchange > Mailbox Plans
-- Microsoft 365 > Exchange > Mailboxes > Permissions
-- Microsoft 365 > Exchange > Mailboxes
-- Microsoft 365 > Teams > Messaging Policies
-- Microsoft 365 > Exchange > Journal Rules
-- Microsoft 365 > Exchange > Intra Organization Connectors
-- Microsoft 365 > Exchange > Inbound Connectors
-- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules
-- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies
-- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules
-- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies
-- Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies
-- Microsoft 365 > Exchange > Global Address List
-- Microsoft 365 > Exchange > Email Address Policies
-- Microsoft 365 > Exchange > Dynamic Distribution Groups
 - Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config
+- Microsoft 365 > Exchange > Dynamic Distribution Groups
+- Microsoft 365 > Exchange > Email Address Policies
+- Microsoft 365 > Exchange > Global Address List
+- Microsoft 365 > Exchange > Inbound Connectors
+- Microsoft 365 > Exchange > Intra Organization Connectors
 - Microsoft 365 > Exchange > IRM Configuration
+- Microsoft 365 > Exchange > Journal Rules
+- Microsoft 365 > Exchange > Mail Flow > Accepted Domains
+- Microsoft 365 > Exchange > Mail Flow > Remote Domains
+- Microsoft 365 > Exchange > Mailbox Plans
+- Microsoft 365 > Exchange > Mailboxes
+- Microsoft 365 > Exchange > Mailboxes > Permissions
+- Microsoft 365 > Exchange > Malware Filter Policies
+- Microsoft 365 > Exchange > Malware Filter Policies > Rules
+- Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules
+- Microsoft 365 > Exchange > Mobile Device Mailbox Policies
+- Microsoft 365 > Exchange > Modern Authentication
+- Microsoft 365 > Exchange > Offline Address Book
+- Microsoft 365 > Exchange > On-premises Organizations
+- Microsoft 365 > Exchange > Organization Config
+- Microsoft 365 > Exchange > Organization Relationship
+- Microsoft 365 > Exchange > Outbound Connectors
+- Microsoft 365 > Exchange > Outlook Web App Policies
+- Microsoft 365 > Exchange > Partner Applications
+- Microsoft 365 > Exchange > Policy Tip Config
+- Microsoft 365 > Exchange > Retention Policy
+- Microsoft 365 > Exchange > Retention Policy Tag
+- Microsoft 365 > Exchange > Role Assignment Policies
+- Microsoft 365 > Exchange > Sharing Policies
+- Microsoft 365 > Exchange > Transport Config
+- Microsoft 365 > Exchange > Transport Rules
+- Microsoft 365 > Security & Compliance > Adaptive Scopes
+- Microsoft 365 > Security & Compliance > Audit Configuration Policy
+- Microsoft 365 > Security & Compliance > Case Hold Policies
+- Microsoft 365 > Security & Compliance > Case Hold Policies > Rules
+- Microsoft 365 > Security & Compliance > Compliance Cases
+- Microsoft 365 > Security & Compliance > Compliance Tags
+- Microsoft 365 > Security & Compliance > DLP Compliance Policies
+- Microsoft 365 > Security & Compliance > DLP Compliance Policies > Rules
+- Microsoft 365 > Security & Compliance > DLP Sensitive Information Types
+- Microsoft 365 > Security & Compliance > File Plan Property Authorities
+- Microsoft 365 > Security & Compliance > File Plan Property Categories
+- Microsoft 365 > Security & Compliance > File Plan Property Citations
+- Microsoft 365 > Security & Compliance > File Plan Property Departments
+- Microsoft 365 > Security & Compliance > File Plan Property Reference Ids
+- Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories
+- Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules
+- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules
+- Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types
+- Microsoft 365 > Security & Compliance > Information Governance > Retention
+- Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules
+- Microsoft 365 > Security & Compliance > Label Policy
+- Microsoft 365 > Security & Compliance > Labels
+- Microsoft 365 > Security & Compliance > Protection Alerts
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
+- Microsoft 365 > Teams > Apps > Permission Policies
+- Microsoft 365 > Teams > Apps > Setup Policies
+- Microsoft 365 > Teams > Meetings > Live Event Policies
+- Microsoft 365 > Teams > Meetings > Meeting Policies
+- Microsoft 365 > Teams > Meetings > Meeting Settings
+- Microsoft 365 > Teams > Messaging Policies
+- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
 - Microsoft 365 > Teams > Users > External Access
+- Microsoft 365 > Teams > Voice > Call Hold Policies
+- Microsoft 365 > Teams > Voice > Calling Policies
+- SharePoint Admin Center > Settings and Policies
+- SharePoint Admin Center > Sites
 
