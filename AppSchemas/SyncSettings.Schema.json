@@ -3,9 +3,9 @@
     "type": "object",
     "title": "SyncSettings",
     "properties": {
-        "CoreViewClientSecretId": {
+        "CoreViewConnectionString": {
             "type": "string",
-            "title": "CoreView Client Secret Id",
+            "title": "CoreView Connection String",
             "description": ""
         }
     }
