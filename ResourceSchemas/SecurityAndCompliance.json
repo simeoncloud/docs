@@ -352,7 +352,7 @@
         "ReviewerEmail": {
           "type": "array",
           "items": {
-            "type": "object"
+            "type": "string"
           }
         }
       },
@@ -670,7 +670,7 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "ExceptIfFromMemberOf": {
-          "$ref": "#/$defs/arrayOfObject"
+          "$ref": "#/$defs/arrayOfString"
         },
         "ExceptIfFromScope": {
           "type": "string"
@@ -748,7 +748,7 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "FromMemberOf": {
-          "$ref": "#/$defs/arrayOfObject"
+          "$ref": "#/$defs/arrayOfString"
         },
         "FromScope": {
           "type": "string"
@@ -936,12 +936,6 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
-        },
-        "arrayOfObject": {
-          "type": "array",
-          "items": {
-            "type": "object"
           }
         }
       },

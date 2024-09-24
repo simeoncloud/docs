@@ -866,7 +866,7 @@
           "type": "string"
         },
         "WindowsEmailAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$defs": {
@@ -1135,7 +1135,7 @@
           "type": "string"
         },
         "WindowsEmailAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$defs": {
@@ -1763,7 +1763,7 @@
           "type": "string"
         },
         "Recipient": {
-          "type": "object"
+          "type": "string"
         },
         "Scope": {
           "type": "object"
@@ -2078,7 +2078,7 @@
           "type": "string"
         },
         "PrimarySmtpAddress": {
-          "type": "object"
+          "type": "string"
         },
         "PublicFolder": {
           "type": "boolean"
@@ -2180,7 +2180,7 @@
           "type": "boolean"
         },
         "WindowsEmailAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$defs": {
@@ -2294,7 +2294,7 @@
           "type": "string"
         },
         "CustomFromAddress": {
-          "type": "object"
+          "type": "string"
         },
         "CustomFromName": {
           "type": "string"
@@ -2318,7 +2318,7 @@
           "type": "boolean"
         },
         "ExternalSenderAdminAddress": {
-          "type": "object"
+          "type": "string"
         },
         "FileTypeAction": {
           "type": "string"
@@ -2330,7 +2330,7 @@
           }
         },
         "InternalSenderAdminAddress": {
-          "type": "object"
+          "type": "string"
         },
         "IsDefault": {
           "type": "boolean"
@@ -3048,7 +3048,7 @@
           "type": "string"
         },
         "OrganizationContact": {
-          "type": "object"
+          "type": "string"
         },
         "PhotosEnabled": {
           "type": "boolean"
@@ -3784,7 +3784,7 @@
           "type": "boolean"
         },
         "RedirectAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy"
@@ -4007,7 +4007,7 @@
           "type": "boolean"
         },
         "ExternalPostmasterAddress": {
-          "type": "object"
+          "type": "string"
         },
         "HeaderPromotionModeSetting": {
           "type": "string"
@@ -4028,7 +4028,7 @@
           "type": "boolean"
         },
         "JournalingReportNdrTo": {
-          "type": "object"
+          "type": "string"
         },
         "JournalMessageExpirationDays": {
           "type": "integer"
