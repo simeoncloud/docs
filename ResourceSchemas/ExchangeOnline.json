@@ -55,6 +55,9 @@
       "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:GlobalAddressList/GlobalAddressList"
     },
     {
@@ -866,7 +869,7 @@
           "type": "string"
         },
         "WindowsEmailAddress": {
-          "type": "string"
+          "type": "object"
         }
       },
       "$defs": {
@@ -1135,7 +1138,7 @@
           "type": "string"
         },
         "WindowsEmailAddress": {
-          "type": "string"
+          "type": "object"
         }
       },
       "$defs": {
@@ -1174,6 +1177,21 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
+    },
+    "ExchangeOnline:ExternalInOutlook/ExternalInOutlook": {
+      "type": "object",
+      "properties": {
+        "AllowList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Enabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
     },
     "ExchangeOnline:GlobalAddressList/GlobalAddressList": {
       "type": "object",
@@ -1763,7 +1781,7 @@
           "type": "string"
         },
         "Recipient": {
-          "type": "string"
+          "type": "object"
         },
         "Scope": {
           "type": "object"
@@ -2078,7 +2096,7 @@
           "type": "string"
         },
         "PrimarySmtpAddress": {
-          "type": "string"
+          "type": "object"
         },
         "PublicFolder": {
           "type": "boolean"
@@ -2180,7 +2198,7 @@
           "type": "boolean"
         },
         "WindowsEmailAddress": {
-          "type": "string"
+          "type": "object"
         }
       },
       "$defs": {
@@ -2294,7 +2312,7 @@
           "type": "string"
         },
         "CustomFromAddress": {
-          "type": "string"
+          "type": "object"
         },
         "CustomFromName": {
           "type": "string"
@@ -2318,7 +2336,7 @@
           "type": "boolean"
         },
         "ExternalSenderAdminAddress": {
-          "type": "string"
+          "type": "object"
         },
         "FileTypeAction": {
           "type": "string"
@@ -2330,7 +2348,7 @@
           }
         },
         "InternalSenderAdminAddress": {
-          "type": "string"
+          "type": "object"
         },
         "IsDefault": {
           "type": "boolean"
@@ -3048,7 +3066,7 @@
           "type": "string"
         },
         "OrganizationContact": {
-          "type": "string"
+          "type": "object"
         },
         "PhotosEnabled": {
           "type": "boolean"
@@ -3784,7 +3802,7 @@
           "type": "boolean"
         },
         "RedirectAddress": {
-          "type": "string"
+          "type": "object"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy"
@@ -4007,7 +4025,7 @@
           "type": "boolean"
         },
         "ExternalPostmasterAddress": {
-          "type": "string"
+          "type": "object"
         },
         "HeaderPromotionModeSetting": {
           "type": "string"
@@ -4028,7 +4046,7 @@
           "type": "boolean"
         },
         "JournalingReportNdrTo": {
-          "type": "string"
+          "type": "object"
         },
         "JournalMessageExpirationDays": {
           "type": "integer"
