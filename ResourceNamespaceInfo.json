@@ -6,8 +6,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/Overview",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -16,8 +15,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -26,8 +24,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/RoamingSettings/menuId/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -36,8 +33,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/Settings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -46,8 +42,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/General",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -56,8 +51,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Mobility",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -66,8 +60,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/Properties",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -76,8 +69,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/UserSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Azure",
@@ -86,8 +78,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/HubsExtension/BrowseResourceGroups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Defender",
@@ -96,8 +87,7 @@
     "url": "https://security.microsoft.com/policy-management?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Defender",
@@ -106,8 +96,7 @@
     "url": "https://security.microsoft.com/advanced-hunting?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Defender",
@@ -116,8 +105,7 @@
     "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=actions",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Defender",
@@ -126,8 +114,7 @@
     "url": "https://security.microsoft.com/securitysettings/defender/email_notifications?tid=${ResourceContext:TenantId}&emailNotificationRuleType=incidents",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -136,8 +123,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/accepteddomains",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -146,8 +132,7 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -156,8 +141,7 @@
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/create-an-address-book-policy",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -166,8 +150,7 @@
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -176,8 +159,7 @@
     "url": null,
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Security & Compliance",
@@ -186,8 +168,7 @@
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
-    "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*"
   },
   {
     "category": "Security & Compliance",
@@ -196,8 +177,7 @@
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -206,8 +186,7 @@
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -216,8 +195,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-authenticationpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -226,8 +204,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -236,8 +213,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-availabilityconfig?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -246,8 +222,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-casmailboxplan?view=exchange-ps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -256,8 +231,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -266,8 +240,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -276,8 +249,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -286,8 +258,7 @@
     "url": "https://security.microsoft.com/dkimv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -296,8 +267,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -306,8 +276,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?:(?!^Default Policy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Default Policy$).)+$"
   },
   {
     "category": "Exchange",
@@ -316,8 +285,7 @@
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Global Address List$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Default Global Address List$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -326,8 +294,7 @@
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Security & Compliance",
@@ -336,8 +303,7 @@
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -346,8 +312,7 @@
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -356,8 +321,7 @@
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -366,8 +330,7 @@
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -376,8 +339,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -386,8 +348,7 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -396,8 +357,7 @@
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-irmconfiguration",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -406,8 +366,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -416,8 +375,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -426,8 +384,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -436,8 +393,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -446,8 +402,7 @@
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy).)+$"
   },
   {
     "category": "Exchange",
@@ -456,8 +411,7 @@
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -466,8 +420,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mobiledevicemailboxpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -476,8 +429,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-offlineaddressbook?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -486,8 +438,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-onpremisesorganization?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -496,8 +447,7 @@
     "url": null,
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -506,8 +456,7 @@
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-organizationrelationship?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -516,8 +465,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -526,8 +474,7 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^OwaMailboxPolicy-Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^OwaMailboxPolicy-Default$).)+$"
   },
   {
     "category": "Exchange",
@@ -536,8 +483,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -546,8 +492,7 @@
     "url": "https://docs.microsoft.com/en-us/exchange/security-and-compliance/data-loss-prevention/manage-policy-tips",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -556,8 +501,7 @@
     "url": "https://security.microsoft.com/quarantinePolicies?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$"
   },
   {
     "category": "Exchange",
@@ -566,8 +510,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/remotedomains",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
     "category": "Exchange",
@@ -576,8 +519,7 @@
     "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicy&tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -586,8 +528,7 @@
     "url": "https://compliance.microsoft.com/exchangeinformationgovernance?viewid=exoRetentionPolicyTag&tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -596,8 +537,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Role Assignment Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Default Role Assignment Policy$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -606,8 +546,7 @@
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -616,8 +555,7 @@
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -626,8 +564,7 @@
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -636,8 +573,7 @@
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -646,8 +582,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/sharing",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Exchange",
@@ -656,8 +591,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Exchange",
@@ -666,8 +600,7 @@
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/transportrules",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "SharePoint",
@@ -676,8 +609,7 @@
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/settings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -686,8 +618,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -696,8 +627,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/AdminUnit",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -706,8 +636,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/~/TermsOfUse",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -716,8 +645,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -726,8 +654,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -736,8 +663,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -746,8 +672,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -756,8 +681,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appProtection",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -766,8 +690,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/~/appProtection",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -776,8 +699,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -786,8 +708,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
     "isCreateSupportedFilter": "^(?:(?!^#microsoft.graph.androidManagedStoreApp--|^#microsoft.graph.androidStoreApp--|^#microsoft.graph.iosStoreApp--|^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^#microsoft.graph.androidManagedStoreApp--|^#microsoft.graph.androidStoreApp--|^#microsoft.graph.iosStoreApp--|^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "^(?:(?!^#microsoft.graph.androidManagedStoreApp--|^#microsoft.graph.androidStoreApp--|^#microsoft.graph.iosStoreApp--|^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$"
   },
   {
     "category": "Intune",
@@ -796,8 +717,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -806,8 +726,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/PolicySetMenuBlade/overview",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -816,8 +735,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/appConfig",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -826,8 +744,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policySettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Intune",
@@ -836,8 +753,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/TenantAdminMenu/assignmentFilters",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -846,8 +762,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -856,8 +771,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -866,8 +780,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -876,8 +789,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -886,8 +798,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesEnrollmentMenu/enrollmentRestrictions",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -896,8 +807,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/UXAnalyticsMenu/proactiveRemediations",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -906,8 +816,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -916,8 +825,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -926,8 +834,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -936,8 +843,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -946,8 +852,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -956,8 +861,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Intune",
@@ -966,8 +870,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/configurationProfiles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Intune",
@@ -976,8 +879,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/overview",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -986,8 +888,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/overview",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Intune",
@@ -996,8 +897,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1006,8 +906,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/notifications",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1016,8 +915,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Workflows/SecurityManagementMenu/~/firewall",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1026,8 +924,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade/~/scopeTags",
     "isCreateSupportedFilter": "^(?:(?!^Default$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Default$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$"
   },
   {
     "category": "Intune",
@@ -1036,8 +933,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade/~/scopeTags",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1046,8 +942,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DeviceConfigurationMenuBlade/templates",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Intune",
@@ -1056,8 +951,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1066,8 +960,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1076,8 +969,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Intune",
@@ -1086,8 +978,7 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/windows10QualityUpdate",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1096,8 +987,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/CustomAttributesCatalog",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1106,8 +996,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/CustomAttributesCatalog",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1116,8 +1005,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/CustomAttributesCatalog",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1126,8 +1014,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/PasswordResetMenuBlade/~/OnPremisesIntegration/fromNav/",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1136,8 +1023,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "M365 Admin Center",
@@ -1146,8 +1032,7 @@
     "url": "https://admin.microsoft.com/#/Domains",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1156,8 +1041,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Lifecycle",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1166,8 +1050,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1176,8 +1059,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Lifecycle",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1186,8 +1068,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1196,8 +1077,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1206,8 +1086,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthenticationContext",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1216,8 +1095,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/AuthStrengths",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1226,8 +1104,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/NamedLocations",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1236,8 +1113,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies",
     "isCreateSupportedFilter": "^(?:(?!^Microsoft-managed).)+",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Microsoft-managed).)+",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "^(?:(?!^Microsoft-managed).)+"
   },
   {
     "category": "Entra ID",
@@ -1246,8 +1122,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/AccessReviews/resourceId//resourceType/tenant/provider/aadroles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1256,8 +1131,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1266,8 +1140,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1276,8 +1149,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmOrganizations",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1286,8 +1158,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/UsersAtRiskAlerts",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1296,8 +1167,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Products",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1306,8 +1176,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1316,8 +1185,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1326,8 +1194,7 @@
     "url": "https://entra.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/SecurityMenuBlade/~/CertificateAuthorities/menuId/SecurityCenter/fromNav/Identity",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1336,8 +1203,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1346,8 +1212,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1356,8 +1221,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/ExternalIdentitiesIdentityProvidersBlade",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1366,8 +1230,7 @@
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/authorizationpolicy?view=graph-rest-1.0",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1376,8 +1239,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1386,8 +1248,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1396,8 +1257,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1406,8 +1266,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1416,8 +1275,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1426,8 +1284,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/DeviceSettings/menuId/",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1436,8 +1293,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1446,8 +1302,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1456,8 +1311,7 @@
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1466,8 +1320,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1476,8 +1329,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Entra ID",
@@ -1486,8 +1338,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1496,8 +1347,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1506,8 +1356,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/ResourceMenuBlade/~/members/resourceId//resourceType/tenant/provider/aadroles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1516,8 +1365,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/RolesManagementMenuBlade/~/AllRoles/adminUnitObjectId//resourceScope/%2F",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1526,8 +1374,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1536,8 +1383,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1546,8 +1392,7 @@
     "url": "https://docs.microsoft.com/en-us/graph/api/resources/homerealmdiscoverypolicy?view=graph-rest-1.0",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1556,8 +1401,7 @@
     "url": null,
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Entra ID",
@@ -1566,8 +1410,7 @@
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "M365 Admin Center",
@@ -1576,8 +1419,7 @@
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/AdoptionScore",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "M365 Admin Center",
@@ -1586,8 +1428,7 @@
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "M365 Admin Center",
@@ -1596,8 +1437,7 @@
     "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/Services/:/Settings/L1/OfficeForms",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "M365 Admin Center",
@@ -1606,8 +1446,7 @@
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Security & Compliance",
@@ -1616,8 +1455,7 @@
     "url": "https://compliance.microsoft.com/adaptivescope",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1626,8 +1464,7 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1636,8 +1473,7 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1646,8 +1482,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1656,8 +1491,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1666,8 +1500,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1676,8 +1509,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancecase?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1686,8 +1518,7 @@
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/get-complianceretentioneventtype?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1696,8 +1527,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancetag?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1706,8 +1536,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1716,8 +1545,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1726,8 +1554,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Security & Compliance",
@@ -1736,8 +1563,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -1746,8 +1572,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -1756,8 +1581,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycitation?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -1766,8 +1590,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertydepartment?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$",
-    "isDeleteSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$"
   },
   {
     "category": "Security & Compliance",
@@ -1776,8 +1599,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyreferenceid?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1786,8 +1608,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertysubcategory?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1796,8 +1617,7 @@
     "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabels",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1806,8 +1626,7 @@
     "url": "https://compliance.microsoft.com/informationprotection?viewid=sensitivitylabelpolicies",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1816,8 +1635,7 @@
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-protectionalert?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1826,8 +1644,7 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "Security & Compliance",
@@ -1836,8 +1653,7 @@
     "url": "https://compliance.microsoft.com/informationgovernance?viewid=retention",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": ".*"
   },
   {
     "category": "SharePoint",
@@ -1846,8 +1662,7 @@
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
     "isCreateSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*"
   },
   {
     "category": "SharePoint",
@@ -1856,8 +1671,7 @@
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Teams",
@@ -1866,8 +1680,7 @@
     "url": "https://admin.teams.microsoft.com/policies/app-permission?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
     "category": "Teams",
@@ -1876,8 +1689,7 @@
     "url": "https://admin.teams.microsoft.com/policies/app-setup?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$"
   },
   {
     "category": "Teams",
@@ -1886,8 +1698,7 @@
     "url": "https://admin.teams.microsoft.com/policies/callholdpolicy",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
     "category": "Teams",
@@ -1896,8 +1707,7 @@
     "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
     "category": "Teams",
@@ -1906,8 +1716,7 @@
     "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Teams",
@@ -1916,8 +1725,7 @@
     "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$"
   },
   {
     "category": "Teams",
@@ -1926,8 +1734,7 @@
     "url": "https://admin.teams.microsoft.com/meetings/settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   },
   {
     "category": "Teams",
@@ -1936,8 +1743,7 @@
     "url": "https://admin.teams.microsoft.com/policies/meetings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^AllOn|^Default|^RestrictedAnonymousAccess|^AllOff|^RestrictedAnonymousNoRecording|^Kiosk).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^AllOn|^Default|^RestrictedAnonymousAccess|^AllOff|^RestrictedAnonymousNoRecording|^Kiosk).)+$"
   },
   {
     "category": "Teams",
@@ -1946,8 +1752,7 @@
     "url": "https://admin.teams.microsoft.com/policies/messaging?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$"
   },
   {
     "category": "Teams",
@@ -1956,8 +1761,7 @@
     "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$",
-    "isDelegatedAuthRequired": false
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^Tag:Default$).)+$"
   },
   {
     "category": "Teams",
@@ -1966,7 +1770,6 @@
     "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDeleteSupportedFilter": "$^"
   }
 ]
