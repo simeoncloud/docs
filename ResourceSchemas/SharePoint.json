@@ -505,9 +505,6 @@
         "EnablePromotedFileHandlers": {
           "type": "boolean"
         },
-        "ExcludedFileExtensionsForSyncClient": {
-          "$ref": "#/$defs/iListOfString"
-        },
         "ExternalServicesEnabled": {
           "type": "boolean"
         },
