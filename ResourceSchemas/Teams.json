@@ -344,6 +344,9 @@
     "Teams:CsTeamsMeetingPolicy/CsTeamsMeetingPolicy": {
       "type": "object",
       "properties": {
+        "AllowAnnotations": {
+          "type": "boolean"
+        },
         "AllowAnonymousUsersToDialOut": {
           "type": "boolean"
         },
@@ -353,7 +356,13 @@
         "AllowAnonymousUsersToStartMeeting": {
           "type": "boolean"
         },
+        "AllowAvatarsInGallery": {
+          "type": "boolean"
+        },
         "AllowBreakoutRooms": {
+          "type": "boolean"
+        },
+        "AllowCarbonSummary": {
           "type": "boolean"
         },
         "AllowCartCaptionsScheduling": {
@@ -365,19 +374,34 @@
         "AllowCloudRecording": {
           "type": "boolean"
         },
+        "AllowDocumentCollaboration": {
+          "type": "string"
+        },
         "AllowedStreamingMediaInput": {
+          "type": "string"
+        },
+        "AllowedUsersForMeetingContext": {
           "type": "string"
         },
         "AllowEngagementReport": {
           "type": "string"
         },
+        "AllowExternalNonTrustedMeetingChat": {
+          "type": "boolean"
+        },
         "AllowExternalParticipantGiveRequestControl": {
+          "type": "boolean"
+        },
+        "AllowImmersiveView": {
           "type": "boolean"
         },
         "AllowIPAudio": {
           "type": "boolean"
         },
         "AllowIPVideo": {
+          "type": "boolean"
+        },
+        "AllowMeetingCoach": {
           "type": "boolean"
         },
         "AllowMeetingReactions": {
@@ -422,6 +446,9 @@
         "AllowSharedNotes": {
           "type": "boolean"
         },
+        "AllowTasksFromTranscript": {
+          "type": "string"
+        },
         "AllowTranscription": {
           "type": "boolean"
         },
@@ -434,14 +461,26 @@
         "AllowWhiteboard": {
           "type": "boolean"
         },
+        "AttendeeIdentityMasking": {
+          "type": "string"
+        },
+        "AudibleRecordingNotification": {
+          "type": "string"
+        },
         "AutoAdmittedUsers": {
           "type": "string"
         },
         "AutomaticallyStartCopilot": {
           "type": "string"
         },
+        "AutoRecording": {
+          "type": "string"
+        },
         "BlockedAnonymousJoinClientTypes": {
           "type": "object"
+        },
+        "CaptchaVerificationForMeetingJoin": {
+          "type": "string"
         },
         "ChannelRecordingDownload": {
           "type": "string"
@@ -461,10 +500,19 @@
         "DesignatedPresenterRoleMode": {
           "type": "string"
         },
+        "DetectSensitiveContentDuringScreenSharing": {
+          "type": "boolean"
+        },
         "EnrollUserOverride": {
           "type": "string"
         },
+        "ExplicitRecordingConsent": {
+          "type": "string"
+        },
         "ExternalMeetingJoin": {
+          "type": "string"
+        },
+        "InfoShownInReportMode": {
           "type": "string"
         },
         "IPAudioMode": {
@@ -494,7 +542,13 @@
         "NewMeetingRecordingExpirationDays": {
           "type": "integer"
         },
+        "ParticipantNameChange": {
+          "type": "string"
+        },
         "PreferredMeetingProviderForIslandsMode": {
+          "type": "string"
+        },
+        "QnAEngagementMode": {
           "type": "string"
         },
         "RecordingStorageMode": {
@@ -522,10 +576,28 @@
           "type": "string",
           "format": "uuid"
         },
+        "UsersCanAdmitFromLobby": {
+          "type": "string"
+        },
         "VideoFiltersMode": {
           "type": "string"
         },
         "VoiceIsolation": {
+          "type": "string"
+        },
+        "WatermarkForAnonymousUsers": {
+          "type": "string"
+        },
+        "WatermarkForCameraVideoOpacity": {
+          "type": "integer"
+        },
+        "WatermarkForCameraVideoPattern": {
+          "type": "string"
+        },
+        "WatermarkForScreenSharingOpacity": {
+          "type": "integer"
+        },
+        "WatermarkForScreenSharingPattern": {
           "type": "string"
         },
         "WhoCanRegister": {
@@ -540,7 +612,28 @@
     "Teams:CsTeamsMessagingPolicy/CsTeamsMessagingPolicy": {
       "type": "object",
       "properties": {
+        "AllowChatWithGroup": {
+          "type": "boolean"
+        },
+        "AllowCommunicationComplianceEndUserReporting": {
+          "type": "boolean"
+        },
+        "AllowCustomGroupChatAvatars": {
+          "type": "boolean"
+        },
+        "AllowFluidCollaborate": {
+          "type": "boolean"
+        },
+        "AllowFullChatPermissionUserToDeleteAnyMessage": {
+          "type": "boolean"
+        },
         "AllowGiphy": {
+          "type": "boolean"
+        },
+        "AllowGiphyDisplay": {
+          "type": "boolean"
+        },
+        "AllowGroupChatJoinLinks": {
           "type": "boolean"
         },
         "AllowImmersiveReader": {
@@ -552,10 +645,16 @@
         "AllowOwnerDeleteMessage": {
           "type": "boolean"
         },
+        "AllowPasteInternetImage": {
+          "type": "boolean"
+        },
         "AllowPriorityMessages": {
           "type": "boolean"
         },
         "AllowRemoveUser": {
+          "type": "boolean"
+        },
+        "AllowSecurityEndUserReporting": {
           "type": "boolean"
         },
         "AllowSmartCompose": {
@@ -585,6 +684,9 @@
         "AllowUserTranslation": {
           "type": "boolean"
         },
+        "AllowVideoMessages": {
+          "type": "boolean"
+        },
         "AudioMessageEnabledType": {
           "type": "object"
         },
@@ -611,6 +713,9 @@
         },
         "InMemory": {
           "type": "boolean"
+        },
+        "InOrganizationChatControl": {
+          "type": "string"
         },
         "ReadReceiptsEnabledType": {
           "type": "string"
