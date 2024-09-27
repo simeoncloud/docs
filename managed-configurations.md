@@ -110,6 +110,7 @@
     - Firewall
       - Reusable Settings
     - Security Baselines
+      - Configuration Settings
     - Settings
   - Policy Sets
   - Reports
