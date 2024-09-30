@@ -165,9 +165,6 @@
         "Description": {
           "type": "string"
         },
-        "EnableWebPstnMediaBypass": {
-          "type": "boolean"
-        },
         "InboundFederatedCallRoutingTreatment": {
           "type": "string"
         },
@@ -786,9 +783,6 @@
         },
         "ExternalAccessWithTrialTenants": {
           "type": "object"
-        },
-        "RestrictTeamsConsumerToExternalUserProfiles": {
-          "type": "boolean"
         },
         "SharedSipAddressSpace": {
           "type": "boolean"
