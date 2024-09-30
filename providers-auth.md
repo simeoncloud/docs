@@ -74,7 +74,17 @@
 - Intune > Tenant Administration > Roles > Scope Tags
 - Intune > Tenant Administration > Roles > Scope Tags > Assignments
 - M365 Admin Center > Domains
+- Microsoft 365 > Teams > Apps > Permission Policies
+- Microsoft 365 > Teams > Apps > Setup Policies
+- Microsoft 365 > Teams > Meetings > Live Event Policies
+- Microsoft 365 > Teams > Meetings > Meeting Policies
+- Microsoft 365 > Teams > Meetings > Meeting Settings
+- Microsoft 365 > Teams > Messaging Policies
+- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
 - Microsoft 365 > Teams > Update Management Policies
+- Microsoft 365 > Teams > Users > External Access
+- Microsoft 365 > Teams > Voice > Call Hold Policies
+- Microsoft 365 > Teams > Voice > Calling Policies
 - SharePoint > Settings
 ## Configurations managed with a user account
 - Azure > Resource Groups
@@ -175,16 +185,6 @@
 - Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
 - Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
 - Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
-- Microsoft 365 > Teams > Apps > Permission Policies
-- Microsoft 365 > Teams > Apps > Setup Policies
-- Microsoft 365 > Teams > Meetings > Live Event Policies
-- Microsoft 365 > Teams > Meetings > Meeting Policies
-- Microsoft 365 > Teams > Meetings > Meeting Settings
-- Microsoft 365 > Teams > Messaging Policies
-- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
-- Microsoft 365 > Teams > Users > External Access
-- Microsoft 365 > Teams > Voice > Call Hold Policies
-- Microsoft 365 > Teams > Voice > Calling Policies
 - SharePoint Admin Center > Settings and Policies
 - SharePoint Admin Center > Sites
 
