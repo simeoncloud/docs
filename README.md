@@ -1,1 +1,1 @@
-### Our documentation has moved! Please visit the [CoreView Knowledge Center](https://help.coreview.com/en_US/configuration-manager-product-manual) to view the Simeon Cloud Product Manual, release notes, troubleshooting documentation, and more.
+### Our documentation has moved! Please visit the [CoreView Knowledge Center](https://help.coreview.com/en_US/configuration-manager-product-manual) to view the Configuration Manager / Simeon Cloud product manual, release notes, troubleshooting documentation, and more.
