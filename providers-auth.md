@@ -1,4 +1,5 @@
 ## Configurations managed with a service principal
+
 - Entra ID > Administrative Units
 - Entra ID > Administrative Units > Members
 - Entra ID > App Registrations
@@ -76,7 +77,9 @@
 - M365 Admin Center > Domains
 - Microsoft 365 > Teams > Update Management Policies
 - SharePoint > Settings
+
 ## Configurations managed with a user account
+
 - Azure > Resource Groups
 - Defender > Configuration Management > Device Configuration
 - Defender > Hunting > Advanced Hunting > Queries > Shared Queries
@@ -188,3 +191,4 @@
 - SharePoint Admin Center > Settings and Policies
 - SharePoint Admin Center > Sites
 
+????? DELETE ME ???????
