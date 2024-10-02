@@ -1,0 +1,63 @@
+name: Upload Files to CoreView Knowledge Center
+
+on:
+  push:
+    branches:
+      - feature/SD-3683-CVKC-workflow
+    paths:
+      - managed-configurations.md
+      - providers-auth.md
+
+env:
+  HELP_JUICE_API_URL: https://coreview.helpjuice.com/api/v3
+  HELP_JUICE_API_KEY: ${{ secrets.HELP_JUICE_API_KEY }}
+  HELP_JUICE_FILE_CONTENT_FORMATTING_TAG: '<pre style="-webkit-text-stroke-width:0px;color:rgb(0, 0, 0);font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;overflow-wrap:break-word;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0px;">'
+jobs:
+  upload-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Process managed-configurations.md
+        env:
+          FILE_PATH: ./managed-configurations.md
+          HELP_JUICE_FILE_ID: 2839360
+        run: |
+          echo "Reading file $FILE_PATH content"
+          FILE_CONTENT=$(cat $FILE_PATH)
+          JSON_PAYLOAD=$(jq -n --arg name "$FILE_NAME" --arg body "$HELP_JUICE_FILE_CONTENT_FORMATTING_TAG$FILE_CONTENT" '{
+            article: {
+              body: $body,
+            }
+          }')
+          echo "JSON Payload: $JSON_PAYLOAD"
+          URL="$HELP_JUICE_API_URL/articles/$HELP_JUICE_FILE_ID"
+          echo "Uploading file $FILE_PATH to HelpJuice API URL: $URL"
+          RES=$(curl --location --write-out '%{http_code}' --silent --output /dev/null --request PUT "$URL" \
+            -H "Authorization: $HELP_JUICE_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$JSON_PAYLOAD")
+          echo "Response: $RES"
+
+      - name: Process providers-auth.md
+        env:
+          FILE_PATH: ./providers-auth.md
+          HELP_JUICE_FILE_ID: 2839345
+        run: |
+          echo "Reading file $FILE_PATH content"
+          FILE_CONTENT=$(cat $FILE_PATH)
+          JSON_PAYLOAD=$(jq -n --arg name "$FILE_NAME" --arg body "$HELP_JUICE_FILE_CONTENT_FORMATTING_TAG$FILE_CONTENT" '{
+            article: {
+              body: $body,
+            }
+          }')
+          echo "JSON Payload: $JSON_PAYLOAD"
+          URL="$HELP_JUICE_API_URL/articles/$HELP_JUICE_FILE_ID"
+          echo "Uploading file $FILE_PATH to HelpJuice API URL: $URL"
+          RES=$(curl --location --write-out '%{http_code}' --silent --output /dev/null --request PUT "$URL" \
+            -H "Authorization: $HELP_JUICE_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$JSON_PAYLOAD")
+          echo "Response: $RES"
