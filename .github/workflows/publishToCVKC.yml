@@ -34,7 +34,7 @@ jobs:
           }')
           URL="$HELP_JUICE_API_URL/articles/$HELP_JUICE_FILE_ID"
           echo "Uploading file $FILE_PATH to HelpJuice API URL: $URL"
-          RES=$(curl --location --write-out '%{http_code}' --silent --fail --output /dev/null --request PUT "$URL" \
+          RES=$(curl --location --write-out '%{http_code}' --fail --output /dev/null --request PUT "$URL" \
             -H "Authorization: $HELP_JUICE_API_KEY" \
             -H "Content-Type: application/json" \
             -d "$JSON_PAYLOAD")
@@ -54,7 +54,7 @@ jobs:
           }')
           URL="$HELP_JUICE_API_URL/articles/$HELP_JUICE_FILE_ID"
           echo "Uploading file $FILE_PATH to HelpJuice API URL: $URL"
-          RES=$(curl --location --write-out '%{http_code}' --silent --fail --output /dev/null --request PUT "$URL" \
+          RES=$(curl --location --write-out '%{http_code}' --fail --output /dev/null --request PUT "$URL" \
             -H "Authorization: $HELP_JUICE_API_KEY" \
             -H "Content-Type: application/json" \
             -d "$JSON_PAYLOAD")
