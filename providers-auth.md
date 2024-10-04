@@ -139,6 +139,7 @@
 - Microsoft 365 > Exchange > Retention Policy Tag
 - Microsoft 365 > Exchange > Role Assignment Policies
 - Microsoft 365 > Exchange > Sharing Policies
+- Microsoft 365 > Exchange > Tag External Emails
 - Microsoft 365 > Exchange > Transport Config
 - Microsoft 365 > Exchange > Transport Rules
 - Microsoft 365 > Security & Compliance > Adaptive Scopes
