@@ -23,7 +23,7 @@ jobs:
       - uses: ./.github/actions/updateKCArticle
         with:
           filePath: ./managed-configurations.md
-          articleId: 2839345
+          articleId: 2839360
           helpJuiceApiUrl: ${{ env.HELP_JUICE_API_URL }}
           helpJuiceApiKey: ${{ env.HELP_JUICE_API_KEY }}
 
