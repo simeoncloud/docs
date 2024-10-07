@@ -3,7 +3,7 @@ name: Upload Files to CoreView Knowledge Center
 on:
   push:
     branches:
-      - feature/SD-3683-CVKC-workflow # TODO: Change this to master
+      - master
     paths:
       - managed-configurations.md
       - providers-auth.md
