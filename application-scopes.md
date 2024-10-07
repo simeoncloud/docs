@@ -58,7 +58,7 @@
   - Application scope - Policy.ReadWrite.AccessReview (Read and write your organization's directory access review default policy)
   - Application scope - Policy.ReadWrite.ApplicationConfiguration (Read and write your organization's application configuration policies)
   - Application scope - Policy.ReadWrite.AuthenticationFlows (Read and write authentication flow policies)
-  - Application scope - Policy.ReadWrite.AuthenticationMethod (Read and write all authentication method policies )
+  - Application scope - Policy.ReadWrite.AuthenticationMethod (Read and write all authentication method policies )
   - Application scope - Policy.ReadWrite.Authorization (Read and write your organization's authorization policy)
   - Application scope - Policy.ReadWrite.ConditionalAccess (Read and write your organization's conditional access policies)
   - Application scope - Policy.ReadWrite.ConsentRequest (Read and write your organization's consent request policy)
@@ -98,8 +98,5 @@
 - Windows Azure Service Management API
   - Delegated scope - user_impersonation (Access Azure Resource Manager as you)
 - Windows Store for Business
-
   - Delegated scope - user_impersonation (Access Windows Store for Business)
   - Application scope - bspadmin (Administrator)
-
-  - REMOVE ME
