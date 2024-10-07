@@ -98,6 +98,8 @@
 - Windows Azure Service Management API
   - Delegated scope - user_impersonation (Access Azure Resource Manager as you)
 - Windows Store for Business
+
   - Delegated scope - user_impersonation (Access Windows Store for Business)
   - Application scope - bspadmin (Administrator)
 
+  - REMOVE ME
