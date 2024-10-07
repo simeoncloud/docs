@@ -11,7 +11,7 @@ on:
 env:
   HELP_JUICE_API_URL: https://coreview.helpjuice.com/api/v3
   HELP_JUICE_API_KEY: ${{ secrets.HELP_JUICE_API_KEY }}
-  # HELP_JUICE_FILE_CONTENT_FORMATTING_TAG: '<pre style="-webkit-text-stroke-width:0px;color:rgb(0, 0, 0);font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;overflow-wrap:break-word;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0px;">'
+
 jobs:
   upload-files:
     runs-on: ubuntu-latest
