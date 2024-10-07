@@ -455,12 +455,6 @@
         "AllowTranscription": {
           "type": "boolean"
         },
-        "AllowWatermarkCustomizationForCameraVideo": {
-          "type": "boolean"
-        },
-        "AllowWatermarkCustomizationForScreenSharing": {
-          "type": "boolean"
-        },
         "AllowWatermarkForCameraVideo": {
           "type": "boolean"
         },
@@ -788,9 +782,6 @@
           "type": "boolean"
         },
         "BlockAllSubdomains": {
-          "type": "boolean"
-        },
-        "CustomizeFederation": {
           "type": "boolean"
         },
         "ExternalAccessWithTrialTenants": {
