@@ -1,16 +1,40 @@
-##
-*MSGraph/Organization/Localizations*
+# The Simeon Baseline: A comprehensive set of best practice Microsoft 365 configurations.
 
-###### hidden-header
+Welcome to the Simeon Baseline. Simeon Cloud has expertly configured these settings to optimize your Microsoft 365 environments in accordance with industry best practices. This list represents the most important, relevant and security-focused configurations across Azure AD, Office 365, and Intune. These configurations can be deployed to a tenant to provide a fully functional environment out of the box, capable of enrolling devices using Autopilot, managing devices using Intune and providing secure access to Office 365 for users.
 
-### ${ResourceContext:TenantId}--0
+Not yet a client of Simeon? [Get started here](https://www.simeoncloud.com/).
 
-|Name |${ResourceContext:TenantId}--0|
-| :-- | :-- |
-| What does this do? | Defines the messages and logos shown to users on Azure login screens. The baseline automatically populates the username watermark with "user@yourcompanyname.org." |
-| Why should you use this? | If you want to provide your users with a personalized login screen for added security, familiarity, and branding. |
-| What is the end-user impact? | Users will see the watermark (username hint) on Azure login screens. |
-| Learn more | [Customize your Azure AD sign-in page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/customize-branding) |
+## Summary of security-focused configurations
+
+### Data loss prevention (DLP)
+- Users can only access corporate data from:
+  - Compliant corporate devices managed by Intune
+  - In-office locations
+  - Approved applications on personal mobile devices
+- Corporate data on personal mobile devices are restricted from leaving approved client applications, preventing data loss
+- Integration with third-party services, such as LinkedIn, Dropbox, Google Drive, personal Microsoft accounts, etc., is disabled
+
+### Security auditing
+- Microsoft 365 is configured to audit and optionally alert on all login and device management operations
+
+### Authentication
+- Multifactor authentication is required whenever authenticating from a personal device or as an administrator
+- Corporate devices have a randomized local administrator password
+
+### Endpoint security
+- Corporate devices block the use of simple passwords
+- Corporate devices are blocked from communicating using insecure protocols
+- Corporate devices are encrypted
+- Corporate devices use a fixed list of trusted internet sites
+- Corporate devices are continuously monitored for security compliance, including encryption status, antivirus protection, and malware protection; non-compliant devices are restricted from accessing corporate data
+
+### Data retention
+- All corporate data in O365 is retained for one year, including emails, chat, and files
+
+### User privileges
+- End users are restricted from connecting their personal Windows computers to O365
+- End users are restricted from creating groups
+- End users are restricted from inviting external users to view corporate data
 
 ## Entra ID > Authorization Policies
 *MSGraph/Policies/AuthorizationPolicy*
@@ -72,9 +96,9 @@
 
 ###### hidden-header
 
-### 0000000a-0000-0000-c000-000000000000
+### Microsoft Intune
 
-|Name |0000000a-0000-0000-c000-000000000000|
+|Name |Microsoft Intune|
 | :-- | :-- |
 Multi-Tenant App: Microsoft Intune
 
@@ -82,21 +106,21 @@ Multi-Tenant App: Microsoft Intune
 
 ###### hidden-header
 
-### 797f4846-ba00-4fd7-ba43-dac1f8f63013
+### Microsoft Intune Enrollment
 
-|Name |797f4846-ba00-4fd7-ba43-dac1f8f63013|
+|Name |Microsoft Intune Enrollment|
 | :-- | :-- |
-Multi-Tenant App: Windows Azure Service Management API
+Multi-Tenant App: Microsoft Intune Enrollment
 
 
 
 ###### hidden-header
 
-### d4ebce55-015a-49b5-a083-c84d1797ae8c
+### Windows Azure Service Management API
 
-|Name |d4ebce55-015a-49b5-a083-c84d1797ae8c|
+|Name |Windows Azure Service Management API|
 | :-- | :-- |
-Multi-Tenant App: Microsoft Intune Enrollment
+Multi-Tenant App: Windows Azure Service Management API
 
 ## Entra ID > Enterprise Applications > User Settings
 *AadIam/EnterpriseApplicationUserSettings*
@@ -1801,22 +1825,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.officeSuiteApp--Office 365
+### 7-Zip
 
-|Name |#microsoft.graph.officeSuiteApp--Office 365|
-| :-- | :-- |
-| What does this do? | Office 365 is Microsoft’s productivity suite with popular applications such as Word, Excel and PowerPoint. |
-| Why should you use this? | If you want Office 365 desktop applications to be installed on managed devices. |
-| What is the end-user impact? | Users will have Office 365 installed on their devices. |
-| Learn more | N/A
-
-
-
-###### hidden-header
-
-### #microsoft.graph.win32LobApp--7-Zip
-
-|Name |#microsoft.graph.win32LobApp--7-Zip|
+|Name |7-Zip|
 | :-- | :-- |
 | What does this do? | 7-Zip is a file archiver with a high compression ratio. |
 | Why should you use this? | 7-Zip is one of the most popular, compatible and fastest file archiving software. |
@@ -1827,9 +1838,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.win32LobApp--Adobe Acrobat Pro DC
+### Adobe Acrobat Pro DC
 
-|Name |#microsoft.graph.win32LobApp--Adobe Acrobat Pro DC|
+|Name |Adobe Acrobat Pro DC|
 | :-- | :-- |
 | What does this do? | Installs Adobe Acrobat Pro DC. |
 | Why should you use this? | If you want users to have Adobe Acrobat Pro DC installed on their computers. |
@@ -1840,9 +1851,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.win32LobApp--CMTrace
+### CMTrace
 
-|Name |#microsoft.graph.win32LobApp--CMTrace|
+|Name |CMTrace|
 | :-- | :-- |
 | What does this do? | CMTrace is one of the Configuration Manager tools. It allows you to view and monitor log files including the following types: Log files in Configuration Manager or Client Component Manager (CCM) format, plain ASCII or Unicode text files, such as Intune logs. |
 | Why should you use this? | CMTrace helps to analyze Intune log files by highlighting, filtering, and error lookup. |
@@ -1853,9 +1864,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.win32LobApp--Microsoft .NET Framework 3.5
+### Microsoft .NET Framework 3.5
 
-|Name |#microsoft.graph.win32LobApp--Microsoft .NET Framework 3.5|
+|Name |Microsoft .NET Framework 3.5|
 | :-- | :-- |
 | What does this do? | Microsoft .NET Framework 3.5 is used to create and run applications. |
 | Why should you use this? | Microsoft .NET Framework 3.5 is required to run many applications. |
@@ -1866,14 +1877,27 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.windowsMicrosoftEdgeApp--Microsoft Edge for Windows 10
+### Microsoft Edge for Windows 10
 
-|Name |#microsoft.graph.windowsMicrosoftEdgeApp--Microsoft Edge for Windows 10|
+|Name |Microsoft Edge for Windows 10|
 | :-- | :-- |
 | What does this do? | Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab. This is the new Chromium based version of Edge and is a viable replacement for Chrome for many organizations. |
 | Why should you use this? | If you want users to have a faster default web browser with more features. |
 | What is the end-user impact? | Users will have Microsoft Edge installed on their machines. |
 | Learn more | [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+
+
+
+###### hidden-header
+
+### Office 365
+
+|Name |Office 365|
+| :-- | :-- |
+| What does this do? | Office 365 is Microsoft’s productivity suite with popular applications such as Word, Excel and PowerPoint. |
+| Why should you use this? | If you want Office 365 desktop applications to be installed on managed devices. |
+| What is the end-user impact? | Users will have Office 365 installed on their devices. |
+| Learn more | N/A
 
 ## Intune > Apps > App Configuration Policies
 *MSGraph/DeviceAppManagement/TargetedManagedAppConfigurations*
@@ -1922,9 +1946,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.aospDeviceOwnerCompliancePolicy--Baseline - Corporate Devices - Android
+### Baseline - Corporate Devices - Android
 
-|Name |#microsoft.graph.aospDeviceOwnerCompliancePolicy--Baseline - Corporate Devices - Android|
+|Name |Baseline - Corporate Devices - Android|
 | :-- | :-- |
 | What does this do? | Defines the required state that a device for an Android phone must be in to be considered compliant before accessing an organization's data. The baseline requires that a device is not jailbroken and requires storage encrpytion. This policy applies to all devices in the Azure AD group "Baseline - Corporate Devices - Android". |
 | Why should you use this? | This ensures your managed Android devices meet a minimum level of security to access data. |
@@ -1935,9 +1959,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.iosCompliancePolicy--Baseline - Corporate Devices - iOS
+### Baseline - Corporate Devices - iOS
 
-|Name |#microsoft.graph.iosCompliancePolicy--Baseline - Corporate Devices - iOS|
+|Name |Baseline - Corporate Devices - iOS|
 | :-- | :-- |
 | What does this do? | Defines the required state that a device for an iOS/iPad device must be in to be considered compliant before accessing an organization's data. The baseline requires that a device is not jailbroken and prevents simple passwords. It also requires a managed email profile on the device and a threat protection level at or below medium. This policy applies to all devices in the Azure AD group "Baseline - Corporate Devices - Apple". |
 | Why should you use this? | This ensures your managed iOS/iPad devices meet a minimum level of security to access data. |
@@ -1948,9 +1972,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.macOSCompliancePolicy--Baseline - Corporate Devices - macOS
+### Baseline - Corporate Devices - macOS
 
-|Name |#microsoft.graph.macOSCompliancePolicy--Baseline - Corporate Devices - macOS|
+|Name |Baseline - Corporate Devices - macOS|
 | :-- | :-- |
 | What does this do? | Defines the required state that a macOS device must be in to be considered compliant before accessing an organization's data. The baseline requires that a device blocks simple passwords, has firewall enabled, and storage encryption through FileVault. This policy applies to all devices in the Azure AD group "Baseline - Corporate Devices - Apple". |
 | Why should you use this? | This ensures your managed macOS devices meet a minimum level of security to access data. |
@@ -1961,9 +1985,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.windows10CompliancePolicy--Baseline - Corporate Devices - Windows
+### Baseline - Corporate Devices - Windows
 
-|Name |#microsoft.graph.windows10CompliancePolicy--Baseline - Corporate Devices - Windows|
+|Name |Baseline - Corporate Devices - Windows|
 | :-- | :-- |
 | What does this do? | Defines the required state that a device (both physical and virtual) must be in to be considered compliant before accessing an organization's data. The baseline requires that a device has Microsoft Defender Antimalware configured, Bitlocker, Secure Boot, code integrity, TPM, Antivrus software, Antispyware software, and blocks simple passwords. This policy applies to all devices in the Azure AD group "Baseline - Corporate Devices". |
 | Why should you use this? | This ensures your managed Windows devices, both physical and virtual, meet a minimum level of security to access data. |
@@ -1986,124 +2010,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.macOSSoftwareUpdateConfiguration--Baseline - OS - Default iOS Update Ring
+### Baseline - Functionality - Microsoft Store Limited to Private Store Only
 
-|Name |#microsoft.graph.macOSSoftwareUpdateConfiguration--Baseline - OS - Default iOS Update Ring|
-| :-- | :-- |
-| What does this do? | Defines the OS update Policy for iOS updates. You may have to modify the UTC differential depending on your time zone. The baseline notifys the users about updates and installs them during a window of 7pm to 5am during the week. This time is 12am to 5am on the weekend. Critial updates get installed immediately. The policy is installed to the "Baseline - Corporate Devices - Apple" Azure AD group. |
-| Why should you use this? | To ensure that devices are being patched properly in the organization.  |
-| Learn more | [Manage iOS/iPadOS software updates](https://learn.microsoft.com/en-us/mem/intune/protect/software-updates-ios#configure-the-policy) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.macOSSoftwareUpdateConfiguration--Baseline - OS - Default macOS Update Ring
-
-|Name |#microsoft.graph.macOSSoftwareUpdateConfiguration--Baseline - OS - Default macOS Update Ring|
-| :-- | :-- |
-| What does this do? | Defines the OS update Policy for macOS updates. You may have to modify the UTC differential depending on your time zone. The baseline notifys the users about updates and installs them during a window of 7pm to 5am during the week. This time is 12am to 5am on the weekend. Critial updates get installed immediately. The policy is installed to the "Baseline - Corporate Devices - Apple" Azure AD group. |
-| Why should you use this? | To ensure that devices are being patched properly in the organization.  |
-| Learn more | [Manage macOS software updates](https://learn.microsoft.com/en-us/mem/intune/protect/software-updates-macos#configure-the-policy |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10CustomConfiguration--Baseline - OS - RDP Enabled
-
-|Name |#microsoft.graph.windows10CustomConfiguration--Baseline - OS - RDP Enabled|
-| :-- | :-- |
-| What does this do? | Enables Remote Desktop access to the device for users that are members of the "Remote Desktop Users" local group. A separate configuration (Add-AuthenticatedUsersToRemoteDesktopUsers) adds the users to the "Remote Desktop Users" group. |
-| Why should you use this? | If you want to allow Remote Desktop access to managed devices. |
-| What is the end-user impact? | Users in the "Remote Desktop Users" local group will be able to connect to remote devices. |
-| Learn more | [Policy CSP - RemoteDesktopServices](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-remotedesktopservices) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10CustomConfiguration--Baseline - Security - IE Site-to-Zone Assignment
-
-|Name |#microsoft.graph.windows10CustomConfiguration--Baseline - Security - IE Site-to-Zone Assignment|
-| :-- | :-- |
-| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. |
-| Why should you use this? | Improves your users' browsing experience by automatically logging in to sites secured by Azure AD. |
-| What is the end-user impact? | Users will be unable to configure URLs for browser security zones themselves. |
-| Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users), [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10CustomConfiguration--Baseline - Security - Password Reset Enabled
-
-|Name |#microsoft.graph.windows10CustomConfiguration--Baseline - Security - Password Reset Enabled|
-| :-- | :-- |
-| What does this do? | Enables Azure AD users to reset their passwords from the Windows login screen. |
-| Why should you use this? | If you want to allow users to reset their passwords from the Windows login screen. |
-| What is the end-user impact? | Users may reset their passwords from the Windows login screen. |
-| Learn more | [Enable Azure Active Directory self-service password reset at the Windows sign-in screen](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-windows) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10CustomConfiguration--Baseline - UX - Microsoft Consumer Experience Disabled
-
-|Name |#microsoft.graph.windows10CustomConfiguration--Baseline - UX - Microsoft Consumer Experience Disabled|
-| :-- | :-- |
-| What does this do? | Disables Microsoft Consumer Experiences such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles. |
-| Why should you use this? | If you want to improve the user experience by eliminating non value-add notifications and suggestions. |
-| What is the end-user impact? | Users will not see these additional pop-ups, suggestions and notifications. |
-| Learn more | [Policy CSP - Experience](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-experience#experience-allowwindowsconsumerfeatures) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10CustomConfiguration--Baseline - UX - Windows First Run Animation Disabled
-
-|Name |#microsoft.graph.windows10CustomConfiguration--Baseline - UX - Windows First Run Animation Disabled|
-| :-- | :-- |
-| What does this do? | Disables Windows First Run animation, which displays animation and marketing when a user first signs into Windows. |
-| Why should you use this? | If you want to eliminate marketing materials and non-essential animation during initial sign-in. |
-| What is the end-user impact? | Users may have an improved experience when opting out of First Run Animation. |
-| Learn more | [Policy CSP - WindowsLogon](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowslogon#windowslogon-enablefirstlogonanimation) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10EndpointProtectionConfiguration--Baseline - Security - BitLocker Device Encryption Enabled
-
-|Name |#microsoft.graph.windows10EndpointProtectionConfiguration--Baseline - Security - BitLocker Device Encryption Enabled|
-| :-- | :-- |
-| What does this do? | Enables and configures BitLocker device encryption for physical devices. BitLocker requires a machine to have TPM 1.2 or later, which excludes older hardware and virtual machines. |
-| Why should you use this? | Device encryption is essential to protecting data on physical devices. |
-| What is the end-user impact? | <span style='color: red'>High Impact.</span> Data on users' hard drives are encrypted. |
-| Learn more | [Overview of BitLocker Device Encryption in Windows 10](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-device-encryption-overview-windows-10) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10EndpointProtectionConfiguration--Baseline - Security - NTLMv2 LAN Manager Authentication Level
-
-|Name |#microsoft.graph.windows10EndpointProtectionConfiguration--Baseline - Security - NTLMv2 LAN Manager Authentication Level|
-| :-- | :-- |
-| What does this do? | Configures the Windows LAN Manager Authentication Level to require NTLMv2. |
-| Why should you use this? | This is recommended by Microsoft to prevent the use of insecure protocols. |
-| What is the end-user impact? | <span style='color: red'>High Impact.</span> Windows file sharing will not work with any devices that do not support NTLMv2. |
-| Learn more | [Network security: LAN Manager authentication level](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-lan-manager-authentication-level) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10GeneralConfiguration--Baseline - Functionality - Microsoft Store Limited to Private Store Only
-
-|Name |#microsoft.graph.windows10GeneralConfiguration--Baseline - Functionality - Microsoft Store Limited to Private Store Only|
+|Name |Baseline - Functionality - Microsoft Store Limited to Private Store Only|
 | :-- | :-- |
 | What does this do? | Limits applications available for download in the Microsoft Store via the "Private Store" functionality. This policy allows you to restrict your users to only those applications that you deem necessary. |
 | Why should you use this? | If you want to limit the applications which users may download to those in your private store. |
@@ -2114,61 +2023,33 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.windows10GeneralConfiguration--Baseline - OS - Local Autopilot Reset Enabled
+### Baseline - OS - Default iOS Update Ring
 
-|Name |#microsoft.graph.windows10GeneralConfiguration--Baseline - OS - Local Autopilot Reset Enabled|
+|Name |Baseline - OS - Default iOS Update Ring|
 | :-- | :-- |
-| What does this do? | Enables local Autopilot Reset on Windows 10, which allows an Autopilot Reset to be initiated locally at the device itself. If you do not enable this, you can initiate a reset only from the Azure Portal. |
-| Why should you use this? | In the event that remote Autopilot Reset from the Azure Portal is not possible due to connectivity or other issues, a user may initiate an Autopilot Reset themselves to restore their device to a known good state. |
-| What is the end-user impact? | Users may initiate an Autopilot Reset themselves, which can come in handy if Autopilot Reset from the Azure Portal is not possible. |
-| Learn more | [Windows Autopilot Reset](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-autopilot-reset-local) |
+| What does this do? | Defines the OS update Policy for iOS updates. You may have to modify the UTC differential depending on your time zone. The baseline notifys the users about updates and installs them during a window of 7pm to 5am during the week. This time is 12am to 5am on the weekend. Critial updates get installed immediately. The policy is installed to the "Baseline - Corporate Devices - Apple" Azure AD group. |
+| Why should you use this? | To ensure that devices are being patched properly in the organization.  |
+| Learn more | [Manage iOS/iPadOS software updates](https://learn.microsoft.com/en-us/mem/intune/protect/software-updates-ios#configure-the-policy) |
 
 
 
 ###### hidden-header
 
-### #microsoft.graph.windows10GeneralConfiguration--Baseline - Security - Personal Microsoft Accounts Blocked
+### Baseline - OS - Default macOS Update Ring
 
-|Name |#microsoft.graph.windows10GeneralConfiguration--Baseline - Security - Personal Microsoft Accounts Blocked|
+|Name |Baseline - OS - Default macOS Update Ring|
 | :-- | :-- |
-| What does this do? | Disables the addition of personal Microsoft accounts to devices to ensure Data Loss Prevention. |
-| Why should you use this? | If you want to prevent users from adding personal Microsoft accounts to Windows, which would allow them to transfer data outside of your organization. |
-| What is the end-user impact? | Users cannot connect Windows to personal Microsoft accounts. |
-| Learn more | [Microsoft accounts configuration](https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-windows-10#cloud-and-storage) |
+| What does this do? | Defines the OS update Policy for macOS updates. You may have to modify the UTC differential depending on your time zone. The baseline notifys the users about updates and installs them during a window of 7pm to 5am during the week. This time is 12am to 5am on the weekend. Critial updates get installed immediately. The policy is installed to the "Baseline - Corporate Devices - Apple" Azure AD group. |
+| Why should you use this? | To ensure that devices are being patched properly in the organization.  |
+| Learn more | [Manage macOS software updates](https://learn.microsoft.com/en-us/mem/intune/protect/software-updates-macos#configure-the-policy |
 
 
 
 ###### hidden-header
 
-### #microsoft.graph.windows10GeneralConfiguration--Baseline - Security - Simple Passwords Disabled
+### Baseline - OS - Default Windows 10 Update Ring
 
-|Name |#microsoft.graph.windows10GeneralConfiguration--Baseline - Security - Simple Passwords Disabled|
-| :-- | :-- |
-| What does this do? | Blocks simple passwords including picture passwords. |
-| Why should you use this? | If you want to increase security by blocking simple passwords. |
-| What is the end-user impact? | Users are restricted from creating simple passwords. |
-| Learn more | [Eliminate bad passwords using Azure Active Directory Password Protection](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windows10GeneralConfiguration--Baseline - UX - Windows Spotlight Disabled
-
-|Name |#microsoft.graph.windows10GeneralConfiguration--Baseline - UX - Windows Spotlight Disabled|
-| :-- | :-- |
-| What does this do? | Disables Windows Spotlight, which displays tips and third party marketing materials on users' lock screen. |
-| Why should you use this? | If you want to eliminate marketing materials being displayed to users. |
-| What is the end-user impact? | Users will not receive third party marketing materials on the lock screen. |
-| Learn more | [Configure Windows Spotlight on the lock screen](https://docs.microsoft.com/en-us/windows/configuration/windows-spotlight) |
-
-
-
-###### hidden-header
-
-### #microsoft.graph.windowsUpdateForBusinessConfiguration--Baseline - OS - Default Windows 10 Update Ring
-
-|Name |#microsoft.graph.windowsUpdateForBusinessConfiguration--Baseline - OS - Default Windows 10 Update Ring|
+|Name |Baseline - OS - Default Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Defines the default Windows Update configuration for managed devices. The baseline delays feature updates for 30 days and quality updates for 14 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates are only applied outside working hours of 5am to 10pm. The Windows Update configuration applies to all corporate devices except those in the "Insiders" or "Preview" update rings that will receive updates before they are released to all other corporates devices. |
 | Why should you use this? | If you want to ensure that your devices are kept up-to-date with the latest Windows updates. |
@@ -2179,9 +2060,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.windowsUpdateForBusinessConfiguration--Baseline - OS - Insiders Windows 10 Update Ring
+### Baseline - OS - Insiders Windows 10 Update Ring
 
-|Name |#microsoft.graph.windowsUpdateForBusinessConfiguration--Baseline - OS - Insiders Windows 10 Update Ring|
+|Name |Baseline - OS - Insiders Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Creates a Windows Update configuration for managed devices in the "Insiders" ring that receive updates before any other device in your tenant. The baseline delays feature and quality updates to "Insiders" for 3 days after released by Microsoft. Once the deferral period has expired for the device, users have 3 days to restart (if required). Unattended updates will be applied outside the working hours of 5am to 10pm. This Windows Update configuration applies to users in the Azure AD group "Baseline - Corporate Devices – Insiders". |
 | Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment. The "Insider" ring is meant for users that are technical enough to understand when an update is applied and to let you know if that update caused problems. |
@@ -2192,14 +2073,157 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.windowsUpdateForBusinessConfiguration--Baseline - OS - Preview Windows 10 Update Ring
+### Baseline - OS - Local Autopilot Reset Enabled
 
-|Name |#microsoft.graph.windowsUpdateForBusinessConfiguration--Baseline - OS - Preview Windows 10 Update Ring|
+|Name |Baseline - OS - Local Autopilot Reset Enabled|
+| :-- | :-- |
+| What does this do? | Enables local Autopilot Reset on Windows 10, which allows an Autopilot Reset to be initiated locally at the device itself. If you do not enable this, you can initiate a reset only from the Azure Portal. |
+| Why should you use this? | In the event that remote Autopilot Reset from the Azure Portal is not possible due to connectivity or other issues, a user may initiate an Autopilot Reset themselves to restore their device to a known good state. |
+| What is the end-user impact? | Users may initiate an Autopilot Reset themselves, which can come in handy if Autopilot Reset from the Azure Portal is not possible. |
+| Learn more | [Windows Autopilot Reset](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-autopilot-reset-local) |
+
+
+
+###### hidden-header
+
+### Baseline - OS - Preview Windows 10 Update Ring
+
+|Name |Baseline - OS - Preview Windows 10 Update Ring|
 | :-- | :-- |
 | What does this do? | Creates a Windows Update configuration for managed devices in the "Preview" ring, which receive updates after "Insiders" but before devices with the default policy. The baseline delays feature and quality updates to the "Preview" group for 7 days after released by Microsoft. Once the deferral period has expired for a device, users have 3 days to restart (if required). Unattended updates will only be applied outside working hours of 5am to 10pm. Applies to users in the Azure AD group "Baseline - Corporate Devices – Preview". |
 | Why should you use this? | A Windows update ring is the best way to ensure Windows updates are compatible in your environment by testing the update in rings of users. |
 | What is the end-user impact? | Users in the "Preview" ring will receive updates 7 days after being released by Microsoft and after Insiders, but before devices with the default policy. |
 | Learn more | [Tactical considerations for creating Windows deployment rings](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/tactical-considerations-for-creating-windows-deployment-rings/ba-p/746979) |
+
+
+
+###### hidden-header
+
+### Baseline - OS - RDP Enabled
+
+|Name |Baseline - OS - RDP Enabled|
+| :-- | :-- |
+| What does this do? | Enables Remote Desktop access to the device for users that are members of the "Remote Desktop Users" local group. A separate configuration (Add-AuthenticatedUsersToRemoteDesktopUsers) adds the users to the "Remote Desktop Users" group. |
+| Why should you use this? | If you want to allow Remote Desktop access to managed devices. |
+| What is the end-user impact? | Users in the "Remote Desktop Users" local group will be able to connect to remote devices. |
+| Learn more | [Policy CSP - RemoteDesktopServices](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-remotedesktopservices) |
+
+
+
+###### hidden-header
+
+### Baseline - Security - BitLocker Device Encryption Enabled
+
+|Name |Baseline - Security - BitLocker Device Encryption Enabled|
+| :-- | :-- |
+| What does this do? | Enables and configures BitLocker device encryption for physical devices. BitLocker requires a machine to have TPM 1.2 or later, which excludes older hardware and virtual machines. |
+| Why should you use this? | Device encryption is essential to protecting data on physical devices. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Data on users' hard drives are encrypted. |
+| Learn more | [Overview of BitLocker Device Encryption in Windows 10](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-device-encryption-overview-windows-10) |
+
+
+
+###### hidden-header
+
+### Baseline - Security - IE Site-to-Zone Assignment
+
+|Name |Baseline - Security - IE Site-to-Zone Assignment|
+| :-- | :-- |
+| What does this do? | Configures URLs to include in the browser's security zones. The baseline configures the Intranet zone to include necessary Microsoft URLs for Azure Active Directory Seamless Single Sign-On. |
+| Why should you use this? | Improves your users' browsing experience by automatically logging in to sites secured by Azure AD. |
+| What is the end-user impact? | Users will be unable to configure URLs for browser security zones themselves. |
+| Learn more | [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users), [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start) |
+
+
+
+###### hidden-header
+
+### Baseline - Security - NTLMv2 LAN Manager Authentication Level
+
+|Name |Baseline - Security - NTLMv2 LAN Manager Authentication Level|
+| :-- | :-- |
+| What does this do? | Configures the Windows LAN Manager Authentication Level to require NTLMv2. |
+| Why should you use this? | This is recommended by Microsoft to prevent the use of insecure protocols. |
+| What is the end-user impact? | <span style='color: red'>High Impact.</span> Windows file sharing will not work with any devices that do not support NTLMv2. |
+| Learn more | [Network security: LAN Manager authentication level](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-lan-manager-authentication-level) |
+
+
+
+###### hidden-header
+
+### Baseline - Security - Password Reset Enabled
+
+|Name |Baseline - Security - Password Reset Enabled|
+| :-- | :-- |
+| What does this do? | Enables Azure AD users to reset their passwords from the Windows login screen. |
+| Why should you use this? | If you want to allow users to reset their passwords from the Windows login screen. |
+| What is the end-user impact? | Users may reset their passwords from the Windows login screen. |
+| Learn more | [Enable Azure Active Directory self-service password reset at the Windows sign-in screen](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-windows) |
+
+
+
+###### hidden-header
+
+### Baseline - Security - Personal Microsoft Accounts Blocked
+
+|Name |Baseline - Security - Personal Microsoft Accounts Blocked|
+| :-- | :-- |
+| What does this do? | Disables the addition of personal Microsoft accounts to devices to ensure Data Loss Prevention. |
+| Why should you use this? | If you want to prevent users from adding personal Microsoft accounts to Windows, which would allow them to transfer data outside of your organization. |
+| What is the end-user impact? | Users cannot connect Windows to personal Microsoft accounts. |
+| Learn more | [Microsoft accounts configuration](https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-windows-10#cloud-and-storage) |
+
+
+
+###### hidden-header
+
+### Baseline - Security - Simple Passwords Disabled
+
+|Name |Baseline - Security - Simple Passwords Disabled|
+| :-- | :-- |
+| What does this do? | Blocks simple passwords including picture passwords. |
+| Why should you use this? | If you want to increase security by blocking simple passwords. |
+| What is the end-user impact? | Users are restricted from creating simple passwords. |
+| Learn more | [Eliminate bad passwords using Azure Active Directory Password Protection](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) |
+
+
+
+###### hidden-header
+
+### Baseline - UX - Microsoft Consumer Experience Disabled
+
+|Name |Baseline - UX - Microsoft Consumer Experience Disabled|
+| :-- | :-- |
+| What does this do? | Disables Microsoft Consumer Experiences such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles. |
+| Why should you use this? | If you want to improve the user experience by eliminating non value-add notifications and suggestions. |
+| What is the end-user impact? | Users will not see these additional pop-ups, suggestions and notifications. |
+| Learn more | [Policy CSP - Experience](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-experience#experience-allowwindowsconsumerfeatures) |
+
+
+
+###### hidden-header
+
+### Baseline - UX - Windows First Run Animation Disabled
+
+|Name |Baseline - UX - Windows First Run Animation Disabled|
+| :-- | :-- |
+| What does this do? | Disables Windows First Run animation, which displays animation and marketing when a user first signs into Windows. |
+| Why should you use this? | If you want to eliminate marketing materials and non-essential animation during initial sign-in. |
+| What is the end-user impact? | Users may have an improved experience when opting out of First Run Animation. |
+| Learn more | [Policy CSP - WindowsLogon](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowslogon#windowslogon-enablefirstlogonanimation) |
+
+
+
+###### hidden-header
+
+### Baseline - UX - Windows Spotlight Disabled
+
+|Name |Baseline - UX - Windows Spotlight Disabled|
+| :-- | :-- |
+| What does this do? | Disables Windows Spotlight, which displays tips and third party marketing materials on users' lock screen. |
+| Why should you use this? | If you want to eliminate marketing materials being displayed to users. |
+| What is the end-user impact? | Users will not receive third party marketing materials on the lock screen. |
+| Learn more | [Configure Windows Spotlight on the lock screen](https://docs.microsoft.com/en-us/windows/configuration/windows-spotlight) |
 
 ## Intune > Devices > Configuration Profiles (Profile Type = Administrative Templates)
 *MSGraph/DeviceManagement/GroupPolicyConfigurations*
@@ -2299,9 +2323,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### limit----All users and all devices
+### limit--All users and all devices
 
-|Name |limit----All users and all devices|
+|Name |limit--All users and all devices|
 | :-- | :-- |
 | What does this do? | This is the default Device Limit Restriction applied with the lowest priority to all users regardless of group membership. |
 
@@ -2309,9 +2333,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### platformRestrictions----All users and all devices
+### platformRestrictions--All users and all devices
 
-|Name |platformRestrictions----All users and all devices|
+|Name |platformRestrictions--All users and all devices|
 | :-- | :-- |
 | What does this do? | This is the default Device Type Restriction applied with the lowest priority to all users regardless of group membership. |
 
@@ -2319,9 +2343,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### singlePlatformRestriction--android--Baseline - Device Enrollers can enroll any devices
+### singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices
 
-|Name |singlePlatformRestriction--android--Baseline - Device Enrollers can enroll any devices|
+|Name |singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
 | What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
@@ -2332,9 +2356,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### singlePlatformRestriction--androidForWork--Baseline - Device Enrollers can enroll any devices
+### singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices
 
-|Name |singlePlatformRestriction--androidForWork--Baseline - Device Enrollers can enroll any devices|
+|Name |singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
 | What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
@@ -2345,9 +2369,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### singlePlatformRestriction--ios--Baseline - Device Enrollers can enroll any devices
+### singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices
 
-|Name |singlePlatformRestriction--ios--Baseline - Device Enrollers can enroll any devices|
+|Name |singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
 | What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
@@ -2358,9 +2382,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### singlePlatformRestriction--mac--Baseline - Device Enrollers can enroll any devices
+### singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices
 
-|Name |singlePlatformRestriction--mac--Baseline - Device Enrollers can enroll any devices|
+|Name |singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
 | What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
@@ -2371,9 +2395,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### singlePlatformRestriction--windows--Baseline - Device Enrollers can enroll any devices
+### singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices
 
-|Name |singlePlatformRestriction--windows--Baseline - Device Enrollers can enroll any devices|
+|Name |singlePlatformRestriction--Baseline - Device Enrollers can enroll any devices|
 | :-- | :-- |
 | What does this do? | The baseline allows users in the Azure AD group "Baseline - Device Enrollers" to enroll any Windows device, even if they have not been previously registered in Autopilot. This can be overridden by other configurations with a higher priority. |
 | Why should you use this? | If you want to allow certain users to register non-Autopilot registered devices. |
@@ -2384,9 +2408,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### windowsHelloForBusiness----All users and all devices
+### windowsHelloForBusiness--All users and all devices
 
-|Name |windowsHelloForBusiness----All users and all devices|
+|Name |windowsHelloForBusiness--All users and all devices|
 | :-- | :-- |
 | What does this do? | This is the default Windows Hello for Business configuration applied with the lowest priority to all users regardless of group membership. |
 
@@ -2474,9 +2498,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.azureADWindowsAutopilotDeploymentProfile--Baseline: Self Deploying Profile
+### Baseline: Self Deploying Profile
 
-|Name |#microsoft.graph.azureADWindowsAutopilotDeploymentProfile--Baseline: Self Deploying Profile|
+|Name |Baseline: Self Deploying Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune Autopilot profile for enrolling machines using the self deploying method, which enables a device to be enrolled into your environment with little to no user interaction. Self deployment mode comes with restrictions including that the device must have TPM 2.0, and it is not supported on virtual machines even if they have a virtual TPM. Devices in the Azure AD group "Baseline Autopilot Devices Self Deploying" will be assigned this profile. |
 | Why should you use this? | This is most useful for devices that will be shared or used as a kiosk. If a device is going to be used by a single user it is best to use the user driven method. |
@@ -2486,9 +2510,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.azureADWindowsAutopilotDeploymentProfile--Baseline: User Driven Profile
+### Baseline: User Driven Profile
 
-|Name |#microsoft.graph.azureADWindowsAutopilotDeploymentProfile--Baseline: User Driven Profile|
+|Name |Baseline: User Driven Profile|
 | :-- | :-- |
 | What does this do? | Creates an Intune Autopilot profile for enrolling machines using the user driven method. Devices in the Azure AD group "Autopilot Devices User Driven" will be assigned this profile. |
 | Why should you use this? | When a device is going to be used by a single user, this approach is ideal because the device shows as assigned in all relevant Intune pages and reports. It is also the most stable and consistent Autopilot mode. |
@@ -2526,9 +2550,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ###### hidden-header
 
-### #microsoft.graph.securityBaselineTemplate--MDM Security Baseline for Windows 10 and later for November 2021
+### MDM Security Baseline for Windows 10 and later for November 2021
 
-|Name |#microsoft.graph.securityBaselineTemplate--MDM Security Baseline for Windows 10 and later for November 2021|
+|Name |MDM Security Baseline for Windows 10 and later for November 2021|
 | :-- | :-- |
 MDM Security Baseline for Windows 10 and later
 
@@ -2536,9 +2560,9 @@ MDM Security Baseline for Windows 10 and later
 
 ###### hidden-header
 
-### #microsoft.graph.securityBaselineTemplate--Microsoft Defender for Endpoint baseline
+### Microsoft Defender for Endpoint baseline
 
-|Name |#microsoft.graph.securityBaselineTemplate--Microsoft Defender for Endpoint baseline|
+|Name |Microsoft Defender for Endpoint baseline|
 | :-- | :-- |
 Microsoft Defender for Endpoint baseline as recommended by Microsoft
 
@@ -2586,11 +2610,11 @@ Default Role Scope Tag. This will exist by default on all Intune entities whenev
 
 ###### hidden-header
 
-### ${ResourceContext:OnMicrosoftDomainName}
+### ${ResourceContext:TenantDomainName}
 
-|Name |${ResourceContext:OnMicrosoftDomainName}|
+|Name |${ResourceContext:TenantDomainName}|
 | :-- | :-- |
-| What does this do? | Enables DomainKeys Identified Mail (DKIM) for the .onmicrosoft domain in the tenant. |
+| What does this do? | Enables DomainKeys Identified Mail (DKIM) for the default domain in the tenant. |
 | Why should you use this? | DomainKeys Identified Mail (DKIM) allows digital signatures to be added to email messages in the message header, providing a layer of both authenticity and integrity to emails.|
 | What is the end-user impact? | While there is no direct impact to end-users, they should experience better outbound mail flow delivery with DKIM in place. |
 | Learn more | [Using DKIM](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide) |
@@ -2599,11 +2623,11 @@ Default Role Scope Tag. This will exist by default on all Intune entities whenev
 
 ###### hidden-header
 
-### ${ResourceContext:TenantDomainName}
+### Baseline - Default OnMicrosoft Domain
 
-|Name |${ResourceContext:TenantDomainName}|
+|Name |Baseline - Default OnMicrosoft Domain|
 | :-- | :-- |
-| What does this do? | Enables DomainKeys Identified Mail (DKIM) for the default domain in the tenant. |
+| What does this do? | Enables DomainKeys Identified Mail (DKIM) for the .onmicrosoft domain in the tenant. |
 | Why should you use this? | DomainKeys Identified Mail (DKIM) allows digital signatures to be added to email messages in the message header, providing a layer of both authenticity and integrity to emails.|
 | What is the end-user impact? | While there is no direct impact to end-users, they should experience better outbound mail flow delivery with DKIM in place. |
 | Learn more | [Using DKIM](https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide) |
