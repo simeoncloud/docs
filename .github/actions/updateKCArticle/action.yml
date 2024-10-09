@@ -1,0 +1,37 @@
+name: Update Knowledge Center Article
+description: Update a Knowledge Center article in HelpJuice
+inputs:
+  filePath:
+    description: "The path to the file to be uploaded to HelpJuice"
+    required: true
+  articleId:
+    description: "The ID of the article in HelpJuice"
+    required: true
+  helpJuiceApiUrl:
+    description: "The URL of the HelpJuice API"
+    required: true
+  helpJuiceApiKey:
+    description: "The API key for the HelpJuice API"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Update Article
+      shell: bash
+      run: |
+        echo "Reading file ${{inputs.filePath}} content"
+        HELP_JUICE_FILE_CONTENT_FORMATTING_TAG='<pre style=\"-webkit-text-stroke-width:0px;color:rgb(0, 0, 0);font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;overflow-wrap:break-word;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0px;\">'
+        FILE_CONTENT=$(cat ${{inputs.filePath}})
+        JSON_PAYLOAD=$(jq -n --arg name "$FILE_NAME" --arg body "$HELP_JUICE_FILE_CONTENT_FORMATTING_TAG$FILE_CONTENT" '{
+          article: {
+            body: $body,
+          }
+        }')
+        URL="${{inputs.helpJuiceApiUrl}}/articles/${{inputs.articleId}}"
+        echo "Uploading file $FILE_PATH to HelpJuice API URL: $URL"
+        RES=$(curl --location --write-out '%{http_code}' --fail --output /dev/null --request PUT "$URL" \
+          -H "Authorization: ${{inputs.helpJuiceApiKey}}" \
+          -H "Content-Type: application/json" \
+          -d "$JSON_PAYLOAD")
+        echo "Response: $RES"

@@ -1,0 +1,35 @@
+name: Upload Files to CoreView Knowledge Center
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - managed-configurations.md
+      - providers-auth.md
+
+env:
+  HELP_JUICE_API_URL: https://coreview.helpjuice.com/api/v3
+  HELP_JUICE_API_KEY: ${{ secrets.HELP_JUICE_API_KEY }}
+
+jobs:
+  upload-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/updateKCArticle
+        with:
+          filePath: ./managed-configurations.md
+          articleId: 2839360
+          helpJuiceApiUrl: ${{ env.HELP_JUICE_API_URL }}
+          helpJuiceApiKey: ${{ env.HELP_JUICE_API_KEY }}
+
+      - uses: ./.github/actions/updateKCArticle
+        with:
+          filePath: ./providers-auth.md
+          articleId: 2839345
+          helpJuiceApiUrl: ${{ env.HELP_JUICE_API_URL }}
+          helpJuiceApiKey: ${{ env.HELP_JUICE_API_KEY }}
