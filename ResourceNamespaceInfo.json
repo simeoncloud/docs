@@ -311,6 +311,16 @@
   },
   {
     "category": "Exchange",
+    "namespace": "ExchangeOnline:ExternalInOutlook",
+    "description": "Microsoft 365 > Exchange > Tag External Emails",
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-externalinoutlook",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true
+  },
+  {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:GlobalAddressList",
     "description": "Microsoft 365 > Exchange > Global Address List",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list",
