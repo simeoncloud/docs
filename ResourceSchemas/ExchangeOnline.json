@@ -1738,12 +1738,6 @@
         "JournalReportDecryptionEnabled": {
           "type": "boolean"
         },
-        "LicensingLocation": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "RejectIfRecipientHasNoRights": {
           "type": "boolean"
         },
