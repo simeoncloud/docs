@@ -1877,7 +1877,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1887,7 +1887,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1897,7 +1897,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1907,7 +1907,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1917,7 +1917,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1927,7 +1927,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1937,7 +1937,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1947,7 +1947,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^AllOn|^Default|^RestrictedAnonymousAccess|^AllOff|^RestrictedAnonymousNoRecording|^Kiosk).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1957,7 +1957,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Teams",
@@ -1977,6 +1977,6 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   }
 ]
