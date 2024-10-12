@@ -1885,8 +1885,8 @@
     "description": "Microsoft 365 > Teams > Apps > Setup Policies",
     "url": "https://admin.teams.microsoft.com/policies/app-setup?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$",
+    "isUpdateSupportedFilter": "^(?:(?!^FirstLineWorker$).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^Global|^Default|^FirstLineWorker$).)+$",
     "isDelegatedAuthRequired": false
   },
   {
