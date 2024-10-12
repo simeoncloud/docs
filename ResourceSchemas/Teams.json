@@ -162,6 +162,9 @@
         "CallRecordingExpirationDays": {
           "type": "object"
         },
+        "Copilot": {
+          "type": "string"
+        },
         "Description": {
           "type": "string"
         },
