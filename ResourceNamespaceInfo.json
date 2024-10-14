@@ -137,7 +137,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -147,7 +147,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -177,7 +177,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -187,7 +187,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
     "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -197,7 +197,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -207,7 +207,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -217,7 +217,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -227,7 +227,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -237,7 +237,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -247,7 +247,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -257,7 +257,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -267,7 +267,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -277,7 +277,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -287,7 +287,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -297,7 +297,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -307,7 +307,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?:(?!^Default Policy$).)+$",
     "isDeleteSupportedFilter": "^(?:(?!^Default Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -317,7 +317,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -337,7 +337,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -347,7 +347,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Default$|^Strict Preset Security Policy).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -357,7 +357,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -367,7 +367,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -377,7 +377,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -387,7 +387,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -397,7 +397,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -407,7 +407,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -417,7 +417,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -427,7 +427,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -437,7 +437,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -447,7 +447,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -457,7 +457,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Standard Preset Security Policy|^Strict Preset Security Policy).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -467,7 +467,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -477,7 +477,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -497,7 +497,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -507,7 +507,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -517,7 +517,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -527,7 +527,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -537,7 +537,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^OwaMailboxPolicy-Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -547,7 +547,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -557,7 +557,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -567,7 +567,7 @@
     "isCreateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
     "isDeleteSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -577,7 +577,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Default$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -587,7 +587,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -597,7 +597,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -607,7 +607,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Default Role Assignment Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -617,7 +617,7 @@
     "isCreateSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -627,7 +627,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -637,7 +637,7 @@
     "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isDeleteSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Security & Compliance",
@@ -647,7 +647,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -657,7 +657,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -667,7 +667,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "Exchange",
@@ -677,7 +677,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true
+    "isDelegatedAuthRequired": false
   },
   {
     "category": "SharePoint",
