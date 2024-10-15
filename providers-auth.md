@@ -1,5 +1,4 @@
 ## Configurations managed with a service principal
-
 - Entra ID > Administrative Units
 - Entra ID > Administrative Units > Members
 - Entra ID > App Registrations
@@ -138,9 +137,7 @@
 - Microsoft 365 > Teams > Voice > Call Hold Policies
 - Microsoft 365 > Teams > Voice > Calling Policies
 - SharePoint > Settings
-
 ## Configurations managed with a user account
-
 - Azure > Resource Groups
 - Defender > Configuration Management > Device Configuration
 - Defender > Hunting > Advanced Hunting > Queries > Shared Queries
@@ -191,3 +188,4 @@
 - Microsoft 365 > Security & Compliance > Protection Alerts
 - SharePoint Admin Center > Settings and Policies
 - SharePoint Admin Center > Sites
+
