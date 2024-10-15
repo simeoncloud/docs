@@ -1,10 +1,366 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Storage:StorageAccounts/StorageAccountCreateParameters"
+    },
+    {
       "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups/ResourceGroup"
     }
   ],
   "$defs": {
+    "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Storage:StorageAccounts/StorageAccountCreateParameters": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "enum": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Standard_ZRS",
+                "Premium_LRS",
+                "Premium_ZRS",
+                "Standard_GZRS",
+                "Standard_RAGZRS"
+              ]
+            }
+          }
+        },
+        "kind": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "extendedLocation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "enum": [
+                "EdgeZone"
+              ]
+            }
+          }
+        },
+        "tags": {
+          "type": "object"
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "userAssignedIdentities": {
+              "type": "object"
+            }
+          }
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "allowedCopyScope": {
+              "type": "string"
+            },
+            "publicNetworkAccess": {
+              "enum": [
+                "Enabled",
+                "Disabled",
+                "SecuredByPerimeter"
+              ]
+            },
+            "sasPolicy": {
+              "type": "object",
+              "properties": {
+                "sasExpirationPeriod": {
+                  "type": "string"
+                },
+                "expirationAction": {
+                  "type": "string"
+                }
+              }
+            },
+            "keyPolicy": {
+              "type": "object",
+              "properties": {
+                "keyExpirationPeriodInDays": {
+                  "type": "integer"
+                }
+              }
+            },
+            "customDomain": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "useSubDomainName": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "encryption": {
+              "type": "object",
+              "properties": {
+                "services": {
+                  "type": "object",
+                  "properties": {
+                    "blob": {
+                      "$ref": "#/$defs/encryptionService"
+                    },
+                    "file": {
+                      "$ref": "#/$defs/encryptionService"
+                    },
+                    "table": {
+                      "$ref": "#/$defs/encryptionService"
+                    },
+                    "queue": {
+                      "$ref": "#/$defs/encryptionService"
+                    }
+                  }
+                },
+                "keySource": {
+                  "type": "string"
+                },
+                "requireInfrastructureEncryption": {
+                  "type": "boolean"
+                },
+                "keyvaultproperties": {
+                  "type": "object",
+                  "properties": {
+                    "keyname": {
+                      "type": "string"
+                    },
+                    "keyversion": {
+                      "type": "string"
+                    },
+                    "keyvaulturi": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "identity": {
+                  "type": "object",
+                  "properties": {
+                    "userAssignedIdentity": {
+                      "type": "string"
+                    },
+                    "federatedIdentityClientId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "networkAcls": {
+              "type": "object",
+              "properties": {
+                "bypass": {
+                  "type": "string"
+                },
+                "resourceAccessRules": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tenantId": {
+                        "type": "string"
+                      },
+                      "resourceId": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "virtualNetworkRules": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "action": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "ipRules": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "action": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "defaultAction": {
+                  "type": "string"
+                }
+              }
+            },
+            "accessTier": {
+              "type": "string"
+            },
+            "azureFilesIdentityBasedAuthentication": {
+              "type": "object",
+              "properties": {
+                "directoryServiceOptions": {
+                  "type": "string"
+                },
+                "activeDirectoryProperties": {
+                  "type": "object",
+                  "properties": {
+                    "domainName": {
+                      "type": "string"
+                    },
+                    "netBiosDomainName": {
+                      "type": "string"
+                    },
+                    "forestName": {
+                      "type": "string"
+                    },
+                    "domainGuid": {
+                      "type": "string"
+                    },
+                    "domainSid": {
+                      "type": "string"
+                    },
+                    "azureStorageSid": {
+                      "type": "string"
+                    },
+                    "samAccountName": {
+                      "type": "string"
+                    },
+                    "accountType": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "defaultSharePermission": {
+                  "type": "string"
+                }
+              }
+            },
+            "supportsHttpsTrafficOnly": {
+              "type": "boolean"
+            },
+            "isSftpEnabled": {
+              "type": "boolean"
+            },
+            "isLocalUserEnabled": {
+              "type": "boolean"
+            },
+            "enableExtendedGroups": {
+              "type": "boolean"
+            },
+            "isHnsEnabled": {
+              "type": "boolean"
+            },
+            "largeFileSharesState": {
+              "type": "string"
+            },
+            "routingPreference": {
+              "type": "object",
+              "properties": {
+                "routingChoice": {
+                  "type": "string"
+                },
+                "publishMicrosoftEndpoints": {
+                  "type": "boolean"
+                },
+                "publishInternetEndpoints": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "allowBlobPublicAccess": {
+              "type": "boolean"
+            },
+            "minimumTlsVersion": {
+              "type": "string"
+            },
+            "allowSharedKeyAccess": {
+              "type": "boolean"
+            },
+            "isNfsV3Enabled": {
+              "type": "boolean"
+            },
+            "allowCrossTenantReplication": {
+              "type": "boolean"
+            },
+            "defaultToOAuthAuthentication": {
+              "type": "boolean"
+            },
+            "immutableStorageWithVersioning": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "immutabilityPolicy": {
+                  "type": "object",
+                  "properties": {
+                    "immutabilityPeriodSinceCreationInDays": {
+                      "type": "integer"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "allowProtectedAppendWrites": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "dnsEndpointType": {
+              "type": "string"
+            }
+          }
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "type": "string"
+        },
+        "accountName": {
+          "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "encryptionService": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "keyType": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Storage:StorageAccounts/StorageAccountCreateParameters"
+    },
     "AzureManagement:Subscriptions:ResourceGroups/ResourceGroup": {
       "type": "object",
       "properties": {
