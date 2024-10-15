@@ -68,6 +68,7 @@
 - Intune > Endpoint Security
 - Intune > Endpoint Security > Firewall > Reusable Settings
 - Intune > Endpoint Security > Security Baselines
+- Intune > Endpoint Security > Security Baselines > Configuration Settings
 - Intune > Endpoint Security > Settings
 - Intune > Policy Sets
 - Intune > Tenant Administration > Filters
