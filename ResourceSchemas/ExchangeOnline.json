@@ -55,6 +55,9 @@
       "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:GlobalAddressList/GlobalAddressList"
     },
     {
@@ -1175,6 +1178,21 @@
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
+    "ExchangeOnline:ExternalInOutlook/ExternalInOutlook": {
+      "type": "object",
+      "properties": {
+        "AllowList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Enabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
+    },
     "ExchangeOnline:GlobalAddressList/GlobalAddressList": {
       "type": "object",
       "properties": {
@@ -1719,12 +1737,6 @@
         },
         "JournalReportDecryptionEnabled": {
           "type": "boolean"
-        },
-        "LicensingLocation": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         },
         "RejectIfRecipientHasNoRights": {
           "type": "boolean"

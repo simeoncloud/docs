@@ -173,6 +173,7 @@
     - Retention Policy Tag
     - Role Assignment Policies
     - Sharing Policies
+    - Tag External Emails
     - Transport Config
     - Transport Rules
   - Security & Compliance

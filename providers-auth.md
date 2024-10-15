@@ -74,7 +74,68 @@
 - Intune > Tenant Administration > Roles > Scope Tags
 - Intune > Tenant Administration > Roles > Scope Tags > Assignments
 - M365 Admin Center > Domains
+- Microsoft 365 > Exchange > Admin Audit Log Config
+- Microsoft 365 > Exchange > Availability Address Spaces
+- Microsoft 365 > Exchange > Availability Config
+- Microsoft 365 > Exchange > CAS Mailbox Plan
+- Microsoft 365 > Exchange > Client Access Rules
+- Microsoft 365 > Exchange > Distribution Groups
+- Microsoft 365 > Exchange > Distribution Groups > Members
+- Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config
+- Microsoft 365 > Exchange > Dynamic Distribution Groups
+- Microsoft 365 > Exchange > Email Address Policies
+- Microsoft 365 > Exchange > Inbound Connectors
+- Microsoft 365 > Exchange > Intra Organization Connectors
+- Microsoft 365 > Exchange > IRM Configuration
+- Microsoft 365 > Exchange > Journal Rules
+- Microsoft 365 > Exchange > Mail Flow > Accepted Domains
+- Microsoft 365 > Exchange > Mail Flow > Remote Domains
+- Microsoft 365 > Exchange > Mailbox Plans
+- Microsoft 365 > Exchange > Mailboxes
+- Microsoft 365 > Exchange > Mailboxes > Permissions
+- Microsoft 365 > Exchange > Malware Filter Policies
+- Microsoft 365 > Exchange > Malware Filter Policies > Rules
+- Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules
+- Microsoft 365 > Exchange > Mobile Device Mailbox Policies
+- Microsoft 365 > Exchange > Modern Authentication
+- Microsoft 365 > Exchange > On-premises Organizations
+- Microsoft 365 > Exchange > Organization Config
+- Microsoft 365 > Exchange > Organization Relationship
+- Microsoft 365 > Exchange > Outbound Connectors
+- Microsoft 365 > Exchange > Outlook Web App Policies
+- Microsoft 365 > Exchange > Partner Applications
+- Microsoft 365 > Exchange > Policy Tip Config
+- Microsoft 365 > Exchange > Retention Policy
+- Microsoft 365 > Exchange > Retention Policy Tag
+- Microsoft 365 > Exchange > Role Assignment Policies
+- Microsoft 365 > Exchange > Sharing Policies
+- Microsoft 365 > Exchange > Tag External Emails
+- Microsoft 365 > Exchange > Transport Config
+- Microsoft 365 > Exchange > Transport Rules
+- Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules
+- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies
+- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
+- Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
+- Microsoft 365 > Teams > Apps > Permission Policies
+- Microsoft 365 > Teams > Apps > Setup Policies
+- Microsoft 365 > Teams > Meetings > Live Event Policies
+- Microsoft 365 > Teams > Meetings > Meeting Policies
+- Microsoft 365 > Teams > Meetings > Meeting Settings
+- Microsoft 365 > Teams > Messaging Policies
+- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
 - Microsoft 365 > Teams > Update Management Policies
+- Microsoft 365 > Teams > Users > External Access
+- Microsoft 365 > Teams > Voice > Call Hold Policies
+- Microsoft 365 > Teams > Voice > Calling Policies
 - SharePoint > Settings
 ## Configurations managed with a user account
 - Azure > Resource Groups
@@ -102,45 +163,8 @@
 - M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)
 - Microsoft 365 > Exchange > Address Book Policy
 - Microsoft 365 > Exchange > Address List
-- Microsoft 365 > Exchange > Admin Audit Log Config
-- Microsoft 365 > Exchange > Availability Address Spaces
-- Microsoft 365 > Exchange > Availability Config
-- Microsoft 365 > Exchange > CAS Mailbox Plan
-- Microsoft 365 > Exchange > Client Access Rules
-- Microsoft 365 > Exchange > Distribution Groups
-- Microsoft 365 > Exchange > Distribution Groups > Members
-- Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config
-- Microsoft 365 > Exchange > Dynamic Distribution Groups
-- Microsoft 365 > Exchange > Email Address Policies
 - Microsoft 365 > Exchange > Global Address List
-- Microsoft 365 > Exchange > Inbound Connectors
-- Microsoft 365 > Exchange > Intra Organization Connectors
-- Microsoft 365 > Exchange > IRM Configuration
-- Microsoft 365 > Exchange > Journal Rules
-- Microsoft 365 > Exchange > Mail Flow > Accepted Domains
-- Microsoft 365 > Exchange > Mail Flow > Remote Domains
-- Microsoft 365 > Exchange > Mailbox Plans
-- Microsoft 365 > Exchange > Mailboxes
-- Microsoft 365 > Exchange > Mailboxes > Permissions
-- Microsoft 365 > Exchange > Malware Filter Policies
-- Microsoft 365 > Exchange > Malware Filter Policies > Rules
-- Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules
-- Microsoft 365 > Exchange > Mobile Device Mailbox Policies
-- Microsoft 365 > Exchange > Modern Authentication
 - Microsoft 365 > Exchange > Offline Address Book
-- Microsoft 365 > Exchange > On-premises Organizations
-- Microsoft 365 > Exchange > Organization Config
-- Microsoft 365 > Exchange > Organization Relationship
-- Microsoft 365 > Exchange > Outbound Connectors
-- Microsoft 365 > Exchange > Outlook Web App Policies
-- Microsoft 365 > Exchange > Partner Applications
-- Microsoft 365 > Exchange > Policy Tip Config
-- Microsoft 365 > Exchange > Retention Policy
-- Microsoft 365 > Exchange > Retention Policy Tag
-- Microsoft 365 > Exchange > Role Assignment Policies
-- Microsoft 365 > Exchange > Sharing Policies
-- Microsoft 365 > Exchange > Transport Config
-- Microsoft 365 > Exchange > Transport Rules
 - Microsoft 365 > Security & Compliance > Adaptive Scopes
 - Microsoft 365 > Security & Compliance > Audit Configuration Policy
 - Microsoft 365 > Security & Compliance > Case Hold Policies
@@ -156,35 +180,12 @@
 - Microsoft 365 > Security & Compliance > File Plan Property Departments
 - Microsoft 365 > Security & Compliance > File Plan Property Reference Ids
 - Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories
-- Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies
-- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies
-- Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules
-- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies
-- Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules
 - Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types
 - Microsoft 365 > Security & Compliance > Information Governance > Retention
 - Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules
 - Microsoft 365 > Security & Compliance > Label Policy
 - Microsoft 365 > Security & Compliance > Labels
 - Microsoft 365 > Security & Compliance > Protection Alerts
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings
-- Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies
-- Microsoft 365 > Teams > Apps > Permission Policies
-- Microsoft 365 > Teams > Apps > Setup Policies
-- Microsoft 365 > Teams > Meetings > Live Event Policies
-- Microsoft 365 > Teams > Meetings > Meeting Policies
-- Microsoft 365 > Teams > Meetings > Meeting Settings
-- Microsoft 365 > Teams > Messaging Policies
-- Microsoft 365 > Teams > Org-wide Settings > Teams Settings
-- Microsoft 365 > Teams > Users > External Access
-- Microsoft 365 > Teams > Voice > Call Hold Policies
-- Microsoft 365 > Teams > Voice > Calling Policies
 - SharePoint Admin Center > Settings and Policies
 - SharePoint Admin Center > Sites
 
