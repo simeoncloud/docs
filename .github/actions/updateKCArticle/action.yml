@@ -21,9 +21,8 @@ runs:
       shell: bash
       run: |
         echo "Reading file ${{inputs.filePath}} content"
-        HELP_JUICE_FILE_CONTENT_FORMATTING_TAG='<pre style=\"-webkit-text-stroke-width:0px;color:rgb(0, 0, 0);font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;overflow-wrap:break-word;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0px;\">'
         FILE_CONTENT=$(cat ${{inputs.filePath}})
-        JSON_PAYLOAD=$(jq -n --arg name "$FILE_NAME" --arg body "$HELP_JUICE_FILE_CONTENT_FORMATTING_TAG$FILE_CONTENT" '{
+        JSON_PAYLOAD=$(jq -n --arg name "$FILE_NAME" --arg body "$FILE_CONTENT" '{
           article: {
             body: $body,
           }
