@@ -110,7 +110,9 @@
     - Firewall
       - Reusable Settings
     - Security Baselines
-      - Configuration Settings
+      - Configuration Policy Templates
+        - Configuration Setting Instance Templates
+      - Device Management Templates
     - Settings
   - Policy Sets
   - Reports
@@ -174,6 +176,7 @@
     - Retention Policy Tag
     - Role Assignment Policies
     - Sharing Policies
+    - Tag External Emails
     - Transport Config
     - Transport Rules
   - Security & Compliance

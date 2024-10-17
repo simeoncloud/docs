@@ -55,6 +55,9 @@
       "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:GlobalAddressList/GlobalAddressList"
     },
     {
@@ -199,6 +202,12 @@
         },
         "QueryString": {
           "type": "string"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:ActiveSyncDeviceAccessRule/ActiveSyncDeviceAccessRule"
@@ -476,6 +485,12 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
@@ -652,6 +667,12 @@
         },
         "UserRecipientFilter": {
           "type": "string"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
@@ -848,7 +869,7 @@
           "type": "string"
         },
         "WindowsEmailAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$defs": {
@@ -1117,7 +1138,7 @@
           "type": "string"
         },
         "WindowsEmailAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$defs": {
@@ -1156,6 +1177,21 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
+    },
+    "ExchangeOnline:ExternalInOutlook/ExternalInOutlook": {
+      "type": "object",
+      "properties": {
+        "AllowList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Enabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
     },
     "ExchangeOnline:GlobalAddressList/GlobalAddressList": {
       "type": "object",
@@ -1524,9 +1560,6 @@
     "ExchangeOnline:HostedOutboundSpamFilterRule/HostedOutboundSpamFilterRule": {
       "type": "object",
       "properties": {
-        "State": {
-          "type": "string"
-        },
         "Comments": {
           "type": "string"
         },
@@ -1559,6 +1592,12 @@
         },
         "SenderDomainIs": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
@@ -1699,12 +1738,6 @@
         "JournalReportDecryptionEnabled": {
           "type": "boolean"
         },
-        "LicensingLocation": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "RejectIfRecipientHasNoRights": {
           "type": "boolean"
         },
@@ -1742,10 +1775,16 @@
           "type": "string"
         },
         "Recipient": {
-          "type": "object"
+          "type": "string"
         },
         "Scope": {
           "type": "object"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:JournalRule/JournalRule"
@@ -2051,7 +2090,7 @@
           "type": "string"
         },
         "PrimarySmtpAddress": {
-          "type": "object"
+          "type": "string"
         },
         "PublicFolder": {
           "type": "boolean"
@@ -2153,7 +2192,7 @@
           "type": "boolean"
         },
         "WindowsEmailAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$defs": {
@@ -2267,7 +2306,7 @@
           "type": "string"
         },
         "CustomFromAddress": {
-          "type": "object"
+          "type": "string"
         },
         "CustomFromName": {
           "type": "string"
@@ -2291,7 +2330,7 @@
           "type": "boolean"
         },
         "ExternalSenderAdminAddress": {
-          "type": "object"
+          "type": "string"
         },
         "FileTypeAction": {
           "type": "string"
@@ -2303,7 +2342,7 @@
           }
         },
         "InternalSenderAdminAddress": {
-          "type": "object"
+          "type": "string"
         },
         "IsDefault": {
           "type": "boolean"
@@ -2355,6 +2394,12 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
@@ -3015,7 +3060,7 @@
           "type": "string"
         },
         "OrganizationContact": {
-          "type": "object"
+          "type": "string"
         },
         "PhotosEnabled": {
           "type": "boolean"
@@ -3751,7 +3796,7 @@
           "type": "boolean"
         },
         "RedirectAddress": {
-          "type": "object"
+          "type": "string"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:SafeAttachmentPolicy/SafeAttachmentPolicy"
@@ -3901,6 +3946,12 @@
         },
         "SentToMemberOf": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
@@ -3968,7 +4019,7 @@
           "type": "boolean"
         },
         "ExternalPostmasterAddress": {
-          "type": "object"
+          "type": "string"
         },
         "HeaderPromotionModeSetting": {
           "type": "string"
@@ -3989,7 +4040,7 @@
           "type": "boolean"
         },
         "JournalingReportNdrTo": {
-          "type": "object"
+          "type": "string"
         },
         "JournalMessageExpirationDays": {
           "type": "integer"
@@ -4500,6 +4551,12 @@
         },
         "WithImportance": {
           "type": "string"
+        },
+        "State": {
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
         }
       },
       "$defs": {
