@@ -90,6 +90,9 @@
     - App Protection Policies (Platform = iOS/iPadOS)
     - App Protection Policies (Platform = Windows 10)
   - Devices
+    - Compliance
+      - Policies
+      - Scripts
     - Compliance Policies
       - Compliance Policy Settings
       - Notifications
