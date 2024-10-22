@@ -50,6 +50,7 @@
 - Intune > Apps > App Protection Policies (Platform = Android)
 - Intune > Apps > App Protection Policies (Platform = iOS/iPadOS)
 - Intune > Apps > App Protection Policies (Platform = Windows 10)
+- Intune > Devices > Compliance > Scripts
 - Intune > Devices > Compliance Policies > Compliance Policy Settings
 - Intune > Devices > Compliance Policies > Notifications
 - Intune > Devices > Compliance Policies > Notifications > Localized Notification Messages
@@ -155,7 +156,7 @@
 - Entra ID > Security > Identity Protection
 - Entra ID > User Settings
 - Intune > Apps > App Configuration Policies
-- Intune > Devices > Compliance Policies
+- Intune > Devices > Compliance > Policies
 - Intune > Devices > Enrollment Restrictions
 - Intune > Reports > Endpoint Analytics > Proactive Remediations
 - M365 Admin Center > Settings > Org Settings > Adoption Score
