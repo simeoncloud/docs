@@ -139,6 +139,7 @@
 - SharePoint > Settings
 ## Configurations managed with a user account
 - Azure > Resource Groups
+- Azure > Resource Groups > Storage Accounts
 - Defender > Configuration Management > Device Configuration
 - Defender > Hunting > Advanced Hunting > Queries > Shared Queries
 - Defender > Settings > Microsoft Defender XDR > Email Notifications > Actions
