@@ -1,5 +1,6 @@
 - Azure
   - Resource Groups
+    - Storage Accounts (preview)
 - Defender
   - Configuration Management
     - Device Configuration
