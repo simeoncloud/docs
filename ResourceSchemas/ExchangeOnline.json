@@ -3328,6 +3328,9 @@
         "OutlookBetaToggleEnabled": {
           "type": "boolean"
         },
+        "OutlookDataFile": {
+          "type": "string"
+        },
         "OutlookNewslettersAccessLevel": {
           "type": "object"
         },
