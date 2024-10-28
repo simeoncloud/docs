@@ -5,8 +5,8 @@ on:
     branches:
       - master
     paths:
-      - managed-configurations.md
-      - providers-auth.md
+      - managed-configurations.html
+      - providers-auth.html
 
 env:
   HELP_JUICE_API_URL: https://coreview.helpjuice.com/api/v3
@@ -22,14 +22,14 @@ jobs:
 
       - uses: ./.github/actions/updateKCArticle
         with:
-          filePath: ./managed-configurations.md
+          filePath: ./managed-configurations.html
           articleId: 2839360
           helpJuiceApiUrl: ${{ env.HELP_JUICE_API_URL }}
           helpJuiceApiKey: ${{ env.HELP_JUICE_API_KEY }}
 
       - uses: ./.github/actions/updateKCArticle
         with:
-          filePath: ./providers-auth.md
+          filePath: ./providers-auth.html
           articleId: 2839345
           helpJuiceApiUrl: ${{ env.HELP_JUICE_API_URL }}
           helpJuiceApiKey: ${{ env.HELP_JUICE_API_KEY }}
