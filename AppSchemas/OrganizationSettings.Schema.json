@@ -9,7 +9,7 @@
             "description": "Baseline propagation determines whether changes made to your baseline will automatically propagate to your downstream tenants with your approval. This setting determines the enablement of baseline propagation.",
             "enum": [
                 "None",
-                "Manual",
+                "ManualSync",
                 "Automatic"
             ],
             "category": "Sync"
