@@ -2799,6 +2799,9 @@
         "DefaultPublicFolderMovedItemRetention": {
           "type": "object"
         },
+        "DelayedDelicensingEnabled": {
+          "type": "boolean"
+        },
         "DirectReportsGroupAutoCreationEnabled": {
           "type": "boolean"
         },
@@ -2821,6 +2824,9 @@
           "type": "boolean"
         },
         "EndUserDLUpgradeFlowsDisabled": {
+          "type": "boolean"
+        },
+        "EndUserMailNotificationForDelayedDelicensingEnabled": {
           "type": "boolean"
         },
         "EwsAllowEntourage": {
@@ -2983,6 +2989,9 @@
           "type": "object"
         },
         "SmtpActionableMessagesEnabled": {
+          "type": "boolean"
+        },
+        "TenantAdminNotificationForDelayedDelicensingEnabled": {
           "type": "boolean"
         },
         "VisibleMeetingUpdateProperties": {
