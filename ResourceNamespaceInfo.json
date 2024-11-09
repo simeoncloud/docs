@@ -214,7 +214,7 @@
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
+    "isUpdateSupportedFilter": "^(?!Standard Preset Security Policy|Strict Preset Security Policy).*",
     "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
     "isDelegatedAuthRequired": false,
     "isPreview": false
