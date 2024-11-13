@@ -1145,6 +1145,28 @@
   },
   {
     "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:RoleDefinitions",
+    "description": "Intune > Tenant Administration > Roles",
+    "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:RoleDefinitions:RoleAssignments",
+    "description": "Intune > Tenant Administration > Roles > Role Assignments",
+    "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:RoleScopeTags",
     "description": "Intune > Tenant Administration > Roles > Scope Tags",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade/~/scopeTags",
