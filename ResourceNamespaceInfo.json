@@ -1200,6 +1200,17 @@
   },
   {
     "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:WindowsDriverUpdateProfiles",
+    "description": "Intune > Devices > Windows Updates > Driver Updates",
+    "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesWindowsMenu/windows10Update",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:WindowsFeatureUpdateProfiles",
     "description": "Intune > Devices > Feature Updates for Windows 10 and Later",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/featureUpdateDeployments",
