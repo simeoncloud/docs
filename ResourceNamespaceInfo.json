@@ -214,7 +214,7 @@
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
+    "isUpdateSupportedFilter": "^(?!Standard Preset Security Policy|Strict Preset Security Policy).*",
     "isDeleteSupportedFilter": "^(?!Office365 AntiPhish Default|Standard Preset Security Policy|Strict Preset Security Policy).*",
     "isDelegatedAuthRequired": false,
     "isPreview": false
@@ -1194,6 +1194,17 @@
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_Enrollment/DeploymentProfilesBlade",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:WindowsDriverUpdateProfiles",
+    "description": "Intune > Devices > Windows Updates > Driver Updates",
+    "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesWindowsMenu/windows10Update",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": false,
     "isPreview": false
