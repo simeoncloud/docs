@@ -959,12 +959,23 @@
   {
     "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
-    "description": "Intune > Devices > Compliance Policies",
+    "description": "Intune > Devices > Compliance > Policies",
     "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:DeviceComplianceScripts",
+    "description": "Intune > Devices > Compliance > Scripts",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/~/compliance",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
