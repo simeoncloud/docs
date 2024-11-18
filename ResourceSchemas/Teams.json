@@ -554,7 +554,7 @@
         "LiveStreamingMode": {
           "type": "string"
         },
-        "LobbyChat": {
+        "LobbyChats": {
           "type": "string"
         },
         "MediaBitRateKb": {
