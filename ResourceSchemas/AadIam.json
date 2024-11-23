@@ -157,8 +157,44 @@
     "AadIam:PasswordResetPolicies/Configuration": {
       "type": "object",
       "properties": {
+        "customHelpdeskEmailOrUrl": {
+          "type": "string"
+        },
+        "customizeHelpdeskLink": {
+          "type": "boolean"
+        },
+        "emailOptionEnabled": {
+          "type": "boolean"
+        },
         "enablementType": {
           "type": "integer"
+        },
+        "mobileAppCodeEnabled": {
+          "type": "boolean"
+        },
+        "mobileAppNotificationEnabled": {
+          "type": "boolean"
+        },
+        "mobilePhoneOptionEnabled": {
+          "type": "boolean"
+        },
+        "notifyOnAdminPasswordReset": {
+          "type": "boolean"
+        },
+        "notifyUsersOnPasswordReset": {
+          "type": "boolean"
+        },
+        "numberOfAuthenticationMethodsRequired": {
+          "type": "integer"
+        },
+        "numberOfQuestionsToRegister": {
+          "type": "integer"
+        },
+        "numberOfQuestionsToReset": {
+          "type": "integer"
+        },
+        "officePhoneOptionEnabled": {
+          "type": "boolean"
         },
         "passwordResetEnabledGroupIds": {
           "type": "array",
@@ -168,6 +204,27 @@
         },
         "passwordResetEnabledGroupName": {
           "type": "string"
+        },
+        "registrationReconfirmIntevalInDays": {
+          "type": "integer"
+        },
+        "registrationRequiredOnSignIn": {
+          "type": "boolean"
+        },
+        "securityQuestions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "securityQuestionsOptionEnabled": {
+          "type": "boolean"
+        },
+        "skipRegistrationAllowed": {
+          "type": "boolean"
+        },
+        "skipRegistrationMaxAllowedDays": {
+          "type": "integer"
         }
       },
       "$id": "https://simeoncloud.com/AadIam:PasswordResetPolicies/Configuration"
