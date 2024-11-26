@@ -1190,9 +1190,6 @@
         "ParentId": {
           "type": "string"
         },
-        "Priority": {
-          "type": "integer"
-        },
         "SiteAndGroupProtectionAllowAccessToGuestUsers": {
           "type": "boolean"
         },
