@@ -168,6 +168,9 @@
         "BusyOnBusyEnabledType": {
           "type": "string"
         },
+        "CallingSpendUserLimit": {
+          "type": "object"
+        },
         "CallRecordingExpirationDays": {
           "type": "object"
         },
@@ -176,6 +179,9 @@
         },
         "Description": {
           "type": "string"
+        },
+        "EnableSpendLimits": {
+          "type": "boolean"
         },
         "EnableWebPstnMediaBypass": {
           "type": "boolean"
