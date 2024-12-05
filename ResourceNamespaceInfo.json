@@ -1804,6 +1804,28 @@
     "isPreview": false
   },
   {
+    "category": "M365 Admin Center",
+    "namespace": "O365Portal:Settings:UserOwnedAppAndServices:AccessOfficeStore",
+    "description": "M365 Admin Center > Settings > Org Settings > User Owned Apps And Services > Let Users Access The Office Store",
+    "url": "https://admin.cloud.microsoft/?#/Settings/Services/:/Settings/L1/Store",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "M365 Admin Center",
+    "namespace": "O365Portal:Settings:UserOwnedAppAndServices:StartTrialOnBehalfOrg",
+    "description": "M365 Admin Center > Settings > Org Settings > User Owned Apps And Services > Let Users Start Trials On Behalf Of Your Org",
+    "url": "https://admin.cloud.microsoft/?#/Settings/Services/:/Settings/L1/Store",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
     "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:AdaptiveScope",
     "description": "Microsoft 365 > Security & Compliance > Adaptive Scopes",
