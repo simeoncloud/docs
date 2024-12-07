@@ -897,6 +897,9 @@
         "SetHeader": {
           "type": "array"
         },
+        "SharedByIRMUserRisk": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "StopPolicyProcessing": {
           "type": "boolean"
         },
