@@ -17,7 +17,7 @@
         "DisableErrorReporting": {
             "type": "string",
             "title": "Disable Error Reporting",
-            "description": "This disables automated alerts for when your Sync fails. You can disable this if you don't want your error data sent to Simeon Cloud's support ticketing system.",
+            "description": "This disables automated alerts for when your Sync fails. You can disable this if you don't want your error data sent to CoreView's support ticketing system.",
             "category": "Sync",
             "enum": [
                 "true",
@@ -82,7 +82,7 @@
             "type": "string",
             "title": "Log Analytics App Id",
             "description": "App ID for the app registration with access to the log analytics workspace.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true
         },
@@ -90,7 +90,7 @@
             "type": "string",
             "title": "Log Analytics App Secret",
             "description": "Client secret for the app registration with access to the log analytics workspace.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": true
@@ -99,7 +99,7 @@
             "type": "string",
             "title": "Log Analytics Endpoint Url",
             "description": "URL to the log analytics workspace.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true
         },
@@ -107,7 +107,7 @@
             "type": "string",
             "title": "Log Analytics Skip Unchanged",
             "description": "Option to only send changed data to log analytics.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "enum": [
                 "true",
@@ -119,7 +119,7 @@
             "type": "string",
             "title": "Log Analytics Tenant",
             "description": "The tenant in which log analytics is installed.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true
         },
@@ -127,15 +127,15 @@
             "type": "string",
             "title": "Log Analytics Workspace Resource Id",
             "description": "The log analytics workspace id used during Power BI report installation.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true
         },
         "SimeonSyncIntegrationAppId": {
             "type": "string",
             "title": "Simeon Sync Integration App Id",
-            "description": "App registration that can be used for all Simeon Cloud Integrations.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "description": "App registration that can be used for all Integrations.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true
         },
@@ -143,7 +143,7 @@
             "type": "string",
             "title": "Simeon Sync Integration App Secret",
             "description": "Client secret for shared integration app registration.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true,
             "isSecret": true
@@ -152,7 +152,7 @@
             "type": "string",
             "title": "Simeon Sync Integration Tenant",
             "description": "Tenant for shared app registration.",
-            "default": "Reporting is not yet installed. Follow <a href=\"https://simeoncloud.github.io/docs/#/reporting\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
+            "default": "Reporting is not yet installed. Follow <a href=\"https://help.coreview.com/configuration-manager-report-report-installation\" target=\"_blank\">this guide</a> or complete these variables to install reporting.",
             "category": "Integrations",
             "isAdvanced": true
         },
@@ -219,7 +219,7 @@
             "type": "string",
             "title": "Exclude Users from Summary Email",
             "description": "Email addresses that will be excluded from the summary email. These must be semicolon delimited with no spaces.",
-            "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "default": "exampleuser@example.com;exampleuser1@example.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
             "isAdvanced": true
@@ -236,7 +236,7 @@
             "type": "string",
             "title": "Send Summary Email To Addresses",
             "description": "The email addresses that the summary email will be sent to. These must be semicolon delimited with no spaces.",
-            "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "default": "exampleuser@example.com;exampleuser1@example.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
@@ -273,7 +273,7 @@
             "type": "string",
             "title": "Summary Email To Bcc Address",
             "description": "The email addresses that the summary email will send to as BCC. These must be semicolon delimited with no spaces.",
-            "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "default": "exampleuser@example.com;exampleuser1@example.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
             "isAdvanced": true
@@ -282,7 +282,7 @@
             "type": "string",
             "title": "Summary Email To CC Address",
             "description": "The email addresses that the summary email will send to as CC. These must be semicolon delimited with no spaces.",
-            "default": "exampleuser@simeoncloud.com;exampleuser1@simeoncloud.com",
+            "default": "exampleuser@example.com;exampleuser1@example.com",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*",
             "isAdvanced": true
