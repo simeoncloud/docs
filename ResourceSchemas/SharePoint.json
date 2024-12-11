@@ -160,13 +160,6 @@
         "SecondaryAdmins": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "SensitivityLabel": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "SensitivityLabel2": {
-          "type": "string"
-        },
         "SetOwnerWithoutUpdatingSecondaryAdmin": {
           "type": "boolean"
         },

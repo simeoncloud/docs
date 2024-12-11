@@ -897,9 +897,6 @@
         "SetHeader": {
           "type": "array"
         },
-        "SharedByIRMUserRisk": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "StopPolicyProcessing": {
           "type": "boolean"
         },
@@ -1189,6 +1186,9 @@
         },
         "ParentId": {
           "type": "string"
+        },
+        "Priority": {
+          "type": "integer"
         },
         "SiteAndGroupProtectionAllowAccessToGuestUsers": {
           "type": "boolean"
