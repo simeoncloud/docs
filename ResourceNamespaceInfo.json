@@ -1145,28 +1145,6 @@
   },
   {
     "category": "Intune",
-    "namespace": "MSGraph:DeviceManagement:RoleDefinitions",
-    "description": "Intune > Tenant Administration > Roles",
-    "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false,
-    "isPreview": false
-  },
-  {
-    "category": "Intune",
-    "namespace": "MSGraph:DeviceManagement:RoleDefinitions:RoleAssignments",
-    "description": "Intune > Tenant Administration > Roles > Role Assignments",
-    "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false,
-    "isPreview": false
-  },
-  {
-    "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:RoleScopeTags",
     "description": "Intune > Tenant Administration > Roles > Scope Tags",
     "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Intune_DeviceSettings/RolesLandingMenuBlade/~/scopeTags",
@@ -1819,28 +1797,6 @@
     "namespace": "O365Portal:Settings:Security:ActivityBasedTimeout",
     "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true,
-    "isPreview": false
-  },
-  {
-    "category": "M365 Admin Center",
-    "namespace": "O365Portal:Settings:UserOwnedAppAndServices:AccessOfficeStore",
-    "description": "M365 Admin Center > Settings > Org Settings > User Owned Apps And Services > Let Users Access The Office Store",
-    "url": "https://admin.cloud.microsoft/?#/Settings/Services/:/Settings/L1/Store",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true,
-    "isPreview": false
-  },
-  {
-    "category": "M365 Admin Center",
-    "namespace": "O365Portal:Settings:UserOwnedAppAndServices:StartTrialOnBehalfOrg",
-    "description": "M365 Admin Center > Settings > Org Settings > User Owned Apps And Services > Let Users Start Trials On Behalf Of Your Org",
-    "url": "https://admin.cloud.microsoft/?#/Settings/Services/:/Settings/L1/Store",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",

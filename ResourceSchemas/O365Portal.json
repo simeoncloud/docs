@@ -11,12 +11,6 @@
     },
     {
       "$ref": "#/$defs/O365Portal:Settings:Security:ActivityBasedTimeout/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365Portal:Settings:UserOwnedAppAndServices:AccessOfficeStore/Configuration"
-    },
-    {
-      "$ref": "#/$defs/O365Portal:Settings:UserOwnedAppAndServices:StartTrialOnBehalfOrg/Configuration"
     }
   ],
   "$defs": {
@@ -109,24 +103,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365Portal:Settings:Security:ActivityBasedTimeout/Configuration"
-    },
-    "O365Portal:Settings:UserOwnedAppAndServices:AccessOfficeStore/Configuration": {
-      "type": "object",
-      "properties": {
-        "Enabled": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365Portal:Settings:UserOwnedAppAndServices:AccessOfficeStore/Configuration"
-    },
-    "O365Portal:Settings:UserOwnedAppAndServices:StartTrialOnBehalfOrg/Configuration": {
-      "type": "object",
-      "properties": {
-        "Enabled": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365Portal:Settings:UserOwnedAppAndServices:StartTrialOnBehalfOrg/Configuration"
     }
   }
 }
