@@ -10,9 +10,6 @@
       "$ref": "#/$defs/O365Portal:Settings:Apps:OfficeForms/Configuration"
     },
     {
-      "$ref": "#/$defs/O365Portal:Settings:M365OnTheWeb/Configuration"
-    },
-    {
       "$ref": "#/$defs/O365Portal:Settings:Security:ActivityBasedTimeout/Configuration"
     },
     {
@@ -103,15 +100,6 @@
         }
       },
       "$id": "https://simeoncloud.com/O365Portal:Settings:Apps:OfficeForms/Configuration"
-    },
-    "O365Portal:Settings:M365OnTheWeb/Configuration": {
-      "type": "object",
-      "properties": {
-        "Enabled": {
-          "type": "boolean"
-        }
-      },
-      "$id": "https://simeoncloud.com/O365Portal:Settings:M365OnTheWeb/Configuration"
     },
     "O365Portal:Settings:Security:ActivityBasedTimeout/Configuration": {
       "type": "object",

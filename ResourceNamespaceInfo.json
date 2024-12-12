@@ -1816,17 +1816,6 @@
   },
   {
     "category": "M365 Admin Center",
-    "namespace": "O365Portal:Settings:M365OnTheWeb",
-    "description": "M365 Admin Center > Settings > Org Settings > Microsoft 365 On The Web > Let Users Open Files Stored In Third-party Storage Services In Microsoft 365 On The Web",
-    "url": "https://admin.cloud.microsoft/?#/Settings/Services/:/Settings/L1/OfficeOnline",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": true,
-    "isPreview": false
-  },
-  {
-    "category": "M365 Admin Center",
     "namespace": "O365Portal:Settings:Security:ActivityBasedTimeout",
     "description": "M365 Admin Center > Settings > Org Settings > Security & Privacy > Idle Session Timeout",
     "url": "https://admin.microsoft.com/adminportal/home#/Settings/SecurityPrivacy/:/Settings/L1/ActivityBasedTimeout",
