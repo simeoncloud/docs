@@ -107,6 +107,9 @@
         "Comment": {
           "type": "string"
         },
+        "DeletedResources": {
+          "type": "string"
+        },
         "Enabled": {
           "type": "boolean"
         },
@@ -480,6 +483,9 @@
         },
         "ThirdPartyAppDlpLocationException": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "ValidatePolicy": {
+          "type": "boolean"
         }
       },
       "$defs": {
@@ -870,6 +876,12 @@
         "ReportSeverityLevel": {
           "type": "string"
         },
+        "RestrictAccess": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
         "RuleErrorAction": {
           "type": "string"
         },
@@ -915,8 +927,14 @@
         "ThirdPartyAppDlpRestrictions": {
           "$ref": "#/$defs/arrayOfHashtable"
         },
+        "TriggerPowerAutomateFlow": {
+          "type": "string"
+        },
         "UnscannableDocumentExtensionIs": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "ValidateRule": {
+          "type": "boolean"
         },
         "WithImportance": {
           "type": "string"
@@ -1482,6 +1500,9 @@
         },
         "SharePointLocationException": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "SkipPriorityCleanupConfirmation": {
+          "type": "boolean"
         },
         "SkypeLocation": {
           "$ref": "#/$defs/arrayOfString"
