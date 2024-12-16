@@ -187,6 +187,9 @@
         },
         "SendingFromDomainDisabled": {
           "type": "boolean"
+        },
+        "SendingToDomainDisabled": {
+          "type": "boolean"
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:AcceptedDomain/AcceptedDomain"
@@ -557,6 +560,12 @@
         "AllowBasicAuthWebServices": {
           "type": "boolean"
         },
+        "AllowLegacyExchangeTokens": {
+          "type": "boolean"
+        },
+        "BlockLegacyExchangeTokens": {
+          "type": "boolean"
+        },
         "Name": {
           "type": "string"
         },
@@ -611,7 +620,16 @@
         "ActiveSyncEnabled": {
           "type": "boolean"
         },
+        "ECPEnabled": {
+          "type": "boolean"
+        },
         "ImapEnabled": {
+          "type": "boolean"
+        },
+        "MAPIEnabled": {
+          "type": "boolean"
+        },
+        "OWAEnabled": {
           "type": "boolean"
         },
         "OwaMailboxPolicy": {
@@ -867,6 +885,9 @@
         },
         "Type": {
           "type": "string"
+        },
+        "UpdateMemberCount": {
+          "type": "boolean"
         },
         "WindowsEmailAddress": {
           "type": "string"
@@ -1136,6 +1157,9 @@
         },
         "SimpleDisplayName": {
           "type": "string"
+        },
+        "UpdateMemberCount": {
+          "type": "boolean"
         },
         "WindowsEmailAddress": {
           "type": "string"
@@ -2669,6 +2693,9 @@
         },
         "DefaultPublicFolderProhibitPostQuota": {
           "type": "object"
+        },
+        "AcceptedDomainApprovedSendersEnabled": {
+          "type": "boolean"
         },
         "ActivityBasedAuthenticationTimeoutEnabled": {
           "type": "boolean"
