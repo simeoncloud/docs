@@ -959,12 +959,23 @@
   {
     "category": "Intune",
     "namespace": "MSGraph:DeviceManagement:DeviceCompliancePolicies",
-    "description": "Intune > Devices > Compliance Policies",
+    "description": "Intune > Devices > Compliance > Policies",
     "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesComplianceMenu/policies",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "Intune",
+    "namespace": "MSGraph:DeviceManagement:DeviceComplianceScripts",
+    "description": "Intune > Devices > Compliance > Scripts",
+    "url": "https://endpoint.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/~/compliance",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
@@ -1808,6 +1819,17 @@
     "namespace": "O365Portal:Settings:Apps:OfficeForms",
     "description": "M365 Admin Center > Settings > Org Settings > Microsoft Forms",
     "url": "https://admin.microsoft.com/Adminportal/Home#/Settings/Services/:/Settings/L1/OfficeForms",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "M365 Admin Center",
+    "namespace": "O365Portal:Settings:M365OnTheWeb",
+    "description": "M365 Admin Center > Settings > Org Settings > Microsoft 365 On The Web > Let Users Open Files Stored In Third-party Storage Services In Microsoft 365 On The Web",
+    "url": "https://admin.cloud.microsoft/?#/Settings/Services/:/Settings/L1/OfficeOnline",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
