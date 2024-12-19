@@ -1,6 +1,9 @@
 {
   "anyOf": [
     {
+      "$ref": "#/$defs/AzureManagement:Providers:Microsoft:CustomerLockbox/Configuration"
+    },
+    {
       "$ref": "#/$defs/AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Storage:StorageAccounts/StorageAccountCreateParameters"
     },
     {
@@ -8,6 +11,15 @@
     }
   ],
   "$defs": {
+    "AzureManagement:Providers:Microsoft:CustomerLockbox/Configuration": {
+      "type": "object",
+      "properties": {
+        "IsOptedIn": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/AzureManagement:Providers:Microsoft:CustomerLockbox/Configuration"
+    },
     "AzureManagement:Subscriptions:ResourceGroups:Providers:Microsoft:Storage:StorageAccounts/StorageAccountCreateParameters": {
       "type": "object",
       "properties": {

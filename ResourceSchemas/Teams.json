@@ -126,6 +126,9 @@
     "Teams:CsTeamsCallingPolicy/CsTeamsCallingPolicy": {
       "type": "object",
       "properties": {
+        "AIInterpreter": {
+          "type": "string"
+        },
         "AllowCallForwardingToPhone": {
           "type": "boolean"
         },
@@ -205,6 +208,9 @@
           "type": "boolean"
         },
         "SpamFilteringEnabledType": {
+          "type": "string"
+        },
+        "VoiceSimulationInInterpretation": {
           "type": "string"
         },
         "Identity": {
@@ -494,6 +500,9 @@
         "AutoAdmittedUsers": {
           "type": "string"
         },
+        "AutomaticallyStartCopilot": {
+          "type": "string"
+        },
         "AutoRecording": {
           "type": "string"
         },
@@ -551,6 +560,9 @@
         "LiveStreamingMode": {
           "type": "string"
         },
+        "LobbyChat": {
+          "type": "string"
+        },
         "MediaBitRateKb": {
           "type": "integer"
         },
@@ -562,6 +574,9 @@
         },
         "NewMeetingRecordingExpirationDays": {
           "type": "integer"
+        },
+        "NoiseSuppressionForDialInParticipants": {
+          "type": "string"
         },
         "ParticipantNameChange": {
           "type": "string"

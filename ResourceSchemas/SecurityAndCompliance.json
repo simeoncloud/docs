@@ -1199,9 +1199,6 @@
         "EncryptionTemplateId": {
           "type": "string"
         },
-        "LabelActions": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "Name": {
           "type": "string"
         },
