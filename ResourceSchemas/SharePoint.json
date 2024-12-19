@@ -361,6 +361,9 @@
         "BlockDownloadOfViewableFilesOnUnmanagedDevices": {
           "type": "boolean"
         },
+        "BlockMacSync": {
+          "type": "boolean"
+        },
         "BlockSendLabelMismatchEmail": {
           "type": "boolean"
         },
@@ -460,6 +463,9 @@
           "type": "boolean"
         },
         "DisplayNamesOfFileViewersInSpo": {
+          "type": "boolean"
+        },
+        "DisplayStartASiteOption": {
           "type": "boolean"
         },
         "EmailAttestationEnabled": {
@@ -595,11 +601,20 @@
         "IsCollabMeetingNotesFluidEnabled": {
           "type": "boolean"
         },
+        "IsFluidEnabled": {
+          "type": "boolean"
+        },
+        "IsUnmanagedSyncClientForTenantRestricted": {
+          "type": "boolean"
+        },
         "IsWBFluidEnabled": {
           "type": "boolean"
         },
         "LabelMismatchEmailHelpLink": {
           "type": "string"
+        },
+        "LegacyAuthProtocolsEnabled": {
+          "type": "boolean"
         },
         "MachineLearningCaptureEnabled": {
           "type": "boolean"
@@ -671,6 +686,9 @@
         "OwnerAnonymousNotification": {
           "type": "boolean"
         },
+        "PreventExternalUsersFromResharing": {
+          "type": "boolean"
+        },
         "ProvisionSharedWithEveryoneFolder": {
           "type": "boolean"
         },
@@ -688,6 +706,27 @@
         },
         "SearchResolveExactEmailOrUPN": {
           "type": "boolean"
+        },
+        "SharingAllowedDomainList": {
+          "type": "string"
+        },
+        "SharingBlockedDomainList": {
+          "type": "string"
+        },
+        "SharingCapability": {
+          "enum": [
+            "Disabled",
+            "ExternalUserSharingOnly",
+            "ExternalUserAndGuestSharing",
+            "ExistingExternalUserSharingOnly"
+          ]
+        },
+        "SharingDomainRestrictionMode": {
+          "enum": [
+            "None",
+            "AllowList",
+            "BlockList"
+          ]
         },
         "ShowAllUsersClaim": {
           "type": "boolean"

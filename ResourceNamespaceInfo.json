@@ -88,6 +88,17 @@
     "isPreview": false
   },
   {
+    "category": "Entra ID",
+    "namespace": "AzureManagement:Providers:Microsoft:CustomerLockbox",
+    "description": "Entra ID > Customer Lockbox for Microsoft Azure",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_Azure_Lockbox/LockboxMenu/~/Administration",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
     "category": "Azure",
     "namespace": "AzureManagement:Subscriptions:ResourceGroups",
     "description": "Azure > Resource Groups",
