@@ -689,12 +689,6 @@
         "SearchResolveExactEmailOrUPN": {
           "type": "boolean"
         },
-        "SharingAllowedDomainList": {
-          "type": "string"
-        },
-        "SharingBlockedDomainList": {
-          "type": "string"
-        },
         "ShowAllUsersClaim": {
           "type": "boolean"
         },
