@@ -1082,6 +1082,9 @@
         "Conditions": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "LabelActions": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "LocaleSettings": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -1198,9 +1201,6 @@
         },
         "EncryptionTemplateId": {
           "type": "string"
-        },
-        "LabelActions": {
-          "$ref": "#/$defs/arrayOfString"
         },
         "Name": {
           "type": "string"
