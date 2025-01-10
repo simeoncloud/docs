@@ -201,13 +201,6 @@
             "category": "Integrations",
             "isAdvanced": true
         },
-        "ErrorNotificationEmailAddresses": {
-            "type": "string",
-            "title": "Error Notification Email Addresses",
-            "description": "The email addresses Sync error information will be sent to. These must be semicolon delimited with no spaces.",
-            "category": "Notifications",
-            "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
-        },
         "SummaryEmailExcludePipelines": {
             "type": "string",
             "title": "Exclude Pipelines from Summary Email",
