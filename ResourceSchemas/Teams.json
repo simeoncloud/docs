@@ -485,6 +485,9 @@
         "AllowWhiteboard": {
           "type": "boolean"
         },
+        "AnonymousUserAuthenticationMethod": {
+          "type": "string"
+        },
         "AttendeeIdentityMasking": {
           "type": "string"
         },
@@ -640,9 +643,6 @@
           "type": "boolean"
         },
         "AllowCustomGroupChatAvatars": {
-          "type": "boolean"
-        },
-        "AllowExtendedWorkInfoInSearch": {
           "type": "boolean"
         },
         "AllowFluidCollaborate": {
