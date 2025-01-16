@@ -895,9 +895,9 @@
     "namespace": "MSGraph:DeviceAppManagement:MobileApps",
     "description": "Intune > Apps",
     "url": "https://intune.microsoft.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_Intune_DeviceSettings/AppsMenu/allApps",
-    "isCreateSupportedFilter": "^(?:(?!^#microsoft.graph.androidStoreApp--|^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$",
+    "isCreateSupportedFilter": "^(?:(?!^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(?:(?!^#microsoft.graph.androidStoreApp--|^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$",
+    "isDeleteSupportedFilter": "^(?:(?!^#microsoft.graph.microsoftStoreForBusinessApp--|^#microsoft.graph.managedAndroidStoreApp--|^#microsoft.graph.windowsUniversalAppX--).)+$",
     "isDelegatedAuthRequired": false,
     "isPreview": false
   },
