@@ -76,11 +76,17 @@
         "PinnedAppBarApps": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "AdditionalCustomizationApps": {
+          "type": "object"
+        },
         "AllowSideLoading": {
           "type": "boolean"
         },
         "AllowUserPinning": {
           "type": "boolean"
+        },
+        "AppPresetMeetingList": {
+          "type": "object"
         },
         "Description": {
           "type": "string"
@@ -485,6 +491,9 @@
         "AllowWhiteboard": {
           "type": "boolean"
         },
+        "AnonymousUserAuthenticationMethod": {
+          "type": "string"
+        },
         "AttendeeIdentityMasking": {
           "type": "string"
         },
@@ -640,9 +649,6 @@
           "type": "boolean"
         },
         "AllowCustomGroupChatAvatars": {
-          "type": "boolean"
-        },
-        "AllowExtendedWorkInfoInSearch": {
           "type": "boolean"
         },
         "AllowFluidCollaborate": {
