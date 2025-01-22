@@ -214,8 +214,8 @@
             "description": "When set to 'true', this enables notifications for Sync errors.",
             "category": "Notifications",
             "enum": [
-                "true",
-                "false"
+                "enabled",
+                "disabled"
             ]
         },
         "SummaryEmailExcludePipelines": {
