@@ -211,7 +211,7 @@
         "ErrorNotificationStatus": {
             "type": "string",
             "title": "Error Notification Status",
-            "description": "When set to 'true', this enables notifications for Sync errors.",
+            "description": "When set to 'enabled', it enables notifications for Sync errors.",
             "category": "Notifications",
             "enum": [
                 "enabled",
