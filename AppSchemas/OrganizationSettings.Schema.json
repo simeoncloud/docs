@@ -208,6 +208,16 @@
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
+        "ErrorNotificationStatus": {
+            "type": "string",
+            "title": "Error Notification Status",
+            "description": "When set to 'true', this enables notifications for Sync errors.",
+            "category": "Notifications",
+            "enum": [
+                "true",
+                "false"
+            ]
+        },
         "SummaryEmailExcludePipelines": {
             "type": "string",
             "title": "Exclude Pipelines from Summary Email",
