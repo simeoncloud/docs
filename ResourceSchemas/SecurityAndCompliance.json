@@ -409,6 +409,9 @@
         "IsFromSmartInsights": {
           "type": "boolean"
         },
+        "Locations": {
+          "type": "string"
+        },
         "Mode": {
           "type": "string"
         },
