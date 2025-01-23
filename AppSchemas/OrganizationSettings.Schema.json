@@ -17,7 +17,7 @@
         "DisableErrorReporting": {
             "type": "string",
             "title": "Disable Error Reporting",
-            "description": "This disables automated alerts for when your Sync fails. You can disable this if you don't want your error data sent to CoreView's support ticketing system.",
+            "description": "Information is sent to CoreView when a Sync fails. You can disable this if you don't want your error data sent to CoreView.",
             "category": "Sync",
             "enum": [
                 "true",
@@ -210,8 +210,8 @@
         },
         "ErrorNotificationStatus": {
             "type": "string",
-            "title": "Error Notification Status",
-            "description": "When set to 'enabled', it enables notifications for Sync errors.",
+            "title": "Disable Error Notifications",
+            "description": "This option disables email notifications when your Sync fails.",
             "category": "Notifications",
             "enum": [
                 "enabled",
