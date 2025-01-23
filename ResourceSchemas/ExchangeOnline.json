@@ -2214,9 +2214,6 @@
         },
         "UseDatabaseQuotaDefaults": {
           "type": "boolean"
-        },
-        "WindowsEmailAddress": {
-          "type": "string"
         }
       },
       "$defs": {
