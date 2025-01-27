@@ -14,16 +14,6 @@
             ],
             "category": "Sync"
         },
-        "DisableErrorNotification": {
-            "type": "string",
-            "title": "Disable Error Notifications",
-            "description": "This option disables email notifications when your Sync fails.",
-            "category": "Notifications",
-            "enum": [
-                "true",
-                "false"
-            ]
-        },
         "DisableErrorReporting": {
             "type": "string",
             "title": "Disable Error Reporting",
@@ -217,6 +207,16 @@
             "description": "The email addresses Sync error information will be sent to. These must be semicolon delimited with no spaces.",
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
+        },
+        "DisableErrorNotification": {
+            "type": "string",
+            "title": "Disable Error Notifications",
+            "description": "This option disables email notifications when your Sync fails.",
+            "category": "Notifications",
+            "enum": [
+                "true",
+                "false"
+            ]
         },
         "SummaryEmailExcludePipelines": {
             "type": "string",
