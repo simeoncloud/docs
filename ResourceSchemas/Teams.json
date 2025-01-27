@@ -76,11 +76,17 @@
         "PinnedAppBarApps": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "AdditionalCustomizationApps": {
+          "type": "object"
+        },
         "AllowSideLoading": {
           "type": "boolean"
         },
         "AllowUserPinning": {
           "type": "boolean"
+        },
+        "AppPresetMeetingList": {
+          "type": "object"
         },
         "Description": {
           "type": "string"
@@ -345,6 +351,9 @@
         },
         "LegalURL": {
           "type": "string"
+        },
+        "LimitPresenterRolePermissions": {
+          "type": "boolean"
         },
         "LogoURL": {
           "type": "string"
