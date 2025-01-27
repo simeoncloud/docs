@@ -208,7 +208,7 @@
             "category": "Notifications",
             "pattern": "\\S+@\\S+\\.\\S+(\\s*;\\s*\\S+@\\S+\\.\\S+)*"
         },
-        "DisableErrorNotification": {
+        "ErrorNotificationStatusDisabled": {
             "type": "string",
             "title": "Disable Error Notifications",
             "description": "This option disables email notifications when your Sync fails.",
