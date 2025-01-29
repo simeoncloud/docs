@@ -1639,17 +1639,6 @@
     "isPreview": false
   },
   {
-    "category": "EntraID",
-    "namespace": "MSGraph:Policies:DefaultAppManagementPolicy",
-    "description": "EntraID > Applications > Policies",
-    "url": "https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-beta",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false,
-    "isPreview": false
-  },
-  {
     "category": "Entra ID",
     "namespace": "MSGraph:Policies:DeviceRegistrationPolicy",
     "description": "Entra ID > Device Settings",
