@@ -1353,6 +1353,9 @@
         "Name": {
           "type": "string"
         },
+        "CorrelationPolicyId": {
+          "type": "string"
+        },
         "AggregationType": {
           "type": "string"
         },
@@ -1364,10 +1367,6 @@
         },
         "Comment": {
           "type": "string"
-        },
-        "CorrelationPolicyId": {
-          "type": "string",
-          "format": "uuid"
         },
         "CustomProperties": {
           "type": "array"
