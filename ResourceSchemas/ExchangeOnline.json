@@ -4087,6 +4087,9 @@
         "MessageExpiration": {
           "type": "object"
         },
+        "PreventDuplicateJournalingEnabled": {
+          "type": "boolean"
+        },
         "ReplyAllStormBlockDurationHours": {
           "type": "integer"
         },
