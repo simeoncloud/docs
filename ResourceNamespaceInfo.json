@@ -562,6 +562,17 @@
   },
   {
     "category": "Exchange",
+    "namespace": "ExchangeOnline:OMEConfiguration",
+    "description": "Microsoft 365 > Exchange > OME Configuration",
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-omeconfiguration",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Exchange",
     "namespace": "ExchangeOnline:OnPremisesOrganization",
     "description": "Microsoft 365 > Exchange > On-premises Organizations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-onpremisesorganization?view=exchange-ps",
