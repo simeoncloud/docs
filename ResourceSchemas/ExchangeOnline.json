@@ -109,6 +109,9 @@
       "$ref": "#/$defs/ExchangeOnline:OfflineAddressBook/OfflineAddressBook"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:OMEConfiguration/OMEConfiguration"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization"
     },
     {
@@ -2647,6 +2650,48 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:OfflineAddressBook/OfflineAddressBook"
+    },
+    "ExchangeOnline:OMEConfiguration/OMEConfiguration": {
+      "type": "object",
+      "properties": {
+        "TemplateName": {
+          "type": "string"
+        },
+        "ImageContent": {
+          "type": "string"
+        },
+        "BackgroundColor": {
+          "type": "string"
+        },
+        "DisclaimerText": {
+          "type": "string"
+        },
+        "EmailText": {
+          "type": "string"
+        },
+        "ExternalMailExpiryInDays": {
+          "type": "string"
+        },
+        "IntroductionText": {
+          "type": "string"
+        },
+        "OTPEnabled": {
+          "type": "boolean"
+        },
+        "PortalText": {
+          "type": "string"
+        },
+        "PrivacyStatementUrl": {
+          "type": "string"
+        },
+        "ReadButtonText": {
+          "type": "string"
+        },
+        "SocialIdSignIn": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OMEConfiguration/OMEConfiguration"
     },
     "ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization": {
       "type": "object",
