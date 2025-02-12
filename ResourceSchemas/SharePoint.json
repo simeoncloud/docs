@@ -429,9 +429,6 @@
         "DisableBackToClassic": {
           "type": "boolean"
         },
-        "DisableCustomAppAuthentication": {
-          "type": "boolean"
-        },
         "DisabledModernListTemplateIds": {
           "$ref": "#/$defs/arrayOfGuid"
         },
