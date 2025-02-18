@@ -1639,9 +1639,9 @@
     "isPreview": false
   },
   {
-    "category": "Entra ID",
+    "category": "EntraID",
     "namespace": "MSGraph:Policies:DefaultAppManagementPolicy",
-    "description": "Entra ID > Applications > Policies",
+    "description": "EntraID > Applications > Policies",
     "url": "https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-beta",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -2149,9 +2149,9 @@
     "namespace": "SharePoint:Sites",
     "description": "SharePoint Admin Center > Sites",
     "url": "https://${ResourceContext:OnMicrosoftName}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/siteManagement",
-    "isCreateSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*",
+    "isCreateSupportedFilter": "^(https?):\\/\\/[^\\s\\/?#]+(?:\\.[^\\s\\/?#]+)*(?:\\/[^\\s?#]+)+(?:\\/\\${[^\\s\\/?#]+:[^\\s\\/?#]+})?(?:\\/[^\\s?#]*)*$",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/$.?#]*\\${[^\\s\\/$.?#]+:[^\\s\\/$.?#]+}[^\\s\\/$.?#]*",
+    "isDeleteSupportedFilter": "^(https?):\\/\\/[^\\s\\/?#]+(?:\\.[^\\s\\/?#]+)*(?:\\/[^\\s?#]+)+(?:\\/\\${[^\\s\\/?#]+:[^\\s\\/?#]+})?(?:\\/[^\\s?#]*)*$",
     "isDelegatedAuthRequired": true,
     "isPreview": false
   },
