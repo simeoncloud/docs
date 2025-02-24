@@ -363,6 +363,17 @@
     "isPreview": false
   },
   {
+    "category": "Defender",
+    "namespace": "ExchangeOnline:EmailTenantSettings",
+    "description": "Defender > Settings > Email & Collaboration > Priority Account Protection",
+    "url": "https://security.microsoft.com/securitysettings/priorityAccountProtection?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
     "category": "Exchange",
     "namespace": "ExchangeOnline:ExternalInOutlook",
     "description": "Microsoft 365 > Exchange > Tag External Emails",

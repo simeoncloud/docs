@@ -55,6 +55,9 @@
       "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:EmailTenantSettings/EmailTenantSettings"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
     },
     {
@@ -1204,6 +1207,15 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
+    },
+    "ExchangeOnline:EmailTenantSettings/EmailTenantSettings": {
+      "type": "object",
+      "properties": {
+        "EnablePriorityAccountProtection": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:EmailTenantSettings/EmailTenantSettings"
     },
     "ExchangeOnline:ExternalInOutlook/ExternalInOutlook": {
       "type": "object",
