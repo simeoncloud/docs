@@ -55,6 +55,9 @@
       "$ref": "#/$defs/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:EmailTenantSettings/EmailTenantSettings"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:ExternalInOutlook/ExternalInOutlook"
     },
     {
@@ -107,6 +110,9 @@
     },
     {
       "$ref": "#/$defs/ExchangeOnline:OfflineAddressBook/OfflineAddressBook"
+    },
+    {
+      "$ref": "#/$defs/ExchangeOnline:OMEConfiguration/OMEConfiguration"
     },
     {
       "$ref": "#/$defs/ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization"
@@ -1201,6 +1207,15 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:EmailAddressPolicy/EmailAddressPolicy"
+    },
+    "ExchangeOnline:EmailTenantSettings/EmailTenantSettings": {
+      "type": "object",
+      "properties": {
+        "EnablePriorityAccountProtection": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:EmailTenantSettings/EmailTenantSettings"
     },
     "ExchangeOnline:ExternalInOutlook/ExternalInOutlook": {
       "type": "object",
@@ -2647,6 +2662,48 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:OfflineAddressBook/OfflineAddressBook"
+    },
+    "ExchangeOnline:OMEConfiguration/OMEConfiguration": {
+      "type": "object",
+      "properties": {
+        "TemplateName": {
+          "type": "string"
+        },
+        "ImageContent": {
+          "type": "string"
+        },
+        "BackgroundColor": {
+          "type": "string"
+        },
+        "DisclaimerText": {
+          "type": "string"
+        },
+        "EmailText": {
+          "type": "string"
+        },
+        "ExternalMailExpiryInDays": {
+          "type": "string"
+        },
+        "IntroductionText": {
+          "type": "string"
+        },
+        "OTPEnabled": {
+          "type": "boolean"
+        },
+        "PortalText": {
+          "type": "string"
+        },
+        "PrivacyStatementUrl": {
+          "type": "string"
+        },
+        "ReadButtonText": {
+          "type": "string"
+        },
+        "SocialIdSignIn": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:OMEConfiguration/OMEConfiguration"
     },
     "ExchangeOnline:OnPremisesOrganization/OnPremisesOrganization": {
       "type": "object",

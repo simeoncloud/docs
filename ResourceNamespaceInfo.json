@@ -363,6 +363,17 @@
     "isPreview": false
   },
   {
+    "category": "Defender",
+    "namespace": "ExchangeOnline:EmailTenantSettings",
+    "description": "Defender > Settings > Email & Collaboration > Priority Account Protection",
+    "url": "https://security.microsoft.com/securitysettings/priorityAccountProtection?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
     "category": "Exchange",
     "namespace": "ExchangeOnline:ExternalInOutlook",
     "description": "Microsoft 365 > Exchange > Tag External Emails",
@@ -558,6 +569,17 @@
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "Exchange",
+    "namespace": "ExchangeOnline:OMEConfiguration",
+    "description": "Microsoft 365 > Exchange > OME Configuration",
+    "url": "https://learn.microsoft.com/powershell/module/exchange/get-omeconfiguration",
+    "isCreateSupportedFilter": "^(?:(?!^OME Configuration$).)+$",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "^(?:(?!^OME Configuration$).)+$",
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
