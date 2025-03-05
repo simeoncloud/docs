@@ -210,6 +210,9 @@
         "PreventTollBypass": {
           "type": "boolean"
         },
+        "RealTimeText": {
+          "type": "string"
+        },
         "SpamFilteringEnabledType": {
           "type": "string"
         },
@@ -407,6 +410,9 @@
         "AllowedStreamingMediaInput": {
           "type": "string"
         },
+        "AllowedUsersForMeetingDetails": {
+          "type": "string"
+        },
         "AllowEngagementReport": {
           "type": "string"
         },
@@ -570,6 +576,9 @@
           "type": "string"
         },
         "QnAEngagementMode": {
+          "type": "string"
+        },
+        "RealTimeText": {
           "type": "string"
         },
         "RecordingStorageMode": {
@@ -738,6 +747,9 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "UsersCanDeleteBotMessages": {
+          "type": "boolean"
         },
         "Identity": {
           "type": "string"
