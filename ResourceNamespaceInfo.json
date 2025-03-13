@@ -1563,6 +1563,17 @@
   },
   {
     "category": "Entra ID",
+    "namespace": "MSGraph:Policies:AdminConsentRequestPolicy",
+    "description": "Entra ID > Enterprise Applications > Consent and Permissions > Admin Consent Settings",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/ConsentPoliciesMenuBlade/~/AdminConsentSettings",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Entra ID",
     "namespace": "MSGraph:Policies:AuthenticationFlowsPolicy",
     "description": "Entra ID > Users > User Settings > External Users",
     "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade",
