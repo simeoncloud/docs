@@ -210,9 +210,6 @@
         "PreventTollBypass": {
           "type": "boolean"
         },
-        "RealTimeText": {
-          "type": "string"
-        },
         "SpamFilteringEnabledType": {
           "type": "string"
         },
@@ -576,9 +573,6 @@
           "type": "string"
         },
         "QnAEngagementMode": {
-          "type": "string"
-        },
-        "RealTimeText": {
           "type": "string"
         },
         "RecordingStorageMode": {
