@@ -210,9 +210,6 @@
         "PreventTollBypass": {
           "type": "boolean"
         },
-        "RealTimeText": {
-          "type": "string"
-        },
         "SpamFilteringEnabledType": {
           "type": "string"
         },
@@ -578,9 +575,6 @@
         "QnAEngagementMode": {
           "type": "string"
         },
-        "RealTimeText": {
-          "type": "string"
-        },
         "RecordingStorageMode": {
           "type": "string"
         },
@@ -809,9 +803,6 @@
           "type": "boolean"
         },
         "BlockAllSubdomains": {
-          "type": "boolean"
-        },
-        "CustomizeFederation": {
           "type": "boolean"
         },
         "ExternalAccessWithTrialTenants": {

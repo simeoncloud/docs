@@ -538,12 +538,6 @@
         },
         "SafeLinksPolicy": {
           "type": "string"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
         }
       },
       "$defs": {
