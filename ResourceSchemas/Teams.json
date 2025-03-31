@@ -805,9 +805,6 @@
         "BlockAllSubdomains": {
           "type": "boolean"
         },
-        "CustomizeFederation": {
-          "type": "boolean"
-        },
         "ExternalAccessWithTrialTenants": {
           "type": "object"
         },
