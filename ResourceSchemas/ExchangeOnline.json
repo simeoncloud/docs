@@ -22,6 +22,9 @@
       "$ref": "#/$defs/ExchangeOnline:AntiPhishRule/AntiPhishRule"
     },
     {
+      "$ref": "#/$defs/ExchangeOnline:ATPBuiltInProtectionRule/ATPBuiltInProtectionRule"
+    },
+    {
       "$ref": "#/$defs/ExchangeOnline:AtpPolicyForO365/AtpPolicyForO365"
     },
     {
@@ -511,6 +514,41 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:AntiPhishRule/AntiPhishRule"
+    },
+    "ExchangeOnline:ATPBuiltInProtectionRule/ATPBuiltInProtectionRule": {
+      "type": "object",
+      "properties": {
+        "ExceptIfSentTo": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfSentToMemberOf": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "ExceptIfRecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "SafeAttachmentPolicy": {
+          "type": "string"
+        },
+        "SafeLinksPolicy": {
+          "type": "string"
+        }
+      },
+      "$defs": {
+        "arrayOfString": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$id": "https://simeoncloud.com/ExchangeOnline:ATPBuiltInProtectionRule/ATPBuiltInProtectionRule"
     },
     "ExchangeOnline:AtpPolicyForO365/AtpPolicyForO365": {
       "type": "object",
@@ -2770,6 +2808,9 @@
           "type": "boolean"
         },
         "AutodiscoverPartialDirSync": {
+          "type": "boolean"
+        },
+        "AutoEnableArchiveMailbox": {
           "type": "boolean"
         },
         "AutomaticForcedReadReceiptEnabled": {
