@@ -317,6 +317,27 @@
 					"type": "Role"
 				}
 			]
+		},
+		{
+			"resourceAppId": "c5393580-f805-4401-95e8-94b7a6ef2fc2",
+			"resourceAccess": [
+			  	{
+					"id": "594c1fb6-4f81-4475-ae41-0c394909246c",
+					"type": "Role"
+			  	},
+			  	{
+					"id": "594c1fb6-4f81-4475-ae41-0c394909246c",
+					"type": "Scope"
+			  	},
+			  	{
+					"id": "e2cea78f-e743-4d8f-a16a-75b629a038ae",
+					"type": "Role"
+			  	},
+			  	{
+					"id": "e2cea78f-e743-4d8f-a16a-75b629a038ae",
+					"type": "Scope"
+			  	}
+			]
 		}
 	],
   "signInAudience": "AzureADMyOrg",
