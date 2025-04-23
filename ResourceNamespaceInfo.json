@@ -243,6 +243,17 @@
   },
   {
     "category": "Security & Compliance",
+    "namespace": "ExchangeOnline:ATPBuiltInProtectionRule",
+    "description": "Microsoft 365 > Security & Compliance > Threat Management > Preset Security Policies > Built-in Protection Settings",
+    "url": "https://security.microsoft.com/presetSecurityPolicies?tid=${ResourceContext:TenantId}",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Security & Compliance",
     "namespace": "ExchangeOnline:AtpPolicyForO365",
     "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
@@ -997,7 +1008,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true,
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
@@ -1041,7 +1052,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true,
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
