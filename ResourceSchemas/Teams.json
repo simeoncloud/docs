@@ -407,7 +407,7 @@
         "AllowedStreamingMediaInput": {
           "type": "string"
         },
-        "AllowedUsersForMeetingContext": {
+        "AllowedUsersForMeetingDetails": {
           "type": "string"
         },
         "AllowEngagementReport": {
@@ -494,9 +494,6 @@
         "AllowWhiteboard": {
           "type": "boolean"
         },
-        "AnonymousUserAuthenticationMethod": {
-          "type": "string"
-        },
         "AttendeeIdentityMasking": {
           "type": "string"
         },
@@ -511,9 +508,6 @@
         },
         "BlockedAnonymousJoinClientTypes": {
           "type": "object"
-        },
-        "CaptchaVerificationForMeetingJoin": {
-          "type": "string"
         },
         "ChannelRecordingDownload": {
           "type": "string"
@@ -532,9 +526,6 @@
         },
         "DesignatedPresenterRoleMode": {
           "type": "string"
-        },
-        "DetectSensitiveContentDuringScreenSharing": {
-          "type": "boolean"
         },
         "EnrollUserOverride": {
           "type": "string"
@@ -609,16 +600,10 @@
           "type": "string",
           "format": "uuid"
         },
-        "UsersCanAdmitFromLobby": {
-          "type": "string"
-        },
         "VideoFiltersMode": {
           "type": "string"
         },
         "VoiceIsolation": {
-          "type": "string"
-        },
-        "WatermarkForAnonymousUsers": {
           "type": "string"
         },
         "WatermarkForCameraVideoOpacity": {
@@ -757,6 +742,9 @@
           "type": "string",
           "format": "uuid"
         },
+        "UsersCanDeleteBotMessages": {
+          "type": "boolean"
+        },
         "Identity": {
           "type": "string"
         }
@@ -815,9 +803,6 @@
           "type": "boolean"
         },
         "BlockAllSubdomains": {
-          "type": "boolean"
-        },
-        "CustomizeFederation": {
           "type": "boolean"
         },
         "ExternalAccessWithTrialTenants": {
