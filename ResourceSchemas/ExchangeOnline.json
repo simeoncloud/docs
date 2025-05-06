@@ -3425,13 +3425,13 @@
           "type": "string"
         },
         "OutlookNewslettersAccessLevel": {
-          "type": "object"
+          "type": "string"
         },
         "OutlookNewslettersReactions": {
-          "type": "object"
+          "type": "string"
         },
         "OutlookNewslettersShowMore": {
-          "type": "object"
+          "type": "string"
         },
         "OWALightEnabled": {
           "type": "boolean"
