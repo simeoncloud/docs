@@ -1959,17 +1959,6 @@
   },
   {
     "category": "Security & Compliance",
-    "namespace": "SecurityAndCompliance:AuditConfigurationPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Audit Configuration Policy",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
-    "isUpdateSupportedFilter": "$^",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true,
-    "isPreview": false
-  },
-  {
-    "category": "Security & Compliance",
     "namespace": "SecurityAndCompliance:CaseHoldPolicy",
     "description": "Microsoft 365 > Security & Compliance > Case Hold Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
