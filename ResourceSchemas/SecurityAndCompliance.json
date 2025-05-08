@@ -10,9 +10,6 @@
       "$ref": "#/$defs/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy"
     },
     {
@@ -198,15 +195,6 @@
         }
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
-    },
-    "SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy": {
-      "type": "object",
-      "properties": {
-        "Workload": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy"
     },
     "SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy": {
       "type": "object",
