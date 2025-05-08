@@ -997,7 +997,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true,
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
@@ -1041,7 +1041,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": true,
+    "isDelegatedAuthRequired": false,
     "isPreview": false
   },
   {
