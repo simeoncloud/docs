@@ -793,9 +793,6 @@
         "AllowFederatedUsers": {
           "type": "boolean"
         },
-        "AllowPublicUsers": {
-          "type": "boolean"
-        },
         "AllowTeamsConsumer": {
           "type": "boolean"
         },
