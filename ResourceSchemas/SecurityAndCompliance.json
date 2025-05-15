@@ -801,6 +801,9 @@
         "NotifyEmailExchangeIncludeAttachment": {
           "type": "boolean"
         },
+        "NotifyEmailOnedriveRemediationActions": {
+          "type": "object"
+        },
         "NotifyEndpointUser": {
           "type": "array"
         },
