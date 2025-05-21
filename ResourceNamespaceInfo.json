@@ -997,7 +997,7 @@
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false,
+    "isDelegatedAuthRequired": true,
     "isPreview": false
   },
   {
@@ -1953,6 +1953,17 @@
     "url": "https://purview.microsoft.com/datalifecyclemanagement/retention?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "Security & Compliance",
+    "namespace": "SecurityAndCompliance:AuditConfigurationPolicy",
+    "description": "Microsoft 365 > Security & Compliance > Audit Configuration Policy",
+    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-auditconfigurationpolicy?view=exchange-ps",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": true,
     "isPreview": false
