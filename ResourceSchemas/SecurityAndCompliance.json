@@ -10,9 +10,6 @@
       "$ref": "#/$defs/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
     },
     {
-      "$ref": "#/$defs/SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy"
-    },
-    {
       "$ref": "#/$defs/SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy"
     },
     {
@@ -199,15 +196,6 @@
       },
       "$id": "https://simeoncloud.com/SecurityAndCompliance:AppRetentionComplianceRule/AppRetentionComplianceRule"
     },
-    "SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy": {
-      "type": "object",
-      "properties": {
-        "Workload": {
-          "type": "string"
-        }
-      },
-      "$id": "https://simeoncloud.com/SecurityAndCompliance:AuditConfigurationPolicy/AuditConfigurationPolicy"
-    },
     "SecurityAndCompliance:CaseHoldPolicy/CaseHoldPolicy": {
       "type": "object",
       "properties": {
@@ -392,6 +380,9 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "EndpointDlpLocationException": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "EnforcementPlanes": {
           "$ref": "#/$defs/arrayOfString"
         },
         "ExceptIfOneDriveSharedBy": {
@@ -813,6 +804,9 @@
         "NotifyEmailExchangeIncludeAttachment": {
           "type": "boolean"
         },
+        "NotifyEmailOnedriveRemediationActions": {
+          "type": "object"
+        },
         "NotifyEndpointUser": {
           "type": "array"
         },
@@ -911,6 +905,9 @@
         },
         "SetHeader": {
           "type": "array"
+        },
+        "SharedByIRMUserRisk": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "StopPolicyProcessing": {
           "type": "boolean"

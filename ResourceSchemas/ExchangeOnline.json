@@ -2131,6 +2131,9 @@
         "PrimarySmtpAddress": {
           "type": "string"
         },
+        "ProxyEmailAddress": {
+          "type": "object"
+        },
         "PublicFolder": {
           "type": "boolean"
         },
@@ -2751,6 +2754,9 @@
         "AcceptedDomainApprovedSendersEnabled": {
           "type": "boolean"
         },
+        "ActionableMessagesExtenalAccessTokenEnabled": {
+          "type": "boolean"
+        },
         "ActivityBasedAuthenticationTimeoutEnabled": {
           "type": "boolean"
         },
@@ -3078,6 +3084,9 @@
         "TenantAdminNotificationForDelayedDelicensingEnabled": {
           "type": "boolean"
         },
+        "TwoClickMailPreviewEnabled": {
+          "type": "boolean"
+        },
         "VisibleMeetingUpdateProperties": {
           "type": "string"
         },
@@ -3391,6 +3400,9 @@
         "MessagePreviewsDisabled": {
           "type": "boolean"
         },
+        "MonthlyUpdatesEnabled": {
+          "type": "boolean"
+        },
         "Name": {
           "type": "string"
         },
@@ -3425,13 +3437,13 @@
           "type": "string"
         },
         "OutlookNewslettersAccessLevel": {
-          "type": "object"
+          "type": "string"
         },
         "OutlookNewslettersReactions": {
-          "type": "object"
+          "type": "string"
         },
         "OutlookNewslettersShowMore": {
-          "type": "object"
+          "type": "string"
         },
         "OWALightEnabled": {
           "type": "boolean"
