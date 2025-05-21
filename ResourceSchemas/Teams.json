@@ -533,7 +533,13 @@
         "ExplicitRecordingConsent": {
           "type": "string"
         },
+        "ExplicitRecordingConsent": {
+          "type": "string"
+        },
         "ExternalMeetingJoin": {
+          "type": "string"
+        },
+        "InfoShownInReportMode": {
           "type": "string"
         },
         "InfoShownInReportMode": {
@@ -584,6 +590,9 @@
         "RoomPeopleNameUserOverride": {
           "type": "string"
         },
+        "RoomPeopleNameUserOverride": {
+          "type": "string"
+        },
         "ScreenSharingMode": {
           "type": "string"
         },
@@ -604,6 +613,18 @@
           "type": "string"
         },
         "VoiceIsolation": {
+          "type": "string"
+        },
+        "WatermarkForCameraVideoOpacity": {
+          "type": "integer"
+        },
+        "WatermarkForCameraVideoPattern": {
+          "type": "string"
+        },
+        "WatermarkForScreenSharingOpacity": {
+          "type": "integer"
+        },
+        "WatermarkForScreenSharingPattern": {
           "type": "string"
         },
         "WatermarkForCameraVideoOpacity": {
@@ -654,6 +675,12 @@
         "AllowGroupChatJoinLinks": {
           "type": "boolean"
         },
+        "AllowGiphyDisplay": {
+          "type": "boolean"
+        },
+        "AllowGroupChatJoinLinks": {
+          "type": "boolean"
+        },
         "AllowImmersiveReader": {
           "type": "boolean"
         },
@@ -670,6 +697,9 @@
           "type": "boolean"
         },
         "AllowRemoveUser": {
+          "type": "boolean"
+        },
+        "AllowSecurityEndUserReporting": {
           "type": "boolean"
         },
         "AllowSecurityEndUserReporting": {
@@ -700,6 +730,9 @@
           "type": "boolean"
         },
         "AllowUserTranslation": {
+          "type": "boolean"
+        },
+        "AllowVideoMessages": {
           "type": "boolean"
         },
         "AllowVideoMessages": {
