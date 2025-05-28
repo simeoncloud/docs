@@ -382,6 +382,9 @@
         "EndpointDlpLocationException": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "EnforcementPlanes": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "ExceptIfOneDriveSharedBy": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -587,6 +590,9 @@
         },
         "DocumentSizeOver": {
           "type": "object"
+        },
+        "DomainCountOver": {
+          "type": "integer"
         },
         "EncryptRMSTemplate": {
           "type": "string"
@@ -855,6 +861,9 @@
         "RecipientADAttributeMatchesPatterns": {
           "type": "array"
         },
+        "RecipientCountOver": {
+          "type": "integer"
+        },
         "RecipientDomainIs": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -902,6 +911,9 @@
         },
         "SetHeader": {
           "type": "array"
+        },
+        "SharedByIRMUserRisk": {
+          "$ref": "#/$defs/arrayOfString"
         },
         "StopPolicyProcessing": {
           "type": "boolean"
@@ -1478,6 +1490,9 @@
         },
         "OneDriveLocationException": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "PriorityCleanup": {
+          "type": "boolean"
         },
         "PublicFolderLocation": {
           "$ref": "#/$defs/arrayOfString"
