@@ -572,6 +572,12 @@
         "BlockLegacyExchangeTokens": {
           "type": "boolean"
         },
+        "AllowLegacyExchangeTokens": {
+          "type": "boolean"
+        },
+        "BlockLegacyExchangeTokens": {
+          "type": "boolean"
+        },
         "Name": {
           "type": "string"
         },
@@ -2919,6 +2925,9 @@
         "EndUserMailNotificationForDelayedDelicensingEnabled": {
           "type": "boolean"
         },
+        "EndUserMailNotificationForDelayedDelicensingEnabled": {
+          "type": "boolean"
+        },
         "EwsAllowEntourage": {
           "type": "boolean"
         },
@@ -3085,6 +3094,9 @@
           "type": "boolean"
         },
         "TwoClickMailPreviewEnabled": {
+          "type": "boolean"
+        },
+        "TenantAdminNotificationForDelayedDelicensingEnabled": {
           "type": "boolean"
         },
         "VisibleMeetingUpdateProperties": {

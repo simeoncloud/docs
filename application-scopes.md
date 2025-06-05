@@ -63,7 +63,7 @@
   - Application scope - Policy.ReadWrite.AccessReview (Read and write your organization's directory access review default policy)
   - Application scope - Policy.ReadWrite.ApplicationConfiguration (Read and write your organization's application configuration policies)
   - Application scope - Policy.ReadWrite.AuthenticationFlows (Read and write authentication flow policies)
-  - Application scope - Policy.ReadWrite.AuthenticationMethod (Read and write all authentication method policies )
+  - Application scope - Policy.ReadWrite.AuthenticationMethod (Read and write all authentication method policies )
   - Application scope - Policy.ReadWrite.Authorization (Read and write your organization's authorization policy)
   - Application scope - Policy.ReadWrite.ConditionalAccess (Read and write your organization's conditional access policies)
   - Application scope - Policy.ReadWrite.ConsentRequest (Read and write your organization's consent request policy)
@@ -78,6 +78,10 @@
   - Application scope - TeamworkDevice.ReadWrite.All (Read and write Teams devices)
   - Application scope - ThreatSubmissionPolicy.ReadWrite.All (Read and write all of the organization's threat submission policies)
   - Application scope - User.ReadWrite.All (Read and write all users' full profiles)
+  - Application scope - IdentityRiskEvent.ReadWrite.All (Read and write all risk detection information)
+  - Delegated scope - IdentityRiskEvent.ReadWrite.All (Read and write risk event information)
+  - Application scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy )
+  - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
 - Office 365 Exchange Online
   - Delegated scope - Exchange.Manage (Manage Exchange configuration)
   - Application scope - Exchange.ManageAsApp (Manage Exchange As Application)
@@ -102,4 +106,3 @@
 - Windows Store for Business
   - Delegated scope - user_impersonation (Access Windows Store for Business)
   - Application scope - bspadmin (Administrator)
-
