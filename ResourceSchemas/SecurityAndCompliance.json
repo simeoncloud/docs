@@ -591,6 +591,9 @@
         "DocumentSizeOver": {
           "type": "object"
         },
+        "DomainCountOver": {
+          "type": "integer"
+        },
         "EncryptRMSTemplate": {
           "type": "string"
         },
@@ -857,6 +860,9 @@
         },
         "RecipientADAttributeMatchesPatterns": {
           "type": "array"
+        },
+        "RecipientCountOver": {
+          "type": "integer"
         },
         "RecipientDomainIs": {
           "$ref": "#/$defs/arrayOfString"
@@ -1484,6 +1490,9 @@
         },
         "OneDriveLocationException": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "PriorityCleanup": {
+          "type": "boolean"
         },
         "PublicFolderLocation": {
           "$ref": "#/$defs/arrayOfString"
