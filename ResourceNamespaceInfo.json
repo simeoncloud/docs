@@ -1364,6 +1364,17 @@
     "isPreview": false
   },
   {
+    "category": "M365 Admin Center",
+    "namespace": "MSGraph:Domains:FederationConfiguration",
+    "description": "M365 Admin Center > Domains > Federation Configuration",
+    "url": "https://learn.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-beta",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
     "category": "Entra ID",
     "namespace": "MSGraph:GroupLifecyclePolicies",
     "description": "Entra ID > Groups > Expiration",
