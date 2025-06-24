@@ -328,9 +328,6 @@
         "Notes": {
           "type": "string"
         },
-        "PriorityCleanup": {
-          "type": "boolean"
-        },
         "Regulatory": {
           "type": "boolean"
         },
@@ -1588,9 +1585,6 @@
         },
         "Policy": {
           "type": "string"
-        },
-        "PriorityCleanup": {
-          "type": "boolean"
         },
         "RetentionComplianceAction": {
           "type": "string"
