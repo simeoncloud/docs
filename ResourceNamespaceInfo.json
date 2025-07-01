@@ -2300,6 +2300,17 @@
   },
   {
     "category": "Teams",
+    "namespace": "Teams:CsTeamsSettingsCustomApp",
+    "description": "Microsoft 365 > Teams > Custom Apps Settings",
+    "url": "https://admin.teams.microsoft.com/policies/manage-apps?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Teams",
     "namespace": "Teams:CsTeamsUpdateManagementPolicy",
     "description": "Microsoft 365 > Teams > Update Management Policies",
     "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
