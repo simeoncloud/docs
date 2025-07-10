@@ -294,6 +294,9 @@
     "SecurityAndCompliance:ComplianceTag/ComplianceTag": {
       "type": "object",
       "properties": {
+        "PriorityCleanup": {
+          "type": "boolean"
+        },
         "AutoApprovalPeriod": {
           "type": "integer"
         },
@@ -327,9 +330,6 @@
         },
         "Notes": {
           "type": "string"
-        },
-        "PriorityCleanup": {
-          "type": "boolean"
         },
         "Regulatory": {
           "type": "boolean"
