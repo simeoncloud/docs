@@ -2306,7 +2306,7 @@
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
-    "isDelegatedAuthRequired": false,
+    "isDelegatedAuthRequired": true,
     "isPreview": false
   },
   {
