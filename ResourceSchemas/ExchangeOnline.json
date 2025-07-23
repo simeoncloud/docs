@@ -1318,9 +1318,6 @@
         "AdminDisplayName": {
           "type": "string"
         },
-        "EnableSafeList": {
-          "type": "boolean"
-        },
         "IPAllowList": {
           "$ref": "#/$defs/arrayOfString"
         },
