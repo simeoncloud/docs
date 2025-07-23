@@ -802,6 +802,9 @@
         "BlockAllSubdomains": {
           "type": "boolean"
         },
+        "DomainBlockingForMDOAdminsInTeams": {
+          "type": "object"
+        },
         "ExternalAccessWithTrialTenants": {
           "type": "object"
         },
