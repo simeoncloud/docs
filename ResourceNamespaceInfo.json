@@ -1871,6 +1871,17 @@
   },
   {
     "category": "M365 Admin Center",
+    "namespace": "O365Portal:SelfServiceTrialsAndPurchases",
+    "description": "M365 Admin Center > Settings > Org Settings > Self Service Trials And Purchases",
+    "url": "https://admin.microsoft.com/Adminportal/Home#/manageselfservicepurchase",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true,
+    "isPreview": false
+  },
+  {
+    "category": "M365 Admin Center",
     "namespace": "O365Portal:Services:Apps:VivaInsights",
     "description": "M365 Admin Center > Settings > Org Settings > Services > Microsoft Viva Insights (Formerly MyAnalytics)",
     "url": "https://admin.microsoft.com/#/Settings/Services/:/Settings/L1/VivaInsights",

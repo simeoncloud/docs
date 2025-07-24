@@ -4,6 +4,9 @@
       "$ref": "#/$defs/O365Portal:Reports:ProductivityScoreCustomerOption/Configuration"
     },
     {
+      "$ref": "#/$defs/O365Portal:SelfServiceTrialsAndPurchases/SelfServiceTrialsAndPurchases"
+    },
+    {
       "$ref": "#/$defs/O365Portal:Services:Apps:VivaInsights/Configuration"
     },
     {
@@ -46,6 +49,24 @@
         }
       },
       "$id": "https://simeoncloud.com/O365Portal:Reports:ProductivityScoreCustomerOption/Configuration"
+    },
+    "O365Portal:SelfServiceTrialsAndPurchases/SelfServiceTrialsAndPurchases": {
+      "type": "object",
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        },
+        "ProductId": {
+          "type": "string"
+        },
+        "ProductName": {
+          "type": "string"
+        },
+        "PolicyValue": {
+          "type": "string"
+        }
+      },
+      "$id": "https://simeoncloud.com/O365Portal:SelfServiceTrialsAndPurchases/SelfServiceTrialsAndPurchases"
     },
     "O365Portal:Services:Apps:VivaInsights/Configuration": {
       "type": "object",
