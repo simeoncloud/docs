@@ -36,7 +36,6 @@
   "92a38652-f13b-4875-bc77-6e1dbb63e1b2": "Microsoft Graph - Policy.ReadWrite.FeatureRollout (Read and write your organization's feature rollout policies)",
   "ad902697-1014-4ef5-81ef-2b4301988e8c": "Microsoft Graph - Policy.ReadWrite.ConditionalAccess (Read and write your organization's conditional access policies)",
   "46ca0847-7e6b-426e-9775-ea810a948356": "Microsoft Graph - Organization.ReadWrite.All (Read and write organization information)",
-  "56cee9a4-2b49-4d48-a5c1-b26a2e48aada": "Windows Store for Business - user_impersonation (Access Windows Store for Business)",
   "ab4f2b77-0b06-4fc1-a9de-02113fc2ab7c": "Office 365 Exchange Online - Exchange.Manage (Manage Exchange configuration)",
   "4e46008b-f24c-477d-8fff-7bb4ec7aafe0": "Microsoft Graph - Group.ReadWrite.All (Read and write all groups)",
   "ef4b5d93-3104-4664-9053-a5c49ab44218": "Microsoft Graph - Agreement.ReadWrite.All (Read and write all terms of use agreements)",
