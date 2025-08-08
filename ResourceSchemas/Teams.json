@@ -189,6 +189,9 @@
         "EnableWebPstnMediaBypass": {
           "type": "boolean"
         },
+        "ExplicitRecordingConsent": {
+          "type": "string"
+        },
         "InboundFederatedCallRoutingTreatment": {
           "type": "string"
         },
@@ -209,6 +212,9 @@
         },
         "PreventTollBypass": {
           "type": "boolean"
+        },
+        "RealTimeText": {
+          "type": "string"
         },
         "SpamFilteringEnabledType": {
           "type": "string"
@@ -575,6 +581,9 @@
         "QnAEngagementMode": {
           "type": "string"
         },
+        "RealTimeText": {
+          "type": "string"
+        },
         "RecordingStorageMode": {
           "type": "string"
         },
@@ -708,6 +717,9 @@
         "AudioMessageEnabledType": {
           "type": "object"
         },
+        "AutoShareFilesInExternalChats": {
+          "type": "string"
+        },
         "ChannelsInChatListEnabledType": {
           "type": "object"
         },
@@ -741,6 +753,9 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
+        },
+        "UseB2BInvitesToAddExternalUsers": {
+          "type": "string"
         },
         "UsersCanDeleteBotMessages": {
           "type": "boolean"
