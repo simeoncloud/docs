@@ -189,9 +189,6 @@
         "EnableWebPstnMediaBypass": {
           "type": "boolean"
         },
-        "ExplicitRecordingConsent": {
-          "type": "string"
-        },
         "InboundFederatedCallRoutingTreatment": {
           "type": "string"
         },
@@ -753,9 +750,6 @@
         "Tenant": {
           "type": "string",
           "format": "uuid"
-        },
-        "UseB2BInvitesToAddExternalUsers": {
-          "type": "string"
         },
         "UsersCanDeleteBotMessages": {
           "type": "boolean"
