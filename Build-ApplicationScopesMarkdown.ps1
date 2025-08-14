@@ -7,8 +7,7 @@ param (
     [string]$Username,
     [string]$Password,
     [string]$ClientId,
-    [string]$ClientSecret,
-    [string]$ApplicationOverride = $null
+    [string]$ClientSecret
 )
 $ErrorActionPreference = 'Stop'
 
@@ -65,11 +64,6 @@ $msGraphRestProps = @{
 }
 
 $application = Get-Content './Resources/Content/MSGraph/Applications/Simeon Cloud Sync.json' | ConvertFrom-Json
-if ($ApplicationOverride)
-{
-    $application = Get-Content $ApplicationOverride | ConvertFrom-Json
-}
-
 $requiredResources = $application.requiredResourceAccess
 $resourceDescriptions = @()
 
