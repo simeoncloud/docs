@@ -1365,11 +1365,32 @@
         "BulkThreshold": {
           "type": "integer"
         },
+        "DownloadLink": {
+          "type": "boolean"
+        },
+        "EnableEndUserSpamNotifications": {
+          "type": "boolean"
+        },
         "EnableLanguageBlockList": {
           "type": "boolean"
         },
         "EnableRegionBlockList": {
           "type": "boolean"
+        },
+        "EndUserSpamNotificationCustomFromAddress": {
+          "type": "string"
+        },
+        "EndUserSpamNotificationCustomFromName": {
+          "type": "string"
+        },
+        "EndUserSpamNotificationCustomSubject": {
+          "type": "string"
+        },
+        "EndUserSpamNotificationFrequency": {
+          "type": "integer"
+        },
+        "EndUserSpamNotificationLanguage": {
+          "type": "object"
         },
         "HighConfidencePhishAction": {
           "type": "string"
@@ -3039,6 +3060,9 @@
         "OutlookTextPredictionDisabled": {
           "type": "boolean"
         },
+        "PerTenantSwitchToESTSEnabled": {
+          "type": "boolean"
+        },
         "PostponeRoamingSignaturesUntilLater": {
           "type": "boolean"
         },
@@ -3268,6 +3292,9 @@
         "ActiveSyncIntegrationEnabled": {
           "type": "boolean"
         },
+        "AdditionalAccountsEnabled": {
+          "type": "boolean"
+        },
         "AdditionalStorageProvidersAvailable": {
           "type": "boolean"
         },
@@ -3309,6 +3336,9 @@
         },
         "ConditionalAccessPolicy": {
           "type": "string"
+        },
+        "DefaultClientLanguage": {
+          "type": "integer"
         },
         "DefaultTheme": {
           "type": "string"
@@ -3413,6 +3443,9 @@
           "type": "boolean"
         },
         "OfflineEnabledWin": {
+          "type": "boolean"
+        },
+        "OneDriveAttachmentsEnabled": {
           "type": "boolean"
         },
         "OneWinNativeOutlookEnabled": {
@@ -3546,6 +3579,12 @@
         },
         "WebPartsFrameOptionsType": {
           "type": "string"
+        },
+        "WSSAccessOnPrivateComputersEnabled": {
+          "type": "boolean"
+        },
+        "WSSAccessOnPublicComputersEnabled": {
+          "type": "boolean"
         }
       },
       "$defs": {
@@ -4512,6 +4551,9 @@
         },
         "IncidentReportContent": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "IncidentReportOriginalMail": {
+          "type": "string"
         },
         "ManagerAddresses": {
           "$ref": "#/$defs/arrayOfString"
