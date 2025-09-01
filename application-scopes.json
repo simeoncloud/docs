@@ -4,7 +4,6 @@
   "204e0828-b5ca-4ad8-b9f3-f32a958e7cc4": "Microsoft Graph - User.ReadWrite.All (Read and write all users' full profiles)",
   "84bccea3-f856-4a8a-967b-dbe0a3d53a64": "Microsoft Graph - AppRoleAssignment.ReadWrite.All (Manage app permission grants and app role assignments)",
   "56680e0d-d2a3-4ae1-80d8-3c4f2100e3d0": "Office 365 SharePoint Online - AllSites.FullControl (Have full control of all site collections)",
-  "56cee9a4-2b49-4d48-a5c1-b26a2e48aada": "Windows Store for Business - user_impersonation (Access Windows Store for Business)",
   "9e4862a5-b68f-479e-848a-4e07e25c9916": "Microsoft Graph - IdentityRiskEvent.ReadWrite.All (Read and write risk event information)",
   "014b43d0-6ed4-4fc6-84dc-4b6f7bae7d85": "Microsoft Graph - Policy.ReadWrite.CrossTenantAccess (Read and write your organization's cross tenant access policies)",
   "89fe6a52-be36-487e-b7d8-d061c450a026": "Microsoft Graph - Sites.ReadWrite.All (Edit or delete items in all site collections)",
