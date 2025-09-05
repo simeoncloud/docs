@@ -7,7 +7,6 @@
   "9e4862a5-b68f-479e-848a-4e07e25c9916": "Microsoft Graph - IdentityRiskEvent.ReadWrite.All (Read and write risk event information)",
   "014b43d0-6ed4-4fc6-84dc-4b6f7bae7d85": "Microsoft Graph - Policy.ReadWrite.CrossTenantAccess (Read and write your organization's cross tenant access policies)",
   "89fe6a52-be36-487e-b7d8-d061c450a026": "Microsoft Graph - Sites.ReadWrite.All (Edit or delete items in all site collections)",
-  "d594897b-76e7-4b2b-984b-b4adff35e109": "Power BI Service - Tenant.ReadWrite.All (Read and write all content in tenant)",
   "4e46008b-f24c-477d-8fff-7bb4ec7aafe0": "Microsoft Graph - Group.ReadWrite.All (Read and write all groups)",
   "46ca0847-7e6b-426e-9775-ea810a948356": "Microsoft Graph - Organization.ReadWrite.All (Read and write organization information)",
   "059e5840-5353-4c68-b1da-666a033fc5e8": "Microsoft Graph - ThreatSubmissionPolicy.ReadWrite.All (Read and write all threat submission policies)",

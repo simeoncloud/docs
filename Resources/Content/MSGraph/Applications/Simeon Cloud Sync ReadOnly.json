@@ -67,19 +67,6 @@
       ]
     },
     {
-      "resourceAppId": "00000009-0000-0000-c000-000000000000",
-      "resourceAccess": [
-        {
-          "id": "01944dba-21df-426f-bb8c-796488be96ad",
-          "type": "Scope"
-        },
-        {
-          "id": "654b31ae-d941-4e22-8798-7add8fdf049f",
-          "type": "Role"
-        }
-      ]
-    },
-    {
       "resourceAppId": "00000003-0000-0000-c000-000000000000",
       "resourceAccess": [
         {
