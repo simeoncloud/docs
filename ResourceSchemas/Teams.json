@@ -28,6 +28,9 @@
       "$ref": "#/$defs/Teams:CsTeamsMessagingPolicy/CsTeamsMessagingPolicy"
     },
     {
+      "$ref": "#/$defs/Teams:CsTeamsSettingsCustomApp/CsTeamsSettingsCustomApp"
+    },
+    {
       "$ref": "#/$defs/Teams:CsTeamsUpdateManagementPolicy/Configuration"
     },
     {
@@ -44,6 +47,9 @@
         "GlobalCatalogApps": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "PrivateCatalogApps": {
+          "$ref": "#/$defs/arrayOfString"
+        },
         "DefaultCatalogAppsType": {
           "type": "string"
         },
@@ -51,6 +57,9 @@
           "type": "string"
         },
         "GlobalCatalogAppsType": {
+          "type": "string"
+        },
+        "PrivateCatalogAppsType": {
           "type": "string"
         },
         "Identity": {
@@ -759,6 +768,15 @@
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMessagingPolicy/CsTeamsMessagingPolicy"
+    },
+    "Teams:CsTeamsSettingsCustomApp/CsTeamsSettingsCustomApp": {
+      "type": "object",
+      "properties": {
+        "isSideloadedAppsInteractionEnabled": {
+          "type": "boolean"
+        }
+      },
+      "$id": "https://simeoncloud.com/Teams:CsTeamsSettingsCustomApp/CsTeamsSettingsCustomApp"
     },
     "Teams:CsTeamsUpdateManagementPolicy/Configuration": {
       "type": "object",
