@@ -513,9 +513,6 @@
         "RestrictBrowserAccess": {
           "type": "boolean"
         },
-        "RedirectMessageTo": {
-          "$ref": "#/$defs/arrayOfString"
-        },
         "AccessScope": {
           "type": "string"
         },
@@ -871,6 +868,9 @@
           "type": "integer"
         },
         "RecipientDomainIs": {
+          "$ref": "#/$defs/arrayOfString"
+        },
+        "RedirectMessageTo": {
           "$ref": "#/$defs/arrayOfString"
         },
         "RemoveHeader": {

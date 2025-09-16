@@ -565,9 +565,9 @@
     "namespace": "ExchangeOnline:OfflineAddressBook",
     "description": "Microsoft 365 > Exchange > Offline Address Book",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-offlineaddressbook?view=exchange-ps",
-    "isCreateSupportedFilter": "^(?!Default Offline Address Book$).*",
-    "isUpdateSupportedFilter": "^(?!Default Offline Address Book$).*",
-    "isDeleteSupportedFilter": "^(?!Default Offline Address Book$).*",
+    "isCreateSupportedFilter": ".*",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": true,
     "isPreview": false
   },
@@ -2307,6 +2307,17 @@
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$|^EduFaculty$|^EduStudent$).)+$",
     "isDelegatedAuthRequired": false,
+    "isPreview": false
+  },
+  {
+    "category": "Teams",
+    "namespace": "Teams:CsTeamsSettingsCustomApp",
+    "description": "Microsoft 365 > Teams > Custom Apps Settings",
+    "url": "https://admin.teams.microsoft.com/policies/manage-apps?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "isCreateSupportedFilter": "$^",
+    "isUpdateSupportedFilter": ".*",
+    "isDeleteSupportedFilter": "$^",
+    "isDelegatedAuthRequired": true,
     "isPreview": false
   },
   {
