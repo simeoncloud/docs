@@ -97,9 +97,6 @@
   - Delegated scope - TermStore.ReadWrite.All (Read and write managed metadata)
   - Application scope - Sites.FullControl.All (Have full control of all site collections)
   - Application scope - TermStore.ReadWrite.All (Read and write managed metadata)
-- Power BI Service
-  - Application scope - Tenant.ReadWrite.All (Read and write all content in tenant)
-  - Delegated scope - Tenant.ReadWrite.All (Read and write all content in tenant)
 - Skype and Teams Tenant Admin API
   - Application scope - application_access (application_access)
   - Delegated scope - user_impersonation (Access Microsoft Teams and Skype for Business data as the signed in user)
