@@ -28,7 +28,6 @@
   - Delegated scope - Policy.ReadWrite.ConditionalAccess (Read and write your organization's conditional access policies)
   - Delegated scope - Policy.ReadWrite.ConsentRequest (Read and write consent request policy)
   - Delegated scope - Policy.ReadWrite.CrossTenantAccess (Read and write your organization's cross tenant access policies)
-  - Delegated scope - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)
   - Delegated scope - Policy.ReadWrite.FeatureRollout (Read and write your organization's feature rollout policies)
   - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
   - Delegated scope - Policy.ReadWrite.PermissionGrant (Manage consent and permission grant policies)
@@ -84,6 +83,7 @@
   - Application scope - IdentityRiskEvent.ReadWrite.All (Read and write all risk detection information)
   - Application scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy)
   - Application scope - DeviceManagementScripts.ReadWrite.All (Read and write Microsoft Intune Scripts)
+  - Application scope - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)
 - Office 365 Exchange Online
   - Delegated scope - Exchange.Manage (Manage Exchange configuration)
   - Application scope - Exchange.ManageAsApp (Manage Exchange As Application)
