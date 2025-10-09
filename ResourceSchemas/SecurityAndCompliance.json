@@ -370,14 +370,14 @@
         "Comment": {
           "type": "string"
         },
+        "DisplayName": {
+          "type": "string"
+        },
         "EndpointDlpAdaptiveScopes": {
           "$ref": "#/$defs/arrayOfString"
         },
         "EndpointDlpAdaptiveScopesException": {
           "$ref": "#/$defs/arrayOfString"
-        },
-        "EndpointDlpExtendedLocations": {
-          "type": "string"
         },
         "EndpointDlpLocation": {
           "$ref": "#/$defs/arrayOfString"
@@ -570,6 +570,9 @@
         "Disabled": {
           "type": "boolean"
         },
+        "DisplayName": {
+          "type": "string"
+        },
         "DocumentContainsWords": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -597,14 +600,8 @@
         "DocumentSizeOver": {
           "type": "object"
         },
-        "DomainCountOver": {
-          "type": "integer"
-        },
         "EncryptRMSTemplate": {
           "type": "string"
-        },
-        "EndpointDlpBrowserRestrictions": {
-          "$ref": "#/$defs/arrayOfHashtable"
         },
         "EndpointDlpRestrictions": {
           "$ref": "#/$defs/arrayOfHashtable"
@@ -816,9 +813,6 @@
         "NotifyEmailOnedriveRemediationActions": {
           "type": "object"
         },
-        "NotifyEndpointUser": {
-          "type": "array"
-        },
         "NotifyOverrideRequirements": {
           "type": "object"
         },
@@ -866,9 +860,6 @@
         },
         "RecipientADAttributeMatchesPatterns": {
           "type": "array"
-        },
-        "RecipientCountOver": {
-          "type": "integer"
         },
         "RecipientDomainIs": {
           "$ref": "#/$defs/arrayOfString"
@@ -932,9 +923,6 @@
         },
         "SubjectOrBodyMatchesPatterns": {
           "type": "object"
-        },
-        "ThirdPartyAppDlpRestrictions": {
-          "$ref": "#/$defs/arrayOfHashtable"
         },
         "TriggerPowerAutomateFlow": {
           "type": "string"
@@ -1211,6 +1199,9 @@
         "EncryptionTemplateId": {
           "type": "string"
         },
+        "IsLabelGroup": {
+          "type": "boolean"
+        },
         "Name": {
           "type": "string"
         },
@@ -1219,6 +1210,9 @@
         },
         "Priority": {
           "type": "integer"
+        },
+        "RemoveParentLink": {
+          "type": "boolean"
         },
         "SiteAndGroupProtectionAllowAccessToGuestUsers": {
           "type": "boolean"
@@ -1269,6 +1263,12 @@
           "type": "boolean"
         },
         "TeamsCopyRestrictionEnforced": {
+          "type": "boolean"
+        },
+        "TeamsDetectSensitiveContentDuringScreenSharingEnabled": {
+          "type": "boolean"
+        },
+        "TeamsDisableLobby": {
           "type": "boolean"
         },
         "TeamsEndToEndEncryptionEnabled": {

@@ -301,7 +301,7 @@
     "namespace": "ExchangeOnline:ClientAccessRule",
     "description": "Microsoft 365 > Exchange > Client Access Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps",
-    "isCreateSupportedFilter": ".*",
+    "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": false,
