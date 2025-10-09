@@ -402,6 +402,9 @@
             "type": "string"
           }
         },
+        "CoreRequestFilesLinkEnabled": {
+          "type": "boolean"
+        },
         "CustomizedExternalSharingServiceUrl": {
           "type": "string"
         },
