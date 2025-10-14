@@ -28,7 +28,6 @@
   - Delegated scope - Policy.ReadWrite.ConditionalAccess (Read and write your organization's conditional access policies)
   - Delegated scope - Policy.ReadWrite.ConsentRequest (Read and write consent request policy)
   - Delegated scope - Policy.ReadWrite.CrossTenantAccess (Read and write your organization's cross tenant access policies)
-  - Delegated scope - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)
   - Delegated scope - Policy.ReadWrite.FeatureRollout (Read and write your organization's feature rollout policies)
   - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
   - Delegated scope - Policy.ReadWrite.PermissionGrant (Manage consent and permission grant policies)
@@ -39,6 +38,9 @@
   - Delegated scope - TeamworkDevice.ReadWrite.All (Read and write Teams devices)
   - Delegated scope - ThreatSubmissionPolicy.ReadWrite.All (Read and write all threat submission policies)
   - Delegated scope - User.ReadWrite.All (Read and write all users' full profiles)
+  - Delegated scope - IdentityRiskEvent.ReadWrite.All (Read and write risk event information)
+  - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
+  - Delegated scope - DeviceManagementScripts.ReadWrite.All (Read and write Microsoft Intune Scripts)
   - Application scope - AdministrativeUnit.ReadWrite.All (Read and write all administrative units)
   - Application scope - AccessReview.ReadWrite.All (Manage all access reviews)
   - Application scope - Agreement.ReadWrite.All (Read and write all terms of use agreements)
@@ -79,9 +81,9 @@
   - Application scope - ThreatSubmissionPolicy.ReadWrite.All (Read and write all of the organization's threat submission policies)
   - Application scope - User.ReadWrite.All (Read and write all users' full profiles)
   - Application scope - IdentityRiskEvent.ReadWrite.All (Read and write all risk detection information)
-  - Delegated scope - IdentityRiskEvent.ReadWrite.All (Read and write risk event information)
-  - Application scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy )
-  - Delegated scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)
+  - Application scope - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy)
+  - Application scope - DeviceManagementScripts.ReadWrite.All (Read and write Microsoft Intune Scripts)
+  - Application scope - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)
 - Office 365 Exchange Online
   - Delegated scope - Exchange.Manage (Manage Exchange configuration)
   - Application scope - Exchange.ManageAsApp (Manage Exchange As Application)
@@ -95,14 +97,8 @@
   - Delegated scope - TermStore.ReadWrite.All (Read and write managed metadata)
   - Application scope - Sites.FullControl.All (Have full control of all site collections)
   - Application scope - TermStore.ReadWrite.All (Read and write managed metadata)
-- Power BI Service
-  - Application scope - Tenant.ReadWrite.All (Read and write all content in tenant)
-  - Delegated scope - Tenant.ReadWrite.All (Read and write all content in tenant)
 - Skype and Teams Tenant Admin API
   - Application scope - application_access (application_access)
   - Delegated scope - user_impersonation (Access Microsoft Teams and Skype for Business data as the signed in user)
 - Windows Azure Service Management API
   - Delegated scope - user_impersonation (Access Azure Resource Manager as you)
-- Windows Store for Business
-  - Delegated scope - user_impersonation (Access Windows Store for Business)
-  - Application scope - bspadmin (Administrator)

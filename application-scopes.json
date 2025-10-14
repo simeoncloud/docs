@@ -16,7 +16,6 @@
   "7b8a2d34-6b3f-4542-a343-54651608ad81": "Microsoft Graph - AdministrativeUnit.ReadWrite.All (Read and write administrative units)",
   "7256e131-3efb-4323-9854-cf41c6021770": "Microsoft Graph - Policy.ReadWrite.IdentityProtection (Read and write your organization’s identity protection policy.)",
   "594c1fb6-4f81-4475-ae41-0c394909246c": "Office 365 Management APIs - ActivityFeed.Read (Read activity data for your organization)",
-  "40b534c3-9552-4550-901b-23879c90bcf9": "Microsoft Graph - Policy.ReadWrite.DeviceConfiguration (Read and write your organization's device configuration policies)",
   "59a198b5-0420-45a8-ae59-6da1cb640505": "Office 365 SharePoint Online - TermStore.ReadWrite.All (Read and write managed metadata)",
   "e4aa47b9-9a69-4109-82ed-36ec70d85ff1": "Microsoft Graph - AccessReview.ReadWrite.All (Manage access reviews that you can access)",
   "0b5d694c-a244-4bde-86e6-eb5cd07730fe": "Microsoft Graph - Domain.ReadWrite.All (Read and write domains)",
@@ -45,5 +44,6 @@
   "ef4b5d93-3104-4664-9053-a5c49ab44218": "Microsoft Graph - Agreement.ReadWrite.All (Read and write all terms of use agreements)",
   "d04bb851-cb7c-4146-97c7-ca3e71baf56c": "Microsoft Graph - IdentityRiskyUser.Read.All (Read identity risky user information)",
   "7e823077-d88e-468f-a337-e18f1f0e6c7c": "Microsoft Graph - Policy.ReadWrite.AuthenticationMethod (Read and write your authentication method policies )",
-  "572fea84-0151-49b2-9301-11cb16974376": "Microsoft Graph - Policy.Read.All (Read your organization's policies)"
+  "572fea84-0151-49b2-9301-11cb16974376": "Microsoft Graph - Policy.Read.All (Read your organization's policies)",
+  "8b9d79d0-ad75-4566-8619-f7500ecfcebe": "Microsoft Graph - DeviceManagementScripts.ReadWrite.All (Read and write Microsoft Intune Scripts)"
 }

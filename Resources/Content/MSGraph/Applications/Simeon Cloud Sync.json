@@ -387,6 +387,10 @@
         {
           "id": "8b9d79d0-ad75-4566-8619-f7500ecfcebe",
           "type": "Scope"
+        },
+        {
+          "id": "230fb2d5-aa21-49c1-bfa7-ae1be179d867",
+          "type": "Role"
         }
       ]
     },
