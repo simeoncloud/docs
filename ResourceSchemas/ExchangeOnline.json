@@ -2014,6 +2014,9 @@
         "Equipment": {
           "type": "boolean"
         },
+        "ExcludeFromAllHolds": {
+          "type": "boolean"
+        },
         "ExcludeFromAllOrgHolds": {
           "type": "boolean"
         },
@@ -2070,6 +2073,9 @@
         },
         "Initials": {
           "type": "string"
+        },
+        "IsExchangeCloudManaged": {
+          "type": "boolean"
         },
         "IsShared": {
           "type": "boolean"
@@ -2244,6 +2250,12 @@
         },
         "Type": {
           "type": "string"
+        },
+        "UniqueRecipientsCountLimitLevel": {
+          "type": "object"
+        },
+        "UniqueUnrestrictedGroupsLimitEnabled": {
+          "type": "boolean"
         },
         "UpdateEnforcedTimestamp": {
           "type": "boolean"
@@ -2769,9 +2781,6 @@
         "DefaultPublicFolderProhibitPostQuota": {
           "type": "object"
         },
-        "AcceptedDomainApprovedSendersEnabled": {
-          "type": "boolean"
-        },
         "ActionableMessagesExtenalAccessTokenEnabled": {
           "type": "boolean"
         },
@@ -2925,6 +2934,12 @@
         "DistributionGroupNamingPolicy": {
           "type": "object"
         },
+        "DLPWaitOnSendEnabled": {
+          "type": "boolean"
+        },
+        "DLPWaitOnSendTimeout": {
+          "type": "integer"
+        },
         "ElcProcessingDisabled": {
           "type": "boolean"
         },
@@ -2935,6 +2950,9 @@
           "type": "boolean"
         },
         "EndUserMailNotificationForDelayedDelicensingEnabled": {
+          "type": "boolean"
+        },
+        "EnforceShortenEventSetting": {
           "type": "boolean"
         },
         "EwsAllowEntourage": {
@@ -2983,6 +3001,9 @@
           "type": "string"
         },
         "HybridRSVPEnabled": {
+          "type": "boolean"
+        },
+        "InRegionRoutingEnabled": {
           "type": "boolean"
         },
         "IPListBlocked": {
