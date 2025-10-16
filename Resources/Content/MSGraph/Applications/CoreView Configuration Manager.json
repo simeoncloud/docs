@@ -1,0 +1,661 @@
+{
+	"addIns": [],
+	"api": {
+		"acceptMappedClaims": null,
+		"knownClientApplications": [],
+		"requestedAccessTokenVersion": 2,
+		"oauth2PermissionScopes": [
+			{
+				"adminConsentDescription": "Allow the application full access to the API as an admin",
+				"adminConsentDisplayName": "Full access to API (Admin only)",
+				"id": "90a9642f-c029-44bc-a357-efc3b76b4b02",
+				"isEnabled": true,
+				"type": "Admin",
+				"userConsentDescription": "",
+				"userConsentDisplayName": "",
+				"value": "user_impersonation"
+			}
+		],
+		"preAuthorizedApplications": [
+			{
+				"appId": "fb78d390-0c51-40cd-8e17-fdbfab77341b",
+				"delegatedPermissionIds": [
+					"90a9642f-c029-44bc-a357-efc3b76b4b02"
+				]
+			}
+		]
+	},
+	"appRoles": [],
+	"info": {
+		"logoUrl": null,
+		"marketingUrl": null,
+		"privacyStatementUrl": null,
+		"supportUrl": null,
+		"termsOfServiceUrl": null
+	},
+	"parentalControlSettings": {
+		"countriesBlockedForMinors": [],
+		"legalAgeGroupRule": "Allow"
+	},
+	"publicClient": {
+		"redirectUris": []
+	},
+	"requiredResourceAccess": [
+		{
+			"resourceAppId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+			"$resourceAppName": "Windows Azure Service Management API",
+			"resourceAccess": [
+				{
+					"id": "41094075-9dad-400e-a0bd-54e686782033",
+					"$permissionName": "user_impersonation",
+					"$permissionDescription": "Access Azure Service Management as organization users",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "48ac35b8-9aa8-4d74-927d-1f4a14a0b239",
+			"$resourceAppName": "Skype and Teams Tenant Admin API",
+			"resourceAccess": [
+				{
+					"id": "15391dcf-e272-4693-b514-06792e967d66",
+					"$permissionName": "application_access",
+					"$permissionDescription": "Access Skype and Teams Tenant Admin API as application",
+					"type": "Role"
+				},
+				{
+					"id": "e60370c1-e451-437e-aa6e-d76df38e5f15",
+					"$permissionName": "user_impersonation",
+					"$permissionDescription": "Access Skype and Teams Tenant Admin API as signed in user",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "00000002-0000-0ff1-ce00-000000000000",
+			"$resourceAppName": "Office 365 Exchange Online",
+			"resourceAccess": [
+				{
+					"id": "dc50a0fb-09a3-484d-be87-e023b12c6440",
+					"$permissionName": "Exchange.ManageAsApp",
+					"$permissionDescription": "Manage Exchange as application",
+					"type": "Role"
+				},
+				{
+					"id": "ab4f2b77-0b06-4fc1-a9de-02113fc2ab7c",
+					"$permissionName": "Exchange.Manage",
+					"$permissionDescription": "Manage Exchange Online",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "c5393580-f805-4401-95e8-94b7a6ef2fc2",
+			"$resourceAppName": "Office 365 Management APIs",
+			"resourceAccess": [
+				{
+					"id": "594c1fb6-4f81-4475-ae41-0c394909246c",
+					"$permissionName": "ActivityFeed.Read",
+					"$permissionDescription": "Read activity data for your organization",
+					"type": "Role"
+				},
+				{
+					"id": "e2cea78f-e743-4d8f-a16a-75b629a038ae",
+					"$permissionName": "ServiceHealth.Read",
+					"$permissionDescription": "Read service health information for your organization",
+					"type": "Role"
+				},
+				{
+					"id": "594c1fb6-4f81-4475-ae41-0c394909246c",
+					"$permissionName": "ActivityFeed.Read",
+					"$permissionDescription": "Read activity data for your organization",
+					"type": "Scope"
+				},
+				{
+					"id": "e2cea78f-e743-4d8f-a16a-75b629a038ae",
+					"$permissionName": "ServiceHealth.Read",
+					"$permissionDescription": "Read service health information for your organization",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "00000003-0000-0ff1-ce00-000000000000",
+			"$resourceAppName": "Office 365 SharePoint Online",
+			"resourceAccess": [
+				{
+					"id": "678536fe-1083-478a-9c59-b99265e6b0d3",
+					"$permissionName": "Sites.FullControl.All",
+					"$permissionDescription": "Have full control of all site collections",
+					"type": "Role"
+				},
+				{
+					"id": "c8e3537c-ec53-43b9-bed3-b2bd3617ae97",
+					"$permissionName": "TermStore.ReadWrite.All",
+					"$permissionDescription": "Read and write managed metadata",
+					"type": "Role"
+				},
+				{
+					"id": "56680e0d-d2a3-4ae1-80d8-3c4f2100e3d0",
+					"$permissionName": "AllSites.FullControl",
+					"$permissionDescription": "Have full control of all site collections",
+					"type": "Scope"
+				},
+				{
+					"id": "59a198b5-0420-45a8-ae59-6da1cb640505",
+					"$permissionName": "TermStore.ReadWrite.All",
+					"$permissionDescription": "Read and write managed metadata",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "00000003-0000-0000-c000-000000000000",
+			"$resourceAppName": "Microsoft Graph",
+			"resourceAccess": [
+				{
+					"id": "ef5f7d5c-338f-44b0-86c3-351f46c8bb5f",
+					"$permissionName": "AccessReview.ReadWrite.All",
+					"$permissionDescription": "Manage all access reviews",
+					"type": "Role"
+				},
+				{
+					"id": "230fb2d5-aa21-49c1-bfa7-ae1be179d867",
+					"$permissionName": "Policy.ReadWrite.DeviceConfiguration",
+					"$permissionDescription": "Read and write device configuration policies",
+					"type": "Role"
+				},
+				{
+					"id": "c9090d00-6101-42f0-a729-c41074260d47",
+					"$permissionName": "Agreement.ReadWrite.All",
+					"$permissionDescription": "Manage all terms of use agreements",
+					"type": "Role"
+				},
+				{
+					"id": "1bfefb4e-e0b5-418b-a88f-73c46d2cc8e9",
+					"$permissionName": "Application.ReadWrite.All",
+					"$permissionDescription": "Create, read, update and delete applications",
+					"type": "Role"
+				},
+				{
+					"id": "06b708a9-e830-4db3-a914-8e69da51d44f",
+					"$permissionName": "AppRoleAssignment.ReadWrite.All",
+					"$permissionDescription": "Manage app role assignments for any app",
+					"type": "Role"
+				},
+				{
+					"id": "b0afded3-3588-46d8-8b3d-9842eff778da",
+					"$permissionName": "AuditLog.Read.All",
+					"$permissionDescription": "Read all audit log data",
+					"type": "Role"
+				},
+				{
+					"id": "12338004-21f4-4896-bf5e-b75dfaf1016d",
+					"$permissionName": "CustomSecAttributeDefinition.ReadWrite.All",
+					"$permissionDescription": "Read and write custom security attribute definitions",
+					"type": "Role"
+				},
+				{
+					"id": "78145de6-330d-4800-a6ce-494ff2d33d07",
+					"$permissionName": "DeviceManagementApps.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune apps",
+					"type": "Role"
+				},
+				{
+					"id": "9241abd9-d0e6-425a-bd4f-47ba86e767a4",
+					"$permissionName": "DeviceManagementConfiguration.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune device configuration and policies",
+					"type": "Role"
+				},
+				{
+					"id": "243333ab-4d21-40cb-a475-36241daa0842",
+					"$permissionName": "DeviceManagementManagedDevices.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune managed devices",
+					"type": "Role"
+				},
+				{
+					"id": "e330c4f0-4170-414e-a55a-2f022ec2b57b",
+					"$permissionName": "DeviceManagementRBAC.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune RBAC settings",
+					"type": "Role"
+				},
+				{
+					"id": "9255e99d-faf5-445e-bbf7-cb71482737c4",
+					"$permissionName": "DeviceManagementScripts.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune device management scripts",
+					"type": "Role"
+				},
+				{
+					"id": "5ac13192-7ace-4fcf-b828-1a26f28068ee",
+					"$permissionName": "DeviceManagementServiceConfig.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune configuration",
+					"type": "Role"
+				},
+				{
+					"id": "19dbc75e-c2e2-444c-a770-ec69d8559fc7",
+					"$permissionName": "Directory.ReadWrite.All",
+					"$permissionDescription": "Read and write directory data",
+					"type": "Role"
+				},
+				{
+					"id": "7e05723c-0bb0-42da-be95-ae9f08a6e53c",
+					"$permissionName": "Domain.ReadWrite.All",
+					"$permissionDescription": "Read and write domains",
+					"type": "Role"
+				},
+				{
+					"id": "9acd699f-1e81-4958-b001-93b1d2506e19",
+					"$permissionName": "EntitlementManagement.ReadWrite.All",
+					"$permissionDescription": "Read and write entitlement management resources",
+					"type": "Role"
+				},
+				{
+					"id": "62a82d76-70ea-41e2-9197-370581804d09",
+					"$permissionName": "Group.ReadWrite.All",
+					"$permissionDescription": "Read and write all groups",
+					"type": "Role"
+				},
+				{
+					"id": "dc5007c0-2d7d-4c42-879c-2dab87571379",
+					"$permissionName": "IdentityRiskyUser.Read.All",
+					"$permissionDescription": "Read all identity risky user information",
+					"type": "Role"
+				},
+				{
+					"id": "c22a92cc-79bf-4bb1-8b6c-e0a05d3d80ce",
+					"$permissionName": "OnPremDirectorySynchronization.ReadWrite.All",
+					"$permissionDescription": "Read and write on-premises directory synchronization information",
+					"type": "Role"
+				},
+				{
+					"id": "292d869f-3427-49a8-9dab-8c70152b74e9",
+					"$permissionName": "Organization.ReadWrite.All",
+					"$permissionDescription": "Read and write organization information",
+					"type": "Role"
+				},
+				{
+					"id": "246dd0d5-5bd0-4def-940b-0421030a5b68",
+					"$permissionName": "Policy.Read.All",
+					"$permissionDescription": "Read all policies",
+					"type": "Role"
+				},
+				{
+					"id": "77c863fd-06c0-47ce-a7eb-49773e89d319",
+					"$permissionName": "Policy.ReadWrite.AccessReview",
+					"$permissionDescription": "Read and write access review policies",
+					"type": "Role"
+				},
+				{
+					"id": "be74164b-cff1-491c-8741-e671cb536e13",
+					"$permissionName": "Policy.ReadWrite.ApplicationConfiguration",
+					"$permissionDescription": "Read and write application configuration policies",
+					"type": "Role"
+				},
+				{
+					"id": "25f85f3c-f66c-4205-8cd5-de92dd7f0cec",
+					"$permissionName": "Policy.ReadWrite.AuthenticationFlows",
+					"$permissionDescription": "Read and write authentication flow policies",
+					"type": "Role"
+				},
+				{
+					"id": "29c18626-4985-4dcd-85c0-193eef327366",
+					"$permissionName": "Policy.ReadWrite.AuthenticationMethod",
+					"$permissionDescription": "Read and write authentication method policies",
+					"type": "Role"
+				},
+				{
+					"id": "fb221be6-99f2-473f-bd32-01c6a0e9ca3b",
+					"$permissionName": "Policy.ReadWrite.Authorization",
+					"$permissionDescription": "Read and write authorization policies",
+					"type": "Role"
+				},
+				{
+					"id": "01c0a623-fc9b-48e9-b794-0756f8e8f067",
+					"$permissionName": "Policy.ReadWrite.ConditionalAccess",
+					"$permissionDescription": "Read and write conditional access policies",
+					"type": "Role"
+				},
+				{
+					"id": "999f8c63-0a38-4f1b-91fd-ed1947bdd1a9",
+					"$permissionName": "Policy.ReadWrite.ConsentRequest",
+					"$permissionDescription": "Read and write consent request policies",
+					"type": "Role"
+				},
+				{
+					"id": "338163d7-f101-4c92-94ba-ca46fe52447c",
+					"$permissionName": "Policy.ReadWrite.CrossTenantAccess",
+					"$permissionDescription": "Read and write cross-tenant access policies",
+					"type": "Role"
+				},
+				{
+					"id": "2044e4f1-e56c-435b-925c-44cd8f6ba89a",
+					"$permissionName": "Policy.ReadWrite.FeatureRollout",
+					"$permissionDescription": "Read and write feature rollout policies",
+					"type": "Role"
+				},
+				{
+					"id": "a402ca1c-2696-4531-972d-6e5ee4aa11ea",
+					"$permissionName": "Policy.ReadWrite.PermissionGrant",
+					"$permissionDescription": "Read and write permission grant policies",
+					"type": "Role"
+				},
+				{
+					"id": "79a677f7-b79d-40d0-a36a-3e6f8688dd7a",
+					"$permissionName": "Policy.ReadWrite.TrustFramework",
+					"$permissionDescription": "Read and write trust framework policies",
+					"type": "Role"
+				},
+				{
+					"id": "9e3f62cf-ca93-4989-b6ce-bf83c28f9fe8",
+					"$permissionName": "RoleManagement.ReadWrite.Directory",
+					"$permissionDescription": "Read and write role management data",
+					"type": "Role"
+				},
+				{
+					"id": "19b94e34-907c-4f43-bde9-38b1909ed408",
+					"$permissionName": "SharePointTenantSettings.ReadWrite.All",
+					"$permissionDescription": "Read and write SharePoint tenant settings",
+					"type": "Role"
+				},
+				{
+					"id": "9492366f-7969-46a4-8d15-ed1a20078fff",
+					"$permissionName": "Sites.ReadWrite.All",
+					"$permissionDescription": "Read and write items in all site collections",
+					"type": "Role"
+				},
+				{
+					"id": "79c02f5b-bd4f-4713-bc2c-a8a4a66e127b",
+					"$permissionName": "TeamworkDevice.ReadWrite.All",
+					"$permissionDescription": "Read and write teamwork devices",
+					"type": "Role"
+				},
+				{
+					"id": "926a6798-b100-4a20-a22f-a4918f13951d",
+					"$permissionName": "ThreatSubmissionPolicy.ReadWrite.All",
+					"$permissionDescription": "Read and write threat submission policies",
+					"type": "Role"
+				},
+				{
+					"id": "741f803b-c850-494e-b5df-cde7c675a1ca",
+					"$permissionName": "User.ReadWrite.All",
+					"$permissionDescription": "Read and write all users' full profiles",
+					"type": "Role"
+				},
+				{
+					"id": "db06fb33-1953-4b7b-a2ac-f1e2c854f7ae",
+					"$permissionName": "IdentityRiskEvent.ReadWrite.All",
+					"$permissionDescription": "Read and write identity risk event information",
+					"type": "Role"
+				},
+				{
+					"id": "2dcf8603-09eb-4078-b1ec-d30a1a76b873",
+					"$permissionName": "Policy.ReadWrite.IdentityProtection",
+					"$permissionDescription": "Read and write identity protection policies",
+					"type": "Role"
+				},
+				{
+					"id": "e4aa47b9-9a69-4109-82ed-36ec70d85ff1",
+					"$permissionName": "AccessReview.ReadWrite.All",
+					"$permissionDescription": "Manage access reviews",
+					"type": "Scope"
+				},
+				{
+					"id": "ef4b5d93-3104-4664-9053-a5c49ab44218",
+					"$permissionName": "Agreement.ReadWrite.All",
+					"$permissionDescription": "Read and write terms of use agreements on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "bdfbf15f-ee85-4955-8675-146e8e5296b5",
+					"$permissionName": "Application.ReadWrite.All",
+					"$permissionDescription": "Read and write applications on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "84bccea3-f856-4a8a-967b-dbe0a3d53a64",
+					"$permissionName": "AppRoleAssignment.ReadWrite.All",
+					"$permissionDescription": "Manage app role assignments on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "e4c9e354-4dc5-45b8-9e7c-e1393b0b1a20",
+					"$permissionName": "AuditLog.Read.All",
+					"$permissionDescription": "Read audit log data on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "8b0160d4-5743-482b-bb27-efc0a485ca4a",
+					"$permissionName": "CustomSecAttributeDefinition.ReadWrite.All",
+					"$permissionDescription": "Read and write custom security attribute definitions on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "7b3f05d5-f68c-4b8d-8c59-a2ecd12f24af",
+					"$permissionName": "DeviceManagementApps.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune apps on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "0883f392-0a7a-443d-8c76-16a6d39c7b63",
+					"$permissionName": "DeviceManagementConfiguration.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune device configuration and policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "44642bfe-8385-4adc-8fc6-fe3cb2c375c3",
+					"$permissionName": "DeviceManagementManagedDevices.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune managed devices on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "0c5e8a55-87a6-4556-93ab-adc52c4d862d",
+					"$permissionName": "DeviceManagementRBAC.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune RBAC settings on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "8b9d79d0-ad75-4566-8619-f7500ecfcebe",
+					"$permissionName": "DeviceManagementScripts.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune device management scripts on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "662ed50a-ac44-4eef-ad86-62eed9be2a29",
+					"$permissionName": "DeviceManagementServiceConfig.ReadWrite.All",
+					"$permissionDescription": "Read and write Microsoft Intune configuration on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "c5366453-9fb0-48a5-a156-24f0c49a4b84",
+					"$permissionName": "Directory.ReadWrite.All",
+					"$permissionDescription": "Read and write directory data on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "0b5d694c-a244-4bde-86e6-eb5cd07730fe",
+					"$permissionName": "Domain.ReadWrite.All",
+					"$permissionDescription": "Read and write domains on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "ae7a573d-81d7-432b-ad44-4ed5c9d89038",
+					"$permissionName": "EntitlementManagement.ReadWrite.All",
+					"$permissionDescription": "Read and write entitlement management resources on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "4e46008b-f24c-477d-8fff-7bb4ec7aafe0",
+					"$permissionName": "Group.ReadWrite.All",
+					"$permissionDescription": "Read and write all groups on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "d04bb851-cb7c-4146-97c7-ca3e71baf56c",
+					"$permissionName": "IdentityRiskyUser.Read.All",
+					"$permissionDescription": "Read identity risky user information on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "c2d95988-7604-4ba1-aaed-38a5f82a51c7",
+					"$permissionName": "OnPremDirectorySynchronization.ReadWrite.All",
+					"$permissionDescription": "Read and write on-premises directory synchronization information on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "46ca0847-7e6b-426e-9775-ea810a948356",
+					"$permissionName": "Organization.ReadWrite.All",
+					"$permissionDescription": "Read and write organization information on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "572fea84-0151-49b2-9301-11cb16974376",
+					"$permissionName": "Policy.Read.All",
+					"$permissionDescription": "Read all policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "4f5bc9c8-ea54-4772-973a-9ca119cb0409",
+					"$permissionName": "Policy.ReadWrite.AccessReview",
+					"$permissionDescription": "Read and write access review policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "b27add92-efb2-4f16-84f5-8108ba77985c",
+					"$permissionName": "Policy.ReadWrite.ApplicationConfiguration",
+					"$permissionDescription": "Read and write application configuration policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "edb72de9-4252-4d03-a925-451deef99db7",
+					"$permissionName": "Policy.ReadWrite.AuthenticationFlows",
+					"$permissionDescription": "Read and write authentication flow policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "7e823077-d88e-468f-a337-e18f1f0e6c7c",
+					"$permissionName": "Policy.ReadWrite.AuthenticationMethod",
+					"$permissionDescription": "Read and write authentication method policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "edd3c878-b384-41fd-95ad-e7407dd775be",
+					"$permissionName": "Policy.ReadWrite.Authorization",
+					"$permissionDescription": "Read and write authorization policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "ad902697-1014-4ef5-81ef-2b4301988e8c",
+					"$permissionName": "Policy.ReadWrite.ConditionalAccess",
+					"$permissionDescription": "Read and write conditional access policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "4d135e65-66b8-41a8-9f8b-081452c91774",
+					"$permissionName": "Policy.ReadWrite.ConsentRequest",
+					"$permissionDescription": "Read and write consent request policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "014b43d0-6ed4-4fc6-84dc-4b6f7bae7d85",
+					"$permissionName": "Policy.ReadWrite.CrossTenantAccess",
+					"$permissionDescription": "Read and write cross-tenant access policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "92a38652-f13b-4875-bc77-6e1dbb63e1b2",
+					"$permissionName": "Policy.ReadWrite.FeatureRollout",
+					"$permissionDescription": "Read and write feature rollout policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "2672f8bb-fd5e-42e0-85e1-ec764dd2614e",
+					"$permissionName": "Policy.ReadWrite.PermissionGrant",
+					"$permissionDescription": "Read and write permission grant policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "cefba324-1a70-4a6e-9c1d-fd670b7ae392",
+					"$permissionName": "Policy.ReadWrite.TrustFramework",
+					"$permissionDescription": "Read and write trust framework policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "d01b97e9-cbc0-49fe-810a-750afd5527a3",
+					"$permissionName": "RoleManagement.ReadWrite.Directory",
+					"$permissionDescription": "Read and write role management data on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "aa07f155-3612-49b8-a147-6c590df35536",
+					"$permissionName": "SharePointTenantSettings.ReadWrite.All",
+					"$permissionDescription": "Read and write SharePoint tenant settings on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "89fe6a52-be36-487e-b7d8-d061c450a026",
+					"$permissionName": "Sites.ReadWrite.All",
+					"$permissionDescription": "Read and write items in all site collections on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "ddd97ecb-5c31-43db-a235-0ee20e635c40",
+					"$permissionName": "TeamworkDevice.ReadWrite.All",
+					"$permissionDescription": "Read and write teamwork devices on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "059e5840-5353-4c68-b1da-666a033fc5e8",
+					"$permissionName": "ThreatSubmissionPolicy.ReadWrite.All",
+					"$permissionDescription": "Read and write threat submission policies on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "204e0828-b5ca-4ad8-b9f3-f32a958e7cc4",
+					"$permissionName": "User.ReadWrite.All",
+					"$permissionDescription": "Read and write all users' full profiles on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "9e4862a5-b68f-479e-848a-4e07e25c9916",
+					"$permissionName": "IdentityRiskEvent.ReadWrite.All",
+					"$permissionDescription": "Read and write identity risk event information on behalf of the signed-in user",
+					"type": "Scope"
+				},
+				{
+					"id": "7256e131-3efb-4323-9854-cf41c6021770",
+					"$permissionName": "Policy.ReadWrite.IdentityProtection",
+					"$permissionDescription": "Read and write identity protection policies on behalf of the signed-in user",
+					"type": "Scope"
+				}
+			]
+		}
+	],
+	"verifiedPublisher": {
+		"displayName": null,
+		"verifiedPublisherId": null,
+		"addedDateTime": null
+	},
+	"signInAudience": "AzureADMyOrg",
+	"tags": [],
+	"web": {
+		"homePageUrl": null,
+		"logoutUrl": null,
+		"redirectUris": [
+			"https://app.coreview.com/consent"
+		],
+		"implicitGrantSettings": {
+			"enableAccessTokenIssuance": false,
+			"enableIdTokenIssuance": false
+		},
+		"redirectUriSettings": [
+			{
+				"uri": "https://app.coreview.com/consent",
+				"index": null
+			}
+		]
+	},
+	"spa": {
+		"redirectUris": []
+	}
+
+}
