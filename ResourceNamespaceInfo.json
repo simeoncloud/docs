@@ -336,7 +336,7 @@
     "url": "https://security.microsoft.com/dkimv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": "$^",
+    "isDeleteSupportedFilter": ".*",
     "isDelegatedAuthRequired": false,
     "isPreview": false
   },
