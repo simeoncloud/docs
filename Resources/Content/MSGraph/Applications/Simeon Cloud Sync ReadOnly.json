@@ -299,6 +299,10 @@
         },
         {
           "id": "c7a5be92-2b3d-4540-8a67-c96dcaae8b43",
+          "type": "Role"
+        },
+        {
+          "id": "d32381d8-ee89-4220-9c83-b672aa68d404",
           "type": "Scope"
         }
       ]
