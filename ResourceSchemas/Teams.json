@@ -282,6 +282,9 @@
         "RestrictedSenderList": {
           "type": "string"
         },
+        "UseUnifiedDomain": {
+          "type": "string"
+        },
         "Identity": {
           "type": "string"
         }
@@ -383,6 +386,9 @@
     "Teams:CsTeamsMeetingPolicy/CsTeamsMeetingPolicy": {
       "type": "object",
       "properties": {
+        "AIInterpreter": {
+          "type": "string"
+        },
         "AllowAnnotations": {
           "type": "boolean"
         },
@@ -619,6 +625,9 @@
           "type": "string"
         },
         "VoiceIsolation": {
+          "type": "string"
+        },
+        "VoiceSimulationInInterpreter": {
           "type": "string"
         },
         "WatermarkForCameraVideoOpacity": {
