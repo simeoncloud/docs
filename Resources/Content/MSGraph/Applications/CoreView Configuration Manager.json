@@ -150,6 +150,24 @@
 			]
 		},
 		{
+			"resourceAppId": "8ee8fdad-f234-4243-8f3b-15c294843740",
+			"$resourceAppName": "Microsoft Threat Protection",
+			"resourceAccess": [
+				{
+					"id": "15f11de4-5113-4268-a2d1-0bad43d781f9",
+					"$permissionName": "AdvancedHunting.Read",
+					"$permissionDescription": "Run advanced hunting queries",
+					"type": "Scope"
+				},
+				{
+					"id": "2af415cc-88cf-4146-a0c8-444c3a80d5db",
+					"$permissionName": "Incident.ReadWrite",
+					"$permissionDescription": "Read and write incidents",
+					"type": "Scope"
+				}
+			]
+		},
+		{
 			"resourceAppId": "00000003-0000-0000-c000-000000000000",
 			"$resourceAppName": "Microsoft Graph",
 			"resourceAccess": [
