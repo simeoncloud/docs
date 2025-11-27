@@ -14,7 +14,7 @@
     "category": "Entra ID",
     "namespace": "AadIam:EnterpriseApplicationUserSettings",
     "description": "Entra ID > Enterprise Applications > User Settings",
-    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/",
+    "url": "https://portal.azure.com/${ResourceContext:OnMicrosoftDomainName}/#view/Microsoft_AAD_IAM/ConsentPoliciesMenuBlade/~/UserSettings",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
@@ -167,7 +167,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AcceptedDomain",
-    "description": "Microsoft 365 > Exchange > Mail Flow > Accepted Domains",
+    "description": "Exchange > Mail Flow > Accepted Domains",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/accepteddomains",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -178,8 +178,8 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:ActiveSyncDeviceAccessRule",
-    "description": "Microsoft 365 > Exchange > Mobile Device Access > Device Access Rules",
-    "url": null,
+    "description": "Exchange > Mobile Device Access > Device Access Rules",
+    "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mobiledeviceaccess",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -189,7 +189,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AddressBookPolicy",
-    "description": "Microsoft 365 > Exchange > Address Book Policy",
+    "description": "Exchange > Address Book Policy",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/create-an-address-book-policy",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -200,7 +200,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AddressList",
-    "description": "Microsoft 365 > Exchange > Address List",
+    "description": "Exchange > Address List",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/address-lists",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -211,8 +211,8 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AdminAuditLogConfig",
-    "description": "Microsoft 365 > Exchange > Admin Audit Log Config",
-    "url": null,
+    "description": "Exchange > Admin Audit Log Config",
+    "url": "https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/set-adminauditlogconfig?view=exchange-ps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
@@ -220,9 +220,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:AntiPhishPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing",
+    "description": "Defender > Email & Collaboration > Policies > Anti-phishing",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?!Standard Preset Security Policy|Strict Preset Security Policy).*",
@@ -231,9 +231,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:AntiPhishRule",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Anti-phishing > Rules",
+    "description": "Defender > Email & Collaboration > Policies > Anti-phishing",
     "url": "https://security.microsoft.com/antiphishing?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -242,9 +242,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:AtpPolicyForO365",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > Global Settings",
+    "description": "Defender > Email & Collaboration > Policies > Safe Links",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -255,7 +255,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AuthenticationPolicy",
-    "description": "Microsoft 365 > Exchange > Modern Authentication",
+    "description": "Exchange > Modern Authentication",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-authenticationpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -266,7 +266,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AvailabilityAddressSpace",
-    "description": "Microsoft 365 > Exchange > Availability Address Spaces",
+    "description": "Exchange > Availability Address Spaces",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/add-availabilityaddressspace?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -277,7 +277,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:AvailabilityConfig",
-    "description": "Microsoft 365 > Exchange > Availability Config",
+    "description": "Exchange > Availability Config",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-availabilityconfig?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -288,7 +288,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:CASMailboxPlan",
-    "description": "Microsoft 365 > Exchange > CAS Mailbox Plan",
+    "description": "Exchange > CAS Mailbox Plan",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-casmailboxplan?view=exchange-ps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -299,7 +299,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:ClientAccessRule",
-    "description": "Microsoft 365 > Exchange > Client Access Rules",
+    "description": "Exchange > Client Access Rules",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -310,7 +310,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:DistributionGroup",
-    "description": "Microsoft 365 > Exchange > Distribution Groups",
+    "description": "Exchange > Distribution Groups",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -321,7 +321,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:DistributionGroupMember",
-    "description": "Microsoft 365 > Exchange > Distribution Groups > Members",
+    "description": "Exchange > Distribution Groups > Members",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
@@ -330,9 +330,9 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Defender",
     "namespace": "ExchangeOnline:DkimSigningConfig",
-    "description": "Microsoft 365 > Exchange > DomainKeys Identified Mail Signing Config",
+    "description": "Defender >  Policies & Rules > Thread Policies > Email Authentication Settings",
     "url": "https://security.microsoft.com/dkimv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -343,7 +343,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:DynamicDistributionGroup",
-    "description": "Microsoft 365 > Exchange > Dynamic Distribution Groups",
+    "description": "Exchange > Dynamic Distribution Groups",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -354,7 +354,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:EmailAddressPolicy",
-    "description": "Microsoft 365 > Exchange > Email Address Policies",
+    "description": "Exchange > Email Address Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-emailaddresspolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?:(?!^Default Policy$).)+$",
@@ -374,9 +374,9 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Defender",
     "namespace": "ExchangeOnline:ExternalInOutlook",
-    "description": "Microsoft 365 > Exchange > Tag External Emails",
+    "description": "Defender > Settings > Email & Collaboration > Priority Accont Protection",
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-externalinoutlook",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -387,7 +387,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:GlobalAddressList",
-    "description": "Microsoft 365 > Exchange > Global Address List",
+    "description": "Exchange > Global Address List",
     "url": "https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -396,9 +396,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:HostedConnectionFilterPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Hosted Connection Filter Policies",
+    "description": "Defender > Email & Collaboration > Policies > Anti-spam",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -407,9 +407,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:HostedContentFilterPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Hosted Content Filter Policies",
+    "description": "Defender > Email & Collaboration > Policies > Anti-spam",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -418,9 +418,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:HostedContentFilterRule",
-    "description": "Microsoft 365 > Security & Compliance > Hosted Content Filter Policies > Rules",
+    "description": "Defender > Email & Collaboration > Policies > Anti-spam",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -429,9 +429,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:HostedOutboundSpamFilterPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies",
+    "description": "Defender > Email & Collaboration > Policies > Anti-spam",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -440,9 +440,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:HostedOutboundSpamFilterRule",
-    "description": "Microsoft 365 > Security & Compliance > Hosted Outbound Spam Filter Policies > Rules",
+    "description": "Defender > Email & Collaboration > Policies > Anti-spam",
     "url": "https://security.microsoft.com/antispam?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -453,7 +453,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:InboundConnector",
-    "description": "Microsoft 365 > Exchange > Inbound Connectors",
+    "description": "Exchange > Inbound Connectors",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -464,8 +464,8 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:IntraOrganizationConnector",
-    "description": "Microsoft 365 > Exchange > Intra Organization Connectors",
-    "url": null,
+    "description": "Exchange > Mail flow > Connectors",
+    "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -475,7 +475,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:IRMConfiguration",
-    "description": "Microsoft 365 > Exchange > IRM Configuration",
+    "description": "Exchange > IRM Configuration",
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-irmconfiguration",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -484,10 +484,10 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Purvierw",
     "namespace": "ExchangeOnline:JournalRule",
-    "description": "Microsoft 365 > Exchange > Journal Rules",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-journalrule?view=exchange-ps",
+    "description": "Purvierw > Data Lifecycle Management > Journal Rules",
+    "url": "https://purview.microsoft.com/datalifecyclemanagement/exchange/journalrules?tid=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -497,7 +497,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:Mailbox",
-    "description": "Microsoft 365 > Exchange > Mailboxes",
+    "description": "Exchange > Mailboxes",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -508,7 +508,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:MailboxPermission",
-    "description": "Microsoft 365 > Exchange > Mailboxes > Permissions",
+    "description": "Exchange > Mailboxes > Permissions",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
@@ -519,7 +519,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:MailboxPlan",
-    "description": "Microsoft 365 > Exchange > Mailbox Plans",
+    "description": "Exchange > Mailbox Plans",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -528,9 +528,9 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Defender",
     "namespace": "ExchangeOnline:MalwareFilterPolicy",
-    "description": "Microsoft 365 > Exchange > Malware Filter Policies",
+    "description": "Defender >  Policies & Rules > Thread Policies > Malware Filter Policies",
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -539,9 +539,9 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Defender",
     "namespace": "ExchangeOnline:MalwareFilterRule",
-    "description": "Microsoft 365 > Exchange > Malware Filter Policies > Rules",
+    "description": "Defender >  Policies & Rules > Thread Policies > Malware Filter Policies",
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -552,7 +552,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:MobileDeviceMailboxPolicy",
-    "description": "Microsoft 365 > Exchange > Mobile Device Mailbox Policies",
+    "description": "Exchange > Mobile Device Mailbox Policies",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/get-mobiledevicemailboxpolicy?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -563,7 +563,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OfflineAddressBook",
-    "description": "Microsoft 365 > Exchange > Offline Address Book",
+    "description": "Exchange > Offline Address Book",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-offlineaddressbook?view=exchange-ps",
     "isCreateSupportedFilter": "^(?!Default Offline Address Book$).*",
     "isUpdateSupportedFilter": "^(?!Default Offline Address Book$).*",
@@ -574,7 +574,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OMEConfiguration",
-    "description": "Microsoft 365 > Exchange > OME Configuration",
+    "description": "Exchange > OME Configuration",
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-omeconfiguration",
     "isCreateSupportedFilter": "^(?:(?!^OME Configuration$).)+$",
     "isUpdateSupportedFilter": ".*",
@@ -585,7 +585,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OnPremisesOrganization",
-    "description": "Microsoft 365 > Exchange > On-premises Organizations",
+    "description": "Exchange > On-premises Organizations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-onpremisesorganization?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -596,8 +596,8 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OrganizationConfig",
-    "description": "Microsoft 365 > Exchange > Organization Config",
-    "url": null,
+    "description": "Exchange > Organization Config",
+    "url": "https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/set-organizationconfig?view=exchange-ps",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "$^",
@@ -607,7 +607,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OrganizationRelationship",
-    "description": "Microsoft 365 > Exchange > Organization Relationship",
+    "description": "Exchange > Organization Relationship",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/new-organizationrelationship?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -618,7 +618,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OutboundConnector",
-    "description": "Microsoft 365 > Exchange > Outbound Connectors",
+    "description": "Exchange > Outbound Connectors",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/connectors",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -629,8 +629,8 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:OwaMailboxPolicy",
-    "description": "Microsoft 365 > Exchange > Outlook Web App Policies",
-    "url": null,
+    "description": "Exchange > Roles > Outlook web app Policies",
+    "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^OwaMailboxPolicy-Default$).)+$",
@@ -640,7 +640,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:PartnerApplication",
-    "description": "Microsoft 365 > Exchange > Partner Applications",
+    "description": "Exchange > Partner Applications",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-partnerapplication?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -651,7 +651,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:PolicyTipConfig",
-    "description": "Microsoft 365 > Exchange > Policy Tip Config",
+    "description": "Exchange > Policy Tip Config",
     "url": "https://docs.microsoft.com/en-us/exchange/security-and-compliance/data-loss-prevention/manage-policy-tips",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -660,9 +660,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:QuarantinePolicy",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > Quarantine Policies",
+    "description": "Defender > Email & Collaboration > Policies > Anti-spam",
     "url": "https://security.microsoft.com/quarantinePolicies?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^DefaultFullAccessPolicy$|^AdminOnlyAccessPolicy$|^DefaultFullAccessWithNotificationPolicy$).)+$",
@@ -673,7 +673,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:RemoteDomain",
-    "description": "Microsoft 365 > Exchange > Mail Flow > Remote Domains",
+    "description": "Exchange > Mail Flow > Remote Domains",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/remotedomains",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -682,9 +682,9 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Purview",
     "namespace": "ExchangeOnline:RetentionPolicy",
-    "description": "Microsoft 365 > Exchange > Retention Policy",
+    "description": "Purview > Data Lifecycle Management > Retention Labels",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/retention?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -693,9 +693,9 @@
     "isPreview": false
   },
   {
-    "category": "Exchange",
+    "category": "Purview",
     "namespace": "ExchangeOnline:RetentionPolicyTag",
-    "description": "Microsoft 365 > Exchange > Retention Policy Tag",
+    "description": "Purview > Data Lifecycle Management > Retention Labels",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/exchange/retentiontags?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -706,7 +706,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:RoleAssignmentPolicy",
-    "description": "Microsoft 365 > Exchange > Role Assignment Policies",
+    "description": "Exchange > Role Assignment Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/adminRoles",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -715,9 +715,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:SafeAttachmentPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments",
+    "description": "Defender > Email & Collaboration > Policies > Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "^(?:(?!^StandardRecommendedPolicy|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": ".*",
@@ -726,9 +726,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:SafeAttachmentRule",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Attachments > Rules",
+    "description": "Defender > Email & Collaboration > Policies > Safe Attachments",
     "url": "https://security.microsoft.com/safeattachmentv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -737,9 +737,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:SafeLinksPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links",
+    "description": "Defender > Email & Collaboration > Policies > Safe Attachments",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Default Safe Links Policy$|^Standard Preset Security Policy|^Strict Preset Security Policy|^Built-In Protection Policy$).)+$",
@@ -748,9 +748,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Defender",
     "namespace": "ExchangeOnline:SafeLinksRule",
-    "description": "Microsoft 365 > Security & Compliance > Threat Management > Policy > ATP Safe Links > Rules",
+    "description": "Defender > Email & Collaboration > Policies > Safe Attachments",
     "url": "https://security.microsoft.com/safelinksv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -761,7 +761,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:SharingPolicy",
-    "description": "Microsoft 365 > Exchange > Sharing Policies",
+    "description": "Exchange > Sharing Policies",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/sharing",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -772,7 +772,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:TransportConfig",
-    "description": "Microsoft 365 > Exchange > Transport Config",
+    "description": "Exchange > Transport Config",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/mailboxes",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -783,7 +783,7 @@
   {
     "category": "Exchange",
     "namespace": "ExchangeOnline:TransportRule",
-    "description": "Microsoft 365 > Exchange > Transport Rules",
+    "description": "Exchange > Transport Rules",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/transportrules",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -1947,10 +1947,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:AdaptiveScope",
-    "description": "Microsoft 365 > Security & Compliance > Adaptive Scopes",
-    "url": "https://purview.microsoft.com/datalifecyclemanagement/adaptivescope?tid=${ResourceContext:TenantId}",
+    "description": "Purview > Settings > Roles and Scopes > Adaptive Scopes",
+    "url": "https://purview.microsoft.com/settings/adaptivescope?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -1958,9 +1958,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:AppRetentionCompliancePolicy",
-    "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention",
+    "description": "Purview > Data Lifecycle Management > Retention Policies",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/retention?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -1969,9 +1969,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:AppRetentionComplianceRule",
-    "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules",
+    "description": "Purview > Data Lifecycle Management > Retention Policies",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/retention?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -1980,10 +1980,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:CaseHoldPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Case Hold Policies",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
+    "description": "Purview > eDiscovery > Cases",
+    "url": "https://purview.microsoft.com/ediscovery/casespage?td=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -1991,10 +1991,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:CaseHoldRule",
-    "description": "Microsoft 365 > Security & Compliance > Case Hold Policies > Rules",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-caseholdpolicy?view=exchange-ps",
+    "description": "Purview > eDiscovery > Cases",
+    "url": "https://purview.microsoft.com/ediscovery/casespage?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -2002,10 +2002,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:ComplianceCase",
-    "description": "Microsoft 365 > Security & Compliance > Compliance Cases",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancecase?view=exchange-ps",
+    "description": "Purview > eDiscovery > Cases",
+    "url": "https://purview.microsoft.com/ediscovery/casespage?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -2013,9 +2013,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:ComplianceRetentionEventType",
-    "description": "Microsoft 365 > Security & Compliance > Information Governance > Compliance Retention Event Types",
+    "description": "Purview> Information Governance > Compliance Retention Event Types",
     "url": "https://docs.microsoft.com/pt-br/powershell/module/exchange/get-complianceretentioneventtype?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2024,9 +2024,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:ComplianceTag",
-    "description": "Microsoft 365 > Security & Compliance > Compliance Tags",
+    "description": "Purview > Information Governance > Compliance Tags",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancetag?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2035,10 +2035,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:DlpCompliancePolicy",
-    "description": "Microsoft 365 > Security & Compliance > DLP Compliance Policies",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps",
+    "description": "Purview > Data Loss Prevention > Policies",
+    "url": "https://purview.microsoft.com/datalossprevention/policies?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -2046,10 +2046,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:DlpComplianceRule",
-    "description": "Microsoft 365 > Security & Compliance > DLP Compliance Policies > Rules",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpcompliancepolicy?view=exchange-ps",
+    "description": "Purview > Data Loss Prevention > Policies",
+    "url": "https://purview.microsoft.com/datalossprevention/policies?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": ".*",
@@ -2057,10 +2057,10 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:DlpSensitiveInformationType",
-    "description": "Microsoft 365 > Security & Compliance > DLP Sensitive Information Types",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-dlpsensitiveinformationtype?view=exchange-ps",
+    "description": "Purview > Data Loss Prevention > Sensitive info Types",
+    "url": "https://purview.microsoft.com/datalossprevention/policies?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "$^",
     "isDeleteSupportedFilter": "$^",
@@ -2068,9 +2068,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:FilePlanPropertyAuthority",
-    "description": "Microsoft 365 > Security & Compliance > File Plan Property Authorities",
+    "description": "Purview > File Plan Property Authorities",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyauthority?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Legal$|^Regulatory$|^Business$).)+$",
@@ -2079,9 +2079,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:FilePlanPropertyCategory",
-    "description": "Microsoft 365 > Security & Compliance > File Plan Property Categories",
+    "description": "Purview > File Plan Property Categories",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycategory?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Accounts payable$|^Accounts receivable$|^Administration$|^Compliance$|^Contracting$|^Financial statements$|^Learning and development$|^Planning$|^Payroll$|^Policies and procedures$|^Procurement$|^Recruiting and hiring$|^Research and development$).)+$",
@@ -2090,9 +2090,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:FilePlanPropertyCitation",
-    "description": "Microsoft 365 > Security & Compliance > File Plan Property Citations",
+    "description": "Purview > File Plan Property Citations",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertycitation?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Commodity Exchange Act$|^Sarbanes-Oxley Act of 2002$|^Truth in lending Act$|^Health Insurance Portability and Accountability Act of 1996$|^OSHA Injury and Illness Recordkeeping and Reporting Requirements$).)+$",
@@ -2101,9 +2101,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:FilePlanPropertyDepartment",
-    "description": "Microsoft 365 > Security & Compliance > File Plan Property Departments",
+    "description": "Purview > File Plan Property Departments",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertydepartment?view=exchange-ps",
     "isCreateSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$",
     "isUpdateSupportedFilter": "^(?:(?!^Finance$|^Human resources$|^Truth in lending Act$|^Information technology$|^Legal$|^Marketing$|^Operations$|^Procurement$|^Products$|^Sales$|^Services$).)+$",
@@ -2112,9 +2112,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:FilePlanPropertyReferenceId",
-    "description": "Microsoft 365 > Security & Compliance > File Plan Property Reference Ids",
+    "description": "Purview > File Plan Property Reference Ids",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertyreferenceid?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2123,9 +2123,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:FilePlanPropertySubCategory",
-    "description": "Microsoft 365 > Security & Compliance > File Plan Property Reference Sub Categories",
+    "description": "Purview > File Plan Property Reference Sub Categories",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-fileplanpropertysubcategory?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2134,9 +2134,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:Label",
-    "description": "Microsoft 365 > Security & Compliance > Labels",
+    "description": "Purview > Information Protection > Sensitivity Labels",
     "url": "https://purview.microsoft.com/informationprotection/informationprotectionlabels/sensitivitylabels?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2145,9 +2145,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:LabelPolicy",
-    "description": "Microsoft 365 > Security & Compliance > Label Policy",
+    "description": "Purview > Information Protection > Sensitivity Labels > Policies",
     "url": "https://purview.microsoft.com/informationprotection/labelpolicies?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2156,9 +2156,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:ProtectionAlert",
-    "description": "Microsoft 365 > Security & Compliance > Protection Alerts",
+    "description": "Purview > Protection Alerts",
     "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/new-protectionalert?view=exchange-ps",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2167,9 +2167,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:RetentionCompliancePolicy",
-    "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention",
+    "description": "Purview > Data Lifecycle Management > Retention Labels",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/retention?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2178,9 +2178,9 @@
     "isPreview": false
   },
   {
-    "category": "Security & Compliance",
+    "category": "Purview",
     "namespace": "SecurityAndCompliance:RetentionComplianceRule",
-    "description": "Microsoft 365 > Security & Compliance > Information Governance > Retention > Rules",
+    "description": "Purview > Data Lifecycle Management > Retention Labels",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/retention?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2213,8 +2213,8 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsAppPermissionPolicy",
-    "description": "Microsoft 365 > Teams > Apps > Permission Policies",
-    "url": "https://admin.teams.microsoft.com/policies/app-permission?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "description": "Teams > Teams apps > Manage apps",
+    "url": "https://admin.teams.microsoft.com/policies/manage-apps?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global|^Default$).)+$",
@@ -2224,7 +2224,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsAppSetupPolicy",
-    "description": "Microsoft 365 > Teams > Apps > Setup Policies",
+    "description": "Teams > Apps > Setup Policies",
     "url": "https://admin.teams.microsoft.com/policies/app-setup?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": "^(?:(?!^FirstLineWorker$).)+$",
@@ -2235,7 +2235,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsCallHoldPolicy",
-    "description": "Microsoft 365 > Teams > Voice > Call Hold Policies",
+    "description": "Teams > Voice > Call Hold Policies",
     "url": "https://admin.teams.microsoft.com/policies/callholdpolicy",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2246,8 +2246,8 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsCallingPolicy",
-    "description": "Microsoft 365 > Teams > Voice > Calling Policies",
-    "url": "https://admin.teams.microsoft.com/policies/calling?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
+    "description": "Teams > Voice > Calling Policies",
+    "url": "https://admin.teams.microsoft.com/policies/callholdpolicy?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
     "isDeleteSupportedFilter": "^(?:(?!^Global$).)+$",
@@ -2257,7 +2257,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsClientConfiguration",
-    "description": "Microsoft 365 > Teams > Org-wide Settings > Teams Settings",
+    "description": "Teams > Org-wide Settings > Teams Settings",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/teams-settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -2268,7 +2268,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsMeetingBroadcastPolicy",
-    "description": "Microsoft 365 > Teams > Meetings > Live Event Policies",
+    "description": "Teams > Meetings > Live Event Policies",
     "url": "https://admin.teams.microsoft.com/policies/broadcasts?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2279,7 +2279,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsMeetingConfiguration",
-    "description": "Microsoft 365 > Teams > Meetings > Meeting Settings",
+    "description": "Teams > Meetings > Meeting Settings",
     "url": "https://admin.teams.microsoft.com/meetings/settings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -2290,7 +2290,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsMeetingPolicy",
-    "description": "Microsoft 365 > Teams > Meetings > Meeting Policies",
+    "description": "Teams > Meetings > Meeting Policies",
     "url": "https://admin.teams.microsoft.com/policies/meetings?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2301,7 +2301,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsMessagingPolicy",
-    "description": "Microsoft 365 > Teams > Messaging Policies",
+    "description": "Teams > Messaging Policies",
     "url": "https://admin.teams.microsoft.com/policies/messaging?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2312,7 +2312,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsSettingsCustomApp",
-    "description": "Microsoft 365 > Teams > Custom Apps Settings",
+    "description": "Teams > Custom Apps Settings",
     "url": "https://admin.teams.microsoft.com/policies/manage-apps?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
@@ -2323,7 +2323,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTeamsUpdateManagementPolicy",
-    "description": "Microsoft 365 > Teams > Update Management Policies",
+    "description": "Teams > Update Management Policies",
     "url": "https://admin.teams.microsoft.com/policies/updatemanagement?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -2334,7 +2334,7 @@
   {
     "category": "Teams",
     "namespace": "Teams:CsTenantFederationConfiguration",
-    "description": "Microsoft 365 > Teams > Users > External Access",
+    "description": "Teams > Users > External Access",
     "url": "https://admin.teams.microsoft.com/company-wide-settings/external-communications?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
