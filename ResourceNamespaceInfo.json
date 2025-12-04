@@ -484,9 +484,9 @@
     "isPreview": false
   },
   {
-    "category": "Purvierw",
+    "category": "Purview",
     "namespace": "ExchangeOnline:JournalRule",
-    "description": "Purvierw > Data Lifecycle Management > Journal Rules",
+    "description": "Purview > Data Lifecycle Management > Journal Rules",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/exchange/journalrules?tid=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
