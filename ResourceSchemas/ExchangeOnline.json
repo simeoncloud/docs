@@ -37,9 +37,6 @@
       "$ref": "#/$defs/ExchangeOnline:CASMailboxPlan/CASMailboxPlan"
     },
     {
-      "$ref": "#/$defs/ExchangeOnline:ClientAccessRule/ClientAccessRule"
-    },
-    {
       "$ref": "#/$defs/ExchangeOnline:DistributionGroup/DistributionGroup"
     },
     {
@@ -646,68 +643,6 @@
         }
       },
       "$id": "https://simeoncloud.com/ExchangeOnline:CASMailboxPlan/CASMailboxPlan"
-    },
-    "ExchangeOnline:ClientAccessRule/ClientAccessRule": {
-      "type": "object",
-      "properties": {
-        "Action": {
-          "type": "object"
-        },
-        "AnyOfAuthenticationTypes": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "AnyOfClientIPAddressesOrRanges": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "AnyOfProtocols": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "ExceptAnyOfAuthenticationTypes": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptAnyOfClientIPAddressesOrRanges": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptAnyOfProtocols": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "ExceptUsernameMatchesAnyOfPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Priority": {
-          "type": "integer"
-        },
-        "Scope": {
-          "type": "string"
-        },
-        "UsernameMatchesAnyOfPatterns": {
-          "$ref": "#/$defs/arrayOfString"
-        },
-        "UserRecipientFilter": {
-          "type": "string"
-        },
-        "State": {
-          "enum": [
-            "Enabled",
-            "Disabled"
-          ]
-        }
-      },
-      "$defs": {
-        "arrayOfString": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "$id": "https://simeoncloud.com/ExchangeOnline:ClientAccessRule/ClientAccessRule"
     },
     "ExchangeOnline:DistributionGroup/DistributionGroup": {
       "type": "object",
