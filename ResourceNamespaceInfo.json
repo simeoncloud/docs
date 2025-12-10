@@ -298,17 +298,6 @@
   },
   {
     "category": "Exchange",
-    "namespace": "ExchangeOnline:ClientAccessRule",
-    "description": "Exchange > Client Access Rules",
-    "url": "https://docs.microsoft.com/en-us/powershell/module/exchange/set-clientaccessrule?view=exchange-ps",
-    "isCreateSupportedFilter": "$^",
-    "isUpdateSupportedFilter": ".*",
-    "isDeleteSupportedFilter": ".*",
-    "isDelegatedAuthRequired": false,
-    "isPreview": false
-  },
-  {
-    "category": "Exchange",
     "namespace": "ExchangeOnline:DistributionGroup",
     "description": "Exchange > Distribution Groups",
     "url": "https://admin.exchange.microsoft.com/?delegatedOrg=${ResourceContext:OnMicrosoftDomainName}#/groups",
@@ -484,9 +473,9 @@
     "isPreview": false
   },
   {
-    "category": "Purvierw",
+    "category": "Purview",
     "namespace": "ExchangeOnline:JournalRule",
-    "description": "Purvierw > Data Lifecycle Management > Journal Rules",
+    "description": "Purview > Data Lifecycle Management > Journal Rules",
     "url": "https://purview.microsoft.com/datalifecyclemanagement/exchange/journalrules?tid=${ResourceContext:OnMicrosoftDomainName}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
