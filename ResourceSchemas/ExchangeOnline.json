@@ -1862,6 +1862,9 @@
         "AuditOwner": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "AutoArchivingEnabled": {
+          "type": "boolean"
+        },
         "BypassModerationFromSendersOrMembers": {
           "$ref": "#/$defs/arrayOfString"
         },
@@ -2090,6 +2093,9 @@
         "PrimarySmtpAddress": {
           "type": "string"
         },
+        "ProvideConsent": {
+          "type": "boolean"
+        },
         "ProxyEmailAddress": {
           "type": "object"
         },
@@ -2115,6 +2121,9 @@
           "type": "boolean"
         },
         "RemoveCNFPublicFolderMailboxPermanently": {
+          "type": "boolean"
+        },
+        "RemoveComplianceTagHoldApplied": {
           "type": "boolean"
         },
         "RemoveDelayHoldApplied": {
