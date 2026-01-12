@@ -365,7 +365,7 @@
   {
     "category": "Defender",
     "namespace": "ExchangeOnline:ExternalInOutlook",
-    "description": "Defender > Settings > Email & Collaboration > Priority Accont Protection",
+    "description": "Defender > Settings > Email & Collaboration > Priority Account Protection",
     "url": "https://learn.microsoft.com/powershell/module/exchange/get-externalinoutlook",
     "isCreateSupportedFilter": "$^",
     "isUpdateSupportedFilter": ".*",
