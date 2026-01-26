@@ -838,14 +838,14 @@
         "BlockAllSubdomains": {
           "type": "boolean"
         },
-        "DomainBlockingForMDOAdminsInTeams": {
-          "type": "object"
-        },
         "ExternalAccessWithTrialTenants": {
           "type": "object"
         },
         "RestrictTeamsConsumerToExternalUserProfiles": {
           "type": "boolean"
+        },
+        "SecurityTeamAllowBlockListDelegation": {
+          "type": "object"
         },
         "SharedSipAddressSpace": {
           "type": "boolean"
