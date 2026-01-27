@@ -367,9 +367,6 @@
         "OneDriveSharedByMemberOf": {
           "$ref": "#/$defs/arrayOfString"
         },
-        "Locations": {
-          "type": "string"
-        },
         "Comment": {
           "type": "string"
         },
@@ -405,6 +402,9 @@
         },
         "IsFromSmartInsights": {
           "type": "boolean"
+        },
+        "Locations": {
+          "type": "string"
         },
         "Mode": {
           "type": "string"
