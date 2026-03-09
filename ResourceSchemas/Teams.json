@@ -407,9 +407,6 @@
         "AllowBreakoutRooms": {
           "type": "boolean"
         },
-        "AllowCarbonSummary": {
-          "type": "boolean"
-        },
         "AllowCartCaptionsScheduling": {
           "type": "string"
         },
