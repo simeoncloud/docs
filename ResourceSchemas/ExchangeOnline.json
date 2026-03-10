@@ -3207,6 +3207,9 @@
           "type": "string",
           "format": "date-time"
         },
+        "MtaStsMode": {
+          "type": "string"
+        },
         "Name": {
           "type": "string"
         },
@@ -3221,6 +3224,9 @@
         },
         "SmartHosts": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "SmtpDaneMode": {
+          "type": "string"
         },
         "TestMode": {
           "type": "boolean"
