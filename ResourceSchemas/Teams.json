@@ -835,8 +835,14 @@
         "AllowTeamsConsumerInbound": {
           "type": "boolean"
         },
+        "ApplyExternalAccessRestrictionsToChatMembership": {
+          "type": "object"
+        },
         "BlockAllSubdomains": {
           "type": "boolean"
+        },
+        "ExtendMutualFederationForChatMembership": {
+          "type": "object"
         },
         "ExternalAccessWithTrialTenants": {
           "type": "object"
