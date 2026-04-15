@@ -584,6 +584,9 @@
         "ParticipantNameChange": {
           "type": "string"
         },
+        "PasscodeComplexity": {
+          "type": "string"
+        },
         "PreferredMeetingProviderForIslandsMode": {
           "type": "string"
         },
