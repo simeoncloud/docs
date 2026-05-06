@@ -3284,6 +3284,9 @@
         "AllowedOrganizationAccountDomains": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "AttachmentsOfflineEnabledWin": {
+          "type": "boolean"
+        },
         "BizBarEnabled": {
           "type": "boolean"
         },
