@@ -548,6 +548,9 @@
         "ExplicitRecordingConsent": {
           "type": "string"
         },
+        "ExternalBotAccessMode": {
+          "type": "string"
+        },
         "ExternalMeetingJoin": {
           "type": "string"
         },
