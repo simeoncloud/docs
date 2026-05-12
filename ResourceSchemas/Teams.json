@@ -838,13 +838,13 @@
         "AllowTeamsConsumerInbound": {
           "type": "boolean"
         },
-        "ApplyExternalAccessRestrictionsToChatMembership": {
-          "type": "object"
-        },
         "BlockAllSubdomains": {
           "type": "boolean"
         },
-        "ExtendMutualFederationForChatMembership": {
+        "EnableExternalAccessRestrictionsForChatParticipants": {
+          "type": "object"
+        },
+        "EnableMutualFederationForChatParticipants": {
           "type": "object"
         },
         "ExternalAccessWithTrialTenants": {
