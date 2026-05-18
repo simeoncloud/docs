@@ -2051,6 +2051,12 @@
         "MailTipTranslations": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "ManagedFolderMailboxPolicy": {
+          "type": "string"
+        },
+        "ManagedFolderMailboxPolicyAllowed": {
+          "type": "boolean"
+        },
         "MessageCopyForSendOnBehalfEnabled": {
           "type": "boolean"
         },
@@ -2620,6 +2626,21 @@
         "Name": {
           "type": "string"
         },
+        "PublicFolderDatabase": {
+          "type": "string"
+        },
+        "PublicFolderDistributionEnabled": {
+          "type": "boolean"
+        },
+        "Schedule": {
+          "type": "object"
+        },
+        "Server": {
+          "type": "string"
+        },
+        "SkipPublicFolderInitialization": {
+          "type": "boolean"
+        },
         "UseDefaultAttributes": {
           "type": "boolean"
         },
@@ -3025,6 +3046,9 @@
         "OutlookTextPredictionDisabled": {
           "type": "boolean"
         },
+        "PermanentlyDeleteDisabled": {
+          "type": "boolean"
+        },
         "PerTenantSwitchToESTSEnabled": {
           "type": "boolean"
         },
@@ -3032,6 +3056,9 @@
           "type": "boolean"
         },
         "PublicComputersDetectionEnabled": {
+          "type": "boolean"
+        },
+        "PublicFolderContentReplicationDisabled": {
           "type": "boolean"
         },
         "PublicFoldersEnabled": {
@@ -3452,6 +3479,9 @@
         "OWALightEnabled": {
           "type": "boolean"
         },
+        "OWAMiniEnabled": {
+          "type": "boolean"
+        },
         "PersonalAccountCalendarsEnabled": {
           "type": "boolean"
         },
@@ -3748,6 +3778,9 @@
         },
         "DomainName": {
           "type": "object"
+        },
+        "IsCoexistenceDomain": {
+          "type": "boolean"
         },
         "IsInternal": {
           "type": "boolean"
@@ -4162,6 +4195,9 @@
         },
         "JournalMessageExpirationDays": {
           "type": "integer"
+        },
+        "LegacyJournalingMigrationEnabled": {
+          "type": "boolean"
         },
         "MaxRecipientEnvelopeLimit": {
           "type": "object"
