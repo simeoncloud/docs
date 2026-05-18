@@ -1229,6 +1229,9 @@
         "SiteAndGroupProtectionEnabled": {
           "type": "boolean"
         },
+        "SiteAndGroupProtectionLevel": {
+          "type": "object"
+        },
         "SiteAndGroupProtectionPrivacy": {
           "type": "string"
         },
