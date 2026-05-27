@@ -1291,6 +1291,9 @@
         "AdminDisplayName": {
           "type": "string"
         },
+        "BulkMovesEnabled": {
+          "type": "string"
+        },
         "BulkQuarantineTag": {
           "type": "string"
         },
