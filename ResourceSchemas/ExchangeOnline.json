@@ -182,6 +182,9 @@
         "DomainType": {
           "type": "string"
         },
+        "MailFlowRegion": {
+          "type": "string"
+        },
         "MatchSubDomains": {
           "type": "boolean"
         },
@@ -1289,6 +1292,9 @@
           "type": "string"
         },
         "AdminDisplayName": {
+          "type": "string"
+        },
+        "BulkMovesEnabled": {
           "type": "string"
         },
         "BulkQuarantineTag": {
@@ -2767,6 +2773,9 @@
         "AuditDisabled": {
           "type": "boolean"
         },
+        "AutoArchivingThresholdPercentage": {
+          "type": "integer"
+        },
         "AutodiscoverPartialDirSync": {
           "type": "boolean"
         },
@@ -2860,6 +2869,9 @@
         "DefaultAuthenticationPolicy": {
           "type": "string"
         },
+        "DefaultFolderPermissionRestricted": {
+          "type": "boolean"
+        },
         "DefaultGroupAccessType": {
           "type": "string"
         },
@@ -2899,6 +2911,9 @@
         "DistributionGroupNamingPolicy": {
           "type": "object"
         },
+        "DLPViaDcsEnabled": {
+          "type": "boolean"
+        },
         "DLPWaitOnSendEnabled": {
           "type": "boolean"
         },
@@ -2917,8 +2932,14 @@
         "EndUserMailNotificationForDelayedDelicensingEnabled": {
           "type": "boolean"
         },
+        "EnforceExoAppRbacPermissions": {
+          "type": "boolean"
+        },
         "EnforceShortenEventSetting": {
           "type": "boolean"
+        },
+        "EwsAllowedAppIDs": {
+          "type": "string"
         },
         "EwsAllowEntourage": {
           "type": "boolean"
@@ -2939,6 +2960,12 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "EwsEnabled": {
+          "type": "boolean"
+        },
+        "ExchangeAttributesCloudManagedByDefault": {
+          "type": "boolean"
+        },
+        "ExchangeAttributesServerManagedByDefault": {
           "type": "boolean"
         },
         "ExchangeNotificationEnabled": {
@@ -3071,6 +3098,9 @@
           "type": "boolean"
         },
         "RecallReadMessagesEnabled": {
+          "type": "boolean"
+        },
+        "RecipientDelimiters": {
           "type": "boolean"
         },
         "RejectDirectSend": {
@@ -3329,6 +3359,9 @@
         "BookingsMailboxDomain": {
           "type": "string"
         },
+        "BulkImportEMLEnabled": {
+          "type": "object"
+        },
         "ChangeSettingsAccountEnabled": {
           "type": "boolean"
         },
@@ -3488,6 +3521,9 @@
         "PersonalAccountsEnabled": {
           "type": "boolean"
         },
+        "PersonalBookingsDisabled": {
+          "type": "boolean"
+        },
         "PhoneticSupportEnabled": {
           "type": "boolean"
         },
@@ -3501,6 +3537,9 @@
           "type": "boolean"
         },
         "ProjectMocaEnabled": {
+          "type": "boolean"
+        },
+        "RecoverDeletedItemsEnabled": {
           "type": "boolean"
         },
         "ReferenceAttachmentsEnabled": {
@@ -4043,6 +4082,9 @@
         },
         "EnableSafeLinksForTeams": {
           "type": "boolean"
+        },
+        "LocalizedNotificationTextList": {
+          "type": "object"
         },
         "MakeBuiltInProtection": {
           "type": "boolean"
