@@ -321,7 +321,7 @@
   {
     "category": "Defender",
     "namespace": "ExchangeOnline:DkimSigningConfig",
-    "description": "Defender >  Policies & Rules > Thread Policies > Email Authentication Settings",
+    "description": "Defender >  Policies & Rules > Threat Policies > Email Authentication Settings",
     "url": "https://security.microsoft.com/dkimv2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -519,7 +519,7 @@
   {
     "category": "Defender",
     "namespace": "ExchangeOnline:MalwareFilterPolicy",
-    "description": "Defender >  Policies & Rules > Thread Policies > Malware Filter Policies",
+    "description": "Defender >  Policies & Rules > Threat Policies > Malware Filter Policies",
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
@@ -530,7 +530,7 @@
   {
     "category": "Defender",
     "namespace": "ExchangeOnline:MalwareFilterRule",
-    "description": "Defender >  Policies & Rules > Thread Policies > Malware Filter Policies",
+    "description": "Defender >  Policies & Rules > Threat Policies > Malware Filter Policies",
     "url": "https://security.microsoft.com/antimalwarev2?tid=${ResourceContext:TenantId}",
     "isCreateSupportedFilter": ".*",
     "isUpdateSupportedFilter": ".*",
