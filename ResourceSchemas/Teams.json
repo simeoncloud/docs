@@ -198,6 +198,9 @@
         "EnableWebPstnMediaBypass": {
           "type": "boolean"
         },
+        "ExplicitRecordingConsent": {
+          "type": "string"
+        },
         "InboundFederatedCallRoutingTreatment": {
           "type": "string"
         },
@@ -371,6 +374,9 @@
           "type": "boolean"
         },
         "LogoURL": {
+          "type": "string"
+        },
+        "ReportMeeting": {
           "type": "string"
         },
         "Tenant": {

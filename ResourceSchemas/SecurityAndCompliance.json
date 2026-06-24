@@ -762,6 +762,9 @@
         "GenerateIncidentReport": {
           "$ref": "#/$defs/arrayOfString"
         },
+        "HasActivity": {
+          "type": "object"
+        },
         "HasSenderOverride": {
           "type": "boolean"
         },
@@ -876,6 +879,9 @@
             "type": "object"
           }
         },
+        "RestrictWebGrounding": {
+          "type": "boolean"
+        },
         "RuleErrorAction": {
           "type": "string"
         },
@@ -905,6 +911,9 @@
         },
         "SharedByIRMUserRisk": {
           "$ref": "#/$defs/arrayOfString"
+        },
+        "SharepointMoveToQuarantineLocation": {
+          "type": "boolean"
         },
         "StopPolicyProcessing": {
           "type": "boolean"
