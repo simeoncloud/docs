@@ -358,6 +358,12 @@
         "DisableAppInteractionForAnonymousUsers": {
           "type": "boolean"
         },
+        "EnableAttributedTranscripts": {
+          "type": "boolean"
+        },
+        "EnableGraphTranscriptAccess": {
+          "type": "boolean"
+        },
         "EnableQoS": {
           "type": "boolean"
         },
