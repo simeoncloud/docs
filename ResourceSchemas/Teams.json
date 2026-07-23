@@ -596,6 +596,9 @@
         "NewMeetingRecordingExpirationDays": {
           "type": "integer"
         },
+        "NoiseSuppressionForDialInParticipants": {
+          "type": "string"
+        },
         "ParticipantNameChange": {
           "type": "string"
         },
