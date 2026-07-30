@@ -554,6 +554,9 @@
         "DesignatedPresenterRoleMode": {
           "type": "string"
         },
+        "DisableAudioAnnouncementsForResourceAccounts": {
+          "type": "boolean"
+        },
         "EnrollUserOverride": {
           "type": "string"
         },
