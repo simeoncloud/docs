@@ -4518,7 +4518,7 @@
           "$ref": "#/$defs/arrayOfString"
         },
         "ExceptIfSCLOver": {
-          "type": "string"
+          "type": "object"
         },
         "ExceptIfSenderADAttributeContainsWords": {
           "$ref": "#/$defs/arrayOfString"
@@ -4692,7 +4692,7 @@
           "type": "string"
         },
         "SCLOver": {
-          "type": "string"
+          "type": "object"
         },
         "SenderADAttributeContainsWords": {
           "$ref": "#/$defs/arrayOfString"
@@ -4731,7 +4731,7 @@
           "type": "object"
         },
         "SetSCL": {
-          "type": "string"
+          "type": "object"
         },
         "StopRuleProcessing": {
           "type": "boolean"
