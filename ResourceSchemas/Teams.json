@@ -557,6 +557,9 @@
         "DisableAudioAnnouncementsForResourceAccounts": {
           "type": "boolean"
         },
+        "EnableExternalRecordingDetection": {
+          "type": "boolean"
+        },
         "EnrollUserOverride": {
           "type": "string"
         },
