@@ -219,6 +219,9 @@
         "PopoutForIncomingPstnCalls": {
           "type": "string"
         },
+        "PreventComplianceRecording": {
+          "type": "string"
+        },
         "PreventTollBypass": {
           "type": "boolean"
         },
@@ -612,6 +615,9 @@
           "type": "string"
         },
         "PreferredMeetingProviderForIslandsMode": {
+          "type": "string"
+        },
+        "PreventComplianceRecording": {
           "type": "string"
         },
         "QnAEngagementMode": {
