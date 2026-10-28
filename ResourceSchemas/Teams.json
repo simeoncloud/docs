@@ -370,6 +370,9 @@
         "EnableQoS": {
           "type": "boolean"
         },
+        "EnableWorkIQTranscriptAccess": {
+          "type": "boolean"
+        },
         "FeedbackSurveyForAnonymousUsers": {
           "type": "string"
         },
