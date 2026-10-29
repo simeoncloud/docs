@@ -370,6 +370,9 @@
         "EnableQoS": {
           "type": "boolean"
         },
+        "EnableWorkIQTranscriptAccess": {
+          "type": "boolean"
+        },
         "FeedbackSurveyForAnonymousUsers": {
           "type": "string"
         },
@@ -582,6 +585,9 @@
           "type": "string"
         },
         "IPVideoMode": {
+          "type": "string"
+        },
+        "KnowledgeGenerationMeetingTypes": {
           "type": "string"
         },
         "LiveCaptionsEnabledType": {
