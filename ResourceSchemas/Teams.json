@@ -198,6 +198,9 @@
         "EnableWebPstnMediaBypass": {
           "type": "boolean"
         },
+        "ExplicitRecordingConsent": {
+          "type": "string"
+        },
         "InboundFederatedCallRoutingTreatment": {
           "type": "string"
         },
@@ -214,6 +217,9 @@
           "type": "string"
         },
         "PopoutForIncomingPstnCalls": {
+          "type": "string"
+        },
+        "PreventComplianceRecording": {
           "type": "string"
         },
         "PreventTollBypass": {
@@ -355,7 +361,16 @@
         "DisableAppInteractionForAnonymousUsers": {
           "type": "boolean"
         },
+        "EnableAttributedTranscripts": {
+          "type": "boolean"
+        },
+        "EnableGraphTranscriptAccess": {
+          "type": "boolean"
+        },
         "EnableQoS": {
+          "type": "boolean"
+        },
+        "EnableWorkIQTranscriptAccess": {
           "type": "boolean"
         },
         "FeedbackSurveyForAnonymousUsers": {
@@ -371,6 +386,9 @@
           "type": "boolean"
         },
         "LogoURL": {
+          "type": "string"
+        },
+        "ReportMeeting": {
           "type": "string"
         },
         "Tenant": {
@@ -542,6 +560,12 @@
         "DesignatedPresenterRoleMode": {
           "type": "string"
         },
+        "DisableAudioAnnouncementsForResourceAccounts": {
+          "type": "boolean"
+        },
+        "EnableExternalRecordingDetection": {
+          "type": "boolean"
+        },
         "EnrollUserOverride": {
           "type": "string"
         },
@@ -561,6 +585,9 @@
           "type": "string"
         },
         "IPVideoMode": {
+          "type": "string"
+        },
+        "KnowledgeGenerationMeetingTypes": {
           "type": "string"
         },
         "LiveCaptionsEnabledType": {
@@ -584,6 +611,9 @@
         "NewMeetingRecordingExpirationDays": {
           "type": "integer"
         },
+        "NoiseSuppressionForDialInParticipants": {
+          "type": "string"
+        },
         "ParticipantNameChange": {
           "type": "string"
         },
@@ -591,6 +621,9 @@
           "type": "string"
         },
         "PreferredMeetingProviderForIslandsMode": {
+          "type": "string"
+        },
+        "PreventComplianceRecording": {
           "type": "string"
         },
         "QnAEngagementMode": {
