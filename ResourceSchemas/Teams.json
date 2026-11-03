@@ -587,6 +587,9 @@
         "IPVideoMode": {
           "type": "string"
         },
+        "KnowledgeGenerationMeetingTypes": {
+          "type": "string"
+        },
         "LiveCaptionsEnabledType": {
           "type": "string"
         },
