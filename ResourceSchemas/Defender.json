@@ -23,6 +23,9 @@
             "type": "string"
           }
         },
+        "category": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
@@ -34,9 +37,6 @@
         },
         "priority": {
           "type": "integer"
-        },
-        "category": {
-          "type": "string"
         }
       },
       "$defs": {
@@ -45,6 +45,9 @@
           "properties": {
             "assignedGroupIds": {
               "$ref": "#/$defs/arrayOfString"
+            },
+            "category": {
+              "type": "string"
             },
             "description": {
               "type": "string"
@@ -98,9 +101,6 @@
                   "type": "boolean"
                 }
               }
-            },
-            "category": {
-              "type": "string"
             }
           },
           "$defs": {
@@ -118,6 +118,9 @@
           "properties": {
             "assignedGroupIds": {
               "$ref": "#/$defs/arrayOfString"
+            },
+            "category": {
+              "type": "string"
             },
             "description": {
               "type": "string"
@@ -179,9 +182,6 @@
                   }
                 }
               }
-            },
-            "category": {
-              "type": "string"
             }
           },
           "$defs": {
