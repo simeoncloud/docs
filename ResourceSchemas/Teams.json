@@ -650,12 +650,17 @@
         "StreamingAttendeeMode": {
           "type": "string"
         },
+        "SyntheticMediaDetection": {
+          "type": "string"
+        },
+        "SyntheticMediaDetectionAppId": {
+          "$ref": "#/$defs/nullableOfGuid"
+        },
         "TeamsCameraFarEndPTZMode": {
           "type": "string"
         },
         "Tenant": {
-          "type": "string",
-          "format": "uuid"
+          "$ref": "#/$defs/nullableOfGuid"
         },
         "VideoFiltersMode": {
           "type": "string"
@@ -683,6 +688,12 @@
         },
         "Identity": {
           "type": "string"
+        }
+      },
+      "$defs": {
+        "nullableOfGuid": {
+          "type": "string",
+          "format": "uuid"
         }
       },
       "$id": "https://simeoncloud.com/Teams:CsTeamsMeetingPolicy/CsTeamsMeetingPolicy"
